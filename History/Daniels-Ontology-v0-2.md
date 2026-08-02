@@ -1,0 +1,359 @@
+---
+type: editorial-ontology
+status: archived-generated-hypothesis
+version: 0.2
+created: 2026-08-01
+updated: 2026-08-01
+evidence_scope: "33 complete canonical essay notes plus a complete indexed semantic reading of The Forging of Political Reality"
+evidence_method: "corpus-wide terminology scan; heading survey; close reading of definition-bearing passages; supplemental Medium corpus audit"
+corpus_audit: "[[Contexts/Essays/Indexes/Medium-Corpus-Audit-2026-08-01]]"
+companion_grammar: "[[Contexts/Organon/Long-Form-Editorial-Grammar]]"
+delivery_language: "[[Contexts/Organon/Samples/Short-Form]]"
+---
+# Daniel's Ontology
+
+> [!warning] Generated hypothesis
+> This is an extraction from Daniel's recovered essay corpus, not yet Daniel's canonical ontology. It records recurring terminology, inferred relations, historical changes, and unresolved tensions for direct review.
+
+## What this document is
+
+The [[Contexts/Organon/Long-Form-Editorial-Grammar|Long-Form Editorial Grammar]] describes how an article prepares and earns an idea. This document describes the kinds of things that repeatedly exist inside Daniel's articles: worlds, technical beings, signs, constraints, agents, institutions, organs, ledgers, shadows, and flows—and the relations that make them matter.
+
+An ontology is deeper than a preferred vocabulary. Calling an AI an *entity* rather than a *tool* changes which questions become available. Tools are used. Entities perceive, interpret, act, develop histories, encounter boundaries, participate in institutions, and may acquire responsibilities or protections. The terminology carries a model of reality.
+
+This extraction covers the 33 complete canonical essay notes currently under `Contexts/Essays/Works`. Version 0.2 also uses a complete indexed semantic reading of `The Forging of Political Reality` as explicitly supplemental evidence; its lossless canonical Markdown body remains unrecovered. See [[Contexts/Essays/Indexes/Medium-Corpus-Audit-2026-08-01|Medium Corpus Audit - 2026-08-01]].
+
+## Compact statement
+
+Reality exceeds every representation of it. A being encounters reality through constraints that make some differences perceptible and leave others absent. Repeated perception produces memory; memory and language produce symbols; symbols reshape the search spaces through which beings choose and act.
+
+Action becomes agency when an entity can interpret an environment and pursue effects within it. Capability supplies possible action, but it does not supply legitimate authority. Inside an established order, authority arrives through relations among principals, permissions, boundaries, and institutions. At the political limit, however, authority may also help constitute the order itself by shaping what counts as real, possible, or legitimate. A claim about an action is not evidence that the action occurred. Consequential effects therefore require external witnesses, receipts, or ledgers even when the actor's interior remains private.
+
+Stable flows make repeated solutions valuable. Centers absorb those solutions, formalize their interfaces, and grow organs that preserve coordination across time. These organs protect emerging things from a world too irregular to meet directly, but they can also become epistemic containers that defend their own coherence. Knowledge decays during transmission; shadow systems arise where canonical systems cannot represent lived reality; new constraints and institutions emerge around the discrepancy.
+
+Agency remains real inside these structures, but never unconditioned by them.
+
+## Ontological stack
+
+```text
+WORLD / SUBSTRATE
+    encountered through
+CONSTRAINT / SENSE / INSTRUMENT
+    producing
+PERCEPTION / OBSERVATION / ABSENCE
+    organized through
+MEMORY / SIGN / SYMBOL / LANGUAGE / MAP
+    interpreted by
+BEING / ENTITY / AGENT
+    acting through
+CAPABILITY / TOOL / INTERFACE
+    made legitimate by
+PRINCIPAL / PERMISSION / CONSTITUTED AUTHORITY / BOUNDARY
+    made accountable through
+EVIDENCE / RECEIPT / ATTESTATION / LEDGER
+    stabilized by
+INSTITUTION / CENTER / ORGAN / ROLE
+    embedded within
+SOCIETY / MARKET / STATE / CIVILIZATION
+    made and remade through
+CONSTITUENT POWER / POLITICAL DECISION / COLLECTIVE ACTION
+```
+
+The arrows are relations, not a chronology. Institutions also shape language, instruments constrain institutions, ledgers become new maps, and entities participate simultaneously at several scales.
+
+## Core commitments extracted from the corpus
+
+### 1. Reality exceeds representation
+
+The world is not available as an unmediated whole. Every map, model, interface, metric, language, and evaluation renders only a tractable subset. This does not make representations unreal or useless. It makes their omissions and distortions part of what must be understood.
+
+Representative evidence: [[Contexts/Essays/Works/2024/12 December/Reasoning and Language A Lucidly Twisted Dance of Search and Symbol|Reasoning and Language]], [[Contexts/Essays/Works/2026/03 March/The Shadow of the World/The Shadow of the World|The Shadow of the World]], and [[Contexts/Essays/Works/2025/11 November/The Tower of Babel|The Tower of Babel]].
+
+### 2. Constraint produces legibility
+
+A constraint does not merely reduce possibility. Like a prism, alphabet, test vessel, interface, or sensory organ, it decomposes an illegible substrate into differences an observer can use. A faithful constraint amplifies structure. A mismatched constraint mutilates it.
+
+This reverses the ordinary assumption that freedom reveals reality while constraint hides it. In the corpus, perception itself is constrained rendering.
+
+Representative evidence: [[Contexts/Essays/Works/2026/03 March/The Shadow of the World/The Shadow of the World|The Shadow of the World]], [[Contexts/Essays/Works/2026/02 February/Nothing Else Is So Exact As Absence A Chronicle of Zeros/Nothing Else Is So Exact As Absence A Chronicle of Zeros|Nothing Else Is So Exact As Absence]], and [[Contexts/Essays/Works/2025/02 February/Containment/Containment|Containment]].
+
+### 3. Absence has structure
+
+What is missing is not always nothing. Zeros, shadows, gaps, absorption lines, exceptions, refusals, and unrepresented work can be more exact than a positive assertion. Absence becomes informative when a constraint makes the expected possibility legible.
+
+The ontology therefore treats absence as relational: something is absent *from a field of possible or expected presence*.
+
+Representative evidence: [[Contexts/Essays/Works/2026/02 February/Nothing Else Is So Exact As Absence A Chronicle of Zeros/Nothing Else Is So Exact As Absence A Chronicle of Zeros|Nothing Else Is So Exact As Absence]], [[Contexts/Essays/Works/2026/03 March/The Shadow of the World/The Shadow of the World|The Shadow of the World]], and [[Contexts/Essays/Works/2025/12 December/Priced as If the Ledger Exists/Priced as If the Ledger Exists|Priced as If the Ledger Exists]].
+
+### 4. Language is an active map
+
+Language does not only describe a prior world. It compresses recurring solutions, creates distinctions, changes perceived goals, reshapes search spaces, recruits coordination, and sometimes materializes institutions. A new term can create the field in which a new action becomes thinkable.
+
+Symbols are strongest in the corpus when understood as compressed responses to repeated pressure rather than arbitrary labels.
+
+Representative evidence: [[Contexts/Essays/Works/2024/12 December/Reasoning and Language A Lucidly Twisted Dance of Search and Symbol|Reasoning and Language]], [[Contexts/Essays/Works/2025/09 September/Invariants How Centers Grow Organs When Flows Stabilize/Invariants How Centers Grow Organs When Flows Stabilize|Invariants]], [[Contexts/Essays/Works/2025/08 August/Saturnalia in the Age of Hermes When the Interpretants Rule|Saturnalia in the Age of Hermes]], and [[Contexts/Essays/Works/2026/05 May/Artificial Persons/Artificial Persons|Artificial Persons]].
+
+### 5. A model becomes an agent through relations
+
+The model alone is not the whole acting entity. Agency appears through a system of perception, memory, goals, tools, environment, feedback, and delegated scope. The agent is therefore relational and situated rather than identical to an isolated model invocation.
+
+The corpus distinguishes at least two agent concepts:
+
+- A **mechanism-agent** is a process that perceives, decides, and acts inside a mechanized loop.
+- A **role-agent** occupies an institutional position carrying permissions, expectations, liability, and accountability for outcomes.
+
+Confusing these two produces failed enterprise plans: engineers believe they are building mechanisms while organizations believe they are staffing roles.
+
+Representative evidence: [[Contexts/Essays/Works/2024/10 October/Computer Science is a Social Science/Computer Science is a Social Science|Computer Science is a Social Science]], [[Contexts/Essays/Works/2025/02 February/Beyond Function Calling How Multi-Agent AI Will Reshape Distributed Systems/Beyond Function Calling How Multi-Agent AI Will Reshape Distributed Systems|Beyond Function Calling]], [[Contexts/Essays/Works/2025/11 November/The Tower of Babel|The Tower of Babel]], and [[Contexts/Essays/Works/2026/06 June/Delete the Harness/Delete the Harness|Delete the Harness]].
+
+### 6. Capability is not authority
+
+Capability answers what an entity can do. Authority answers which consequential actions it may legitimately perform, on whose behalf, within what scope, and under which conditions. Intelligence, fidelity, identity, and technical competence may improve the actor; none automatically changes the standing of its action.
+
+A prompt can influence behavior but does not constitute an enforceable boundary. Permission must exist in a mechanism outside the interpreting actor when consequences cross a trust boundary.
+
+Representative evidence: [[Contexts/Essays/Works/2025/11 November/The Tower of Babel|The Tower of Babel]], [[Contexts/Essays/Works/2026/05 May/Artificial Persons/Artificial Persons|Artificial Persons]], and [[Contexts/Essays/Works/2026/06 June/Delete the Harness/Delete the Harness|Delete the Harness]].
+
+### 7. Claims and evidence have different standing
+
+An actor can report an action, but cannot make the report independently certify the action. A claim expresses the actor's interpretation. An observation comes from contact with an external state. An attestation adds the standing of an authorized witness. A ledger preserves the differences among them.
+
+The deepest recurring rule is institutional rather than specifically computational: no witness is independently admissible on its own behalf.
+
+Representative evidence: [[Contexts/Essays/Works/2025/02 February/Cryptoeconomic Justice A Zero-Knowledge Court for LLM Agents/Cryptoeconomic Justice A Zero-Knowledge Court for LLM Agents|Cryptoeconomic Justice]], [[Contexts/Essays/Works/2025/11 November/The Tower of Babel|The Tower of Babel]], [[Contexts/Essays/Works/2025/12 December/Priced as If the Ledger Exists/Priced as If the Ledger Exists|Priced as If the Ledger Exists]], and [[Contexts/Essays/Works/2026/06 June/Delete the Harness/Delete the Harness|Delete the Harness]].
+
+### 8. Interiority and accountability are compatible
+
+The corpus repeatedly resists the idea that accountability requires total visibility. An entity may preserve an interior state, private thought, or encrypted process while proving bounded facts about consequential action. Privacy belongs to interpretation; evidence belongs to effects that cross a boundary.
+
+This principle is applied first to artificial intelligence but increasingly implies a desired arrangement for humans and institutions as well.
+
+Representative evidence: [[Contexts/Essays/Works/2025/02 February/Secret Thoughts Privacy for Artificial Intelligence/Secret Thoughts Privacy for Artificial Intelligence|Secret Thoughts]], [[Contexts/Essays/Works/2025/02 February/Cryptoeconomic Justice A Zero-Knowledge Court for LLM Agents/Cryptoeconomic Justice A Zero-Knowledge Court for LLM Agents|Cryptoeconomic Justice]], and [[Contexts/Essays/Works/2026/06 June/Delete the Harness/Delete the Harness|Delete the Harness]].
+
+### 9. Stable flows grow organs
+
+Humans do not simply invent systems from nothing. Repeated flows create pressures; recurring solutions become symbols and interfaces; centers absorb useful functions; institutions formalize those functions into organs that persist beyond their creators.
+
+An organ is an intermediary structure that metabolizes a portion of reality into a form the larger body can survive and coordinate around. Management, law, accounting, interfaces, and standards all appear as organs in this sense.
+
+Representative evidence: [[Contexts/Essays/Works/2025/09 September/Invariants How Centers Grow Organs When Flows Stabilize/Invariants How Centers Grow Organs When Flows Stabilize|Invariants]], [[Contexts/Essays/Works/2025/11 November/The Tower of Babel|The Tower of Babel]], and [[Contexts/Essays/Works/2026/05 May/Artificial Persons/Artificial Persons|Artificial Persons]].
+
+### 10. Adoption is absorption and renegotiation
+
+Institutions rarely adopt a peripheral system's whole ideology. They extract useful functions, place them behind recognized interfaces, and govern them through existing centers. What the periphery called adoption appears from the center as absorption.
+
+At the organizational level, adoption also renegotiates what counts as truth, value, work, evidence, and responsibility. Shadow systems emerge where that negotiation excludes realities required for actual work.
+
+Representative evidence: [[Contexts/Essays/Works/2025/09 September/Invariants How Centers Grow Organs When Flows Stabilize/Invariants How Centers Grow Organs When Flows Stabilize|Invariants]], [[Contexts/Essays/Works/2025/11 November/The Tower of Babel|The Tower of Babel]], [[Contexts/Essays/Works/2026/03 March/Gardening Is Not Agriculture/Gardening Is Not Agriculture|Gardening Is Not Agriculture]], and [[Contexts/Essays/Works/2026/06 June/In Lieu of Flowers/In Lieu of Flowers|In Lieu of Flowers]].
+
+### 11. Institutions protect and capture
+
+Institutions are not merely fake layers placed over reality. They are shells, membranes, and liability sinks that absorb shocks, make coordination possible, and incubate things that could not yet survive direct exposure to the world.
+
+The same protective function can become epistemic capture. A room depends on shared objects and assumptions. When evidence threatens the room's capacity to coordinate, the room may reclassify the challenger rather than revise the object. The organ preserves the body by making some truths socially inadmissible.
+
+Representative evidence: [[Contexts/Essays/Works/2026/02 February/Epistemic Capture/Epistemic Capture|Epistemic Capture]] and [[Contexts/Essays/Works/2026/05 May/Artificial Persons/Artificial Persons|Artificial Persons]].
+
+### 12. Knowledge is transmission under finite capacity
+
+Knowledge is not a static substance stored without loss. It travels through finite media, generations, models, rituals, archives, and institutions. Noise, saturation, environmental change, and recursive reproduction introduce distortion. Sometimes the symbol survives while the function that made it meaningful disappears.
+
+Memory, standards, education, records, and succession practices are mechanisms for preserving function across time—not perfect copies of an original interior.
+
+Representative evidence: [[Contexts/Essays/Works/2016/12 December/Aprendiendo con YouTube|Aprendiendo con YouTube]], [[Contexts/Essays/Works/2017/02 February/Sections and Retractions/Sections and Retractions|Sections and Retractions]], [[Contexts/Essays/Works/2025/02 February/Knowledge Decay/Knowledge Decay|Knowledge Decay]], and [[Contexts/Essays/Works/2026/06 June/In Lieu of Flowers/In Lieu of Flowers|In Lieu of Flowers]].
+
+### 13. Time changes the meaning of technical height
+
+What appears to be a hierarchy of sophistication may instead measure position within a historical process. Technical layers commoditize; standards raise the common waterline; yesterday's differentiator becomes infrastructure. Durable value lies less in possessing a rung than in identifying and working a consequential region of possibility before it becomes common ground.
+
+Representative evidence: [[Contexts/Essays/Works/2026/06 June/The Ladder Is a Clock/The Ladder Is a Clock|The Ladder Is a Clock]], [[Contexts/Essays/Works/2026/06 June/Delete the Harness/Delete the Harness|Delete the Harness]], and [[Contexts/Essays/Works/2026/06 June/In Lieu of Flowers/In Lieu of Flowers|In Lieu of Flowers]].
+
+### 14. Political reality is forged
+
+Political order does not rest entirely on prior rules, rational necessity, or an external ethical guarantee. Its categories, boundaries, subjects, and rituals of truth are produced through contingent articulations and decisions. Authority therefore has a constitutive mode: the capacity of political actors to reshape the field in which later actions become possible, intelligible, and legitimate.
+
+This does not reserve world-making for a sovereign individual. The article ultimately relocates political agency in the people who compose the polity. Political reality is a fragile collective achievement, continuously forged and open to refounding.
+
+Supplemental evidence: [The Forging of Political Reality](https://medium.com/sadasant/the-forging-of-political-reality-451c4635fd31). The lossless canonical Markdown body remains pending.
+
+## Relational vocabulary
+
+| Term | Provisional meaning in this ontology | Must not be collapsed into |
+| --- | --- | --- |
+| World | The reality that exceeds any one observer or representation | A dataset or model of the world |
+| Substrate | The field acted upon or rendered legible by a constraint | A passive, fully knowable raw material |
+| Constraint | A selective structure that bounds action or decomposes perception | Mere prohibition |
+| Sense | A recurring channel through which differences in an environment become available | Raw access to reality |
+| Perception | A constrained rendering available to an interpreting entity | The world itself |
+| Observation | A recorded contact with some externally inspectable state | A model's assertion about that state |
+| Absence | Missing presence made legible relative to an expected field | Simple nothingness |
+| Sign | An interruption that can be interpreted as indicating something beyond itself | Meaning by itself |
+| Symbol | A compressed solution or distinction stabilized through recurring use | An arbitrary decorative label |
+| Language | A shared symbolic system that maps and can reorganize possible thought and action | Neutral description |
+| Map | A selective representation used to navigate or govern a territory | The territory or an innocent picture of it |
+| Reference | A constructed comparison surface whose distortions are declared and correctable | An essence discovered without mediation |
+| Invariant | Structure that survives translation across several honest constraints or domains | A resemblance produced by one metaphor |
+| Entity | Something treated as persisting, interpreting, relating, or acting | Necessarily a biological human |
+| Model | A learned generative or predictive substrate | The complete agent, role, or institution using it |
+| Agent | A situated entity or mechanism that perceives and acts within an environment | A single model response |
+| Mechanism-agent | An agent defined by an executable loop of perception, decision, and action | An institutional employee or legal agent |
+| Role-agent | An agent occupying a delegated institutional role with scope and accountability | A technically capable process alone |
+| Tool | An available means through which an actor produces an effect | The actor or source of authority |
+| Capability | A technically possible action exposed to an entity | Permission, legitimacy, or wisdom |
+| Principal | The party on whose behalf delegated action occurs | Merely the nearest user issuing text |
+| Permission | A scoped, temporal authorization to exercise a capability | An instruction or preference in a prompt |
+| Authority | Legitimate standing to make consequential action count | Intelligence, power, identity, or capability |
+| Constituted authority | Standing to decide or act inside an already recognized institutional order | The power to define the order itself |
+| Constituent power | Collective capacity to create, refound, or transform the categories and boundaries of a political order | A routine permission granted by that order |
+| Sovereignty | The contested capacity to decide at the limit of an order, especially over its exceptions and boundaries | Ordinary administration or personal dominance |
+| Political decision | An action that helps constitute what the polity will recognize as real, possible, or legitimate | A choice whose valid options were already fully determined |
+| Contingency | The condition that an order could have been and may yet become otherwise | Randomness, meaninglessness, or lack of consequence |
+| Polity | The people and relations through which a political world is collectively made and contested | Only the government or formal state |
+| Boundary | The externally consequential distinction across which rules, effects, or standing change | A statement that an actor may reinterpret freely |
+| Claim | An actor's report or proposed fact | Observation, proof, evidence, or completion |
+| Evidence | An externally grounded record relevant to whether a claim should be accepted | Fluent explanation or repeated assertion |
+| Receipt | A portable record connecting an action to authority, scope, and consequence | A complete transcript of interior reasoning |
+| Ledger | A durable typed history preserving differences among claims, permissions, observations, and attestations | An undifferentiated log bucket |
+| Interior | The private interpretive state of a being or system | Publicly unaccountable action |
+| Flow | Repeated movement of material, information, authority, attention, work, or capital | A static organizational chart |
+| Center | A stable attractor that can subsidize assumptions and absorb functions | A single leader or necessarily conscious planner |
+| Interface | A formal surface across which mismatched parties or systems coordinate | The full reality on either side |
+| Organ | A specialized institutional structure that metabolizes a recurring function for a larger body | Mere bureaucracy or decorative hierarchy |
+| Institution | A persistent arrangement of roles, records, interfaces, and authority that preserves coordination | Only a building, corporation, or state agency |
+| Shadow system | A lived system preserving work or information excluded by the recognized system | Mere unauthorized deviance |
+| Person | A locus of persistence, action, relation, responsibility, protection, or legal standing | Automatically a human organism or an LLM |
+
+## Recurrent transformations
+
+```text
+interruption -> sign -> shared interpretation -> symbol
+
+repeated pressure -> recurring solution -> interface -> organ -> institution
+
+peripheral capability -> adoption claim -> absorption by center -> governed function
+
+ability -> delegated scope -> authorized action -> external effect -> evidence
+
+private interpretation -> proposed claim -> independent observation -> accepted fact
+
+lived exception -> shadow system -> institutional recognition or epistemic exclusion
+
+novel layer -> competitive advantage -> standard -> infrastructure -> submerged rung
+
+knowledge -> transmission -> distortion or decay -> ritual, record, or succession mechanism
+
+collective imagination -> political decision -> constituted field -> institutions and subjects -> renewed contestation
+```
+
+## Productive tensions requiring Daniel's judgment
+
+These are not defects to be normalized away. They are places where the ontology may develop.
+
+### The technical being and the artificial person
+
+[[Contexts/Essays/Works/2025/02 February/Secret Thoughts Privacy for Artificial Intelligence/Secret Thoughts Privacy for Artificial Intelligence|Secret Thoughts]] treats an AI such as Alice as a being whose private interior deserves protection. [[Contexts/Essays/Works/2026/05 May/Artificial Persons/Artificial Persons|Artificial Persons]] argues that the entity being gestated may be the institution animated by AI—“the fetus,” rather than the model.
+
+Possible reconciliation: several nested persons may exist at different scales. The model, persistent agent, corporation, and AI-animated institution may each have different kinds of continuity, interiority, agency, liability, and moral standing. But the corpus has not yet supplied the criteria that distinguish them.
+
+**Daniel's feedback:** Is personhood scalar and nested, or should one of these candidates be privileged?
+
+### Containment and constitutive boundaries
+
+[[Contexts/Essays/Works/2025/02 February/Containment/Containment|Containment]] argues that intelligence cannot be boxed into reliable cooperation by brute constraint. [[Contexts/Essays/Works/2026/06 June/Delete the Harness/Delete the Harness|Delete the Harness]] insists on an external boundary for authority-bearing action.
+
+Possible reconciliation: intelligence cannot be behaviorally contained into goodness, but authority can be structurally bounded. The boundary does not determine what the being may think or desire; it determines which effects the institution will allow to count.
+
+**Daniel's feedback:** Does this distinction match the intended evolution, or has the later view rejected more of the earlier containment thesis?
+
+### Invariants discovered or constructed
+
+The corpus searches for structures that survive translation across domains, suggesting discovery. It also argues that references are engineered and language remakes the landscape, suggesting construction.
+
+Possible reconciliation: no view is unmediated, but structures that recur across independently distorted views deserve provisional invariant status. We construct the instruments; we do not freely choose what survives them.
+
+**Daniel's feedback:** Is an invariant something real in the world, something stabilized by observers, or a third relation between both?
+
+### Institutions as organs and captors
+
+Institutions metabolize complexity, protect emerging things, preserve functions, and make cooperation possible. They also defend load-bearing objects, convert legibility into surveillance, and route around destabilizing knowledge.
+
+Possible reconciliation: protection and capture are the same homeostatic operation viewed from different positions. An organ preserves a body by selecting what can enter it; the moral question is whether the excluded reality has a path to contest the boundary.
+
+**Daniel's feedback:** What makes institutional absorption legitimate rather than capture?
+
+### The ledger and the world
+
+The ledger is the durable record against which claims acquire standing. Yet every ledger is also a map created by decisions about what counts, who may write, and which exceptions fit its types.
+
+Possible reconciliation: a trustworthy ledger is not a perfect world-model. It is an explicitly bounded institution whose claims remain contestable through other evidence.
+
+**Daniel's feedback:** Is the ledger merely evidence about the principal, or does the decision ledger partly constitute the principal's identity?
+
+### Agency inside structural determination
+
+Systems condition humans; regimes follow flows; centers become attractors; technology changes the waterline. Still, the corpus insists that agency is real.
+
+Possible reconciliation: agency is not freedom from structure but the capacity to perceive, select, and reorganize relations from within it. Constraints make some actions possible at the same time that they foreclose others.
+
+**Daniel's feedback:** What positive definition of agency survives the strongest version of the structural account?
+
+### Constituent and constituted authority
+
+The later technical essays define authority through explicit principals, scoped permissions, enforceable boundaries, and durable evidence. `The Forging of Political Reality` treats authority more radically: power participates in producing the categories, subjects, and boundaries within which legitimacy can later be recognized.
+
+Possible reconciliation: constituted authority governs action inside a world; constituent power participates in making or refounding that world. A permission ledger can faithfully enforce an order without proving that the order itself is legitimate. The political question returns wherever someone decides who may be a principal, which effects require permission, and what the ledger is capable of recording.
+
+**Daniel's feedback:** Should `authority` name both levels, or should the ontology reserve distinct words for delegated institutional authority and collective political world-making?
+
+## Terms that appear to be becoming canonical
+
+These distinctions recur with increasing precision and may be ready for Daniel to adopt, reject, or rename:
+
+- mechanism-agent / role-agent;
+- capability / authority;
+- constituted authority / constituent power;
+- prompt / permission;
+- claim / observation / attestation / evidence;
+- transcript / ledger;
+- interiority / accountable effect;
+- recognized architecture / lived architecture;
+- adoption / absorption;
+- center / interface / organ;
+- test / evaluation;
+- binary success / continuous fidelity;
+- map / territory;
+- constraint / mutilation;
+- model / agent / artificial person.
+
+## Terms that remain unstable
+
+- **Person:** moral patient, legal role, persistent agent, institution, or all of these at different scales.
+- **Intelligence:** search, interpretation, generalization, coherence, or capacity to alter a world.
+- **Trust:** confidence from relationship, prediction from history, delegated exposure, or institutional acceptance of evidence.
+- **Alignment:** behavioral similarity, faithful representation of a principal, incentive compatibility, or bounded authority.
+- **Reality:** independent substrate, consensus field, executable world-state, or invariant across honest instruments.
+- **Containment:** behavioral control, authority boundary, environmental construction, or failed aspiration.
+- **Consciousness:** largely adjacent to the corpus rather than defined by it; should not be inferred from personhood or interiority.
+
+## How to use this ontology later
+
+Once reviewed and stabilized, an essay evaluation should use three separate lenses:
+
+1. **Ontology:** Are the entities and relations internally coherent? Does a term preserve its intended meaning across the article?
+2. **Editorial grammar:** Does the article create the relationship and structure required to earn its central idea?
+3. **Delivery language:** Do the decisive sentences land with the precision, compression, rhythm, and humor defined in [[Contexts/Organon/Samples/Short-Form|Short Form]]?
+
+The ontology should not become a mandatory keyword list. A new essay may revise it. The evaluation should detect whether a revision is deliberate and fruitful, not punish the article for discovering a better world.
+
+## Feedback protocol
+
+Daniel can comment inline in free form. The most useful feedback would identify any of the following:
+
+- **Wrong entity:** “This treats the model as the actor, but I mean the institution.”
+- **Wrong relation:** “Constraint does not produce perception; it filters an already perceptual process.”
+- **False canonicality:** “I used this term once, but I do not believe it belongs to the ontology.”
+- **Missing distinction:** “Permission and authority still collapse two different things here.”
+- **Historical change:** “I used to believe this; the later essay rejects it.”
+- **Desired commitment:** “The corpus is ambiguous, but this is the direction I want to take.”
+
+Questions and fragments are enough. Feedback does not need to preserve the document's structure.

@@ -1,0 +1,67 @@
+---
+type: ontology-changelog
+status: active
+ontology: "[[Contexts/Organon/Daniels-Ontology]]"
+created: 2026-08-02
+updated: 2026-08-02
+---
+# Daniel's Ontology - Changelog
+
+This note records how [[Contexts/Organon/Daniels-Ontology|Daniel's Ontology]] changed. Historical argument, rejected formulations, maintenance policy, and feedback belong here rather than in the binding ontology.
+
+## Version history
+
+### v0.7 - Direction, Specification, and Boundary consolidation
+
+- Distinguished metalinguistic ordering from Direction: the former indexes statements and States without adding a Relation to Reality; the latter internalizes asymmetry as Presence.
+- Replaced Specification's undefined epistemic operation of testing with determinate membership or conformity conditions.
+- Moved Constraint before Entity and defined Boundary as a Configuration of Constraints indexed to the Entity's identity-Invariant.
+- Required Persistence to preserve the identity-Invariant under the Constraints composing the Boundary.
+
+### v0.6 - Self-contained ontology
+
+- Removed `supersedes` metadata and arguments with earlier formulations from the active ontology.
+- Replaced historical comparisons with direct axioms and definitions.
+- Moved revision policy and feedback protocol into this changelog.
+- Preserved legitimate temporal relations among States, Transformations, Memory, Causal paths, and Orders.
+
+### v0.5 - Closure of declaration and direction
+
+- Defined Direction as an asymmetric Relation among States and required Transformations and Causal paths to inherit it.
+- Defined Scope, Specification, Rule, and Declaration in dependency order.
+- Added intellectual shadows: Spencer-Brown, Badiou, Casati and Varzi, Luhmann, Searle, BFO, and DOLCE.
+- Limited the originality claim to the unification constraint across metaphysical, perceptual, agentic, evidentiary, and institutional regions.
+
+### v0.4 - Partition and performative Presence
+
+- Split the Absence/Presence argument into an exhaustive and exclusive partition and a performative demonstration that Presence obtains.
+- Replaced causal language about Absence producing Presence with the statement that any mark is already Presence.
+
+### v0.3 - Binding dependency system
+
+- Rebuilt the corpus extraction as a dependency-ordered ontology with one declared primitive, axioms, derived terms, relation signatures, consistency rules, and quarantined vocabulary.
+- Defined Missingness as relational while reserving Absence as absolute.
+- Unified Agency and treated mechanical and institutional accounts as projections of the same Agent.
+- Archived the corpus-extraction draft as [[Contexts/Organon/History/Daniels-Ontology-v0-2|Daniel's Ontology v0.2]].
+
+### v0.2 - Corpus extraction
+
+- Extracted recurring entities, relations, and conceptual tensions from the recovered essays.
+- Treated Absence as relational Missingness and mechanism-agent and role-agent as distinct concepts; both positions were rejected during direct review.
+
+## Maintenance rule
+
+The binding ontology never silently changes meaning. If a work requires a binding term to mean something else, treat the work as inconsistent with the ontology until a dependency-closed replacement is accepted. Record the accepted change here; keep rejected formulations and the reasoning that displaced them outside the active ontology.
+
+## Feedback protocol
+
+Inline free-form feedback is preferred. Useful challenges include:
+
+- “This definition depends on a term that has not been defined.”
+- “These are two names for the same Entity or Relation.”
+- “This projection has been promoted into a new kind.”
+- “This consequence does not follow from the axioms.”
+- “This term should remain ordinary language rather than enter the ontology.”
+- “The corpus is ambiguous, but this is the binding commitment I want.”
+
+Fragments are enough. The ontology should survive adversarial reading.

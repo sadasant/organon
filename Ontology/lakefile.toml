@@ -1,0 +1,10 @@
+name = "daniel-ontology"
+version = "0.1.0"
+defaultTargets = ["ontology_check"]
+
+[[lean_lib]]
+name = "DanielOntology"
+
+[[lean_exe]]
+name = "ontology_check"
+root = "Model"
