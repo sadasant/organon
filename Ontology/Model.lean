@@ -1,11 +1,12 @@
 import DanielOntology
 
 /-!
-# Daniel's Ontology: inhabited spike model
+# Daniel's Ontology: finite inhabited model
 
-This executable supplies one complete finite instance of the formal spike. It
-is deliberately small: the purpose is to prove that the signatures can coexist,
-not to claim that this is the intended or unique model of the ontology.
+This executable supplies one concrete Entity, one institutional Permission over
+a toy Agent, and one separately coherent ExercisablePermission. These finite
+inhabitants are machine-checked satisfiability witnesses for the encoded slice;
+they do not claim that the model is intended, complete, or unique.
 -/
 
 namespace DanielOntology.Model
@@ -17,36 +18,44 @@ deriving DecidableEq, Repr
 
 open MachineState
 
+def idleState : State MachineState := ⟨idle⟩
+
+def activeState : State MachineState := ⟨active⟩
+
 def activationDirection : Direction MachineState where
-  before
-    | idle, active => True
-    | _, _ => False
+  before := fun input output => input.value = idle ∧ output.value = active
   asymmetric := by
     intro a b hab hba
-    cases a <;> cases b <;> simp_all
+    rcases hab with ⟨aIdle, bActive⟩
+    rcases hba with ⟨bIdle, aActive⟩
+    simp_all
 
-def activate : Transformation MachineState where
-  input := idle
-  output := active
-  direction := activationDirection
-  advances := trivial
+def activate : Transformation activationDirection where
+  input := idleState
+  output := activeState
+  advances := by simp [activationDirection, idleState, activeState]
+
+def activationPath : CausalPath activationDirection where
+  steps := [activate]
+  connected := trivial
 
 def knownState : Invariant MachineState where
   holds := fun _ => True
 
 def activationOnly : Constraint MachineState where
-  permits := fun t => t.input = idle ∧ t.output = active
+  permits := fun transformation =>
+    transformation.input.value = idle ∧ transformation.output.value = active
 
 def machineBoundary : Boundary MachineState knownState where
   constraints := [activationOnly]
   preserves := by
-    intro _ _ _
+    intro _ _ _ _
     trivial
 
 def machine : Entity MachineState where
   identity := knownState
   boundary := machineBoundary
-  current := idle
+  current := idleState
   identityHolds := trivial
 
 def emptyMachineField : Field MachineState where
@@ -84,24 +93,33 @@ def maintenanceWindow : Interval where
 def activationPermission : Permission ToyPrincipal ToyAgent ToyAction where
   principal := .operator
   agent := .controller
-  capability := controllerCapability
   scope := activationScope
   interval := maintenanceWindow
+
+def exercisableActivationPermission :
+    ExercisablePermission ToyPrincipal ToyAgent ToyAction where
+  permission := activationPermission
+  capability := controllerCapability
   withinCapability := by
     intro action _
     cases action
     trivial
 
-theorem entityModelIsInhabited : Nonempty (Entity MachineState) := ⟨machine⟩
-
 theorem missingnessModelIsInhabited : Nonempty (Missingness MachineState) :=
   ⟨missingActiveMachine⟩
+
+theorem entityModelIsInhabited : Nonempty (Entity MachineState) :=
+  ⟨machine⟩
 
 theorem permissionModelIsInhabited :
     Nonempty (Permission ToyPrincipal ToyAgent ToyAction) :=
   ⟨activationPermission⟩
 
+theorem exercisablePermissionModelIsInhabited :
+    Nonempty (ExercisablePermission ToyPrincipal ToyAgent ToyAction) :=
+  ⟨exercisableActivationPermission⟩
+
 end DanielOntology.Model
 
 def main : IO Unit :=
-  IO.println "DanielOntology formal spike: model elaborated"
+  IO.println "DanielOntology formal spike: finite model elaborated"

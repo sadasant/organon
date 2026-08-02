@@ -3,24 +3,25 @@ type: formal-ontology-spike
 status: noncanonical
 created: 2026-08-02
 updated: 2026-08-02
-prose_ontology: "[[Contexts/Organon/Daniels-Ontology]]"
+prose_ontology: "../Daniels-Ontology.md"
 ---
 # Daniel's Ontology - Lean Spike
 
-This directory tests whether [[Contexts/Organon/Daniels-Ontology|Daniel's Ontology v0.7]] can become a proof-checked Lean artifact. It is deliberately **noncanonical**. The Markdown ontology remains binding until Daniel explicitly promotes a formal artifact after term-for-term parity, a complete model, clean builds without `sorry`, and a stable Markdown projection.
+This directory tests whether [Daniel's Ontology v0.8](../Daniels-Ontology.md) can become a proof-checked Lean artifact. It is deliberately **noncanonical**. The Markdown ontology remains binding until Daniel explicitly promotes a formal artifact after term-for-term parity, a complete model, clean builds without `sorry`, and a stable Markdown projection.
 
 ## Included in the spike
 
 - A local encoding of A1-A5 using an uninhabited-type predicate, `Nonempty`, and an inhabited `Mark`.
 - Explicit acknowledgement that `Empty` is an uninhabited type inside Lean's present metatheory, not absolute Absence.
 - Classical exhaustiveness of `Absent α ∨ Present α`, with the classical commitment visible in the theorem.
-- State indices separated from first-class asymmetric Direction.
+- State is the actual carrier of Direction, Transformation, Invariant, Boundary, and Entity; no object-level numeric index stands in for metalinguistic order.
+- Transformation is indexed by Direction, making shared Direction a type-level fact for Causal paths.
 - Constraint, Invariant, Boundary, and Entity as dependent proof-carrying structures.
-- Specification determinacy without an implicit testing Agent.
-- Permission as a dependent record relating Principal, Agent, Capability, Action, Scope, and Interval.
-- One finite inhabited model for Entity and Permission.
+- Specification conformity carries constructive `DecidablePred` evidence rather than a classically vacuous proposition.
+- Permission relates Principal, Agent, Action, Scope, and Interval without implying Capability; ExercisablePermission records the additional coherence proof.
+- One finite model inhabiting Missingness, Entity, Permission, and ExercisablePermission as a machine-checked satisfiability witness.
 
-See [[Contexts/Organon/Ontology/Formalization-Decisions|Formalization Decisions]] for commitments exposed by Lean and [[Contexts/Organon/Ontology/Build-Receipt|Build Receipt]] for reproducible evidence.
+See [Formalization Decisions](./Formalization-Decisions.md) for commitments exposed by Lean and [Build Receipt](./Build-Receipt.md) for reproducible evidence.
 
 ## Canonicality boundary
 

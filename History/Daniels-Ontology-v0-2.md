@@ -12,6 +12,9 @@ delivery_language: "[[Contexts/Organon/Samples/Short-Form]]"
 ---
 # Daniel's Ontology
 
+> [!WARNING] Historical vault artifact
+> This archived generated hypothesis preserves its original Obsidian wikilinks and private Parergon paths as provenance. Those targets are not repository dependencies and may not resolve on GitHub. Public evidence for the cited corpus is indexed in [Essay Corpus](../References/Essay-Corpus.md).
+
 > [!warning] Generated hypothesis
 > This is an extraction from Daniel's recovered essay corpus, not yet Daniel's canonical ontology. It records recurring terminology, inferred relations, historical changes, and unresolved tensions for direct review.
 

@@ -34,6 +34,12 @@ This matters because an ontology can be internally consistent and still reflect 
 
 The ontology is binding only within work that adopts Organon. Binding does not mean complete, universally true, or immune to revision. It means that a capitalized term cannot quietly change meaning halfway through an argument. Proposed changes belong in the changelog and must preserve dependency closure or state which prior commitment they replace.
 
+## The editorial instruments
+
+The [Long-Form Editorial Grammar](./Long-Form-Editorial-Grammar.md) describes the relationship through which a reader comes to need, receive, and carry a difficult idea. The canonical [Short Form](./Samples/Short-Form.md) governs the sentence-scale delivery once that idea has been earned. They are separate from the ontology: one governs argumentative movement, one governs delivery, and neither may silently redefine what the ontology says exists.
+
+The ontology's essay evidence is indexed through the public [Essay Corpus](./References/Essay-Corpus.md). Private drafts and review artifacts are declared through [Editorial Provenance](./References/Editorial-Provenance.md) rather than disguised as working links into Daniel's vault.
+
 ## The Lean experiment
 
 The [Lean formalization spike](./Ontology/README.md) tests whether selected regions of the ontology can survive a stricter host language. It currently formalizes local shadows of A1-A5, separates metalinguistic ordering from ontological Direction, carries Entity identity through a dependent Boundary, and constructs finite inhabited models for Missingness, Entity, and Permission.
@@ -64,6 +70,14 @@ The desired result is not terminological obedience. It is a document whose reade
 Organon is edited inside an Obsidian vault and published through GitHub. The two do not need separate source documents. Repository-facing files use the portable intersection documented in [Markdown Policy](./MARKDOWN.md): ordinary Markdown, relative Markdown links, fenced code blocks, and only those callout forms both renderers understand.
 
 Obsidian wikilinks, transclusions, block references, and query plugins remain useful in vault-private notes. They should not become dependencies of a public document. The rule is simple: Obsidian may provide the workshop, but GitHub must be able to read what leaves it.
+
+Run the repository boundary check with:
+
+```sh
+python3 scripts/check-links.py
+```
+
+The checker rejects active wikilinks, private `Contexts/` paths, missing local targets, and relative links that escape the repository. Historical artifacts are exempt from syntax migration but must carry a public provenance notice.
 
 ## Status
 

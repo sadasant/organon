@@ -2,13 +2,13 @@
 type: editorial-ontology
 status: provisional-binding
 binding: true
-version: 0.7
+version: 0.8
 created: 2026-08-01
 updated: 2026-08-02
 evidence_scope: "Daniel's adopted commitments and the recovered essay corpus"
-corpus_audit: "[[Contexts/Essays/Indexes/Medium-Corpus-Audit-2026-08-01]]"
-companion_grammar: "[[Contexts/Organon/Long-Form-Editorial-Grammar]]"
-delivery_language: "[[Contexts/Organon/Samples/Short-Form]]"
+corpus_audit: "References/Essay-Corpus.md"
+companion_grammar: "Long-Form-Editorial-Grammar.md"
+delivery_language: "Samples/Short-Form.md"
 ---
 # Daniel's Ontology
 
@@ -19,7 +19,7 @@ delivery_language: "[[Contexts/Organon/Samples/Short-Form]]"
 
 No ontology can define every word using only itself. Definition requires a metalanguage. This document therefore states its boundary instead of hiding it.
 
-The metalanguage supplies identity, negation, logical consequence, quantification, ordering, set membership, statements and marks, and the ability to distinguish an expression from what it denotes. These are rules for stating the ontology, not additional kinds of being inside it.
+The metalanguage supplies classical logic, including excluded middle, together with identity, negation, logical consequence, quantification, ordering, set membership, statements and marks, and the ability to distinguish an expression from what it denotes. These are rules for stating the ontology, not additional kinds of being inside it.
 
 Within that boundary, every capitalized ontological term is either the primitive, an axiom concerning the primitive, a derived term defined from earlier terms, or a quarantined term with no binding meaning yet. Ordinary connective language carries no independent ontological commitment.
 
@@ -44,6 +44,8 @@ Absence admits no degree or approximation. Only what is identically Absence is A
 For anything considered by this ontology, exactly one of two conditions obtains: it is identically Absence, or it is Presence. Nothing is both, and there is no third condition.
 
 This is a partition, not an event or causal derivation. Presence is defined contrastively by non-identity with Absence. That contrast belongs to the metalanguage; Absence does not thereby enter an ontological Relation.
+
+Exhaustiveness is a classical commitment. Constructively, a candidate may be neither known to be Absence nor known to be Presence. A3 excludes that epistemic third condition by adopting excluded middle in the metalanguage; exclusivity alone does not require it.
 
 ### Axiom A4: Presence obtains performatively
 
@@ -113,6 +115,8 @@ This is one definition, not two. A prohibition constrains possible action. A pri
 
 **Boundary** is a Configuration of Constraints indexed to the Invariant whose Persistence constitutes an Entity's identity. Those Constraints determine which Transformations preserve that identity and which cross the distinction between the Entity and other Presence.
 
+A Boundary with no Constraints admits every Transformation for purposes of its preservation obligation. It is valid only when the identity Invariant survives every Transformation. Constraint-poverty therefore creates maximal obligation, not the absence of an obligation.
+
 **Environment** is the Presence related to an Entity but not included in the identity delimited by its Boundary.
 
 An Entity persists across a sequence of States only while the Invariant named for its identity is preserved under the Constraints composing its Boundary.
@@ -125,7 +129,7 @@ An Entity is not required to be biological, conscious, legal, or morally conside
 
 **Scope** is the set of Presences, Relations, States, or Transformations to which a Representation or Constraint applies.
 
-**Specification** is a Representation that identifies a Scope and conditions under which membership or conformity within that Scope is determinate.
+**Specification** is a Representation that identifies a Scope and supplies a constructive decision procedure for membership or conformity within that Scope. Classical bivalence alone does not make an arbitrary predicate a Specification.
 
 **Rule** is a Specification of a Constraint or Transformation that maps conforming inputs to a set of outputs.
 
@@ -216,7 +220,9 @@ Evidence can support or defeat a Claim; it does not become truth by definition. 
 
 **Principal** is an Entity that an Order recognizes as the party on whose behalf an Agent acts.
 
-**Permission** is a Record relating a Principal, an Agent, a Capability, a Scope, and a time interval in which Actions included in that Scope are allowed to count on the Principal's behalf.
+**Permission** is a Record relating a Principal, an Agent, a Scope, and a time interval in which Actions included in that Scope are allowed to count on the Principal's behalf. Permission does not imply that the Agent currently has the Capability to perform those Actions.
+
+**Exercisable Permission** is a Configuration pairing a Permission with a Capability of its Agent such that every Action in the Permission's Scope is included in that Capability.
 
 **Authority** is the Relation established by an Order through which an Agent's Action counts as binding on a Principal or within that Order.
 
@@ -226,7 +232,7 @@ Evidence can support or defeat a Claim; it does not become truth by definition. 
 
 **Standing** is the Relation through which an Order admits an Entity as eligible to occupy a Role, become a Principal, make an admissible Claim, serve as a Witness, receive Permission, or bear Consequences within that Order.
 
-Capability and Authority cannot substitute for each other. A prompt can alter Interpretation but does not become Permission unless an Order records and enforces it as such.
+Capability and institutional standing cannot substitute for each other in either direction. Capability does not create Permission or Authority; Permission or Authority does not create Capability. A prompt can alter Interpretation but does not become Permission unless an Order records and enforces it as such.
 
 ### 18. Institution, shadow system, and person
 
@@ -278,10 +284,11 @@ These signatures make the ontology operational. They are schemas, not executable
 | `acts` | Agent, internal State, Boundary | environmental Transformation |
 | `uses` | Agent, Tool, Action | Tool enters Causal path without becoming Agent |
 | `claims` | Agent, Representation | Claim |
-| `specifies` | Representation, Scope, determinate conditions | Specification |
+| `specifies` | Representation, Scope, constructive decision procedure | Specification |
 | `observes` | Witness, Environment, Specification of Causal path | Observation |
 | `admits` | Rule, Observation, Claim | Evidence bearing on Claim |
-| `permits` | Principal, Agent, Capability, Scope, interval | Permission Record |
+| `permits` | Principal, Agent, Scope, interval | Permission Record |
+| `makes exercisable` | Permission, Capability of its Agent | every scoped Action is included in that Capability |
 | `authorizes` | Order, Agent, Action, Principal | Action counts within Order |
 | `declares` | Agent, Authority, Order, Specification | Scope fixed for subsequent institutional counting |
 | `institutes` | Roles, Records, Interfaces, recurring Flows | persistent Order |
@@ -301,7 +308,7 @@ These signatures make the ontology operational. They are schemas, not executable
 
 6. **No claim-evidence collapse:** An Agent's report of its own Action remains a Claim unless an admissible Observation supplies Evidence.
 
-7. **No capability-authority collapse:** Technical possibility does not supply institutional standing.
+7. **No capability-authority collapse:** Technical possibility does not supply institutional standing, and institutional standing does not supply technical possibility.
 
 8. **No privacy-consciousness collapse:** Interiority does not prove consciousness, and accountability does not require total Exposure.
 
@@ -355,10 +362,10 @@ For any essay, project narrative, or editorial evaluation:
 
 4. Treat a concept absent from the dependency order as outside the ontology unless it receives a dependency-closed definition.
 
-5. Keep ontology, editorial grammar, and delivery separate. The ontology governs what the argument says exists and how it relates. The [[Contexts/Organon/Long-Form-Editorial-Grammar|Long-Form Editorial Grammar]] governs how the reader is brought to the idea. [[Contexts/Organon/Samples/Short-Form|Short Form]] governs delivery at sentence scale.
+5. Keep ontology, editorial grammar, and delivery separate. The ontology governs what the argument says exists and how it relates. The [Long-Form Editorial Grammar](./Long-Form-Editorial-Grammar.md) governs how the reader is brought to the idea. [Short Form](./Samples/Short-Form.md) governs delivery at sentence scale.
 
 ## Scope and limitations
 
 Internal closure does not establish metaphysical completeness. Absence is primitive; A3 defines Presence as its exhaustive and exclusive complement; A4 demonstrates that Presence obtains because the ontology's own statement is already a mark. Presence is not causally generated or logically derived from Absence alone.
 
-In the [[Contexts/Organon/Long-Form-Editorial-Grammar|Long-Form Editorial Grammar]], **Missingness** names the felt gap an article makes consequential. **Absence** remains reserved for the absolute primitive defined here.
+In the [Long-Form Editorial Grammar](./Long-Form-Editorial-Grammar.md), **Missingness** names the felt gap an article makes consequential. **Absence** remains reserved for the absolute primitive defined here.

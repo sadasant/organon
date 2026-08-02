@@ -1,15 +1,23 @@
 ---
 type: ontology-changelog
 status: active
-ontology: "[[Contexts/Organon/Daniels-Ontology]]"
+ontology: "Daniels-Ontology.md"
 created: 2026-08-02
 updated: 2026-08-02
 ---
 # Daniel's Ontology - Changelog
 
-This note records how [[Contexts/Organon/Daniels-Ontology|Daniel's Ontology]] changed. Historical argument, rejected formulations, maintenance policy, and feedback belong here rather than in the binding ontology.
+This note records how [Daniel's Ontology](./Daniels-Ontology.md) changed. Historical argument, rejected formulations, maintenance policy, and feedback belong here rather than in the binding ontology.
 
 ## Version history
+
+### v0.8 - Classical cost and mechanical-institutional separation
+
+- Declared excluded middle as a binding commitment of the metalanguage and identified A3 exhaustiveness, but not exclusivity, as carrying that classical cost.
+- Required Specification to supply constructive decision evidence rather than classically vacuous bivalence.
+- Removed Capability from Permission and defined Exercisable Permission as the additional coherence Configuration between institutional authorization and current technical possibility.
+- Bound the empty-Boundary reading: no Constraints admits every Transformation and therefore creates the maximal identity-preservation obligation.
+- Revised the Lean spike so State is the carrier of later machinery, Direction indexes Transformation, and a Causal path shares Direction at the type level.
 
 ### v0.7 - Direction, Specification, and Boundary consolidation
 
@@ -42,7 +50,7 @@ This note records how [[Contexts/Organon/Daniels-Ontology|Daniel's Ontology]] ch
 - Rebuilt the corpus extraction as a dependency-ordered ontology with one declared primitive, axioms, derived terms, relation signatures, consistency rules, and quarantined vocabulary.
 - Defined Missingness as relational while reserving Absence as absolute.
 - Unified Agency and treated mechanical and institutional accounts as projections of the same Agent.
-- Archived the corpus-extraction draft as [[Contexts/Organon/History/Daniels-Ontology-v0-2|Daniel's Ontology v0.2]].
+- Archived the corpus-extraction draft as [Daniel's Ontology v0.2](./History/Daniels-Ontology-v0-2.md).
 
 ### v0.2 - Corpus extraction
 
