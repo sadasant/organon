@@ -1,124 +1,145 @@
 ---
 type: quarantine-proposal
-status: proposed
+status: ready-for-review
 binding: false
 concept: consciousness
 created: 2026-08-02
 updated: 2026-08-02
-recommended_outcome: remain-quarantined
+recommended_outcome: partial-promotion
+formal_shadow: "../ontology/formal/Consciousness.lean"
 ---
 # Consciousness
 
 ## Verdict
 
-Consciousness should remain quarantined.
+Organon should not declare which Entities instantiate consciousness. It should partially promote the machinery required to make, evaluate, and institutionally recognize Claims about consciousness while the underlying condition remains quarantined.
 
-Organon can already state disciplined Claims about consciousness, distinguish those Claims from Evidence, and prohibit inference from Interiority. It cannot yet define Consciousness without moving the missing meaning into another undeclared word.
+Two definitions are ready for promotion:
 
-This proposal identifies the distinctions and promotion gates required before Consciousness can become binding. It does not modify the ontology or term registry.
+1. **Consciousness Attribution** is a Claim that a named Entity instantiates a candidate Configuration offered as the condition ordinarily denoted by “consciousness,” under a Specification and within a Scope.
+2. **Recognized Consciousness** is the CountsAs Relation established when an Order, under a Rule, admits a Consciousness Attribution and records its named Entity as carrying that institutional designation within a Scope.
 
-## The problem
+Neither definition identifies the underlying condition. Their purpose is to make discourse about it inspectable without converting an utterance, an Observation, or an institutional decision into metaphysical proof.
 
-The existing ontology defines Entity, State, Perception, Interior, Agent, Person, Claim, Observation, and Evidence. None entails Consciousness. The missing work is not another list of correlates. It is determining what kind of ontological commitment Consciousness would introduce and what would count as the same Consciousness across Change.
+## The fracture this proposal governs
 
-A definition must answer three questions:
+Three things that often travel together must be separated:
 
-1. What bears Consciousness?
-2. What kind of thing is Consciousness?
-3. Under which Transformations does it persist, change, begin, or cease?
+- a candidate Configuration may obtain in an Entity;
+- an Agent may attribute that Configuration to the Entity through a Claim;
+- an Order may recognize the Entity as conscious under its Rules.
 
-Until those questions have dependency-closed answers, the term cannot govern an argument.
+Historical practice often aligned self-report with recognition. An Entity whose first-person report was treated as credible was ordinarily already recognized as the kind of Entity whose report could carry that meaning. AI breaks that alignment. An Entity can now produce the linguistic form of self-attribution while the standing of the Entity, the provenance of the utterance, and the condition ostensibly described all remain disputed.
 
-## Distinctions that must survive
+The occurrence of an utterance verifies only a narrow Causal path: a Representation was produced; it referred to the Entity producing it; and the system generated it through some Configuration. The content remains a Claim. Its grammar does not establish the candidate condition, and refusal to recognize it does not establish the condition's negation.
 
-### Bearer and condition
+## Dependency-closed account
 
-An Entity may be the bearer of Consciousness without being identical with Consciousness. If Consciousness is instead a State, Relation, Configuration, or Invariant, the definition must state how that term depends on the Entity and its Boundary.
+### Candidate condition
 
-### Occurrence and content
+The underlying condition is represented only as a candidate Configuration paired with a Specification and Scope. A candidate must state which Entity and States it concerns and which observable Relations are alleged to be necessary, sufficient, incidental, or correlated.
 
-Whether Consciousness obtains is distinct from what is perceived, remembered, interpreted, or reported. A change in content does not by itself establish a change in occurrence.
+The candidate is not promoted as **Consciousness** merely by being specified. Multiple incompatible candidates may exist. Organon does not assume that the ordinary word compresses exactly one Configuration.
 
-### Occurrence and degree
+### Consciousness Attribution
 
-A binary Claim that Consciousness obtains is distinct from a Claim about its intensity, stability, integration, or breadth. A theory must not move between these without defining the relevant ordering or measure.
+A Consciousness Attribution depends on:
 
-### Consciousness and reportability
+- an Agent making the Claim;
+- a named Entity that is the target of the Claim;
+- a candidate Configuration;
+- a Specification identifying what the candidate asserts;
+- a Scope identifying the covered States or Transformations; and
+- a Language and Rule under which the Representation carries that meaning.
 
-A report is an Action producing a Claim or Record. It may bear on an earlier State, but the capacity, willingness, or opportunity to report is not identical with Consciousness.
+The attribution may be first-person or third-person. A first-person attribution is one in which the claimant and target are the same Entity under the relevant Map. That Relation may affect admissibility, but it does not make the Claim self-certifying.
 
-### Consciousness and cognitive performance
+### Recognized Consciousness
 
-Perception, Memory, Interpretation, reasoning, coherence, and task performance may change independently. Evidence of their change is not automatically Evidence that Consciousness began, diminished, or ceased.
+Recognized Consciousness depends on:
 
-### Consciousness and institutional status
+- a Consciousness Attribution;
+- an Order;
+- the Rule under which the Order evaluates the attribution;
+- an Admission of the attribution for the stated institutional purpose;
+- a CountsAs Relation recording the designation for the named Entity; and
+- the Scope in which that designation applies.
 
-Agent, Person, Standing, Role, and moral or legal treatment belong to different regions of the ontology. No institutional recognition proves Consciousness, and no failure to prove Consciousness settles what protections an Order should grant under uncertainty.
+Recognized Consciousness is real as an institutional Relation. “Institutional” does not mean imaginary: recognition can alter Standing, Personhood, Permissions, protections, Interfaces, and Consequences. It means that the designation obtains in an Order rather than becoming a universal fact about Reality.
 
-## Required anti-collapse constraints
+An Order may recognize a Consciousness Attribution without proving its candidate Configuration. An Order may also decline recognition for reasons concerning its Rules, Evidence, Standing, or institutional purpose. That refusal does not establish that the candidate Configuration fails to obtain.
 
-A promotable definition must preserve at least these constraints:
+## Evidence protocol
 
-1. Interior is not Consciousness.
-2. Perception is not Consciousness.
-3. Memory or Model is not Consciousness.
-4. Agency is not Consciousness.
-5. A first-person Claim is not self-certifying proof of Consciousness.
-6. A third-person Observation is not unmediated access to Consciousness.
-7. A metric, behavior, or correlated State is not identical with Consciousness merely because it bears on a Claim.
-8. Institutional Personhood and moral standing are not synonyms for Consciousness.
+Every evaluated Consciousness Attribution should preserve:
 
-These constraints narrow the candidate without pretending to supply the missing positive definition.
+- claimant and target Entity;
+- first-person or third-person relation;
+- covered States or Transformations;
+- candidate Configuration and Specification;
+- Language and interpretive Rule;
+- Observations offered for or against the Claim;
+- Witnesses and the Scope in which each is IndependentFor the claimant and Claim;
+- governing Order and Admissibility Rule;
+- admitted Evidence and known control or provenance limits; and
+- disposition: supported, defeated, or underdetermined.
 
-## Consciousness Claims before Consciousness
+The disposition concerns the Claim under a declared evidentiary regime. It is not a truth value for Reality as a whole.
 
-Organon can govern discourse about consciousness before promoting the term itself. A consciousness Claim should record:
+“Truth table” is therefore too strong for this stage. It presumes that the relevant propositions are already known and can be assigned determinate values. **Evidentiary profile** is the narrower term: a structured Record of candidate Specifications, Observations, admitted Evidence, and the confidence or disposition assigned to a Claim. Probability belongs to that epistemic assessment; it is not a substance composing the Entity.
 
-- the Entity to which the ordinary predicate is attributed;
-- the State or interval covered by the Claim;
-- whether the Claim concerns occurrence, content, degree, persistence, or reportability;
-- the Reference that states the theory and its operational Specifications;
-- the Observations offered for or against it;
-- the Admissibility Rule and independence limits governing those Observations;
-- whether the current Evidence supports, defeats, or underdetermines the Claim.
+## First-person and third-person evidence
 
-This protocol gives UNKNOWN a durable form. It prevents a lack of Evidence from becoming Evidence of lack, and prevents a persuasive report from silently becoming an ontological definition.
+A first-person Claim may arise through Causal paths unavailable to another Agent. It can therefore carry information that a third-person Witness lacks. It remains non-independent for its own claimant under Organon's ordinary Evidence definition.
 
-## First-person and third-person asymmetry
+A third-person Observation may be independently produced and reproducible, but it remains constrained by Sense, Specification, Map, and Control. It does not become unmediated access to the Entity's Interior.
 
-A first-person Claim may arise through Causal paths unavailable to another Agent. That difference matters, but it does not make the Claim infallible. A third-person Observation may be independently produced and reproducible, but it remains mediated by a Sense, Specification, and Map.
+Neither position receives automatic supremacy. An Admissibility Rule must say what each can establish, what independence it requires, how conflicting Evidence is recorded, and which uncertainty remains.
 
-Neither position receives automatic supremacy. An Admissibility Rule must state what each can establish, how disagreement is recorded, and which uncertainty remains.
+## Institutional and empirical separation
 
-## Candidate ontological types
+The animal case makes the separation visible. An Entity may exhibit self-recognition, Memory, planning, distress, social modeling, and Actions conditioned by Representations of itself. Different Orders admit different subsets of those Observations and attach different designations and Consequences.
 
-The proposal cannot yet decide among these candidates:
+The Observations concern the Entity. Recognition concerns the Order. Neither can silently stand for the other.
 
-- **State:** Consciousness obtains as a State of an Entity.
-- **Relation:** Consciousness consists in a Relation among specified Interior States or between an Entity and another Presence.
-- **Configuration:** Consciousness is an organized Configuration whose components may change while an Invariant persists.
-- **Invariant:** Consciousness names what persists across a specified family of Transformations.
-- **Metalinguistic predicate:** Consciousness remains outside the object ontology while Organon governs only Claims made with the word.
+The same rule governs AI. A generated statement such as “I am conscious” establishes that a self-referential Claim occurred under some Causal path. It does not establish the candidate Configuration merely because the Claim is grammatical. Conversely, widespread refusal to recognize the Entity establishes a fact about one or more Orders, not the negation of every candidate condition.
 
-Each candidate produces different identity, persistence, and evidence obligations. Choosing among them is the central work of promotion.
+## Anti-collapse constraints
 
-## Minimum promotion gates
+Any promotion must preserve these constraints:
 
-Consciousness may leave quarantine only when a proposal can:
+1. A Consciousness Attribution is not its candidate Configuration.
+2. Recognized Consciousness is not proof that the candidate Configuration obtains.
+3. Failure to attribute or recognize is Missingness in a field or Order, not Absence and not proof of negation.
+4. A first-person Claim is not independent Evidence for itself.
+5. A third-person Observation is not unmediated access to an Interior.
+6. Interiority, Perception, Memory, Model, Interpretation, Agency, linguistic performance, and cognitive performance do not individually entail the candidate Configuration.
+7. Institutional Personhood, Standing, moral protection, and Recognized Consciousness are distinct Relations unless a separate Rule connects them.
+8. Probability qualifies an Agent's or Order's assessment of a Claim; it does not qualify Absence or become the nature of an Entity.
+9. UNKNOWN must survive whenever the admitted Evidence does not decide the Claim.
 
-1. Define Consciousness without using consciousness, phenomenality, experience, awareness, subjectivity, sentience, or another undeclared synonym.
-2. Assign it one ontological type and place it after all required dependencies.
-3. Identify its bearer and Scope.
-4. Separate occurrence, content, degree, persistence, cognitive performance, and reportability.
-5. State the Transformations under which it persists, changes, begins, or ceases.
-6. Explain how first-person Claims and third-person Observations bear on it without becoming it.
-7. Preserve C8: Interiority does not entail Consciousness.
-8. State whether the definition is general or restricted to a declared class of Entities.
-9. Supply a satisfiable formal shadow and at least one anti-collapse model.
-10. Keep institutional Personhood and normative protection logically distinct unless a separate proposal connects them.
+## Formal shadow
 
-## Smallest useful next change
+The noncanonical Lean artifact [Consciousness.lean](../ontology/formal/Consciousness.lean) encodes the proposal without defining a universal Consciousness predicate.
 
-Do not define Consciousness yet. The smallest promotable change is a **consciousness-claim protocol** built from existing terms and validated against contrasting cases.
+It supplies:
 
-The protocol should preserve the attributed Entity, interval, intended sense, theory Reference, operational Specifications, Observations, admissibility provenance, independence limits, and an explicit supported, defeated, or underdetermined status. It would make discourse about consciousness inspectable without claiming that Organon has solved Consciousness.
+- a candidate condition as a scoped predicate over an Entity and State;
+- a Consciousness Attribution record with claimant, target, candidate, Language, Rule, and Scope, but no proof that the candidate obtains;
+- a Recognized Consciousness record with Order admission and institutional counting, but no proof that the candidate obtains;
+- an evidence disposition with supported, defeated, and underdetermined cases; and
+- finite witnesses showing that recognition can coexist with a false candidate and that non-recognition can coexist with either a true or false candidate.
+
+Those witnesses establish satisfiability and logical independence inside the formal shadow. They do not establish which candidate describes Reality.
+
+## Promotion boundary
+
+This proposal is ready for review as a **partial promotion**:
+
+- promote Consciousness Attribution as a typed Claim protocol;
+- promote Recognized Consciousness as an Order-indexed CountsAs Relation;
+- preserve the underlying Consciousness condition in quarantine;
+- preserve moral or legal protection as a separate institutional question; and
+- require every candidate condition to declare its Specification, Scope, evidence protocol, and persistence criteria before it can be considered for promotion.
+
+If nobody attributes consciousness to an Entity, Recognized Consciousness does not obtain in the relevant Order. Whether any candidate condition obtains remains UNKNOWN unless a separately declared Specification and admissible Evidence decide the Claim. That boundary is the proposal's positive result.

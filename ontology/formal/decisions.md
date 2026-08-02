@@ -53,10 +53,14 @@ Boundary Constraints are conjunctive admission conditions. An empty list admits 
 
 `IndependentFor` is parameterized by Witness, claimant, Claim, Observation, and Order. It requires both absence of the claimant's mechanical control over the Witness and absence of institutional Authority over the Witness for the relevant Claim. The accompanying admissibility provenance records which Rule and Declaration made the judgment operative. Independence is therefore not an enduring property of a Witness in isolation.
 
+## Consciousness discourse is formalized without a consciousness axiom
+
+The consciousness proposal separates a `CandidateCondition`, a `ConsciousnessAttribution`, and `RecognizedConsciousness`. Attribution records a claimant, target, State, candidate, Language, Rule, and Scope without carrying a proof that the candidate obtains. Recognition records institutional admission and counting without adding that proof. The finite witnesses exhibit recognition with a false candidate and non-recognition with both true and false candidates. The formal artifact therefore establishes logical independence, not a universal definition of consciousness.
+
 ## Relations use typed structures, not one universal relation type
 
 Direction, Transformation, Boundary, Capability, and Permission have different arities and dependencies. The spike encodes each with the narrowest useful record. A later parity pass must decide whether the ontology benefits from a common first-class Relation interface or whether that abstraction would erase important types.
 
 ## Scope of the spike
 
-The spike formalizes A1-A5 and selected high-risk dependency regions. Its finite model constructs one concrete Entity with an admitted preserving Transformation and a rejected identity-breaking Transformation, plus one standing-aware Permission and one contextual PermissionExercise. It does not yet cover all derived terms, relation signatures, anti-collapse rules, quarantined vocabulary, or deterministic Markdown rendering. Those remain promotion gates rather than implicit Claims of completeness.
+The spike formalizes A1-A5 and selected high-risk dependency regions. Its finite models construct one concrete Entity with an admitted preserving Transformation and a rejected identity-breaking Transformation, one standing-aware Permission and one contextual PermissionExercise, and one consciousness-recognition record that remains independent from its candidate condition. It does not yet cover all derived terms, relation signatures, anti-collapse rules, quarantined vocabulary, or deterministic Markdown rendering. Those remain promotion gates rather than implicit Claims of completeness.

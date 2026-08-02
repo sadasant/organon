@@ -23,6 +23,7 @@ This directory tests whether [Daniel's Ontology v0.9](../ontology.md) can become
 - Permission is produced through an Order-indexed chain of standing-aware claim, Authority, Grant, and Admission; exercise separately requires current Capability and absence of Revocation.
 - Witness independence is scoped to witness, claimant, Claim, Observation, and Order, with mechanical non-control and institutional non-authority.
 - One finite model admits an identity-preserving Transformation, rejects an identity-breaking one, evaluates a Specification, and inhabits Permission and PermissionExercise.
+- A separate consciousness-proposal shadow distinguishes a candidate condition, its attribution, and Order-indexed recognition, with finite witnesses that recognition does not entail the candidate and non-recognition does not decide it.
 
 See [Formalization Decisions](./decisions.md) for commitments exposed by Lean and [Build Receipt](./build-receipt.md) for reproducible evidence.
 
@@ -30,7 +31,7 @@ See [Formalization Decisions](./decisions.md) for commitments exposed by Lean an
 
 The Lean source makes formal Claims. Successful elaboration by the pinned compiler is external Evidence that those Claims type-check. The theorem `presenceObtains` witnesses an inhabited mark inside Lean; the compiler receipt witnesses that the file itself was successfully elaborated. These levels must not be collapsed.
 
-The formal spike does not yet cover the complete ontology, generate the Markdown projection, prove satisfiability beyond its small model, or settle identity through time beyond a Boundary-indexed Invariant.
+The formal spike does not yet cover the complete ontology, generate the Markdown projection, prove satisfiability beyond its small models, settle identity through time beyond a Boundary-indexed Invariant, or define a universal consciousness condition.
 
 ## Toolchain
 
