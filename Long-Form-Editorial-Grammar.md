@@ -40,6 +40,8 @@ Long-form structures are neither timeless laws nor arbitrary preferences. Reader
 
 The writer must establish a relationship, reveal consequential Missingness, negotiate resistance, deliver a usable idea, and return the reader to the world with a changed capacity to perceive it.
 
+Here **Missingness** is an explicit editorial projection of the ontological term. The field is the reader's current frame; the expected Presence is an explanation, distinction, or usable instrument that the frame represents as needed; the omission is the frame's failure to contain it. If those three elements cannot be identified, the grammar should say `gap`, `problem`, or `unknown` rather than borrowing Missingness as atmosphere.
+
 The grammar describes those forces. It does not prescribe visible sections.
 
 ## The central movement
@@ -192,10 +194,10 @@ Each persona must specify:
 1. **Relationship:** Who is the writer in relation to this reader?
 2. **Promise:** What kind of value does the writer implicitly promise for continued attention?
 3. **Hospitality:** How does this persona create shared ground?
-4. **Evidence:** What does this persona treat as persuasive or inspectable?
+4. **Persuasive basis:** What does this persona treat as persuasive or inspectable?
 5. **Resistance:** What kind of objection must this persona honor?
 6. **Route:** How does this persona characteristically prepare a delivery?
-7. **Permission:** What forms of humor, intimacy, authority, or strangeness has the persona earned?
+7. **Rhetorical latitude:** What forms of humor, intimacy, authority, or strangeness has the persona earned?
 8. **Failure mode:** What counterfeit version of this persona must revision detect?
 
 The persona governs the relationship and dramatic movement. The canonical short-form language governs the delivery once it arrives.

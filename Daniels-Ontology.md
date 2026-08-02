@@ -43,7 +43,7 @@ Absence admits no degree or approximation. Only what is identically Absence is A
 
 For anything considered by this ontology, exactly one of two conditions obtains: it is identically Absence, or it is Presence. Nothing is both, and there is no third condition.
 
-This is a partition, not an event or causal derivation. Presence is defined contrastively by non-identity with Absence. That contrast belongs to the metalanguage; Absence does not thereby enter an ontological Relation.
+This is a partition, not an event or causal derivation. Presence is defined contrastively by non-identity with Absence. That contrast belongs to the metalanguage; it does not thereby place Absence inside an association among Presences.
 
 Exhaustiveness is a classical commitment. Constructively, a candidate may be neither known to be Absence nor known to be Presence. A3 excludes that epistemic third condition by adopting excluded middle in the metalanguage; exclusivity alone does not require it.
 
@@ -165,20 +165,13 @@ An Entity is not required to be biological, conscious, legal, or morally conside
 
 **Interpretation** is a Transformation by which an Entity uses Perception, Memory, or a Model to distinguish among available Actions.
 
-A Model is not an Agent. It can participate in an Agent's Interpretation, but no isolated model response establishes the Entity, Boundary, Persistence, or Action required for Agency.
-
 ### 12. Agent and agency
 
 **Agent** is an Entity whose Interpretation conditions which Action occurs.
 
 **Agency** is the Relation between an Agent's Interpretation and its selection or production of Action.
 
-Agency has one form. Mechanical and institutional descriptions are projections of one Agent rather than distinct kinds of Agency.
-
-- A **mechanical projection** describes the Agent through its Sense, Memory, Model, Interpretation, Tools, and Actions.
-- An **institutional projection** describes the same Agent through its Roles, Permissions, Authority, obligations, and Standing.
-
-A projection is a partial account, not another Entity. The same Agent may be described through either or both projections.
+A Model is not an Agent. It can participate in an Agent's Interpretation, but no isolated model response establishes the Entity, Boundary, Persistence, or Action required for Agency.
 
 ### 13. Tool and capability
 
@@ -231,6 +224,13 @@ Evidence can support or defeat a Claim; it does not become truth by definition. 
 **Role** is a persistent Configuration of Actions, Permissions, Authority, and Consequences assigned by an Order to an Agent.
 
 **Standing** is the Relation through which an Order admits an Entity as eligible to occupy a Role, become a Principal, make an admissible Claim, serve as a Witness, receive Permission, or bear Consequences within that Order.
+
+Agency has one form. Mechanical and institutional descriptions are authorized projections of one Agent rather than distinct kinds of Agency.
+
+- A **mechanical projection** describes the Agent through its Sense, Memory, Model, Interpretation, Tools, Capabilities, and Actions.
+- An **institutional projection** describes the same Agent through its Roles, Permissions, Authority, obligations, and Standing in an Order.
+
+A projection is a partial account, not another Entity. The same Agent may be described through either or both projections.
 
 Capability and institutional standing cannot substitute for each other in either direction. Capability does not create Permission or Authority; Permission or Authority does not create Capability. A prompt can alter Interpretation but does not become Permission unless an Order records and enforces it as such.
 
