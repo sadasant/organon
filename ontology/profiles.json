@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "ontology_version": "0.9.0",
+  "profiles": {
+    "agent": {
+      "description": "Entities, boundaries, interpretation, action, tools, and contextual capability.",
+      "roots": [
+        "organon:Boundary",
+        "organon:Agent",
+        "organon:Agency",
+        "organon:Tool",
+        "organon:Capability"
+      ]
+    },
+    "evidence": {
+      "description": "Claims, observations, scoped independence, admissibility, evidence, attestations, and receipts.",
+      "roots": [
+        "organon:Claim",
+        "organon:Witness",
+        "organon:Control",
+        "organon:IndependentFor",
+        "organon:Evidence",
+        "organon:Attestation",
+        "organon:Receipt"
+      ]
+    },
+    "governance": {
+      "description": "Order-relative standing, authority, grants, permissions, exercise, revocation, and enforcement.",
+      "roots": [
+        "organon:Order",
+        "organon:Standing",
+        "organon:Recognition",
+        "organon:Principal",
+        "organon:ActsFor",
+        "organon:CountsAs",
+        "organon:Authority",
+        "organon:PermissionClaim",
+        "organon:Declaration",
+        "organon:Grant",
+        "organon:Admission",
+        "organon:Permission",
+        "organon:Revocation",
+        "organon:PermissionExercise",
+        "organon:Exercisability",
+        "organon:Enforcement",
+        "organon:Role"
+      ]
+    }
+  }
+}

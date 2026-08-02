@@ -11,7 +11,7 @@ from urllib.parse import unquote
 
 
 ROOT = Path(__file__).resolve().parent.parent
-HISTORICAL_PREFIX = "History/"
+HISTORICAL_PREFIX = "ontology/history/"
 WIKILINK = re.compile(r"!?\[\[[^]]+\]\]")
 MARKDOWN_LINK = re.compile(r"!?\[[^]]*\]\(([^)]+)\)")
 SCHEME = re.compile(r"^[A-Za-z][A-Za-z0-9+.-]*:")

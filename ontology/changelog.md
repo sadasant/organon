@@ -1,15 +1,25 @@
 ---
 type: ontology-changelog
 status: active
-ontology: "Daniels-Ontology.md"
+ontology: "ontology.md"
 created: 2026-08-02
 updated: 2026-08-02
 ---
 # Daniel's Ontology - Changelog
 
-This note records how [Daniel's Ontology](./Daniels-Ontology.md) changed. Historical argument, rejected formulations, maintenance policy, and feedback belong here rather than in the binding ontology.
+This note records how [Daniel's Ontology](./ontology.md) changed. Historical argument, rejected formulations, maintenance policy, and feedback belong here rather than in the binding ontology.
 
 ## Version history
+
+### v0.9 - Stable semantics and Order-indexed institutions
+
+- Added stable `organon:*` term identifiers, typed claim identifiers, explicit dependencies, profiles, and a semantic linter.
+- Rebuilt the institutional kernel around Order, Standing, Authority, Permission Claim, Grant, Admission, Permission, Revocation, Permission Exercise, and Enforcement.
+- Defined Witness independence as a scoped relation with mechanical non-control, institutional non-authority, and explicit admissibility-rule provenance.
+- Distinguished Causal feeding from State equality, made Capability contextual, and made Specification decision procedures executable and scope-coherent.
+- Added an adoption manifest schema and conformance checker so repositories opt into named profiles and map local terms explicitly.
+- Added a nontrivial Lean model in which one identity-preserving Transformation is admitted and one identity-breaking Transformation is rejected.
+- Reorganized the repository around `ontology/`, `editorial/`, `provenance/`, `reviews/`, `schemas/`, and `examples/`.
 
 ### v0.8 - Classical cost and mechanical-institutional separation
 
@@ -50,7 +60,7 @@ This note records how [Daniel's Ontology](./Daniels-Ontology.md) changed. Histor
 - Rebuilt the corpus extraction as a dependency-ordered ontology with one declared primitive, axioms, derived terms, relation signatures, consistency rules, and quarantined vocabulary.
 - Defined Missingness as relational while reserving Absence as absolute.
 - Unified Agency and treated mechanical and institutional accounts as projections of the same Agent.
-- Archived the corpus-extraction draft as [Daniel's Ontology v0.2](./History/Daniels-Ontology-v0-2.md).
+- Archived the corpus-extraction draft as [Daniel's Ontology v0.2](./history/v0-2.md).
 
 ### v0.2 - Corpus extraction
 

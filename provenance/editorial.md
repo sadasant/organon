@@ -1,6 +1,6 @@
 # Editorial Provenance
 
-The canonical [Short Form](../Samples/Short-Form.md) emerged from generated samples, Daniel's inline feedback, a four-person editorial review panel, and three review rounds. The following artifacts remain in Daniel's private Parergon vault and are not dependencies of the public document:
+The canonical [Short Form](../editorial/short-form.md) emerged from generated samples, Daniel's inline feedback, a four-person editorial review panel, and three review rounds. The following artifacts remain in Daniel's private Parergon vault and are not dependencies of the public document:
 
 | Private artifact | Role | Public status |
 | --- | --- | --- |

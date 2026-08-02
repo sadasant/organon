@@ -4,8 +4,8 @@ status: provisional
 version: 0.2
 created: 2026-08-01
 updated: 2026-08-01
-delivery_language: "Samples/Short-Form.md"
-companion_ontology: "Daniels-Ontology.md"
+delivery_language: "short-form.md"
+companion_ontology: "../ontology/ontology.md"
 applies_to:
   - essays
   - technical-prose
@@ -15,7 +15,7 @@ applies_to:
 ---
 # Long-Form Editorial Grammar
 
-Companion model of recurring entities and relations: [Daniel's Ontology](./Daniels-Ontology.md).
+Companion model of recurring entities and relations: [Daniel's Ontology](../ontology/ontology.md).
 
 > [!note] Working status
 > Daniel has adopted the distinction between long-form preparation and short-form delivery. This document is the provisional grammar built from that decision. It should become canonical only after it survives use and revision across the long-form sample families.
@@ -40,7 +40,10 @@ Long-form structures are neither timeless laws nor arbitrary preferences. Reader
 
 The writer must establish a relationship, reveal consequential Missingness, negotiate resistance, deliver a usable idea, and return the reader to the world with a changed capacity to perceive it.
 
+<!-- organon:projection EditorialMissingness term=organon:Missingness claim=Pj3 -->
 Here **Missingness** is an explicit editorial projection of the ontological term. The field is the reader's current frame; the expected Presence is an explanation, distinction, or usable instrument that the frame represents as needed; the omission is the frame's failure to contain it. If those three elements cannot be identified, the grammar should say `gap`, `problem`, or `unknown` rather than borrowing Missingness as atmosphere.
+
+<!-- organon:claim Pj3 -->
 
 The grammar describes those forces. It does not prescribe visible sections.
 
@@ -106,7 +109,7 @@ Materialize the distinction, argument, image, or concept the preceding movement 
 
 A delivery changes the classification of the problem. It does not merely summarize or intensify what the opening already said. The strongest delivery often feels surprising one sentence before it arrives and inevitable one sentence afterward.
 
-The canonical [Short Form](./Samples/Short-Form.md) document governs the delivery's sentence-level behavior: compression, precision, irony, rhythm, conceptual turn, and stopping point.
+The canonical [Short Form](./short-form.md) document governs the delivery's sentence-level behavior: compression, precision, irony, rhythm, conceptual turn, and stopping point.
 
 Useful questions:
 

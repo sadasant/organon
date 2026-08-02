@@ -7,7 +7,7 @@ created: 2026-07-31
 updated: 2026-08-01
 adopted: 2026-08-01
 version: 1.0
-provenance: "../References/Editorial-Provenance.md"
+provenance: "../provenance/editorial.md"
 ---
 # Short Form
 
@@ -61,4 +61,4 @@ Prefer the shortest form that preserves the actual idea. Do not add a closing li
 
 ## Provenance
 
-Adopted after three review rounds. The generated predecessors, panel instructions, and review notes remain private vault artifacts; their public status and role are recorded in [Editorial Provenance](../References/Editorial-Provenance.md).
+Adopted after three review rounds. The generated predecessors, panel instructions, and review notes remain private vault artifacts; their public status and role are recorded in [Editorial Provenance](../provenance/editorial.md).

@@ -38,6 +38,6 @@ A repository-facing change is ready when:
 3. The vault filename linter reports no portability errors.
 4. The document remains intelligible as raw text without an Obsidian plugin.
 
-Run `python3 scripts/check-links.py` from the repository root to enforce the repository boundary. The checker scans tracked and staged Markdown, exempts immutable material under `History/`, and rejects active Obsidian wikilinks, private `Contexts/` paths, missing local targets, and links that escape the checkout.
+Run `python3 scripts/check-links.py` from the repository root to enforce the repository boundary. The checker scans tracked and staged Markdown, exempts immutable material under `ontology/history/`, and rejects active Obsidian wikilinks, private `Contexts/` paths, missing local targets, and links that escape the checkout.
 
 The purpose is not renderer purity. It is to prevent the authoring environment from becoming an undeclared dependency of the argument.

@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "ontology_version": "0.9.0",
+  "sources": {
+    "essay:absence": {"kind": "published-corpus", "reference": "essays.md", "title": "Nothing Else Is So Exact As Absence"},
+    "essay:shadow-world": {"kind": "published-corpus", "reference": "essays.md", "title": "The Shadow of the World"},
+    "essay:reasoning-language": {"kind": "published-corpus", "reference": "essays.md", "title": "Reasoning and Language"},
+    "essay:containment": {"kind": "published-corpus", "reference": "essays.md", "title": "Containment"},
+    "essay:secret-thoughts": {"kind": "published-corpus", "reference": "essays.md", "title": "Secret Thoughts"},
+    "essay:beyond-function-calling": {"kind": "published-corpus", "reference": "essays.md", "title": "Beyond Function Calling"},
+    "essay:invariants": {"kind": "published-corpus", "reference": "essays.md", "title": "Invariants"},
+    "essay:forging-reality": {"kind": "published-corpus", "reference": "essays.md", "title": "The Forging of Political Reality"},
+    "essay:cryptoeconomic-justice": {"kind": "published-corpus", "reference": "essays.md", "title": "Cryptoeconomic Justice"},
+    "essay:priced-ledger": {"kind": "published-corpus", "reference": "essays.md", "title": "Priced as If the Ledger Exists"},
+    "essay:artificial-persons": {"kind": "published-corpus", "reference": "essays.md", "title": "Artificial Persons"},
+    "essay:delete-harness": {"kind": "published-corpus", "reference": "essays.md", "title": "Delete the Harness"},
+    "review:daniel": {"kind": "adopted-review", "reference": "../ontology/changelog.md", "title": "Daniel's direct ontology review"},
+    "review:v0.9": {"kind": "external-review", "reference": "../reviews/2026-08-02-organon-review.md", "title": "Organon v0.9 adversarial review"},
+    "formal:lean-v0.9": {"kind": "formalization", "reference": "../ontology/formal/decisions.md", "title": "Lean v0.9 formalization findings"}
+  },
+  "groups": [
+    {
+      "basis": "adopted-commitment",
+      "sources": ["essay:absence", "essay:shadow-world", "review:daniel"],
+      "terms": ["organon:Absence", "organon:Presence", "organon:Missingness", "organon:Reality", "organon:Difference", "organon:Relation", "organon:Configuration"]
+    },
+    {
+      "basis": "formalization-finding",
+      "sources": ["essay:invariants", "formal:lean-v0.9", "review:v0.9"],
+      "terms": ["organon:State", "organon:Direction", "organon:Transformation", "organon:Change", "organon:Feeds", "organon:CausalPath", "organon:Invariant", "organon:Persistence", "organon:Constraint", "organon:Entity", "organon:Boundary", "organon:Environment"]
+    },
+    {
+      "basis": "corpus-extraction",
+      "sources": ["essay:reasoning-language", "essay:shadow-world"],
+      "terms": ["organon:Representation", "organon:Scope", "organon:Specification", "organon:Rule", "organon:Sign", "organon:Symbol", "organon:Language", "organon:Map", "organon:Reference", "organon:Sense", "organon:Perception", "organon:Record", "organon:Observation", "organon:Memory", "organon:Model"]
+    },
+    {
+      "basis": "adopted-commitment",
+      "sources": ["essay:containment", "essay:secret-thoughts", "essay:beyond-function-calling", "essay:delete-harness", "review:daniel"],
+      "terms": ["organon:Action", "organon:Consequence", "organon:Interpretation", "organon:Agent", "organon:Agency", "organon:Tool", "organon:Capability", "organon:Interior", "organon:Exposure", "organon:Flow", "organon:Interface"]
+    },
+    {
+      "basis": "review-repair",
+      "sources": ["essay:cryptoeconomic-justice", "essay:priced-ledger", "essay:forging-reality", "review:v0.9", "formal:lean-v0.9"],
+      "terms": ["organon:Claim", "organon:Witness", "organon:Control", "organon:Order", "organon:Standing", "organon:Recognition", "organon:Principal", "organon:ActsFor", "organon:CountsAs", "organon:Authority", "organon:PermissionClaim", "organon:Declaration", "organon:Grant", "organon:Admission", "organon:Permission", "organon:Revocation", "organon:PermissionExercise", "organon:Exercisability", "organon:FullyExercisablePermission", "organon:Enforcement", "organon:Role", "organon:AdmissibilityRule", "organon:IndependentFor", "organon:Evidence", "organon:Attestation"]
+    },
+    {
+      "basis": "corpus-extraction",
+      "sources": ["essay:invariants", "essay:forging-reality", "essay:artificial-persons", "essay:priced-ledger"],
+      "terms": ["organon:Institution", "organon:Center", "organon:Organ", "organon:CanonicalSystem", "organon:ShadowSystem", "organon:Person", "organon:Receipt", "organon:Ledger", "organon:Polity", "organon:ConstitutedExercise", "organon:ConstituentExercise", "organon:ConstituentPower"]
+    }
+  ]
+}

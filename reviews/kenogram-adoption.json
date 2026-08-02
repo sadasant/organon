@@ -1,0 +1,70 @@
+{
+  "organon": {
+    "source": "https://github.com/sadasant/organon",
+    "version": "0.9.0",
+    "revision": "v0.9.0",
+    "profiles": ["agent", "evidence", "governance"],
+    "governed_paths": [
+      "README.md",
+      "requirements/*.md",
+      "docs/design.md",
+      "docs/kenogrammatics.md"
+    ],
+    "mappings": [
+      {
+        "local": "runtime capability",
+        "term": "organon:Capability",
+        "relation": "refinement",
+        "note": "Technical possibility inside a particular materialized world and runtime context."
+      },
+      {
+        "local": "host-authored declaration",
+        "term": "organon:Declaration",
+        "relation": "refinement",
+        "note": "An authoritative specification only after the host operator, Order, and applicable Authority are named."
+      },
+      {
+        "local": "durable or temporary network grant",
+        "term": "organon:Permission",
+        "relation": "refinement",
+        "note": "A scoped, Order-admitted authorization whose exercise separately depends on runtime Capability."
+      },
+      {
+        "local": "revoke",
+        "term": "organon:Revocation",
+        "relation": "refinement"
+      },
+      {
+        "local": "runtime inspection result",
+        "term": "organon:Observation",
+        "relation": "refinement"
+      },
+      {
+        "local": "admitted runtime evidence",
+        "term": "organon:Evidence",
+        "relation": "refinement",
+        "note": "Only observations admitted by a named requirement or CI rule with an independence argument qualify."
+      }
+    ],
+    "exceptions": [
+      {
+        "term": "World",
+        "paths": ["README.md", "requirements/*.md", "docs/*.md"],
+        "use": "ordinary-language",
+        "note": "Kenogram's local execution-environment term; not an adopted Organon term."
+      },
+      {
+        "term": "authoritative generation",
+        "paths": ["README.md", "requirements/*.md"],
+        "use": "ordinary-language",
+        "note": "Names operational precedence, not an Agent's Organon Authority."
+      },
+      {
+        "term": "absence",
+        "paths": ["README.md", "requirements/*.md", "docs/*.md"],
+        "use": "ordinary-language",
+        "note": "Kenogram uses absence for an unavailable or unrepresented capability; Organon reserves Absence as absolute."
+      }
+    ]
+  }
+}

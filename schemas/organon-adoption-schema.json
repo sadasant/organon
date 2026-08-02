@@ -1,0 +1,64 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/sadasant/organon/schemas/organon-adoption-schema.json",
+  "title": "Organon adoption manifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["organon"],
+  "properties": {
+    "organon": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["source", "version", "revision", "profiles", "governed_paths"],
+      "properties": {
+        "source": {"type": "string", "format": "uri"},
+        "version": {"type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"},
+        "revision": {"type": "string", "minLength": 7},
+        "profiles": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {"type": "string"}
+        },
+        "governed_paths": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {"type": "string", "minLength": 1}
+        },
+        "mappings": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["local", "term", "relation"],
+            "properties": {
+              "local": {"type": "string", "minLength": 1},
+              "term": {"type": "string", "pattern": "^organon:[A-Za-z0-9]+$"},
+              "relation": {"enum": ["exact", "refinement", "conflict", "unmapped"]},
+              "note": {"type": "string"}
+            }
+          }
+        },
+        "exceptions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["term", "paths", "use"],
+            "properties": {
+              "term": {"type": "string"},
+              "paths": {
+                "type": "array",
+                "minItems": 1,
+                "items": {"type": "string", "minLength": 1}
+              },
+              "use": {"enum": ["ordinary-language", "quoted", "quarantined"]},
+              "note": {"type": "string"}
+            }
+          }
+        }
+      }
+    }
+  }
+}

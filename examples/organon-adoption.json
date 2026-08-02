@@ -1,0 +1,29 @@
+{
+  "organon": {
+    "source": "https://github.com/sadasant/organon",
+    "version": "0.9.0",
+    "revision": "v0.9.0",
+    "profiles": ["agent", "evidence", "governance"],
+    "governed_paths": ["README.md"],
+    "mappings": [
+      {
+        "local": "LocalLease",
+        "term": "organon:Permission",
+        "relation": "refinement",
+        "note": "Example only: the local term must preserve the Order, Grant, Admission, Scope, interval, and revocation chain."
+      },
+      {
+        "local": "CompletionReceipt",
+        "term": "organon:Receipt",
+        "relation": "refinement"
+      }
+    ],
+    "exceptions": [
+      {
+        "term": "World",
+        "paths": ["README.md"],
+        "use": "ordinary-language"
+      }
+    ]
+  }
+}

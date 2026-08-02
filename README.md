@@ -6,21 +6,20 @@ One repository calls something a permission. Another calls the same thing a capa
 
 Organon exists for that failure.
 
-It is a collection of instruments for making a body of work more internally legible: an ontology for stabilizing meaning, an editorial grammar for carrying difficult ideas, and formal artifacts for discovering where apparently compatible definitions collapse under pressure. The name comes from the traditional title for Aristotle's collected works on logic: instruments of reasoning, not the doctrine those instruments may later examine.
+It is a collection of instruments for making a body of work internally legible: an ontology for stabilizing meaning, an editorial grammar for carrying difficult ideas, and formal artifacts for discovering where apparently compatible definitions collapse under pressure. The name comes from the traditional title for Aristotle's collected works on logic: instruments of reasoning, not the doctrine those instruments may later examine.
 
 ## Why it lives in Idolum
 
 [Idolum](https://github.com/idolum-ai) builds systems in which agents act across boundaries of authority, evidence, and responsibility. Those systems make unusually expensive demands on language. A capability is not automatically a permission. An output is not automatically completion. A record is not automatically evidence. When a project blurs those distinctions, the implementation eventually inherits the confusion.
 
-Organon provides a common surface from which Idolum's project documentation can be reviewed. It asks questions such as:
+Organon provides a common surface from which project documentation can be reviewed. It asks:
 
-- What entities and relations does this document claim exist?
-- Which actor possesses a capability, and which Principal grants Permission to use it?
-- Who makes a Claim, what Witness is independent of that Claim, and what qualifies the result as Evidence?
+- Which actor possesses a Capability, and which Principal grants Permission to use it?
+- Who makes a Claim, what Witness is independent for that Claim, and what Rule admits the result as Evidence?
 - Where does a term change meaning as it crosses a repository boundary?
-- Which uncertainty has been preserved as uncertainty, and which has been hidden by fluent prose?
+- Which uncertainty remains explicit, and which has been hidden by fluent prose?
 
-The objective is not to make every repository sound alike. Project documentation should retain the vocabulary demanded by its own mechanisms. Organon supplies a place to notice when two documents appear to agree only because they use the same word differently.
+The objective is not terminological obedience. Project vocabulary should describe project mechanisms. Organon makes the correspondence inspectable.
 
 ## Who is Daniel?
 
@@ -28,57 +27,57 @@ Organon is not an anonymous standard. Its distinctions come from a particular hi
 
 This matters because an ontology can be internally consistent and still reflect the attention of its author. Declaring that attention makes the work easier to challenge. It also prevents a useful instrument from acquiring the suspicious voice of a tablet recovered from a mountain.
 
-## The current instrument
+## Repository map
 
-[Daniel's Ontology](./Daniels-Ontology.md) is the current binding Markdown artifact. It begins with Absence and Presence, then develops a dependency-ordered system for Difference, Relation, Transformation, identity, Agency, Evidence, Permission, Authority, and institutional action. Its [changelog](./Daniels-Ontology-Changelog.md) preserves earlier arguments and rejected formulations so the active document does not have to debate its own ghosts.
+```text
+ontology/       binding prose, stable term registry, profiles, and Lean experiment
+editorial/      long-form grammar and canonical short-form delivery language
+provenance/     essay, editorial, and term-level evidence lineage
+reviews/        reusable review method and completed project audits
+schemas/        machine-readable adoption contract
+examples/       example adoption manifests
+scripts/        repository, semantic, and adoption checks
+```
 
-The ontology is binding only within work that adopts Organon. Binding does not mean complete, universally true, or immune to revision. It means that a capitalized term cannot quietly change meaning halfway through an argument. Proposed changes belong in the changelog and must preserve dependency closure or state which prior commitment they replace.
+The binding artifact is [Daniel's Ontology v0.9](./ontology/ontology.md). Its [term registry](./ontology/terms.yaml) assigns stable `organon:*` identifiers, typed claims, and explicit dependencies. The [changelog](./ontology/changelog.md) keeps earlier arguments and rejected formulations out of the active system.
 
-## The editorial instruments
+Capitalization is not adoption. A downstream repository adopts Organon by naming a version and profiles, declaring governed paths, and explicitly mapping its local vocabulary through an [adoption manifest](./schemas/organon-adoption-schema.json). The [example manifest](./examples/organon-adoption.json) is executable documentation.
 
-The [Long-Form Editorial Grammar](./Long-Form-Editorial-Grammar.md) describes the relationship through which a reader comes to need, receive, and carry a difficult idea. The canonical [Short Form](./Samples/Short-Form.md) governs the sentence-scale delivery once that idea has been earned. They are separate from the ontology: one governs argumentative movement, one governs delivery, and neither may silently redefine what the ontology says exists.
+## Editorial instruments
 
-The ontology's essay evidence is indexed through the public [Essay Corpus](./References/Essay-Corpus.md). Private drafts and review artifacts are declared through [Editorial Provenance](./References/Editorial-Provenance.md) rather than disguised as working links into Daniel's vault.
+The [Long-Form Editorial Grammar](./editorial/long-form.md) describes how a reader comes to need, receive, and carry a difficult idea. The canonical [Short Form](./editorial/short-form.md) governs sentence-scale delivery once that idea has been earned. Neither may silently redefine what the ontology says exists.
 
-## The Lean experiment
+The ontology's essay evidence is indexed through the public [Essay Corpus](./provenance/essays.md). Private drafts and review artifacts are declared through [Editorial Provenance](./provenance/editorial.md). [Term Provenance](./provenance/terms.md) records the lineage claimed for every stable term without presenting lineage as proof of truth.
 
-The [Lean formalization spike](./Ontology/README.md) tests whether selected regions of the ontology can survive a stricter host language. It currently formalizes local shadows of A1-A5, separates metalinguistic ordering from ontological Direction, carries Entity identity through a dependent Boundary, and constructs finite inhabited models for Missingness, Entity, and Permission.
+## Lean experiment
 
-Lean is not yet canonical. An uninhabited Lean type is still an object inside an already-present formal system; it is not absolute Absence. Compilation proves that the encoded declarations elaborate under the pinned compiler. It does not prove that the encoding exhausted the prose, that the prose exhausted Reality, or that the compiler has become a metaphysician.
+The [Lean formalization](./ontology/formal/README.md) prices decisions that prose can hide. It encodes selected high-risk regions, including classical A3, Direction-indexed Transformations, explicit feeding between States, executable Specifications, contextual Capability, Order-indexed Permission, scoped Witness independence, and a nontrivial Boundary model.
 
-The separation is intentional:
+Lean is not canonical. Compilation proves that the declarations elaborate under the pinned compiler. It does not prove that the encoding exhausted the prose, that the prose exhausted Reality, or that the compiler has become a metaphysician. The [formalization decisions](./ontology/formal/decisions.md) and [build receipt](./ontology/formal/build-receipt.md) preserve that boundary.
 
-- Markdown states the binding ontology.
-- Lean exposes decisions the prose can defer.
-- The [formalization decisions](./Ontology/Formalization-Decisions.md) record those decisions without silently rewriting the ontology.
-- The [build receipt](./Ontology/Build-Receipt.md) records exactly what the compiler verified.
+## Adoption and review
 
-## How to use Organon in a documentation review
+Begin with the project. Identify its actual actors, boundaries, transformations, records, and authority paths. Then use the [review template](./reviews/template.md) to classify each correspondence as exact, a refinement, a conflict, or unmapped. A defect may belong to the project, to Organon, or to the proposed mapping.
 
-Begin with the project, not with the ontology. Identify what the project actually does, which boundaries it enforces, and what evidence it emits. Then use Organon as a comparison surface.
+Repositories can adopt one or more profiles from [profiles.json](./ontology/profiles.json). The checker expands every selected profile through the registry's dependency closure and validates local mappings:
 
-1. Extract the project's important nouns, actors, transformations, and authority claims.
-2. Map only the terms that genuinely correspond to an Organon definition.
-3. Record mismatches instead of normalizing them by vocabulary alone.
-4. Distinguish a contradiction from a project-specific refinement.
-5. Return the result to the project as concrete documentation changes, unresolved questions, or an explicit proposal to revise Organon.
+```sh
+python3 scripts/check-adoption.py path/to/organon-adoption.json --repo-root path/to/repository
+```
 
-The desired result is not terminological obedience. It is a document whose reader no longer has to reconstruct the system from accidental synonyms.
+## Verification
 
-## Markdown in Obsidian and GitHub
-
-Organon is edited inside an Obsidian vault and published through GitHub. The two do not need separate source documents. Repository-facing files use the portable intersection documented in [Markdown Policy](./MARKDOWN.md): ordinary Markdown, relative Markdown links, fenced code blocks, and only those callout forms both renderers understand.
-
-Obsidian wikilinks, transclusions, block references, and query plugins remain useful in vault-private notes. They should not become dependencies of a public document. The rule is simple: Obsidian may provide the workshop, but GitHub must be able to read what leaves it.
-
-Run the repository boundary check with:
+From the repository root:
 
 ```sh
 python3 scripts/check-links.py
+python3 scripts/check-semantics.py
+python3 scripts/check-adoption.py examples/organon-adoption.json --repo-root .
+(cd ontology/formal && lake build && lake exe ontology_check)
 ```
 
-The checker rejects active wikilinks, private `Contexts/` paths, missing local targets, and relative links that escape the repository. Historical artifacts are exempt from syntax migration but must carry a public provenance notice.
+The link check keeps public Markdown inside the portable Obsidian/GitHub intersection documented in [Markdown Policy](./MARKDOWN.md). The semantic check verifies stable markers, claim types, dependency order, governed projections, and term-level provenance. The adoption check verifies the contract a downstream repository would make.
 
 ## Status
 
-Organon is provisional and already binding in a narrower sense: the ontology governs work that explicitly adopts it, while the larger editorial and repository-review method is still being exercised. The README is part of that exercise. If the instrument cannot explain itself without becoming ceremonial, that is evidence too.
+Organon v0.9 is provisional and binding only where explicitly adopted. The ontology is not complete, universally true, or immune to revision. It is a versioned promise that named distinctions will not quietly change halfway through an argument.
