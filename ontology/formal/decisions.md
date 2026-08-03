@@ -89,13 +89,13 @@ The model does not provide a universal natural-language semantics or unique Clai
 
 ## Trust binds exposure to an actual causal contribution
 
-`Trust` carries two distinct Entities, a nonempty Causal path, a future Transformation on that path, proof that the trustee supplies it, its output as Consequence, the same Transformation as the proposal-local exposure event, and proof that the truster does not determine it. An earlier draft used unconstrained `suppliedBy`, `dependsOn`, and `exposedTo` predicates; that draft was rejected because it could label arbitrary values without establishing a causal join.
+`Trust` carries two distinct Entities, a nonempty Causal path, a future Transformation on that path, a proposal-local contributor assignment identifying the trustee, its output as Consequence, the same Transformation as the proposal-local exposure event, and proof that the truster does not determine it. An earlier draft used unconstrained `suppliedBy`, `dependsOn`, and `exposedTo` predicates; that draft was rejected because it could label arbitrary values without establishing a causal join.
 
-The remaining gap is exact rather than hidden: the core Lean ontology does not yet formalize Interior membership crossing a Boundary, so the proposal-local exposure event is a Transformation but not a proof of D040 Exposure. The finite witness establishes causal contribution and undetermined dependency, while the Interior-and-Boundary join remains an open promotion gate for stronger Trust Claims.
+The remaining gaps are exact rather than hidden: the core Lean ontology does not yet formalize Action attribution to an Entity or Interior membership crossing a Boundary, so the contributor assignment is not derived from Agency and the proposal-local exposure event is a Transformation but not a proof of D040 Exposure. The finite witness establishes an assigned causal contribution and undetermined dependency, while the Action and Interior-and-Boundary joins remain open promotion gates for stronger Trust Claims.
 
 ## Alignment is conformity instantiated, not Specification possessed
 
-`AlignmentProfile` carries a constructive Specification over subject-reference pairs. `Alignment` requires a particular pair and a proof that it conforms. The finite model aligns one subject under one profile while rejecting it under an incompatible profile, and it uses different carrier types for subject and target so Alignment cannot be mistaken for identity.
+`AlignmentProfile` carries a constructive Specification over subject-reference pairs. `Alignment` requires a particular pair and a proof that it conforms. The finite model aligns one subject to a distinct target under one profile while rejecting the same pair under an incompatible profile, so the anti-identity result uses actual inequality rather than a free identity predicate.
 
 The model does not prove composition among behavioral, representational, incentive, or authority profiles. It also does not connect a profile's target to Reality. Therefore Alignment can be inhabited alongside a false Claim without contradiction: specified correspondence and Truth are separate Relations.
 

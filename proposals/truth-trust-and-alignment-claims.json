@@ -12,7 +12,6 @@
     "local:EpistemicAccess",
     "local:Contribution",
     "local:AlignmentProfile",
-    "local:Identity",
     "local:Confidence"
   ],
   "statements": [
@@ -55,7 +54,7 @@
       "id": "TA-C3",
       "type": "anti_collapse_constraint",
       "subject": "Alignment is profile scoped correspondence",
-      "depends_on": ["TA-D3", "local:Identity", "TA-D1", "TA-D2", "organon:Permission", "organon:Authority", "organon:Persistence"],
+      "depends_on": ["TA-D3", "organon:Difference", "TA-D1", "TA-D2", "organon:Permission", "organon:Authority", "organon:Persistence"],
       "formal_symbol": "alignmentIsProfileScoped"
     },
     {

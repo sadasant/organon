@@ -220,31 +220,34 @@ theorem confidenceDoesNotEntailTrust :
     rcases witness with ⟨trust⟩
     exact Empty.elim trust.truster.current.value
 
-inductive ToySubject where
-  | first
-  | second
-  deriving DecidableEq
-
-inductive ToyReference where
+inductive ToyAlignmentPresence where
+  | firstSubject
+  | secondSubject
   | requested
   deriving DecidableEq
 
-def behavioralProfile : AlignmentProfile ToySubject ToyReference where
+def behavioralProfile :
+    AlignmentProfile ToyAlignmentPresence ToyAlignmentPresence where
   specification := {
     scope := ⟨fun _ => True⟩
-    conforms := fun pair => pair.1 = .first
-    decideConformity := fun pair => decide (pair.1 = .first)
+    conforms := fun pair =>
+      pair.1 = .firstSubject ∧ pair.2 = .requested
+    decideConformity := fun pair =>
+      decide (pair.1 = .firstSubject ∧ pair.2 = .requested)
     conformityCorrect := by
       intro pair
       simp
     conformityWithinScope := by simp
   }
 
-def incompatibleProfile : AlignmentProfile ToySubject ToyReference where
+def incompatibleProfile :
+    AlignmentProfile ToyAlignmentPresence ToyAlignmentPresence where
   specification := {
     scope := ⟨fun _ => True⟩
-    conforms := fun pair => pair.1 = .second
-    decideConformity := fun pair => decide (pair.1 = .second)
+    conforms := fun pair =>
+      pair.1 = .secondSubject ∧ pair.2 = .requested
+    decideConformity := fun pair =>
+      decide (pair.1 = .secondSubject ∧ pair.2 = .requested)
     conformityCorrect := by
       intro pair
       simp
@@ -252,11 +255,9 @@ def incompatibleProfile : AlignmentProfile ToySubject ToyReference where
   }
 
 def toyAlignment : Alignment behavioralProfile where
-  subject := .first
+  subject := .firstSubject
   reference := .requested
   conforms := by simp [behavioralProfile]
-
-def toyIdentity : ToySubject → ToyReference → Prop := fun _ _ => False
 
 theorem alignmentIsProfileScoped :
     behavioralProfile.specification.conforms
@@ -267,10 +268,10 @@ theorem alignmentIsProfileScoped :
 
 theorem alignmentDoesNotEntailIdentity :
     Nonempty (Alignment behavioralProfile) ∧
-      ¬ toyIdentity toyAlignment.subject toyAlignment.reference := by
+      toyAlignment.subject ≠ toyAlignment.reference := by
   constructor
   · exact ⟨toyAlignment⟩
-  · simp [toyIdentity]
+  · decide
 
 theorem alignmentDoesNotEntailTruth :
     Nonempty (Alignment behavioralProfile) ∧

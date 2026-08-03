@@ -94,7 +94,7 @@ The noncanonical [TruthTrustAlignment.lean](../ontology/formal/TruthTrustAlignme
 - one present target and Claim that do not satisfy their truth-condition Specification;
 - one Trust Relation without confidence or Permission, and confidence without any possible Trust inhabitant;
 - one Alignment that satisfies one profile but not an incompatible profile;
-- Alignment between different carrier types without identity;
+- Alignment between distinct Presences without identity;
 - Alignment with a Claim that is false under the toy truth semantics; and
 - simultaneous inhabitation of Truth, Trust, and Alignment without identifying them.
 
@@ -108,7 +108,7 @@ Promotion does not supply a universal Map from every natural-language Claim to o
 <!-- organon:proposal-statement TA-G2 type=open_formalization_gate -->
 ### TA-G2 — Open formalization gate: Trust contribution and profile dynamics
 
-The formal shadow proves the proposed dependency shape for one finite future contribution on a Causal path. It treats the contributing Transformation as the exposure event but does not yet join that event to a formal Interior-and-Boundary crossing, quantify degree of Exposure, or model how Evidence, repeated interaction, Enforcement, or reputation changes an Entity's acceptance of exposure. Those dynamics remain blocked rather than being inferred from the existence of Trust.
+The formal shadow proves the proposed dependency shape for one finite future contribution on a Causal path. It assigns the contributing Transformation to the trustee through a proposal-local contributor function and treats that Transformation as the exposure event; it does not yet derive contribution from an Agent's Action, join the event to a formal Interior-and-Boundary crossing, quantify degree of Exposure, or model how Evidence, repeated interaction, Enforcement, or reputation changes an Entity's acceptance of exposure. Those joins and dynamics remain blocked rather than being inferred from the existence of Trust.
 
 <!-- organon:proposal-statement TA-G3 type=open_formalization_gate -->
 ### TA-G3 — Open formalization gate: Alignment profile composition and persistence
