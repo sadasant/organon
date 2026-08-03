@@ -4,10 +4,11 @@ status: verified
 canonicality: noncanonical
 created: 2026-08-02
 updated: 2026-08-02
+repository_commit: "393837f9253de8651791331e52feccfcf18661ee"
 ---
 # Lean Spike Build Receipt
 
-This receipt records external Evidence for the noncanonical Lean spike. It does not promote the spike over [Daniel's Ontology v0.9](../ontology.md).
+This receipt records external Evidence for the noncanonical Lean spike. It does not promote the spike over [Daniel's Ontology v0.10](../ontology.md).
 
 ## Toolchain
 
@@ -28,14 +29,17 @@ lake exe ontology_check
 Result: all build jobs completed successfully. The executable printed:
 
 ```text
-DanielOntology v0.9 spike: nontrivial finite model elaborated
+DanielOntology v0.10 spike: ontology and consciousness attribution-designation countermodels elaborated
 ```
 
-The Lean sources contain no `sorry`, `admit`, or `axiom` declaration. The finite model constructs Missingness; an Entity whose Boundary admits activation and rejects identity-breaking failure; a Boolean Specification with evaluated positive and negative cases; one institutional Permission; and one contextual PermissionExercise.
+The Lean sources contain no `sorry`, `admit`, or `axiom` declaration. The formal shadow models candidate conditions, Consciousness Attributions, and Order-indexed Consciousness Designations without defining a universal consciousness predicate. Its finite countermodels show that neither Attribution nor Designation entails candidate obtainment, and that candidate obtainment does not entail Designation. Designation remains institutionally dependent on an admitted Attribution. The artifact does not yet formalize evidentiary disposition.
+
+The repository commit attested by this receipt is `393837f9253de8651791331e52feccfcf18661ee`.
 
 ## Source digests
 
 - `DanielOntology.lean`: `e351a893ebd4a016e0578f33ee02a4537e46c6b5d6295d000a5322ea261ef8af`
-- `Model.lean`: `482b83d374704f6c549effbe85044309c76208fca797ac97d47cd88dab42ff8f`
-- `lakefile.toml`: `2a2a0a5688bc5c8259cd93dc78d454275c681e75a43fae16def404304dc8d65e`
+- `Consciousness.lean`: `1ce88fce1943039368d595c260ab74a7fd499f1d66513af00bce1238e1b80976`
+- `Model.lean`: `440b0511c0f0e71ad80d3c3233e43c0b4bc10f59889f86e9e5fe9feb498d9d17`
+- `lakefile.toml`: `832aee6e08f6d518b17838932512a96374e0ca071c8f45ad175a573cab5fbb5e`
 - `lean-toolchain`: `54727eec5cba149c18842e6deb5c41b369d66455c93ce135d7d5347c782b2325`

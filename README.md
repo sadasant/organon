@@ -33,13 +33,16 @@ This matters because an ontology can be internally consistent and still reflect 
 ontology/       binding prose, stable term registry, profiles, and Lean experiment
 editorial/      long-form grammar and canonical short-form delivery language
 provenance/     essay, editorial, and term-level evidence lineage
+proposals/      nonbinding promotion dossiers for quarantined vocabulary
 reviews/        reusable review method and completed project audits
 schemas/        machine-readable adoption contract
 examples/       example adoption manifests
 scripts/        repository, semantic, and adoption checks
 ```
 
-The binding artifact is [Daniel's Ontology v0.9](./ontology/ontology.md). Its [term registry](./ontology/terms.yaml) assigns stable `organon:*` identifiers, typed claims, and explicit dependencies. The [changelog](./ontology/changelog.md) keeps earlier arguments and rejected formulations out of the active system.
+The binding artifact is [Daniel's Ontology v0.10](./ontology/ontology.md). It remains readable as one Markdown document; the machine-readable registry and formal artifacts check and challenge it without replacing it. Its [term registry](./ontology/terms.yaml) assigns stable `organon:*` identifiers, typed claims, and explicit dependencies. The [changelog](./ontology/changelog.md) keeps earlier arguments and rejected formulations out of the active system.
+
+Terms under quarantine are developed through [proposal pull requests](./proposals/README.md). A proposal may preserve candidate definitions, hypotheses, evidence requirements, and reasons for refusal without changing the binding ontology merely by existing.
 
 Capitalization is not adoption. A downstream repository adopts Organon by naming a version and profiles, declaring governed paths, and explicitly mapping its local vocabulary through an [adoption manifest](./schemas/organon-adoption-schema.json). The [example manifest](./examples/organon-adoption.json) is executable documentation.
 
@@ -72,6 +75,8 @@ From the repository root:
 ```sh
 python3 scripts/check-links.py
 python3 scripts/check-semantics.py
+python3 scripts/check-proposals.py
+python3 scripts/check-formal-receipt.py
 python3 scripts/check-adoption.py examples/organon-adoption.json --repo-root .
 (cd ontology/formal && lake build && lake exe ontology_check)
 ```
@@ -80,4 +85,4 @@ The link check keeps public Markdown inside the portable Obsidian/GitHub interse
 
 ## Status
 
-Organon v0.9 is provisional and binding only where explicitly adopted. The ontology is not complete, universally true, or immune to revision. It is a versioned promise that named distinctions will not quietly change halfway through an argument.
+Organon v0.10 is provisional and binding only where explicitly adopted. The ontology is not complete, universally true, or immune to revision. It is a versioned promise that named distinctions will not quietly change halfway through an argument.

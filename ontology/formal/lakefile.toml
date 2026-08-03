@@ -5,6 +5,9 @@ defaultTargets = ["ontology_check"]
 [[lean_lib]]
 name = "DanielOntology"
 
+[[lean_lib]]
+name = "Consciousness"
+
 [[lean_exe]]
 name = "ontology_check"
 root = "Model"

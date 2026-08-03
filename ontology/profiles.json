@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "ontology_version": "0.9.0",
+  "ontology_version": "0.10.0",
   "profiles": {
     "agent": {
       "description": "Entities, boundaries, interpretation, action, tools, and contextual capability.",
@@ -44,6 +44,13 @@
         "organon:Exercisability",
         "organon:Enforcement",
         "organon:Role"
+      ]
+    },
+    "consciousness-discourse": {
+      "description": "Claims about candidate consciousness conditions and Order-indexed institutional designation, without defining consciousness itself.",
+      "roots": [
+        "organon:ConsciousnessAttribution",
+        "organon:ConsciousnessDesignation"
       ]
     }
   }
