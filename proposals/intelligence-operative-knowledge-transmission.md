@@ -109,7 +109,7 @@ Sperber's reconstructive account of cultural transmission challenges literal cop
 
 ## Formal shadow
 
-The noncanonical [IntelligenceKnowledge.lean](../ontology/formal/IntelligenceKnowledge.lean) defines proposal-local `AdaptiveRule`, `CognitivePipeline`, `Intelligence`, `InterpretiveContext`, `OperativeKnowledge`, `KnowledgeTransmission`, and `RecordTransfer` structures.
+The noncanonical [IntelligenceKnowledge.lean](../ontology/formal/IntelligenceKnowledge.lean) defines proposal-local `AdaptiveRule`, `CognitivePipeline`, `Intelligence`, `InterpretiveContext`, `OperativeKnowledge`, `KnowledgeTransmission`, and `RecordTransfer` structures. Each `AdaptiveRule` owns the cognitive pipeline whose Actions it produces, and each Operative Knowledge instance carries the Rule used by its discriminating Model, Interpretation, Action, and effect functions.
 
 The finite model constructs:
 
@@ -125,7 +125,7 @@ These witnesses test the exact anti-entailments. They do not identify Lean funct
 <!-- organon:proposal-statement IK-G1 type=open_formalization_gate -->
 ### IK-G1 — Open formalization gate: runtime construction and full causal realization
 
-Lean's `CognitivePipeline` composes typed functions and witnesses State-dependent results. It does not yet encode allocation time, training versus inference, a canonical Relation between executable functions and Organon's Rules, or the full Causal path from Environment through Sense, Perception, Interpretation, Action, and Consequence. Claims about a particular implementation's Intelligence remain blocked until those joins and its Agent Boundary are supplied.
+Lean's `CognitivePipeline` composes typed functions and witnesses State-dependent results, and its owning `AdaptiveRule` binds enumeration to the same pipeline. `InterpretiveContext.capable` remains an abstract local predicate rather than an inhabited Organon `Capability` under a concrete Configuration. The shadow does not yet encode allocation time, training versus inference, a canonical Relation between executable functions and Organon's Rules, or the full Causal path from Environment through Sense, Perception, Interpretation, Action, and Consequence. Claims about a particular implementation's Intelligence or Operative Knowledge remain blocked until those joins and its Agent Boundary are supplied.
 
 <!-- organon:proposal-statement IK-G2 type=open_formalization_gate -->
 ### IK-G2 — Open formalization gate: semantic and functional preservation
