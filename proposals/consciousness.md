@@ -171,16 +171,18 @@ The formal artifact contains no evidentiary-profile substitute. Its proofs estab
 
 ## Statement typing and verification
 
-The machine-readable [statement manifest](./consciousness-claims.json) types every proposed definition, anti-entailment, promotion boundary, and open gate. `scripts/check-proposals.py` verifies statement identity, type, dependency order, Markdown markers, formal-symbol references, and the proposal's nonbinding status.
+The machine-readable [statement manifest](./consciousness-claims.json) types every proposed definition, anti-entailment, promotion boundary, and open gate. `scripts/check-proposals.py` verifies statement identity, type, dependency order, Markdown markers, formal-symbol references, and the dossier's review status.
 
 ## Promotion boundary
 
-This proposal is ready for review as a **partial-promotion dossier**:
+This dossier accompanies a **partial promotion** into Organon v0.10:
 
-- promote Consciousness Attribution as a typed Claim protocol;
-- promote Consciousness Designation as an Order-indexed CountsAs Relation;
+- Consciousness Attribution enters the binding ontology as a typed Claim protocol;
+- Consciousness Designation enters the binding ontology as an Order-indexed CountsAs Relation;
 - preserve the underlying consciousness condition in quarantine;
 - preserve moral or legal protection as a separate institutional question; and
-- require full Evidence formalization before either proposal-local term enters the binding ontology.
+- preserve full evidentiary disposition as an open formalization gate.
+
+The dossier remains a review and provenance artifact rather than a second canonical ontology. The accompanying changes to `ontology/ontology.md`, `ontology/terms.yaml`, and constraint C10 enact the two promoted discourse terms if this pull request is merged.
 
 If nobody attributes consciousness to an Entity, no Consciousness Attribution exists for that claimant and Scope. If no Order designates the Entity, no Consciousness Designation exists in that Order and institutional Scope. Whether any candidate condition obtains remains UNKNOWN unless a separately declared Specification and admissible Evidence decide the corresponding Claim. That boundary is the proposal's positive result.

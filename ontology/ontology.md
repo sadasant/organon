@@ -2,7 +2,7 @@
 type: editorial-ontology
 status: provisional-binding
 binding: true
-version: 0.9
+version: 0.10
 created: 2026-08-01
 updated: 2026-08-02
 evidence_scope: "Daniel's adopted commitments and the recovered essay corpus"
@@ -562,6 +562,32 @@ A Ledger can preserve standing and history; it does not become Reality.
 
 There are not two ontological forms of Authority. There is one Authority Relation. “Constituted” and “constituent” name an Agent's position relative to the persistence or transformation of the Order. Political order is real because its enacted Relations constrain possible Transformations and Actions; it is not identical with Reality as a whole.
 
+### 21. Consciousness discourse and designation
+
+Within this section, `candidate condition` names a Configuration proposed as the condition ordinarily denoted by “consciousness.” The condition and the Specification used to describe and evaluate it are distinct Presences. The Specification identifies a Scope, supplies a constructive decision procedure for conformity, and states how its result corresponds to the proposed condition. Supplying such a Specification does not promote the candidate as Consciousness.
+
+<a id="organon-consciousness-attribution"></a>
+<!-- organon:term organon:ConsciousnessAttribution claim=D080 -->
+
+**Consciousness Attribution** is a Claim whose Representation, interpreted under a Rule in a Language, asserts that a target Entity's State instantiates a separately specified candidate condition within a Scope. It records the claimant, target, State, Representation, Claim Scope, candidate Specification, Language, meaning Rule, and the Map under which claimant and target are classified as first-person or third-person.
+
+The Attribution is the Claim, not the candidate condition. First-person classification does not make it independent Evidence for itself. Third-person classification does not provide unmediated access to the target's Interior.
+
+<a id="organon-consciousness-designation"></a>
+<!-- organon:term organon:ConsciousnessDesignation claim=D081 -->
+
+**Consciousness Designation** is the CountsAs Relation established when an Order, under a Rule and for a stated institutional purpose, admits a Consciousness Attribution and records the target Entity as carrying a consciousness status within an institutional Scope.
+
+Designation does not reuse Recognition. Recognition records Standing for an Entity; Consciousness Designation assigns a status through CountsAs. The Designation is one institutional event joining the Order, admitted Attribution, Rule, purpose, Scope, target Entity, and State.
+
+A Consciousness Designation is real as an institutional Relation and can enter later institutional decisions. It does not by itself alter Standing, Personhood, Permissions, protections, Interfaces, or Consequences. A separate Rule must explicitly connect the Designation to each downstream institutional Relation in a named Order and Scope.
+
+Designation depends institutionally on an admitted Consciousness Attribution. Neither Attribution nor Designation entails that the candidate condition obtains. Candidate obtainment does not entail Designation. Non-designation does not decide candidate obtainment.
+
+Failure to attribute or designate consciousness does not establish Absence, failure of the candidate condition, or proof of negation. It constitutes Missingness only relative to a field or Order that represents or expects such an Attribution or Designation and does not contain one. An explicit refusal is itself a present Claim or Record.
+
+This ontology does not define an Evidentiary Profile for consciousness discourse. Supported, defeated, and underdetermined remain ordinary disposition labels until each Evidence item is joined to an Observation, a Witness IndependentFor the relevant claimant and Claim, an Admissibility Rule and Order, and an evaluation Rule whose result is proved equal to the recorded disposition.
+
 ## Relation signatures
 
 These signatures make the ontology operational. They are schemas, not executable syntax.
@@ -596,6 +622,8 @@ These signatures make the ontology operational. They are schemas, not executable
 | `attests` | Witness, Claim, Specification, Order | scoped Claim about Observation or Evidence |
 | `institutes` | Roles, Records, Interfaces, recurring Flows | persistent Order |
 | `constitutes` | Polity, coordinated Agency, existing Order | transformed Order |
+| `attributesConsciousness` | Agent, target Entity, State, Representation, candidate Specification, Language, meaning Rule, Map, Claim Scope | Consciousness Attribution; no entailment that the candidate condition obtains |
+| `designatesConsciousness` | Order, Rule, institutional purpose, admitted Consciousness Attribution, institutional Scope | one CountsAs event for the Attribution's target Entity and State; no downstream institutional effect without a separate Rule |
 
 ## Binding consistency rules
 
@@ -617,11 +645,13 @@ These signatures make the ontology operational. They are schemas, not executable
 
 9. <!-- organon:claim C9 --> **No metaphor promotion:** A metaphor may reveal a Relation, but resemblance alone cannot establish an Entity, causal claim, or Invariant.
 
+10. <!-- organon:claim C10 --> **No consciousness discourse collapse:** A Consciousness Attribution does not establish its candidate condition; a Consciousness Designation does not establish that condition or independently alter Standing, Personhood, Permissions, protections, Interfaces, or Consequences; and failure to attribute or designate establishes neither Absence nor negation. Missingness obtains only in a field or Order that represents or expects the relevant Attribution or Designation.
+
 ## Quarantined vocabulary
 
 These terms occur in the corpus but have no binding definition yet. They may be used in ordinary or quoted language, but no argument may depend on their ontological meaning until they are defined and placed in the dependency order.
 
-- **Consciousness:** not inferable from Entity, Agent, Memory, Model, or Interior.
+- **Consciousness:** the underlying condition remains quarantined and is not inferable from Entity, Agent, Memory, Model, Interior, Consciousness Attribution, or Consciousness Designation. The two discourse terms govern Claims and institutional status without defining consciousness itself.
 - **Intelligence:** no binding definition; corpus uses include search, interpretation, generalization, coherence, and capacity to alter an Environment.
 - **Knowledge:** no binding definition; corpus uses include persistent Model, warranted Claim, transmissible Record, and practiced capability.
 - **Truth:** no binding definition; Evidence bears on Claims without establishing truth conditions.

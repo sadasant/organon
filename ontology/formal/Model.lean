@@ -217,4 +217,4 @@ theorem exerciseModelIsInhabited :
 end DanielOntology.Model
 
 def main : IO Unit :=
-  IO.println "DanielOntology v0.9 spike: ontology and consciousness attribution-designation countermodels elaborated"
+  IO.println "DanielOntology v0.10 spike: ontology and consciousness attribution-designation countermodels elaborated"

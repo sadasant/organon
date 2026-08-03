@@ -7,7 +7,7 @@ prose_ontology: "../ontology.md"
 ---
 # Formalization Decisions
 
-These decisions belong to the Lean spike. They expose choices priced by formalization. They do not independently revise [Daniel's Ontology v0.9](../ontology.md); accepted findings flow into the binding Markdown through its changelog.
+These decisions belong to the Lean spike. They expose choices priced by formalization. They do not independently revise [Daniel's Ontology v0.10](../ontology.md); accepted findings flow into the binding, single-file Markdown ontology through its changelog.
 
 ## Absence is not `Empty`
 
@@ -19,7 +19,7 @@ These decisions belong to the Lean spike. They expose choices priced by formaliz
 
 ## A3 currently commits to classical logic
 
-Exclusivity is constructive. Exhaustiveness for an arbitrary type requires excluded middle in this encoding. The declaration makes that commitment locally visible with `classical`, and v0.9 names classical logic in the binding metalanguage rather than presenting A3 as neutral.
+Exclusivity is constructive. Exhaustiveness for an arbitrary type requires excluded middle in this encoding. The declaration makes that commitment locally visible with `classical`, and the binding ontology names classical logic in its metalanguage rather than presenting A3 as neutral.
 
 ## A4 has two evidence levels
 

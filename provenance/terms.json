@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "ontology_version": "0.9.0",
+  "ontology_version": "0.10.0",
   "sources": {
     "essay:absence": {"kind": "published-corpus", "reference": "essays.md", "title": "Nothing Else Is So Exact As Absence"},
     "essay:shadow-world": {"kind": "published-corpus", "reference": "essays.md", "title": "The Shadow of the World"},
@@ -16,7 +16,9 @@
     "essay:delete-harness": {"kind": "published-corpus", "reference": "essays.md", "title": "Delete the Harness"},
     "review:daniel": {"kind": "adopted-review", "reference": "../ontology/changelog.md", "title": "Daniel's direct ontology review"},
     "review:v0.9": {"kind": "external-review", "reference": "../reviews/2026-08-02-organon-review.md", "title": "Organon v0.9 adversarial review"},
-    "formal:lean-v0.9": {"kind": "formalization", "reference": "../ontology/formal/decisions.md", "title": "Lean v0.9 formalization findings"}
+    "formal:lean-v0.9": {"kind": "formalization", "reference": "../ontology/formal/decisions.md", "title": "Lean v0.9 formalization findings"},
+    "proposal:consciousness": {"kind": "adopted-review", "reference": "../proposals/consciousness.md", "title": "Consciousness attribution and designation partial-promotion dossier"},
+    "formal:consciousness": {"kind": "formalization", "reference": "../ontology/formal/decisions.md", "title": "Consciousness discourse formalization findings"}
   },
   "groups": [
     {
@@ -48,6 +50,11 @@
       "basis": "corpus-extraction",
       "sources": ["essay:invariants", "essay:forging-reality", "essay:artificial-persons", "essay:priced-ledger"],
       "terms": ["organon:Institution", "organon:Center", "organon:Organ", "organon:CanonicalSystem", "organon:ShadowSystem", "organon:Person", "organon:Receipt", "organon:Ledger", "organon:Polity", "organon:ConstitutedExercise", "organon:ConstituentExercise", "organon:ConstituentPower"]
+    },
+    {
+      "basis": "review-repair",
+      "sources": ["proposal:consciousness", "formal:consciousness", "review:daniel"],
+      "terms": ["organon:ConsciousnessAttribution", "organon:ConsciousnessDesignation"]
     }
   ]
 }

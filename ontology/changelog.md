@@ -11,6 +11,15 @@ This note records how [Daniel's Ontology](./ontology.md) changed. Historical arg
 
 ## Version history
 
+### v0.10 - Consciousness discourse without a consciousness axiom
+
+- Promoted Consciousness Attribution as a Claim protocol and Consciousness Designation as an Order-indexed CountsAs Relation.
+- Kept the underlying consciousness condition quarantined; neither discourse term defines it or decides whether a candidate condition obtains.
+- Reserved Recognition for the Order's recording of Standing and required a separate Rule for every downstream institutional effect of Designation.
+- Added the exact attribution, designation, non-designation, and Missingness anti-collapses as binding constraint C10.
+- Added an optional `consciousness-discourse` adoption profile while leaving existing profile roots unchanged.
+- Preserved the evidence-disposition formalization gate until Observation, scoped Witness independence, admissibility provenance, and an evaluation Rule are joined.
+
 ### v0.9 - Stable semantics and Order-indexed institutions
 
 - Added stable `organon:*` term identifiers, typed claim identifiers, explicit dependencies, profiles, and a semantic linter.

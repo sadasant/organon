@@ -7,7 +7,7 @@ prose_ontology: "../ontology.md"
 ---
 # Daniel's Ontology - Lean Spike
 
-This directory tests whether [Daniel's Ontology v0.9](../ontology.md) can become a proof-checked Lean artifact. It is deliberately **noncanonical**. The Markdown ontology remains binding until Daniel explicitly promotes a formal artifact after term-for-term parity, a complete model, clean builds without `sorry`, and a stable Markdown projection.
+This directory tests whether [Daniel's Ontology v0.10](../ontology.md) can become a proof-checked Lean artifact. It is deliberately **noncanonical**. The single-file Markdown ontology remains the readable binding artifact until Daniel explicitly promotes a formal artifact after term-for-term parity, a complete model, clean builds without `sorry`, and a stable Markdown projection.
 
 ## Included in the spike
 
