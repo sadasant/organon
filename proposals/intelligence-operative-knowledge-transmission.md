@@ -142,9 +142,9 @@ Bare knowledge remains quarantined. A factive or warranted promotion must specif
 
 | ID | Type | Statement | Dependencies | Evidence or gate |
 | --- | --- | --- | --- | --- |
-| IK-D1 | Proposed definition | Intelligence | Capability, Agent, Model, Interpretation, Perception, Memory, Action, Consequence, Specification, State, Rule, Scope | `adaptiveIntelligence` |
-| IK-D2 | Proposed definition | Operative Knowledge | Configuration, Record, Agent, Capability, Constraint, Rule, Model, Interpretation, Causal path, Action, Transformation, State, Consequence, Specification, Scope | `mistakenOperativeKnowledge`, `accurateOperativeKnowledge` |
-| IK-D3 | Proposed definition | Knowledge Transmission | Relation, Operative Knowledge, Record, Causal path, Specification, Scope, Configuration, State, Agent | `reconstructedTransmission`, `selfTransmission` |
+| IK-D1 | Proposed definition | Intelligence | Capability, Agent, Model, Interpretation, Perception, Memory, Action, Consequence, Specification, State, Rule, Representation, Scope, Difference, Causal path, Record, Tool, Substrate | `adaptiveIntelligence` |
+| IK-D2 | Proposed definition | Operative Knowledge | Configuration, Record, Agent, Capability, Constraint, Rule, Model, Interpretation, Causal path, Action, Transformation, State, Consequence, Specification, Scope, Difference, Truth, Evidence | `mistakenOperativeKnowledge`, `accurateOperativeKnowledge` |
+| IK-D3 | Proposed definition | Knowledge Transmission | Relation, IK-D2, Record, Causal path, Specification, Scope, Configuration, State, Agent, Representation, Model, Interpretation | `reconstructedTransmission`, `selfTransmission` |
 | IK-C1 | Anti-collapse constraint | Intelligence is not a Model or fixed Interpretation | IK-D1, Model, Interpretation, Capability, IK-D2 | `fixedInterpretationDoesNotAdapt`, `operativeKnowledgeDoesNotEntailIntelligence` |
 | IK-C2 | Anti-collapse constraint | Operative Knowledge is not stored information or Truth | IK-D2, Record, Truth, Evidence | `noOperativeKnowledgeWithoutCapableInterpreter`, `operativeKnowledgeDoesNotEntailTruth` |
 | IK-C3 | Anti-collapse constraint | Knowledge Transmission is not copying or necessarily inter-agent | IK-D3, Record, Representation, Model, Interpretation, Agent | `copiedRecordDoesNotSupplyRecipientKnowledge`, `transmissionDoesNotRequireIdenticalRecordsOrModels`, `knowledgeTransmissionPermitsSameAgent` |

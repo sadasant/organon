@@ -20,21 +20,21 @@
       "id": "TA-D1",
       "type": "proposed_definition",
       "subject": "Truth",
-      "depends_on": ["organon:Relation", "organon:Claim", "organon:Representation", "organon:Rule", "organon:Specification", "organon:Reality", "organon:Presence", "organon:Scope"],
+      "depends_on": ["organon:Relation", "organon:Claim", "organon:Representation", "organon:Rule", "organon:Specification", "organon:Reality", "organon:Presence", "organon:Scope", "organon:Entity", "organon:Evidence", "organon:Admission"],
       "formal_symbol": "TruthSemantics"
     },
     {
       "id": "TA-D2",
       "type": "proposed_definition",
       "subject": "Trust",
-      "depends_on": ["organon:Relation", "organon:Entity", "organon:Boundary", "organon:Constraint", "organon:State", "organon:Action", "organon:Claim", "organon:CausalPath", "organon:Interior", "organon:Exposure", "organon:Consequence", "organon:Control", "organon:Scope", "local:Contribution", "local:Dependence"],
+      "depends_on": ["organon:Relation", "organon:Entity", "organon:Boundary", "organon:Constraint", "organon:State", "organon:Action", "organon:Claim", "organon:CausalPath", "organon:Interior", "organon:Exposure", "organon:Consequence", "organon:Control", "organon:Scope", "organon:Evidence", "organon:Permission", "organon:Authority", "local:Contribution", "local:Dependence"],
       "formal_symbol": "Trust"
     },
     {
       "id": "TA-D3",
       "type": "proposed_definition",
       "subject": "Alignment",
-      "depends_on": ["organon:Relation", "organon:Configuration", "organon:Presence", "organon:Specification", "organon:Scope", "organon:State", "organon:Transformation", "organon:Difference", "local:AlignmentProfile"],
+      "depends_on": ["organon:Relation", "organon:Configuration", "organon:Presence", "organon:Specification", "organon:Scope", "organon:State", "organon:Transformation", "organon:Difference", "TA-D1", "TA-D2", "organon:Permission", "organon:Authority", "organon:Agency", "organon:Persistence", "local:AlignmentProfile"],
       "formal_symbol": "Alignment"
     },
     {

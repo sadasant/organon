@@ -691,7 +691,9 @@ The carried Claim must be joined to the Record that discriminatingly conditions 
 
 **Warranted Knowledge** is Factive Operative Knowledge for which an Order admits Evidence supporting the same Claim under an Admissibility Rule, where the Evidence is joined to an Observation and a Witness that is IndependentFor that claimant, Claim, Observation, and Order.
 
-Warranted Knowledge therefore entails Factive Operative Knowledge, Truth for the carried Claim, and admitted Evidence for that Claim. The reverse implications fail separately. The Order does not create Truth by admitting Evidence, and factivity does not supply warrant when the required Observation, independent Witness, Rule provenance, or Admission is missing. This definition is an Order-relative epistemic profile; it does not define every ordinary use of knowledge.
+The claimant in that IndependentFor Relation is the interpreting Agent of the Factive Operative Knowledge instance. Evidence independent for one Agent cannot warrant another Agent's instance merely because both concern the same Claim.
+
+Warranted Knowledge therefore entails Factive Operative Knowledge, Truth for the carried Claim, and admitted Evidence for that Claim. The reverse implications fail separately. The Order does not create Truth by admitting Evidence, and factivity does not supply warrant when the claimant join, required Observation, independent Witness, Rule provenance, or Admission is missing. This definition is an Order-relative epistemic profile; it does not define every ordinary use of knowledge.
 
 ### 27. Moral-status discourse
 
@@ -851,7 +853,7 @@ These signatures make the ontology operational. They are schemas, not executable
 
 19. <!-- organon:claim C19 --> **No knowledge-transmission-copy collapse:** Knowledge Transmission requires recipient Operative Knowledge in a distinct State or stage and preservation under a declared Specification. Copying, exposing, or preserving a Record does not entail Knowledge Transmission; transmission does not entail identical Records, Representations, Models, Interpretations, or distinct Agents; independent acquisition does not establish transmission from a source.
 
-20. <!-- organon:claim C20 --> **No factivity-warrant collapse:** Factive Operative Knowledge requires Operative Knowledge and Truth for the exact Claim carried by its load-bearing Record. Warranted Knowledge additionally requires independently grounded Evidence admitted for that same Claim. Operative Knowledge, Truth, Evidence, or Admission alone is insufficient, and institutional Admission does not create Truth.
+20. <!-- organon:claim C20 --> **No factivity-warrant collapse:** Factive Operative Knowledge requires Operative Knowledge and Truth for the exact Claim carried by its load-bearing Record. Warranted Knowledge additionally requires Evidence admitted for that same Claim and independently grounded for the operative interpreter. Evidence independent for another Agent cannot fill that join. Operative Knowledge, Truth, Evidence, or Admission alone is insufficient, and institutional Admission does not create Truth.
 
 21. <!-- organon:claim C21 --> **No moral-discourse-status collapse:** Moral Status Attribution and Moral Personhood Designation do not establish their candidate condition; non-attribution and non-designation do not establish its negation. Designation does not independently alter Personhood, Standing, protections, duties, Permissions, Interfaces, prohibited Actions, or Consequences; every downstream effect requires a separate Rule in a named Order and Scope.
 

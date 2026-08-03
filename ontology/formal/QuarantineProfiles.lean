@@ -68,6 +68,7 @@ structure WarrantedKnowledge
     (evidenceSemantics : EvidenceSemantics
       Agent Claim Evidence Observation Witness Order EvidenceRule) where
   admission : EvidenceAdmission evidenceSemantics factive.claim
+  claimantMatches : admission.claimant = factive.operative.interpreter
 
 def toyRecordClaims : RecordClaimSemantics ToyClaim ToyClaim where
   carries := Eq
@@ -116,6 +117,7 @@ def warrantedAccurateKnowledge : WarrantedKnowledge
     admitted := by
       simp [openEvidenceSemantics, accurateFactiveKnowledge]
   }
+  claimantMatches := rfl
 
 def closedEvidenceSemantics : EvidenceSemantics
     ToyAgent ToyClaim ToyEvidence ToyObservation ToyWitness ToyOrder
@@ -379,6 +381,7 @@ theorem nonDesignationDoesNotDecideCandidate :
 
 structure SovereigntySemantics
     (Polity Entity Order Action Crossing Outcome : Type u) where
+  Rule : Type u
   hasConstituentPower : Polity → Order → Prop
   constitutes : Polity → Order → Action → Prop
   hasStanding : Order → Entity → Prop
@@ -388,8 +391,9 @@ structure SovereigntySemantics
   admitsCrossing : Crossing → Prop
   blocksCrossing : Crossing → Prop
   enforcementChanges : Order → Crossing → Outcome → Outcome → Prop
-  externallyRecognizes : Order → Order → Entity → Prop
-  actsAsOwnPrincipal : Order → Entity → Action → Prop
+  externallyRecognizes : Order → Order → Entity → Rule → Prop
+  actsAsOwnPrincipal : Order → Entity → Rule → Action → Prop
+  actsFor : Order → Entity → Entity → Rule → Action → Prop
 
 structure ConstituentSovereignty
     {Polity Entity Order Action Crossing Outcome : Type u}
@@ -435,6 +439,7 @@ structure BoundarySovereignty
   blocked : semantics.blocksCrossing blockedCrossing
   unenforcedOutcome : Outcome
   enforcedOutcome : Outcome
+  differentOutcomes : unenforcedOutcome ≠ enforcedOutcome
   enforcementDifference :
     semantics.enforcementChanges order blockedCrossing
       unenforcedOutcome enforcedOutcome
@@ -445,29 +450,38 @@ structure ExternalSovereignty
   internalOrder : Order
   recognizingOrder : Order
   target : Entity
+  rule : semantics.Rule
   action : Action
-  scope : Scope Entity
+  scope : Scope Action
   distinctOrders : internalOrder ≠ recognizingOrder
-  targetInScope : scope.includes target
+  actionInScope : scope.includes action
+  standing : semantics.hasStanding recognizingOrder target
   recognized :
-    semantics.externallyRecognizes recognizingOrder internalOrder target
-  ownPrincipal : semantics.actsAsOwnPrincipal recognizingOrder target action
+    semantics.externallyRecognizes recognizingOrder internalOrder target rule
+  ownPrincipal :
+    semantics.actsAsOwnPrincipal recognizingOrder target rule action
+  notDelegated : ∀ otherPrincipal,
+    otherPrincipal ≠ target →
+      ¬ semantics.actsFor recognizingOrder target otherPrincipal rule action
 
 inductive ToyPolity where | people deriving DecidableEq
 inductive SovereignEntity where | assembly | governor deriving DecidableEq
 inductive SovereignOrder where | internal | foreign deriving DecidableEq
+inductive SovereignRule where | internalAuthority | externalRecognition deriving DecidableEq
 inductive SovereignAction where | refound | administer deriving DecidableEq
 inductive Crossing where | admitted | blocked deriving DecidableEq
 inductive BoundaryOutcome where | unchanged | prevented deriving DecidableEq
 
 def toySovereignty : SovereigntySemantics ToyPolity SovereignEntity
     SovereignOrder SovereignAction Crossing BoundaryOutcome where
+  Rule := SovereignRule
   hasConstituentPower := fun polity order =>
     polity = .people ∧ order = .internal
   constitutes := fun polity order action =>
     polity = .people ∧ order = .internal ∧ action = .refound
   hasStanding := fun order entity =>
-    order = .internal ∧ entity = .governor
+    (order = .internal ∧ entity = .governor) ∨
+      (order = .foreign ∧ entity = .assembly)
   hasAuthority := fun order entity action =>
     order = .internal ∧ entity = .governor ∧ action = .administer
   superior := fun _ _ _ _ => False
@@ -477,10 +491,13 @@ def toySovereignty : SovereigntySemantics ToyPolity SovereignEntity
   enforcementChanges := fun order crossing before after =>
     order = .internal ∧ crossing = .blocked ∧
       before = .unchanged ∧ after = .prevented
-  externallyRecognizes := fun externalOrder internalOrder target =>
-    externalOrder = .foreign ∧ internalOrder = .internal ∧ target = .assembly
-  actsAsOwnPrincipal := fun order entity action =>
-    order = .foreign ∧ entity = .assembly ∧ action = .administer
+  externallyRecognizes := fun externalOrder internalOrder target rule =>
+    externalOrder = .foreign ∧ internalOrder = .internal ∧
+      target = .assembly ∧ rule = .externalRecognition
+  actsAsOwnPrincipal := fun order entity rule action =>
+    order = .foreign ∧ entity = .assembly ∧
+      rule = .externalRecognition ∧ action = .administer
+  actsFor := fun _ _ _ _ _ => False
 
 def constituentWitness : ConstituentSovereignty toySovereignty where
   polity := .people
@@ -520,18 +537,22 @@ def boundaryWitness : BoundarySovereignty toySovereignty where
   blocked := by simp [toySovereignty]
   unenforcedOutcome := .unchanged
   enforcedOutcome := .prevented
+  differentOutcomes := by decide
   enforcementDifference := by simp [toySovereignty]
 
 def externalWitness : ExternalSovereignty toySovereignty where
   internalOrder := .internal
   recognizingOrder := .foreign
   target := .assembly
+  rule := .externalRecognition
   action := .administer
-  scope := ⟨fun entity => entity = .assembly⟩
+  scope := ⟨fun action => action = .administer⟩
   distinctOrders := by decide
-  targetInScope := by simp
+  actionInScope := by simp
+  standing := by simp [toySovereignty]
   recognized := by simp [toySovereignty]
   ownPrincipal := by simp [toySovereignty]
+  notDelegated := by simp [toySovereignty]
 
 def constituentOnlySemantics : SovereigntySemantics ToyPolity SovereignEntity
     SovereignOrder SovereignAction Crossing BoundaryOutcome :=
@@ -543,8 +564,9 @@ def constituentOnlySemantics : SovereigntySemantics ToyPolity SovereignEntity
     admitsCrossing := fun _ => False
     blocksCrossing := fun _ => False
     enforcementChanges := fun _ _ _ _ => False
-    externallyRecognizes := fun _ _ _ => False
-    actsAsOwnPrincipal := fun _ _ _ => False }
+    externallyRecognizes := fun _ _ _ _ => False
+    actsAsOwnPrincipal := fun _ _ _ _ => False
+    actsFor := fun _ _ _ _ _ => False }
 
 def constitutedOnlySemantics : SovereigntySemantics ToyPolity SovereignEntity
     SovereignOrder SovereignAction Crossing BoundaryOutcome :=
@@ -555,8 +577,9 @@ def constitutedOnlySemantics : SovereigntySemantics ToyPolity SovereignEntity
     admitsCrossing := fun _ => False
     blocksCrossing := fun _ => False
     enforcementChanges := fun _ _ _ _ => False
-    externallyRecognizes := fun _ _ _ => False
-    actsAsOwnPrincipal := fun _ _ _ => False }
+    externallyRecognizes := fun _ _ _ _ => False
+    actsAsOwnPrincipal := fun _ _ _ _ => False
+    actsFor := fun _ _ _ _ _ => False }
 
 def boundaryOnlySemantics : SovereigntySemantics ToyPolity SovereignEntity
     SovereignOrder SovereignAction Crossing BoundaryOutcome :=
@@ -566,15 +589,15 @@ def boundaryOnlySemantics : SovereigntySemantics ToyPolity SovereignEntity
     hasStanding := fun _ _ => False
     hasAuthority := fun _ _ _ => False
     superior := fun _ _ _ _ => False
-    externallyRecognizes := fun _ _ _ => False
-    actsAsOwnPrincipal := fun _ _ _ => False }
+    externallyRecognizes := fun _ _ _ _ => False
+    actsAsOwnPrincipal := fun _ _ _ _ => False
+    actsFor := fun _ _ _ _ _ => False }
 
 def externalOnlySemantics : SovereigntySemantics ToyPolity SovereignEntity
     SovereignOrder SovereignAction Crossing BoundaryOutcome :=
   { toySovereignty with
     hasConstituentPower := fun _ _ => False
     constitutes := fun _ _ _ => False
-    hasStanding := fun _ _ => False
     hasAuthority := fun _ _ _ => False
     superior := fun _ _ _ _ => False
     controlsCrossing := fun _ _ => False
@@ -622,18 +645,22 @@ def boundaryOnlyWitness : BoundarySovereignty boundaryOnlySemantics where
   blocked := by simp [boundaryOnlySemantics, toySovereignty]
   unenforcedOutcome := .unchanged
   enforcedOutcome := .prevented
+  differentOutcomes := by decide
   enforcementDifference := by simp [boundaryOnlySemantics, toySovereignty]
 
 def externalOnlyWitness : ExternalSovereignty externalOnlySemantics where
   internalOrder := .internal
   recognizingOrder := .foreign
   target := .assembly
+  rule := .externalRecognition
   action := .administer
-  scope := ⟨fun entity => entity = .assembly⟩
+  scope := ⟨fun action => action = .administer⟩
   distinctOrders := by decide
-  targetInScope := by simp
+  actionInScope := by simp
+  standing := by simp [externalOnlySemantics, toySovereignty]
   recognized := by simp [externalOnlySemantics, toySovereignty]
   ownPrincipal := by simp [externalOnlySemantics, toySovereignty]
+  notDelegated := by simp [externalOnlySemantics, toySovereignty]
 
 theorem constituentDoesNotEntailOtherSovereigntyProfiles :
     Nonempty (ConstituentSovereignty constituentOnlySemantics) ∧
@@ -683,7 +710,9 @@ theorem externalDoesNotEntailOtherSovereigntyProfiles :
   · rintro ⟨profile⟩
     simpa [externalOnlySemantics] using profile.power
   · rintro ⟨profile⟩
-    simpa [externalOnlySemantics] using profile.standing
+    have authority :=
+      profile.authority profile.representativeAction profile.representativeInScope
+    simp [externalOnlySemantics] at authority
   · rintro ⟨profile⟩
     simpa [externalOnlySemantics] using profile.controlsAdmitted
 

@@ -153,8 +153,8 @@ The formal artifact contains no evidentiary-profile substitute. Its proofs estab
 
 | ID | Type | Statement | Dependencies | Gate |
 | --- | --- | --- | --- | --- |
-| CC-D1 | Proposed definition | Consciousness Attribution | Agent, Claim, Entity, candidate condition, Configuration, Specification, Scope, Language, Rule, Map | Formal Claim and Representation seam |
-| CC-D2 | Proposed definition | Consciousness Designation | CC-D1, Order, Rule, Admission, CountsAs, Scope | Linked designation relation |
+| CC-D1 | Proposed definition | Consciousness Attribution | Agent, Claim, Entity, State, candidate condition, Configuration, Representation, Specification, Scope, Language, Rule, Map | Formal Claim and Representation seam |
+| CC-D2 | Proposed definition | Consciousness Designation | Relation, CC-D1, Order, Rule, Admission, CountsAs, Scope, Entity, State | Linked designation relation |
 | CC-H1 | Hypothesis | Historical practice often aligned first-person report with preexisting institutional credibility and Standing | Claim, Standing, Recognition | Historical provenance |
 | CC-H2 | Hypothesis | AI can separate linguistic self-attribution from accepted provenance, Standing, and candidate obtainment | CC-D1, Claim, Standing, Causal path | Empirical Evidence |
 | CC-G1 | Open formalization gate | Evidentiary profile and disposition | Observation, Witness, IndependentFor, Evidence, Admissibility Rule, Order, Rule | Open |

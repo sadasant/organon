@@ -25,7 +25,7 @@ The underlying consciousness condition, bare **Knowledge**, the candidate condit
 
 *Knowledge Decay* treats retained symbols as insufficient when interpreters can no longer reconstruct their function. The v0.14 operative-knowledge model also admits locally successful falsehood. The new factive profile must therefore retain the complete Operative Knowledge Configuration while joining the exact Claim carried by its load-bearing Record to Truth. Truth without the operative path is not Factive Operative Knowledge; successful operation without Truth remains Operative Knowledge only.
 
-Warrant adds a second obligation. A true and operative Claim may still lack admitted Evidence. Warranted Knowledge requires Evidence for that same Claim, including its Observation, independent Witness, Admissibility Rule, governing Order, and Admission. It does not make institutional Admission constitutive of Truth.
+Warrant adds a second obligation. A true and operative Claim may still lack admitted Evidence. Warranted Knowledge requires Evidence for that same Claim, including its Observation, Witness independent for the interpreting Agent, Admissibility Rule, governing Order, and Admission. Evidence independent for another Agent does not satisfy that obligation. Institutional Admission remains nonconstitutive of Truth.
 
 ### Moral discourse survives legal and institutional personhood
 
@@ -73,7 +73,7 @@ An institutional valuation is exactly a CountsAs event in which an Order assigns
 **QP-D1 — Factive Operative Knowledge:** Factive Operative Knowledge is an instance of Operative Knowledge whose load-bearing Record carries a declared Claim and for which Truth obtains for that exact Claim under its declared Rule, truth-condition Specification, relevant Presence, and Scope.
 
 <!-- organon:proposal-statement QP-D2 type=proposed_definition -->
-**QP-D2 — Warranted Knowledge:** Warranted Knowledge is Factive Operative Knowledge for which an Order admits Evidence supporting the same Claim under an Admissibility Rule, where the Evidence is joined to an Observation and a Witness that is IndependentFor that claimant, Claim, Observation, and Order.
+**QP-D2 — Warranted Knowledge:** Warranted Knowledge is Factive Operative Knowledge for which an Order admits Evidence supporting the same Claim under an Admissibility Rule, where the Evidence is joined to an Observation and a Witness that is IndependentFor the interpreting Agent of that Factive Operative Knowledge instance, Claim, Observation, and Order. Independence for another Agent does not satisfy the definition.
 
 <!-- organon:proposal-statement QP-D3 type=proposed_definition -->
 **QP-D3 — Moral Status Attribution:** Moral Status Attribution is a Claim whose Representation, interpreted under a Rule, asserts that a target Entity in a State instantiates a separately specified candidate moral condition within a Scope. The Attribution identifies the candidate Specification and preserves claimant, target, Representation, interpretive Rule, and first-person or third-person provenance without establishing that the condition obtains.
@@ -107,7 +107,7 @@ An institutional valuation is exactly a CountsAs event in which an Order assigns
 ## Exact entailments and anti-entailments
 
 <!-- organon:proposal-statement QP-C1 type=anti_collapse_constraint -->
-**QP-C1 — Factivity and warrant remain cumulative:** Warranted Knowledge entails Factive Operative Knowledge, which entails Operative Knowledge and Truth for its exact carried Claim. The reverse implications fail separately. Operative Knowledge may carry a false Claim; a true Claim may lack an operative path; and Factive Operative Knowledge may lack admitted Evidence.
+**QP-C1 — Factivity and warrant remain cumulative:** Warranted Knowledge entails Factive Operative Knowledge, which entails Operative Knowledge and Truth for its exact carried Claim. The reverse implications fail separately. Operative Knowledge may carry a false Claim; a true Claim may lack an operative path; and Factive Operative Knowledge may lack Evidence admitted for its Claim and independently grounded for its interpreter. Evidence independent for another Agent does not close the warrant obligation.
 
 <!-- organon:proposal-statement QP-C2 type=anti_collapse_constraint -->
 **QP-C2 — Moral discourse does not decide moral status:** Moral Status Attribution and Moral Personhood Designation do not entail their candidate condition. Non-attribution and non-designation do not decide it. Designation does not independently alter Personhood, Standing, protections, duties, Permissions, Interfaces, or Consequences; each downstream effect requires a separate Rule in a named Order and Scope.
@@ -138,14 +138,14 @@ Samuelson's revealed preference and von Neumann and Morgenstern's utility repres
 
 ## Formal shadow
 
-The noncanonical [QuarantineProfiles.lean](../ontology/formal/QuarantineProfiles.lean) supplies typed structures and finite witnesses for the promoted seams. It joins a true toy Claim to an existing Operative Knowledge instance; adds admitted Evidence for that same Claim; separates moral candidate, Attribution, Designation, and downstream protection; constructs four profile-only sovereignty worlds in which each profile is inhabited and the other three are uninhabitable; and separates Preference, Utility Measure, Price, and institutional valuation in finite models.
+The noncanonical [QuarantineProfiles.lean](../ontology/formal/QuarantineProfiles.lean) supplies typed structures and finite witnesses for the promoted seams. It joins a true toy Claim to an existing Operative Knowledge instance; adds admitted Evidence for that same Claim while identifying the evidence claimant with the operative interpreter; separates moral candidate, Attribution, Designation, and downstream protection; constructs four profile-only sovereignty worlds in which each profile is inhabited and the other three are uninhabitable; and separates Preference, Utility Measure, Price, and institutional valuation in finite models.
 
-The formal artifact proves only the exact anti-entailments represented by those countermodels: useful operation without factivity; Truth without an operative path; factivity without warrant; Attribution and Designation without candidate obtainment; non-designation with either candidate result; Designation without protection; every sovereignty profile without the other three; Preference without utility representation; Utility Measure without a modeled Preference; Price without exchange or moral worth; and institutional valuation without moral worth. It does not formalize universal moral truth, the totality of an Order, international law, core Action-to-choice attribution, expected utility, monetary arithmetic, or generic Knowledge, Sovereignty, or Value.
+The sovereignty structures encode the proposal's local seams rather than labels alone. Boundary Sovereignty requires distinct unenforced and enforced outcomes. External Sovereignty carries a Rule, Standing, an Action Scope containing the representative Action, participation as the target's own Principal, and explicit exclusion of `ActsFor` relations to every distinct Principal. The formal artifact proves only the exact anti-entailments represented by its countermodels: useful operation without factivity; Truth without an operative path; factivity without warrant; Attribution and Designation without candidate obtainment; non-designation with either candidate result; Designation without protection; every sovereignty profile without the other three; Preference without utility representation; Utility Measure without a modeled Preference; Price without exchange or moral worth; and institutional valuation without moral worth. It does not formalize universal moral truth, the totality of an Order, international law, core Action-to-choice attribution, expected utility, monetary arithmetic, or generic Knowledge, Sovereignty, or Value.
 
 ## Promotion gates that remain open
 
 <!-- organon:proposal-statement QP-G1 type=open_formalization_gate -->
-**QP-G1 — Core evidence parity:** The formal Evidence predicates remain proposal-local. Full parity requires constructing Warranted Knowledge from Organon's `IndependentFor`, Admissibility Rule provenance, Observation, Evidence, and Admission structures without a free substitute predicate.
+**QP-G1 — Core evidence parity:** The formal Evidence predicates remain proposal-local, but `claimantMatches` enforces that their claimant is the operative interpreter. Full parity requires constructing Warranted Knowledge from Organon's `IndependentFor`, Admissibility Rule provenance, Observation, Evidence, and Admission structures without a free substitute predicate.
 
 <!-- organon:proposal-statement QP-G2 type=open_formalization_gate -->
 **QP-G2 — Moral condition and moral worth:** No binding Specification of the underlying moral condition or moral worth is supplied. Moral Status Attribution and Moral Personhood Designation remain discourse machinery only.
@@ -172,7 +172,7 @@ Promote QP-D1 through QP-D11, QP-P1, and QP-C1 through QP-C4. Keep the six unres
 | QP-D4 | Proposed definition | Moral Personhood Designation | Relation, CountsAs, Order, Rule, Admission, Scope, Entity, State, QP-D3 | `deniedMoralDesignation` |
 | QP-D5 | Proposed definition | Constituent Sovereignty | Configuration, Polity, Constituent Power, Constituent Exercise, Order, Rule, Boundary, Scope | `constituentWitness` |
 | QP-D6 | Proposed definition | Constituted Sovereignty | Order, Entity, Standing, Authority, Action, Scope, Recognition, Rule | `constitutedWitness` |
-| QP-D7 | Proposed definition | Boundary Sovereignty | Configuration, Polity, Entity, Control, Constraint, Transformation, Boundary, Order, Enforcement, Consequence, State, Scope | `boundaryWitness` |
+| QP-D7 | Proposed definition | Boundary Sovereignty | Configuration, Polity, Entity, Control, Constraint, Transformation, Boundary, Order, Enforcement, Difference, Consequence, State, Scope | `boundaryWitness` |
 | QP-D8 | Proposed definition | External Sovereignty | Relation, Order, Entity, Polity, Recognition, Standing, Principal, ActsFor, Action, Rule, Scope | `externalWitness` |
 | QP-D9 | Proposed definition | Preference | Relation, Agent, Rule, State, Consequence, Scope | `toyPreference` |
 | QP-D10 | Proposed definition | Utility Measure | Map, Relation, Rule, Specification, Scope, QP-D9 | `flatUtility` |

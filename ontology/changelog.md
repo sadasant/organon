@@ -13,9 +13,9 @@ This note records how [Daniel's Ontology](./ontology.md) changed. Historical arg
 
 ### v0.15 - Profiles around the remaining quarantine
 
-- Added Factive Operative Knowledge by joining the exact Claim carried by a load-bearing operative Record to Truth, and Warranted Knowledge by adding independently grounded Evidence admitted for that same Claim.
+- Added Factive Operative Knowledge by joining the exact Claim carried by a load-bearing operative Record to Truth, and Warranted Knowledge by adding independently grounded Evidence admitted for that same Claim with the evidence claimant identified as the operative interpreter.
 - Added Moral Status Attribution and Moral Personhood Designation while leaving the candidate moral condition and moral worth quarantined; designation has no downstream effect without a separate Rule.
-- Split sovereignty into Constituent, Constituted, Boundary, and External profiles with different exercise, maximal-authority, effective-enforcement, and recognition obligations.
+- Split sovereignty into Constituent, Constituted, Boundary, and External profiles with different exercise, maximal-authority, effective-enforcement, and recognition obligations; the formal shadows require unequal boundary outcomes and Rule-, Standing-, Scope-, and principal-indexed external action.
 - Added Preference, Utility Measure, and Price while treating institutional valuation as a CountsAs projection rather than a duplicate term.
 - Added C20-C23 and optional epistemic-status, moral-status-discourse, sovereignty-profiles, and valuation-profiles adoption profiles.
 - Kept the underlying consciousness condition, bare Knowledge, underlying moral personhood, generic Sovereignty, generic Value, and moral worth quarantined.
