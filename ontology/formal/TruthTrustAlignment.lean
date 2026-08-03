@@ -3,82 +3,128 @@ import DanielOntology
 /-!
 # Truth, Trust, and Alignment: formal shadows
 
-This file tests the three relations proposed by D085-D087. It keeps their
-participants explicit so correspondence, exposure, and conformity cannot be
-identified merely because the same Claim or Entity participates in each.
+This file tests D085-D087 without identifying correspondence, accepted causal
+dependence, and profile-scoped conformity. Every Truth instance requires a
+local material-adequacy join. Trust extends a more general Dependence with
+admission through a Constraint maintained in the truster's Boundary.
+Alignment uses ordered subject and target roles, not Organon's temporal
+Direction.
 
-`TruthSemantics` is a local bridge from a Claim to its declared Specification
-and target in a reality model. It does not formalize Reality as the totality of
-Presence. `Trust` records future, other-supplied, consequential exposure that
-the trusting Entity does not determine. `AlignmentProfile` supplies the
-directional Specification under which a subject may align to a reference.
+The file does not formalize Reality as the totality of Presence, universal
+natural-language interpretation, Action attribution, canonical Consequence,
+or Interior crossing.
 -/
 
-universe u v w x y
+universe u
 
 namespace DanielOntology
 
-structure TruthSemantics (Claim Target : Type u) where
+structure TruthSemantics
+    (Claim Representation MeaningRule Target : Type u) where
+  representationFor : Claim → Representation
+  meaningRuleFor : Claim → MeaningRule
   specificationFor : Claim → Specification Target
   targetFor : Claim → Target
+  scope : Scope (Claim × Target)
   targetInRealityModel : Target → Prop
+  materiallyAdequate :
+    Claim → Representation → MeaningRule →
+      Specification Target → Target → Prop
 
 def TruthSemantics.isTrue
-    {Claim Target : Type u}
-    (semantics : TruthSemantics Claim Target)
+    {Claim Representation MeaningRule Target : Type u}
+    (semantics : TruthSemantics Claim Representation MeaningRule Target)
     (claim : Claim) : Prop :=
-  semantics.targetInRealityModel (semantics.targetFor claim) ∧
+  semantics.materiallyAdequate
+      claim
+      (semantics.representationFor claim)
+      (semantics.meaningRuleFor claim)
+      (semantics.specificationFor claim)
+      (semantics.targetFor claim) ∧
+    semantics.scope.includes (claim, semantics.targetFor claim) ∧
+    semantics.targetInRealityModel (semantics.targetFor claim) ∧
     (semantics.specificationFor claim).conforms (semantics.targetFor claim)
 
 structure EpistemicAccess (Agent Target : Type u) where
   suppliesTarget : Agent → Target → Prop
 
-structure Trust
+structure Dependence
     {Carrier : Type u}
     (direction : Direction Carrier)
     (feeding : FeedRelation Carrier) where
-  truster : Entity Carrier
-  trustee : Entity Carrier
-  distinct : truster ≠ trustee
+  dependent : Entity Carrier
+  contributorEntity : Entity Carrier
+  distinct : dependent ≠ contributorEntity
   path : CausalPath direction feeding
   contribution : Transformation direction
   contributionOnPath : contribution ∈ path.steps
   contributor : Transformation direction → Entity Carrier
-  suppliedByTrustee : contributor contribution = trustee
+  suppliedByContributor : contributor contribution = contributorEntity
   relationState : State Carrier
-  relationAtTrusterState : relationState = truster.current
+  relationAtDependentState : relationState = dependent.current
   contributionIsFuture : direction.before relationState contribution.output
-  consequence : State Carrier
-  consequenceIsOutput : consequence = contribution.output
-  exposureTransformation : Transformation direction
-  exposureOnPath : exposureTransformation ∈ path.steps
-  exposureIsContribution : exposureTransformation = contribution
+  dependentOutput : State Carrier
+  outputFollowsContribution : dependentOutput = contribution.output
   determines : Entity Carrier → Transformation direction → Prop
-  contributionUndeterminedByTruster : ¬ determines truster contribution
+  contributionUndeterminedByDependent :
+    ¬ determines dependent contribution
 
-structure AlignmentProfile (Subject Reference : Type u) where
-  specification : Specification (Subject × Reference)
+def Dependence.isAccepted
+    {Carrier : Type u}
+    {direction : Direction Carrier}
+    {feeding : FeedRelation Carrier}
+    (dependence : Dependence direction feeding) : Prop :=
+  ∃ constraint,
+    constraint ∈ dependence.dependent.boundary.constraints ∧
+      constraint.permits dependence.contribution
+
+structure Trust
+    {Carrier : Type u}
+    (direction : Direction Carrier)
+    (feeding : FeedRelation Carrier) where
+  dependence : Dependence direction feeding
+  accepted : dependence.isAccepted
+
+def Dependence.isTrusted
+    {Carrier : Type u}
+    {direction : Direction Carrier}
+    {feeding : FeedRelation Carrier}
+    (dependence : Dependence direction feeding) : Prop :=
+  ∃ trust : Trust direction feeding, trust.dependence = dependence
+
+structure AlignmentProfile (Subject Target : Type u) where
+  specification : Specification (Subject × Target)
 
 structure Alignment
-    {Subject Reference : Type u}
-    (profile : AlignmentProfile Subject Reference) where
+    {Subject Target : Type u}
+    (profile : AlignmentProfile Subject Target) where
   subject : Subject
-  reference : Reference
-  conforms : profile.specification.conforms (subject, reference)
+  target : Target
+  conforms : profile.specification.conforms (subject, target)
 
-/-! ## Finite satisfiability and anti-entailment witnesses -/
+/-! ## Shared finite model -/
 
 inductive ToyClaim where
   | accurate
   | mistaken
   deriving DecidableEq
 
-inductive ToyTarget where
+inductive ToyAlignmentPresence where
+  | accurateRepresentation
+  | mistakenRepresentation
+  | requestedTarget
+  deriving DecidableEq
+
+inductive ToyFact where
   | obtaining
   | excluded
   deriving DecidableEq
 
-def toyTruthSpecification (claim : ToyClaim) : Specification ToyTarget where
+inductive ToyMeaningRule where
+  | literal
+  deriving DecidableEq
+
+def toyTruthSpecification (claim : ToyClaim) : Specification ToyFact where
   scope := ⟨fun _ => True⟩
   conforms := fun target =>
     match claim, target with
@@ -93,16 +139,34 @@ def toyTruthSpecification (claim : ToyClaim) : Specification ToyTarget where
     cases claim <;> cases target <;> simp
   conformityWithinScope := by simp
 
-def toyTruthSemantics : TruthSemantics ToyClaim ToyTarget where
+def toyTruthSemantics :
+    TruthSemantics ToyClaim ToyAlignmentPresence ToyMeaningRule ToyFact where
+  representationFor
+    | .accurate => .accurateRepresentation
+    | .mistaken => .mistakenRepresentation
+  meaningRuleFor := fun _ => .literal
   specificationFor := toyTruthSpecification
   targetFor
     | .accurate => .obtaining
     | .mistaken => .excluded
+  scope := ⟨fun _ => True⟩
   targetInRealityModel
     | .obtaining => True
     | .excluded => True
+  materiallyAdequate :=
+    fun claim representation meaningRule specification target =>
+    representation =
+        (match claim with
+         | .accurate => .accurateRepresentation
+         | .mistaken => .mistakenRepresentation) ∧
+      meaningRule = .literal ∧
+      specification = toyTruthSpecification claim ∧
+      target =
+        (match claim with
+         | .accurate => .obtaining
+         | .mistaken => .excluded)
 
-def sealedAccess : EpistemicAccess Unit ToyTarget where
+def sealedAccess : EpistemicAccess Unit ToyFact where
   suppliesTarget := fun _ _ => False
 
 theorem truthDoesNotEntailAgentAccess :
@@ -111,24 +175,32 @@ theorem truthDoesNotEntailAgentAccess :
         ¬ sealedAccess.suppliesTarget agent
           (toyTruthSemantics.targetFor .accurate) := by
   constructor
-  · simp [TruthSemantics.isTrue, toyTruthSemantics, toyTruthSpecification]
+  · simp [TruthSemantics.isTrue, toyTruthSemantics,
+      toyTruthSpecification]
   · intro agent
     simp [sealedAccess]
 
-theorem claimAndRealityModelDoNotEntailTruth :
-    toyTruthSemantics.targetInRealityModel
+theorem adequateClaimAndRealityModelDoNotEntailTruth :
+    toyTruthSemantics.materiallyAdequate
+        .mistaken
+        (toyTruthSemantics.representationFor .mistaken)
+        (toyTruthSemantics.meaningRuleFor .mistaken)
+        (toyTruthSemantics.specificationFor .mistaken)
+        (toyTruthSemantics.targetFor .mistaken) ∧
+      toyTruthSemantics.targetInRealityModel
         (toyTruthSemantics.targetFor .mistaken) ∧
       ¬ toyTruthSemantics.isTrue .mistaken := by
-  simp [TruthSemantics.isTrue, toyTruthSemantics, toyTruthSpecification]
+  simp [TruthSemantics.isTrue, toyTruthSemantics,
+    toyTruthSpecification]
 
 inductive TrustCarrier where
   | privateState
-  | deployedState
+  | affectedState
   deriving DecidableEq
 
 def trustDirection : Direction TrustCarrier where
   before := fun first second =>
-    first.value = .privateState ∧ second.value = .deployedState
+    first.value = .privateState ∧ second.value = .affectedState
   asymmetric := by
     intro first second forward backward
     simp_all
@@ -139,101 +211,154 @@ def trustFeed : FeedRelation TrustCarrier where
 def trustIdentity : Invariant TrustCarrier where
   holds := fun _ => True
 
-def trustBoundary : Boundary TrustCarrier trustIdentity where
+def admissionConstraint : Constraint TrustCarrier where
+  permits := fun transformation =>
+    transformation.input.value = .privateState ∧
+      transformation.output.value = .affectedState
+
+def acceptingBoundary : Boundary TrustCarrier trustIdentity where
+  constraints := [admissionConstraint]
+  preserves := by simp [trustIdentity]
+
+def closedBoundary : Boundary TrustCarrier trustIdentity where
   constraints := []
   preserves := by simp [trustIdentity]
 
-def principalEntity : Entity TrustCarrier where
+def acceptingPrincipal : Entity TrustCarrier where
   identity := trustIdentity
-  boundary := trustBoundary
+  boundary := acceptingBoundary
+  current := ⟨.privateState⟩
+  identityHolds := by simp [trustIdentity]
+
+def unwillingPrincipal : Entity TrustCarrier where
+  identity := trustIdentity
+  boundary := closedBoundary
   current := ⟨.privateState⟩
   identityHolds := by simp [trustIdentity]
 
 def delegateEntity : Entity TrustCarrier where
   identity := trustIdentity
-  boundary := trustBoundary
-  current := ⟨.deployedState⟩
+  boundary := closedBoundary
+  current := ⟨.affectedState⟩
   identityHolds := by simp [trustIdentity]
 
-def trustedTransformation : Transformation trustDirection where
+def contributedTransformation : Transformation trustDirection where
   input := ⟨.privateState⟩
-  output := ⟨.deployedState⟩
+  output := ⟨.affectedState⟩
   advances := by simp [trustDirection]
 
-def trustedPath : CausalPath trustDirection trustFeed where
-  steps := [trustedTransformation]
+def contributionPath : CausalPath trustDirection trustFeed where
+  steps := [contributedTransformation]
   connected := by simp [Chains]
 
-def toyTrust :
-    Trust trustDirection trustFeed where
-  truster := principalEntity
-  trustee := delegateEntity
+def acceptedDependence : Dependence trustDirection trustFeed where
+  dependent := acceptingPrincipal
+  contributorEntity := delegateEntity
   distinct := by
     intro equal
     have currentEqual := congrArg Entity.current equal
-    simp [principalEntity, delegateEntity] at currentEqual
-  path := trustedPath
-  contribution := trustedTransformation
-  contributionOnPath := by simp [trustedPath]
+    simp [acceptingPrincipal, delegateEntity] at currentEqual
+  path := contributionPath
+  contribution := contributedTransformation
+  contributionOnPath := by simp [contributionPath]
   contributor := fun _ => delegateEntity
-  suppliedByTrustee := rfl
-  relationState := principalEntity.current
-  relationAtTrusterState := rfl
+  suppliedByContributor := rfl
+  relationState := acceptingPrincipal.current
+  relationAtDependentState := rfl
   contributionIsFuture := by
-    simp [principalEntity, trustedTransformation, trustDirection]
-  consequence := trustedTransformation.output
-  consequenceIsOutput := rfl
-  exposureTransformation := trustedTransformation
-  exposureOnPath := by simp [trustedPath]
-  exposureIsContribution := rfl
+    simp [acceptingPrincipal, contributedTransformation, trustDirection]
+  dependentOutput := contributedTransformation.output
+  outputFollowsContribution := rfl
   determines := fun _ _ => False
-  contributionUndeterminedByTruster := by simp
+  contributionUndeterminedByDependent := by simp
+
+def involuntaryDependence : Dependence trustDirection trustFeed where
+  dependent := unwillingPrincipal
+  contributorEntity := delegateEntity
+  distinct := by
+    intro equal
+    have currentEqual := congrArg Entity.current equal
+    simp [unwillingPrincipal, delegateEntity] at currentEqual
+  path := contributionPath
+  contribution := contributedTransformation
+  contributionOnPath := by simp [contributionPath]
+  contributor := fun _ => delegateEntity
+  suppliedByContributor := rfl
+  relationState := unwillingPrincipal.current
+  relationAtDependentState := rfl
+  contributionIsFuture := by
+    simp [unwillingPrincipal, contributedTransformation, trustDirection]
+  dependentOutput := contributedTransformation.output
+  outputFollowsContribution := rfl
+  determines := fun _ _ => False
+  contributionUndeterminedByDependent := by simp
+
+def toyTrust : Trust trustDirection trustFeed where
+  dependence := acceptedDependence
+  accepted := by
+    refine ⟨admissionConstraint, ?_, ?_⟩
+    · simp [acceptedDependence, acceptingPrincipal, acceptingBoundary]
+    · simp [acceptedDependence, contributedTransformation,
+        admissionConstraint]
 
 def toyConfidence : Entity TrustCarrier → Entity TrustCarrier → Prop :=
-  fun _ _ => False
+  fun dependent contributor =>
+    dependent = unwillingPrincipal ∧ contributor = delegateEntity
+
 def toyPermission : Entity TrustCarrier → Entity TrustCarrier → Prop :=
   fun _ _ => False
 
 theorem trustDoesNotEntailConfidenceOrPermission :
     Nonempty (Trust trustDirection trustFeed) ∧
-      ¬ toyConfidence toyTrust.truster toyTrust.trustee ∧
-      ¬ toyPermission toyTrust.truster toyTrust.trustee := by
-  exact ⟨⟨toyTrust⟩, by simp [toyConfidence], by simp [toyPermission]⟩
-
-def confidentWithoutExposure :
-    Entity TrustCarrier → Entity TrustCarrier → Prop :=
-  fun truster trustee => truster = principalEntity ∧ trustee = delegateEntity
-
-def emptyDirection : Direction Empty where
-  before := fun _ _ => False
-  asymmetric := by simp
-
-def emptyFeed : FeedRelation Empty where
-  feeds := fun _ _ => False
-
-theorem confidenceDoesNotEntailTrust :
-    confidentWithoutExposure principalEntity delegateEntity ∧
-      ¬ Nonempty (Trust emptyDirection emptyFeed) := by
+      ¬ toyConfidence
+        toyTrust.dependence.dependent
+        toyTrust.dependence.contributorEntity ∧
+      ¬ toyPermission
+        toyTrust.dependence.dependent
+        toyTrust.dependence.contributorEntity := by
   constructor
-  · simp [confidentWithoutExposure]
-  · intro witness
-    rcases witness with ⟨trust⟩
-    exact Empty.elim trust.truster.current.value
+  · exact ⟨toyTrust⟩
+  constructor
+  · intro confidence
+    have principalEqual := confidence.1
+    have constraintsEqual := congrArg
+      (fun entity => entity.boundary.constraints.length)
+      principalEqual
+    simp [toyTrust, acceptedDependence, acceptingPrincipal,
+      acceptingBoundary, unwillingPrincipal, closedBoundary] at constraintsEqual
+  · simp [toyPermission]
 
-inductive ToyAlignmentPresence where
-  | firstSubject
-  | secondSubject
-  | requested
-  deriving DecidableEq
+theorem involuntaryDependenceIsNotAccepted :
+    ¬ involuntaryDependence.isAccepted := by
+  intro accepted
+  rcases accepted with ⟨constraint, maintained, permitted⟩
+  simp [involuntaryDependence, unwillingPrincipal, closedBoundary] at maintained
+
+theorem confidenceAndDependenceDoNotEntailTrust :
+    toyConfidence
+        involuntaryDependence.dependent
+        involuntaryDependence.contributorEntity ∧
+      ¬ involuntaryDependence.isTrusted := by
+  constructor
+  · simp [toyConfidence, involuntaryDependence]
+  · intro trusted
+    rcases trusted with ⟨trust, equality⟩
+    apply involuntaryDependenceIsNotAccepted
+    simpa [equality] using trust.accepted
 
 def behavioralProfile :
     AlignmentProfile ToyAlignmentPresence ToyAlignmentPresence where
   specification := {
     scope := ⟨fun _ => True⟩
     conforms := fun pair =>
-      pair.1 = .firstSubject ∧ pair.2 = .requested
+      (pair.1 = .accurateRepresentation ∨
+        pair.1 = .mistakenRepresentation) ∧
+      pair.2 = .requestedTarget
     decideConformity := fun pair =>
-      decide (pair.1 = .firstSubject ∧ pair.2 = .requested)
+      decide
+        ((pair.1 = .accurateRepresentation ∨
+          pair.1 = .mistakenRepresentation) ∧
+         pair.2 = .requestedTarget)
     conformityCorrect := by
       intro pair
       simp
@@ -244,48 +369,72 @@ def incompatibleProfile :
     AlignmentProfile ToyAlignmentPresence ToyAlignmentPresence where
   specification := {
     scope := ⟨fun _ => True⟩
-    conforms := fun pair =>
-      pair.1 = .secondSubject ∧ pair.2 = .requested
-    decideConformity := fun pair =>
-      decide (pair.1 = .secondSubject ∧ pair.2 = .requested)
-    conformityCorrect := by
-      intro pair
-      simp
+    conforms := fun pair => False
+    decideConformity := fun _ => false
+    conformityCorrect := by simp
     conformityWithinScope := by simp
   }
 
-def toyAlignment : Alignment behavioralProfile where
-  subject := .firstSubject
-  reference := .requested
-  conforms := by simp [behavioralProfile]
+def accurateAlignment : Alignment behavioralProfile where
+  subject := toyTruthSemantics.representationFor .accurate
+  target := .requestedTarget
+  conforms := by simp [behavioralProfile, toyTruthSemantics]
+
+def mistakenClaimAlignment : Alignment behavioralProfile where
+  subject := toyTruthSemantics.representationFor .mistaken
+  target := .requestedTarget
+  conforms := by simp [behavioralProfile, toyTruthSemantics]
 
 theorem alignmentIsProfileScoped :
     behavioralProfile.specification.conforms
-        (toyAlignment.subject, toyAlignment.reference) ∧
+        (accurateAlignment.subject, accurateAlignment.target) ∧
       ¬ incompatibleProfile.specification.conforms
-        (toyAlignment.subject, toyAlignment.reference) := by
-  simp [toyAlignment, behavioralProfile, incompatibleProfile]
+        (accurateAlignment.subject, accurateAlignment.target) := by
+  simp [accurateAlignment, behavioralProfile, incompatibleProfile,
+    toyTruthSemantics]
 
 theorem alignmentDoesNotEntailIdentity :
     Nonempty (Alignment behavioralProfile) ∧
-      toyAlignment.subject ≠ toyAlignment.reference := by
+      accurateAlignment.subject ≠ accurateAlignment.target := by
   constructor
-  · exact ⟨toyAlignment⟩
+  · exact ⟨accurateAlignment⟩
   · decide
 
-theorem alignmentDoesNotEntailTruth :
-    Nonempty (Alignment behavioralProfile) ∧
+theorem alignedClaimDoesNotEntailTruth :
+    mistakenClaimAlignment.subject =
+        toyTruthSemantics.representationFor .mistaken ∧
+      behavioralProfile.specification.conforms
+        (mistakenClaimAlignment.subject, mistakenClaimAlignment.target) ∧
       ¬ toyTruthSemantics.isTrue .mistaken := by
-  exact ⟨⟨toyAlignment⟩, by
-    simp [TruthSemantics.isTrue, toyTruthSemantics, toyTruthSpecification]⟩
+  simp [mistakenClaimAlignment, behavioralProfile,
+    TruthSemantics.isTrue, toyTruthSemantics, toyTruthSpecification]
+
+def claimCarriedByContribution :
+    Transformation trustDirection → ToyClaim
+  | _ => .accurate
+
+structure JointSituation where
+  claim : ToyClaim
+  truth : toyTruthSemantics.isTrue claim
+  trust : Trust trustDirection trustFeed
+  alignment : Alignment behavioralProfile
+  contributionCarriesClaim :
+    claimCarriedByContribution trust.dependence.contribution = claim
+  alignmentUsesClaimRepresentation :
+    alignment.subject = toyTruthSemantics.representationFor claim
+
+def jointSituation : JointSituation where
+  claim := .accurate
+  truth := by
+    simp [TruthSemantics.isTrue, toyTruthSemantics,
+      toyTruthSpecification]
+  trust := toyTrust
+  alignment := accurateAlignment
+  contributionCarriesClaim := rfl
+  alignmentUsesClaimRepresentation := rfl
 
 theorem truthTrustAndAlignmentAreJointlyInhabited :
-    toyTruthSemantics.isTrue .accurate ∧
-      Nonempty (Trust trustDirection trustFeed) ∧
-      Nonempty (Alignment behavioralProfile) := by
-  exact ⟨by
-    simp [TruthSemantics.isTrue, toyTruthSemantics, toyTruthSpecification],
-    ⟨toyTrust⟩,
-    ⟨toyAlignment⟩⟩
+    Nonempty JointSituation :=
+  ⟨jointSituation⟩
 
 end DanielOntology

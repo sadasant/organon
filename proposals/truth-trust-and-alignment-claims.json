@@ -10,6 +10,7 @@
   "local_symbols": [
     "local:TruthSemantics",
     "local:EpistemicAccess",
+    "local:Dependence",
     "local:Contribution",
     "local:AlignmentProfile",
     "local:Confidence"
@@ -19,21 +20,21 @@
       "id": "TA-D1",
       "type": "proposed_definition",
       "subject": "Truth",
-      "depends_on": ["organon:Relation", "organon:Claim", "organon:Specification", "organon:Reality", "organon:Presence", "organon:Scope"],
+      "depends_on": ["organon:Relation", "organon:Claim", "organon:Representation", "organon:Rule", "organon:Specification", "organon:Reality", "organon:Presence", "organon:Scope"],
       "formal_symbol": "TruthSemantics"
     },
     {
       "id": "TA-D2",
       "type": "proposed_definition",
       "subject": "Trust",
-      "depends_on": ["organon:Relation", "organon:Entity", "organon:Direction", "organon:State", "organon:Action", "organon:Claim", "organon:CausalPath", "organon:Exposure", "organon:Consequence", "organon:Control", "organon:Scope", "local:Contribution"],
+      "depends_on": ["organon:Relation", "organon:Entity", "organon:Boundary", "organon:Constraint", "organon:State", "organon:Action", "organon:Claim", "organon:CausalPath", "organon:Interior", "organon:Exposure", "organon:Consequence", "organon:Control", "organon:Scope", "local:Contribution", "local:Dependence"],
       "formal_symbol": "Trust"
     },
     {
       "id": "TA-D3",
       "type": "proposed_definition",
       "subject": "Alignment",
-      "depends_on": ["organon:Relation", "organon:Configuration", "organon:Presence", "organon:Specification", "organon:Scope", "organon:State", "organon:Transformation", "organon:Difference", "organon:Direction", "local:AlignmentProfile"],
+      "depends_on": ["organon:Relation", "organon:Configuration", "organon:Presence", "organon:Specification", "organon:Scope", "organon:State", "organon:Transformation", "organon:Difference", "local:AlignmentProfile"],
       "formal_symbol": "Alignment"
     },
     {
@@ -46,9 +47,9 @@
     {
       "id": "TA-C2",
       "type": "anti_collapse_constraint",
-      "subject": "Trust is not confidence prediction or authorization",
-      "depends_on": ["TA-D2", "organon:Permission", "organon:Authority", "organon:Evidence", "local:Confidence"],
-      "formal_symbol": "trustDoesNotEntailConfidenceOrPermission"
+      "subject": "Trust is not confidence prediction authorization or involuntary vulnerability",
+      "depends_on": ["TA-D2", "organon:Permission", "organon:Authority", "organon:Evidence", "local:Confidence", "local:Dependence"],
+      "formal_symbol": "confidenceAndDependenceDoNotEntailTrust"
     },
     {
       "id": "TA-C3",
@@ -67,14 +68,14 @@
     {
       "id": "TA-G1",
       "type": "open_formalization_gate",
-      "subject": "Complete Claim semantics and Reality bridge",
+      "subject": "Universal Claim semantics and Reality bridge",
       "depends_on": ["TA-D1", "organon:Claim", "organon:Map", "organon:Reality", "local:TruthSemantics"]
     },
     {
       "id": "TA-G2",
       "type": "open_formalization_gate",
-      "subject": "Trust contribution and profile dynamics",
-      "depends_on": ["TA-D2", "organon:CausalPath", "organon:Exposure", "organon:Evidence", "organon:Enforcement", "local:Contribution"]
+      "subject": "Trust Action Exposure and Consequence joins",
+      "depends_on": ["TA-D2", "organon:Action", "organon:CausalPath", "organon:Interior", "organon:Exposure", "organon:Consequence", "organon:Evidence", "organon:Enforcement", "local:Contribution", "local:Dependence"]
     },
     {
       "id": "TA-G3",
