@@ -6,7 +6,7 @@ concept: consciousness
 created: 2026-08-02
 updated: 2026-08-02
 recommended_outcome: partial-promotion
-statement_manifest: "consciousness.claims.json"
+statement_manifest: "consciousness-claims.json"
 formal_shadow: "../ontology/formal/Consciousness.lean"
 ---
 # Consciousness
@@ -171,7 +171,7 @@ The formal artifact contains no evidentiary-profile substitute. Its proofs estab
 
 ## Statement typing and verification
 
-The machine-readable [statement manifest](./consciousness.claims.json) types every proposed definition, anti-entailment, promotion boundary, and open gate. `scripts/check-proposals.py` verifies statement identity, type, dependency order, Markdown markers, formal-symbol references, and the proposal's nonbinding status.
+The machine-readable [statement manifest](./consciousness-claims.json) types every proposed definition, anti-entailment, promotion boundary, and open gate. `scripts/check-proposals.py` verifies statement identity, type, dependency order, Markdown markers, formal-symbol references, and the proposal's nonbinding status.
 
 ## Promotion boundary
 

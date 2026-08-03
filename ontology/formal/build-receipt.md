@@ -4,6 +4,7 @@ status: verified
 canonicality: noncanonical
 created: 2026-08-02
 updated: 2026-08-02
+repository_commit: "c236cb74753a81762a18de0f5bf757d8dc3c922c"
 ---
 # Lean Spike Build Receipt
 
@@ -28,15 +29,17 @@ lake exe ontology_check
 Result: all build jobs completed successfully. The executable printed:
 
 ```text
-DanielOntology v0.9 spike: finite ontology and consciousness anti-collapse models elaborated
+DanielOntology v0.9 spike: ontology and consciousness attribution-designation countermodels elaborated
 ```
 
-The Lean sources contain no `sorry`, `admit`, or `axiom` declaration. The finite models construct Missingness; an Entity whose Boundary admits activation and rejects identity-breaking failure; a Boolean Specification with evaluated positive and negative cases; one institutional Permission; one contextual PermissionExercise; and a consciousness proposal witness in which attribution, institutional recognition, and the candidate condition remain logically distinct.
+The Lean sources contain no `sorry`, `admit`, or `axiom` declaration. The formal shadow models candidate conditions, Consciousness Attributions, and Order-indexed Consciousness Designations without defining a universal consciousness predicate. Its finite countermodels show that neither Attribution nor Designation entails candidate obtainment, and that candidate obtainment does not entail Designation. Designation remains institutionally dependent on an admitted Attribution. The artifact does not yet formalize evidentiary disposition.
+
+The repository commit attested by this receipt is `c236cb74753a81762a18de0f5bf757d8dc3c922c`.
 
 ## Source digests
 
 - `DanielOntology.lean`: `e351a893ebd4a016e0578f33ee02a4537e46c6b5d6295d000a5322ea261ef8af`
-- `Consciousness.lean`: `d6145862060dc7b7e59f1e7ad789f7285188742d95b1e8e5b9daf9fd55ca1746`
-- `Model.lean`: `a97b55a5e8a5c93113d95c97617f1f744651e8367fcca7a7cd8e8b7949a691d9`
+- `Consciousness.lean`: `1ce88fce1943039368d595c260ab74a7fd499f1d66513af00bce1238e1b80976`
+- `Model.lean`: `5c11759209bffa5a75f58a35230d9638e487d5d0d6c959d44234ec9b0d367e25`
 - `lakefile.toml`: `832aee6e08f6d518b17838932512a96374e0ca071c8f45ad175a573cab5fbb5e`
 - `lean-toolchain`: `54727eec5cba149c18842e6deb5c41b369d66455c93ce135d7d5347c782b2325`

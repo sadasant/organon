@@ -116,7 +116,7 @@ def check_manifest(path: Path, known_terms: set[str]) -> list[str]:
 def main() -> int:
     registry = json.loads(TERM_REGISTRY.read_text(encoding="utf-8"))
     known_terms = {item["id"] for item in registry["terms"]}
-    manifests = sorted(PROPOSALS.glob("*.claims.json"))
+    manifests = sorted(PROPOSALS.glob("*-claims.json"))
     if not manifests:
         print("Proposal check failed: no statement manifests found")
         return 1
