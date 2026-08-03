@@ -1,10 +1,14 @@
 {
   "schema_version": 1,
   "proposal_id": "consciousness",
-  "status": "ready-for-review",
+  "status": "partially-promoted",
   "binding": false,
   "markdown": "consciousness.md",
   "formal_shadow": "../ontology/formal/Consciousness.lean",
+  "introduced_terms": [
+    "organon:ConsciousnessAttribution",
+    "organon:ConsciousnessDesignation"
+  ],
   "local_symbols": [
     "local:CandidateCondition",
     "ordinary:field"

@@ -1,8 +1,8 @@
 {
   "organon": {
     "source": "https://github.com/sadasant/organon",
-    "version": "0.11.0",
-    "revision": "v0.11.0",
+    "version": "0.12.0",
+    "revision": "v0.12.0",
     "profiles": ["agent", "evidence", "governance"],
     "governed_paths": ["README.md"],
     "mappings": [

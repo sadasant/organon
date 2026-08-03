@@ -19,6 +19,14 @@ ALLOWED_TYPES = {
     "open_formalization_gate",
     "open_evidence_gate",
 }
+ALLOWED_STATUSES = {
+    "draft",
+    "ready-for-review",
+    "partially-promoted",
+    "promoted",
+    "rejected",
+    "superseded",
+}
 MARKER = re.compile(
     r"<!-- organon:proposal-statement ([A-Z]{2}-[A-Z][0-9]+) "
     r"type=([a-z_]+) -->"
@@ -31,25 +39,35 @@ def check_manifest(path: Path, known_terms: set[str]) -> list[str]:
     base = path.parent
     markdown = base / data.get("markdown", "")
     formal = base / data.get("formal_shadow", "")
+    formal_evidence = [base / item for item in data.get("formal_evidence", [])]
 
     if data.get("schema_version") != 1:
         errors.append(f"{path.name}: unsupported schema_version")
     if data.get("binding") is not False:
         errors.append(f"{path.name}: proposal manifest must remain nonbinding")
-    if data.get("status") != "ready-for-review":
-        errors.append(f"{path.name}: status must be ready-for-review")
+    status = data.get("status")
+    if status not in ALLOWED_STATUSES:
+        errors.append(f"{path.name}: unsupported lifecycle status {status}")
     if not markdown.is_file():
         errors.append(f"{path.name}: missing Markdown file {markdown}")
         return errors
     if not formal.is_file():
         errors.append(f"{path.name}: missing formal shadow {formal}")
         return errors
+    for evidence in formal_evidence:
+        if not evidence.is_file():
+            errors.append(f"{path.name}: missing formal evidence {evidence}")
+    if errors:
+        return errors
 
     markdown_text = markdown.read_text(encoding="utf-8")
-    formal_text = formal.read_text(encoding="utf-8")
+    formal_text = "\n".join(
+        item.read_text(encoding="utf-8")
+        for item in [formal, *formal_evidence]
+    )
     if "binding: false" not in markdown_text:
         errors.append(f"{markdown.name}: frontmatter must declare binding: false")
-    if "status: ready-for-review" not in markdown_text:
+    if f"status: {status}" not in markdown_text:
         errors.append(f"{markdown.name}: frontmatter status does not match manifest")
 
     statements = data.get("statements", [])
@@ -62,6 +80,19 @@ def check_manifest(path: Path, known_terms: set[str]) -> list[str]:
         errors.append(f"{path.name}: duplicate statement ID {duplicate}")
 
     local_symbols = set(data.get("local_symbols", []))
+    introduced_terms = set(data.get("introduced_terms", []))
+    if not all(
+        isinstance(term, str) and term.startswith("organon:")
+        for term in introduced_terms
+    ):
+        errors.append(f"{path.name}: introduced_terms must contain organon identifiers")
+    if status in {"partially-promoted", "promoted"}:
+        missing_promotions = sorted(introduced_terms - known_terms)
+        for term in missing_promotions:
+            errors.append(
+                f"{path.name}: lifecycle is {status} but registry lacks {term}"
+            )
+    baseline_terms = known_terms - introduced_terms
     seen: set[str] = set()
     manifest_pairs: set[tuple[str, str]] = set()
 
@@ -76,7 +107,7 @@ def check_manifest(path: Path, known_terms: set[str]) -> list[str]:
         manifest_pairs.add((statement_id, statement_type))
 
         for dependency in item.get("depends_on", []):
-            if dependency in known_terms or dependency in local_symbols:
+            if dependency in baseline_terms or dependency in local_symbols:
                 continue
             if dependency in seen:
                 continue

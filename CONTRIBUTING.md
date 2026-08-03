@@ -6,6 +6,8 @@ Organon changes the vocabulary through which other work may be judged. A locally
 
 The binding artifact is the readable, single-file [ontology](./ontology/ontology.md). The term registry, provenance records, Lean sources, examples, and release notes must agree with it, but none silently replaces it. Proposals remain nonbinding until their exact promoted content enters the ontology and every governed projection is updated.
 
+A proposal manifest must list its `introduced_terms`. Proposal dependency closure is evaluated against the current registry with those terms removed; a statement may depend on an earlier proposal statement ID, but it may not borrow closure from the same promotion it is arguing for. When a promotion is enacted, update the dossier's independent lifecycle status to `partially-promoted` or `promoted`. The dossier remains nonbinding provenance after that transition.
+
 ## Change classes
 
 1. **Editorial or nonbinding:** wording, navigation, provenance, or a quarantined proposal that does not alter binding meaning.

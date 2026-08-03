@@ -3,13 +3,22 @@ type: ontology-changelog
 status: active
 ontology: "ontology.md"
 created: 2026-08-02
-updated: 2026-08-02
+updated: 2026-08-03
 ---
 # Daniel's Ontology - Changelog
 
 This note records how [Daniel's Ontology](./ontology.md) changed. Historical argument, rejected formulations, maintenance policy, and feedback belong here rather than in the binding ontology.
 
 ## Version history
+
+### v0.12 - Situated Worlds and contextual Substrates
+
+- Defined World as a scoped Configuration of participants, selected Environment, available Causal paths, and a named Invariant persisting across distinct access paths.
+- Defined Substrate as a contextual Configuration that persistently supplies input States and Constraints to a named family of Transformations.
+- Added C12 and C13 to prevent World from collapsing into Reality, Environment, Map, Reference, or consensus, and Substrate from collapsing into fundamental substance or the Configuration carried through it.
+- Added an optional `situated-world` adoption profile.
+- Added Uexküll, Gibson, Aristotle, and Simondon as local shadows while rejecting private-world, direct-realist, prime-matter, and passive-carrier inheritance.
+- Added finite Lean witnesses for one scoped World and one Substrate: participant-bound causal paths prove non-universal carrier Scope and non-identical access, while an ordered source-Persistence witness does not entail invariant-preserving outputs. Reality and carrier-to-content realization remain explicit formalization gates.
 
 ### v0.11 - Operationalized representations
 

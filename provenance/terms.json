@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "ontology_version": "0.11.0",
+  "ontology_version": "0.12.0",
   "sources": {
     "essay:absence": {"kind": "published-corpus", "reference": "essays.md", "title": "Nothing Else Is So Exact As Absence"},
     "essay:shadow-world": {"kind": "published-corpus", "reference": "essays.md", "title": "The Shadow of the World"},
@@ -63,6 +63,11 @@
       "basis": "corpus-extraction",
       "sources": ["essay:reasoning-language", "essay:computer-science-social", "essay:conspiracy-reason"],
       "terms": ["organon:Operationalization"]
+    },
+    {
+      "basis": "corpus-extraction",
+      "sources": ["essay:shadow-world", "essay:reasoning-language", "essay:containment"],
+      "terms": ["organon:World", "organon:Substrate"]
     }
   ]
 }

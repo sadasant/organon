@@ -1,6 +1,6 @@
 ---
 type: quarantine-proposal
-status: ready-for-review
+status: partially-promoted
 binding: false
 concept: consciousness
 created: 2026-08-02
@@ -171,11 +171,11 @@ The formal artifact contains no evidentiary-profile substitute. Its proofs estab
 
 ## Statement typing and verification
 
-The machine-readable [statement manifest](./consciousness-claims.json) types every proposed definition, anti-entailment, promotion boundary, and open gate. `scripts/check-proposals.py` verifies statement identity, type, dependency order, Markdown markers, formal-symbol references, and the dossier's review status.
+The machine-readable [statement manifest](./consciousness-claims.json) types every proposed definition, anti-entailment, promotion boundary, and open gate. `scripts/check-proposals.py` verifies statement identity, type, dependency order, Markdown markers, formal-symbol references, and the dossier's independent lifecycle status.
 
 ## Promotion boundary
 
-This dossier accompanies a **partial promotion** into Organon v0.10:
+This dossier records the **partial promotion** enacted in Organon v0.10:
 
 - Consciousness Attribution enters the binding ontology as a typed Claim protocol;
 - Consciousness Designation enters the binding ontology as an Order-indexed CountsAs Relation;
@@ -183,6 +183,6 @@ This dossier accompanies a **partial promotion** into Organon v0.10:
 - preserve moral or legal protection as a separate institutional question; and
 - preserve full evidentiary disposition as an open formalization gate.
 
-The dossier remains a review and provenance artifact rather than a second canonical ontology. The accompanying changes to `ontology/ontology.md`, `ontology/terms.yaml`, and constraint C10 enact the two promoted discourse terms if this pull request is merged.
+The dossier remains a provenance artifact rather than a second canonical ontology. `ontology/ontology.md`, `ontology/terms.yaml`, and constraint C10 enact the two promoted discourse terms; the underlying condition remains quarantined.
 
 If nobody attributes consciousness to an Entity, no Consciousness Attribution exists for that claimant and Scope. If no Order designates the Entity, no Consciousness Designation exists in that Order and institutional Scope. Whether any candidate condition obtains remains UNKNOWN unless a separately declared Specification and admissible Evidence decide the corresponding Claim. That boundary is the proposal's positive result.
