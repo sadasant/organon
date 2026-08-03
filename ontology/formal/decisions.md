@@ -2,12 +2,12 @@
 type: formalization-decisions
 status: noncanonical
 created: 2026-08-02
-updated: 2026-08-02
+updated: 2026-08-03
 prose_ontology: "../ontology.md"
 ---
 # Formalization Decisions
 
-These decisions belong to the Lean spike. They expose choices priced by formalization. They do not independently revise [Daniel's Ontology v0.11](../ontology.md); accepted findings flow into the binding, single-file Markdown ontology through its changelog.
+These decisions belong to the Lean spike. They expose choices priced by formalization. They do not independently revise [Daniel's Ontology v0.12](../ontology.md); accepted findings flow into the binding, single-file Markdown ontology through its changelog.
 
 ## Absence is not `Empty`
 
@@ -69,6 +69,18 @@ A representational carrier merely occurring in a Causal path is insufficient. `O
 
 The finite model proves the exact negative results claimed by C11: an inhabited Operationalization need not satisfy a fidelity predicate and need not be admitted as Evidence; even the selected Transformation reaching its output does not establish Evidence. These are countermodels to entailment, not definitions of Map fidelity, Evidence admission, or Consequence. Full joins to those ontology regions remain open formalization gates.
 
+## World requires distinct access and a common Invariant
+
+`World` is not encoded as an alias for a list of States. It carries nonempty participants, scoped States, distinct `AccessPath` identifiers, availability witnesses, an included Causal path, and one Invariant proved for every World State. This prices two commitments hidden by the ordinary word: access is participant-indexed, and a World Claim requires more than one private Perception.
+
+The finite model contains idle and active States while excluding the present broken State from the World's Scope. One access path exposes idle and another exposes active; the paths therefore need not agree on availability even though both World States satisfy the common operational Invariant. This is a countermodel to universal scope and identical access, not a formalization of Reality or proof that the named Invariant uniquely identifies a World.
+
+## Substrate is contextual; realization remains open
+
+`Substrate` carries its Scope, source States, carrier Invariant, Constraints, Causal path, and explicit Feeds witnesses. An earlier shadow also carried an arbitrary content value and a free `supports` predicate. That field was rejected as decorative: because any predicate could inhabit it, it proved no realization, reduction, or persistence relation.
+
+The finite Substrate supplies idle and active States to an activation-then-break path. Every supplied source State satisfies the carrier Invariant and every Transformation is admitted by the named Constraint, yet the final output violates that Invariant. This proves only the input-to-output anti-entailment. Every carrier-to-content, supervenience, emergence, or realization Claim remains outside the formal boundary until Organon defines a proof-bearing realization relation.
+
 ## Scope of the spike
 
-The spike formalizes A1-A5 and selected high-risk dependency regions. Its finite models construct one concrete Entity with an admitted preserving Transformation and a rejected identity-breaking Transformation, one standing-aware Permission and one contextual PermissionExercise, one Consciousness Designation whose candidate does not obtain, and one discriminating Operationalization whose selected Transformation occurs in a Causal path. Silent or negative structures supply countermodels for the named consciousness and representational anti-entailments. The spike does not yet cover all derived terms, relation signatures, anti-collapse rules, quarantined vocabulary, or deterministic Markdown rendering. Those remain promotion gates rather than implicit Claims of completeness.
+The spike formalizes A1-A5 and selected high-risk dependency regions. Its finite models construct one concrete Entity with an admitted preserving Transformation and a rejected identity-breaking Transformation, one standing-aware Permission and one contextual PermissionExercise, one Consciousness Designation whose candidate does not obtain, one discriminating Operationalization whose selected Transformation occurs in a Causal path, one scoped World with distinct access, and one contextual Substrate with explicit feeding and constraint witnesses. Silent or negative structures supply countermodels for the named consciousness, representational, World, and Substrate anti-entailments. The spike does not yet cover all derived terms, relation signatures, anti-collapse rules, quarantined vocabulary, or deterministic Markdown rendering. Those remain promotion gates rather than implicit Claims of completeness.

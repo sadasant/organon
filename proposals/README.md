@@ -22,3 +22,8 @@ Each proposal must state:
 - **Reject:** the candidate duplicates existing machinery or requires commitments Organon refuses.
 
 A merged proposal does not itself promote a term. Promotion requires a separate explicit ontology change in the same pull request or a later one, clearly identified as binding.
+
+## Current dossiers
+
+- [Consciousness](./consciousness.md): partial promotion of Attribution and Designation while the underlying condition remains quarantined.
+- [World and Substrate](./world-and-substrate.md): proposed promotion of participant-scoped World and contextual Substrate with formal anti-collapse witnesses.

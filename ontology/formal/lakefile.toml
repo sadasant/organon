@@ -11,6 +11,9 @@ name = "Consciousness"
 [[lean_lib]]
 name = "Operationalization"
 
+[[lean_lib]]
+name = "WorldSubstrate"
+
 [[lean_exe]]
 name = "ontology_check"
 root = "Model"

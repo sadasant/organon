@@ -1,0 +1,118 @@
+{
+  "schema_version": 1,
+  "proposal_id": "world-and-substrate",
+  "status": "ready-for-review",
+  "binding": false,
+  "markdown": "world-and-substrate.md",
+  "formal_shadow": "../ontology/formal/WorldSubstrate.lean",
+  "formal_evidence": [
+    "../ontology/formal/Model.lean"
+  ],
+  "local_symbols": [
+    "local:AccessPath",
+    "local:RealizationRelation"
+  ],
+  "statements": [
+    {
+      "id": "WS-D1",
+      "type": "proposed_definition",
+      "subject": "World",
+      "depends_on": [
+        "organon:Configuration",
+        "organon:Entity",
+        "organon:Environment",
+        "organon:State",
+        "organon:Relation",
+        "organon:CausalPath",
+        "organon:Perception",
+        "organon:Interpretation",
+        "organon:Action",
+        "organon:Constraint",
+        "organon:Sense",
+        "organon:Map",
+        "organon:Reference",
+        "organon:Scope",
+        "organon:Invariant"
+      ],
+      "formal_symbol": "World"
+    },
+    {
+      "id": "WS-D2",
+      "type": "proposed_definition",
+      "subject": "Substrate",
+      "depends_on": [
+        "organon:Configuration",
+        "organon:Scope",
+        "organon:Persistence",
+        "organon:Invariant",
+        "organon:State",
+        "organon:Transformation",
+        "organon:Feeds",
+        "organon:Constraint",
+        "organon:Difference"
+      ],
+      "formal_symbol": "Substrate"
+    },
+    {
+      "id": "WS-C1",
+      "type": "anti_collapse_constraint",
+      "subject": "World does not entail Reality",
+      "depends_on": [
+        "WS-D1",
+        "organon:Presence",
+        "organon:Reality",
+        "organon:Scope"
+      ],
+      "formal_symbol": "worldCanExcludePresentState"
+    },
+    {
+      "id": "WS-C2",
+      "type": "anti_collapse_constraint",
+      "subject": "Common World does not entail identical access",
+      "depends_on": [
+        "WS-D1",
+        "organon:Invariant",
+        "local:AccessPath"
+      ],
+      "formal_symbol": "worldAccessPathsNeedNotAgree"
+    },
+    {
+      "id": "WS-C3",
+      "type": "anti_collapse_constraint",
+      "subject": "Persistent source States do not entail invariant-preserving outputs",
+      "depends_on": [
+        "WS-D2",
+        "organon:Persistence",
+        "organon:Invariant",
+        "organon:Transformation"
+      ],
+      "formal_symbol": "substrateInputPersistenceDoesNotEntailOutputPersistence"
+    },
+    {
+      "id": "WS-C4",
+      "type": "anti_collapse_constraint",
+      "subject": "Substrate does not entail persistence of what it carries",
+      "depends_on": [
+        "WS-D2",
+        "organon:Persistence",
+        "local:RealizationRelation"
+      ]
+    },
+    {
+      "id": "WS-G1",
+      "type": "open_formalization_gate",
+      "subject": "Complete access, fidelity, and realization joins",
+      "depends_on": [
+        "organon:World",
+        "organon:Substrate",
+        "organon:Environment",
+        "organon:Sense",
+        "organon:Perception",
+        "organon:Map",
+        "organon:Representation",
+        "organon:Entity",
+        "local:RealizationRelation"
+      ]
+    }
+  ]
+}

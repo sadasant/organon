@@ -2,9 +2,9 @@
 type: editorial-ontology
 status: provisional-binding
 binding: true
-version: 0.11
+version: 0.12
 created: 2026-08-01
-updated: 2026-08-02
+updated: 2026-08-03
 evidence_scope: "Daniel's adopted commitments and the recovered essay corpus"
 corpus_audit: "../provenance/essays.md"
 term_registry: "terms.yaml"
@@ -599,6 +599,28 @@ The selection must be discriminating: under the same Rule and within the same Sc
 
 An Operationalized Representation can contribute causally to later States and, when the path includes an Agent's Interpretation and Action, to Consequences. Causal efficacy does not make the Representation identical to what it represents or to Reality. It does not establish that a Claim expressed by the Representation is supported by Evidence. A distorted Map can still coordinate Action; the resulting Consequence establishes that the Representation participated through a Rule in a Causal path, not that it represented its target faithfully.
 
+### 23. World and substrate
+
+<a id="organon-world"></a>
+<!-- organon:term organon:World claim=D083 -->
+
+**World** is a scoped Configuration containing one or more Entities, selected Presence from their Environments, and the States, Relations, and Causal paths available to their Perception, Interpretation, or Action under named Constraints.
+
+Availability requires an included Causal path: from an Environment through Sense into Perception, from an internal State through Action, or through both. A World must name at least one Invariant that persists across distinct combinations of Senses, Maps, or References within its Scope. The access paths may expose different States or Differences while still bearing on that common Invariant.
+
+A World is part of Reality, not an alternative to it. It includes participating Entities and therefore is not their Environment. A Map or Reference represents a World without becoming it. Agreement among Maps can supply Evidence for a Claim about a World; neither agreement nor consensus constitutes the World by itself.
+
+Different Worlds may overlap in Presence while differing in participants, Scope, available Causal paths, or named Invariants. An Order can transform a political World by changing actual Rules, institutional Boundaries, statuses, and available Actions. It does not create Reality from nothing.
+
+<a id="organon-substrate"></a>
+<!-- organon:term organon:Substrate claim=D084 -->
+
+**Substrate** is a Configuration specified within a Scope as the persistent source of input States for a named family of Transformations. Those States Feed the Transformation inputs, while Constraints in the Configuration determine which Differences can be preserved, suppressed, or amplified in the outputs.
+
+Substrate is contextual, not a fundamental kind. The same Configuration can be Substrate for one family of Transformations and an Entity, Environment, Tool, represented target, or output in another Scope. It is not passive raw material: its existing Relations and Constraints participate in what the Transformations can produce.
+
+A Substrate remains distinct from a Representation, Invariant, Entity, or function carried through it. Persistence of the Substrate does not entail Persistence of what it carries, and preservation of a carried Invariant does not require identity of Substrate across every State.
+
 ## Relation signatures
 
 These signatures make the ontology operational. They are schemas, not executable syntax.
@@ -636,6 +658,8 @@ These signatures make the ontology operational. They are schemas, not executable
 | `attributesConsciousness` | Agent, target Entity, State, Representation, candidate Specification, Language, meaning Rule, Map, Claim Scope | Consciousness Attribution; no entailment that the candidate condition obtains |
 | `designatesConsciousness` | Order, Rule, institutional purpose, admitted Consciousness Attribution, institutional Scope | one CountsAs event for the Attribution's target Entity and State; no downstream institutional effect without a separate Rule |
 | `operationalizes` | Representation, Rule, Interface, Scope, selected Transformation, Causal path | Rule discriminates the Representation, Interface exposes the selected Transformation, and that Transformation occurs in the path; no entailment of representational identity, Map fidelity, or Evidence |
+| `composesWorld` | Entities, selected Environment, Scope, Constraints, included Causal paths, named Invariant | participant-scoped World whose distinct access paths bear on the common Invariant; no identity with Reality, Environment, Map, or Reference |
+| `servesAsSubstrate` | Configuration, Scope, persistent input States, Feeds, Constraints, family of Transformations | contextual Substrate; no entailment that carrier and carried Configuration are identical or persist together |
 
 ## Binding consistency rules
 
@@ -661,6 +685,10 @@ These signatures make the ontology operational. They are schemas, not executable
 
 11. <!-- organon:claim C11 --> **No representational efficacy collapse:** Rule-mediated participation by a Representation in a real Transformation establishes neither identity with its target or Reality, nor fidelity of its Map, nor Evidence for its Claim merely because the selected Transformation or a later Consequence occurred.
 
+12. <!-- organon:claim C12 --> **No World collapse:** A World is neither Reality as a whole, an Entity's Environment, nor any Map or Reference through which the World is encountered. Convergence across access paths supports Claims about a common scoped Invariant; it does not provide unmediated access or make consensus constitutive of the World.
+
+13. <!-- organon:claim C13 --> **No Substrate collapse:** Substrate is a scoped function of a Configuration in a named family of Transformations, not a fundamental substance or intrinsic kind. The Substrate is not identical with a Representation, Invariant, Entity, or function carried through it, and Persistence of carrier and carried Configuration do not entail each other.
+
 ## Quarantined vocabulary
 
 These terms occur in the corpus but have no binding definition yet. They may be used in ordinary or quoted language, but no argument may depend on their ontological meaning until they are defined and placed in the dependency order.
@@ -675,8 +703,6 @@ These terms occur in the corpus but have no binding definition yet. They may be 
 - **Sovereignty:** no binding definition distinct from Authority, Constituent power, and exceptional Action.
 - **Value:** no binding definition distinguishing preference, price, utility, moral worth, and institutional recognition.
 
-`World` is restricted to ordinary language until its relation to Reality, Environment, and an observer's Map is defined. `Substrate` is restricted to a contextual role played by some Presence under Transformation; it is not a fundamental kind.
-
 ## Intellectual shadows and contribution
 
 This ontology does not claim that its local machinery is unprecedented. Nearly every region has a stronger established shadow. These references discipline the definitions and prevent structural resemblance from being presented as invention.
@@ -689,6 +715,7 @@ This ontology does not claim that its local machinery is unprecedented. Nearly e
 | Entity, State, Transformation, Persistence, and Relation | [Basic Formal Ontology 2020](https://bfo-ontology.github.io/bfo-2020.html), standardized as [ISO/IEC 21838-2:2021](https://www.iso.org/standard/74572.html), and the [DOLCE foundational ontology](https://www.loa.istc.cnr.it/index.php/dolce/) | The discipline of an upper ontology: explicit categories, typed Relations, dependency order, axiomatization, and consistency testing across domains. | This ontology is not BFO- or DOLCE-conformant and should not borrow their formal credibility. They are rigor benchmarks until an explicit mapping and contradiction audit exist. |
 | Declaration, Permission, Authority, Standing, Role, Person, Institution, and political Order | [John Searle, *Making the Social World*](https://academic.oup.com/book/5336) | Status functions, constitutive rules, declarations, deontic powers, and the form “X counts as Y in context C” strongly shadow the institutional stack. | A Declaration here is insufficient by utterance alone: it requires an Agent with Authority, a Specification, and an Order that records its Scope. The ontology also connects institutional counting to Capability, Boundary, Observation, Evidence, Ledger, and Constituent exercise. |
 | Representation, Rule, and Operationalization | [P. W. Bridgman, *The Logic of Modern Physics*](https://www.gutenberg.org/ebooks/70620), [John Searle, “Human Social Reality and Language”](https://doi.org/10.13128/Phe_Mi-19621), and [Terrence Deacon, *Incomplete Nature*](https://books.google.com/books?id=aT_y7ao96LgC) | Bridgman makes abstract concepts answerable to operations; Searle shows linguistic Representations creating institutional powers through constitutive Rules; Deacon argues that representational and purposive phenomena can have physical causal efficacy. | Operationalization here is broader than measurement, narrower than unconstrained causal influence, and neutral about Deacon's account of mind. It requires a discriminating Rule, exposed Transformation, Scope, and actual Causal-path witness; it does not make every operation semantic or every Representation institutionally constitutive. |
+| World and Substrate | [Jakob von Uexküll, *A Foray into the Worlds of Animals and Humans*](https://www.upress.umn.edu/9781452903798/a-foray-into-the-worlds-of-animals-and-humans/), [James J. Gibson, *The Ecological Approach to Visual Perception*](https://www.routledge.com/The-Ecological-Approach-to-Visual-Perception-Classic-Edition/Gibson/p/book/9781848725782), [Aristotle, *Physics*, Book I](https://classics.mit.edu/Aristotle/physics.1.i.html), and [Gilbert Simondon, *On the Mode of Existence of Technical Objects*](https://www.upress.umn.edu/9781517904876/on-the-mode-of-existence-of-technical-objects/) | Uexküll makes accessible worlds participant-relative; Gibson joins environment to possible perception and action; Aristotle identifies an underlying subject persisting through change; Simondon makes the associated milieu an active condition of technical operation rather than passive matter. | World here is not a private phenomenal bubble and does not adopt Gibson's direct realism: its common Invariant remains available only through constrained paths. Substrate is neither Aristotelian prime matter nor Simondon's associated milieu wholesale; it is a contextual Configuration specified by the input States it supplies and the Constraints it contributes to a named family of Transformations. |
 
 ### The originality boundary
 

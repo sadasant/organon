@@ -31,6 +31,7 @@ def check_manifest(path: Path, known_terms: set[str]) -> list[str]:
     base = path.parent
     markdown = base / data.get("markdown", "")
     formal = base / data.get("formal_shadow", "")
+    formal_evidence = [base / item for item in data.get("formal_evidence", [])]
 
     if data.get("schema_version") != 1:
         errors.append(f"{path.name}: unsupported schema_version")
@@ -44,9 +45,17 @@ def check_manifest(path: Path, known_terms: set[str]) -> list[str]:
     if not formal.is_file():
         errors.append(f"{path.name}: missing formal shadow {formal}")
         return errors
+    for evidence in formal_evidence:
+        if not evidence.is_file():
+            errors.append(f"{path.name}: missing formal evidence {evidence}")
+    if errors:
+        return errors
 
     markdown_text = markdown.read_text(encoding="utf-8")
-    formal_text = formal.read_text(encoding="utf-8")
+    formal_text = "\n".join(
+        item.read_text(encoding="utf-8")
+        for item in [formal, *formal_evidence]
+    )
     if "binding: false" not in markdown_text:
         errors.append(f"{markdown.name}: frontmatter must declare binding: false")
     if "status: ready-for-review" not in markdown_text:
