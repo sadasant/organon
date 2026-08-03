@@ -33,7 +33,7 @@ The candidate fails if “adaptive” merely means that a fixed lookup table ret
 
 *Knowledge Decay* distinguishes persistence of symbols from preservation of functional depth. A Record can survive while the capacity to reconstruct its purpose disappears. *Saturnalia* places synthetic interpretants inside recursive systems whose outputs become later Records. These uses reject the container metaphor in which knowledge sits inertly inside a medium.
 
-The candidate therefore requires a Configuration: Record, interpreter with the required Capability, Rule-mediated discrimination, Causal path, and specified result. The Record must make a difference to the Model or Interpretation under the same Configuration. An effect can become another Record, but at rest it is not knowledge.
+The candidate therefore requires a Configuration: Record, interpreter with the required Capability, Rule-mediated discrimination, Causal path, and specified result. The Record must make a difference to the Model or Interpretation under the same Configuration. An effect can become another Record, but at rest it is not Operative Knowledge.
 
 ### Knowledge Transmission survives the reconstruction case
 
@@ -69,7 +69,7 @@ Record transmission needs only a source, medium, and recipient location. Knowled
 ## Exact anti-entailments
 
 <!-- organon:proposal-statement IK-C1 type=anti_collapse_constraint -->
-**IK-C1 — Intelligence is not a Model or fixed Interpretation:** A Model, fixed implementation, stored weights, fixed Interpretation, Capability, successful output, Truth, Alignment, Permission, or Authority neither separately constitutes Intelligence nor follows from it. Fixed machinery may participate in an intelligent Agent when the Agent constructs State-dependent Models or Interpretations at runtime.
+**IK-C1 — Intelligence is not a Model or fixed Interpretation:** A Model, fixed implementation, stored weights, fixed Interpretation, Capability, successful output, Truth, Alignment, Permission, or Authority neither separately constitutes Intelligence nor follows from it. Fixed machinery may participate in an intelligent Agent when the Agent constructs State-dependent Models or Interpretations at runtime. Operative Knowledge does not entail Intelligence because its Rule may enumerate the relevant States and apply a fixed Interpretation.
 
 <!-- organon:proposal-statement IK-C2 type=anti_collapse_constraint -->
 **IK-C2 — Operative Knowledge is not stored information or Truth:** A Record can exist while no interpreter has the required Capability, and then no Operative Knowledge obtains. Operative Knowledge can produce a result conforming to a local Specification while a Claim represented by its Record is false. Record, Claim, Truth, Evidence, Model, interpreter, or effect alone is insufficient.
@@ -144,7 +144,7 @@ Bare knowledge remains quarantined. A factive or warranted promotion must specif
 | IK-D1 | Proposed definition | Intelligence | Capability, Agent, Model, Interpretation, Perception, Memory, Action, Consequence, Specification, State, Rule, Scope | `adaptiveIntelligence` |
 | IK-D2 | Proposed definition | Operative Knowledge | Configuration, Record, Agent, Rule, Model, Interpretation, Causal path, Action, Transformation, State, Consequence, Specification, Scope | `mistakenOperativeKnowledge`, `accurateOperativeKnowledge` |
 | IK-D3 | Proposed definition | Knowledge Transmission | Relation, Operative Knowledge, Record, Causal path, Specification, Scope, Configuration | `reconstructedTransmission` |
-| IK-C1 | Anti-collapse constraint | Intelligence is not a Model or fixed Interpretation | IK-D1, Model, Interpretation, Capability | `fixedInterpretationDoesNotAdapt` |
+| IK-C1 | Anti-collapse constraint | Intelligence is not a Model or fixed Interpretation | IK-D1, Model, Interpretation, Capability, IK-D2 | `fixedInterpretationDoesNotAdapt`, `operativeKnowledgeDoesNotEntailIntelligence` |
 | IK-C2 | Anti-collapse constraint | Operative Knowledge is not stored information or Truth | IK-D2, Record, Truth, Evidence | `noOperativeKnowledgeWithoutCapableInterpreter`, `operativeKnowledgeDoesNotEntailTruth` |
 | IK-C3 | Anti-collapse constraint | Knowledge Transmission is not copying | IK-D3, Record, Representation, Model, Interpretation | `copiedRecordDoesNotSupplyRecipientKnowledge`, `transmissionDoesNotRequireIdenticalRecordsOrModels` |
 | IK-G1 | Open formalization gate | Runtime construction and full causal realization | IK-D1, Agent, Rule, Causal path, Action, Consequence | Open |

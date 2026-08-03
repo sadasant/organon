@@ -396,6 +396,15 @@ theorem operativeKnowledgeDoesNotEntailTruth :
   simp [mistakenOperativeKnowledge, TruthSemantics.isTrue,
     toyTruthSemantics, toyTruthSpecification]
 
+theorem operativeKnowledgeDoesNotEntailIntelligence :
+    Nonempty (OperativeKnowledge
+      ToyClaim ToyAgent ToyKnowledgeRule ToyModel ToyInterpretation ToyAction ToyEffect
+        activeContext) ∧
+      ∀ first second,
+        ¬ AdaptiveAcross fixedRule first second := by
+  exact ⟨⟨mistakenOperativeKnowledge⟩,
+    fixedInterpretationDoesNotAdapt⟩
+
 theorem noOperativeKnowledgeWithoutCapableInterpreter :
     ¬ Nonempty (OperativeKnowledge
       ToyClaim ToyAgent ToyKnowledgeRule ToyModel ToyInterpretation ToyAction ToyEffect

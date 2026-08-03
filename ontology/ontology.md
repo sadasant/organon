@@ -653,7 +653,7 @@ Alignment is indexed by its Specification and Scope. Behavioral, representationa
 
 Adaptation requires more than applying one unchanged Interpretation: within the Scope, at least two non-enumerated States must produce Differences in both the constructed Model and the resulting Interpretation while their Consequences satisfy the declared Specification. “Non-enumerated” is relative to the producing Rule; it does not mean unknowable, random, or outside Reality. A fixed implementation, executable, or set of model weights may participate as Record, Memory, Rule, Tool, or Substrate without either constituting or excluding Intelligence. The relevant Agent is the whole persistent Entity whose Perception, Memory, Model construction, Interpretation, Capability, and Action form the Causal path, not an isolated Model.
 
-Intelligence does not entail Truth, Operative Knowledge, Alignment, Permission, Authority, favorable Consequences outside the declared Specification, or success in another Scope. A Capability that applies one fixed Interpretation without constructing or revising a Model across non-enumerated States is not Intelligence under this definition.
+Intelligence does not entail Truth, Alignment, Permission, Authority, favorable Consequences outside the declared Specification, or success in another Scope. A Capability that applies one fixed Interpretation without constructing or revising a Model across non-enumerated States is not Intelligence under this definition.
 
 <a id="organon-operative-knowledge"></a>
 <!-- organon:term organon:OperativeKnowledge claim=D089 -->
@@ -664,12 +664,14 @@ The Record participates discriminatingly only if replacing it with another in-Sc
 
 Operative Knowledge is indexed by its Record, interpreter, Rule, Scope, and Specification. It may operate successfully under a local Specification while a Claim represented by the Record is false; Truth and Evidence require their own Relations. Bare **knowledge** remains ordinary language unless explicitly mapped to Operative Knowledge or promoted later under a different dependency-closed definition.
 
+Operative Knowledge does not entail Intelligence: the operative Rule may enumerate every relevant State and apply a fixed Interpretation. An Intelligence instance uses Memory operatively, but establishing the corresponding Operative Knowledge instance still requires declaring the exact Record, interpreter Capability, Rule, Causal path, Scope, and Specification rather than treating the relation as implicit.
+
 <a id="organon-knowledge-transmission"></a>
 <!-- organon:term organon:KnowledgeTransmission claim=D090 -->
 
 **Knowledge Transmission** is a scoped Relation between a source instance and a recipient instance of Operative Knowledge in which the source produces or exposes a Record through a Causal path, the recipient reconstructs Operative Knowledge from that mediated Record, and a declared Specification confirms preservation of the named operative function across the two resulting Configurations.
 
-Transmission preserves specified function, not necessarily Record identity, literal Representation, Model identity, or Interpretation identity. Copying or exposing a Record without a recipient Agent having the required Capability is Record transmission, not Knowledge Transmission. A recipient that independently constructs Operative Knowledge from a Record whose source had no Operative Knowledge acquires knowledge but does not receive it from that source under this Relation. Distortion or decay obtains relative to the declared preservation Specification; a transfer can fail under one Specification and succeed under a weaker one.
+Transmission preserves specified function, not necessarily Record identity, literal Representation, Model identity, or Interpretation identity. Copying or exposing a Record without a recipient Agent having the required Capability is Record transmission, not Knowledge Transmission. A recipient that independently constructs Operative Knowledge from a Record whose source had no Operative Knowledge acquires Operative Knowledge but does not receive it from that source under this Relation. Distortion or decay obtains relative to the declared preservation Specification; a transfer can fail under one Specification and succeed under a weaker one.
 
 ## Relation signatures
 
