@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "ontology_version": "0.10.0",
+  "ontology_version": "0.11.0",
   "claim_types": ["primitive", "axiom", "definition", "binding_constraint", "derived_consequence", "hypothesis", "authorized_projection", "note", "quarantined"],
   "terms": [
     {"id":"organon:Absence","label":"Absence","claim_id":"P1","claim_type":"primitive","depends_on":[],"anchor":"organon-absence"},
@@ -86,7 +86,8 @@
     {"id":"organon:ConstituentExercise","label":"Constituent exercise","claim_id":"D078","claim_type":"definition","depends_on":["organon:Agency","organon:Action","organon:Order","organon:Authority","organon:Role","organon:Person","organon:Claim","organon:Boundary"],"anchor":"organon-constituent-exercise"},
     {"id":"organon:ConstituentPower","label":"Constituent power","claim_id":"D079","claim_type":"definition","depends_on":["organon:Persistence","organon:Capability","organon:Polity","organon:ConstituentExercise"],"anchor":"organon-constituent-power"},
     {"id":"organon:ConsciousnessAttribution","label":"Consciousness Attribution","claim_id":"D080","claim_type":"definition","depends_on":["organon:Agent","organon:Claim","organon:Entity","organon:State","organon:Configuration","organon:Representation","organon:Specification","organon:Scope","organon:Language","organon:Rule","organon:Map"],"anchor":"organon-consciousness-attribution"},
-    {"id":"organon:ConsciousnessDesignation","label":"Consciousness Designation","claim_id":"D081","claim_type":"definition","depends_on":["organon:Relation","organon:CountsAs","organon:Order","organon:Rule","organon:Admission","organon:Scope","organon:Entity","organon:State","organon:ConsciousnessAttribution"],"anchor":"organon-consciousness-designation"}
+    {"id":"organon:ConsciousnessDesignation","label":"Consciousness Designation","claim_id":"D081","claim_type":"definition","depends_on":["organon:Relation","organon:CountsAs","organon:Order","organon:Rule","organon:Admission","organon:Scope","organon:Entity","organon:State","organon:ConsciousnessAttribution"],"anchor":"organon-consciousness-designation"},
+    {"id":"organon:Operationalization","label":"Operationalization","claim_id":"D082","claim_type":"definition","depends_on":["organon:Representation","organon:Configuration","organon:Rule","organon:Interface","organon:Transformation","organon:CausalPath","organon:Scope","organon:State","organon:Agent","organon:Interpretation","organon:Action","organon:Consequence","organon:Map","organon:Evidence"],"anchor":"organon-operationalization"}
   ],
   "commitments": [
     {"id":"A1","claim_type":"axiom","depends_on":["organon:Absence"]},
@@ -108,6 +109,7 @@
     {"id":"C7","claim_type":"binding_constraint","depends_on":["organon:Capability","organon:Standing","organon:Authority"]},
     {"id":"C8","claim_type":"binding_constraint","depends_on":["organon:Interior","organon:Exposure"]},
     {"id":"C9","claim_type":"binding_constraint","depends_on":["organon:Relation","organon:Entity","organon:Invariant"]},
-    {"id":"C10","claim_type":"binding_constraint","depends_on":["organon:ConsciousnessAttribution","organon:ConsciousnessDesignation","organon:Missingness","organon:Absence","organon:Evidence","organon:Standing","organon:Person","organon:Permission","organon:Interface","organon:Consequence","organon:Rule"]}
+    {"id":"C10","claim_type":"binding_constraint","depends_on":["organon:ConsciousnessAttribution","organon:ConsciousnessDesignation","organon:Missingness","organon:Absence","organon:Evidence","organon:Standing","organon:Person","organon:Permission","organon:Interface","organon:Consequence","organon:Rule"]},
+    {"id":"C11","claim_type":"binding_constraint","depends_on":["organon:Operationalization","organon:Representation","organon:Transformation","organon:Reality","organon:Evidence","organon:Claim","organon:Consequence"]}
   ]
 }

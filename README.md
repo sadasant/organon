@@ -40,7 +40,7 @@ examples/       example adoption manifests
 scripts/        repository, semantic, and adoption checks
 ```
 
-The binding artifact is [Daniel's Ontology v0.10](./ontology/ontology.md). It remains readable as one Markdown document; the machine-readable registry and formal artifacts check and challenge it without replacing it. Its [term registry](./ontology/terms.yaml) assigns stable `organon:*` identifiers, typed claims, and explicit dependencies. The [changelog](./ontology/changelog.md) keeps earlier arguments and rejected formulations out of the active system.
+The binding artifact is [Daniel's Ontology v0.11](./ontology/ontology.md). It remains readable as one Markdown document; the machine-readable registry and formal artifacts check and challenge it without replacing it. Its [term registry](./ontology/terms.yaml) assigns stable `organon:*` identifiers, typed claims, and explicit dependencies. The [changelog](./ontology/changelog.md) keeps earlier arguments and rejected formulations out of the active system.
 
 Terms under quarantine are developed through [proposal pull requests](./proposals/README.md). A proposal may preserve candidate definitions, hypotheses, evidence requirements, and reasons for refusal without changing the binding ontology merely by existing.
 
@@ -85,4 +85,4 @@ The link check keeps public Markdown inside the portable Obsidian/GitHub interse
 
 ## Status
 
-Organon v0.10 is provisional and binding only where explicitly adopted. The ontology is not complete, universally true, or immune to revision. It is a versioned promise that named distinctions will not quietly change halfway through an argument.
+Organon v0.11 is provisional and binding only where explicitly adopted. The ontology is not complete, universally true, or immune to revision. It is a versioned promise that named distinctions will not quietly change halfway through an argument.

@@ -1,10 +1,13 @@
 {
   "schema_version": 1,
-  "ontology_version": "0.10.0",
+  "ontology_version": "0.11.0",
   "sources": {
     "essay:absence": {"kind": "published-corpus", "reference": "essays.md", "title": "Nothing Else Is So Exact As Absence"},
     "essay:shadow-world": {"kind": "published-corpus", "reference": "essays.md", "title": "The Shadow of the World"},
     "essay:reasoning-language": {"kind": "published-corpus", "reference": "essays.md", "title": "Reasoning and Language"},
+    "essay:computer-science-social": {"kind": "published-corpus", "reference": "essays.md", "title": "Computer Science is a Social Science"},
+    "essay:higher-you-go": {"kind": "published-corpus", "reference": "essays.md", "title": "The Higher You Go: Trust, Agency, and Perception"},
+    "essay:conspiracy-reason": {"kind": "published-corpus", "reference": "essays.md", "title": "The Conspiracy of Reason"},
     "essay:containment": {"kind": "published-corpus", "reference": "essays.md", "title": "Containment"},
     "essay:secret-thoughts": {"kind": "published-corpus", "reference": "essays.md", "title": "Secret Thoughts"},
     "essay:beyond-function-calling": {"kind": "published-corpus", "reference": "essays.md", "title": "Beyond Function Calling"},
@@ -55,6 +58,11 @@
       "basis": "review-repair",
       "sources": ["proposal:consciousness", "formal:consciousness", "review:daniel"],
       "terms": ["organon:ConsciousnessAttribution", "organon:ConsciousnessDesignation"]
+    },
+    {
+      "basis": "corpus-extraction",
+      "sources": ["essay:reasoning-language", "essay:computer-science-social", "essay:conspiracy-reason"],
+      "terms": ["organon:Operationalization"]
     }
   ]
 }

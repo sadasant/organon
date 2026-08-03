@@ -11,6 +11,14 @@ This note records how [Daniel's Ontology](./ontology.md) changed. Historical arg
 
 ## Version history
 
+### v0.11 - Operationalized representations
+
+- Added Operationalization for Representations incorporated into Rules and Interfaces so they can condition scoped Causal paths.
+- Added C11 to preserve the distinction between causal efficacy, representational identity, Map fidelity, and Evidence.
+- Added an optional `operational-representation` adoption profile.
+- Added `The Conspiracy of Reason`, `The Higher You Go`, and the existing recovered 2024 essays to the explicit corpus-provenance surface.
+- Kept Trust, Intelligence, Truth, and Value quarantined; the added essays use them in multiple senses without supplying dependency-closed definitions.
+
 ### v0.10 - Consciousness discourse without a consciousness axiom
 
 - Promoted Consciousness Attribution as a Claim protocol and Consciousness Designation as an Order-indexed CountsAs Relation.

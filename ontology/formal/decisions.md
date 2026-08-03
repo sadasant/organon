@@ -7,7 +7,7 @@ prose_ontology: "../ontology.md"
 ---
 # Formalization Decisions
 
-These decisions belong to the Lean spike. They expose choices priced by formalization. They do not independently revise [Daniel's Ontology v0.10](../ontology.md); accepted findings flow into the binding, single-file Markdown ontology through its changelog.
+These decisions belong to the Lean spike. They expose choices priced by formalization. They do not independently revise [Daniel's Ontology v0.11](../ontology.md); accepted findings flow into the binding, single-file Markdown ontology through its changelog.
 
 ## Absence is not `Empty`
 
@@ -67,4 +67,4 @@ Direction, Transformation, Boundary, Capability, and Permission have different a
 
 ## Scope of the spike
 
-The spike formalizes A1-A5 and selected high-risk dependency regions. Its finite models construct one concrete Entity with an admitted preserving Transformation and a rejected identity-breaking Transformation, one standing-aware Permission and one contextual PermissionExercise, and one Consciousness Designation whose candidate does not obtain. A silent Designation Order supplies the countermodel showing that non-designation does not decide candidate obtainment. The spike does not yet cover all derived terms, relation signatures, anti-collapse rules, quarantined vocabulary, or deterministic Markdown rendering. Those remain promotion gates rather than implicit Claims of completeness.
+The spike formalizes A1-A5 and selected high-risk dependency regions. Its finite models construct one concrete Entity with an admitted preserving Transformation and a rejected identity-breaking Transformation, one standing-aware Permission and one contextual PermissionExercise, and one Consciousness Designation whose candidate does not obtain. A silent Designation Order supplies the countermodel showing that non-designation does not decide candidate obtainment. Operationalization and C11 are not yet represented in Lean. The spike does not yet cover all derived terms, relation signatures, anti-collapse rules, quarantined vocabulary, or deterministic Markdown rendering. Those remain promotion gates rather than implicit Claims of completeness.

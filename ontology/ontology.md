@@ -2,7 +2,7 @@
 type: editorial-ontology
 status: provisional-binding
 binding: true
-version: 0.10
+version: 0.11
 created: 2026-08-01
 updated: 2026-08-02
 evidence_scope: "Daniel's adopted commitments and the recovered essay corpus"
@@ -588,6 +588,15 @@ Failure to attribute or designate consciousness does not establish Absence, fail
 
 This ontology does not define an Evidentiary Profile for consciousness discourse. Supported, defeated, and underdetermined remain ordinary disposition labels until each Evidence item is joined to an Observation, a Witness IndependentFor the relevant claimant and Claim, an Admissibility Rule and Order, and an evaluation Rule whose result is proved equal to the recorded disposition.
 
+### 22. Operationalized representation
+
+<a id="organon-operationalization"></a>
+<!-- organon:term organon:Operationalization claim=D082 -->
+
+**Operationalization** is the incorporation of a Representation into a Configuration of Rules and Interfaces such that the Representation can condition Transformations in a Causal path within a Scope.
+
+An Operationalized Representation can contribute causally to later States and, when the path includes an Agent's Interpretation and Action, to Consequences. Causal efficacy does not make the Representation identical to what it represents or to Reality. It does not establish that a Claim expressed by the Representation is supported by Evidence. A distorted Map can still coordinate Action; the resulting Consequence establishes that the Representation participated in a Causal path, not that it represented its target faithfully.
+
 ## Relation signatures
 
 These signatures make the ontology operational. They are schemas, not executable syntax.
@@ -624,6 +633,7 @@ These signatures make the ontology operational. They are schemas, not executable
 | `constitutes` | Polity, coordinated Agency, existing Order | transformed Order |
 | `attributesConsciousness` | Agent, target Entity, State, Representation, candidate Specification, Language, meaning Rule, Map, Claim Scope | Consciousness Attribution; no entailment that the candidate condition obtains |
 | `designatesConsciousness` | Order, Rule, institutional purpose, admitted Consciousness Attribution, institutional Scope | one CountsAs event for the Attribution's target Entity and State; no downstream institutional effect without a separate Rule |
+| `operationalizes` | Representation, Configuration of Rules and Interfaces, Scope | Representation can condition Transformations in a Causal path; no entailment of representational identity, Map fidelity, or Evidence |
 
 ## Binding consistency rules
 
@@ -646,6 +656,8 @@ These signatures make the ontology operational. They are schemas, not executable
 9. <!-- organon:claim C9 --> **No metaphor promotion:** A metaphor may reveal a Relation, but resemblance alone cannot establish an Entity, causal claim, or Invariant.
 
 10. <!-- organon:claim C10 --> **No consciousness discourse collapse:** A Consciousness Attribution does not establish its candidate condition; a Consciousness Designation does not establish that condition or independently alter Standing, Personhood, Permissions, protections, Interfaces, or Consequences; and failure to attribute or designate establishes neither Absence nor negation. Missingness obtains only in a field or Order that represents or expects the relevant Attribution or Designation.
+
+11. <!-- organon:claim C11 --> **No representational efficacy collapse:** A Representation can condition a real Transformation without becoming identical to its target or to Reality, and without supplying Evidence for a Claim merely because a Consequence occurred.
 
 ## Quarantined vocabulary
 

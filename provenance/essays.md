@@ -11,7 +11,9 @@ The ledger does not copy the private canonical Markdown corpus into Organon. A p
 | 2016-12-27 | Aprendiendo con YouTube | [Medium](https://medium.com/sadasant/aprendiendo-con-youtube-be6126f14fb0) | Recovered from latest archived snapshot |
 | 2017-02-01 | Sections and Retractions | [Medium](https://medium.com/sadasant/sections-and-retractions-a1a30601c000) | Recovered from latest archived snapshot |
 | 2024-10-24 | Computer Science is a Social Science | [Medium](https://medium.com/sadasant/computer-science-is-a-social-science-c418f0ac7ae9) | Recovered from latest archived snapshot |
+| 2024-12-07 | The Higher You Go: Trust, Agency, and Perception | [Medium](https://medium.com/sadasant/the-higher-you-go-trust-agency-and-perception-2e1cf35e64db) | Recovered from latest archived snapshot |
 | 2024-12-30 | Reasoning and Language: A Lucidly Twisted Dance of Search and Symbol | [Medium](https://medium.com/sadasant/reasoning-and-language-a-lucidly-twisted-dance-of-search-and-symbol-9b681a482354) | Recovered from latest archived snapshot |
+| 2025-01-03 | The Conspiracy of Reason | [Medium](https://medium.com/sadasant/the-conspiracy-of-reason-f02d6d991a60) | Recovered from live published page; typography and quotations await author-export comparison |
 | 2025-01-27 | The Forging of Political Reality | [Medium](https://medium.com/sadasant/the-forging-of-political-reality-451c4635fd31) | Semantic reading available; lossless canonical Markdown pending |
 | 2025-02-02 | Beyond Function Calling: How Multi-Agent AI Will Reshape Distributed Systems | [Medium](https://medium.com/sadasant/beyond-function-calling-how-multi-agent-ai-will-reshape-distributed-systems-1206d41c86f2) | Recovered from latest archived snapshot |
 | 2025-02-14 | Containment | [Medium](https://medium.com/sadasant/containment-6864e08301bd) | Recovered from latest archived snapshot |

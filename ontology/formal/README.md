@@ -7,7 +7,7 @@ prose_ontology: "../ontology.md"
 ---
 # Daniel's Ontology - Lean Spike
 
-This directory tests whether [Daniel's Ontology v0.10](../ontology.md) can become a proof-checked Lean artifact. It is deliberately **noncanonical**. The single-file Markdown ontology remains the readable binding artifact until Daniel explicitly promotes a formal artifact after term-for-term parity, a complete model, clean builds without `sorry`, and a stable Markdown projection.
+This directory tests whether selected regions of [Daniel's Ontology v0.11](../ontology.md) can become a proof-checked Lean artifact. It is deliberately **noncanonical**. The single-file Markdown ontology remains the readable binding artifact until Daniel explicitly promotes a formal artifact after term-for-term parity, a complete model, clean builds without `sorry`, and a stable Markdown projection.
 
 ## Included in the spike
 
@@ -33,7 +33,7 @@ The formal shadow models candidate conditions, Consciousness Attributions, and O
 
 The Lean source makes formal Claims. Successful elaboration by the pinned compiler is external Evidence that those Claims type-check. The theorem `presenceObtains` witnesses an inhabited mark inside Lean; the compiler receipt witnesses that the file itself was successfully elaborated. These levels must not be collapsed.
 
-The formal spike does not yet cover the complete ontology, generate the Markdown projection, prove satisfiability beyond its small models, settle identity through time beyond a Boundary-indexed Invariant, or define a universal consciousness condition.
+The formal spike does not yet cover the complete ontology, generate the Markdown projection, prove satisfiability beyond its small models, settle identity through time beyond a Boundary-indexed Invariant, formalize Operationalization and C11, or define a universal consciousness condition. The v0.10 build receipt remains an exact historical receipt for the unchanged Lean sources rather than being relabeled as v0.11 evidence.
 
 ## Toolchain
 
