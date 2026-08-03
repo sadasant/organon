@@ -11,12 +11,13 @@ source_ontology: "../ontology.md"
 
 Can Organon's current formal classifications be stated without absolute Absence, and do those classifications remain unchanged when the Absence/Presence layer is added back?
 
-This report distinguishes two claims that would otherwise be easy to collapse:
+This report distinguishes three claims that would otherwise be easy to collapse:
 
 1. **Formal-shadow preservation:** every classifier currently encoded downstream of relational Missingness remains the same in an Absence-free module.
-2. **Binding-ontology preservation:** every one of the 104 registered prose terms retains its extension after Absence is removed.
+2. **Binding-seam challenge:** the highest-risk Presence → Reality → Missingness → Persistence → Entity path is tested through explicit reduct translations without treating a weaker formal shadow as the binding definition.
+3. **Binding-ontology preservation:** every one of the 104 registered prose terms retains its extension after Absence is removed.
 
-The experiment proves the first claim. The second remains unproved because the formal shadow does not yet encode every registered term or a semantics for arbitrary Markdown definitions.
+The experiment proves the first claim and four challenge classifications in the second. Reality blocks completion of that seam: the local-carrier theorem is preserved, but it is not a faithful encoding of the totality of all Presence. The third remains unproved because 98 further registered terms still lack exact paired classifiers.
 
 ## Construction
 
@@ -27,6 +28,12 @@ The experiment proves the first claim. The second remains unproved because the f
 Every formal classifier module imports `OrganonCore` directly or imports another module whose root is `OrganonCore`. The finite [`Model.lean`](./Model.lean) executable also imports the reduct rather than the extension. Its former use of `Present (State MachineState)` was exactly `Nonempty (State MachineState)` by abbreviation and is stated directly as `Nonempty`; no classification changed.
 
 [`OrganonCorePreservation.lean`](./OrganonCorePreservation.lean) makes the preservation boundary explicit. A core classifier is a predicate over core data. Adding arbitrary extension semantics cannot change its evaluation because the classifier has no extension parameter. `reductToExtensionPreserved` proves equality between reduct and extended evaluation; `classificationPreserved` and `classificationPreservedForAllValues` prove pointwise and universal invariance across extensions, all by definitional equality.
+
+[`OrganonCoreChallenge.lean`](./OrganonCoreChallenge.lean) tests the first binding seam rather than relying only on import structure. It translates Presence to an inhabited carrier and Missingness to an expected carrier value omitted from a field. It also states a universe-relative local-Reality theorem, but does not identify one carrier with binding Reality. Finally, it classifies Persistence over an explicit directionally ordered history and requires every `Entity` to carry such a witness for its identity Invariant.
+
+The adversarial finite model accepts `[idle, active]` as persistent and rejects `[idle, active, broken]` because the last State violates the identity Invariant. This exposed and repaired a fidelity defect in the earlier `Entity` shadow: present identity and a preservation-capable Boundary did not themselves select the ordered history required by the binding prose. The repair is independent of Absence, but necessary before Entity could participate honestly in the reduct test.
+
+[`organon-core-term-audit.md`](./organon-core-term-audit.md) accounts for all 104 registry entries. Its generated status is checked from `terms.yaml`; a named compiled shadow is never reported as binding preservation without a paired translation.
 
 `formalAbsenceExtension` proves that the existing `Absent`/`Present` interpretation inhabits the generic extension interface, including exclusivity and classical exhaustiveness. It is therefore one concrete extension covered by the preservation theorem rather than an unrelated parallel encoding.
 
@@ -59,9 +66,22 @@ The complete finite witness executable builds and runs from that import graph. T
 
 Relational Missingness survives the reduct. It needs a field, an expected value, and proof of nonmembership; it does not need absolute Absence. The extension can still prove that an inhabited `Missingness α` type is `Present`, but that theorem is commentary about the extension rather than a prerequisite for classifying Missingness.
 
+### The difficult seam did not refute the reduct, but Reality blocks completion
+
+Four declared challenge classifications survive the first falsification pass:
+
+- **Presence:** `Present α` and reduct `CorePresence α` are both `Nonempty α` in the declared formal interpretation.
+- **Missingness:** an expected value supplies the Presence witness; field nonmembership is the same load-bearing condition in both interpretations.
+- **Persistence:** the same explicit ordered history and identity Invariant are evaluated independently of either extension.
+- **Entity:** construction now requires the Persistence witness that the binding definition names, and every constructed Entity satisfies that challenge classifier.
+
+No paired case in these four classifications changes when the Absence extension is removed. The breaking history is rejected by both interpretations. This is evidence against Absence being load-bearing there; it is not a proof about the other terms.
+
+**Reality remains blocked.** `localRealityReductPreserved` proves only that every value of one carrier belongs to that carrier's local totality. Binding Reality is the totality of all Presence. Lean cannot collect every `Type u` and every larger universe into one same-level carrier without choosing a universe-indexed approximation or a stronger metatheoretic encoding. Either choice would add a commitment not present in the ontology. The experiment therefore refuses to count the local theorem as preservation of `organon:Reality`.
+
 ### Not proven for the binding ontology
 
-The result does not establish preservation for all 104 registered terms. The formal spike remains intentionally partial, and several prose definitions depend on notions that are neither Absence nor formal core declarations, including identity criteria, representation or use, causal relevance, modality, support, denotation, material adequacy, and institutional eligibility.
+The result does not establish preservation for all 104 registered terms. The audit records 4 proved challenge classifications, 1 Reality formalization blocker, 1 intentionally excluded primitive, and 98 `UNKNOWN` classifications. The formal spike remains intentionally partial, and several prose definitions depend on notions that are neither Absence nor formal core declarations, including representation or use, causal relevance, modality, support, denotation, material adequacy, and institutional eligibility.
 
 The result also does not prove that absolute Absence is incoherent, eliminable from Daniel's metaphysics, or equivalent to a nonempty-domain convention. It proves a narrower architectural fact: the encoded applied classifiers do not inspect the Absence extension.
 
@@ -80,7 +100,7 @@ Binding-ontology preservation would be refuted by a case that receives different
 1. the current Absence/Presence semantics; and
 2. a declared reduct interpreting Presence as the nonempty discourse domain and Missingness as scoped nonmembership.
 
-No such case can be searched exhaustively until the complete binding vocabulary has an executable classification semantics.
+No such case appeared in the first binding seam. Exhaustive search remains unavailable until the complete binding vocabulary has executable paired semantics.
 
 ## Promotion boundary
 
@@ -88,12 +108,12 @@ This draft does not change the binding ontology, term registry, primitive, axiom
 
 The warranted conclusion is:
 
-> Absolute Absence is not load-bearing for the classifications currently encoded in Lean. Whether it is load-bearing for the complete binding ontology remains UNKNOWN pending term-for-term parity or an explicit counterexample.
+> Absolute Absence is not load-bearing for the classifications currently encoded in Lean or for four challenge classifications in the first binding seam. Full binding preservation is not proved: Reality lacks a faithful totality encoding, and 98 further terms remain UNKNOWN.
 
 ## Next gates
 
-1. Map every registered term to a formal declaration, an explicitly metalinguistic statement, or a documented unformalized gate.
-2. Define the Absence-free prose translation for Presence, Reality, and Missingness rather than leaving it implicit.
-3. Add paired classification fixtures for the translated definitions.
-4. Search for a counterexample with a finite model finder once the prose signatures are executable.
-5. Prove per-term equivalence or record the first classification that fails.
+1. Decide whether a universe-indexed Reality projection is an acceptable formal shadow, or keep Reality explicitly metatheoretic.
+2. Pair the remaining direct Presence users, beginning with Difference, Relation, Configuration, Environment, Representation, Sign, Claim, CountsAs, World, Truth, Alignment, Factive Operative Knowledge, and Price.
+3. Propagate those translations through the registry dependency graph rather than treating transitive reachability as semantic dependence.
+4. Add adversarial fixtures at each neighboring-term boundary and stop on the first divergent classification.
+5. Replace each of the audit's 98 `UNKNOWN` results with a proof, a counterexample, or a narrower formalization gate.

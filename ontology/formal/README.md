@@ -11,13 +11,13 @@ This directory tests whether selected regions of [Daniel's Ontology v0.15](../on
 
 ## Included in the spike
 
-- An Absence-free [`OrganonCore`](./OrganonCore.lean) module containing relational Missingness and every downstream formal classifier. [`DanielOntology.lean`](./DanielOntology.lean) is a conservative extension that adds the local Absence/Presence shadow without redefining the core. The complete finite witness executable imports only the reduct; [the experiment report](./organon-core-reduct-report.md) states the exact preservation result and its prose-parity limit.
+- An Absence-free [`OrganonCore`](./OrganonCore.lean) module containing relational Missingness and every downstream formal classifier. [`DanielOntology.lean`](./DanielOntology.lean) is a conservative extension that adds the local Absence/Presence shadow without redefining the core. The complete finite witness executable imports only the reduct; [the experiment report](./organon-core-reduct-report.md) and [104-term audit](./organon-core-term-audit.md) state the exact preservation result and its prose-parity limit.
 - A local encoding of A1-A5 using an uninhabited-type predicate, `Nonempty`, and an inhabited `Mark`.
 - Explicit acknowledgement that `Empty` is an uninhabited type inside Lean's present metatheory, not absolute Absence.
 - Classical exhaustiveness of `Absent α ∨ Present α`, with the classical commitment visible in the theorem.
 - State is the actual carrier of Direction, Transformation, Invariant, Boundary, and Entity; no object-level numeric index stands in for metalinguistic order.
 - Transformation is indexed by Direction, making shared Direction a type-level fact for Causal paths.
-- Constraint, Invariant, Boundary, and Entity as dependent proof-carrying structures.
+- Constraint, Invariant, Boundary, Persistence, and Entity as dependent proof-carrying structures; every Entity carries an explicit directionally ordered history preserving its identity Invariant.
 - Causal paths compose through an explicit `FeedRelation`; consecutive States need not be equal.
 - Specification carries a Boolean decision procedure, a correctness proof, and scope coherence.
 - Capability is parameterized by Context rather than treated as an intrinsic possession.
@@ -41,7 +41,7 @@ The formal shadow models candidate conditions, Consciousness Attributions, and O
 
 The Lean source makes formal Claims. Successful elaboration by the pinned compiler is external Evidence that those Claims type-check. The theorem `presenceObtains` witnesses an inhabited mark inside Lean; the compiler receipt witnesses that the file itself was successfully elaborated. These levels must not be collapsed.
 
-The OrganonCore split proves that the currently encoded downstream classifiers do not depend on the Absence extension. It does not prove that all 104 registered prose terms preserve their classifications under an Absence-free translation; complete Markdown-to-Lean parity remains a promotion gate.
+The OrganonCore split proves that the currently encoded downstream classifiers do not depend on the Absence extension. The falsification seam additionally preserves challenge classifiers for Presence, Missingness, Persistence, and Entity while rejecting an identity-breaking history in both interpretations. Reality remains blocked because one universe-relative carrier does not encode the totality of all Presence. The other 98 registered terms remain unknown; complete Markdown-to-Lean parity remains a promotion gate.
 
 The formal spike does not yet cover the complete ontology, generate the Markdown projection, prove satisfiability beyond its small models, settle identity through time beyond a Boundary-indexed Invariant, connect proposal-local evidence and sovereignty predicates to every core institutional structure, define general consequence semantics, encode a complete Environment-Sense-Perception access path, define Map-to-World fidelity or a universal carrier-realization relation, define universal consciousness or moral-worth conditions, bridge toy truth targets to Reality, derive Trust contribution from Action, prove Interior-and-Boundary crossing, promote `dependentOutput` to canonical Consequence, or compose Alignment profiles. Local countermodel predicates prove only the stated anti-entailments without pretending to formalize those complete regions.
 

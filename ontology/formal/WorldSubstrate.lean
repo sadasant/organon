@@ -81,23 +81,6 @@ structure World
   commonInvariantHolds :
     ∀ state, state ∈ states → commonInvariant.holds state
 
-def OrderedBy {α : Type u} (relation : α → α → Prop) : List α → Prop
-  | [] => True
-  | [_] => True
-  | first :: second :: rest =>
-      relation first second ∧ OrderedBy relation (second :: rest)
-
-structure PersistenceWitness
-    {Carrier : Type u}
-    (direction : Direction Carrier) where
-  states : List (State Carrier)
-  hasTransition :
-    ∃ first second rest, states = first :: second :: rest
-  invariant : Invariant Carrier
-  invariantHolds :
-    ∀ state, state ∈ states → invariant.holds state
-  ordered : OrderedBy direction.before states
-
 structure Substrate
     {Carrier : Type u}
     (direction : Direction Carrier)

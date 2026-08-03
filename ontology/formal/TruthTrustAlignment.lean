@@ -224,22 +224,41 @@ def closedBoundary : Boundary TrustCarrier trustIdentity where
   constraints := []
   preserves := by simp [trustIdentity]
 
+def trustPersistence : PersistenceWitness trustDirection where
+  states := [⟨.privateState⟩, ⟨.affectedState⟩]
+  hasTransition := ⟨⟨.privateState⟩, ⟨.affectedState⟩, [], rfl⟩
+  invariant := trustIdentity
+  invariantHolds := by simp [trustIdentity]
+  ordered := by simp [OrderedBy, trustDirection]
+
 def acceptingPrincipal : Entity TrustCarrier where
   identity := trustIdentity
   boundary := acceptingBoundary
+  persistenceDirection := trustDirection
+  persistence := trustPersistence
+  persistenceNamesIdentity := rfl
   current := ⟨.privateState⟩
+  currentInPersistence := by simp [trustPersistence]
   identityHolds := by simp [trustIdentity]
 
 def unwillingPrincipal : Entity TrustCarrier where
   identity := trustIdentity
   boundary := closedBoundary
+  persistenceDirection := trustDirection
+  persistence := trustPersistence
+  persistenceNamesIdentity := rfl
   current := ⟨.privateState⟩
+  currentInPersistence := by simp [trustPersistence]
   identityHolds := by simp [trustIdentity]
 
 def delegateEntity : Entity TrustCarrier where
   identity := trustIdentity
   boundary := closedBoundary
+  persistenceDirection := trustDirection
+  persistence := trustPersistence
+  persistenceNamesIdentity := rfl
   current := ⟨.affectedState⟩
+  currentInPersistence := by simp [trustPersistence]
   identityHolds := by simp [trustIdentity]
 
 def contributedTransformation : Transformation trustDirection where

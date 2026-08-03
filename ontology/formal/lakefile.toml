@@ -9,6 +9,9 @@ name = "OrganonCore"
 name = "OrganonCorePreservation"
 
 [[lean_lib]]
+name = "OrganonCoreChallenge"
+
+[[lean_lib]]
 name = "DanielOntology"
 
 [[lean_lib]]

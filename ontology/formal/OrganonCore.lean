@@ -70,6 +70,23 @@ structure Constraint (Carrier : Type u) where
 structure Invariant (Carrier : Type u) where
   holds : State Carrier → Prop
 
+def OrderedBy {α : Type u} (relation : α → α → Prop) : List α → Prop
+  | [] => True
+  | [_] => True
+  | first :: second :: rest =>
+      relation first second ∧ OrderedBy relation (second :: rest)
+
+structure PersistenceWitness
+    {Carrier : Type u}
+    (direction : Direction Carrier) where
+  states : List (State Carrier)
+  hasTransition :
+    ∃ first second rest, states = first :: second :: rest
+  invariant : Invariant Carrier
+  invariantHolds :
+    ∀ state, state ∈ states → invariant.holds state
+  ordered : OrderedBy direction.before states
+
 structure Boundary (Carrier : Type u) (identity : Invariant Carrier) where
   constraints : List (Constraint Carrier)
   preserves :
@@ -95,8 +112,21 @@ theorem emptyBoundaryRequiresUniversalPreservation
 structure Entity (Carrier : Type u) where
   identity : Invariant Carrier
   boundary : Boundary Carrier identity
+  persistenceDirection : Direction Carrier
+  persistence : PersistenceWitness persistenceDirection
+  persistenceNamesIdentity : persistence.invariant = identity
   current : State Carrier
+  currentInPersistence : current ∈ persistence.states
   identityHolds : identity.holds current
+
+theorem entityIdentityPersists
+    {Carrier : Type u}
+    (entity : Entity Carrier) :
+    ∀ state,
+      state ∈ entity.persistence.states → entity.identity.holds state := by
+  intro state member
+  rw [← entity.persistenceNamesIdentity]
+  exact entity.persistence.invariantHolds state member
 
 /-! ## Scope, executable Specification, and temporal interval -/
 

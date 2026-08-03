@@ -1,5 +1,6 @@
 import OrganonCore
 import OrganonCorePreservation
+import OrganonCoreChallenge
 import Consciousness
 import Operationalization
 import WorldSubstrate
@@ -81,10 +82,27 @@ def machineBoundary : Boundary MachineState operationalIdentity where
     rcases permitted with ⟨_, outputActive⟩
     simp [operationalIdentity, outputActive]
 
+def machinePersistence : PersistenceWitness operationalDirection where
+  states := [idleState, activeState]
+  hasTransition := ⟨idleState, activeState, [], rfl⟩
+  invariant := operationalIdentity
+  invariantHolds := by
+    intro state member
+    simp [idleState, activeState] at member
+    rcases member with rfl | rfl
+    · simp [operationalIdentity]
+    · simp [operationalIdentity]
+  ordered := by
+    simp [OrderedBy, operationalDirection, idleState, activeState]
+
 def machine : Entity MachineState where
   identity := operationalIdentity
   boundary := machineBoundary
+  persistenceDirection := operationalDirection
+  persistence := machinePersistence
+  persistenceNamesIdentity := rfl
   current := idleState
+  currentInPersistence := by simp [machinePersistence]
   identityHolds := by simp [operationalIdentity, idleState]
 
 theorem boundaryAdmitsActivation : activationOnly.permits activate := by
@@ -481,6 +499,44 @@ theorem missingnessModelIsInhabited : Nonempty (Missingness MachineState) :=
 theorem entityModelIsInhabited : Nonempty (Entity MachineState) :=
   ⟨machine⟩
 
+/-! ## Absence-free reduct challenge cases -/
+
+def preservingHistoryCandidate :
+    OrganonCoreReduct.PersistenceCandidate operationalDirection where
+  states := [idleState, activeState]
+  invariant := operationalIdentity
+
+def breakingHistoryCandidate :
+    OrganonCoreReduct.PersistenceCandidate operationalDirection where
+  states := [idleState, activeState, brokenState]
+  invariant := operationalIdentity
+
+theorem preservingHistoryClassifiesAsPersistence :
+    OrganonCoreReduct.ClassifiesPersistence preservingHistoryCandidate := by
+  constructor
+  · exact ⟨idleState, activeState, [], rfl⟩
+  constructor
+  · simp [OrderedBy, preservingHistoryCandidate,
+      operationalDirection, idleState, activeState]
+  · intro state member
+    simp [preservingHistoryCandidate] at member
+    rcases member with rfl | rfl
+    · change operationalIdentity.holds idleState
+      simp [operationalIdentity, idleState]
+    · change operationalIdentity.holds activeState
+      simp [operationalIdentity, activeState]
+
+theorem breakingHistoryDoesNotClassifyAsPersistence :
+    ¬ OrganonCoreReduct.ClassifiesPersistence breakingHistoryCandidate := by
+  intro classified
+  have holds := classified.2.2 brokenState (by simp [breakingHistoryCandidate])
+  exact breakingViolatesIdentity holds
+
+theorem machineCarriesBindingPersistence :
+    OrganonCoreReduct.ClassifiesPersistence
+      (OrganonCoreReduct.persistenceCandidate machine) :=
+  OrganonCoreReduct.entityMeetsPersistenceClassification machine
+
 theorem permissionModelIsInhabited :
     Nonempty (Permission ToyPrincipal ToyAgent ToyAction) :=
   ⟨activationPermission⟩
@@ -492,4 +548,4 @@ theorem exerciseModelIsInhabited :
 end DanielOntology.Model
 
 def main : IO Unit :=
-  IO.println "OrganonCore v0.15 reduct: downstream classifiers and finite countermodels elaborated without the Absence extension"
+  IO.println "OrganonCore v0.15 reduct: downstream shadows plus four preserved challenge classifiers and one blocked local-Reality shadow elaborated"

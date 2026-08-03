@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import json
 import re
+import subprocess
 import sys
 from pathlib import Path
 
@@ -173,6 +174,15 @@ def main() -> int:
             errors.append(
                 f"{formal_path.relative_to(ROOT)}: formal classifier bypasses OrganonCore reduct"
             )
+
+    audit_check = subprocess.run(
+        [sys.executable, str(ROOT / "scripts" / "check-organon-core-audit.py")],
+        cwd=ROOT,
+        capture_output=True,
+        text=True,
+    )
+    if audit_check.returncode != 0:
+        errors.append(audit_check.stderr.strip() or audit_check.stdout.strip())
 
     if errors:
         print("Semantic check failed:")

@@ -1,5 +1,6 @@
 import OrganonCore
 import OrganonCorePreservation
+import OrganonCoreChallenge
 
 /-!
 # Daniel's Ontology: Absence/Presence extension
@@ -57,6 +58,48 @@ def formalAbsenceExtension :
   present := Present
   exclusive := absencePresenceExclusive
   exhaustive := absencePresenceExhaustive
+
+/-!
+The first three binding-seam translations are exact for this formal shadow.
+`CorePresence` removes only the contrastive name; `CoreRealityMember` treats
+the carrier as the local totality; and an expected value supplies the Presence
+witness required by the full Missingness statement.
+-/
+theorem presenceReductPreserved (α : Type u) :
+    Present α ↔ OrganonCoreReduct.CorePresence α := by
+  rfl
+
+/-!
+This theorem is deliberately named `local`: one Lean carrier is not Organon's
+binding Reality as the totality of all Presence. Lean's stratified universes
+make the global translation a separate formalization decision.
+-/
+def FullLocalRealityMember {α : Type u} (_value : α) : Prop := Present α
+
+theorem localRealityReductPreserved {α : Type u} (value : α) :
+    FullLocalRealityMember value ↔
+      OrganonCoreReduct.CoreRealityMember value := by
+  constructor
+  · intro _
+    trivial
+  · intro _
+    exact ⟨value⟩
+
+def FullMissingness
+    {α : Type u}
+    (field : Field α)
+    (expected : α) : Prop :=
+  Present α ∧ ¬ field.contains expected
+
+theorem missingnessReductPreserved
+    {α : Type u}
+    (field : Field α)
+    (expected : α) :
+    FullMissingness field expected ↔
+      OrganonCoreReduct.CoreMissingness field expected := by
+  constructor
+  · exact fun full => full.2
+  · exact fun missing => ⟨⟨expected⟩, missing⟩
 
 inductive Mark where
   | drawn

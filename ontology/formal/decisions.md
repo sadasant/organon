@@ -19,6 +19,8 @@ These decisions belong to the Lean spike. They expose choices priced by formaliz
 
 `OrganonCorePreservation.classificationPreserved` is definitionally true because extension semantics cannot be inspected by a core classifier. This establishes classification preservation for the current formal shadow and refutes the claim that those classifiers require Absence merely because the declarations previously occupied one file. It does not establish preservation for unformalized prose terms. The binding ontology has 104 registered terms; term-for-term formal parity remains necessary before the result can be generalized to the complete ontology.
 
+The first falsification seam does more than inspect imports. `OrganonCoreChallenge` supplies challenge classifiers for Presence, Missingness, Persistence, and Entity. An adversarial identity-breaking history is rejected while a preserving ordered history is admitted. A local-Reality equivalence is proved but not promoted to preservation: one universe-relative carrier is not the totality of all Presence. The generated registry audit therefore records four proved challenge classifications, one formalization blocker, one deliberately excluded primitive, and 98 unknowns. Unknown is binding: a compiled shadow without exact prose parity is not counted as a preserved term.
+
 ## Presence is type-relative
 
 `Present α := Nonempty α` says that a particular type has an inhabitant. It does not yet encode Reality as the totality of every Presence.
@@ -43,9 +45,11 @@ Exclusivity is constructive. Exhaustiveness for an arbitrary type requires exclu
 
 Classical `conforms x ∨ ¬ conforms x` is available for every predicate and therefore cannot distinguish a Specification. `Specification.decideConformity : α → Bool` instead carries an executable decision interface, while `decision_correct` connects the result to the proposition and `conformityWithinScope` prevents out-of-scope conformity. Lean still permits noncomputable definitions to inhabit such a field, so concrete evaluation in the finite model is part of the receipt.
 
-## Identity remains parameterized
+## Identity remains parameterized and Persistence is explicit
 
-An Entity supplies an identity Invariant, and its Boundary proves that admitted Transformations preserve that Invariant. Lean checks the dependency and preservation proof. It does not choose which Invariant genuinely constitutes an Entity's identity.
+An Entity supplies an identity Invariant, a Boundary proving that admitted Transformations preserve it, and an explicit directionally ordered Persistence witness whose States all satisfy that same Invariant. Lean checks the dependency, history, and preservation proof. It does not choose which Invariant genuinely constitutes an Entity's identity. The stronger record repairs an earlier shadow that established only present identity and possible Boundary preservation without selecting the ordered history required by the prose.
+
+The current `PersistenceWitness` requires at least two States and therefore at least one transition. This reads “across an ordered sequence” as a non-vacuous preservation obligation. It is a surfaced formal commitment, not a theorem forced by the prose; a later parity review may weaken it if singleton Persistence must classify positively.
 
 ## Empty Boundary means maximal obligation
 
