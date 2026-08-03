@@ -4,7 +4,7 @@ status: verified
 canonicality: noncanonical
 created: 2026-08-02
 updated: 2026-08-03
-repository_commit: "ff093106e1a0e00e8441187fde4f4e63371fa976"
+repository_commit: "2046984ba420cb01c4de8033a01a4953db923f01"
 ---
 # Lean Spike Build Receipt
 
@@ -32,9 +32,9 @@ Result: all 14 build jobs completed successfully. The executable printed:
 DanielOntology v0.13 spike: ontology, consciousness, operationalization, World, Substrate, Truth, Trust, and Alignment countermodels elaborated
 ```
 
-The Lean sources contain no `sorry`, `admit`, or `axiom` declaration. The formal shadow models candidate conditions, Consciousness Attributions, and Order-indexed Consciousness Designations without defining a universal consciousness predicate. It constructs a discriminating Operationalization whose selected Transformation occurs in a Causal path; a scoped World whose participant-bound access paths begin at the participant's current State and witness advertised availability on actual Transformations; a contextual Substrate whose source Invariant is preserved across at least two directionally ordered States; a true toy Claim whose target no modeled Agent can supply; a Trust witness whose trustee-supplied future Transformation occurs on an actual Causal path and supplies its Consequence without confidence or Permission; and an Alignment witness accepted by one profile and rejected by another. Its finite countermodels establish only the named anti-entailments. Reality, complete Claim semantics, Interior-and-Boundary Trust Exposure, complete Sense-to-Perception access, fidelity, carrier realization, and Alignment-profile composition remain open formalization gates.
+The Lean sources contain no `sorry`, `admit`, or `axiom` declaration. The formal shadow models candidate conditions, Consciousness Attributions, and Order-indexed Consciousness Designations without defining a universal consciousness predicate. It constructs a discriminating Operationalization whose selected Transformation occurs in a Causal path; a scoped World whose participant-bound access paths begin at the participant's current State and witness advertised availability on actual Transformations; a contextual Substrate whose source Invariant is preserved across at least two directionally ordered States; a materially adequate true toy Claim whose target no modeled Agent can supply; one accepted causal Dependence without confidence or Permission; one confidence-bearing involuntary Dependence over the same participants that cannot inhabit Trust; one Alignment using the exact Representation of a false Claim; and one JointSituation connecting a true Claim, its trusted contribution, and its aligned Representation. Alignment uses ordered roles rather than temporal Direction, and the formal Trust output remains `dependentOutput` rather than canonical Consequence. Reality, universal Claim semantics, Action attribution, Interior-and-Boundary Exposure, Action-to-Change Consequence, complete Sense-to-Perception access, fidelity, carrier realization, and Alignment-profile composition remain open formalization gates.
 
-The repository commit attested by this receipt is `ff093106e1a0e00e8441187fde4f4e63371fa976`.
+The repository commit attested by this receipt is `2046984ba420cb01c4de8033a01a4953db923f01`.
 
 ## Source digests
 
@@ -42,7 +42,7 @@ The repository commit attested by this receipt is `ff093106e1a0e00e8441187fde4f4
 - `Consciousness.lean`: `1ce88fce1943039368d595c260ab74a7fd499f1d66513af00bce1238e1b80976`
 - `Operationalization.lean`: `f9ccc4233423e3f4806dfad588167e540fc1fcff9680708b7ab7bbd931c59ea8`
 - `WorldSubstrate.lean`: `8898e43b317077ff83a749668fa90d510371589b651b47b00ff8169656ab1da2`
-- `TruthTrustAlignment.lean`: `c3af1d43cff4bc90f4f7ab96c54db65746f0c42fc9fbadba1125cc999c098be8`
+- `TruthTrustAlignment.lean`: `f21a878db97b0bb503d36189533e66287d02e7bd8b8e53d88a80202f79f4f9c4`
 - `Model.lean`: `971707c18bd80a00f6aace9dae6571dac90d17fe1cd9859089afdf23663b7a53`
 - `lakefile.toml`: `83eb594006fcfe31be329e1c415743fc5d5b4ddd1a11366df5ed7e2642ed69ac`
 - `lean-toolchain`: `54727eec5cba149c18842e6deb5c41b369d66455c93ce135d7d5347c782b2325`
