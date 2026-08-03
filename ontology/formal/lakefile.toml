@@ -8,6 +8,9 @@ name = "DanielOntology"
 [[lean_lib]]
 name = "Consciousness"
 
+[[lean_lib]]
+name = "Operationalization"
+
 [[lean_exe]]
 name = "ontology_check"
 root = "Model"

@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "ontology_version": "0.10.0",
+  "ontology_version": "0.11.0",
   "profiles": {
     "agent": {
       "description": "Entities, boundaries, interpretation, action, tools, and contextual capability.",
@@ -51,6 +51,12 @@
       "roots": [
         "organon:ConsciousnessAttribution",
         "organon:ConsciousnessDesignation"
+      ]
+    },
+    "operational-representation": {
+      "description": "Representations installed into Rules and Interfaces so they can condition scoped causal paths without being confused with Reality or Evidence.",
+      "roots": [
+        "organon:Operationalization"
       ]
     }
   }

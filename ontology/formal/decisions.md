@@ -7,7 +7,7 @@ prose_ontology: "../ontology.md"
 ---
 # Formalization Decisions
 
-These decisions belong to the Lean spike. They expose choices priced by formalization. They do not independently revise [Daniel's Ontology v0.10](../ontology.md); accepted findings flow into the binding, single-file Markdown ontology through its changelog.
+These decisions belong to the Lean spike. They expose choices priced by formalization. They do not independently revise [Daniel's Ontology v0.11](../ontology.md); accepted findings flow into the binding, single-file Markdown ontology through its changelog.
 
 ## Absence is not `Empty`
 
@@ -59,12 +59,16 @@ The consciousness proposal separates `CandidateCondition`, its `Specification`, 
 
 The formal artifact does not encode an evidentiary disposition. Such a structure remains blocked until Evidence is joined to Observation, scoped Witness independence, admissibility provenance, and a declared evaluation Rule whose proved result supplies the disposition.
 
-The formal shadow models candidate conditions, Consciousness Attributions, and Order-indexed Consciousness Designations without defining a universal consciousness predicate. Its finite countermodels show that neither Attribution nor Designation entails candidate obtainment, and that candidate obtainment does not entail Designation. Designation remains institutionally dependent on an admitted Attribution. The artifact does not yet formalize evidentiary disposition.
-
 ## Relations use typed structures, not one universal relation type
 
 Direction, Transformation, Boundary, Capability, and Permission have different arities and dependencies. The spike encodes each with the narrowest useful record. A later parity pass must decide whether the ontology benefits from a common first-class Relation interface or whether that abstraction would erase important types.
 
+## Operationalization requires semantic discrimination
+
+A representational carrier merely occurring in a Causal path is insufficient. `Operationalization` joins a Representation to a selection Rule, an Interface, a Scope, a selected Transformation, and proof that the Transformation occurs in the path. It also requires an in-scope alternative Representation for which the same Rule does not select that Transformation. The alternative witnesses that representational Difference, rather than only the carrier's physical presence, matters to selection.
+
+The finite model proves the exact negative results claimed by C11: an inhabited Operationalization need not satisfy a fidelity predicate and need not be admitted as Evidence; even the selected Transformation reaching its output does not establish Evidence. These are countermodels to entailment, not definitions of Map fidelity, Evidence admission, or Consequence. Full joins to those ontology regions remain open formalization gates.
+
 ## Scope of the spike
 
-The spike formalizes A1-A5 and selected high-risk dependency regions. Its finite models construct one concrete Entity with an admitted preserving Transformation and a rejected identity-breaking Transformation, one standing-aware Permission and one contextual PermissionExercise, and one Consciousness Designation whose candidate does not obtain. A silent Designation Order supplies the countermodel showing that non-designation does not decide candidate obtainment. The spike does not yet cover all derived terms, relation signatures, anti-collapse rules, quarantined vocabulary, or deterministic Markdown rendering. Those remain promotion gates rather than implicit Claims of completeness.
+The spike formalizes A1-A5 and selected high-risk dependency regions. Its finite models construct one concrete Entity with an admitted preserving Transformation and a rejected identity-breaking Transformation, one standing-aware Permission and one contextual PermissionExercise, one Consciousness Designation whose candidate does not obtain, and one discriminating Operationalization whose selected Transformation occurs in a Causal path. Silent or negative structures supply countermodels for the named consciousness and representational anti-entailments. The spike does not yet cover all derived terms, relation signatures, anti-collapse rules, quarantined vocabulary, or deterministic Markdown rendering. Those remain promotion gates rather than implicit Claims of completeness.
