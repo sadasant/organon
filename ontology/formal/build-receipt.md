@@ -4,7 +4,7 @@ status: verified
 canonicality: noncanonical
 created: 2026-08-02
 updated: 2026-08-03
-repository_commit: "e2bc81fdc17d604e230d3f4d615f069e17945b8b"
+repository_commit: "ff093106e1a0e00e8441187fde4f4e63371fa976"
 ---
 # Lean Spike Build Receipt
 
@@ -34,7 +34,7 @@ DanielOntology v0.13 spike: ontology, consciousness, operationalization, World, 
 
 The Lean sources contain no `sorry`, `admit`, or `axiom` declaration. The formal shadow models candidate conditions, Consciousness Attributions, and Order-indexed Consciousness Designations without defining a universal consciousness predicate. It constructs a discriminating Operationalization whose selected Transformation occurs in a Causal path; a scoped World whose participant-bound access paths begin at the participant's current State and witness advertised availability on actual Transformations; a contextual Substrate whose source Invariant is preserved across at least two directionally ordered States; a true toy Claim whose target no modeled Agent can supply; a Trust witness whose trustee-supplied future Transformation occurs on an actual Causal path and supplies its Consequence without confidence or Permission; and an Alignment witness accepted by one profile and rejected by another. Its finite countermodels establish only the named anti-entailments. Reality, complete Claim semantics, Interior-and-Boundary Trust Exposure, complete Sense-to-Perception access, fidelity, carrier realization, and Alignment-profile composition remain open formalization gates.
 
-The repository commit attested by this receipt is `e2bc81fdc17d604e230d3f4d615f069e17945b8b`.
+The repository commit attested by this receipt is `ff093106e1a0e00e8441187fde4f4e63371fa976`.
 
 ## Source digests
 
@@ -42,7 +42,7 @@ The repository commit attested by this receipt is `e2bc81fdc17d604e230d3f4d615f0
 - `Consciousness.lean`: `1ce88fce1943039368d595c260ab74a7fd499f1d66513af00bce1238e1b80976`
 - `Operationalization.lean`: `f9ccc4233423e3f4806dfad588167e540fc1fcff9680708b7ab7bbd931c59ea8`
 - `WorldSubstrate.lean`: `8898e43b317077ff83a749668fa90d510371589b651b47b00ff8169656ab1da2`
-- `TruthTrustAlignment.lean`: `9bbd8ad84826e977f8ec08ff9c271b0ed1617af1e3f3f8bd5616e1ea3faccff8`
+- `TruthTrustAlignment.lean`: `c3af1d43cff4bc90f4f7ab96c54db65746f0c42fc9fbadba1125cc999c098be8`
 - `Model.lean`: `971707c18bd80a00f6aace9dae6571dac90d17fe1cd9859089afdf23663b7a53`
 - `lakefile.toml`: `83eb594006fcfe31be329e1c415743fc5d5b4ddd1a11366df5ed7e2642ed69ac`
 - `lean-toolchain`: `54727eec5cba149c18842e6deb5c41b369d66455c93ce135d7d5347c782b2325`
