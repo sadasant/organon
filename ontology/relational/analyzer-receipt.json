@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "status": "verified",
+  "canonicality": "noncanonical",
+  "ontology_version": "0.15",
+  "repository_commit": "fb742258869558715a72ae3dfe2669c508c6fa9c",
+  "generated_at": "2026-08-03T17:56:12.131684-04:00",
+  "analyzer": {
+    "name": "Alloy Analyzer",
+    "version": "6.2.0",
+    "distribution": "alloy-6.2.0-mac-aarch64.zip",
+    "distribution_url": "https://github.com/AlloyTools/org.alloytools.alloy/releases/download/v6.2.0/alloy-6.2.0-mac-aarch64.zip",
+    "distribution_sha256": "d7ce578954e24f8faa81bd8ad4fb56dd146555a39740fed3ef8c9d34a7333f63"
+  },
+  "solver": {
+    "name": "glucose",
+    "symmetry": 20,
+    "unrolls": -1
+  },
+  "command": "run NondegenerateGlobalInhabitant for 0 Int",
+  "result": "satisfiable",
+  "solutions": 1,
+  "instances": 1,
+  "solver_reported_duration_ms": 33456,
+  "counts": {
+    "terms": 104,
+    "commitments": 34,
+    "nodes": 110,
+    "relation_witnesses": 50,
+    "anti_entailments": 62,
+    "disjoint_classes": 10
+  },
+  "source_digests": {
+    "ontology/relational/registry-global.als": "dda42aba0394003cd2a5a09c3293354c5a802144ab43b9d764c9ab70980919af",
+    "ontology/relational/registry-global-instance.json": "6729a91646181dd52ad93dd89b8ed07092b23de5042946a91bde21f741b9a3a1",
+    "scripts/generate-relational-model.py": "24868a0aec6ce5befcd07ad0e5761ae182cec7e711aeb24d77925d5b4297b38f",
+    "scripts/check-relational-instance.py": "399a770d81e8a352b1e1e7219ef1c86ee39a4d2551783c462969dc9bc4772689"
+  },
+  "semantic_boundary": "The result establishes satisfiability of the exact registry topology and encoded relational obligations, not full parity with every binding prose claim."
+}
