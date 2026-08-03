@@ -8,8 +8,10 @@
   "formal_evidence": ["../ontology/formal/Model.lean"],
   "introduced_terms": ["organon:Intelligence", "organon:OperativeKnowledge", "organon:KnowledgeTransmission"],
   "local_symbols": [
+    "local:RuleEncoding",
     "local:AdaptiveRule",
     "local:CognitivePipeline",
+    "local:JoinedAdaptiveCase",
     "local:InterpretiveContext",
     "local:RecordTransfer"
   ],
@@ -18,7 +20,7 @@
       "id": "IK-D1",
       "type": "proposed_definition",
       "subject": "Intelligence",
-      "depends_on": ["organon:Capability", "organon:Agent", "organon:Model", "organon:Interpretation", "organon:Perception", "organon:Memory", "organon:Action", "organon:Consequence", "organon:Specification", "organon:State", "organon:Rule", "organon:Scope", "organon:Difference", "local:AdaptiveRule", "local:CognitivePipeline"],
+      "depends_on": ["organon:Capability", "organon:Agent", "organon:Model", "organon:Interpretation", "organon:Perception", "organon:Memory", "organon:Action", "organon:Consequence", "organon:Specification", "organon:State", "organon:Rule", "organon:Representation", "organon:Scope", "organon:Difference", "local:RuleEncoding", "local:AdaptiveRule", "local:CognitivePipeline", "local:JoinedAdaptiveCase"],
       "formal_symbol": "Intelligence"
     },
     {
@@ -32,7 +34,7 @@
       "id": "IK-D3",
       "type": "proposed_definition",
       "subject": "Knowledge Transmission",
-      "depends_on": ["organon:Relation", "IK-D2", "organon:Record", "organon:CausalPath", "organon:Specification", "organon:Scope", "organon:Configuration"],
+      "depends_on": ["organon:Relation", "IK-D2", "organon:Record", "organon:CausalPath", "organon:Specification", "organon:Scope", "organon:Configuration", "organon:State", "organon:Agent"],
       "formal_symbol": "KnowledgeTransmission"
     },
     {
@@ -52,14 +54,14 @@
     {
       "id": "IK-C3",
       "type": "anti_collapse_constraint",
-      "subject": "Knowledge Transmission is not copying",
-      "depends_on": ["IK-D3", "organon:Record", "organon:Representation", "organon:Model", "organon:Interpretation", "local:RecordTransfer"],
+      "subject": "Knowledge Transmission is not copying or necessarily inter agent",
+      "depends_on": ["IK-D3", "organon:Record", "organon:Representation", "organon:Model", "organon:Interpretation", "organon:Agent", "local:RecordTransfer"],
       "formal_symbol": "copiedRecordDoesNotSupplyRecipientKnowledge"
     },
     {
       "id": "IK-G1",
       "type": "open_formalization_gate",
-      "subject": "Runtime construction and full causal realization",
+      "subject": "Rule encoding runtime construction and full causal realization",
       "depends_on": ["IK-D1", "organon:Agent", "organon:Rule", "organon:CausalPath", "organon:Action", "organon:Consequence", "local:CognitivePipeline"]
     },
     {

@@ -18,7 +18,7 @@ This note records how [Daniel's Ontology](./ontology.md) changed. Historical arg
 - Defined Knowledge Transmission as recipient reconstruction of Operative Knowledge with preservation under a declared Specification, rather than copying or literal identity of Records, Representations, Models, or Interpretations.
 - Kept bare knowledge quarantined and made the useful-but-false case explicit: locally successful Operative Knowledge does not entail Truth or Evidence.
 - Added C17-C19 and the optional `adaptive-knowledge` adoption profile.
-- Added finite Lean witnesses for adaptive versus fixed Interpretation, dormant Record versus Operative Knowledge, useful falsehood, copied Record without recipient knowledge, and function-preserving reconstruction across different Records and Models. Runtime causality, universal semantic preservation, and factive knowledge remain explicit gates.
+- Added finite Lean witnesses for one joined adaptive path versus fixed Interpretation, dormant Record versus Operative Knowledge, useful falsehood, Operative Knowledge without Intelligence under the same fully enumerating Rule, copied Record without recipient knowledge, function-preserving reconstruction across different Records and Models, and stage-distinct self-transmission. Rule-encoding completeness, runtime causality, universal semantic preservation, and factive knowledge remain explicit gates.
 
 ### v0.13 - Correspondence, exposure, and specified conformity
 

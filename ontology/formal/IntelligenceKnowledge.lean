@@ -5,7 +5,7 @@ import TruthTrustAlignment
 
 This file tests D088-D090. Intelligence belongs to an Agent-level pipeline,
 not to one Model or stored parameter set. Operative Knowledge requires a
-Record to discriminate within an available interpreter's action-producing
+Record to discriminate within a capable interpreter's action-producing
 configuration. Knowledge Transmission requires a recipient to reconstruct
 Operative Knowledge while preserving a declared functional Specification;
 copying a Record is insufficient.
@@ -28,11 +28,27 @@ structure CognitivePipeline
   selectAction : Interpretation → Action
   consequence : Situation → Action → Consequence
 
+/-!
+`RuleEncoding` is an explicit but supplied representation of individually named
+cases. Lean proves list membership; it does not prove that this list completely
+describes an external executable or natural-language Rule.
+-/
+structure RuleEncoding (Situation : Type u) where
+  individuallyNamed : List Situation
+
 structure AdaptiveRule
     (Situation Perception Memory Model Interpretation Action Consequence : Type u) where
-  enumerates : Situation → Prop
+  encoding : RuleEncoding Situation
   pipeline : CognitivePipeline
     Situation Perception Memory Model Interpretation Action Consequence
+
+def AdaptiveRule.enumerates
+    {Situation Perception Memory Model Interpretation Action Consequence : Type u}
+    [DecidableEq Situation]
+    (rule : AdaptiveRule
+      Situation Perception Memory Model Interpretation Action Consequence)
+    (situation : Situation) : Prop :=
+  situation ∈ rule.encoding.individuallyNamed
 
 def CognitivePipeline.modelFor
     {Situation Perception Memory Model Interpretation Action Consequence : Type u}
@@ -69,6 +85,7 @@ def CognitivePipeline.consequenceFor
 
 def AdaptiveAcross
     {Situation Perception Memory Model Interpretation Action Consequence : Type u}
+    [DecidableEq Situation]
     (rule : AdaptiveRule
       Situation Perception Memory Model Interpretation Action Consequence)
     (first second : Situation) : Prop :=
@@ -78,40 +95,57 @@ def AdaptiveAcross
     rule.pipeline.interpretationFor first ≠
       rule.pipeline.interpretationFor second
 
+structure JoinedAdaptiveCase
+    {Situation Perception Memory Model Interpretation Action Consequence : Type u}
+    [DecidableEq Situation]
+    (rule : AdaptiveRule
+      Situation Perception Memory Model Interpretation Action Consequence)
+    (scope : Scope Situation)
+    (specification : Specification Consequence) where
+  first : Situation
+  second : Situation
+  firstInScope : scope.includes first
+  secondInScope : scope.includes second
+  adaptiveAcross : AdaptiveAcross rule first second
+  alternativePerception : Perception
+  alternativeMemory : Memory
+  perceptionChangesModel :
+    rule.pipeline.modelFor first ≠
+      rule.pipeline.constructModel alternativePerception
+        (rule.pipeline.remember first)
+  memoryChangesModel :
+    rule.pipeline.modelFor first ≠
+      rule.pipeline.constructModel
+        (rule.pipeline.perceive first) alternativeMemory
+  alternativeModel : Model
+  modelChangesInterpretation :
+    rule.pipeline.interpretationFor first ≠
+      rule.pipeline.interpret
+        (rule.pipeline.perceive first)
+        (rule.pipeline.remember first)
+        alternativeModel
+  alternativeInterpretation : Interpretation
+  interpretationChangesAction :
+    rule.pipeline.actionFor first ≠
+      rule.pipeline.selectAction alternativeInterpretation
+  alternativeAction : Action
+  actionChangesConsequence :
+    rule.pipeline.consequenceFor first ≠
+      rule.pipeline.consequence first alternativeAction
+  firstConforms :
+    specification.conforms (rule.pipeline.consequenceFor first)
+  secondConforms :
+    specification.conforms (rule.pipeline.consequenceFor second)
+
 structure Intelligence
-    (Agent Situation Perception Memory Model Interpretation Action Consequence : Type u) where
+    (Agent Situation Perception Memory Model Interpretation Action Consequence : Type u)
+    [DecidableEq Situation] where
   agent : Agent
   rule : AdaptiveRule
     Situation Perception Memory Model Interpretation Action Consequence
   scope : Scope Situation
   consequenceSpecification : Specification Consequence
-  adaptiveWitness :
-    ∃ first second,
-      scope.includes first ∧
-      scope.includes second ∧
-      AdaptiveAcross rule first second
-  perceptionAndMemoryDiscriminate :
-    ∃ situation alternativePerception alternativeMemory,
-      scope.includes situation ∧
-      rule.pipeline.modelFor situation ≠
-        rule.pipeline.constructModel alternativePerception
-          (rule.pipeline.remember situation) ∧
-      rule.pipeline.modelFor situation ≠
-        rule.pipeline.constructModel
-          (rule.pipeline.perceive situation) alternativeMemory
-  modelDiscriminatesInterpretation :
-    ∃ situation alternativeModel,
-      scope.includes situation ∧
-      rule.pipeline.interpretationFor situation ≠
-        rule.pipeline.interpret
-          (rule.pipeline.perceive situation)
-          (rule.pipeline.remember situation)
-          alternativeModel
-  interpretationDiscriminatesAction :
-    ∃ situation alternativeInterpretation,
-      scope.includes situation ∧
-      rule.pipeline.actionFor situation ≠
-        rule.pipeline.selectAction alternativeInterpretation
+  joinedAdaptiveCase : JoinedAdaptiveCase rule scope consequenceSpecification
   novelConsequencesConform :
     ∀ situation,
       scope.includes situation →
@@ -133,18 +167,28 @@ structure OperativeKnowledge
   modelFrom : Rule → Agent → Record → Model
   interpretationFrom : Rule → Agent → Record → Model → Interpretation
   actionFrom : Rule → Agent → Interpretation → Action
-  effectFrom : Rule → Agent → Record → Action → Effect
+  effectFrom : Rule → Agent → Action → Effect
   effectSpecification : Specification Effect
   alternativeRecord : Record
   alternativeInScope : scope.includes alternativeRecord
-  discriminates :
+  modelDiscriminates :
+    modelFrom rule interpreter record ≠
+      modelFrom rule interpreter alternativeRecord
+  interpretationDiscriminates :
     interpretationFrom rule interpreter record
         (modelFrom rule interpreter record) ≠
       interpretationFrom rule interpreter alternativeRecord
         (modelFrom rule interpreter alternativeRecord)
+  actionDiscriminates :
+    actionFrom rule interpreter
+        (interpretationFrom rule interpreter record
+          (modelFrom rule interpreter record)) ≠
+      actionFrom rule interpreter
+        (interpretationFrom rule interpreter alternativeRecord
+          (modelFrom rule interpreter alternativeRecord))
   operative :
     effectSpecification.conforms
-      (effectFrom rule interpreter record
+      (effectFrom rule interpreter
         (actionFrom rule interpreter
           (interpretationFrom rule interpreter record
             (modelFrom rule interpreter record))))
@@ -154,7 +198,7 @@ def OperativeKnowledge.realizedEffect
     {context : InterpretiveContext Agent}
     (knowledge : OperativeKnowledge
       Record Agent Rule Model Interpretation Action Effect context) : Effect :=
-  knowledge.effectFrom knowledge.rule knowledge.interpreter knowledge.record
+  knowledge.effectFrom knowledge.rule knowledge.interpreter
     (knowledge.actionFrom knowledge.rule knowledge.interpreter
       (knowledge.interpretationFrom knowledge.rule knowledge.interpreter
         knowledge.record
@@ -162,13 +206,15 @@ def OperativeKnowledge.realizedEffect
           knowledge.record)))
 
 structure KnowledgeTransmission
-    {Record Agent Rule Model Interpretation Action Effect : Type u}
+    {Record Agent Rule Model Interpretation Action Effect Stage : Type u}
     {sourceContext recipientContext : InterpretiveContext Agent}
     (source : OperativeKnowledge
       Record Agent Rule Model Interpretation Action Effect sourceContext)
     (recipient : OperativeKnowledge
       Record Agent Rule Model Interpretation Action Effect recipientContext) where
-  distinctInterpreters : source.interpreter ≠ recipient.interpreter
+  sourceStage : Stage
+  recipientStage : Stage
+  distinctStages : sourceStage ≠ recipientStage
   medium : Record
   encode : Record → Record
   encodedFromSource : medium = encode source.record
@@ -254,9 +300,7 @@ def adaptivePipeline : CognitivePipeline
 
 def toyAdaptiveRule : AdaptiveRule
     ToySituation ToyPerception ToyMemory ToyModel ToyInterpretation ToyAction ToyEffect where
-  enumerates
-    | .enumerated => True
-    | _ => False
+  encoding := ⟨[.enumerated]⟩
   pipeline := adaptivePipeline
 
 def successfulEffect : Specification ToyEffect where
@@ -273,25 +317,48 @@ def adaptiveIntelligence : Intelligence
   rule := toyAdaptiveRule
   scope := ⟨fun _ => True⟩
   consequenceSpecification := successfulEffect
-  adaptiveWitness := by
-    refine ⟨.novelA, .novelB, trivial, trivial, ?_⟩
-    simp [AdaptiveAcross, toyAdaptiveRule, adaptivePipeline,
-      CognitivePipeline.modelFor, CognitivePipeline.interpretationFor]
-  perceptionAndMemoryDiscriminate := by
-    refine ⟨.novelA, .familiar, .empty, trivial, ?_, ?_⟩ <;>
+  joinedAdaptiveCase := {
+    first := .novelA
+    second := .novelB
+    firstInScope := trivial
+    secondInScope := trivial
+    adaptiveAcross := by
+      simp [AdaptiveAcross, AdaptiveRule.enumerates, toyAdaptiveRule,
+        adaptivePipeline, CognitivePipeline.modelFor,
+        CognitivePipeline.interpretationFor]
+    alternativePerception := .familiar
+    alternativeMemory := .empty
+    perceptionChangesModel := by
       simp [toyAdaptiveRule, adaptivePipeline, CognitivePipeline.modelFor]
-  modelDiscriminatesInterpretation := by
-    refine ⟨.novelA, .baseline, trivial, ?_⟩
-    simp [toyAdaptiveRule, adaptivePipeline,
-      CognitivePipeline.interpretationFor, CognitivePipeline.modelFor]
-  interpretationDiscriminatesAction := by
-    refine ⟨.novelA, .repeat, trivial, ?_⟩
-    simp [toyAdaptiveRule, adaptivePipeline, CognitivePipeline.actionFor,
-      CognitivePipeline.interpretationFor, CognitivePipeline.modelFor]
+    memoryChangesModel := by
+      simp [toyAdaptiveRule, adaptivePipeline, CognitivePipeline.modelFor]
+    alternativeModel := .baseline
+    modelChangesInterpretation := by
+      simp [toyAdaptiveRule, adaptivePipeline,
+        CognitivePipeline.interpretationFor, CognitivePipeline.modelFor]
+    alternativeInterpretation := .repeat
+    interpretationChangesAction := by
+      simp [toyAdaptiveRule, adaptivePipeline, CognitivePipeline.actionFor,
+        CognitivePipeline.interpretationFor, CognitivePipeline.modelFor]
+    alternativeAction := .routine
+    actionChangesConsequence := by
+      simp [toyAdaptiveRule, adaptivePipeline,
+        CognitivePipeline.consequenceFor, CognitivePipeline.actionFor,
+        CognitivePipeline.interpretationFor, CognitivePipeline.modelFor]
+    firstConforms := by
+      simp [toyAdaptiveRule, adaptivePipeline, successfulEffect,
+        CognitivePipeline.consequenceFor, CognitivePipeline.actionFor,
+        CognitivePipeline.interpretationFor, CognitivePipeline.modelFor]
+    secondConforms := by
+      simp [toyAdaptiveRule, adaptivePipeline, successfulEffect,
+        CognitivePipeline.consequenceFor, CognitivePipeline.actionFor,
+        CognitivePipeline.interpretationFor, CognitivePipeline.modelFor]
+  }
   novelConsequencesConform := by
     intro situation _ novel
     cases situation <;>
-      simp_all [toyAdaptiveRule, successfulEffect, adaptivePipeline,
+      simp_all [AdaptiveRule.enumerates, toyAdaptiveRule, successfulEffect,
+        adaptivePipeline,
         CognitivePipeline.consequenceFor, CognitivePipeline.actionFor,
         CognitivePipeline.interpretationFor, CognitivePipeline.modelFor]
 
@@ -306,7 +373,7 @@ def fixedPipeline : CognitivePipeline
 
 def fixedRule : AdaptiveRule
     ToySituation ToyPerception ToyMemory ToyModel ToyInterpretation ToyAction ToyEffect where
-  enumerates := toyAdaptiveRule.enumerates
+  encoding := toyAdaptiveRule.encoding
   pipeline := fixedPipeline
 
 theorem fixedInterpretationDoesNotAdapt :
@@ -327,69 +394,109 @@ def dormantContext : InterpretiveContext ToyAgent where
 
 def recordScope : Scope ToyClaim := ⟨fun _ => True⟩
 
-inductive ToyKnowledgeRule where
-  | interpretRecord
-  deriving DecidableEq
+def knowledgePipeline : CognitivePipeline
+    ToySituation ToyPerception ToyClaim ToyModel ToyInterpretation ToyAction ToyEffect where
+  perceive := fun _ => .familiar
+  remember := fun _ => .mistaken
+  constructModel
+    | _, .accurate => .generalizationA
+    | _, .mistaken => .generalizationB
+  interpret
+    | _, .accurate, .generalizationA => .adaptA
+    | _, .mistaken, .generalizationB => .adaptB
+    | _, _, _ => .repeat
+  selectAction
+    | .repeat => .routine
+    | .adaptA => .handleA
+    | .adaptB => .handleB
+  consequence
+    | _, .handleA => .success
+    | _, .handleB => .success
+    | _, .routine => .failure
 
-def claimModel : ToyKnowledgeRule → ToyAgent → ToyClaim → ToyModel
-  | _, _, .accurate => .generalizationA
-  | _, _, .mistaken => .generalizationB
+abbrev ToyOperativeRule := AdaptiveRule
+  ToySituation ToyPerception ToyClaim ToyModel ToyInterpretation ToyAction ToyEffect
 
-def claimInterpretation :
-    ToyKnowledgeRule → ToyAgent → ToyClaim → ToyModel → ToyInterpretation
-  | _, _, .accurate, _ => .adaptA
-  | _, _, .mistaken, _ => .adaptB
+def fixedKnowledgeRule : ToyOperativeRule where
+  encoding := ⟨[.enumerated, .novelA, .novelB]⟩
+  pipeline := knowledgePipeline
 
-def claimAction : ToyKnowledgeRule → ToyAgent → ToyInterpretation → ToyAction
-  | _, _, .adaptA => .handleA
-  | _, _, .adaptB => .handleB
-  | _, _, .repeat => .routine
+def knowledgeModel : ToyOperativeRule → ToyAgent → ToyClaim → ToyModel :=
+  fun rule _ record => rule.pipeline.constructModel .familiar record
 
-def claimEffect :
-    ToyKnowledgeRule → ToyAgent → ToyClaim → ToyAction → ToyEffect
-  | _, _, .accurate, .handleA => .success
-  | _, _, .mistaken, .handleB => .success
-  | _, _, _, _ => .failure
+def knowledgeInterpretation :
+    ToyOperativeRule → ToyAgent → ToyClaim → ToyModel → ToyInterpretation :=
+  fun rule _ record model =>
+    rule.pipeline.interpret .familiar record model
+
+def knowledgeAction : ToyOperativeRule → ToyAgent → ToyInterpretation → ToyAction :=
+  fun rule _ interpretation => rule.pipeline.selectAction interpretation
+
+def knowledgeEffect : ToyOperativeRule → ToyAgent → ToyAction → ToyEffect :=
+  fun rule _ action => rule.pipeline.consequence .enumerated action
 
 def mistakenOperativeKnowledge : OperativeKnowledge
-    ToyClaim ToyAgent ToyKnowledgeRule ToyModel ToyInterpretation ToyAction ToyEffect
+    ToyClaim ToyAgent ToyOperativeRule ToyModel ToyInterpretation ToyAction ToyEffect
       activeContext where
   record := .mistaken
   interpreter := .source
   interpreterCapable := trivial
-  rule := .interpretRecord
+  rule := fixedKnowledgeRule
   scope := recordScope
   recordInScope := trivial
-  modelFrom := claimModel
-  interpretationFrom := claimInterpretation
-  actionFrom := claimAction
-  effectFrom := claimEffect
+  modelFrom := knowledgeModel
+  interpretationFrom := knowledgeInterpretation
+  actionFrom := knowledgeAction
+  effectFrom := knowledgeEffect
   effectSpecification := successfulEffect
   alternativeRecord := .accurate
   alternativeInScope := trivial
-  discriminates := by simp [claimInterpretation]
-  operative := by simp [successfulEffect, claimEffect, claimAction,
-    claimInterpretation]
+  modelDiscriminates := by
+    simp [knowledgeModel, fixedKnowledgeRule, knowledgePipeline]
+  interpretationDiscriminates := by
+    simp [knowledgeInterpretation, knowledgeModel, fixedKnowledgeRule,
+      knowledgePipeline]
+  actionDiscriminates := by
+    simp [knowledgeAction, knowledgeInterpretation, knowledgeModel,
+      fixedKnowledgeRule, knowledgePipeline]
+  operative := by
+    simp [successfulEffect, knowledgeEffect, knowledgeAction,
+      knowledgeInterpretation, knowledgeModel, fixedKnowledgeRule,
+      knowledgePipeline]
 
 def accurateOperativeKnowledge : OperativeKnowledge
-    ToyClaim ToyAgent ToyKnowledgeRule ToyModel ToyInterpretation ToyAction ToyEffect
+    ToyClaim ToyAgent ToyOperativeRule ToyModel ToyInterpretation ToyAction ToyEffect
       activeContext where
   record := .accurate
   interpreter := .recipient
   interpreterCapable := trivial
-  rule := .interpretRecord
+  rule := fixedKnowledgeRule
   scope := recordScope
   recordInScope := trivial
-  modelFrom := claimModel
-  interpretationFrom := claimInterpretation
-  actionFrom := claimAction
-  effectFrom := claimEffect
+  modelFrom := knowledgeModel
+  interpretationFrom := knowledgeInterpretation
+  actionFrom := knowledgeAction
+  effectFrom := knowledgeEffect
   effectSpecification := successfulEffect
   alternativeRecord := .mistaken
   alternativeInScope := trivial
-  discriminates := by simp [claimInterpretation]
-  operative := by simp [successfulEffect, claimEffect, claimAction,
-    claimInterpretation]
+  modelDiscriminates := by
+    simp [knowledgeModel, fixedKnowledgeRule, knowledgePipeline]
+  interpretationDiscriminates := by
+    simp [knowledgeInterpretation, knowledgeModel, fixedKnowledgeRule,
+      knowledgePipeline]
+  actionDiscriminates := by
+    simp [knowledgeAction, knowledgeInterpretation, knowledgeModel,
+      fixedKnowledgeRule, knowledgePipeline]
+  operative := by
+    simp [successfulEffect, knowledgeEffect, knowledgeAction,
+      knowledgeInterpretation, knowledgeModel, fixedKnowledgeRule,
+      knowledgePipeline]
+
+def selfRestoredOperativeKnowledge : OperativeKnowledge
+    ToyClaim ToyAgent ToyOperativeRule ToyModel ToyInterpretation ToyAction ToyEffect
+      activeContext :=
+  { accurateOperativeKnowledge with interpreter := .source }
 
 theorem operativeKnowledgeDoesNotEntailTruth :
     ¬ toyTruthSemantics.isTrue mistakenOperativeKnowledge.record := by
@@ -398,16 +505,28 @@ theorem operativeKnowledgeDoesNotEntailTruth :
 
 theorem operativeKnowledgeDoesNotEntailIntelligence :
     Nonempty (OperativeKnowledge
-      ToyClaim ToyAgent ToyKnowledgeRule ToyModel ToyInterpretation ToyAction ToyEffect
+      ToyClaim ToyAgent ToyOperativeRule ToyModel ToyInterpretation ToyAction ToyEffect
         activeContext) ∧
-      ∀ first second,
-        ¬ AdaptiveAcross fixedRule first second := by
-  exact ⟨⟨mistakenOperativeKnowledge⟩,
-    fixedInterpretationDoesNotAdapt⟩
+      ¬ ∃ intelligence : Intelligence
+          ToyAgent ToySituation ToyPerception ToyClaim ToyModel ToyInterpretation
+            ToyAction ToyEffect,
+        intelligence.agent = mistakenOperativeKnowledge.interpreter ∧
+        intelligence.rule = mistakenOperativeKnowledge.rule := by
+  constructor
+  · exact ⟨mistakenOperativeKnowledge⟩
+  · rintro ⟨intelligence, _, sameRule⟩
+    let first : ToySituation := intelligence.joinedAdaptiveCase.first
+    have firstNotNamed : ¬ intelligence.rule.enumerates first :=
+      intelligence.joinedAdaptiveCase.adaptiveAcross.1
+    have fixedNamesFirst : mistakenOperativeKnowledge.rule.enumerates first := by
+      cases first <;>
+      simp [mistakenOperativeKnowledge, fixedKnowledgeRule,
+        AdaptiveRule.enumerates]
+    exact firstNotNamed (sameRule.symm ▸ fixedNamesFirst)
 
 theorem noOperativeKnowledgeWithoutCapableInterpreter :
     ¬ Nonempty (OperativeKnowledge
-      ToyClaim ToyAgent ToyKnowledgeRule ToyModel ToyInterpretation ToyAction ToyEffect
+      ToyClaim ToyAgent ToyOperativeRule ToyModel ToyInterpretation ToyAction ToyEffect
         dormantContext) := by
   intro inhabited
   rcases inhabited with ⟨knowledge⟩
@@ -424,10 +543,11 @@ def preservedSuccess : Specification (ToyEffect × ToyEffect) where
     cases source <;> cases recipient <;> simp
   conformityWithinScope := by simp
 
-def reconstructedTransmission : KnowledgeTransmission
+def reconstructedTransmission : KnowledgeTransmission (Stage := Bool)
     mistakenOperativeKnowledge accurateOperativeKnowledge where
-  distinctInterpreters := by simp [mistakenOperativeKnowledge,
-    accurateOperativeKnowledge]
+  sourceStage := false
+  recipientStage := true
+  distinctStages := by decide
   medium := .mistaken
   encode := id
   encodedFromSource := rfl
@@ -439,8 +559,30 @@ def reconstructedTransmission : KnowledgeTransmission
   preservationSpecification := preservedSuccess
   functionPreserved := by
     simp [preservedSuccess, OperativeKnowledge.realizedEffect,
-      mistakenOperativeKnowledge, accurateOperativeKnowledge, claimEffect,
-      claimAction, claimInterpretation, claimModel]
+      mistakenOperativeKnowledge, accurateOperativeKnowledge, knowledgeEffect,
+      knowledgeAction, knowledgeInterpretation, knowledgeModel,
+      fixedKnowledgeRule, knowledgePipeline]
+
+def selfTransmission : KnowledgeTransmission (Stage := Bool)
+    mistakenOperativeKnowledge selfRestoredOperativeKnowledge where
+  sourceStage := false
+  recipientStage := true
+  distinctStages := by decide
+  medium := .mistaken
+  encode := id
+  encodedFromSource := rfl
+  reconstruct := fun _ record =>
+    match record with
+    | .mistaken => .accurate
+    | other => other
+  recipientReconstructed := rfl
+  preservationSpecification := preservedSuccess
+  functionPreserved := by
+    simp [preservedSuccess, OperativeKnowledge.realizedEffect,
+      mistakenOperativeKnowledge, selfRestoredOperativeKnowledge,
+      accurateOperativeKnowledge, knowledgeEffect, knowledgeAction,
+      knowledgeInterpretation, knowledgeModel, fixedKnowledgeRule,
+      knowledgePipeline]
 
 structure RecordTransfer (Record Agent : Type u) where
   record : Record
@@ -455,7 +597,7 @@ def copiedRecord : RecordTransfer ToyClaim ToyAgent where
 theorem copiedRecordDoesNotSupplyRecipientKnowledge :
     Nonempty (RecordTransfer ToyClaim ToyAgent) ∧
       ¬ Nonempty (OperativeKnowledge
-        ToyClaim ToyAgent ToyKnowledgeRule ToyModel ToyInterpretation ToyAction ToyEffect
+        ToyClaim ToyAgent ToyOperativeRule ToyModel ToyInterpretation ToyAction ToyEffect
           dormantContext) := by
   exact ⟨⟨copiedRecord⟩, noOperativeKnowledgeWithoutCapableInterpreter⟩
 
@@ -472,8 +614,14 @@ theorem transmissionDoesNotRequireIdenticalRecordsOrModels :
       preservedSuccess.conforms
         (mistakenOperativeKnowledge.realizedEffect,
           accurateOperativeKnowledge.realizedEffect) := by
-  simp [mistakenOperativeKnowledge, accurateOperativeKnowledge, claimModel,
-    preservedSuccess, OperativeKnowledge.realizedEffect, claimEffect,
-    claimAction, claimInterpretation]
+  simp [mistakenOperativeKnowledge, accurateOperativeKnowledge,
+    preservedSuccess, OperativeKnowledge.realizedEffect, knowledgeEffect,
+    knowledgeAction, knowledgeInterpretation, knowledgeModel,
+      fixedKnowledgeRule, knowledgePipeline]
+
+theorem knowledgeTransmissionPermitsSameAgent :
+    mistakenOperativeKnowledge.interpreter =
+      selfRestoredOperativeKnowledge.interpreter := by
+  rfl
 
 end DanielOntology

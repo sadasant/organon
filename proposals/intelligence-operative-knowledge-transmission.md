@@ -27,7 +27,7 @@ Bare knowledge remains quarantined. The promoted term is deliberately **Operativ
 
 The definition must therefore classify neither fixed weights nor an inference executable in isolation. Fixed weights can be Records or persistent machinery. During inference, a larger Agent can construct situation-dependent Models and Interpretations from input it did not individually enumerate, select Actions through those constructions, and produce conforming Consequences. A language model may participate in that Agent without being the Agent.
 
-The candidate fails if “adaptive” merely means that a fixed lookup table returns different outputs. It survives only when distinct non-enumerated States produce Differences in both the constructed Model and the resulting Interpretation and the Consequences satisfy one declared Specification.
+The candidate fails if “adaptive” merely means that a fixed lookup table returns different outputs for cases individually named in its recorded Representation. It survives only when distinct States not individually named there produce Differences in both the constructed Model and the resulting Interpretation, at least one case proves the whole Perception-to-Consequence chain load-bearing, and the Consequences satisfy one declared Specification. A fixed general procedure is not a lookup table merely because its implementation is fixed.
 
 ### Operative Knowledge survives the dormant-record case
 
@@ -45,7 +45,7 @@ The candidate therefore requires recipient Operative Knowledge and a declared pr
 
 ### Intelligence is not Capability alone
 
-Capability already names Actions an Agent can produce under stated Constraints. A fixed machine can have broad Capability. Intelligence adds adaptation across States not individually enumerated by the Action-producing Rule, through constructed or revised Models and Interpretations. This is a narrower and separately testable Configuration of Capability.
+Capability already names Actions an Agent can produce under stated Constraints. A fixed machine can have broad Capability. Intelligence adds adaptation across States not individually named in the recorded Representation of the Action-producing Rule, through constructed or revised Models and Interpretations. This is a narrower and separately testable Configuration of Capability.
 
 ### Operative Knowledge is not Record, Truth, or successful output
 
@@ -58,13 +58,13 @@ Record transmission needs only a source, medium, and recipient location. Knowled
 ## Proposed definitions
 
 <!-- organon:proposal-statement IK-D1 type=proposed_definition -->
-**IK-D1 — Intelligence:** Intelligence is the scoped Capability of an Agent to construct or revise Models and Interpretations from Perception and Memory so that it can select Actions whose Consequences conform to a Specification across States not individually enumerated by the Rule producing those Actions. At least two such States must produce Differences in both the constructed Model and the resulting Interpretation while satisfying the declared consequence Specification.
+**IK-D1 — Intelligence:** Intelligence is the scoped Capability of an Agent to construct or revise Models and Interpretations from Perception and Memory so that it can select Actions whose Consequences conform to a Specification across States not individually named in the recorded Representation of the Rule producing those Actions. At least two such States must produce Differences in both the constructed Model and the resulting Interpretation while satisfying the declared consequence Specification. At least one witnessed State must carry a joined counterfactual path in which Perception and Memory alter Model construction, Model alters Interpretation, Interpretation alters Action, and Action alters Consequence.
 
 <!-- organon:proposal-statement IK-D2 type=proposed_definition -->
-**IK-D2 — Operative Knowledge:** Operative Knowledge is a scoped Configuration joining a Record to an interpreting Agent with the Capability required under stated Constraints when, under a Rule, that Record discriminatingly conditions a Model or Interpretation in a Causal path to an Action or internal Transformation whose resulting State or Consequence conforms to a Specification.
+**IK-D2 — Operative Knowledge:** Operative Knowledge is a scoped Configuration joining a Record to an interpreting Agent with the Capability required under stated Constraints when, under one Rule, replacing that Record with an alternative in-Scope Record changes the resulting Model, Interpretation, and selected Action or internal Transformation, and the selected result—not an independent branch on the Record—produces a State or Consequence conforming to a Specification.
 
 <!-- organon:proposal-statement IK-D3 type=proposed_definition -->
-**IK-D3 — Knowledge Transmission:** Knowledge Transmission is a scoped Relation between a source instance and a recipient instance of Operative Knowledge in which the source produces or exposes a Record through a Causal path, the recipient reconstructs Operative Knowledge from that mediated Record, and a declared Specification confirms preservation of the named operative function across the two resulting Configurations.
+**IK-D3 — Knowledge Transmission:** Knowledge Transmission is a scoped Relation between source and recipient instances of Operative Knowledge in distinct States or stages in which the source produces or exposes a Record through a Causal path, the recipient reconstructs Operative Knowledge from that mediated Record, and a declared Specification confirms preservation of the named operative function across the two resulting Configurations. The two instances may belong to the same persistent Agent.
 
 ## Exact anti-entailments
 
@@ -75,7 +75,7 @@ Record transmission needs only a source, medium, and recipient location. Knowled
 **IK-C2 — Operative Knowledge is not stored information or Truth:** A Record can exist while no interpreter has the required Capability, and then no Operative Knowledge obtains. Operative Knowledge can produce a result conforming to a local Specification while a Claim represented by its Record is false. Record, Claim, Truth, Evidence, Model, interpreter, or effect alone is insufficient.
 
 <!-- organon:proposal-statement IK-C3 type=anti_collapse_constraint -->
-**IK-C3 — Knowledge Transmission is not copying:** Copying or exposing a Record does not entail recipient Operative Knowledge or Knowledge Transmission. Knowledge Transmission does not entail identical Records, Representations, Models, or Interpretations. Independent acquisition does not establish transmission from a source.
+**IK-C3 — Knowledge Transmission is not copying or necessarily inter-agent:** Copying or exposing a Record does not entail recipient Operative Knowledge or Knowledge Transmission. Knowledge Transmission does not entail identical Records, Representations, Models, Interpretations, or distinct Agents. Independent acquisition does not establish transmission from a source.
 
 ## The useful-falsehood commitment
 
@@ -87,13 +87,13 @@ This is not a relaxation of Truth. If an argument needs correspondence to Realit
 
 The ontology does not ask whether a language model “is intelligent” as an isolated noun. It asks which Entity is the Agent and whether the required Configuration obtains.
 
-Model weights can function as persistent Records or Memory. The inference engine and context-processing path can participate in Perception and Interpretation. Situation-dependent generalizations constructed during inference can function as Models. Tools and external Interfaces can extend Capability into Action. The Agent is the persistent whole whose Boundary, Interpretation, and Action form the relevant path. A system unable to construct adequate generalizations across non-enumerated States fails the Intelligence definition even if it produces fluent text.
+Model weights can function as persistent Records or Memory. The inference engine and context-processing path can participate in Perception and Interpretation. Situation-dependent generalizations constructed during inference can function as Models. Tools and external Interfaces can extend Capability into Action. The Agent is the persistent whole whose Boundary, Interpretation, and Action form the relevant path. A system unable to construct adequate generalizations across States outside the individually named cases of its producing Rule fails the Intelligence definition even if it produces fluent text.
 
 ## Intellectual shadows
 
 ### Legg and Hutter
 
-Legg and Hutter define a scalar measure around goal achievement across a wide range of environments. Organon inherits the cross-State and performance orientation. It does not inherit universal priors, reward maximization, optimality, or a scalar intelligence measure. Its stricter local test requires witnessed Differences in both constructed Model and resulting Interpretation across non-enumerated States.
+Legg and Hutter define a scalar measure around goal achievement across a wide range of environments. Organon inherits the cross-State and performance orientation. It does not inherit universal priors, reward maximization, optimality, or a scalar intelligence measure. Its stricter local test requires witnessed Differences in both constructed Model and resulting Interpretation across States outside the individually named cases of the producing Rule.
 
 ### Ryle
 
@@ -109,23 +109,24 @@ Sperber's reconstructive account of cultural transmission challenges literal cop
 
 ## Formal shadow
 
-The noncanonical [IntelligenceKnowledge.lean](../ontology/formal/IntelligenceKnowledge.lean) defines proposal-local `AdaptiveRule`, `CognitivePipeline`, `Intelligence`, `InterpretiveContext`, `OperativeKnowledge`, `KnowledgeTransmission`, and `RecordTransfer` structures. Each `AdaptiveRule` owns the cognitive pipeline whose Actions it produces, and each Operative Knowledge instance carries the Rule used by its discriminating Model, Interpretation, Action, and effect functions.
+The noncanonical [IntelligenceKnowledge.lean](../ontology/formal/IntelligenceKnowledge.lean) defines proposal-local `RuleEncoding`, `AdaptiveRule`, `CognitivePipeline`, `JoinedAdaptiveCase`, `Intelligence`, `InterpretiveContext`, `OperativeKnowledge`, `KnowledgeTransmission`, and `RecordTransfer` structures. Each `AdaptiveRule` carries an explicit list of individually named States and owns the cognitive pipeline whose Actions it produces. One `JoinedAdaptiveCase` binds every counterfactual seam to the first of the same two non-enumerated States. Each Operative Knowledge instance carries one Rule through Record, Model, Interpretation, and Action; its effect function receives only the selected Action, so the Record cannot bypass that path.
 
 The finite model constructs:
 
-- one Agent-level cognitive pipeline whose Perception and Memory construct distinct Models and Interpretations for two States not enumerated by its Rule, with counterfactual witnesses that Perception and Memory each alter Model construction, Model alters Interpretation, Interpretation alters Action, and the resulting Consequences conform;
+- one Agent-level cognitive pipeline whose Perception and Memory construct distinct Models and Interpretations for two States absent from the Rule's explicit encoding, with one joined witness proving that Perception and Memory alter Model construction, Model alters Interpretation, Interpretation alters Action, Action alters Consequence, and both actual Consequences conform;
 - one fixed pipeline for which no pair can satisfy the adaptive witness;
-- one capable interpreter for whom a false Claim Record discriminatingly produces a locally conforming effect;
+- one false Claim Record that forms locally successful Operative Knowledge through the same enumerating Rule for which no joined Intelligence case can be inhabited;
 - one dormant context in which the same Record type exists but no Operative Knowledge can be inhabited;
 - one copied Record that supplies no recipient Operative Knowledge; and
-- one Knowledge Transmission whose recipient reconstructs a different Record and Model while preserving the declared successful function.
+- one Knowledge Transmission whose recipient reconstructs a different Record and Model while preserving the declared successful function; and
+- one stage-distinct self-transmission whose source and recipient interpreter are the same persistent Agent.
 
 These witnesses test the exact anti-entailments. They do not identify Lean functions with Organon's causal machinery by fiat, measure intelligence, prove that any deployed LLM system is intelligent, or establish semantic equivalence between arbitrary Representations.
 
 <!-- organon:proposal-statement IK-G1 type=open_formalization_gate -->
-### IK-G1 — Open formalization gate: runtime construction and full causal realization
+### IK-G1 — Open formalization gate: Rule encoding, runtime construction, and full causal realization
 
-Lean's `CognitivePipeline` composes typed functions and witnesses State-dependent results, and its owning `AdaptiveRule` binds enumeration to the same pipeline. `InterpretiveContext.capable` remains an abstract local predicate rather than an inhabited Organon `Capability` under a concrete Configuration. The shadow does not yet encode allocation time, training versus inference, a canonical Relation between executable functions and Organon's Rules, or the full Causal path from Environment through Sense, Perception, Interpretation, Action, and Consequence. Claims about a particular implementation's Intelligence or Operative Knowledge remain blocked until those joins and its Agent Boundary are supplied.
+Lean's `CognitivePipeline` composes typed functions and witnesses State-dependent results, and its owning `AdaptiveRule` binds an explicit list of individually named States to the same pipeline. The formal non-enumeration result is relative to that supplied encoding. The shadow does not prove that the list completely describes every case individually represented by an executable implementation; that completeness and provenance must be supplied when classifying a deployed system. `InterpretiveContext.capable` also remains an abstract local predicate rather than an inhabited Organon `Capability` under a concrete Configuration. Allocation time, training versus inference, and the full Causal path from Environment through Sense, Perception, Interpretation, Action, and Consequence remain open. Claims about a particular implementation's Intelligence or Operative Knowledge remain blocked until those joins and its Agent Boundary are supplied.
 
 <!-- organon:proposal-statement IK-G2 type=open_formalization_gate -->
 ### IK-G2 — Open formalization gate: semantic and functional preservation
@@ -142,12 +143,12 @@ Bare knowledge remains quarantined. A factive or warranted promotion must specif
 | ID | Type | Statement | Dependencies | Evidence or gate |
 | --- | --- | --- | --- | --- |
 | IK-D1 | Proposed definition | Intelligence | Capability, Agent, Model, Interpretation, Perception, Memory, Action, Consequence, Specification, State, Rule, Scope | `adaptiveIntelligence` |
-| IK-D2 | Proposed definition | Operative Knowledge | Configuration, Record, Agent, Rule, Model, Interpretation, Causal path, Action, Transformation, State, Consequence, Specification, Scope | `mistakenOperativeKnowledge`, `accurateOperativeKnowledge` |
-| IK-D3 | Proposed definition | Knowledge Transmission | Relation, Operative Knowledge, Record, Causal path, Specification, Scope, Configuration | `reconstructedTransmission` |
+| IK-D2 | Proposed definition | Operative Knowledge | Configuration, Record, Agent, Capability, Constraint, Rule, Model, Interpretation, Causal path, Action, Transformation, State, Consequence, Specification, Scope | `mistakenOperativeKnowledge`, `accurateOperativeKnowledge` |
+| IK-D3 | Proposed definition | Knowledge Transmission | Relation, Operative Knowledge, Record, Causal path, Specification, Scope, Configuration, State, Agent | `reconstructedTransmission`, `selfTransmission` |
 | IK-C1 | Anti-collapse constraint | Intelligence is not a Model or fixed Interpretation | IK-D1, Model, Interpretation, Capability, IK-D2 | `fixedInterpretationDoesNotAdapt`, `operativeKnowledgeDoesNotEntailIntelligence` |
 | IK-C2 | Anti-collapse constraint | Operative Knowledge is not stored information or Truth | IK-D2, Record, Truth, Evidence | `noOperativeKnowledgeWithoutCapableInterpreter`, `operativeKnowledgeDoesNotEntailTruth` |
-| IK-C3 | Anti-collapse constraint | Knowledge Transmission is not copying | IK-D3, Record, Representation, Model, Interpretation | `copiedRecordDoesNotSupplyRecipientKnowledge`, `transmissionDoesNotRequireIdenticalRecordsOrModels` |
-| IK-G1 | Open formalization gate | Runtime construction and full causal realization | IK-D1, Agent, Rule, Causal path, Action, Consequence | Open |
+| IK-C3 | Anti-collapse constraint | Knowledge Transmission is not copying or necessarily inter-agent | IK-D3, Record, Representation, Model, Interpretation, Agent | `copiedRecordDoesNotSupplyRecipientKnowledge`, `transmissionDoesNotRequireIdenticalRecordsOrModels`, `knowledgeTransmissionPermitsSameAgent` |
+| IK-G1 | Open formalization gate | Rule encoding, runtime construction, and full causal realization | IK-D1, Agent, Rule, Causal path, Action, Consequence | Open |
 | IK-G2 | Open formalization gate | Semantic and functional preservation | IK-D3, Map, Representation, Specification, Invariant | Open |
 | IK-G3 | Open formalization gate | Factive and warranted knowledge | IK-D2, Truth, Evidence, Claim | Open |
 
