@@ -2,7 +2,7 @@
 type: editorial-ontology
 status: provisional-binding
 binding: true
-version: 0.14
+version: 0.15
 created: 2026-08-01
 updated: 2026-08-03
 evidence_scope: "Daniel's adopted commitments and the recovered essay corpus"
@@ -677,6 +677,85 @@ The source and recipient instances must occupy distinct States or stages, but th
 
 Transmission preserves specified function, not necessarily Record identity, literal Representation, Model identity, or Interpretation identity. Copying or exposing a Record without a recipient Agent having the required Capability is Record transmission, not Knowledge Transmission. A recipient that independently constructs Operative Knowledge from a Record whose source had no Operative Knowledge acquires Operative Knowledge but does not receive it from that source under this Relation. Distortion or decay obtains relative to the declared preservation Specification; a transfer can fail under one Specification and succeed under a weaker one.
 
+### 26. Factive and warranted operative knowledge
+
+<a id="organon-factive-operative-knowledge"></a>
+<!-- organon:term organon:FactiveOperativeKnowledge claim=D091 -->
+
+**Factive Operative Knowledge** is an instance of Operative Knowledge whose load-bearing Record carries a declared Claim and for which Truth obtains for that exact Claim under its declared Rule, truth-condition Specification, relevant Presence, and Scope.
+
+The carried Claim must be joined to the Record that discriminatingly conditions the operative path. A true Claim merely present beside an Action does not make the Operative Knowledge factive. Factive Operative Knowledge entails Operative Knowledge and Truth for its carried Claim; neither entailment reverses. Operative Knowledge may carry a false Claim, while a true Claim may have no capable interpreter or operative path.
+
+<a id="organon-warranted-knowledge"></a>
+<!-- organon:term organon:WarrantedKnowledge claim=D092 -->
+
+**Warranted Knowledge** is Factive Operative Knowledge for which an Order admits Evidence supporting the same Claim under an Admissibility Rule, where the Evidence is joined to an Observation and a Witness that is IndependentFor that claimant, Claim, Observation, and Order.
+
+The claimant in that IndependentFor Relation is the interpreting Agent of the Factive Operative Knowledge instance. Evidence independent for one Agent cannot warrant another Agent's instance merely because both concern the same Claim.
+
+Warranted Knowledge therefore entails Factive Operative Knowledge, Truth for the carried Claim, and admitted Evidence for that Claim. The reverse implications fail separately. The Order does not create Truth by admitting Evidence, and factivity does not supply warrant when the claimant join, required Observation, independent Witness, Rule provenance, or Admission is missing. This definition is an Order-relative epistemic profile; it does not define every ordinary use of knowledge.
+
+### 27. Moral-status discourse
+
+<a id="organon-moral-status-attribution"></a>
+<!-- organon:term organon:MoralStatusAttribution claim=D093 -->
+
+**Moral Status Attribution** is a Claim whose Representation, interpreted under a Rule, asserts that a target Entity in a State instantiates a separately specified candidate moral condition within a Scope. The Attribution identifies the candidate Specification and preserves claimant, target, Representation, interpretive Rule, and first-person or third-person provenance without establishing that the condition obtains.
+
+The candidate condition is not identified with its Specification. Different Specifications may describe one candidate, and incompatible candidates may be proposed under ordinary moral language. A Moral Status Attribution can obtain while its candidate is false; failure to make the Attribution establishes neither Absence nor negation.
+
+<a id="organon-moral-personhood-designation"></a>
+<!-- organon:term organon:MoralPersonhoodDesignation claim=D094 -->
+
+**Moral Personhood Designation** is the CountsAs Relation established when an Order, under a Rule and stated institutional purpose, admits a Moral Status Attribution and records its target Entity as carrying moral-personhood status within an institutional Scope.
+
+Designation is one Order-indexed institutional event. It is neither institutional Person nor the candidate condition itself. It does not independently alter Standing, protections, duties, Permissions, Interfaces, prohibited Actions, or Consequences. A separate Rule must connect the Designation to each downstream Relation in a named Order and Scope. Non-designation does not decide whether a candidate condition obtains.
+
+### 28. Sovereignty profiles
+
+<a id="organon-constituent-sovereignty"></a>
+<!-- organon:term organon:ConstituentSovereignty claim=D095 -->
+
+**Constituent Sovereignty** is a scoped Configuration in which a Polity's persistent Constituent Power is realized through a Constituent Exercise that creates, refounds, or transforms the categories, Rules, or Boundaries of an Order. Capability, rhetoric, or a Claim of founding power without a witnessed Constituent Exercise is insufficient.
+
+<a id="organon-constituted-sovereignty"></a>
+<!-- organon:term organon:ConstitutedSovereignty claim=D096 -->
+
+**Constituted Sovereignty** is an Order-indexed profile in which an Entity has Standing and Authority for a declared family of Actions within a Scope and no Entity recognized by that Order has superior Authority for that family under the declared superiority Rule. Maximality is relative to that Order, Rule, family, and Scope; it is neither universal nor constituent.
+
+<a id="organon-boundary-sovereignty"></a>
+<!-- organon:term organon:BoundarySovereignty claim=D097 -->
+
+**Boundary Sovereignty** is a scoped Configuration in which a Polity or other Entity Controls the Constraints governing a declared family of Transformations across its Boundary and an Order Enforces those Constraints. The profile requires at least one admitted and one blocked Transformation and a witnessed Difference in Consequence or later State when Enforcement applies.
+
+<a id="organon-external-sovereignty"></a>
+<!-- organon:term organon:ExternalSovereignty claim=D098 -->
+
+**External Sovereignty** is an Order-indexed Relation in which an Order distinct from the target's internal Order recognizes an Entity or Polity as having Standing to participate in declared inter-Order Actions as its own Principal, rather than through an ActsFor Relation to another recognized Principal, under a Rule and Scope. It records external institutional status, not effective Control, internal Authority, or Constituent Power.
+
+The four sovereignty profiles do not entail one another. A Polity may exercise Constituent Power without external Recognition; an Entity may hold maximal constituted Authority without power to refound the Order; an externally recognized polity may lack effective Boundary Control. Ordinary **Sovereignty** remains quarantined unless explicitly mapped to one profile or to a declared Configuration joining several profiles.
+
+### 29. Preference, measurement, price, and institutional valuation
+
+<a id="organon-preference"></a>
+<!-- organon:term organon:Preference claim=D099 -->
+
+**Preference** is a scoped asymmetric Relation in which an Agent, under a declared Rule, orders one candidate State or Consequence before another. It may be partial and need not be numerical, transitive outside its declared Scope, revealed by Action, or represented by a Utility Measure.
+
+<a id="organon-utility-measure"></a>
+<!-- organon:term organon:UtilityMeasure claim=D100 -->
+
+**Utility Measure** is a scoped Map that assigns candidates to a measure space under a Rule and Specification and orders those measures through a declared asymmetric Relation. It represents an Agent's Preference only when a separate correspondence witness proves that its induced ordering agrees with that Preference in the declared Scope.
+
+<a id="organon-price"></a>
+<!-- organon:term organon:Price claim=D101 -->
+
+**Price** is a scoped exchange Relation recorded in a Ledger and admitted by an Order under a Rule, in which a Representation of consideration CountsAs the stated exchange condition for another Presence at a State. A Price is a Record of an offered, required, or recognized condition; it does not entail an exchange, Preference, Utility Measure, institutional valuation, or moral worth.
+
+<!-- organon:claim Pj4 --> An **institutional valuation** is an authorized projection of CountsAs in which an Order, under a Rule and Scope, assigns a valuation status to a Presence, Claim, Action, or Record. It is not a new term. Institutional valuation does not entail Preference, Utility Measure, Price, Truth, or moral worth.
+
+Preference, Utility Measure, Price, institutional valuation, and moral worth remain distinct. Generic **Value** has no additional binding meaning and remains quarantined.
+
 ## Relation signatures
 
 These signatures make the ontology operational. They are schemas, not executable syntax.
@@ -722,6 +801,17 @@ These signatures make the ontology operational. They are schemas, not executable
 | `actsIntelligently` | Agent, Perception, Memory, constructed Models and Interpretations, non-enumerated States, selected Actions, Consequences, Specification, Scope | adaptive Capability across the declared Scope; no entailment of Truth, Authority, or global success |
 | `knowsOperatively` | Record, interpreting Agent, Capability, Constraints, Rule, Model or Interpretation, Causal path, Action or internal Transformation, resulting State or Consequence, Specification, Scope | Record makes a discriminating operative difference and the result conforms; storage or successful effect alone is insufficient |
 | `transmitsKnowledge` | source Operative Knowledge and State, mediated Record, Causal path, recipient Operative Knowledge and distinct later State, preservation Specification, Scope | recipient reconstructs the operative function; source and recipient may be the same Agent, while copied Record, identical Model, or literal fidelity is neither necessary nor sufficient |
+| `knowsFactively` | Operative Knowledge, load-bearing Record, carried Claim, Truth, Rule, truth-condition Specification, Presence, Scope | operative function and Truth obtain for the exact carried Claim; neither alone is sufficient |
+| `knowsWarrantedly` | Factive Operative Knowledge, Evidence, Observation, independent Witness, Admissibility Rule, Order, Admission | Evidence for the same true operative Claim is independently grounded and admitted |
+| `attributesMoralStatus` | Agent, target Entity, State, Representation, candidate Specification, Language, meaning Rule, Map, Claim Scope | Moral Status Attribution; no entailment that the candidate condition obtains |
+| `designatesMoralPersonhood` | Order, Rule, institutional purpose, admitted Moral Status Attribution, institutional Scope | one CountsAs event for the Attribution's target; no downstream effect without a separate Rule |
+| `exercisesConstituentSovereignty` | Polity, Constituent Power, Constituent Exercise, transformed Order, Scope | founding or refounding exercise obtains; no entailment of other sovereignty profiles |
+| `holdsConstitutedSovereignty` | Order, Entity, Standing, Authority, Action family, superiority Rule, Scope | no recognized Entity has superior Authority for that family under the declared Rule |
+| `holdsBoundarySovereignty` | Polity or Entity, Boundary, controlled Constraints, admitted and blocked Transformations, Enforcement, changed Consequence or State, Scope | effective differentiated control across a Boundary; no entailment of Recognition or constituent power |
+| `recognizesExternalSovereignty` | recognizing Order, target internal Order, Entity or Polity, Principal standing, inter-Order Actions, Rule, Scope | target participates in its own name rather than through ActsFor; no entailment of effective internal capability or control |
+| `prefers` | Agent, ordered candidate States or Consequences, Rule, Scope | asymmetric partial ordering; no necessary numerical or behavioral representation |
+| `measuresUtility` | candidates, ordered measure space, Map, Rule, Specification, Scope | measured ordering; correspondence to Preference requires a separate witness |
+| `prices` | Ledger Record, Order, Rule, Representation of consideration, exchanged Presence, State, Scope | admitted exchange condition; no entailment of exchange, preference, utility, or worth |
 
 ## Binding consistency rules
 
@@ -763,15 +853,23 @@ These signatures make the ontology operational. They are schemas, not executable
 
 19. <!-- organon:claim C19 --> **No knowledge-transmission-copy collapse:** Knowledge Transmission requires recipient Operative Knowledge in a distinct State or stage and preservation under a declared Specification. Copying, exposing, or preserving a Record does not entail Knowledge Transmission; transmission does not entail identical Records, Representations, Models, Interpretations, or distinct Agents; independent acquisition does not establish transmission from a source.
 
+20. <!-- organon:claim C20 --> **No factivity-warrant collapse:** Factive Operative Knowledge requires Operative Knowledge and Truth for the exact Claim carried by its load-bearing Record. Warranted Knowledge additionally requires Evidence admitted for that same Claim and independently grounded for the operative interpreter. Evidence independent for another Agent cannot fill that join. Operative Knowledge, Truth, Evidence, or Admission alone is insufficient, and institutional Admission does not create Truth.
+
+21. <!-- organon:claim C21 --> **No moral-discourse-status collapse:** Moral Status Attribution and Moral Personhood Designation do not establish their candidate condition; non-attribution and non-designation do not establish its negation. Designation does not independently alter Personhood, Standing, protections, duties, Permissions, Interfaces, prohibited Actions, or Consequences; every downstream effect requires a separate Rule in a named Order and Scope.
+
+22. <!-- organon:claim C22 --> **No sovereignty-profile collapse:** Constituent, Constituted, Boundary, and External Sovereignty do not entail one another, generic Sovereignty, moral legitimacy, Truth, favorable Consequences, or moral personhood. A combined sovereignty Claim must name each profile and every Rule connecting them.
+
+23. <!-- organon:claim C23 --> **No value-profile collapse:** Preference, Utility Measure, Price, institutional valuation, and moral worth do not entail one another without an explicit correspondence Rule and witness. Action does not itself reveal Preference; measurement does not create desire; a Price does not establish exchange or worth; institutional status does not create moral worth.
+
 ## Quarantined vocabulary
 
 These terms occur in the corpus but have no binding definition yet. They may be used in ordinary or quoted language, but no argument may depend on their ontological meaning until they are defined and placed in the dependency order.
 
 - **Consciousness:** the underlying condition remains quarantined and is not inferable from Entity, Agent, Memory, Model, Interior, Consciousness Attribution, or Consciousness Designation. The two discourse terms govern Claims and institutional status without defining consciousness itself.
-- **Knowledge:** bare knowledge has no binding definition. Use Operative Knowledge for the promoted Record-interpreter Configuration; warranted Claim, Truth, Evidence, stored information, and dormant Record remain distinct.
-- **Moral personhood:** no binding definition; it remains distinct from institutional Person.
-- **Sovereignty:** no binding definition distinct from Authority, Constituent power, and exceptional Action.
-- **Value:** no binding definition distinguishing preference, price, utility, moral worth, and institutional recognition.
+- **Knowledge:** bare knowledge has no binding genus. Use Operative Knowledge, Factive Operative Knowledge, or Warranted Knowledge only when the corresponding operative, truth, and evidence obligations obtain; acquaintance, collective knowledge, and practiced Capability remain unmapped ordinary uses.
+- **Moral personhood:** the underlying candidate condition and moral worth remain undefined. Moral Status Attribution and Moral Personhood Designation govern Claims and institutional status without deciding that condition or collapsing it into institutional Person.
+- **Sovereignty:** generic Sovereignty has no binding definition. Use Constituent, Constituted, Boundary, or External Sovereignty for the promoted profiles, or declare a Configuration joining them without treating that join as automatic.
+- **Value:** generic Value and moral worth remain undefined. Preference, Utility Measure, Price, and the institutional-valuation projection are distinct and may not substitute for one another.
 
 ## Intellectual shadows and contribution
 
@@ -788,6 +886,7 @@ This ontology does not claim that its local machinery is unprecedented. Nearly e
 | World and Substrate | [Jakob von Uexküll, *A Foray into the Worlds of Animals and Humans*](https://www.upress.umn.edu/9781452903798/a-foray-into-the-worlds-of-animals-and-humans/), [James J. Gibson, *The Ecological Approach to Visual Perception*](https://www.routledge.com/The-Ecological-Approach-to-Visual-Perception-Classic-Edition/Gibson/p/book/9781848725782), [Aristotle, *Physics*, Book I](https://classics.mit.edu/Aristotle/physics.1.i.html), and [Gilbert Simondon, *On the Mode of Existence of Technical Objects*](https://www.upress.umn.edu/9781517904876/on-the-mode-of-existence-of-technical-objects/) | Uexküll makes accessible worlds participant-relative; Gibson joins environment to possible perception and action; Aristotle identifies an underlying subject persisting through change; Simondon makes the associated milieu an active condition of technical operation rather than passive matter. | World here is not a private phenomenal bubble and does not adopt Gibson's direct realism: its common Invariant remains available only through constrained paths. Substrate is neither Aristotelian prime matter nor Simondon's associated milieu wholesale; it is a contextual Configuration specified by the input States it supplies and the Constraints it contributes to a named family of Transformations. |
 | Truth, Trust, and Alignment | [Alfred Tarski, “The Semantic Conception of Truth”](https://www.jfsowa.com/logic/tarski.htm), [Annette Baier, “Trust and Antitrust”](https://www.jstor.org/stable/2265347), [Karen Jones, “Trust as an Affective Attitude”](https://www.jstor.org/stable/2381965), [Russell Hardin, *Trust and Trustworthiness*](https://www.russellsage.org/publications/book/trust-and-trustworthiness), [Niklas Luhmann, *Trust and Power*](https://www.wiley.com/en-us/Trust+and+Power-p-9781509519458), and [Terry et al., “Interactive AI Alignment”](https://arxiv.org/abs/2311.00710) | Tarski disciplines Claim-to-condition correspondence and the object-language/metalanguage boundary; trust theory distinguishes vulnerability, attitude, encapsulated interest, and complexity reduction; alignment research distinguishes target Specification, process, and evaluation profiles. | Truth here requires local material adequacy but does not claim a complete Tarskian semantics for natural language. Trust requires maintained admission and undetermined contribution but not goodwill, optimism, confidence, or shared interest. Alignment is a generic specified-correspondence Relation, not a claim that one profile captures human values or composes with another. |
 | Intelligence, Operative Knowledge, and Knowledge Transmission | [Shane Legg and Marcus Hutter, “Universal Intelligence: A Definition of Machine Intelligence”](https://arxiv.org/abs/0712.3329), [Gilbert Ryle, *The Concept of Mind*](https://books.google.com/books?id=mSbjClXFaIkC), [Claude Shannon, “A Mathematical Theory of Communication”](https://onlinelibrary.wiley.com/doi/abs/10.1002/j.1538-7305.1948.tb00917.x), and [Dan Sperber, “Why a deep understanding of cultural evolution is incompatible with shallow psychology”](https://www.dan.sperber.fr/wp-content/uploads/2006_why-a-deep-understanding-of-cultural-evolution-is-incompatible.pdf) | Legg and Hutter test intelligence across environments rather than one task; Ryle resists reducing intelligent performance to prior propositions; Shannon disciplines source-channel-recipient structure; Sperber distinguishes reconstruction from literal copying in cultural transmission. | Intelligence here requires adaptive Model construction and resulting Interpretation rather than assigning a scalar measure or optimal policy. Operative Knowledge is a Record-interpreter Configuration and does not inherit Ryle's complete account of knowing-how. Knowledge Transmission adds semantic-functional reconstruction that Shannon deliberately brackets and does not claim a general theory of culture. |
+| Epistemic, moral, sovereign, and valuation profiles | [Edmund Gettier, “Is Justified True Belief Knowledge?”](https://www.jstor.org/stable/3326922), [Immanuel Kant, *Groundwork of the Metaphysics of Morals*](https://www.gutenberg.org/ebooks/5682), [Thomas Hobbes, *Leviathan*](https://www.gutenberg.org/ebooks/3207), [Carl Schmitt, *Political Theology*](https://press.uchicago.edu/ucp/books/book/chicago/P/bo3643854.html), [Antonio Negri, *Insurgencies*](https://www.upress.umn.edu/9780816622740/insurgencies/), the [Montevideo Convention](https://www.oas.org/juridico/english/sigs/a-40.html), [Paul Samuelson, “A Note on the Pure Theory of Consumer's Behaviour”](https://www.jstor.org/stable/2548836), and [John von Neumann and Oskar Morgenstern, *Theory of Games and Economic Behavior*](https://press.princeton.edu/books/paperback/9780691130613/theory-of-games-and-economic-behavior) | Gettier blocks an easy justified-true-belief analysis; Kant separates moral consideration from price; Hobbes, Schmitt, Negri, and recognition practice expose distinct loci of sovereign power; Samuelson and von Neumann and Morgenstern discipline preference and utility representation. | Organon does not solve knowledge, moral worth, sovereignty, or value as generic concepts. It promotes narrower Configurations and Relations, keeps candidate conditions separate from institutional designation, and refuses silent composition among profiles. |
 
 ### The originality boundary
 

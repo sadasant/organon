@@ -20,6 +20,9 @@ name = "TruthTrustAlignment"
 [[lean_lib]]
 name = "IntelligenceKnowledge"
 
+[[lean_lib]]
+name = "QuarantineProfiles"
+
 [[lean_exe]]
 name = "ontology_check"
 root = "Model"

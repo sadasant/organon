@@ -24,6 +24,7 @@
       "depends_on": [
         "organon:Configuration",
         "organon:Entity",
+        "organon:Presence",
         "organon:Environment",
         "organon:State",
         "organon:Relation",
@@ -36,7 +37,14 @@
         "organon:Map",
         "organon:Reference",
         "organon:Scope",
-        "organon:Invariant"
+        "organon:Invariant",
+        "organon:Persistence",
+        "organon:Reality",
+        "organon:Evidence",
+        "organon:Claim",
+        "organon:Order",
+        "organon:Rule",
+        "organon:Boundary"
       ],
       "formal_symbol": "World"
     },
@@ -53,7 +61,11 @@
         "organon:Transformation",
         "organon:Feeds",
         "organon:Constraint",
-        "organon:Difference"
+        "organon:Difference",
+        "organon:Representation",
+        "organon:Entity",
+        "organon:Environment",
+        "organon:Tool"
       ],
       "formal_symbol": "Substrate"
     },

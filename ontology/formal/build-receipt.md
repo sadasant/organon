@@ -4,11 +4,11 @@ status: verified
 canonicality: noncanonical
 created: 2026-08-02
 updated: 2026-08-03
-repository_commit: "dea469071fe5350157670e84136b84f8e961e245"
+repository_commit: "84b481d8043a489c3705b1d63e23103ff338d57d"
 ---
 # Lean Spike Build Receipt
 
-This receipt records external Evidence for the noncanonical Lean spike. It does not promote the spike over [Daniel's Ontology v0.14](../ontology.md).
+This receipt records external Evidence for the noncanonical Lean spike. It does not promote the spike over [Daniel's Ontology v0.15](../ontology.md).
 
 ## Toolchain
 
@@ -26,15 +26,19 @@ lake build
 lake exe ontology_check
 ```
 
-Result: all 16 build jobs completed successfully. The executable printed:
+Result: all 18 build jobs completed successfully. The executable printed:
 
 ```text
-DanielOntology v0.14 spike: ontology, consciousness, operationalization, World, Substrate, Truth, Trust, Alignment, Intelligence, Operative Knowledge, and Knowledge Transmission countermodels elaborated
+DanielOntology v0.15 spike: ontology, consciousness, operationalization, World, Substrate, Truth, Trust, Alignment, adaptive knowledge, epistemic, moral, sovereignty, and valuation countermodels elaborated
 ```
 
-The Lean sources contain no `sorry`, `admit`, or `axiom` declaration. The formal shadow models candidate conditions, Consciousness Attributions, and Order-indexed Consciousness Designations without defining a universal consciousness predicate. It constructs a discriminating Operationalization whose selected Transformation occurs in a Causal path; a scoped World whose participant-bound access paths begin at the participant's current State and witness advertised availability on actual Transformations; a contextual Substrate whose source Invariant is preserved across at least two directionally ordered States; a materially adequate true toy Claim whose target no modeled Agent can supply; one accepted causal Dependence without confidence or Permission; one confidence-bearing involuntary Dependence over the same participants that cannot inhabit Trust; one Alignment using the exact Representation of a false Claim; one JointSituation connecting a true Claim, its trusted contribution, and its aligned Representation; one joined adaptive case whose two States are absent from an explicit Rule encoding, whose first State proves Perception-to-Model, Memory-to-Model, Model-to-Interpretation, Interpretation-to-Action, and Action-to-Consequence counterfactual dependence, and whose two actual Consequences conform; one fixed pipeline that cannot satisfy the adaptive relation; one false Claim Record that forms locally successful Operative Knowledge through a Rule individually naming every toy State, while no Intelligence with that same Agent and Rule can be inhabited; one dormant context in which no Operative Knowledge can be inhabited; one copied Record that supplies no recipient knowledge; one inter-agent Knowledge Transmission preserving specified success while changing Record and Model; and one stage-distinct self-transmission using the same persistent Agent. Operative Knowledge effects receive only selected Actions, not Records. Alignment uses ordered roles rather than temporal Direction, and the formal Trust output remains `dependentOutput` rather than canonical Consequence. Reality, universal Claim semantics, Action attribution, Interior-and-Boundary Exposure, Action-to-Change Consequence, complete Sense-to-Perception access, fidelity, carrier realization, Alignment-profile composition, completeness and provenance of external Rule encodings, runtime construction, temporal ordering of transmission stages, universal semantic preservation, and factive knowledge remain open formalization gates.
+The Lean sources contain no `sorry`, `admit`, or `axiom` declaration. The existing formal witnesses remain intact: consciousness candidate/Attribution/Designation separation; discriminating Operationalization; participant-bound World access; ordered Substrate Persistence; Truth without modeled Agent access; accepted Trust versus involuntary Dependence; profile-scoped Alignment; joined adaptive Intelligence; useful-false Operative Knowledge; dormant Records; copied Records without recipient knowledge; and inter-agent plus self-transmission.
 
-The repository commit attested by this receipt is `dea469071fe5350157670e84136b84f8e961e245`.
+The v0.15 shadow additionally constructs one Factive Operative Knowledge instance whose load-bearing Record carries the exact true Claim; one Warranted Knowledge instance with joined Observation, independent Witness, support, Rule, Order, Admission, and equality between the evidence claimant and operative interpreter; a useful operative falsehood that cannot inhabit the factive profile; a true Claim with no operative path; and a factive instance that cannot inhabit Warranted Knowledge under a closed Admission predicate. It constructs moral Attributions over obtaining and non-obtaining candidates, a Designation whose candidate does not obtain, a silent Order under which either candidate result remains possible, and Designation without downstream protection. It constructs one combined sovereignty world plus four profile-only worlds: each of Constituent, Constituted, Boundary, and External Sovereignty is inhabited while the other three structures are uninhabitable in the corresponding world. Boundary witnesses require unequal enforcement outcomes. External witnesses carry Rule, Standing, a scoped representative Action, own-Principal participation, and explicit exclusion of ActsFor relations to distinct Principals. It also constructs Preference without utility representation, a Utility Measure without modeled Preference, an observed choice that differs from the preferred option, Price without exchange or moral worth, and institutional valuation without moral worth.
+
+Proposal-local evidence, sovereignty, own-Principal, observed-choice, exchange, and moral-worth predicates remain formal shadows rather than complete joins to every core Organon structure. Reality, universal Claim semantics, universal moral conditions, Action attribution, complete Evidence parity, Interior-and-Boundary Exposure, Action-to-Change Consequence, complete Sense-to-Perception access, fidelity, carrier realization, Alignment-profile composition, completeness and provenance of external Rule encodings, runtime construction, temporal ordering of transmission stages, universal semantic preservation, international-law sufficiency, preference revelation, expected utility, market clearing, generic Knowledge, generic Sovereignty, and generic Value remain open formalization gates.
+
+The repository commit attested by this receipt is `84b481d8043a489c3705b1d63e23103ff338d57d`.
 
 ## Source digests
 
@@ -44,6 +48,7 @@ The repository commit attested by this receipt is `dea469071fe5350157670e84136b8
 - `WorldSubstrate.lean`: `8898e43b317077ff83a749668fa90d510371589b651b47b00ff8169656ab1da2`
 - `TruthTrustAlignment.lean`: `f21a878db97b0bb503d36189533e66287d02e7bd8b8e53d88a80202f79f4f9c4`
 - `IntelligenceKnowledge.lean`: `bc0ad1caa81adb25316f79aecd5011e32cf94cc73e1e046f7e13bcd10779aee8`
-- `Model.lean`: `715029704d25c0a9d8df764fb455d81ad956068918550d86e8efc5c4d391dca2`
-- `lakefile.toml`: `ac115f883cdec00e7421e7ef128efdbbaf989ee82d7085e658f066837e0ed336`
+- `QuarantineProfiles.lean`: `d2847ccb48dfef4948f4bdc8d57da984cfd43c55a68e129529befc175f4b689d`
+- `Model.lean`: `373091ccefb3db379f2fced35dcc007ce0fc2503abd7a15381fc89e8a147e0eb`
+- `lakefile.toml`: `3c9e2d5bc40befd81d605e3f58d616cf6f8351d18e5028953e6559328a54ffcb`
 - `lean-toolchain`: `54727eec5cba149c18842e6deb5c41b369d66455c93ce135d7d5347c782b2325`

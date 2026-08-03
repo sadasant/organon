@@ -120,9 +120,9 @@ The formal shadow models conformity under separate Specifications. It does not p
 
 | ID | Type | Statement | Dependencies | Evidence or gate |
 | --- | --- | --- | --- | --- |
-| TA-D1 | Proposed definition | Truth | Relation, Claim, Representation, Rule, Specification, Reality, Presence, Scope | `TruthSemantics.isTrue` |
-| TA-D2 | Proposed definition | Trust | Relation, Entity, Boundary, Constraint, State, Action, Claim, Causal path, Interior, Exposure, Consequence, Control, Scope | `Trust` finite inhabitant |
-| TA-D3 | Proposed definition | Alignment | Relation, Configuration, Presence, Specification, Scope, State, Transformation, Difference | `Alignment` finite inhabitant |
+| TA-D1 | Proposed definition | Truth | Relation, Claim, Representation, Rule, Specification, Reality, Presence, Scope, Entity, Evidence, Admission | `TruthSemantics.isTrue` |
+| TA-D2 | Proposed definition | Trust | Relation, Entity, Boundary, Constraint, State, Action, Claim, Causal path, Interior, Exposure, Consequence, Control, Scope, Evidence, Permission, Authority | `Trust` finite inhabitant |
+| TA-D3 | Proposed definition | Alignment | Relation, Configuration, Presence, Specification, Scope, State, Transformation, Difference, TA-D1, TA-D2, Permission, Authority, Agency, Persistence | `Alignment` finite inhabitant |
 | TA-C1 | Anti-collapse constraint | Truth is not epistemic or institutional success | TA-D1, Evidence, Admission | `truthDoesNotEntailAgentAccess`, `adequateClaimAndRealityModelDoNotEntailTruth`; universal joins gated by TA-G1 |
 | TA-C2 | Anti-collapse constraint | Trust is not confidence, prediction, authorization, or involuntary vulnerability | TA-D2, Permission, Authority, Evidence | `trustDoesNotEntailConfidenceOrPermission`, `confidenceAndDependenceDoNotEntailTrust`; stronger joins gated by TA-G2 |
 | TA-C3 | Anti-collapse constraint | Alignment is profile-scoped correspondence | TA-D3, Identity, Truth, Trust, Permission, Authority, Persistence | `alignmentIsProfileScoped`, `alignmentDoesNotEntailIdentity`, `alignedClaimDoesNotEntailTruth`; other joins gated by TA-G3 |

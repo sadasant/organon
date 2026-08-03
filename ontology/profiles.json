@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "ontology_version": "0.14.0",
+  "ontology_version": "0.15.0",
   "profiles": {
     "agent": {
       "description": "Entities, boundaries, interpretation, action, tools, and contextual capability.",
@@ -80,6 +80,37 @@
         "organon:Intelligence",
         "organon:OperativeKnowledge",
         "organon:KnowledgeTransmission"
+      ]
+    },
+    "epistemic-status": {
+      "description": "Operative, factive, and independently warranted knowledge profiles without treating Records, Truth, or Admission as interchangeable.",
+      "roots": [
+        "organon:FactiveOperativeKnowledge",
+        "organon:WarrantedKnowledge"
+      ]
+    },
+    "moral-status-discourse": {
+      "description": "Claims and Order-indexed designations concerning candidate moral status without defining moral worth or underlying moral personhood.",
+      "roots": [
+        "organon:MoralStatusAttribution",
+        "organon:MoralPersonhoodDesignation"
+      ]
+    },
+    "sovereignty-profiles": {
+      "description": "Constituent, constituted, boundary-control, and external-recognition profiles without collapsing them into generic Sovereignty.",
+      "roots": [
+        "organon:ConstituentSovereignty",
+        "organon:ConstitutedSovereignty",
+        "organon:BoundarySovereignty",
+        "organon:ExternalSovereignty"
+      ]
+    },
+    "valuation-profiles": {
+      "description": "Preference, utility measurement, and Ledger-recorded Price without collapsing measurement or institutional status into generic Value or moral worth.",
+      "roots": [
+        "organon:Preference",
+        "organon:UtilityMeasure",
+        "organon:Price"
       ]
     }
   }

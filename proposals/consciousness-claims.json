@@ -22,8 +22,10 @@
         "organon:Agent",
         "organon:Claim",
         "organon:Entity",
+        "organon:State",
         "local:CandidateCondition",
         "organon:Configuration",
+        "organon:Representation",
         "organon:Specification",
         "organon:Scope",
         "organon:Language",
@@ -37,12 +39,15 @@
       "type": "proposed_definition",
       "subject": "Consciousness Designation",
       "depends_on": [
+        "organon:Relation",
         "CC-D1",
         "organon:Order",
         "organon:Rule",
         "organon:Admission",
         "organon:CountsAs",
-        "organon:Scope"
+        "organon:Scope",
+        "organon:Entity",
+        "organon:State"
       ],
       "formal_symbol": "ConsciousnessDesignation"
     },

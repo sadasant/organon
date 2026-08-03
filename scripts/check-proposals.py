@@ -33,8 +33,13 @@ MARKER = re.compile(
 )
 
 
-def check_manifest(path: Path, known_terms: set[str]) -> list[str]:
+def check_manifest(
+    path: Path,
+    registry_terms: dict[str, dict],
+    registry_labels: dict[str, str],
+) -> list[str]:
     errors: list[str] = []
+    known_terms = set(registry_terms)
     data = json.loads(path.read_text(encoding="utf-8"))
     base = path.parent
     markdown = base / data.get("markdown", "")
@@ -71,6 +76,14 @@ def check_manifest(path: Path, known_terms: set[str]) -> list[str]:
         errors.append(f"{markdown.name}: frontmatter status does not match manifest")
 
     statements = data.get("statements", [])
+    introduced_terms = set(data.get("introduced_terms", []))
+    promoted_statement_terms = {
+        item.get("id"): registry_labels[item.get("subject")]
+        for item in statements
+        if item.get("type") == "proposed_definition"
+        and item.get("subject") in registry_labels
+        and registry_labels[item.get("subject")] in introduced_terms
+    }
     statement_ids = [item.get("id") for item in statements]
     duplicates = sorted({
         statement_id for statement_id in statement_ids
@@ -80,7 +93,6 @@ def check_manifest(path: Path, known_terms: set[str]) -> list[str]:
         errors.append(f"{path.name}: duplicate statement ID {duplicate}")
 
     local_symbols = set(data.get("local_symbols", []))
-    introduced_terms = set(data.get("introduced_terms", []))
     if not all(
         isinstance(term, str) and term.startswith("organon:")
         for term in introduced_terms
@@ -135,6 +147,28 @@ def check_manifest(path: Path, known_terms: set[str]) -> list[str]:
             )
         seen.add(statement_id)
 
+    if status in {"partially-promoted", "promoted"}:
+        for item in statements:
+            statement_id = item.get("id")
+            term_id = promoted_statement_terms.get(statement_id)
+            if term_id is None:
+                continue
+            proposal_dependencies = {
+                promoted_statement_terms.get(dependency, dependency)
+                for dependency in item.get("depends_on", [])
+                if promoted_statement_terms.get(dependency, dependency).startswith(
+                    "organon:"
+                )
+            }
+            binding_dependencies = set(registry_terms[term_id]["depends_on"])
+            if proposal_dependencies != binding_dependencies:
+                missing = sorted(binding_dependencies - proposal_dependencies)
+                extra = sorted(proposal_dependencies - binding_dependencies)
+                errors.append(
+                    f"{statement_id}: promoted dependency drift for {term_id}; "
+                    f"missing {missing}, extra {extra}"
+                )
+
     markdown_pairs = set(MARKER.findall(markdown_text))
     for extra in sorted(markdown_pairs - manifest_pairs):
         errors.append(f"{markdown.name}: unregistered proposal marker {extra}")
@@ -146,7 +180,8 @@ def check_manifest(path: Path, known_terms: set[str]) -> list[str]:
 
 def main() -> int:
     registry = json.loads(TERM_REGISTRY.read_text(encoding="utf-8"))
-    known_terms = {item["id"] for item in registry["terms"]}
+    registry_terms = {item["id"]: item for item in registry["terms"]}
+    registry_labels = {item["label"]: item["id"] for item in registry["terms"]}
     manifests = sorted(PROPOSALS.glob("*-claims.json"))
     if not manifests:
         print("Proposal check failed: no statement manifests found")
@@ -154,7 +189,9 @@ def main() -> int:
 
     errors: list[str] = []
     for manifest in manifests:
-        errors.extend(check_manifest(manifest, known_terms))
+        errors.extend(
+            check_manifest(manifest, registry_terms, registry_labels)
+        )
 
     if errors:
         print("Proposal check failed:")
