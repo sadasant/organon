@@ -42,7 +42,7 @@ scripts/        repository, semantic, and adoption checks
 
 [Contributing to Organon](./CONTRIBUTING.md) defines the review burden for binding changes. In particular, a new term must survive a termhood challenge, dependency and collapse audits, comparison with its closest intellectual shadows, and proportionate formal testing before it can be called promotion-ready.
 
-The binding artifact is [Daniel's Ontology v0.12](./ontology/ontology.md). It remains readable as one Markdown document; the machine-readable registry and formal artifacts check and challenge it without replacing it. Its [term registry](./ontology/terms.yaml) assigns stable `organon:*` identifiers, typed claims, and explicit dependencies. The [changelog](./ontology/changelog.md) keeps earlier arguments and rejected formulations out of the active system.
+The binding artifact is [Daniel's Ontology v0.13](./ontology/ontology.md). It remains readable as one Markdown document; the machine-readable registry and formal artifacts check and challenge it without replacing it. Its [term registry](./ontology/terms.yaml) assigns stable `organon:*` identifiers, typed claims, and explicit dependencies. The [changelog](./ontology/changelog.md) keeps earlier arguments and rejected formulations out of the active system.
 
 Terms under quarantine are developed through [proposal pull requests](./proposals/README.md). A proposal may preserve candidate definitions, hypotheses, evidence requirements, and reasons for refusal without changing the binding ontology merely by existing.
 
@@ -56,7 +56,7 @@ The ontology's essay evidence is indexed through the public [Essay Corpus](./pro
 
 ## Lean experiment
 
-The [Lean formalization](./ontology/formal/README.md) prices decisions that prose can hide. It encodes selected high-risk regions, including classical A3, Direction-indexed Transformations, explicit feeding between States, executable Specifications, contextual Capability, Order-indexed Permission, scoped Witness independence, a nontrivial Boundary model, discriminating Operationalization, and finite World and Substrate witnesses.
+The [Lean formalization](./ontology/formal/README.md) prices decisions that prose can hide. It encodes selected high-risk regions, including classical A3, Direction-indexed Transformations, explicit feeding between States, executable Specifications, contextual Capability, Order-indexed Permission, scoped Witness independence, a nontrivial Boundary model, discriminating Operationalization, finite World and Substrate witnesses, and separate Truth, Trust, and Alignment countermodels.
 
 Lean is not canonical. Compilation proves that the declarations elaborate under the pinned compiler. It does not prove that the encoding exhausted the prose, that the prose exhausted Reality, or that the compiler has become a metaphysician. The [formalization decisions](./ontology/formal/decisions.md) and [build receipt](./ontology/formal/build-receipt.md) preserve that boundary.
 
@@ -87,4 +87,4 @@ The link check keeps public Markdown inside the portable Obsidian/GitHub interse
 
 ## Status
 
-Organon v0.12 is provisional and binding only where explicitly adopted. The ontology is not complete, universally true, or immune to revision. It is a versioned promise that named distinctions will not quietly change halfway through an argument.
+Organon v0.13 is provisional and binding only where explicitly adopted. The ontology is not complete, universally true, or immune to revision. It is a versioned promise that named distinctions will not quietly change halfway through an argument.

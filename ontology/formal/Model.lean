@@ -2,6 +2,7 @@ import DanielOntology
 import Consciousness
 import Operationalization
 import WorldSubstrate
+import TruthTrustAlignment
 
 /-!
 # Daniel's Ontology: finite inhabited model
@@ -488,4 +489,4 @@ theorem exerciseModelIsInhabited :
 end DanielOntology.Model
 
 def main : IO Unit :=
-  IO.println "DanielOntology v0.12 spike: ontology, consciousness, operationalization, World, and Substrate countermodels elaborated"
+  IO.println "DanielOntology v0.13 spike: ontology, consciousness, operationalization, World, Substrate, Truth, Trust, and Alignment countermodels elaborated"

@@ -11,6 +11,16 @@ This note records how [Daniel's Ontology](./ontology.md) changed. Historical arg
 
 ## Version history
 
+### v0.13 - Correspondence, exposure, and specified conformity
+
+- Defined Truth as materially adequate correspondence among a Claim's Representation, its declared truth-condition Specification, and the relevant Presence in Reality, independently of Evidence, access, proof, consensus, or Admission.
+- Defined Trust as causal dependence admitted by a Constraint maintained in the trusting Entity's Boundary, where the future contribution comes from another Entity and remains outside the truster's determining Control; involuntary vulnerability alone is not Trust.
+- Defined Alignment as conformity between ordered subject and target roles under one constructive Specification and Scope, without misusing Organon's temporal Direction; behavioral, representational, incentive, and authority uses remain profiles rather than interchangeable meanings.
+- Added C14-C16 to prevent truth-status, trust-confidence-control, and alignment-totalization collapses, including exact separations among Truth, Trust, and Alignment.
+- Added the optional `correspondence-and-coordination` adoption profile.
+- Added Tarski, Baier, Jones, Hardin, Luhmann, and interactive AI alignment as local shadows with explicit non-inheritance boundaries.
+- Added shared finite Lean witnesses for a materially adequate true Claim without modeled Agent access, accepted causal dependence without confidence or Permission, confidence plus involuntary dependence without Trust, and the same false Claim's Representation aligning under a profile. A joint situation explicitly connects one Claim, trusted contribution, and Alignment. Universal semantics, Action attribution, canonical Exposure and Consequence, and profile composition remain explicit gates.
+
 ### v0.12 - Situated Worlds and contextual Substrates
 
 - Defined World as a scoped Configuration of participants, selected Environment, available Causal paths, and a named Invariant persisting across distinct access paths.

@@ -4,11 +4,11 @@ status: verified
 canonicality: noncanonical
 created: 2026-08-02
 updated: 2026-08-03
-repository_commit: "5a7f89c4789154e112c149dff9db5062d7b11b40"
+repository_commit: "2046984ba420cb01c4de8033a01a4953db923f01"
 ---
 # Lean Spike Build Receipt
 
-This receipt records external Evidence for the noncanonical Lean spike. It does not promote the spike over [Daniel's Ontology v0.12](../ontology.md).
+This receipt records external Evidence for the noncanonical Lean spike. It does not promote the spike over [Daniel's Ontology v0.13](../ontology.md).
 
 ## Toolchain
 
@@ -26,15 +26,15 @@ lake build
 lake exe ontology_check
 ```
 
-Result: all build jobs completed successfully. The executable printed:
+Result: all 14 build jobs completed successfully. The executable printed:
 
 ```text
-DanielOntology v0.12 spike: ontology, consciousness, operationalization, World, and Substrate countermodels elaborated
+DanielOntology v0.13 spike: ontology, consciousness, operationalization, World, Substrate, Truth, Trust, and Alignment countermodels elaborated
 ```
 
-The Lean sources contain no `sorry`, `admit`, or `axiom` declaration. The formal shadow models candidate conditions, Consciousness Attributions, and Order-indexed Consciousness Designations without defining a universal consciousness predicate. It constructs a discriminating Operationalization whose selected Transformation occurs in a Causal path; a scoped World whose participant-bound access paths begin at the participant's current State and witness advertised availability on actual Transformations; and a contextual Substrate whose source Invariant is preserved across at least two directionally ordered States. Its finite countermodels establish only the named anti-entailments: Attribution and Designation do not entail candidate obtainment; non-designation does not decide candidate obtainment; Operationalization or occurrence of its selected output entails neither Map fidelity nor admission as Evidence; a World Scope need not contain every inhabited State of its carrier type; causal access paths need not expose identical States; and ordered source Persistence does not entail preservation of the same Invariant in every supported output. Reality, complete Sense-to-Perception access, fidelity, and carrier-realization joins remain open formalization gates.
+The Lean sources contain no `sorry`, `admit`, or `axiom` declaration. The formal shadow models candidate conditions, Consciousness Attributions, and Order-indexed Consciousness Designations without defining a universal consciousness predicate. It constructs a discriminating Operationalization whose selected Transformation occurs in a Causal path; a scoped World whose participant-bound access paths begin at the participant's current State and witness advertised availability on actual Transformations; a contextual Substrate whose source Invariant is preserved across at least two directionally ordered States; a materially adequate true toy Claim whose target no modeled Agent can supply; one accepted causal Dependence without confidence or Permission; one confidence-bearing involuntary Dependence over the same participants that cannot inhabit Trust; one Alignment using the exact Representation of a false Claim; and one JointSituation connecting a true Claim, its trusted contribution, and its aligned Representation. Alignment uses ordered roles rather than temporal Direction, and the formal Trust output remains `dependentOutput` rather than canonical Consequence. Reality, universal Claim semantics, Action attribution, Interior-and-Boundary Exposure, Action-to-Change Consequence, complete Sense-to-Perception access, fidelity, carrier realization, and Alignment-profile composition remain open formalization gates.
 
-The repository commit attested by this receipt is `5a7f89c4789154e112c149dff9db5062d7b11b40`.
+The repository commit attested by this receipt is `2046984ba420cb01c4de8033a01a4953db923f01`.
 
 ## Source digests
 
@@ -42,6 +42,7 @@ The repository commit attested by this receipt is `5a7f89c4789154e112c149dff9db5
 - `Consciousness.lean`: `1ce88fce1943039368d595c260ab74a7fd499f1d66513af00bce1238e1b80976`
 - `Operationalization.lean`: `f9ccc4233423e3f4806dfad588167e540fc1fcff9680708b7ab7bbd931c59ea8`
 - `WorldSubstrate.lean`: `8898e43b317077ff83a749668fa90d510371589b651b47b00ff8169656ab1da2`
-- `Model.lean`: `a38644ffa86acbab9e35072dcd9a4cbf6fb6e22ddbcc2609c6ae7aa9edaa6c87`
-- `lakefile.toml`: `f4e27425e578f2ae577842125f8728f26bed44af81d4604add7e99b5388092ce`
+- `TruthTrustAlignment.lean`: `f21a878db97b0bb503d36189533e66287d02e7bd8b8e53d88a80202f79f4f9c4`
+- `Model.lean`: `971707c18bd80a00f6aace9dae6571dac90d17fe1cd9859089afdf23663b7a53`
+- `lakefile.toml`: `83eb594006fcfe31be329e1c415743fc5d5b4ddd1a11366df5ed7e2642ed69ac`
 - `lean-toolchain`: `54727eec5cba149c18842e6deb5c41b369d66455c93ce135d7d5347c782b2325`

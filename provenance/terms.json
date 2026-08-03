@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "ontology_version": "0.12.0",
+  "ontology_version": "0.13.0",
   "sources": {
     "essay:absence": {"kind": "published-corpus", "reference": "essays.md", "title": "Nothing Else Is So Exact As Absence"},
     "essay:shadow-world": {"kind": "published-corpus", "reference": "essays.md", "title": "The Shadow of the World"},
@@ -21,7 +21,10 @@
     "review:v0.9": {"kind": "external-review", "reference": "../reviews/2026-08-02-organon-review.md", "title": "Organon v0.9 adversarial review"},
     "formal:lean-v0.9": {"kind": "formalization", "reference": "../ontology/formal/decisions.md", "title": "Lean v0.9 formalization findings"},
     "proposal:consciousness": {"kind": "adopted-review", "reference": "../proposals/consciousness.md", "title": "Consciousness attribution and designation partial-promotion dossier"},
-    "formal:consciousness": {"kind": "formalization", "reference": "../ontology/formal/decisions.md", "title": "Consciousness discourse formalization findings"}
+    "formal:consciousness": {"kind": "formalization", "reference": "../ontology/formal/decisions.md", "title": "Consciousness discourse formalization findings"},
+    "essay:epistemic-capture": {"kind": "published-corpus", "reference": "essays.md", "title": "Epistemic Capture"},
+    "proposal:truth-trust-alignment": {"kind": "adopted-review", "reference": "../proposals/truth-trust-and-alignment.md", "title": "Truth Trust and Alignment promotion dossier"},
+    "formal:truth-trust-alignment": {"kind": "formalization", "reference": "../ontology/formal/decisions.md", "title": "Truth Trust and Alignment formalization findings"}
   },
   "groups": [
     {
@@ -68,6 +71,11 @@
       "basis": "corpus-extraction",
       "sources": ["essay:shadow-world", "essay:reasoning-language", "essay:containment"],
       "terms": ["organon:World", "organon:Substrate"]
+    },
+    {
+      "basis": "adopted-commitment",
+      "sources": ["essay:reasoning-language", "essay:conspiracy-reason", "essay:higher-you-go", "essay:containment", "essay:epistemic-capture", "essay:delete-harness", "proposal:truth-trust-alignment", "formal:truth-trust-alignment", "review:daniel"],
+      "terms": ["organon:Truth", "organon:Trust", "organon:Alignment"]
     }
   ]
 }

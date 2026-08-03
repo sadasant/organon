@@ -2,7 +2,7 @@
 type: editorial-ontology
 status: provisional-binding
 binding: true
-version: 0.12
+version: 0.13
 created: 2026-08-01
 updated: 2026-08-03
 evidence_scope: "Daniel's adopted commitments and the recovered essay corpus"
@@ -621,6 +621,29 @@ Substrate is contextual, not a fundamental kind. The same Configuration can be S
 
 A Substrate remains distinct from a Representation, Invariant, Entity, or function carried through it. Persistence of the Substrate does not entail Persistence of what it carries, and preservation of a carried Invariant does not require identity of Substrate across every State.
 
+### 24. Truth, trust, and alignment
+
+<a id="organon-truth"></a>
+<!-- organon:term organon:Truth claim=D085 -->
+
+**Truth** is the Relation among a Claim, its Representation, the Specification declared as its truth condition, and the Presence in Reality within the Claim's Scope to which that Specification applies. The Relation requires a scoped material-adequacy witness: under a declared Rule, the Claim's Representation denotes that Specification applied to that Presence. Truth obtains exactly when this semantic join holds and the relevant Presence conforms to the Specification.
+
+Truth does not depend on whether an Entity can identify, access, supply, prove, or institutionally admit that correspondence. The Specification's constructive decision procedure decides conformity when supplied the relevant Presence; Truth does not entail that any Entity can supply it. Evidence can support or defeat a Claim without becoming Truth, and Admission or consensus can preserve a false Claim.
+
+<a id="organon-trust"></a>
+<!-- organon:term organon:Trust claim=D086 -->
+
+**Trust** is a scoped Relation in which one Entity maintains within its Boundary a Constraint that admits a future Action, Claim, or State introduced into a Causal path by another Entity, while the trusting Entity lacks Control sufficient to determine that contribution when the Relation obtains. The admitted contribution exposes an Interior, conditions a later State, or participates in a path to Consequences for the trusting Entity.
+
+“Undetermined” is relational rather than metaphysical. The other Entity or its contribution may be deterministic while the trusting Entity cannot determine the relevant contribution through its available Control. Evidence, history, relationship, reputation, confidence, Permission, Authority, and incentives can condition whether Trust is extended; none is Trust itself. The accepting Constraint may be maintained under pressure, so coerced reliance can still instantiate Trust. Sheer involuntary vulnerability with no such maintained admission is dependence or Exposure, not Trust. Trust can be misplaced, and its existence does not entail favorable Consequences.
+
+<a id="organon-alignment"></a>
+<!-- organon:term organon:Alignment claim=D087 -->
+
+**Alignment** is a scoped Relation with ordered subject and target roles under a Specification of their correspondence. It obtains when that Specification constructively decides that the subject conforms to the target with respect to the named States, Transformations, Relations, or Differences.
+
+Alignment is indexed by its Specification and Scope. Behavioral, representational, incentive, and authority Alignment are profiles supplied by different Specifications, not interchangeable kinds or a global virtue. Alignment under one profile does not entail Alignment under another, identity with the target, shared Agency or purpose, Truth, Trust, Permission, Authority, or Persistence across later States.
+
 ## Relation signatures
 
 These signatures make the ontology operational. They are schemas, not executable syntax.
@@ -660,6 +683,9 @@ These signatures make the ontology operational. They are schemas, not executable
 | `operationalizes` | Representation, Rule, Interface, Scope, selected Transformation, Causal path | Rule discriminates the Representation, Interface exposes the selected Transformation, and that Transformation occurs in the path; no entailment of representational identity, Map fidelity, or Evidence |
 | `composesWorld` | Entities, selected Environment, Scope, Constraints, included Causal paths, named Invariant | participant-scoped World whose distinct access paths bear on the common Invariant; no identity with Reality, Environment, Map, or Reference |
 | `servesAsSubstrate` | Configuration, Scope, persistent input States, Feeds, Constraints, family of Transformations | contextual Substrate; no entailment that carrier and carried Configuration are identical or persist together |
+| `isTrue` | Claim, Representation, declared Rule, truth-condition Specification, relevant Presence in Reality, Scope | materially adequate correspondence and conformity obtain independently of access, Evidence, proof, consensus, or Admission |
+| `trusts` | trusting Entity, other Entity, maintained Boundary Constraint, future contribution, Causal path, affected State or Exposure, Scope | accepted causal dependence without determining Control; involuntary dependence alone is insufficient |
+| `alignsUnder` | ordered subject Configuration, target Presence, Specification, Scope | conformity under this profile only; no identity, Truth, Authority, or cross-profile entailment |
 
 ## Binding consistency rules
 
@@ -689,6 +715,12 @@ These signatures make the ontology operational. They are schemas, not executable
 
 13. <!-- organon:claim C13 --> **No Substrate collapse:** Substrate is a scoped function of a Configuration in a named family of Transformations, not a fundamental substance or intrinsic kind. The Substrate is not identical with a Representation, Invariant, Entity, or function carried through it, and Persistence of carrier and carried Configuration do not entail each other.
 
+14. <!-- organon:claim C14 --> **No truth-status collapse:** Truth neither entails nor is entailed by Agent access, Evidence, proof, consensus, Admission, or institutional standing. A Claim, declared validator, and target Presence do not entail Truth unless a scoped material-adequacy witness connects the Claim's Representation to that Specification and Presence and the Presence conforms.
+
+15. <!-- organon:claim C15 --> **No trust-confidence-control collapse:** Trust requires a maintained Boundary Constraint admitting scoped causal dependence on another Entity's future contribution without determining Control. Confidence, prediction, history, Evidence, Permission, Authority, incentive compatibility, favorable Consequences, or involuntary vulnerability neither separately constitutes Trust nor follows from it.
+
+16. <!-- organon:claim C16 --> **No alignment-totalization:** Alignment obtains only under its declared Specification and Scope. It does not entail identity, faithful representation outside the profile, Truth, Trust, Permission, Authority, shared Agency or purpose, favorable Consequences, or Persistence across later States; Alignment under one profile does not entail Alignment under another.
+
 ## Quarantined vocabulary
 
 These terms occur in the corpus but have no binding definition yet. They may be used in ordinary or quoted language, but no argument may depend on their ontological meaning until they are defined and placed in the dependency order.
@@ -696,9 +728,6 @@ These terms occur in the corpus but have no binding definition yet. They may be 
 - **Consciousness:** the underlying condition remains quarantined and is not inferable from Entity, Agent, Memory, Model, Interior, Consciousness Attribution, or Consciousness Designation. The two discourse terms govern Claims and institutional status without defining consciousness itself.
 - **Intelligence:** no binding definition; corpus uses include search, interpretation, generalization, coherence, and capacity to alter an Environment.
 - **Knowledge:** no binding definition; corpus uses include persistent Model, warranted Claim, transmissible Record, and practiced capability.
-- **Truth:** no binding definition; Evidence bears on Claims without establishing truth conditions.
-- **Trust:** no binding definition; corpus uses include prediction, relationship, delegated exposure, and institutional acceptance.
-- **Alignment:** no binding definition; corpus uses include behavioral similarity, faithful representation of a Principal, incentive compatibility, and bounded Authority.
 - **Moral personhood:** no binding definition; it remains distinct from institutional Person.
 - **Sovereignty:** no binding definition distinct from Authority, Constituent power, and exceptional Action.
 - **Value:** no binding definition distinguishing preference, price, utility, moral worth, and institutional recognition.
@@ -716,6 +745,7 @@ This ontology does not claim that its local machinery is unprecedented. Nearly e
 | Declaration, Permission, Authority, Standing, Role, Person, Institution, and political Order | [John Searle, *Making the Social World*](https://academic.oup.com/book/5336) | Status functions, constitutive rules, declarations, deontic powers, and the form “X counts as Y in context C” strongly shadow the institutional stack. | A Declaration here is insufficient by utterance alone: it requires an Agent with Authority, a Specification, and an Order that records its Scope. The ontology also connects institutional counting to Capability, Boundary, Observation, Evidence, Ledger, and Constituent exercise. |
 | Representation, Rule, and Operationalization | [P. W. Bridgman, *The Logic of Modern Physics*](https://www.gutenberg.org/ebooks/70620), [John Searle, “Human Social Reality and Language”](https://doi.org/10.13128/Phe_Mi-19621), and [Terrence Deacon, *Incomplete Nature*](https://books.google.com/books?id=aT_y7ao96LgC) | Bridgman makes abstract concepts answerable to operations; Searle shows linguistic Representations creating institutional powers through constitutive Rules; Deacon argues that representational and purposive phenomena can have physical causal efficacy. | Operationalization here is broader than measurement, narrower than unconstrained causal influence, and neutral about Deacon's account of mind. It requires a discriminating Rule, exposed Transformation, Scope, and actual Causal-path witness; it does not make every operation semantic or every Representation institutionally constitutive. |
 | World and Substrate | [Jakob von Uexküll, *A Foray into the Worlds of Animals and Humans*](https://www.upress.umn.edu/9781452903798/a-foray-into-the-worlds-of-animals-and-humans/), [James J. Gibson, *The Ecological Approach to Visual Perception*](https://www.routledge.com/The-Ecological-Approach-to-Visual-Perception-Classic-Edition/Gibson/p/book/9781848725782), [Aristotle, *Physics*, Book I](https://classics.mit.edu/Aristotle/physics.1.i.html), and [Gilbert Simondon, *On the Mode of Existence of Technical Objects*](https://www.upress.umn.edu/9781517904876/on-the-mode-of-existence-of-technical-objects/) | Uexküll makes accessible worlds participant-relative; Gibson joins environment to possible perception and action; Aristotle identifies an underlying subject persisting through change; Simondon makes the associated milieu an active condition of technical operation rather than passive matter. | World here is not a private phenomenal bubble and does not adopt Gibson's direct realism: its common Invariant remains available only through constrained paths. Substrate is neither Aristotelian prime matter nor Simondon's associated milieu wholesale; it is a contextual Configuration specified by the input States it supplies and the Constraints it contributes to a named family of Transformations. |
+| Truth, Trust, and Alignment | [Alfred Tarski, “The Semantic Conception of Truth”](https://www.jfsowa.com/logic/tarski.htm), [Annette Baier, “Trust and Antitrust”](https://www.jstor.org/stable/2265347), [Karen Jones, “Trust as an Affective Attitude”](https://www.jstor.org/stable/2381965), [Russell Hardin, *Trust and Trustworthiness*](https://www.russellsage.org/publications/book/trust-and-trustworthiness), [Niklas Luhmann, *Trust and Power*](https://www.wiley.com/en-us/Trust+and+Power-p-9781509519458), and [Terry et al., “Interactive AI Alignment”](https://arxiv.org/abs/2311.00710) | Tarski disciplines Claim-to-condition correspondence and the object-language/metalanguage boundary; trust theory distinguishes vulnerability, attitude, encapsulated interest, and complexity reduction; alignment research distinguishes target Specification, process, and evaluation profiles. | Truth here requires local material adequacy but does not claim a complete Tarskian semantics for natural language. Trust requires maintained admission and undetermined contribution but not goodwill, optimism, confidence, or shared interest. Alignment is a generic specified-correspondence Relation, not a claim that one profile captures human values or composes with another. |
 
 ### The originality boundary
 
