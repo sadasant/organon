@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "ontology_version": "0.13.0",
+  "ontology_version": "0.14.0",
   "profiles": {
     "agent": {
       "description": "Entities, boundaries, interpretation, action, tools, and contextual capability.",
@@ -72,6 +72,14 @@
         "organon:Truth",
         "organon:Trust",
         "organon:Alignment"
+      ]
+    },
+    "adaptive-knowledge": {
+      "description": "Adaptive Agent-level capability, operative Record-interpreter configurations, and function-preserving reconstruction without collapsing Models into Agents or Records into Knowledge.",
+      "roots": [
+        "organon:Intelligence",
+        "organon:OperativeKnowledge",
+        "organon:KnowledgeTransmission"
       ]
     }
   }

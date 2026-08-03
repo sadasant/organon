@@ -2,7 +2,7 @@
 type: editorial-ontology
 status: provisional-binding
 binding: true
-version: 0.13
+version: 0.14
 created: 2026-08-01
 updated: 2026-08-03
 evidence_scope: "Daniel's adopted commitments and the recovered essay corpus"
@@ -644,6 +644,39 @@ Truth does not depend on whether an Entity can identify, access, supply, prove, 
 
 Alignment is indexed by its Specification and Scope. Behavioral, representational, incentive, and authority Alignment are profiles supplied by different Specifications, not interchangeable kinds or a global virtue. Alignment under one profile does not entail Alignment under another, identity with the target, shared Agency or purpose, Truth, Trust, Permission, Authority, or Persistence across later States.
 
+### 25. Intelligence and operative knowledge
+
+<a id="organon-intelligence"></a>
+<!-- organon:term organon:Intelligence claim=D088 -->
+
+**Intelligence** is the scoped Capability of an Agent to construct or revise Models and Interpretations from Perception and Memory so that it can select Actions whose Consequences conform to a Specification across States not individually enumerated by the Rule producing those Actions.
+
+Adaptation requires more than applying one unchanged Interpretation: within the Scope, at least two non-enumerated States must produce Differences in both the constructed Model and the resulting Interpretation while their Consequences satisfy the declared Specification. At least one witnessed State must carry one joined, load-bearing path in which changing the Perception or Memory changes the constructed Model, changing that Model changes the Interpretation, changing that Interpretation changes the selected Action, and changing that Action changes the Consequence.
+
+“Non-enumerated” means not individually named in the producing Rule's recorded Representation; it does not mean unknowable, random, or outside Reality. An Intelligence Claim must expose that Representation and the Rule provenance under which it is treated as complete enough for this classification. A fixed lookup table whose cases are individually named is enumerated; a fixed general procedure is not disqualified merely because its implementation is fixed. A fixed implementation, executable, or set of model weights may participate as Record, Memory, Rule, Tool, or Substrate without either constituting or excluding Intelligence. The relevant Agent is the whole persistent Entity whose Perception, Memory, Model construction, Interpretation, Capability, and Action form the Causal path, not an isolated Model.
+
+Intelligence does not entail Truth, Alignment, Permission, Authority, favorable Consequences outside the declared Specification, or success in another Scope. A Capability that applies one fixed Interpretation without constructing or revising a Model across non-enumerated States is not Intelligence under this definition.
+
+<a id="organon-operative-knowledge"></a>
+<!-- organon:term organon:OperativeKnowledge claim=D089 -->
+
+**Operative Knowledge** is a scoped Configuration joining a Record to an interpreting Agent with the Capability required under stated Constraints when, under a Rule, that Record discriminatingly conditions a Model or Interpretation in a Causal path to an Action or internal Transformation whose resulting State or Consequence conforms to a Specification.
+
+The Record participates discriminatingly only if replacing it with another in-Scope Record under the same Configuration alters the resulting Model, Interpretation, and selected Action or internal Transformation. The resulting State or Consequence must derive from that selected Action or Transformation rather than branch independently on the Record. A Record at rest, an interpreter without the required Capability, an uninterpreted Representation, or a merely stored Model is not Operative Knowledge. The resulting State, Consequence, or derivative Record is not Operative Knowledge by itself; it becomes part of a later instance only when joined again to a capable interpreter and the required operative path.
+
+Operative Knowledge is indexed by its Record, interpreter, Rule, Scope, and Specification. It may operate successfully under a local Specification while a Claim represented by the Record is false; Truth and Evidence require their own Relations. Bare **knowledge** remains ordinary language unless explicitly mapped to Operative Knowledge or promoted later under a different dependency-closed definition.
+
+Operative Knowledge does not entail Intelligence: the operative Rule may enumerate every relevant State and apply a fixed Interpretation. An Intelligence instance uses Memory operatively, but establishing the corresponding Operative Knowledge instance still requires declaring the exact Record, interpreter Capability, Rule, Causal path, Scope, and Specification rather than treating the relation as implicit.
+
+<a id="organon-knowledge-transmission"></a>
+<!-- organon:term organon:KnowledgeTransmission claim=D090 -->
+
+**Knowledge Transmission** is a scoped Relation between a source instance and a recipient instance of Operative Knowledge in which the source produces or exposes a Record through a Causal path, the recipient reconstructs Operative Knowledge from that mediated Record, and a declared Specification confirms preservation of the named operative function across the two resulting Configurations.
+
+The source and recipient instances must occupy distinct States or stages, but their interpreters need not be distinct Agents. One persistent Agent can externalize a Record and later reconstruct Operative Knowledge from it; self-documentation, checkpoint restoration, and Memory recovery are therefore eligible instances when the other conditions obtain.
+
+Transmission preserves specified function, not necessarily Record identity, literal Representation, Model identity, or Interpretation identity. Copying or exposing a Record without a recipient Agent having the required Capability is Record transmission, not Knowledge Transmission. A recipient that independently constructs Operative Knowledge from a Record whose source had no Operative Knowledge acquires Operative Knowledge but does not receive it from that source under this Relation. Distortion or decay obtains relative to the declared preservation Specification; a transfer can fail under one Specification and succeed under a weaker one.
+
 ## Relation signatures
 
 These signatures make the ontology operational. They are schemas, not executable syntax.
@@ -686,6 +719,9 @@ These signatures make the ontology operational. They are schemas, not executable
 | `isTrue` | Claim, Representation, declared Rule, truth-condition Specification, relevant Presence in Reality, Scope | materially adequate correspondence and conformity obtain independently of access, Evidence, proof, consensus, or Admission |
 | `trusts` | trusting Entity, other Entity, maintained Boundary Constraint, future contribution, Causal path, affected State or Exposure, Scope | accepted causal dependence without determining Control; involuntary dependence alone is insufficient |
 | `alignsUnder` | ordered subject Configuration, target Presence, Specification, Scope | conformity under this profile only; no identity, Truth, Authority, or cross-profile entailment |
+| `actsIntelligently` | Agent, Perception, Memory, constructed Models and Interpretations, non-enumerated States, selected Actions, Consequences, Specification, Scope | adaptive Capability across the declared Scope; no entailment of Truth, Authority, or global success |
+| `knowsOperatively` | Record, interpreting Agent, Capability, Constraints, Rule, Model or Interpretation, Causal path, Action or internal Transformation, resulting State or Consequence, Specification, Scope | Record makes a discriminating operative difference and the result conforms; storage or successful effect alone is insufficient |
+| `transmitsKnowledge` | source Operative Knowledge and State, mediated Record, Causal path, recipient Operative Knowledge and distinct later State, preservation Specification, Scope | recipient reconstructs the operative function; source and recipient may be the same Agent, while copied Record, identical Model, or literal fidelity is neither necessary nor sufficient |
 
 ## Binding consistency rules
 
@@ -721,13 +757,18 @@ These signatures make the ontology operational. They are schemas, not executable
 
 16. <!-- organon:claim C16 --> **No alignment-totalization:** Alignment obtains only under its declared Specification and Scope. It does not entail identity, faithful representation outside the profile, Truth, Trust, Permission, Authority, shared Agency or purpose, favorable Consequences, or Persistence across later States; Alignment under one profile does not entail Alignment under another.
 
+17. <!-- organon:claim C17 --> **No intelligence-model-or-fixed-capability collapse:** Intelligence belongs to the scoped Agent-level Configuration and requires one joined load-bearing path through Perception, Memory, constructed Model, Interpretation, Action, and Consequence across States not individually named in the producing Rule's recorded Representation. A Model, fixed Interpretation, stored weights, general Capability, successful output, Truth, Alignment, Permission, or Authority neither separately constitutes Intelligence nor follows from it.
+
+18. <!-- organon:claim C18 --> **No operative-knowledge-record-truth collapse:** Operative Knowledge requires a Record, a capable interpreter under stated Constraints, and one discriminating Rule-mediated path in which an alternative Record changes Model, Interpretation, and Action or internal Transformation and the result derives from that selection. A Record cannot bypass the selected Action to manufacture conformity. A Record, Model, Claim, Truth, Evidence, stored output, capable interpreter, or successful effect neither separately constitutes Operative Knowledge nor follows from it; locally operative falsehood remains possible.
+
+19. <!-- organon:claim C19 --> **No knowledge-transmission-copy collapse:** Knowledge Transmission requires recipient Operative Knowledge in a distinct State or stage and preservation under a declared Specification. Copying, exposing, or preserving a Record does not entail Knowledge Transmission; transmission does not entail identical Records, Representations, Models, Interpretations, or distinct Agents; independent acquisition does not establish transmission from a source.
+
 ## Quarantined vocabulary
 
 These terms occur in the corpus but have no binding definition yet. They may be used in ordinary or quoted language, but no argument may depend on their ontological meaning until they are defined and placed in the dependency order.
 
 - **Consciousness:** the underlying condition remains quarantined and is not inferable from Entity, Agent, Memory, Model, Interior, Consciousness Attribution, or Consciousness Designation. The two discourse terms govern Claims and institutional status without defining consciousness itself.
-- **Intelligence:** no binding definition; corpus uses include search, interpretation, generalization, coherence, and capacity to alter an Environment.
-- **Knowledge:** no binding definition; corpus uses include persistent Model, warranted Claim, transmissible Record, and practiced capability.
+- **Knowledge:** bare knowledge has no binding definition. Use Operative Knowledge for the promoted Record-interpreter Configuration; warranted Claim, Truth, Evidence, stored information, and dormant Record remain distinct.
 - **Moral personhood:** no binding definition; it remains distinct from institutional Person.
 - **Sovereignty:** no binding definition distinct from Authority, Constituent power, and exceptional Action.
 - **Value:** no binding definition distinguishing preference, price, utility, moral worth, and institutional recognition.
@@ -746,6 +787,7 @@ This ontology does not claim that its local machinery is unprecedented. Nearly e
 | Representation, Rule, and Operationalization | [P. W. Bridgman, *The Logic of Modern Physics*](https://www.gutenberg.org/ebooks/70620), [John Searle, “Human Social Reality and Language”](https://doi.org/10.13128/Phe_Mi-19621), and [Terrence Deacon, *Incomplete Nature*](https://books.google.com/books?id=aT_y7ao96LgC) | Bridgman makes abstract concepts answerable to operations; Searle shows linguistic Representations creating institutional powers through constitutive Rules; Deacon argues that representational and purposive phenomena can have physical causal efficacy. | Operationalization here is broader than measurement, narrower than unconstrained causal influence, and neutral about Deacon's account of mind. It requires a discriminating Rule, exposed Transformation, Scope, and actual Causal-path witness; it does not make every operation semantic or every Representation institutionally constitutive. |
 | World and Substrate | [Jakob von Uexküll, *A Foray into the Worlds of Animals and Humans*](https://www.upress.umn.edu/9781452903798/a-foray-into-the-worlds-of-animals-and-humans/), [James J. Gibson, *The Ecological Approach to Visual Perception*](https://www.routledge.com/The-Ecological-Approach-to-Visual-Perception-Classic-Edition/Gibson/p/book/9781848725782), [Aristotle, *Physics*, Book I](https://classics.mit.edu/Aristotle/physics.1.i.html), and [Gilbert Simondon, *On the Mode of Existence of Technical Objects*](https://www.upress.umn.edu/9781517904876/on-the-mode-of-existence-of-technical-objects/) | Uexküll makes accessible worlds participant-relative; Gibson joins environment to possible perception and action; Aristotle identifies an underlying subject persisting through change; Simondon makes the associated milieu an active condition of technical operation rather than passive matter. | World here is not a private phenomenal bubble and does not adopt Gibson's direct realism: its common Invariant remains available only through constrained paths. Substrate is neither Aristotelian prime matter nor Simondon's associated milieu wholesale; it is a contextual Configuration specified by the input States it supplies and the Constraints it contributes to a named family of Transformations. |
 | Truth, Trust, and Alignment | [Alfred Tarski, “The Semantic Conception of Truth”](https://www.jfsowa.com/logic/tarski.htm), [Annette Baier, “Trust and Antitrust”](https://www.jstor.org/stable/2265347), [Karen Jones, “Trust as an Affective Attitude”](https://www.jstor.org/stable/2381965), [Russell Hardin, *Trust and Trustworthiness*](https://www.russellsage.org/publications/book/trust-and-trustworthiness), [Niklas Luhmann, *Trust and Power*](https://www.wiley.com/en-us/Trust+and+Power-p-9781509519458), and [Terry et al., “Interactive AI Alignment”](https://arxiv.org/abs/2311.00710) | Tarski disciplines Claim-to-condition correspondence and the object-language/metalanguage boundary; trust theory distinguishes vulnerability, attitude, encapsulated interest, and complexity reduction; alignment research distinguishes target Specification, process, and evaluation profiles. | Truth here requires local material adequacy but does not claim a complete Tarskian semantics for natural language. Trust requires maintained admission and undetermined contribution but not goodwill, optimism, confidence, or shared interest. Alignment is a generic specified-correspondence Relation, not a claim that one profile captures human values or composes with another. |
+| Intelligence, Operative Knowledge, and Knowledge Transmission | [Shane Legg and Marcus Hutter, “Universal Intelligence: A Definition of Machine Intelligence”](https://arxiv.org/abs/0712.3329), [Gilbert Ryle, *The Concept of Mind*](https://books.google.com/books?id=mSbjClXFaIkC), [Claude Shannon, “A Mathematical Theory of Communication”](https://onlinelibrary.wiley.com/doi/abs/10.1002/j.1538-7305.1948.tb00917.x), and [Dan Sperber, “Why a deep understanding of cultural evolution is incompatible with shallow psychology”](https://www.dan.sperber.fr/wp-content/uploads/2006_why-a-deep-understanding-of-cultural-evolution-is-incompatible.pdf) | Legg and Hutter test intelligence across environments rather than one task; Ryle resists reducing intelligent performance to prior propositions; Shannon disciplines source-channel-recipient structure; Sperber distinguishes reconstruction from literal copying in cultural transmission. | Intelligence here requires adaptive Model construction and resulting Interpretation rather than assigning a scalar measure or optimal policy. Operative Knowledge is a Record-interpreter Configuration and does not inherit Ryle's complete account of knowing-how. Knowledge Transmission adds semantic-functional reconstruction that Shannon deliberately brackets and does not claim a general theory of culture. |
 
 ### The originality boundary
 

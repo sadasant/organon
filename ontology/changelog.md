@@ -11,6 +11,15 @@ This note records how [Daniel's Ontology](./ontology.md) changed. Historical arg
 
 ## Version history
 
+### v0.14 - Adaptation, operative interpretation, and reconstruction
+
+- Defined Intelligence as Agent-level adaptive Capability requiring State-dependent Model or Interpretation construction across States not individually enumerated by the producing Rule, with conforming Consequences under one Specification.
+- Defined Operative Knowledge as a Record functioning discriminatingly inside an available interpreter's scoped action-producing Configuration; dormant Records and successful effects alone are not Knowledge.
+- Defined Knowledge Transmission as recipient reconstruction of Operative Knowledge with preservation under a declared Specification, rather than copying or literal identity of Records, Representations, Models, or Interpretations.
+- Kept bare knowledge quarantined and made the useful-but-false case explicit: locally successful Operative Knowledge does not entail Truth or Evidence.
+- Added C17-C19 and the optional `adaptive-knowledge` adoption profile.
+- Added finite Lean witnesses for one joined adaptive path versus fixed Interpretation, dormant Record versus Operative Knowledge, useful falsehood, Operative Knowledge without Intelligence under the same fully enumerating Rule, copied Record without recipient knowledge, function-preserving reconstruction across different Records and Models, and stage-distinct self-transmission. Rule-encoding completeness, runtime causality, universal semantic preservation, and factive knowledge remain explicit gates.
+
 ### v0.13 - Correspondence, exposure, and specified conformity
 
 - Defined Truth as materially adequate correspondence among a Claim's Representation, its declared truth-condition Specification, and the relevant Presence in Reality, independently of Evidence, access, proof, consensus, or Admission.

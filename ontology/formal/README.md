@@ -7,7 +7,7 @@ prose_ontology: "../ontology.md"
 ---
 # Daniel's Ontology - Lean Spike
 
-This directory tests whether selected regions of [Daniel's Ontology v0.13](../ontology.md) can become a proof-checked Lean artifact. It is deliberately **noncanonical**. The single-file Markdown ontology remains the readable binding artifact until Daniel explicitly promotes a formal artifact after term-for-term parity, a complete model, clean builds without `sorry`, and a stable Markdown projection.
+This directory tests whether selected regions of [Daniel's Ontology v0.14](../ontology.md) can become a proof-checked Lean artifact. It is deliberately **noncanonical**. The single-file Markdown ontology remains the readable binding artifact until Daniel explicitly promotes a formal artifact after term-for-term parity, a complete model, clean builds without `sorry`, and a stable Markdown projection.
 
 ## Included in the spike
 
@@ -28,6 +28,7 @@ This directory tests whether selected regions of [Daniel's Ontology v0.13](../on
 - A finite World shadow carries nonempty participants and States plus distinct participant-bound access paths. Every path is nonempty, begins at its participant's current State, remains in Scope, and witnesses each advertised available State on an actual Transformation. Its model excludes one inhabited carrier State and lets two causal paths disagree without losing the shared Invariant; it does not formalize Reality.
 - A finite Substrate shadow carries a source-Persistence witness with at least two directionally ordered States preserving one Invariant, plus nonempty Constraints, a scoped Causal path, and explicit Feeds witnesses. Its model separates ordered source Persistence from invariant-preserving outputs; carrier-to-content realization remains an explicit open gate.
 - A finite Truth shadow requires a per-instance material-adequacy join before constructive conformity while keeping Agent access separate. A proposal-local Dependence binds an other-supplied future Transformation to an actual Causal path and `dependentOutput`; Trust additionally requires admission through a Constraint maintained in the dependent Entity's Boundary. Shared countermodels show confidence plus involuntary Dependence without Trust, the same false Claim's Representation aligned under a profile, and one explicitly joined Claim-Trust-Alignment situation.
+- One joined Agent-level Intelligence case constructs different Models and Interpretations for two States absent from an explicit Rule encoding, proves every Perception-to-Consequence seam load-bearing for the first, and produces conforming Consequences for both. Operative Knowledge requires a capable interpreter and forces an alternative Record to change Model, Interpretation, and Action while the effect can depend only on Action; the finite model separates it from Truth, dormant storage, and Intelligence under the same fully enumerating Rule. Knowledge Transmission reconstructs a conforming function across distinct stages while allowing different Records, Models, and either different or identical interpreter Agents; copied data alone supplies no recipient knowledge.
 
 See [Formalization Decisions](./decisions.md) for commitments exposed by Lean and [Build Receipt](./build-receipt.md) for reproducible evidence.
 
