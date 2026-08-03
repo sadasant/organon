@@ -184,6 +184,24 @@ def main() -> int:
     if audit_check.returncode != 0:
         errors.append(audit_check.stderr.strip() or audit_check.stdout.strip())
 
+    for checker_name in (
+        "generate-relational-model.py",
+        "check-relational-instance.py",
+        "check-relational-receipt.py",
+    ):
+        relational_check = subprocess.run(
+            [sys.executable, str(ROOT / "scripts" / checker_name)],
+            cwd=ROOT,
+            capture_output=True,
+            text=True,
+        )
+        if relational_check.returncode != 0:
+            errors.append(
+                relational_check.stderr.strip()
+                or relational_check.stdout.strip()
+                or f"{checker_name} failed"
+            )
+
     if errors:
         print("Semantic check failed:")
         for error in errors:

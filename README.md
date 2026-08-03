@@ -30,7 +30,7 @@ This matters because an ontology can be internally consistent and still reflect 
 ## Repository map
 
 ```text
-ontology/       binding prose, stable term registry, profiles, and Lean experiment
+ontology/       binding prose, stable term registry, profiles, and formal experiments
 editorial/      long-form grammar and canonical short-form delivery language
 provenance/     essay, editorial, and term-level evidence lineage
 proposals/      nonbinding promotion dossiers for quarantined vocabulary
@@ -62,6 +62,12 @@ The formal directory also contains an [Absence-free OrganonCore reduct](./ontolo
 
 Lean is not canonical. Compilation proves that the declarations elaborate under the pinned compiler. It does not prove that the encoding exhausted the prose, that the prose exhausted Reality, or that the compiler has become a metaphysician. The [formalization decisions](./ontology/formal/decisions.md) and [build receipt](./ontology/formal/build-receipt.md) preserve that boundary.
 
+## Finite registry experiment
+
+The [finite relational model](./ontology/relational/README.md) projects all 104 registered terms, all 34 typed commitments, and all 50 declared relation signatures into one bounded structure. Alloy 6.2.0 found a nondegenerate global inhabitant with 110 distinct nodes, exact witnesses for every relation signature, two joined cross-layer configurations, and explicit counterexamples for the encoded no-collapse obligations.
+
+This is structural satisfiability evidence, not term-for-term prose parity. Nineteen commitments currently have executable constraints in the model; fifteen remain exact dependency metadata only. The [experiment report](./ontology/relational/finite-global-inhabitant-report.md) states the result, the failed first attempt, and the remaining semantic gates.
+
 ## Adoption and review
 
 Begin with the project. Identify its actual actors, boundaries, transformations, records, and authority paths. Then use the [review template](./reviews/template.md) to classify each correspondence as exact, a refinement, a conflict, or unmapped. A defect may belong to the project, to Organon, or to the proposed mapping.
@@ -81,6 +87,8 @@ python3 scripts/check-links.py
 python3 scripts/check-semantics.py
 python3 scripts/check-proposals.py
 python3 scripts/check-formal-receipt.py
+python3 scripts/check-relational-instance.py
+python3 scripts/check-relational-receipt.py
 python3 scripts/check-adoption.py examples/organon-adoption.json --repo-root .
 (cd ontology/formal && lake build && lake exe ontology_check)
 ```

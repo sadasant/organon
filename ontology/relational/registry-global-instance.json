@@ -1,0 +1,5389 @@
+{
+  "anti_entailments": [
+    {
+      "claim": "C6",
+      "denied": "organon:Evidence",
+      "required": [
+        "organon:Claim"
+      ]
+    },
+    {
+      "claim": "C7",
+      "denied": "organon:Standing",
+      "required": [
+        "organon:Capability"
+      ]
+    },
+    {
+      "claim": "C7",
+      "denied": "organon:Capability",
+      "required": [
+        "organon:Standing"
+      ]
+    },
+    {
+      "claim": "C7",
+      "denied": "organon:Capability",
+      "required": [
+        "organon:Authority"
+      ]
+    },
+    {
+      "claim": "C10",
+      "denied": "organon:Standing",
+      "required": [
+        "organon:ConsciousnessDesignation"
+      ]
+    },
+    {
+      "claim": "C10",
+      "denied": "organon:Person",
+      "required": [
+        "organon:ConsciousnessDesignation"
+      ]
+    },
+    {
+      "claim": "C10",
+      "denied": "organon:Permission",
+      "required": [
+        "organon:ConsciousnessDesignation"
+      ]
+    },
+    {
+      "claim": "C10",
+      "denied": "organon:Interface",
+      "required": [
+        "organon:ConsciousnessDesignation"
+      ]
+    },
+    {
+      "claim": "C10",
+      "denied": "organon:Consequence",
+      "required": [
+        "organon:ConsciousnessDesignation"
+      ]
+    },
+    {
+      "claim": "C11",
+      "denied": "organon:Map",
+      "required": [
+        "organon:Operationalization"
+      ]
+    },
+    {
+      "claim": "C11",
+      "denied": "organon:Evidence",
+      "required": [
+        "organon:Operationalization"
+      ]
+    },
+    {
+      "claim": "C14",
+      "denied": "organon:Evidence",
+      "required": [
+        "organon:Truth"
+      ]
+    },
+    {
+      "claim": "C14",
+      "denied": "organon:Truth",
+      "required": [
+        "organon:Evidence"
+      ]
+    },
+    {
+      "claim": "C14",
+      "denied": "organon:Admission",
+      "required": [
+        "organon:Truth"
+      ]
+    },
+    {
+      "claim": "C14",
+      "denied": "organon:Truth",
+      "required": [
+        "organon:Admission"
+      ]
+    },
+    {
+      "claim": "C14",
+      "denied": "organon:Truth",
+      "required": [
+        "organon:Claim",
+        "organon:Representation",
+        "organon:Rule",
+        "organon:Presence",
+        "organon:Specification"
+      ]
+    },
+    {
+      "claim": "C15",
+      "denied": "organon:Control",
+      "required": [
+        "organon:Trust"
+      ]
+    },
+    {
+      "claim": "C15",
+      "denied": "organon:Evidence",
+      "required": [
+        "organon:Trust"
+      ]
+    },
+    {
+      "claim": "C15",
+      "denied": "organon:Trust",
+      "required": [
+        "organon:Permission"
+      ]
+    },
+    {
+      "claim": "C15",
+      "denied": "organon:Trust",
+      "required": [
+        "organon:Authority"
+      ]
+    },
+    {
+      "claim": "C16",
+      "denied": "organon:Truth",
+      "required": [
+        "organon:Alignment"
+      ]
+    },
+    {
+      "claim": "C16",
+      "denied": "organon:Trust",
+      "required": [
+        "organon:Alignment"
+      ]
+    },
+    {
+      "claim": "C16",
+      "denied": "organon:Permission",
+      "required": [
+        "organon:Alignment"
+      ]
+    },
+    {
+      "claim": "C16",
+      "denied": "organon:Authority",
+      "required": [
+        "organon:Alignment"
+      ]
+    },
+    {
+      "claim": "C16",
+      "denied": "organon:Agency",
+      "required": [
+        "organon:Alignment"
+      ]
+    },
+    {
+      "claim": "C16",
+      "denied": "organon:Persistence",
+      "required": [
+        "organon:Alignment"
+      ]
+    },
+    {
+      "claim": "C17",
+      "denied": "organon:Intelligence",
+      "required": [
+        "organon:Model"
+      ]
+    },
+    {
+      "claim": "C17",
+      "denied": "organon:Intelligence",
+      "required": [
+        "organon:Capability"
+      ]
+    },
+    {
+      "claim": "C17",
+      "denied": "organon:Truth",
+      "required": [
+        "organon:Intelligence"
+      ]
+    },
+    {
+      "claim": "C17",
+      "denied": "organon:Authority",
+      "required": [
+        "organon:Intelligence"
+      ]
+    },
+    {
+      "claim": "C18",
+      "denied": "organon:OperativeKnowledge",
+      "required": [
+        "organon:Record"
+      ]
+    },
+    {
+      "claim": "C18",
+      "denied": "organon:OperativeKnowledge",
+      "required": [
+        "organon:Truth"
+      ]
+    },
+    {
+      "claim": "C18",
+      "denied": "organon:Truth",
+      "required": [
+        "organon:OperativeKnowledge"
+      ]
+    },
+    {
+      "claim": "C18",
+      "denied": "organon:Evidence",
+      "required": [
+        "organon:OperativeKnowledge"
+      ]
+    },
+    {
+      "claim": "C19",
+      "denied": "organon:KnowledgeTransmission",
+      "required": [
+        "organon:Record"
+      ]
+    },
+    {
+      "claim": "C19",
+      "denied": "organon:Intelligence",
+      "required": [
+        "organon:KnowledgeTransmission"
+      ]
+    },
+    {
+      "claim": "C20",
+      "denied": "organon:FactiveOperativeKnowledge",
+      "required": [
+        "organon:OperativeKnowledge"
+      ]
+    },
+    {
+      "claim": "C20",
+      "denied": "organon:FactiveOperativeKnowledge",
+      "required": [
+        "organon:Truth"
+      ]
+    },
+    {
+      "claim": "C20",
+      "denied": "organon:WarrantedKnowledge",
+      "required": [
+        "organon:FactiveOperativeKnowledge"
+      ]
+    },
+    {
+      "claim": "C20",
+      "denied": "organon:WarrantedKnowledge",
+      "required": [
+        "organon:Evidence"
+      ]
+    },
+    {
+      "claim": "C21",
+      "denied": "organon:Person",
+      "required": [
+        "organon:MoralPersonhoodDesignation"
+      ]
+    },
+    {
+      "claim": "C21",
+      "denied": "organon:Standing",
+      "required": [
+        "organon:MoralPersonhoodDesignation"
+      ]
+    },
+    {
+      "claim": "C21",
+      "denied": "organon:Permission",
+      "required": [
+        "organon:MoralPersonhoodDesignation"
+      ]
+    },
+    {
+      "claim": "C21",
+      "denied": "organon:Consequence",
+      "required": [
+        "organon:MoralPersonhoodDesignation"
+      ]
+    },
+    {
+      "claim": "C23",
+      "denied": "organon:Preference",
+      "required": [
+        "organon:Action"
+      ]
+    },
+    {
+      "claim": "C23",
+      "denied": "organon:UtilityMeasure",
+      "required": [
+        "organon:Preference"
+      ]
+    },
+    {
+      "claim": "C23",
+      "denied": "organon:Preference",
+      "required": [
+        "organon:UtilityMeasure"
+      ]
+    },
+    {
+      "claim": "C23",
+      "denied": "organon:Preference",
+      "required": [
+        "organon:Price"
+      ]
+    },
+    {
+      "claim": "C23",
+      "denied": "organon:UtilityMeasure",
+      "required": [
+        "organon:Price"
+      ]
+    },
+    {
+      "claim": "C23",
+      "denied": "organon:Truth",
+      "required": [
+        "organon:Price"
+      ]
+    },
+    {
+      "claim": "C22",
+      "denied": "organon:ConstitutedSovereignty",
+      "required": [
+        "organon:ConstituentSovereignty"
+      ]
+    },
+    {
+      "claim": "C22",
+      "denied": "organon:BoundarySovereignty",
+      "required": [
+        "organon:ConstituentSovereignty"
+      ]
+    },
+    {
+      "claim": "C22",
+      "denied": "organon:ExternalSovereignty",
+      "required": [
+        "organon:ConstituentSovereignty"
+      ]
+    },
+    {
+      "claim": "C22",
+      "denied": "organon:ConstituentSovereignty",
+      "required": [
+        "organon:ConstitutedSovereignty"
+      ]
+    },
+    {
+      "claim": "C22",
+      "denied": "organon:BoundarySovereignty",
+      "required": [
+        "organon:ConstitutedSovereignty"
+      ]
+    },
+    {
+      "claim": "C22",
+      "denied": "organon:ExternalSovereignty",
+      "required": [
+        "organon:ConstitutedSovereignty"
+      ]
+    },
+    {
+      "claim": "C22",
+      "denied": "organon:ConstituentSovereignty",
+      "required": [
+        "organon:BoundarySovereignty"
+      ]
+    },
+    {
+      "claim": "C22",
+      "denied": "organon:ConstitutedSovereignty",
+      "required": [
+        "organon:BoundarySovereignty"
+      ]
+    },
+    {
+      "claim": "C22",
+      "denied": "organon:ExternalSovereignty",
+      "required": [
+        "organon:BoundarySovereignty"
+      ]
+    },
+    {
+      "claim": "C22",
+      "denied": "organon:ConstituentSovereignty",
+      "required": [
+        "organon:ExternalSovereignty"
+      ]
+    },
+    {
+      "claim": "C22",
+      "denied": "organon:ConstitutedSovereignty",
+      "required": [
+        "organon:ExternalSovereignty"
+      ]
+    },
+    {
+      "claim": "C22",
+      "denied": "organon:BoundarySovereignty",
+      "required": [
+        "organon:ExternalSovereignty"
+      ]
+    }
+  ],
+  "claim": "one constructive nondegenerate structural inhabitant",
+  "commitment_coverage": {
+    "A1": "exact-metadata-only",
+    "A2": "exact-metadata-only",
+    "A3": "exact-metadata-only",
+    "A4": "exact-metadata-only",
+    "A5": "exact-metadata-only",
+    "C1": "executable-constraint",
+    "C10": "executable-constraint",
+    "C11": "executable-constraint",
+    "C12": "executable-constraint",
+    "C13": "executable-constraint",
+    "C14": "executable-constraint",
+    "C15": "executable-constraint",
+    "C16": "executable-constraint",
+    "C17": "executable-constraint",
+    "C18": "executable-constraint",
+    "C19": "executable-constraint",
+    "C2": "exact-metadata-only",
+    "C20": "executable-constraint",
+    "C21": "executable-constraint",
+    "C22": "executable-constraint",
+    "C23": "executable-constraint",
+    "C3": "exact-metadata-only",
+    "C4": "executable-constraint",
+    "C5": "executable-constraint",
+    "C6": "executable-constraint",
+    "C7": "executable-constraint",
+    "C8": "exact-metadata-only",
+    "C9": "exact-metadata-only",
+    "H1": "exact-metadata-only",
+    "Pj1": "exact-metadata-only",
+    "Pj2": "exact-metadata-only",
+    "Pj3": "exact-metadata-only",
+    "Pj4": "exact-metadata-only",
+    "U1": "exact-metadata-only"
+  },
+  "commitments": [
+    {
+      "claim_type": "axiom",
+      "depends_on": [
+        "organon:Absence"
+      ],
+      "id": "A1"
+    },
+    {
+      "claim_type": "axiom",
+      "depends_on": [
+        "organon:Absence"
+      ],
+      "id": "A2"
+    },
+    {
+      "claim_type": "axiom",
+      "depends_on": [
+        "organon:Absence"
+      ],
+      "id": "A3"
+    },
+    {
+      "claim_type": "axiom",
+      "depends_on": [
+        "organon:Presence",
+        "A3"
+      ],
+      "id": "A4"
+    },
+    {
+      "claim_type": "axiom",
+      "depends_on": [
+        "organon:Presence"
+      ],
+      "id": "A5"
+    },
+    {
+      "claim_type": "axiom",
+      "depends_on": [
+        "organon:Agency",
+        "organon:Role",
+        "organon:Permission",
+        "organon:Authority",
+        "organon:Standing"
+      ],
+      "id": "U1"
+    },
+    {
+      "claim_type": "authorized_projection",
+      "depends_on": [
+        "U1",
+        "organon:Agent",
+        "organon:Sense",
+        "organon:Memory",
+        "organon:Model",
+        "organon:Interpretation",
+        "organon:Tool",
+        "organon:Capability",
+        "organon:Action"
+      ],
+      "id": "Pj1"
+    },
+    {
+      "claim_type": "authorized_projection",
+      "depends_on": [
+        "U1",
+        "organon:Agent",
+        "organon:Role",
+        "organon:Permission",
+        "organon:Authority",
+        "organon:Standing",
+        "organon:Order"
+      ],
+      "id": "Pj2"
+    },
+    {
+      "claim_type": "authorized_projection",
+      "depends_on": [
+        "organon:Missingness",
+        "organon:Presence"
+      ],
+      "id": "Pj3"
+    },
+    {
+      "claim_type": "authorized_projection",
+      "depends_on": [
+        "organon:CountsAs",
+        "organon:Order",
+        "organon:Rule",
+        "organon:Scope",
+        "organon:Presence",
+        "organon:Claim",
+        "organon:Action",
+        "organon:Record"
+      ],
+      "id": "Pj4"
+    },
+    {
+      "claim_type": "hypothesis",
+      "depends_on": [
+        "organon:Flow",
+        "organon:Center",
+        "organon:Organ",
+        "organon:Institution"
+      ],
+      "id": "H1"
+    },
+    {
+      "claim_type": "binding_constraint",
+      "depends_on": [],
+      "id": "C1"
+    },
+    {
+      "claim_type": "binding_constraint",
+      "depends_on": [
+        "C1"
+      ],
+      "id": "C2"
+    },
+    {
+      "claim_type": "binding_constraint",
+      "depends_on": [
+        "C1"
+      ],
+      "id": "C3"
+    },
+    {
+      "claim_type": "binding_constraint",
+      "depends_on": [
+        "organon:Absence",
+        "organon:Missingness"
+      ],
+      "id": "C4"
+    },
+    {
+      "claim_type": "binding_constraint",
+      "depends_on": [
+        "organon:Reality",
+        "organon:Map",
+        "organon:Model",
+        "organon:Ledger"
+      ],
+      "id": "C5"
+    },
+    {
+      "claim_type": "binding_constraint",
+      "depends_on": [
+        "organon:Claim",
+        "organon:Evidence"
+      ],
+      "id": "C6"
+    },
+    {
+      "claim_type": "binding_constraint",
+      "depends_on": [
+        "organon:Capability",
+        "organon:Standing",
+        "organon:Authority"
+      ],
+      "id": "C7"
+    },
+    {
+      "claim_type": "binding_constraint",
+      "depends_on": [
+        "organon:Interior",
+        "organon:Exposure"
+      ],
+      "id": "C8"
+    },
+    {
+      "claim_type": "binding_constraint",
+      "depends_on": [
+        "organon:Relation",
+        "organon:Entity",
+        "organon:Invariant"
+      ],
+      "id": "C9"
+    },
+    {
+      "claim_type": "binding_constraint",
+      "depends_on": [
+        "organon:ConsciousnessAttribution",
+        "organon:ConsciousnessDesignation",
+        "organon:Missingness",
+        "organon:Absence",
+        "organon:Evidence",
+        "organon:Standing",
+        "organon:Person",
+        "organon:Permission",
+        "organon:Interface",
+        "organon:Consequence",
+        "organon:Rule"
+      ],
+      "id": "C10"
+    },
+    {
+      "claim_type": "binding_constraint",
+      "depends_on": [
+        "organon:Operationalization",
+        "organon:Representation",
+        "organon:Rule",
+        "organon:Transformation",
+        "organon:Reality",
+        "organon:Map",
+        "organon:Evidence",
+        "organon:Claim",
+        "organon:Consequence"
+      ],
+      "id": "C11"
+    },
+    {
+      "claim_type": "binding_constraint",
+      "depends_on": [
+        "organon:World",
+        "organon:Reality",
+        "organon:Entity",
+        "organon:Environment",
+        "organon:Map",
+        "organon:Reference",
+        "organon:Invariant",
+        "organon:Claim"
+      ],
+      "id": "C12"
+    },
+    {
+      "claim_type": "binding_constraint",
+      "depends_on": [
+        "organon:Substrate",
+        "organon:Configuration",
+        "organon:Scope",
+        "organon:Transformation",
+        "organon:Representation",
+        "organon:Invariant",
+        "organon:Entity",
+        "organon:Persistence"
+      ],
+      "id": "C13"
+    },
+    {
+      "claim_type": "binding_constraint",
+      "depends_on": [
+        "organon:Truth",
+        "organon:Entity",
+        "organon:Evidence",
+        "organon:Admission",
+        "organon:Claim",
+        "organon:Representation",
+        "organon:Rule",
+        "organon:Presence",
+        "organon:Specification"
+      ],
+      "id": "C14"
+    },
+    {
+      "claim_type": "binding_constraint",
+      "depends_on": [
+        "organon:Trust",
+        "organon:Entity",
+        "organon:Boundary",
+        "organon:Constraint",
+        "organon:Exposure",
+        "organon:Consequence",
+        "organon:Control",
+        "organon:Evidence",
+        "organon:Permission",
+        "organon:Authority"
+      ],
+      "id": "C15"
+    },
+    {
+      "claim_type": "binding_constraint",
+      "depends_on": [
+        "organon:Alignment",
+        "organon:Specification",
+        "organon:Scope",
+        "organon:Truth",
+        "organon:Trust",
+        "organon:Permission",
+        "organon:Authority",
+        "organon:Agency",
+        "organon:Consequence",
+        "organon:Persistence"
+      ],
+      "id": "C16"
+    },
+    {
+      "claim_type": "binding_constraint",
+      "depends_on": [
+        "organon:Intelligence",
+        "organon:Agent",
+        "organon:Model",
+        "organon:Interpretation",
+        "organon:Record",
+        "organon:Representation",
+        "organon:Capability",
+        "organon:Truth",
+        "organon:Alignment",
+        "organon:Permission",
+        "organon:Authority"
+      ],
+      "id": "C17"
+    },
+    {
+      "claim_type": "binding_constraint",
+      "depends_on": [
+        "organon:OperativeKnowledge",
+        "organon:Record",
+        "organon:Agent",
+        "organon:Capability",
+        "organon:Constraint",
+        "organon:Rule",
+        "organon:Model",
+        "organon:Interpretation",
+        "organon:Action",
+        "organon:Transformation",
+        "organon:CausalPath",
+        "organon:Specification",
+        "organon:Scope",
+        "organon:Truth",
+        "organon:Evidence",
+        "organon:Consequence"
+      ],
+      "id": "C18"
+    },
+    {
+      "claim_type": "binding_constraint",
+      "depends_on": [
+        "organon:KnowledgeTransmission",
+        "organon:OperativeKnowledge",
+        "organon:Record",
+        "organon:Representation",
+        "organon:Model",
+        "organon:Interpretation",
+        "organon:Specification",
+        "organon:Scope",
+        "organon:State",
+        "organon:Agent"
+      ],
+      "id": "C19"
+    },
+    {
+      "claim_type": "binding_constraint",
+      "depends_on": [
+        "organon:FactiveOperativeKnowledge",
+        "organon:WarrantedKnowledge",
+        "organon:OperativeKnowledge",
+        "organon:Record",
+        "organon:Claim",
+        "organon:Truth",
+        "organon:Evidence",
+        "organon:Admission"
+      ],
+      "id": "C20"
+    },
+    {
+      "claim_type": "binding_constraint",
+      "depends_on": [
+        "organon:MoralStatusAttribution",
+        "organon:MoralPersonhoodDesignation",
+        "organon:Person",
+        "organon:Standing",
+        "organon:Permission",
+        "organon:Interface",
+        "organon:Consequence",
+        "organon:Rule"
+      ],
+      "id": "C21"
+    },
+    {
+      "claim_type": "binding_constraint",
+      "depends_on": [
+        "organon:ConstituentSovereignty",
+        "organon:ConstitutedSovereignty",
+        "organon:BoundarySovereignty",
+        "organon:ExternalSovereignty",
+        "organon:Truth",
+        "organon:Consequence",
+        "organon:MoralPersonhoodDesignation"
+      ],
+      "id": "C22"
+    },
+    {
+      "claim_type": "binding_constraint",
+      "depends_on": [
+        "organon:Preference",
+        "organon:UtilityMeasure",
+        "organon:Price",
+        "organon:CountsAs",
+        "organon:Action",
+        "organon:Truth"
+      ],
+      "id": "C23"
+    }
+  ],
+  "disjoint_classes": [
+    {
+      "claim": "C5",
+      "left": "organon:Map",
+      "right": "organon:Reality"
+    },
+    {
+      "claim": "C5",
+      "left": "organon:Model",
+      "right": "organon:Reality"
+    },
+    {
+      "claim": "C5",
+      "left": "organon:Ledger",
+      "right": "organon:Reality"
+    },
+    {
+      "claim": "C12",
+      "left": "organon:World",
+      "right": "organon:Reality"
+    },
+    {
+      "claim": "C12",
+      "left": "organon:World",
+      "right": "organon:Environment"
+    },
+    {
+      "claim": "C12",
+      "left": "organon:World",
+      "right": "organon:Map"
+    },
+    {
+      "claim": "C12",
+      "left": "organon:World",
+      "right": "organon:Reference"
+    },
+    {
+      "claim": "C13",
+      "left": "organon:Substrate",
+      "right": "organon:Representation"
+    },
+    {
+      "claim": "C13",
+      "left": "organon:Substrate",
+      "right": "organon:Invariant"
+    },
+    {
+      "claim": "C13",
+      "left": "organon:Substrate",
+      "right": "organon:Entity"
+    }
+  ],
+  "nodes": [
+    {
+      "classifies": [
+        "organon:Presence"
+      ],
+      "id": "N_Presence"
+    },
+    {
+      "classifies": [
+        "organon:Missingness"
+      ],
+      "id": "N_Missingness"
+    },
+    {
+      "classifies": [
+        "organon:Reality"
+      ],
+      "id": "N_Reality"
+    },
+    {
+      "classifies": [
+        "organon:Difference"
+      ],
+      "id": "N_Difference"
+    },
+    {
+      "classifies": [
+        "organon:Relation"
+      ],
+      "id": "N_Relation"
+    },
+    {
+      "classifies": [
+        "organon:Configuration"
+      ],
+      "id": "N_Configuration"
+    },
+    {
+      "classifies": [
+        "organon:State"
+      ],
+      "id": "N_State"
+    },
+    {
+      "classifies": [
+        "organon:Direction"
+      ],
+      "id": "N_Direction"
+    },
+    {
+      "classifies": [
+        "organon:Transformation"
+      ],
+      "id": "N_Transformation"
+    },
+    {
+      "classifies": [
+        "organon:Change"
+      ],
+      "id": "N_Change"
+    },
+    {
+      "classifies": [
+        "organon:Feeds"
+      ],
+      "id": "N_Feeds"
+    },
+    {
+      "classifies": [
+        "organon:CausalPath"
+      ],
+      "id": "N_CausalPath"
+    },
+    {
+      "classifies": [
+        "organon:Invariant"
+      ],
+      "id": "N_Invariant"
+    },
+    {
+      "classifies": [
+        "organon:Persistence"
+      ],
+      "id": "N_Persistence"
+    },
+    {
+      "classifies": [
+        "organon:Constraint"
+      ],
+      "id": "N_Constraint"
+    },
+    {
+      "classifies": [
+        "organon:Entity"
+      ],
+      "id": "N_Entity"
+    },
+    {
+      "classifies": [
+        "organon:Boundary"
+      ],
+      "id": "N_Boundary"
+    },
+    {
+      "classifies": [
+        "organon:Environment"
+      ],
+      "id": "N_Environment"
+    },
+    {
+      "classifies": [
+        "organon:Representation"
+      ],
+      "id": "N_Representation"
+    },
+    {
+      "classifies": [
+        "organon:Scope"
+      ],
+      "id": "N_Scope"
+    },
+    {
+      "classifies": [
+        "organon:Specification"
+      ],
+      "id": "N_Specification"
+    },
+    {
+      "classifies": [
+        "organon:Rule"
+      ],
+      "id": "N_Rule"
+    },
+    {
+      "classifies": [
+        "organon:Sign"
+      ],
+      "id": "N_Sign"
+    },
+    {
+      "classifies": [
+        "organon:Symbol"
+      ],
+      "id": "N_Symbol"
+    },
+    {
+      "classifies": [
+        "organon:Language"
+      ],
+      "id": "N_Language"
+    },
+    {
+      "classifies": [
+        "organon:Map"
+      ],
+      "id": "N_Map"
+    },
+    {
+      "classifies": [
+        "organon:Reference"
+      ],
+      "id": "N_Reference"
+    },
+    {
+      "classifies": [
+        "organon:Sense"
+      ],
+      "id": "N_Sense"
+    },
+    {
+      "classifies": [
+        "organon:Perception"
+      ],
+      "id": "N_Perception"
+    },
+    {
+      "classifies": [
+        "organon:Record"
+      ],
+      "id": "N_Record"
+    },
+    {
+      "classifies": [
+        "organon:Observation"
+      ],
+      "id": "N_Observation"
+    },
+    {
+      "classifies": [
+        "organon:Memory"
+      ],
+      "id": "N_Memory"
+    },
+    {
+      "classifies": [
+        "organon:Model"
+      ],
+      "id": "N_Model"
+    },
+    {
+      "classifies": [
+        "organon:Action"
+      ],
+      "id": "N_Action"
+    },
+    {
+      "classifies": [
+        "organon:Consequence"
+      ],
+      "id": "N_Consequence"
+    },
+    {
+      "classifies": [
+        "organon:Interpretation"
+      ],
+      "id": "N_Interpretation"
+    },
+    {
+      "classifies": [
+        "organon:Agent"
+      ],
+      "id": "N_Agent"
+    },
+    {
+      "classifies": [
+        "organon:Agency"
+      ],
+      "id": "N_Agency"
+    },
+    {
+      "classifies": [
+        "organon:Tool"
+      ],
+      "id": "N_Tool"
+    },
+    {
+      "classifies": [
+        "organon:Capability"
+      ],
+      "id": "N_Capability"
+    },
+    {
+      "classifies": [
+        "organon:Interior"
+      ],
+      "id": "N_Interior"
+    },
+    {
+      "classifies": [
+        "organon:Exposure"
+      ],
+      "id": "N_Exposure"
+    },
+    {
+      "classifies": [
+        "organon:Flow"
+      ],
+      "id": "N_Flow"
+    },
+    {
+      "classifies": [
+        "organon:Interface"
+      ],
+      "id": "N_Interface"
+    },
+    {
+      "classifies": [
+        "organon:Claim"
+      ],
+      "id": "N_Claim"
+    },
+    {
+      "classifies": [
+        "organon:Witness"
+      ],
+      "id": "N_Witness"
+    },
+    {
+      "classifies": [
+        "organon:Control"
+      ],
+      "id": "N_Control"
+    },
+    {
+      "classifies": [
+        "organon:Order"
+      ],
+      "id": "N_Order"
+    },
+    {
+      "classifies": [
+        "organon:Standing"
+      ],
+      "id": "N_Standing"
+    },
+    {
+      "classifies": [
+        "organon:Recognition"
+      ],
+      "id": "N_Recognition"
+    },
+    {
+      "classifies": [
+        "organon:Principal"
+      ],
+      "id": "N_Principal"
+    },
+    {
+      "classifies": [
+        "organon:ActsFor"
+      ],
+      "id": "N_ActsFor"
+    },
+    {
+      "classifies": [
+        "organon:CountsAs"
+      ],
+      "id": "N_CountsAs"
+    },
+    {
+      "classifies": [
+        "organon:Authority"
+      ],
+      "id": "N_Authority"
+    },
+    {
+      "classifies": [
+        "organon:PermissionClaim"
+      ],
+      "id": "N_PermissionClaim"
+    },
+    {
+      "classifies": [
+        "organon:Declaration"
+      ],
+      "id": "N_Declaration"
+    },
+    {
+      "classifies": [
+        "organon:Grant"
+      ],
+      "id": "N_Grant"
+    },
+    {
+      "classifies": [
+        "organon:Admission"
+      ],
+      "id": "N_Admission"
+    },
+    {
+      "classifies": [
+        "organon:Permission"
+      ],
+      "id": "N_Permission"
+    },
+    {
+      "classifies": [
+        "organon:Revocation"
+      ],
+      "id": "N_Revocation"
+    },
+    {
+      "classifies": [
+        "organon:Permission",
+        "organon:PermissionExercise"
+      ],
+      "id": "N_PermissionExercise"
+    },
+    {
+      "classifies": [
+        "organon:Exercisability"
+      ],
+      "id": "N_Exercisability"
+    },
+    {
+      "classifies": [
+        "organon:Exercisability",
+        "organon:FullyExercisablePermission",
+        "organon:Permission"
+      ],
+      "id": "N_FullyExercisablePermission"
+    },
+    {
+      "classifies": [
+        "organon:Enforcement"
+      ],
+      "id": "N_Enforcement"
+    },
+    {
+      "classifies": [
+        "organon:Role"
+      ],
+      "id": "N_Role"
+    },
+    {
+      "classifies": [
+        "organon:AdmissibilityRule"
+      ],
+      "id": "N_AdmissibilityRule"
+    },
+    {
+      "classifies": [
+        "organon:IndependentFor"
+      ],
+      "id": "N_IndependentFor"
+    },
+    {
+      "classifies": [
+        "organon:Evidence"
+      ],
+      "id": "N_Evidence"
+    },
+    {
+      "classifies": [
+        "organon:Attestation"
+      ],
+      "id": "N_Attestation"
+    },
+    {
+      "classifies": [
+        "organon:Institution"
+      ],
+      "id": "N_Institution"
+    },
+    {
+      "classifies": [
+        "organon:Center"
+      ],
+      "id": "N_Center"
+    },
+    {
+      "classifies": [
+        "organon:Organ"
+      ],
+      "id": "N_Organ"
+    },
+    {
+      "classifies": [
+        "organon:CanonicalSystem"
+      ],
+      "id": "N_CanonicalSystem"
+    },
+    {
+      "classifies": [
+        "organon:ShadowSystem"
+      ],
+      "id": "N_ShadowSystem"
+    },
+    {
+      "classifies": [
+        "organon:Person"
+      ],
+      "id": "N_Person"
+    },
+    {
+      "classifies": [
+        "organon:Receipt"
+      ],
+      "id": "N_Receipt"
+    },
+    {
+      "classifies": [
+        "organon:Ledger"
+      ],
+      "id": "N_Ledger"
+    },
+    {
+      "classifies": [
+        "organon:Polity"
+      ],
+      "id": "N_Polity"
+    },
+    {
+      "classifies": [
+        "organon:ConstitutedExercise"
+      ],
+      "id": "N_ConstitutedExercise"
+    },
+    {
+      "classifies": [
+        "organon:ConstituentExercise"
+      ],
+      "id": "N_ConstituentExercise"
+    },
+    {
+      "classifies": [
+        "organon:ConstituentPower"
+      ],
+      "id": "N_ConstituentPower"
+    },
+    {
+      "classifies": [
+        "organon:ConsciousnessAttribution"
+      ],
+      "id": "N_ConsciousnessAttribution"
+    },
+    {
+      "classifies": [
+        "organon:Admission",
+        "organon:ConsciousnessDesignation",
+        "organon:CountsAs"
+      ],
+      "id": "N_ConsciousnessDesignation"
+    },
+    {
+      "classifies": [
+        "organon:Operationalization"
+      ],
+      "id": "N_Operationalization"
+    },
+    {
+      "classifies": [
+        "organon:World"
+      ],
+      "id": "N_World"
+    },
+    {
+      "classifies": [
+        "organon:Substrate"
+      ],
+      "id": "N_Substrate"
+    },
+    {
+      "classifies": [
+        "organon:Truth"
+      ],
+      "id": "N_Truth"
+    },
+    {
+      "classifies": [
+        "organon:Trust"
+      ],
+      "id": "N_Trust"
+    },
+    {
+      "classifies": [
+        "organon:Alignment"
+      ],
+      "id": "N_Alignment"
+    },
+    {
+      "classifies": [
+        "organon:Intelligence"
+      ],
+      "id": "N_Intelligence"
+    },
+    {
+      "classifies": [
+        "organon:OperativeKnowledge"
+      ],
+      "id": "N_OperativeKnowledge"
+    },
+    {
+      "classifies": [
+        "organon:KnowledgeTransmission"
+      ],
+      "id": "N_KnowledgeTransmission"
+    },
+    {
+      "classifies": [
+        "organon:FactiveOperativeKnowledge",
+        "organon:OperativeKnowledge",
+        "organon:Truth"
+      ],
+      "id": "N_FactiveOperativeKnowledge"
+    },
+    {
+      "classifies": [
+        "organon:Admission",
+        "organon:Evidence",
+        "organon:FactiveOperativeKnowledge",
+        "organon:OperativeKnowledge",
+        "organon:Truth",
+        "organon:WarrantedKnowledge"
+      ],
+      "id": "N_WarrantedKnowledge"
+    },
+    {
+      "classifies": [
+        "organon:MoralStatusAttribution"
+      ],
+      "id": "N_MoralStatusAttribution"
+    },
+    {
+      "classifies": [
+        "organon:Admission",
+        "organon:CountsAs",
+        "organon:MoralPersonhoodDesignation"
+      ],
+      "id": "N_MoralPersonhoodDesignation"
+    },
+    {
+      "classifies": [
+        "organon:ConstituentSovereignty"
+      ],
+      "id": "N_ConstituentSovereignty"
+    },
+    {
+      "classifies": [
+        "organon:ConstitutedSovereignty"
+      ],
+      "id": "N_ConstitutedSovereignty"
+    },
+    {
+      "classifies": [
+        "organon:BoundarySovereignty"
+      ],
+      "id": "N_BoundarySovereignty"
+    },
+    {
+      "classifies": [
+        "organon:ExternalSovereignty"
+      ],
+      "id": "N_ExternalSovereignty"
+    },
+    {
+      "classifies": [
+        "organon:Preference"
+      ],
+      "id": "N_Preference"
+    },
+    {
+      "classifies": [
+        "organon:UtilityMeasure"
+      ],
+      "id": "N_UtilityMeasure"
+    },
+    {
+      "classifies": [
+        "organon:Price"
+      ],
+      "id": "N_Price"
+    },
+    {
+      "classifies": [
+        "organon:Entity"
+      ],
+      "id": "N_Alt_Entity"
+    },
+    {
+      "classifies": [
+        "organon:OperativeKnowledge"
+      ],
+      "id": "N_Alt_OperativeKnowledge"
+    },
+    {
+      "classifies": [
+        "organon:Order"
+      ],
+      "id": "N_Alt_Order"
+    },
+    {
+      "classifies": [
+        "organon:State"
+      ],
+      "id": "N_Alt_State"
+    },
+    {
+      "classifies": [
+        "organon:Action",
+        "organon:Agent",
+        "organon:Boundary",
+        "organon:Capability",
+        "organon:CausalPath",
+        "organon:Change",
+        "organon:Configuration",
+        "organon:Consequence",
+        "organon:Constraint",
+        "organon:Direction",
+        "organon:Entity",
+        "organon:Environment",
+        "organon:FactiveOperativeKnowledge",
+        "organon:Feeds",
+        "organon:Interpretation",
+        "organon:Invariant",
+        "organon:Memory",
+        "organon:Model",
+        "organon:OperativeKnowledge",
+        "organon:Perception",
+        "organon:Persistence",
+        "organon:Presence",
+        "organon:Record",
+        "organon:Relation",
+        "organon:Representation",
+        "organon:Rule",
+        "organon:Scope",
+        "organon:Specification",
+        "organon:State",
+        "organon:Transformation",
+        "organon:Truth"
+      ],
+      "id": "JoinedCausal"
+    },
+    {
+      "classifies": [
+        "organon:Action",
+        "organon:Admission",
+        "organon:Agent",
+        "organon:Authority",
+        "organon:Claim",
+        "organon:Configuration",
+        "organon:CountsAs",
+        "organon:Declaration",
+        "organon:Evidence",
+        "organon:Exercisability",
+        "organon:FactiveOperativeKnowledge",
+        "organon:FullyExercisablePermission",
+        "organon:Grant",
+        "organon:OperativeKnowledge",
+        "organon:Order",
+        "organon:Permission",
+        "organon:PermissionClaim",
+        "organon:PermissionExercise",
+        "organon:Presence",
+        "organon:Principal",
+        "organon:Recognition",
+        "organon:Record",
+        "organon:Relation",
+        "organon:Representation",
+        "organon:Rule",
+        "organon:Scope",
+        "organon:Specification",
+        "organon:Standing",
+        "organon:Truth",
+        "organon:WarrantedKnowledge"
+      ],
+      "id": "JoinedInstitutional"
+    },
+    {
+      "classifies": [
+        "organon:Claim",
+        "organon:Presence",
+        "organon:Representation",
+        "organon:Rule",
+        "organon:Specification"
+      ],
+      "id": "Counterexample_C14_15"
+    }
+  ],
+  "ontology_version": "0.15.0",
+  "positive_entailments": {
+    "organon:ConsciousnessDesignation": [
+      "organon:CountsAs",
+      "organon:Admission"
+    ],
+    "organon:FactiveOperativeKnowledge": [
+      "organon:OperativeKnowledge",
+      "organon:Truth"
+    ],
+    "organon:FullyExercisablePermission": [
+      "organon:Permission",
+      "organon:Exercisability"
+    ],
+    "organon:MoralPersonhoodDesignation": [
+      "organon:CountsAs",
+      "organon:Admission"
+    ],
+    "organon:PermissionExercise": [
+      "organon:Permission"
+    ],
+    "organon:WarrantedKnowledge": [
+      "organon:FactiveOperativeKnowledge",
+      "organon:Evidence",
+      "organon:Admission"
+    ]
+  },
+  "relation_witnesses": [
+    {
+      "arguments": [
+        {
+          "expects_any": [
+            "organon:Relation"
+          ],
+          "node": "N_Relation",
+          "slot": 0
+        },
+        {
+          "expects_any": [
+            "organon:State"
+          ],
+          "node": "N_State",
+          "slot": 1
+        },
+        {
+          "expects_any": [
+            "organon:State"
+          ],
+          "node": "N_Alt_State",
+          "slot": 2
+        }
+      ],
+      "kind": "directs",
+      "output": "N_Direction",
+      "produces": "organon:Direction"
+    },
+    {
+      "arguments": [
+        {
+          "expects_any": [
+            "organon:State"
+          ],
+          "node": "N_State",
+          "slot": 0
+        },
+        {
+          "expects_any": [
+            "organon:State"
+          ],
+          "node": "N_Alt_State",
+          "slot": 1
+        },
+        {
+          "expects_any": [
+            "organon:Specification"
+          ],
+          "node": "N_Specification",
+          "slot": 2
+        }
+      ],
+      "kind": "feeds",
+      "output": "N_Feeds",
+      "produces": "organon:Feeds"
+    },
+    {
+      "arguments": [
+        {
+          "expects_any": [
+            "organon:Configuration"
+          ],
+          "node": "N_Configuration",
+          "slot": 0
+        },
+        {
+          "expects_any": [
+            "organon:Invariant"
+          ],
+          "node": "N_Invariant",
+          "slot": 1
+        },
+        {
+          "expects_any": [
+            "organon:Boundary"
+          ],
+          "node": "N_Boundary",
+          "slot": 2
+        },
+        {
+          "expects_any": [
+            "organon:State"
+          ],
+          "node": "N_State",
+          "slot": 3
+        }
+      ],
+      "kind": "persists",
+      "output": "N_Persistence",
+      "produces": "organon:Persistence"
+    },
+    {
+      "arguments": [
+        {
+          "expects_any": [
+            "organon:Entity"
+          ],
+          "node": "N_Entity",
+          "slot": 0
+        },
+        {
+          "expects_any": [
+            "organon:Difference"
+          ],
+          "node": "N_Difference",
+          "slot": 1
+        },
+        {
+          "expects_any": [
+            "organon:Boundary"
+          ],
+          "node": "N_Boundary",
+          "slot": 2
+        }
+      ],
+      "kind": "senses",
+      "output": "N_Perception",
+      "produces": "organon:Perception"
+    },
+    {
+      "arguments": [
+        {
+          "expects_any": [
+            "organon:Entity"
+          ],
+          "node": "N_Entity",
+          "slot": 0
+        },
+        {
+          "expects_any": [
+            "organon:Record"
+          ],
+          "node": "N_Record",
+          "slot": 1
+        },
+        {
+          "expects_any": [
+            "organon:State"
+          ],
+          "node": "N_State",
+          "slot": 2
+        }
+      ],
+      "kind": "remembers",
+      "output": "N_Memory",
+      "produces": "organon:Memory"
+    },
+    {
+      "arguments": [
+        {
+          "expects_any": [
+            "organon:Entity"
+          ],
+          "node": "N_Entity",
+          "slot": 0
+        },
+        {
+          "expects_any": [
+            "organon:Perception"
+          ],
+          "node": "N_Perception",
+          "slot": 1
+        },
+        {
+          "expects_any": [
+            "organon:Memory",
+            "organon:Model"
+          ],
+          "node": "N_Memory",
+          "slot": 2
+        }
+      ],
+      "kind": "interprets",
+      "output": "N_Interpretation",
+      "produces": "organon:Interpretation"
+    },
+    {
+      "arguments": [
+        {
+          "expects_any": [
+            "organon:Agent"
+          ],
+          "node": "N_Agent",
+          "slot": 0
+        },
+        {
+          "expects_any": [
+            "organon:State"
+          ],
+          "node": "N_State",
+          "slot": 1
+        },
+        {
+          "expects_any": [
+            "organon:Boundary"
+          ],
+          "node": "N_Boundary",
+          "slot": 2
+        }
+      ],
+      "kind": "acts",
+      "output": "N_Action",
+      "produces": "organon:Action"
+    },
+    {
+      "arguments": [
+        {
+          "expects_any": [
+            "organon:Agent"
+          ],
+          "node": "N_Agent",
+          "slot": 0
+        },
+        {
+          "expects_any": [
+            "organon:Tool"
+          ],
+          "node": "N_Tool",
+          "slot": 1
+        },
+        {
+          "expects_any": [
+            "organon:Action"
+          ],
+          "node": "N_Action",
+          "slot": 2
+        }
+      ],
+      "kind": "uses",
+      "output": "N_Tool",
+      "produces": "organon:Tool"
+    },
+    {
+      "arguments": [
+        {
+          "expects_any": [
+            "organon:Agent"
+          ],
+          "node": "N_Agent",
+          "slot": 0
+        },
+        {
+          "expects_any": [
+            "organon:Representation"
+          ],
+          "node": "N_Representation",
+          "slot": 1
+        },
+        {
+          "expects_any": [
+            "organon:Scope"
+          ],
+          "node": "N_Scope",
+          "slot": 2
+        }
+      ],
+      "kind": "claims",
+      "output": "N_Claim",
+      "produces": "organon:Claim"
+    },
+    {
+      "arguments": [
+        {
+          "expects_any": [
+            "organon:Representation"
+          ],
+          "node": "N_Representation",
+          "slot": 0
+        },
+        {
+          "expects_any": [
+            "organon:Scope"
+          ],
+          "node": "N_Scope",
+          "slot": 1
+        },
+        {
+          "expects_any": [
+            "organon:Rule"
+          ],
+          "node": "N_Rule",
+          "slot": 2
+        }
+      ],
+      "kind": "specifies",
+      "output": "N_Specification",
+      "produces": "organon:Specification"
+    },
+    {
+      "arguments": [
+        {
+          "expects_any": [
+            "organon:Witness"
+          ],
+          "node": "N_Witness",
+          "slot": 0
+        },
+        {
+          "expects_any": [
+            "organon:Environment"
+          ],
+          "node": "N_Environment",
+          "slot": 1
+        },
+        {
+          "expects_any": [
+            "organon:Specification"
+          ],
+          "node": "N_Specification",
+          "slot": 2
+        },
+        {
+          "expects_any": [
+            "organon:CausalPath"
+          ],
+          "node": "N_CausalPath",
+          "slot": 3
+        }
+      ],
+      "kind": "observes",
+      "output": "N_Observation",
+      "produces": "organon:Observation"
+    },
+    {
+      "arguments": [
+        {
+          "expects_any": [
+            "organon:Agent"
+          ],
+          "node": "N_Agent",
+          "slot": 0
+        },
+        {
+          "expects_any": [
+            "organon:Constraint",
+            "organon:Rule"
+          ],
+          "node": "N_Constraint",
+          "slot": 1
+        },
+        {
+          "expects_any": [
+            "organon:Scope"
+          ],
+          "node": "N_Scope",
+          "slot": 2
+        }
+      ],
+      "kind": "controls",
+      "output": "N_Control",
+      "produces": "organon:Control"
+    },
+    {
+      "arguments": [
+        {
+          "expects_any": [
+            "organon:Order"
+          ],
+          "node": "N_Order",
+          "slot": 0
+        },
+        {
+          "expects_any": [
+            "organon:Entity"
+          ],
+          "node": "N_Entity",
+          "slot": 1
+        },
+        {
+          "expects_any": [
+            "organon:Rule"
+          ],
+          "node": "N_Rule",
+          "slot": 2
+        },
+        {
+          "expects_any": [
+            "organon:Scope"
+          ],
+          "node": "N_Scope",
+          "slot": 3
+        }
+      ],
+      "kind": "recognizes",
+      "output": "N_Recognition",
+      "produces": "organon:Recognition"
+    },
+    {
+      "arguments": [
+        {
+          "expects_any": [
+            "organon:Order"
+          ],
+          "node": "N_Order",
+          "slot": 0
+        },
+        {
+          "expects_any": [
+            "organon:Agent"
+          ],
+          "node": "N_Agent",
+          "slot": 1
+        },
+        {
+          "expects_any": [
+            "organon:Principal"
+          ],
+          "node": "N_Principal",
+          "slot": 2
+        },
+        {
+          "expects_any": [
+            "organon:Scope"
+          ],
+          "node": "N_Scope",
+          "slot": 3
+        }
+      ],
+      "kind": "actsFor",
+      "output": "N_ActsFor",
+      "produces": "organon:ActsFor"
+    },
+    {
+      "arguments": [
+        {
+          "expects_any": [
+            "organon:Order"
+          ],
+          "node": "N_Order",
+          "slot": 0
+        },
+        {
+          "expects_any": [
+            "organon:Rule"
+          ],
+          "node": "N_Rule",
+          "slot": 1
+        },
+        {
+          "expects_any": [
+            "organon:Presence",
+            "organon:Record"
+          ],
+          "node": "N_Presence",
+          "slot": 2
+        },
+        {
+          "expects_any": [
+            "organon:Standing"
+          ],
+          "node": "N_Standing",
+          "slot": 3
+        },
+        {
+          "expects_any": [
+            "organon:Scope"
+          ],
+          "node": "N_Scope",
+          "slot": 4
+        }
+      ],
+      "kind": "countsAs",
+      "output": "N_CountsAs",
+      "produces": "organon:CountsAs"
+    },
+    {
+      "arguments": [
+        {
+          "expects_any": [
+            "organon:Order"
+          ],
+          "node": "N_Order",
+          "slot": 0
+        },
+        {
+          "expects_any": [
+            "organon:Agent"
+          ],
+          "node": "N_Agent",
+          "slot": 1
+        },
+        {
+          "expects_any": [
+            "organon:Principal"
+          ],
+          "node": "N_Principal",
+          "slot": 2
+        },
+        {
+          "expects_any": [
+            "organon:Scope"
+          ],
+          "node": "N_Scope",
+          "slot": 3
+        }
+      ],
+      "kind": "authorizes",
+      "output": "N_Authority",
+      "produces": "organon:Authority"
+    },
+    {
+      "arguments": [
+        {
+          "expects_any": [
+            "organon:Agent"
+          ],
+          "node": "N_Agent",
+          "slot": 0
+        },
+        {
+          "expects_any": [
+            "organon:Authority"
+          ],
+          "node": "N_Authority",
+          "slot": 1
+        },
+        {
+          "expects_any": [
+            "organon:Claim"
+          ],
+          "node": "N_Claim",
+          "slot": 2
+        },
+        {
+          "expects_any": [
+            "organon:Specification"
+          ],
+          "node": "N_Specification",
+          "slot": 3
+        },
+        {
+          "expects_any": [
+            "organon:Order"
+          ],
+          "node": "N_Order",
+          "slot": 4
+        }
+      ],
+      "kind": "declares",
+      "output": "N_Declaration",
+      "produces": "organon:Declaration"
+    },
+    {
+      "arguments": [
+        {
+          "expects_any": [
+            "organon:Declaration"
+          ],
+          "node": "N_Declaration",
+          "slot": 0
+        },
+        {
+          "expects_any": [
+            "organon:PermissionClaim"
+          ],
+          "node": "N_PermissionClaim",
+          "slot": 1
+        }
+      ],
+      "kind": "grants",
+      "output": "N_Grant",
+      "produces": "organon:Grant"
+    },
+    {
+      "arguments": [
+        {
+          "expects_any": [
+            "organon:Order"
+          ],
+          "node": "N_Order",
+          "slot": 0
+        },
+        {
+          "expects_any": [
+            "organon:Rule"
+          ],
+          "node": "N_Rule",
+          "slot": 1
+        },
+        {
+          "expects_any": [
+            "organon:Claim",
+            "organon:Observation",
+            "organon:Record"
+          ],
+          "node": "N_Claim",
+          "slot": 2
+        }
+      ],
+      "kind": "admits",
+      "output": "N_Admission",
+      "produces": "organon:Admission"
+    },
+    {
+      "arguments": [
+        {
+          "expects_any": [
+            "organon:Order"
+          ],
+          "node": "N_Order",
+          "slot": 0
+        },
+        {
+          "expects_any": [
+            "organon:PermissionClaim"
+          ],
+          "node": "N_PermissionClaim",
+          "slot": 1
+        },
+        {
+          "expects_any": [
+            "organon:Grant"
+          ],
+          "node": "N_Grant",
+          "slot": 2
+        }
+      ],
+      "kind": "permits",
+      "output": "N_Permission",
+      "produces": "organon:Permission"
+    },
+    {
+      "arguments": [
+        {
+          "expects_any": [
+            "organon:Order"
+          ],
+          "node": "N_Order",
+          "slot": 0
+        },
+        {
+          "expects_any": [
+            "organon:Declaration"
+          ],
+          "node": "N_Declaration",
+          "slot": 1
+        },
+        {
+          "expects_any": [
+            "organon:Permission"
+          ],
+          "node": "N_Permission",
+          "slot": 2
+        },
+        {
+          "expects_any": [
+            "organon:State"
+          ],
+          "node": "N_State",
+          "slot": 3
+        }
+      ],
+      "kind": "revokes",
+      "output": "N_Revocation",
+      "produces": "organon:Revocation"
+    },
+    {
+      "arguments": [
+        {
+          "expects_any": [
+            "organon:Permission"
+          ],
+          "node": "N_Permission",
+          "slot": 0
+        },
+        {
+          "expects_any": [
+            "organon:Agent"
+          ],
+          "node": "N_Agent",
+          "slot": 1
+        },
+        {
+          "expects_any": [
+            "organon:Action"
+          ],
+          "node": "N_Action",
+          "slot": 2
+        },
+        {
+          "expects_any": [
+            "organon:State"
+          ],
+          "node": "N_State",
+          "slot": 3
+        }
+      ],
+      "kind": "exercises",
+      "output": "N_PermissionExercise",
+      "produces": "organon:PermissionExercise"
+    },
+    {
+      "arguments": [
+        {
+          "expects_any": [
+            "organon:Permission"
+          ],
+          "node": "N_Permission",
+          "slot": 0
+        },
+        {
+          "expects_any": [
+            "organon:Action"
+          ],
+          "node": "N_Action",
+          "slot": 1
+        },
+        {
+          "expects_any": [
+            "organon:State"
+          ],
+          "node": "N_State",
+          "slot": 2
+        },
+        {
+          "expects_any": [
+            "organon:Capability"
+          ],
+          "node": "N_Capability",
+          "slot": 3
+        },
+        {
+          "expects_any": [
+            "organon:Configuration",
+            "organon:Constraint"
+          ],
+          "node": "N_Configuration",
+          "slot": 4
+        }
+      ],
+      "kind": "isExercisable",
+      "output": "N_Exercisability",
+      "produces": "organon:Exercisability"
+    },
+    {
+      "arguments": [
+        {
+          "expects_any": [
+            "organon:Order"
+          ],
+          "node": "N_Order",
+          "slot": 0
+        },
+        {
+          "expects_any": [
+            "organon:Rule"
+          ],
+          "node": "N_Rule",
+          "slot": 1
+        },
+        {
+          "expects_any": [
+            "organon:Constraint"
+          ],
+          "node": "N_Constraint",
+          "slot": 2
+        },
+        {
+          "expects_any": [
+            "organon:Record",
+            "organon:Consequence"
+          ],
+          "node": "N_Record",
+          "slot": 3
+        }
+      ],
+      "kind": "enforces",
+      "output": "N_Enforcement",
+      "produces": "organon:Enforcement"
+    },
+    {
+      "arguments": [
+        {
+          "expects_any": [
+            "organon:Witness"
+          ],
+          "node": "N_Witness",
+          "slot": 0
+        },
+        {
+          "expects_any": [
+            "organon:Agent"
+          ],
+          "node": "N_Agent",
+          "slot": 1
+        },
+        {
+          "expects_any": [
+            "organon:Claim"
+          ],
+          "node": "N_Claim",
+          "slot": 2
+        },
+        {
+          "expects_any": [
+            "organon:Observation"
+          ],
+          "node": "N_Observation",
+          "slot": 3
+        },
+        {
+          "expects_any": [
+            "organon:Order"
+          ],
+          "node": "N_Order",
+          "slot": 4
+        }
+      ],
+      "kind": "independentFor",
+      "output": "N_IndependentFor",
+      "produces": "organon:IndependentFor"
+    },
+    {
+      "arguments": [
+        {
+          "expects_any": [
+            "organon:Witness"
+          ],
+          "node": "N_Witness",
+          "slot": 0
+        },
+        {
+          "expects_any": [
+            "organon:Claim"
+          ],
+          "node": "N_Claim",
+          "slot": 1
+        },
+        {
+          "expects_any": [
+            "organon:Specification"
+          ],
+          "node": "N_Specification",
+          "slot": 2
+        },
+        {
+          "expects_any": [
+            "organon:Order"
+          ],
+          "node": "N_Order",
+          "slot": 3
+        }
+      ],
+      "kind": "attests",
+      "output": "N_Attestation",
+      "produces": "organon:Attestation"
+    },
+    {
+      "arguments": [
+        {
+          "expects_any": [
+            "organon:Role"
+          ],
+          "node": "N_Role",
+          "slot": 0
+        },
+        {
+          "expects_any": [
+            "organon:Record"
+          ],
+          "node": "N_Record",
+          "slot": 1
+        },
+        {
+          "expects_any": [
+            "organon:Interface"
+          ],
+          "node": "N_Interface",
+          "slot": 2
+        },
+        {
+          "expects_any": [
+            "organon:Flow"
+          ],
+          "node": "N_Flow",
+          "slot": 3
+        }
+      ],
+      "kind": "institutes",
+      "output": "N_Institution",
+      "produces": "organon:Institution"
+    },
+    {
+      "arguments": [
+        {
+          "expects_any": [
+            "organon:Polity"
+          ],
+          "node": "N_Polity",
+          "slot": 0
+        },
+        {
+          "expects_any": [
+            "organon:Agency"
+          ],
+          "node": "N_Agency",
+          "slot": 1
+        },
+        {
+          "expects_any": [
+            "organon:Order"
+          ],
+          "node": "N_Order",
+          "slot": 2
+        }
+      ],
+      "kind": "constitutes",
+      "output": "N_ConstituentExercise",
+      "produces": "organon:ConstituentExercise"
+    },
+    {
+      "arguments": [
+        {
+          "expects_any": [
+            "organon:Agent"
+          ],
+          "node": "N_Agent",
+          "slot": 0
+        },
+        {
+          "expects_any": [
+            "organon:Entity"
+          ],
+          "node": "N_Entity",
+          "slot": 1
+        },
+        {
+          "expects_any": [
+            "organon:State"
+          ],
+          "node": "N_State",
+          "slot": 2
+        },
+        {
+          "expects_any": [
+            "organon:Representation"
+          ],
+          "node": "N_Representation",
+          "slot": 3
+        },
+        {
+          "expects_any": [
+            "organon:Specification"
+          ],
+          "node": "N_Specification",
+          "slot": 4
+        },
+        {
+          "expects_any": [
+            "organon:Language"
+          ],
+          "node": "N_Language",
+          "slot": 5
+        },
+        {
+          "expects_any": [
+            "organon:Rule"
+          ],
+          "node": "N_Rule",
+          "slot": 6
+        },
+        {
+          "expects_any": [
+            "organon:Map"
+          ],
+          "node": "N_Map",
+          "slot": 7
+        },
+        {
+          "expects_any": [
+            "organon:Scope"
+          ],
+          "node": "N_Scope",
+          "slot": 8
+        }
+      ],
+      "kind": "attributesConsciousness",
+      "output": "N_ConsciousnessAttribution",
+      "produces": "organon:ConsciousnessAttribution"
+    },
+    {
+      "arguments": [
+        {
+          "expects_any": [
+            "organon:Order"
+          ],
+          "node": "N_Order",
+          "slot": 0
+        },
+        {
+          "expects_any": [
+            "organon:Rule"
+          ],
+          "node": "N_Rule",
+          "slot": 1
+        },
+        {
+          "expects_any": [
+            "organon:ConsciousnessAttribution"
+          ],
+          "node": "N_ConsciousnessAttribution",
+          "slot": 2
+        },
+        {
+          "expects_any": [
+            "organon:Scope"
+          ],
+          "node": "N_Scope",
+          "slot": 3
+        }
+      ],
+      "kind": "designatesConsciousness",
+      "output": "N_ConsciousnessDesignation",
+      "produces": "organon:ConsciousnessDesignation"
+    },
+    {
+      "arguments": [
+        {
+          "expects_any": [
+            "organon:Representation"
+          ],
+          "node": "N_Representation",
+          "slot": 0
+        },
+        {
+          "expects_any": [
+            "organon:Rule"
+          ],
+          "node": "N_Rule",
+          "slot": 1
+        },
+        {
+          "expects_any": [
+            "organon:Interface"
+          ],
+          "node": "N_Interface",
+          "slot": 2
+        },
+        {
+          "expects_any": [
+            "organon:Scope"
+          ],
+          "node": "N_Scope",
+          "slot": 3
+        },
+        {
+          "expects_any": [
+            "organon:Transformation"
+          ],
+          "node": "N_Transformation",
+          "slot": 4
+        },
+        {
+          "expects_any": [
+            "organon:CausalPath"
+          ],
+          "node": "N_CausalPath",
+          "slot": 5
+        }
+      ],
+      "kind": "operationalizes",
+      "output": "N_Operationalization",
+      "produces": "organon:Operationalization"
+    },
+    {
+      "arguments": [
+        {
+          "expects_any": [
+            "organon:Entity"
+          ],
+          "node": "N_Entity",
+          "slot": 0
+        },
+        {
+          "expects_any": [
+            "organon:Environment"
+          ],
+          "node": "N_Environment",
+          "slot": 1
+        },
+        {
+          "expects_any": [
+            "organon:Scope"
+          ],
+          "node": "N_Scope",
+          "slot": 2
+        },
+        {
+          "expects_any": [
+            "organon:Constraint"
+          ],
+          "node": "N_Constraint",
+          "slot": 3
+        },
+        {
+          "expects_any": [
+            "organon:CausalPath"
+          ],
+          "node": "N_CausalPath",
+          "slot": 4
+        },
+        {
+          "expects_any": [
+            "organon:Invariant"
+          ],
+          "node": "N_Invariant",
+          "slot": 5
+        }
+      ],
+      "kind": "composesWorld",
+      "output": "N_World",
+      "produces": "organon:World"
+    },
+    {
+      "arguments": [
+        {
+          "expects_any": [
+            "organon:Configuration"
+          ],
+          "node": "N_Configuration",
+          "slot": 0
+        },
+        {
+          "expects_any": [
+            "organon:Scope"
+          ],
+          "node": "N_Scope",
+          "slot": 1
+        },
+        {
+          "expects_any": [
+            "organon:State"
+          ],
+          "node": "N_State",
+          "slot": 2
+        },
+        {
+          "expects_any": [
+            "organon:Feeds"
+          ],
+          "node": "N_Feeds",
+          "slot": 3
+        },
+        {
+          "expects_any": [
+            "organon:Constraint"
+          ],
+          "node": "N_Constraint",
+          "slot": 4
+        },
+        {
+          "expects_any": [
+            "organon:Transformation"
+          ],
+          "node": "N_Transformation",
+          "slot": 5
+        }
+      ],
+      "kind": "servesAsSubstrate",
+      "output": "N_Substrate",
+      "produces": "organon:Substrate"
+    },
+    {
+      "arguments": [
+        {
+          "expects_any": [
+            "organon:Claim"
+          ],
+          "node": "N_Claim",
+          "slot": 0
+        },
+        {
+          "expects_any": [
+            "organon:Representation"
+          ],
+          "node": "N_Representation",
+          "slot": 1
+        },
+        {
+          "expects_any": [
+            "organon:Rule"
+          ],
+          "node": "N_Rule",
+          "slot": 2
+        },
+        {
+          "expects_any": [
+            "organon:Specification"
+          ],
+          "node": "N_Specification",
+          "slot": 3
+        },
+        {
+          "expects_any": [
+            "organon:Presence"
+          ],
+          "node": "N_Presence",
+          "slot": 4
+        },
+        {
+          "expects_any": [
+            "organon:Reality"
+          ],
+          "node": "N_Reality",
+          "slot": 5
+        },
+        {
+          "expects_any": [
+            "organon:Scope"
+          ],
+          "node": "N_Scope",
+          "slot": 6
+        }
+      ],
+      "kind": "isTrue",
+      "output": "N_Truth",
+      "produces": "organon:Truth"
+    },
+    {
+      "arguments": [
+        {
+          "expects_any": [
+            "organon:Entity"
+          ],
+          "node": "N_Entity",
+          "slot": 0
+        },
+        {
+          "expects_any": [
+            "organon:Entity"
+          ],
+          "node": "N_Alt_Entity",
+          "slot": 1
+        },
+        {
+          "expects_any": [
+            "organon:Constraint"
+          ],
+          "node": "N_Constraint",
+          "slot": 2
+        },
+        {
+          "expects_any": [
+            "organon:CausalPath"
+          ],
+          "node": "N_CausalPath",
+          "slot": 3
+        },
+        {
+          "expects_any": [
+            "organon:State",
+            "organon:Exposure"
+          ],
+          "node": "N_State",
+          "slot": 4
+        },
+        {
+          "expects_any": [
+            "organon:Scope"
+          ],
+          "node": "N_Scope",
+          "slot": 5
+        }
+      ],
+      "kind": "trusts",
+      "output": "N_Trust",
+      "produces": "organon:Trust"
+    },
+    {
+      "arguments": [
+        {
+          "expects_any": [
+            "organon:Configuration"
+          ],
+          "node": "N_Configuration",
+          "slot": 0
+        },
+        {
+          "expects_any": [
+            "organon:Presence"
+          ],
+          "node": "N_Presence",
+          "slot": 1
+        },
+        {
+          "expects_any": [
+            "organon:Specification"
+          ],
+          "node": "N_Specification",
+          "slot": 2
+        },
+        {
+          "expects_any": [
+            "organon:Scope"
+          ],
+          "node": "N_Scope",
+          "slot": 3
+        }
+      ],
+      "kind": "alignsUnder",
+      "output": "N_Alignment",
+      "produces": "organon:Alignment"
+    },
+    {
+      "arguments": [
+        {
+          "expects_any": [
+            "organon:Agent"
+          ],
+          "node": "N_Agent",
+          "slot": 0
+        },
+        {
+          "expects_any": [
+            "organon:Perception"
+          ],
+          "node": "N_Perception",
+          "slot": 1
+        },
+        {
+          "expects_any": [
+            "organon:Memory"
+          ],
+          "node": "N_Memory",
+          "slot": 2
+        },
+        {
+          "expects_any": [
+            "organon:Model"
+          ],
+          "node": "N_Model",
+          "slot": 3
+        },
+        {
+          "expects_any": [
+            "organon:Interpretation"
+          ],
+          "node": "N_Interpretation",
+          "slot": 4
+        },
+        {
+          "expects_any": [
+            "organon:State"
+          ],
+          "node": "N_State",
+          "slot": 5
+        },
+        {
+          "expects_any": [
+            "organon:Action"
+          ],
+          "node": "N_Action",
+          "slot": 6
+        },
+        {
+          "expects_any": [
+            "organon:Consequence"
+          ],
+          "node": "N_Consequence",
+          "slot": 7
+        },
+        {
+          "expects_any": [
+            "organon:Specification"
+          ],
+          "node": "N_Specification",
+          "slot": 8
+        },
+        {
+          "expects_any": [
+            "organon:Scope"
+          ],
+          "node": "N_Scope",
+          "slot": 9
+        }
+      ],
+      "kind": "actsIntelligently",
+      "output": "N_Intelligence",
+      "produces": "organon:Intelligence"
+    },
+    {
+      "arguments": [
+        {
+          "expects_any": [
+            "organon:Record"
+          ],
+          "node": "N_Record",
+          "slot": 0
+        },
+        {
+          "expects_any": [
+            "organon:Agent"
+          ],
+          "node": "N_Agent",
+          "slot": 1
+        },
+        {
+          "expects_any": [
+            "organon:Capability"
+          ],
+          "node": "N_Capability",
+          "slot": 2
+        },
+        {
+          "expects_any": [
+            "organon:Constraint"
+          ],
+          "node": "N_Constraint",
+          "slot": 3
+        },
+        {
+          "expects_any": [
+            "organon:Rule"
+          ],
+          "node": "N_Rule",
+          "slot": 4
+        },
+        {
+          "expects_any": [
+            "organon:Model",
+            "organon:Interpretation"
+          ],
+          "node": "N_Model",
+          "slot": 5
+        },
+        {
+          "expects_any": [
+            "organon:CausalPath"
+          ],
+          "node": "N_CausalPath",
+          "slot": 6
+        },
+        {
+          "expects_any": [
+            "organon:Action",
+            "organon:Transformation"
+          ],
+          "node": "N_Action",
+          "slot": 7
+        },
+        {
+          "expects_any": [
+            "organon:State",
+            "organon:Consequence"
+          ],
+          "node": "N_State",
+          "slot": 8
+        },
+        {
+          "expects_any": [
+            "organon:Specification"
+          ],
+          "node": "N_Specification",
+          "slot": 9
+        },
+        {
+          "expects_any": [
+            "organon:Scope"
+          ],
+          "node": "N_Scope",
+          "slot": 10
+        }
+      ],
+      "kind": "knowsOperatively",
+      "output": "N_OperativeKnowledge",
+      "produces": "organon:OperativeKnowledge"
+    },
+    {
+      "arguments": [
+        {
+          "expects_any": [
+            "organon:OperativeKnowledge"
+          ],
+          "node": "N_OperativeKnowledge",
+          "slot": 0
+        },
+        {
+          "expects_any": [
+            "organon:State"
+          ],
+          "node": "N_State",
+          "slot": 1
+        },
+        {
+          "expects_any": [
+            "organon:Record"
+          ],
+          "node": "N_Record",
+          "slot": 2
+        },
+        {
+          "expects_any": [
+            "organon:CausalPath"
+          ],
+          "node": "N_CausalPath",
+          "slot": 3
+        },
+        {
+          "expects_any": [
+            "organon:OperativeKnowledge"
+          ],
+          "node": "N_Alt_OperativeKnowledge",
+          "slot": 4
+        },
+        {
+          "expects_any": [
+            "organon:State"
+          ],
+          "node": "N_Alt_State",
+          "slot": 5
+        },
+        {
+          "expects_any": [
+            "organon:Specification"
+          ],
+          "node": "N_Specification",
+          "slot": 6
+        },
+        {
+          "expects_any": [
+            "organon:Scope"
+          ],
+          "node": "N_Scope",
+          "slot": 7
+        }
+      ],
+      "kind": "transmitsKnowledge",
+      "output": "N_KnowledgeTransmission",
+      "produces": "organon:KnowledgeTransmission"
+    },
+    {
+      "arguments": [
+        {
+          "expects_any": [
+            "organon:OperativeKnowledge"
+          ],
+          "node": "N_OperativeKnowledge",
+          "slot": 0
+        },
+        {
+          "expects_any": [
+            "organon:Record"
+          ],
+          "node": "N_Record",
+          "slot": 1
+        },
+        {
+          "expects_any": [
+            "organon:Claim"
+          ],
+          "node": "N_Claim",
+          "slot": 2
+        },
+        {
+          "expects_any": [
+            "organon:Truth"
+          ],
+          "node": "N_Truth",
+          "slot": 3
+        },
+        {
+          "expects_any": [
+            "organon:Rule"
+          ],
+          "node": "N_Rule",
+          "slot": 4
+        },
+        {
+          "expects_any": [
+            "organon:Specification"
+          ],
+          "node": "N_Specification",
+          "slot": 5
+        },
+        {
+          "expects_any": [
+            "organon:Presence"
+          ],
+          "node": "N_Presence",
+          "slot": 6
+        },
+        {
+          "expects_any": [
+            "organon:Scope"
+          ],
+          "node": "N_Scope",
+          "slot": 7
+        }
+      ],
+      "kind": "knowsFactively",
+      "output": "N_FactiveOperativeKnowledge",
+      "produces": "organon:FactiveOperativeKnowledge"
+    },
+    {
+      "arguments": [
+        {
+          "expects_any": [
+            "organon:FactiveOperativeKnowledge"
+          ],
+          "node": "N_FactiveOperativeKnowledge",
+          "slot": 0
+        },
+        {
+          "expects_any": [
+            "organon:Evidence"
+          ],
+          "node": "N_Evidence",
+          "slot": 1
+        },
+        {
+          "expects_any": [
+            "organon:Observation"
+          ],
+          "node": "N_Observation",
+          "slot": 2
+        },
+        {
+          "expects_any": [
+            "organon:Witness"
+          ],
+          "node": "N_Witness",
+          "slot": 3
+        },
+        {
+          "expects_any": [
+            "organon:AdmissibilityRule"
+          ],
+          "node": "N_AdmissibilityRule",
+          "slot": 4
+        },
+        {
+          "expects_any": [
+            "organon:Order"
+          ],
+          "node": "N_Order",
+          "slot": 5
+        },
+        {
+          "expects_any": [
+            "organon:Admission"
+          ],
+          "node": "N_Admission",
+          "slot": 6
+        }
+      ],
+      "kind": "knowsWarrantedly",
+      "output": "N_WarrantedKnowledge",
+      "produces": "organon:WarrantedKnowledge"
+    },
+    {
+      "arguments": [
+        {
+          "expects_any": [
+            "organon:Agent"
+          ],
+          "node": "N_Agent",
+          "slot": 0
+        },
+        {
+          "expects_any": [
+            "organon:Entity"
+          ],
+          "node": "N_Entity",
+          "slot": 1
+        },
+        {
+          "expects_any": [
+            "organon:State"
+          ],
+          "node": "N_State",
+          "slot": 2
+        },
+        {
+          "expects_any": [
+            "organon:Representation"
+          ],
+          "node": "N_Representation",
+          "slot": 3
+        },
+        {
+          "expects_any": [
+            "organon:Specification"
+          ],
+          "node": "N_Specification",
+          "slot": 4
+        },
+        {
+          "expects_any": [
+            "organon:Language"
+          ],
+          "node": "N_Language",
+          "slot": 5
+        },
+        {
+          "expects_any": [
+            "organon:Rule"
+          ],
+          "node": "N_Rule",
+          "slot": 6
+        },
+        {
+          "expects_any": [
+            "organon:Map"
+          ],
+          "node": "N_Map",
+          "slot": 7
+        },
+        {
+          "expects_any": [
+            "organon:Scope"
+          ],
+          "node": "N_Scope",
+          "slot": 8
+        }
+      ],
+      "kind": "attributesMoralStatus",
+      "output": "N_MoralStatusAttribution",
+      "produces": "organon:MoralStatusAttribution"
+    },
+    {
+      "arguments": [
+        {
+          "expects_any": [
+            "organon:Order"
+          ],
+          "node": "N_Order",
+          "slot": 0
+        },
+        {
+          "expects_any": [
+            "organon:Rule"
+          ],
+          "node": "N_Rule",
+          "slot": 1
+        },
+        {
+          "expects_any": [
+            "organon:MoralStatusAttribution"
+          ],
+          "node": "N_MoralStatusAttribution",
+          "slot": 2
+        },
+        {
+          "expects_any": [
+            "organon:Scope"
+          ],
+          "node": "N_Scope",
+          "slot": 3
+        }
+      ],
+      "kind": "designatesMoralPersonhood",
+      "output": "N_MoralPersonhoodDesignation",
+      "produces": "organon:MoralPersonhoodDesignation"
+    },
+    {
+      "arguments": [
+        {
+          "expects_any": [
+            "organon:Polity"
+          ],
+          "node": "N_Polity",
+          "slot": 0
+        },
+        {
+          "expects_any": [
+            "organon:ConstituentPower"
+          ],
+          "node": "N_ConstituentPower",
+          "slot": 1
+        },
+        {
+          "expects_any": [
+            "organon:ConstituentExercise"
+          ],
+          "node": "N_ConstituentExercise",
+          "slot": 2
+        },
+        {
+          "expects_any": [
+            "organon:Order"
+          ],
+          "node": "N_Order",
+          "slot": 3
+        },
+        {
+          "expects_any": [
+            "organon:Scope"
+          ],
+          "node": "N_Scope",
+          "slot": 4
+        }
+      ],
+      "kind": "exercisesConstituentSovereignty",
+      "output": "N_ConstituentSovereignty",
+      "produces": "organon:ConstituentSovereignty"
+    },
+    {
+      "arguments": [
+        {
+          "expects_any": [
+            "organon:Order"
+          ],
+          "node": "N_Order",
+          "slot": 0
+        },
+        {
+          "expects_any": [
+            "organon:Entity"
+          ],
+          "node": "N_Entity",
+          "slot": 1
+        },
+        {
+          "expects_any": [
+            "organon:Standing"
+          ],
+          "node": "N_Standing",
+          "slot": 2
+        },
+        {
+          "expects_any": [
+            "organon:Authority"
+          ],
+          "node": "N_Authority",
+          "slot": 3
+        },
+        {
+          "expects_any": [
+            "organon:Action"
+          ],
+          "node": "N_Action",
+          "slot": 4
+        },
+        {
+          "expects_any": [
+            "organon:Rule"
+          ],
+          "node": "N_Rule",
+          "slot": 5
+        },
+        {
+          "expects_any": [
+            "organon:Scope"
+          ],
+          "node": "N_Scope",
+          "slot": 6
+        }
+      ],
+      "kind": "holdsConstitutedSovereignty",
+      "output": "N_ConstitutedSovereignty",
+      "produces": "organon:ConstitutedSovereignty"
+    },
+    {
+      "arguments": [
+        {
+          "expects_any": [
+            "organon:Polity",
+            "organon:Entity"
+          ],
+          "node": "N_Polity",
+          "slot": 0
+        },
+        {
+          "expects_any": [
+            "organon:Boundary"
+          ],
+          "node": "N_Boundary",
+          "slot": 1
+        },
+        {
+          "expects_any": [
+            "organon:Constraint"
+          ],
+          "node": "N_Constraint",
+          "slot": 2
+        },
+        {
+          "expects_any": [
+            "organon:Transformation"
+          ],
+          "node": "N_Transformation",
+          "slot": 3
+        },
+        {
+          "expects_any": [
+            "organon:Enforcement"
+          ],
+          "node": "N_Enforcement",
+          "slot": 4
+        },
+        {
+          "expects_any": [
+            "organon:Consequence",
+            "organon:State"
+          ],
+          "node": "N_Consequence",
+          "slot": 5
+        },
+        {
+          "expects_any": [
+            "organon:Scope"
+          ],
+          "node": "N_Scope",
+          "slot": 6
+        }
+      ],
+      "kind": "holdsBoundarySovereignty",
+      "output": "N_BoundarySovereignty",
+      "produces": "organon:BoundarySovereignty"
+    },
+    {
+      "arguments": [
+        {
+          "expects_any": [
+            "organon:Order"
+          ],
+          "node": "N_Order",
+          "slot": 0
+        },
+        {
+          "expects_any": [
+            "organon:Order"
+          ],
+          "node": "N_Alt_Order",
+          "slot": 1
+        },
+        {
+          "expects_any": [
+            "organon:Entity",
+            "organon:Polity"
+          ],
+          "node": "N_Entity",
+          "slot": 2
+        },
+        {
+          "expects_any": [
+            "organon:Principal"
+          ],
+          "node": "N_Principal",
+          "slot": 3
+        },
+        {
+          "expects_any": [
+            "organon:Action"
+          ],
+          "node": "N_Action",
+          "slot": 4
+        },
+        {
+          "expects_any": [
+            "organon:Rule"
+          ],
+          "node": "N_Rule",
+          "slot": 5
+        },
+        {
+          "expects_any": [
+            "organon:Scope"
+          ],
+          "node": "N_Scope",
+          "slot": 6
+        }
+      ],
+      "kind": "recognizesExternalSovereignty",
+      "output": "N_ExternalSovereignty",
+      "produces": "organon:ExternalSovereignty"
+    },
+    {
+      "arguments": [
+        {
+          "expects_any": [
+            "organon:Agent"
+          ],
+          "node": "N_Agent",
+          "slot": 0
+        },
+        {
+          "expects_any": [
+            "organon:State",
+            "organon:Consequence"
+          ],
+          "node": "N_State",
+          "slot": 1
+        },
+        {
+          "expects_any": [
+            "organon:State",
+            "organon:Consequence"
+          ],
+          "node": "N_Alt_State",
+          "slot": 2
+        },
+        {
+          "expects_any": [
+            "organon:Rule"
+          ],
+          "node": "N_Rule",
+          "slot": 3
+        },
+        {
+          "expects_any": [
+            "organon:Scope"
+          ],
+          "node": "N_Scope",
+          "slot": 4
+        }
+      ],
+      "kind": "prefers",
+      "output": "N_Preference",
+      "produces": "organon:Preference"
+    },
+    {
+      "arguments": [
+        {
+          "expects_any": [
+            "organon:State",
+            "organon:Consequence"
+          ],
+          "node": "N_State",
+          "slot": 0
+        },
+        {
+          "expects_any": [
+            "organon:Map"
+          ],
+          "node": "N_Map",
+          "slot": 1
+        },
+        {
+          "expects_any": [
+            "organon:Rule"
+          ],
+          "node": "N_Rule",
+          "slot": 2
+        },
+        {
+          "expects_any": [
+            "organon:Specification"
+          ],
+          "node": "N_Specification",
+          "slot": 3
+        },
+        {
+          "expects_any": [
+            "organon:Scope"
+          ],
+          "node": "N_Scope",
+          "slot": 4
+        }
+      ],
+      "kind": "measuresUtility",
+      "output": "N_UtilityMeasure",
+      "produces": "organon:UtilityMeasure"
+    },
+    {
+      "arguments": [
+        {
+          "expects_any": [
+            "organon:Ledger"
+          ],
+          "node": "N_Ledger",
+          "slot": 0
+        },
+        {
+          "expects_any": [
+            "organon:Record"
+          ],
+          "node": "N_Record",
+          "slot": 1
+        },
+        {
+          "expects_any": [
+            "organon:Order"
+          ],
+          "node": "N_Order",
+          "slot": 2
+        },
+        {
+          "expects_any": [
+            "organon:Rule"
+          ],
+          "node": "N_Rule",
+          "slot": 3
+        },
+        {
+          "expects_any": [
+            "organon:Representation"
+          ],
+          "node": "N_Representation",
+          "slot": 4
+        },
+        {
+          "expects_any": [
+            "organon:Presence"
+          ],
+          "node": "N_Presence",
+          "slot": 5
+        },
+        {
+          "expects_any": [
+            "organon:State"
+          ],
+          "node": "N_State",
+          "slot": 6
+        },
+        {
+          "expects_any": [
+            "organon:Scope"
+          ],
+          "node": "N_Scope",
+          "slot": 7
+        }
+      ],
+      "kind": "prices",
+      "output": "N_Price",
+      "produces": "organon:Price"
+    }
+  ],
+  "schema_version": 1,
+  "semantic_boundary": "Registry topology and encoded obligations only; not full prose-semantic parity.",
+  "terms": [
+    {
+      "anchor": "organon-absence",
+      "claim_id": "P1",
+      "claim_type": "primitive",
+      "depends_on": [],
+      "id": "organon:Absence",
+      "label": "Absence"
+    },
+    {
+      "anchor": "organon-presence",
+      "claim_id": "A3",
+      "claim_type": "axiom",
+      "depends_on": [
+        "organon:Absence"
+      ],
+      "id": "organon:Presence",
+      "label": "Presence"
+    },
+    {
+      "anchor": "organon-missingness",
+      "claim_id": "A5",
+      "claim_type": "axiom",
+      "depends_on": [
+        "organon:Presence"
+      ],
+      "id": "organon:Missingness",
+      "label": "Missingness"
+    },
+    {
+      "anchor": "organon-reality",
+      "claim_id": "D001",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Presence"
+      ],
+      "id": "organon:Reality",
+      "label": "Reality"
+    },
+    {
+      "anchor": "organon-difference",
+      "claim_id": "D002",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Presence",
+        "organon:Reality"
+      ],
+      "id": "organon:Difference",
+      "label": "Difference"
+    },
+    {
+      "anchor": "organon-relation",
+      "claim_id": "D003",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Presence"
+      ],
+      "id": "organon:Relation",
+      "label": "Relation"
+    },
+    {
+      "anchor": "organon-configuration",
+      "claim_id": "D004",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Presence",
+        "organon:Relation"
+      ],
+      "id": "organon:Configuration",
+      "label": "Configuration"
+    },
+    {
+      "anchor": "organon-state",
+      "claim_id": "D005",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Configuration"
+      ],
+      "id": "organon:State",
+      "label": "State"
+    },
+    {
+      "anchor": "organon-direction",
+      "claim_id": "D006",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Relation",
+        "organon:State"
+      ],
+      "id": "organon:Direction",
+      "label": "Direction"
+    },
+    {
+      "anchor": "organon-transformation",
+      "claim_id": "D007",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Relation",
+        "organon:State",
+        "organon:Direction"
+      ],
+      "id": "organon:Transformation",
+      "label": "Transformation"
+    },
+    {
+      "anchor": "organon-change",
+      "claim_id": "D008",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Difference",
+        "organon:State",
+        "organon:Transformation"
+      ],
+      "id": "organon:Change",
+      "label": "Change"
+    },
+    {
+      "anchor": "organon-feeds",
+      "claim_id": "D009",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Relation",
+        "organon:State"
+      ],
+      "id": "organon:Feeds",
+      "label": "Feeds"
+    },
+    {
+      "anchor": "organon-causal-path",
+      "claim_id": "D010",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Transformation",
+        "organon:Direction",
+        "organon:Feeds",
+        "organon:State"
+      ],
+      "id": "organon:CausalPath",
+      "label": "Causal path"
+    },
+    {
+      "anchor": "organon-invariant",
+      "claim_id": "D011",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Relation",
+        "organon:Configuration",
+        "organon:Transformation"
+      ],
+      "id": "organon:Invariant",
+      "label": "Invariant"
+    },
+    {
+      "anchor": "organon-persistence",
+      "claim_id": "D012",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Invariant",
+        "organon:State"
+      ],
+      "id": "organon:Persistence",
+      "label": "Persistence"
+    },
+    {
+      "anchor": "organon-constraint",
+      "claim_id": "D013",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Persistence",
+        "organon:Relation",
+        "organon:Transformation"
+      ],
+      "id": "organon:Constraint",
+      "label": "Constraint"
+    },
+    {
+      "anchor": "organon-entity",
+      "claim_id": "D014",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Configuration",
+        "organon:Persistence",
+        "organon:Invariant"
+      ],
+      "id": "organon:Entity",
+      "label": "Entity"
+    },
+    {
+      "anchor": "organon-boundary",
+      "claim_id": "D015",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Configuration",
+        "organon:Constraint",
+        "organon:Invariant",
+        "organon:Persistence",
+        "organon:Entity"
+      ],
+      "id": "organon:Boundary",
+      "label": "Boundary"
+    },
+    {
+      "anchor": "organon-environment",
+      "claim_id": "D016",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Presence",
+        "organon:Entity",
+        "organon:Boundary"
+      ],
+      "id": "organon:Environment",
+      "label": "Environment"
+    },
+    {
+      "anchor": "organon-representation",
+      "claim_id": "D017",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Presence",
+        "organon:Relation",
+        "organon:Configuration"
+      ],
+      "id": "organon:Representation",
+      "label": "Representation"
+    },
+    {
+      "anchor": "organon-scope",
+      "claim_id": "D018",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Presence",
+        "organon:Relation",
+        "organon:State",
+        "organon:Transformation",
+        "organon:Representation",
+        "organon:Constraint"
+      ],
+      "id": "organon:Scope",
+      "label": "Scope"
+    },
+    {
+      "anchor": "organon-specification",
+      "claim_id": "D019",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Representation",
+        "organon:Scope"
+      ],
+      "id": "organon:Specification",
+      "label": "Specification"
+    },
+    {
+      "anchor": "organon-rule",
+      "claim_id": "D020",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Specification",
+        "organon:Constraint",
+        "organon:Transformation"
+      ],
+      "id": "organon:Rule",
+      "label": "Rule"
+    },
+    {
+      "anchor": "organon-sign",
+      "claim_id": "D021",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Representation",
+        "organon:Presence",
+        "organon:Relation",
+        "organon:Change"
+      ],
+      "id": "organon:Sign",
+      "label": "Sign"
+    },
+    {
+      "anchor": "organon-symbol",
+      "claim_id": "D022",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Representation"
+      ],
+      "id": "organon:Symbol",
+      "label": "Symbol"
+    },
+    {
+      "anchor": "organon-language",
+      "claim_id": "D023",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Persistence",
+        "organon:Symbol",
+        "organon:Rule",
+        "organon:State"
+      ],
+      "id": "organon:Language",
+      "label": "Language"
+    },
+    {
+      "anchor": "organon-map",
+      "claim_id": "D024",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Representation",
+        "organon:Reality"
+      ],
+      "id": "organon:Map",
+      "label": "Map"
+    },
+    {
+      "anchor": "organon-reference",
+      "claim_id": "D025",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Map",
+        "organon:Specification",
+        "organon:Scope",
+        "organon:Constraint"
+      ],
+      "id": "organon:Reference",
+      "label": "Reference"
+    },
+    {
+      "anchor": "organon-sense",
+      "claim_id": "D026",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Constraint",
+        "organon:Entity",
+        "organon:Boundary",
+        "organon:Difference",
+        "organon:Environment",
+        "organon:CausalPath"
+      ],
+      "id": "organon:Sense",
+      "label": "Sense"
+    },
+    {
+      "anchor": "organon-perception",
+      "claim_id": "D027",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:State",
+        "organon:Sense"
+      ],
+      "id": "organon:Perception",
+      "label": "Perception"
+    },
+    {
+      "anchor": "organon-record",
+      "claim_id": "D028",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Persistence",
+        "organon:Representation",
+        "organon:State",
+        "organon:Relation",
+        "organon:Change"
+      ],
+      "id": "organon:Record",
+      "label": "Record"
+    },
+    {
+      "anchor": "organon-observation",
+      "claim_id": "D029",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Record",
+        "organon:Specification",
+        "organon:CausalPath",
+        "organon:Environment",
+        "organon:Sense",
+        "organon:Reality"
+      ],
+      "id": "organon:Observation",
+      "label": "Observation"
+    },
+    {
+      "anchor": "organon-memory",
+      "claim_id": "D030",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Record",
+        "organon:Persistence",
+        "organon:State",
+        "organon:Entity"
+      ],
+      "id": "organon:Memory",
+      "label": "Memory"
+    },
+    {
+      "anchor": "organon-model",
+      "claim_id": "D031",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Configuration",
+        "organon:Representation",
+        "organon:Transformation",
+        "organon:Perception",
+        "organon:Memory",
+        "organon:State"
+      ],
+      "id": "organon:Model",
+      "label": "Model"
+    },
+    {
+      "anchor": "organon-action",
+      "claim_id": "D032",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Transformation",
+        "organon:Entity",
+        "organon:Boundary",
+        "organon:CausalPath",
+        "organon:State"
+      ],
+      "id": "organon:Action",
+      "label": "Action"
+    },
+    {
+      "anchor": "organon-consequence",
+      "claim_id": "D033",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Change",
+        "organon:CausalPath",
+        "organon:Action"
+      ],
+      "id": "organon:Consequence",
+      "label": "Consequence"
+    },
+    {
+      "anchor": "organon-interpretation",
+      "claim_id": "D034",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Transformation",
+        "organon:Entity",
+        "organon:Perception",
+        "organon:Memory",
+        "organon:Model",
+        "organon:Action"
+      ],
+      "id": "organon:Interpretation",
+      "label": "Interpretation"
+    },
+    {
+      "anchor": "organon-agent",
+      "claim_id": "D035",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Entity",
+        "organon:Interpretation",
+        "organon:Action"
+      ],
+      "id": "organon:Agent",
+      "label": "Agent"
+    },
+    {
+      "anchor": "organon-agency",
+      "claim_id": "D036",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Relation",
+        "organon:Agent",
+        "organon:Interpretation",
+        "organon:Action"
+      ],
+      "id": "organon:Agency",
+      "label": "Agency"
+    },
+    {
+      "anchor": "organon-tool",
+      "claim_id": "D037",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Entity",
+        "organon:Agent",
+        "organon:CausalPath",
+        "organon:Action"
+      ],
+      "id": "organon:Tool",
+      "label": "Tool"
+    },
+    {
+      "anchor": "organon-capability",
+      "claim_id": "D038",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Action",
+        "organon:Agent",
+        "organon:Constraint"
+      ],
+      "id": "organon:Capability",
+      "label": "Capability"
+    },
+    {
+      "anchor": "organon-interior",
+      "claim_id": "D039",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Entity",
+        "organon:State",
+        "organon:Transformation",
+        "organon:Specification",
+        "organon:Boundary"
+      ],
+      "id": "organon:Interior",
+      "label": "Interior"
+    },
+    {
+      "anchor": "organon-exposure",
+      "claim_id": "D040",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Transformation",
+        "organon:Interior",
+        "organon:State",
+        "organon:Boundary"
+      ],
+      "id": "organon:Exposure",
+      "label": "Exposure"
+    },
+    {
+      "anchor": "organon-flow",
+      "claim_id": "D041",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Transformation",
+        "organon:Relation"
+      ],
+      "id": "organon:Flow",
+      "label": "Flow"
+    },
+    {
+      "anchor": "organon-interface",
+      "claim_id": "D042",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Boundary",
+        "organon:Transformation",
+        "organon:Representation",
+        "organon:Entity"
+      ],
+      "id": "organon:Interface",
+      "label": "Interface"
+    },
+    {
+      "anchor": "organon-claim",
+      "claim_id": "D043",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Representation",
+        "organon:Agent",
+        "organon:Presence",
+        "organon:Relation",
+        "organon:Configuration",
+        "organon:Record",
+        "organon:Scope"
+      ],
+      "id": "organon:Claim",
+      "label": "Claim"
+    },
+    {
+      "anchor": "organon-witness",
+      "claim_id": "D044",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Entity",
+        "organon:Agent",
+        "organon:Claim",
+        "organon:Observation"
+      ],
+      "id": "organon:Witness",
+      "label": "Witness"
+    },
+    {
+      "anchor": "organon-control",
+      "claim_id": "D045",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Relation",
+        "organon:Agent",
+        "organon:Constraint",
+        "organon:Rule",
+        "organon:Interface",
+        "organon:Observation",
+        "organon:Action",
+        "organon:CausalPath"
+      ],
+      "id": "organon:Control",
+      "label": "Control"
+    },
+    {
+      "anchor": "organon-order",
+      "claim_id": "D046",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Configuration",
+        "organon:Constraint",
+        "organon:Record",
+        "organon:Interface",
+        "organon:Rule",
+        "organon:Relation",
+        "organon:Agent",
+        "organon:Action"
+      ],
+      "id": "organon:Order",
+      "label": "Order"
+    },
+    {
+      "anchor": "organon-standing",
+      "claim_id": "D047",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Relation",
+        "organon:Order",
+        "organon:Record",
+        "organon:Entity",
+        "organon:Scope"
+      ],
+      "id": "organon:Standing",
+      "label": "Standing"
+    },
+    {
+      "anchor": "organon-recognition",
+      "claim_id": "D048",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Relation",
+        "organon:Order",
+        "organon:Standing",
+        "organon:Entity",
+        "organon:Rule",
+        "organon:Scope"
+      ],
+      "id": "organon:Recognition",
+      "label": "Recognition"
+    },
+    {
+      "anchor": "organon-principal",
+      "claim_id": "D049",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Entity",
+        "organon:Standing",
+        "organon:Order",
+        "organon:Action"
+      ],
+      "id": "organon:Principal",
+      "label": "Principal"
+    },
+    {
+      "anchor": "organon-acts-for",
+      "claim_id": "D050",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Relation",
+        "organon:Order",
+        "organon:Recognition",
+        "organon:Agent",
+        "organon:Principal",
+        "organon:Scope"
+      ],
+      "id": "organon:ActsFor",
+      "label": "ActsFor"
+    },
+    {
+      "anchor": "organon-counts-as",
+      "claim_id": "D051",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Relation",
+        "organon:Order",
+        "organon:Rule",
+        "organon:Presence",
+        "organon:Action",
+        "organon:Claim",
+        "organon:Record",
+        "organon:Scope"
+      ],
+      "id": "organon:CountsAs",
+      "label": "CountsAs"
+    },
+    {
+      "anchor": "organon-authority",
+      "claim_id": "D052",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Relation",
+        "organon:Order",
+        "organon:Agent",
+        "organon:Action",
+        "organon:CountsAs",
+        "organon:Principal",
+        "organon:Scope"
+      ],
+      "id": "organon:Authority",
+      "label": "Authority"
+    },
+    {
+      "anchor": "organon-permission-claim",
+      "claim_id": "D053",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Claim",
+        "organon:Order",
+        "organon:Agent",
+        "organon:Action",
+        "organon:Scope",
+        "organon:Principal"
+      ],
+      "id": "organon:PermissionClaim",
+      "label": "Permission Claim"
+    },
+    {
+      "anchor": "organon-declaration",
+      "claim_id": "D054",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Action",
+        "organon:Agent",
+        "organon:Authority",
+        "organon:Claim",
+        "organon:Specification",
+        "organon:Order",
+        "organon:Scope"
+      ],
+      "id": "organon:Declaration",
+      "label": "Declaration"
+    },
+    {
+      "anchor": "organon-grant",
+      "claim_id": "D055",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Declaration",
+        "organon:Claim",
+        "organon:PermissionClaim",
+        "organon:Authority",
+        "organon:Principal",
+        "organon:Agent",
+        "organon:Scope"
+      ],
+      "id": "organon:Grant",
+      "label": "Grant"
+    },
+    {
+      "anchor": "organon-admission",
+      "claim_id": "D056",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:CountsAs",
+        "organon:Order",
+        "organon:Rule",
+        "organon:Claim",
+        "organon:Observation",
+        "organon:Record"
+      ],
+      "id": "organon:Admission",
+      "label": "Admission"
+    },
+    {
+      "anchor": "organon-permission",
+      "claim_id": "D057",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Record",
+        "organon:Order",
+        "organon:PermissionClaim",
+        "organon:Grant",
+        "organon:Admission",
+        "organon:Principal",
+        "organon:Agent",
+        "organon:Scope"
+      ],
+      "id": "organon:Permission",
+      "label": "Permission"
+    },
+    {
+      "anchor": "organon-revocation",
+      "claim_id": "D058",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Declaration",
+        "organon:Authority",
+        "organon:Order",
+        "organon:Permission",
+        "organon:State"
+      ],
+      "id": "organon:Revocation",
+      "label": "Revocation"
+    },
+    {
+      "anchor": "organon-permission-exercise",
+      "claim_id": "D059",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Action",
+        "organon:Permission",
+        "organon:Agent",
+        "organon:Scope",
+        "organon:Revocation",
+        "organon:Order"
+      ],
+      "id": "organon:PermissionExercise",
+      "label": "Permission Exercise"
+    },
+    {
+      "anchor": "organon-exercisability",
+      "claim_id": "D060",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Relation",
+        "organon:Permission",
+        "organon:Action",
+        "organon:Configuration",
+        "organon:Constraint",
+        "organon:Scope",
+        "organon:Order",
+        "organon:Agent",
+        "organon:Capability"
+      ],
+      "id": "organon:Exercisability",
+      "label": "Exercisability"
+    },
+    {
+      "anchor": "organon-fully-exercisable-permission",
+      "claim_id": "D061",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Permission",
+        "organon:Action",
+        "organon:Scope",
+        "organon:Exercisability"
+      ],
+      "id": "organon:FullyExercisablePermission",
+      "label": "Fully Exercisable Permission"
+    },
+    {
+      "anchor": "organon-enforcement",
+      "claim_id": "D062",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Relation",
+        "organon:Order",
+        "organon:Rule",
+        "organon:Constraint",
+        "organon:Record",
+        "organon:Consequence"
+      ],
+      "id": "organon:Enforcement",
+      "label": "Enforcement"
+    },
+    {
+      "anchor": "organon-role",
+      "claim_id": "D063",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Configuration",
+        "organon:Order",
+        "organon:Action",
+        "organon:Permission",
+        "organon:Authority",
+        "organon:Consequence",
+        "organon:Agent",
+        "organon:Standing"
+      ],
+      "id": "organon:Role",
+      "label": "Role"
+    },
+    {
+      "anchor": "organon-admissibility-rule",
+      "claim_id": "D064",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Rule",
+        "organon:Specification",
+        "organon:Declaration",
+        "organon:Order",
+        "organon:CountsAs",
+        "organon:Admission"
+      ],
+      "id": "organon:AdmissibilityRule",
+      "label": "Admissibility Rule"
+    },
+    {
+      "anchor": "organon-independent-for",
+      "claim_id": "D065",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Relation",
+        "organon:Witness",
+        "organon:Agent",
+        "organon:Claim",
+        "organon:Observation",
+        "organon:Order",
+        "organon:Constraint",
+        "organon:CausalPath",
+        "organon:Control",
+        "organon:Authority",
+        "organon:AdmissibilityRule",
+        "organon:Scope"
+      ],
+      "id": "organon:IndependentFor",
+      "label": "IndependentFor"
+    },
+    {
+      "anchor": "organon-evidence",
+      "claim_id": "D066",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Observation",
+        "organon:Witness",
+        "organon:IndependentFor",
+        "organon:Agent",
+        "organon:Claim",
+        "organon:Order",
+        "organon:AdmissibilityRule",
+        "organon:Scope",
+        "organon:Admission"
+      ],
+      "id": "organon:Evidence",
+      "label": "Evidence"
+    },
+    {
+      "anchor": "organon-attestation",
+      "claim_id": "D067",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Claim",
+        "organon:Witness",
+        "organon:Observation",
+        "organon:Evidence",
+        "organon:Specification",
+        "organon:Scope",
+        "organon:Order",
+        "organon:IndependentFor"
+      ],
+      "id": "organon:Attestation",
+      "label": "Attestation"
+    },
+    {
+      "anchor": "organon-institution",
+      "claim_id": "D068",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Order",
+        "organon:Role",
+        "organon:Record",
+        "organon:Interface",
+        "organon:Flow",
+        "organon:Agent",
+        "organon:Persistence"
+      ],
+      "id": "organon:Institution",
+      "label": "Institution"
+    },
+    {
+      "anchor": "organon-center",
+      "claim_id": "D069",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Entity",
+        "organon:Institution",
+        "organon:Flow",
+        "organon:Constraint"
+      ],
+      "id": "organon:Center",
+      "label": "Center"
+    },
+    {
+      "anchor": "organon-organ",
+      "claim_id": "D070",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Persistence",
+        "organon:Configuration",
+        "organon:Transformation",
+        "organon:Entity",
+        "organon:Institution"
+      ],
+      "id": "organon:Organ",
+      "label": "Organ"
+    },
+    {
+      "anchor": "organon-canonical-system",
+      "claim_id": "D071",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Map",
+        "organon:Institution",
+        "organon:Recognition",
+        "organon:State",
+        "organon:Relation",
+        "organon:Action"
+      ],
+      "id": "organon:CanonicalSystem",
+      "label": "Canonical system"
+    },
+    {
+      "anchor": "organon-shadow-system",
+      "claim_id": "D072",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Persistence",
+        "organon:Configuration",
+        "organon:Record",
+        "organon:Relation",
+        "organon:Action",
+        "organon:CanonicalSystem"
+      ],
+      "id": "organon:ShadowSystem",
+      "label": "Shadow system"
+    },
+    {
+      "anchor": "organon-person",
+      "claim_id": "D073",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Entity",
+        "organon:Order",
+        "organon:Standing",
+        "organon:Principal",
+        "organon:Consequence"
+      ],
+      "id": "organon:Person",
+      "label": "Person"
+    },
+    {
+      "anchor": "organon-receipt",
+      "claim_id": "D074",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Record",
+        "organon:Action",
+        "organon:Agent",
+        "organon:Authority",
+        "organon:Permission",
+        "organon:Scope",
+        "organon:Consequence"
+      ],
+      "id": "organon:Receipt",
+      "label": "Receipt"
+    },
+    {
+      "anchor": "organon-ledger",
+      "claim_id": "D075",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Record",
+        "organon:Claim",
+        "organon:Permission",
+        "organon:Observation",
+        "organon:Evidence",
+        "organon:Attestation",
+        "organon:Receipt",
+        "organon:Standing"
+      ],
+      "id": "organon:Ledger",
+      "label": "Ledger"
+    },
+    {
+      "anchor": "organon-polity",
+      "claim_id": "D076",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Agent",
+        "organon:Institution",
+        "organon:Action",
+        "organon:Order"
+      ],
+      "id": "organon:Polity",
+      "label": "Polity"
+    },
+    {
+      "anchor": "organon-constituted-exercise",
+      "claim_id": "D077",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Authority",
+        "organon:Order"
+      ],
+      "id": "organon:ConstitutedExercise",
+      "label": "Constituted exercise"
+    },
+    {
+      "anchor": "organon-constituent-exercise",
+      "claim_id": "D078",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Agency",
+        "organon:Action",
+        "organon:Order",
+        "organon:Authority",
+        "organon:Role",
+        "organon:Person",
+        "organon:Claim",
+        "organon:Boundary"
+      ],
+      "id": "organon:ConstituentExercise",
+      "label": "Constituent exercise"
+    },
+    {
+      "anchor": "organon-constituent-power",
+      "claim_id": "D079",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Persistence",
+        "organon:Capability",
+        "organon:Polity",
+        "organon:ConstituentExercise"
+      ],
+      "id": "organon:ConstituentPower",
+      "label": "Constituent power"
+    },
+    {
+      "anchor": "organon-consciousness-attribution",
+      "claim_id": "D080",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Agent",
+        "organon:Claim",
+        "organon:Entity",
+        "organon:State",
+        "organon:Configuration",
+        "organon:Representation",
+        "organon:Specification",
+        "organon:Scope",
+        "organon:Language",
+        "organon:Rule",
+        "organon:Map"
+      ],
+      "id": "organon:ConsciousnessAttribution",
+      "label": "Consciousness Attribution"
+    },
+    {
+      "anchor": "organon-consciousness-designation",
+      "claim_id": "D081",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Relation",
+        "organon:CountsAs",
+        "organon:Order",
+        "organon:Rule",
+        "organon:Admission",
+        "organon:Scope",
+        "organon:Entity",
+        "organon:State",
+        "organon:ConsciousnessAttribution"
+      ],
+      "id": "organon:ConsciousnessDesignation",
+      "label": "Consciousness Designation"
+    },
+    {
+      "anchor": "organon-operationalization",
+      "claim_id": "D082",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Representation",
+        "organon:Difference",
+        "organon:Configuration",
+        "organon:Rule",
+        "organon:Interface",
+        "organon:Transformation",
+        "organon:CausalPath",
+        "organon:Scope",
+        "organon:State",
+        "organon:Agent",
+        "organon:Interpretation",
+        "organon:Action",
+        "organon:Consequence",
+        "organon:Map",
+        "organon:Evidence"
+      ],
+      "id": "organon:Operationalization",
+      "label": "Operationalization"
+    },
+    {
+      "anchor": "organon-world",
+      "claim_id": "D083",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Configuration",
+        "organon:Entity",
+        "organon:Presence",
+        "organon:Environment",
+        "organon:State",
+        "organon:Relation",
+        "organon:CausalPath",
+        "organon:Perception",
+        "organon:Interpretation",
+        "organon:Action",
+        "organon:Constraint",
+        "organon:Sense",
+        "organon:Map",
+        "organon:Reference",
+        "organon:Scope",
+        "organon:Invariant",
+        "organon:Persistence",
+        "organon:Reality",
+        "organon:Evidence",
+        "organon:Claim",
+        "organon:Order",
+        "organon:Rule",
+        "organon:Boundary"
+      ],
+      "id": "organon:World",
+      "label": "World"
+    },
+    {
+      "anchor": "organon-substrate",
+      "claim_id": "D084",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Configuration",
+        "organon:Scope",
+        "organon:Persistence",
+        "organon:Invariant",
+        "organon:State",
+        "organon:Transformation",
+        "organon:Feeds",
+        "organon:Constraint",
+        "organon:Difference",
+        "organon:Representation",
+        "organon:Entity",
+        "organon:Environment",
+        "organon:Tool"
+      ],
+      "id": "organon:Substrate",
+      "label": "Substrate"
+    },
+    {
+      "anchor": "organon-truth",
+      "claim_id": "D085",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Relation",
+        "organon:Claim",
+        "organon:Representation",
+        "organon:Rule",
+        "organon:Specification",
+        "organon:Reality",
+        "organon:Presence",
+        "organon:Scope",
+        "organon:Entity",
+        "organon:Evidence",
+        "organon:Admission"
+      ],
+      "id": "organon:Truth",
+      "label": "Truth"
+    },
+    {
+      "anchor": "organon-trust",
+      "claim_id": "D086",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Relation",
+        "organon:Entity",
+        "organon:Boundary",
+        "organon:Constraint",
+        "organon:Scope",
+        "organon:Interior",
+        "organon:Exposure",
+        "organon:Consequence",
+        "organon:Action",
+        "organon:Claim",
+        "organon:State",
+        "organon:CausalPath",
+        "organon:Control",
+        "organon:Evidence",
+        "organon:Permission",
+        "organon:Authority"
+      ],
+      "id": "organon:Trust",
+      "label": "Trust"
+    },
+    {
+      "anchor": "organon-alignment",
+      "claim_id": "D087",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Relation",
+        "organon:Configuration",
+        "organon:Presence",
+        "organon:Specification",
+        "organon:Scope",
+        "organon:State",
+        "organon:Transformation",
+        "organon:Difference",
+        "organon:Truth",
+        "organon:Trust",
+        "organon:Permission",
+        "organon:Authority",
+        "organon:Agency",
+        "organon:Persistence"
+      ],
+      "id": "organon:Alignment",
+      "label": "Alignment"
+    },
+    {
+      "anchor": "organon-intelligence",
+      "claim_id": "D088",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Capability",
+        "organon:Agent",
+        "organon:Model",
+        "organon:Interpretation",
+        "organon:Perception",
+        "organon:Memory",
+        "organon:Action",
+        "organon:Consequence",
+        "organon:Specification",
+        "organon:State",
+        "organon:Rule",
+        "organon:Representation",
+        "organon:Scope",
+        "organon:Difference",
+        "organon:CausalPath",
+        "organon:Record",
+        "organon:Tool",
+        "organon:Substrate"
+      ],
+      "id": "organon:Intelligence",
+      "label": "Intelligence"
+    },
+    {
+      "anchor": "organon-operative-knowledge",
+      "claim_id": "D089",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Configuration",
+        "organon:Record",
+        "organon:Agent",
+        "organon:Capability",
+        "organon:Constraint",
+        "organon:Rule",
+        "organon:Model",
+        "organon:Interpretation",
+        "organon:CausalPath",
+        "organon:Action",
+        "organon:Transformation",
+        "organon:State",
+        "organon:Consequence",
+        "organon:Specification",
+        "organon:Scope",
+        "organon:Truth",
+        "organon:Evidence",
+        "organon:Difference"
+      ],
+      "id": "organon:OperativeKnowledge",
+      "label": "Operative Knowledge"
+    },
+    {
+      "anchor": "organon-knowledge-transmission",
+      "claim_id": "D090",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Relation",
+        "organon:OperativeKnowledge",
+        "organon:Record",
+        "organon:CausalPath",
+        "organon:Specification",
+        "organon:Scope",
+        "organon:Configuration",
+        "organon:State",
+        "organon:Agent",
+        "organon:Representation",
+        "organon:Model",
+        "organon:Interpretation"
+      ],
+      "id": "organon:KnowledgeTransmission",
+      "label": "Knowledge Transmission"
+    },
+    {
+      "anchor": "organon-factive-operative-knowledge",
+      "claim_id": "D091",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:OperativeKnowledge",
+        "organon:Record",
+        "organon:Claim",
+        "organon:Truth",
+        "organon:Rule",
+        "organon:Specification",
+        "organon:Presence",
+        "organon:Scope"
+      ],
+      "id": "organon:FactiveOperativeKnowledge",
+      "label": "Factive Operative Knowledge"
+    },
+    {
+      "anchor": "organon-warranted-knowledge",
+      "claim_id": "D092",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:FactiveOperativeKnowledge",
+        "organon:Evidence",
+        "organon:Admission",
+        "organon:IndependentFor",
+        "organon:Observation",
+        "organon:Witness",
+        "organon:AdmissibilityRule",
+        "organon:Order",
+        "organon:Claim"
+      ],
+      "id": "organon:WarrantedKnowledge",
+      "label": "Warranted Knowledge"
+    },
+    {
+      "anchor": "organon-moral-status-attribution",
+      "claim_id": "D093",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Claim",
+        "organon:Agent",
+        "organon:Entity",
+        "organon:State",
+        "organon:Configuration",
+        "organon:Representation",
+        "organon:Specification",
+        "organon:Scope",
+        "organon:Language",
+        "organon:Rule",
+        "organon:Map"
+      ],
+      "id": "organon:MoralStatusAttribution",
+      "label": "Moral Status Attribution"
+    },
+    {
+      "anchor": "organon-moral-personhood-designation",
+      "claim_id": "D094",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Relation",
+        "organon:CountsAs",
+        "organon:Order",
+        "organon:Rule",
+        "organon:Admission",
+        "organon:Scope",
+        "organon:Entity",
+        "organon:State",
+        "organon:MoralStatusAttribution"
+      ],
+      "id": "organon:MoralPersonhoodDesignation",
+      "label": "Moral Personhood Designation"
+    },
+    {
+      "anchor": "organon-constituent-sovereignty",
+      "claim_id": "D095",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Configuration",
+        "organon:Polity",
+        "organon:ConstituentPower",
+        "organon:ConstituentExercise",
+        "organon:Order",
+        "organon:Rule",
+        "organon:Boundary",
+        "organon:Scope"
+      ],
+      "id": "organon:ConstituentSovereignty",
+      "label": "Constituent Sovereignty"
+    },
+    {
+      "anchor": "organon-constituted-sovereignty",
+      "claim_id": "D096",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Order",
+        "organon:Entity",
+        "organon:Standing",
+        "organon:Authority",
+        "organon:Action",
+        "organon:Scope",
+        "organon:Recognition",
+        "organon:Rule"
+      ],
+      "id": "organon:ConstitutedSovereignty",
+      "label": "Constituted Sovereignty"
+    },
+    {
+      "anchor": "organon-boundary-sovereignty",
+      "claim_id": "D097",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Configuration",
+        "organon:Polity",
+        "organon:Entity",
+        "organon:Control",
+        "organon:Constraint",
+        "organon:Transformation",
+        "organon:Boundary",
+        "organon:Order",
+        "organon:Enforcement",
+        "organon:Difference",
+        "organon:Consequence",
+        "organon:State",
+        "organon:Scope"
+      ],
+      "id": "organon:BoundarySovereignty",
+      "label": "Boundary Sovereignty"
+    },
+    {
+      "anchor": "organon-external-sovereignty",
+      "claim_id": "D098",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Relation",
+        "organon:Order",
+        "organon:Entity",
+        "organon:Polity",
+        "organon:Recognition",
+        "organon:Standing",
+        "organon:Principal",
+        "organon:ActsFor",
+        "organon:Action",
+        "organon:Rule",
+        "organon:Scope"
+      ],
+      "id": "organon:ExternalSovereignty",
+      "label": "External Sovereignty"
+    },
+    {
+      "anchor": "organon-preference",
+      "claim_id": "D099",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Relation",
+        "organon:Agent",
+        "organon:Rule",
+        "organon:State",
+        "organon:Consequence",
+        "organon:Scope"
+      ],
+      "id": "organon:Preference",
+      "label": "Preference"
+    },
+    {
+      "anchor": "organon-utility-measure",
+      "claim_id": "D100",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Map",
+        "organon:Relation",
+        "organon:Rule",
+        "organon:Specification",
+        "organon:Scope",
+        "organon:Preference"
+      ],
+      "id": "organon:UtilityMeasure",
+      "label": "Utility Measure"
+    },
+    {
+      "anchor": "organon-price",
+      "claim_id": "D101",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Relation",
+        "organon:Ledger",
+        "organon:Record",
+        "organon:Order",
+        "organon:Admission",
+        "organon:Rule",
+        "organon:Representation",
+        "organon:CountsAs",
+        "organon:Presence",
+        "organon:State",
+        "organon:Scope"
+      ],
+      "id": "organon:Price",
+      "label": "Price"
+    }
+  ]
+}

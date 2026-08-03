@@ -74,6 +74,8 @@ python3 scripts/check-links.py
 python3 scripts/check-semantics.py
 python3 scripts/check-proposals.py
 python3 scripts/check-formal-receipt.py
+python3 scripts/check-relational-instance.py
+python3 scripts/check-relational-receipt.py
 python3 scripts/check-adoption.py examples/organon-adoption.json --repo-root .
 (cd ontology/formal && lake build && lake exe ontology_check)
 ```
