@@ -1,6 +1,15 @@
 name = "daniel-ontology"
 version = "0.1.0"
-defaultTargets = ["ontology_check"]
+defaultTargets = ["ontology_check", "DanielOntology"]
+
+[[lean_lib]]
+name = "OrganonCore"
+
+[[lean_lib]]
+name = "OrganonCorePreservation"
+
+[[lean_lib]]
+name = "OrganonCoreChallenge"
 
 [[lean_lib]]
 name = "DanielOntology"

@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import json
 import re
+import subprocess
 import sys
 from pathlib import Path
 
@@ -21,6 +22,7 @@ REGISTRY = next(
     if path.exists()
 )
 PROVENANCE = ROOT / "provenance" / "terms.json"
+FORMAL = ROOT / "ontology" / "formal"
 GOVERNED = [
     path
     for path in (
@@ -38,6 +40,11 @@ USE_MARKER = re.compile(
 )
 DEFINITION = re.compile(r"^\*\*([^*]+)\*\* is", re.MULTILINE)
 PERSONA_FIELD = re.compile(r"\*\*([^*]+):\*\*")
+CORE_FORBIDDEN_DECLARATION = re.compile(
+    r"\b(?:abbrev|def|theorem|structure|inductive)\s+"
+    r"(Absent|Present|Mark|absenceElim|emptyEquiv|"
+    r"absencePresenceExclusive|absencePresenceExhaustive|presenceObtains)\b"
+)
 
 
 def main() -> int:
@@ -139,6 +146,43 @@ def main() -> int:
                 errors.append(
                     f"{path.relative_to(ROOT)}: persona field collides with ontology term {field}"
                 )
+
+    core_path = FORMAL / "OrganonCore.lean"
+    extension_path = FORMAL / "DanielOntology.lean"
+    if not core_path.is_file():
+        errors.append("formal reduct missing: ontology/formal/OrganonCore.lean")
+    else:
+        core_text = core_path.read_text(encoding="utf-8")
+        forbidden = sorted(set(CORE_FORBIDDEN_DECLARATION.findall(core_text)))
+        if forbidden:
+            errors.append(
+                "OrganonCore declares Absence-extension identifiers: "
+                + ", ".join(forbidden)
+            )
+    if not extension_path.is_file():
+        errors.append("formal extension missing: ontology/formal/DanielOntology.lean")
+    elif not extension_path.read_text(encoding="utf-8").startswith("import OrganonCore\n"):
+        errors.append("DanielOntology.lean must conservatively extend OrganonCore")
+    for formal_path in sorted(FORMAL.glob("*.lean")):
+        if formal_path == extension_path:
+            continue
+        first_imports = [
+            line for line in formal_path.read_text(encoding="utf-8").splitlines()
+            if line.startswith("import ")
+        ]
+        if "import DanielOntology" in first_imports:
+            errors.append(
+                f"{formal_path.relative_to(ROOT)}: formal classifier bypasses OrganonCore reduct"
+            )
+
+    audit_check = subprocess.run(
+        [sys.executable, str(ROOT / "scripts" / "check-organon-core-audit.py")],
+        cwd=ROOT,
+        capture_output=True,
+        text=True,
+    )
+    if audit_check.returncode != 0:
+        errors.append(audit_check.stderr.strip() or audit_check.stdout.strip())
 
     if errors:
         print("Semantic check failed:")
