@@ -18,7 +18,7 @@ This note records how [Daniel's Ontology](./ontology.md) changed. Historical arg
 - Added C12 and C13 to prevent World from collapsing into Reality, Environment, Map, Reference, or consensus, and Substrate from collapsing into fundamental substance or the Configuration carried through it.
 - Added an optional `situated-world` adoption profile.
 - Added Uexküll, Gibson, Aristotle, and Simondon as local shadows while rejecting private-world, direct-realist, prime-matter, and passive-carrier inheritance.
-- Added finite Lean witnesses for one scoped World and one Substrate, including countermodels for universal scope, identical access, and input-to-output Persistence; carrier-to-content realization remains an explicit gate.
+- Added finite Lean witnesses for one scoped World and one Substrate: participant-bound causal paths prove non-universal carrier Scope and non-identical access, while an ordered source-Persistence witness does not entail invariant-preserving outputs. Reality and carrier-to-content realization remain explicit formalization gates.
 
 ### v0.11 - Operationalized representations
 

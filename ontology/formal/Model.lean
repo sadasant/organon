@@ -19,6 +19,7 @@ namespace DanielOntology.Model
 inductive MachineState where
   | idle
   | active
+  | standby
   | broken
 deriving DecidableEq, Repr
 
@@ -26,15 +27,18 @@ open MachineState
 
 def idleState : State MachineState := ⟨idle⟩
 def activeState : State MachineState := ⟨active⟩
+def standbyState : State MachineState := ⟨standby⟩
 def brokenState : State MachineState := ⟨broken⟩
 
 def operationalDirection : Direction MachineState where
   before := fun input output =>
     (input.value = idle ∧ output.value = active) ∨
+    (input.value = idle ∧ output.value = standby) ∨
     (input.value = active ∧ output.value = broken)
   asymmetric := by
     intro a b hab hba
-    rcases hab with hab | hab <;> rcases hba with hba | hba <;> simp_all
+    rcases hab with hab | hab | hab <;>
+      rcases hba with hba | hba | hba <;> simp_all
 
 def activate : Transformation operationalDirection where
   input := idleState
@@ -45,6 +49,11 @@ def breakMachine : Transformation operationalDirection where
   input := activeState
   output := brokenState
   advances := by simp [operationalDirection, activeState, brokenState]
+
+def monitorMachine : Transformation operationalDirection where
+  input := idleState
+  output := standbyState
+  advances := by simp [operationalDirection, idleState, standbyState]
 
 def sequentialFeed : FeedRelation MachineState where
   feeds := fun output input => output.value = input.value
@@ -164,15 +173,43 @@ theorem selectedConsequenceDoesNotEntailEvidence :
 
 /-! ## World and Substrate witnesses -/
 
-def operatorAccess : AccessPath MachineState where
+def monitorPath : CausalPath operationalDirection sequentialFeed where
+  steps := [monitorMachine]
+  connected := by simp [Chains]
+
+def operatorAccess : AccessPath operationalDirection sequentialFeed where
   pathId := 1
   participant := machine
-  available := fun state => state.value = idle
+  path := activationPath
+  pathNonempty := by simp [activationPath]
+  beginsAtParticipant := by
+    exact ⟨activate, [], by simp [activationPath], rfl⟩
+  available := fun state => state.value = active
+  availabilityWitness := by
+    intro state available
+    refine ⟨activate, by simp [activationPath], Or.inr ?_⟩
+    cases state with
+    | mk value =>
+        dsimp at available
+        subst value
+        rfl
 
-def monitorAccess : AccessPath MachineState where
+def monitorAccess : AccessPath operationalDirection sequentialFeed where
   pathId := 2
   participant := machine
-  available := fun state => state.value = active
+  path := monitorPath
+  pathNonempty := by simp [monitorPath]
+  beginsAtParticipant := by
+    exact ⟨monitorMachine, [], by simp [monitorPath], rfl⟩
+  available := fun state => state.value = standby
+  availabilityWitness := by
+    intro state available
+    refine ⟨monitorMachine, by simp [monitorPath], Or.inr ?_⟩
+    cases state with
+    | mk value =>
+        dsimp at available
+        subst value
+        rfl
 
 def machineWorldScope : Scope (State MachineState) where
   includes := operationalIdentity.holds
@@ -180,12 +217,12 @@ def machineWorldScope : Scope (State MachineState) where
 def machineWorld : World operationalDirection sequentialFeed where
   participants := [machine]
   participantsNonempty := by simp
-  states := [idleState, activeState]
+  states := [activeState, standbyState]
   statesNonempty := by simp
   scope := machineWorldScope
   statesInScope := by
     intro state member
-    simp [idleState, activeState] at member
+    simp [activeState, standbyState] at member
     rcases member with rfl | rfl
     · simp [machineWorldScope, operationalIdentity]
     · simp [machineWorldScope, operationalIdentity]
@@ -195,11 +232,11 @@ def machineWorld : World operationalDirection sequentialFeed where
     simp [operatorAccess, monitorAccess] at member
     rcases member with rfl | rfl <;> simp
   distinctAccessPaths := by
-    refine ⟨operatorAccess, by simp, monitorAccess, by simp, by decide, idleState, by simp, ?_⟩
-    simp [operatorAccess, monitorAccess, idleState]
+    refine ⟨operatorAccess, by simp, monitorAccess, by simp, by decide, activeState, by simp, ?_⟩
+    simp [operatorAccess, monitorAccess, activeState]
   everyStateAvailable := by
     intro state member
-    simp [idleState, activeState] at member
+    simp [activeState, standbyState] at member
     rcases member with rfl | rfl
     · exact ⟨operatorAccess, by simp, by simp [operatorAccess]⟩
     · exact ⟨monitorAccess, by simp, by simp [monitorAccess]⟩
@@ -207,8 +244,8 @@ def machineWorld : World operationalDirection sequentialFeed where
     intro access member
     simp [operatorAccess, monitorAccess] at member
     rcases member with rfl | rfl
-    · exact ⟨idleState, by simp, rfl⟩
     · exact ⟨activeState, by simp, rfl⟩
+    · exact ⟨standbyState, by simp, rfl⟩
   accessAvailabilityWithinWorld := by
     intro access member state available
     simp [operatorAccess, monitorAccess] at member
@@ -217,39 +254,53 @@ def machineWorld : World operationalDirection sequentialFeed where
       | mk value =>
           dsimp at available
           subst value
-          simp [idleState]
+          simp [activeState]
     · cases state with
       | mk value =>
           dsimp at available
           subst value
-          simp [activeState]
-  causalPath := activationPath
-  causalPathInScope := by
-    intro transformation member
-    simp [activationPath] at member
-    subst transformation
-    constructor <;> simp [machineWorldScope, operationalIdentity, activate, idleState, activeState]
+          simp [standbyState]
+  accessPathsInScope := by
+    intro access accessMember transformation transformationMember
+    simp [operatorAccess, monitorAccess] at accessMember
+    rcases accessMember with rfl | rfl
+    · simp [activationPath] at transformationMember
+      subst transformation
+      constructor <;> simp [machineWorldScope, operationalIdentity, activate, idleState, activeState]
+    · simp [monitorPath] at transformationMember
+      subst transformation
+      constructor <;> simp [machineWorldScope, operationalIdentity, monitorMachine, idleState, standbyState]
   commonInvariant := operationalIdentity
   commonInvariantHolds := by
     intro state member
-    simp [idleState, activeState] at member
+    simp [activeState, standbyState] at member
     rcases member with rfl | rfl <;> simp [operationalIdentity]
 
 theorem worldModelIsInhabited :
     Nonempty (World operationalDirection sequentialFeed) :=
   ⟨machineWorld⟩
 
-theorem worldCanExcludePresentState :
+theorem worldScopeCanExcludeCarrierState :
     Present (State MachineState) ∧ ¬ machineWorld.scope.includes brokenState := by
   constructor
   · exact ⟨brokenState⟩
   · simp [machineWorld, machineWorldScope, operationalIdentity, brokenState]
 
 theorem worldAccessPathsNeedNotAgree :
-    ¬ operatorAccess.available activeState ∧
-    monitorAccess.available activeState ∧
-    machineWorld.commonInvariant.holds activeState := by
-  simp [operatorAccess, monitorAccess, activeState, machineWorld, operationalIdentity]
+    operatorAccess.available activeState ∧
+    (∃ transformation,
+      transformation ∈ operatorAccess.path.steps ∧
+      activeState = transformation.output) ∧
+    ¬ monitorAccess.available activeState ∧
+    monitorAccess.available standbyState ∧
+    (∃ transformation,
+      transformation ∈ monitorAccess.path.steps ∧
+      standbyState = transformation.output) ∧
+    machineWorld.commonInvariant.holds activeState ∧
+    machineWorld.commonInvariant.holds standbyState := by
+  simp [operatorAccess, monitorAccess, activationPath, monitorPath,
+    activate, monitorMachine, activeState, standbyState, machineWorld,
+    operationalIdentity]
 
 def nonBrokenInput : Constraint MachineState where
   permits := fun transformation => operationalIdentity.holds transformation.input
@@ -259,13 +310,17 @@ def machineSubstrateScope : Scope (Transformation operationalDirection) where
 
 def machineSubstrate :
     Substrate operationalDirection sequentialFeed where
-  carrierStates := [idleState, activeState]
-  carrierStatesNonempty := by simp
-  carrierInvariant := operationalIdentity
-  carrierInvariantHolds := by
-    intro state member
-    simp [idleState, activeState] at member
-    rcases member with rfl | rfl <;> simp [operationalIdentity]
+  sourcePersistence := {
+    states := [idleState, activeState]
+    hasTransition := ⟨idleState, activeState, [], rfl⟩
+    invariant := operationalIdentity
+    invariantHolds := by
+      intro state member
+      simp [idleState, activeState] at member
+      rcases member with rfl | rfl <;> simp [operationalIdentity]
+    ordered := by
+      simp [OrderedBy, operationalDirection, idleState, activeState]
+  }
   constraints := [nonBrokenInput]
   constraintsNonempty := by simp
   scope := machineSubstrateScope
@@ -292,11 +347,11 @@ theorem substrateModelIsInhabited :
   ⟨machineSubstrate⟩
 
 theorem substrateInputPersistenceDoesNotEntailOutputPersistence :
-    (∀ state,
-      state ∈ machineSubstrate.carrierStates →
-        machineSubstrate.carrierInvariant.holds state) ∧
-    ¬ operationalIdentity.holds breakMachine.output := by
-  exact ⟨machineSubstrate.carrierInvariantHolds, breakingViolatesIdentity⟩
+    ∃ substrate : Substrate operationalDirection sequentialFeed,
+      breakMachine ∈ substrate.path.steps ∧
+      ¬ substrate.sourcePersistence.invariant.holds breakMachine.output := by
+  exact ⟨machineSubstrate, by simp [machineSubstrate, activationThenBreaks],
+    breakingViolatesIdentity⟩
 
 def activeScope : Scope (State MachineState) where
   includes := fun state => state.value = active

@@ -1,11 +1,11 @@
 ---
 type: quarantine-proposal
-status: ready-for-review
+status: promoted
 binding: false
 concept: world-and-substrate
 created: 2026-08-03
 updated: 2026-08-03
-recommended_outcome: promote
+recommended_outcome: promoted-in-v0.12
 statement_manifest: "world-and-substrate-claims.json"
 formal_shadow: "../ontology/formal/WorldSubstrate.lean"
 ---
@@ -47,7 +47,7 @@ Calling Substrate a fundamental kind would add no useful distinction and would c
 ## Exact anti-entailments
 
 <!-- organon:proposal-statement WS-C1 type=anti_collapse_constraint -->
-**WS-C1 — Scoped World does not entail Reality:** A World can be inhabited while excluding a present State from its Scope. World therefore does not entail or equal Reality as a whole.
+**WS-C1 — World Scope need not be universal over its carrier type:** A World can be inhabited while excluding an inhabited State of the same formal carrier type from its Scope. This formal result does not encode Reality or prove the stronger World-Reality distinction, which remains binding in prose under C12.
 
 <!-- organon:proposal-statement WS-C2 type=anti_collapse_constraint -->
 **WS-C2 — Common World does not entail identical access:** Distinct access paths can disagree about an available State while the States they expose still satisfy the World's named Invariant.
@@ -58,7 +58,7 @@ Calling Substrate a fundamental kind would add no useful distinction and would c
 <!-- organon:proposal-statement WS-C4 type=anti_collapse_constraint -->
 **WS-C4 — Substrate does not entail persistence of what it carries:** A valid Substrate supplies no proof that a separately carried Representation, Invariant, Entity, or function persists. Such a proof first requires an explicit realization relation; Organon currently defines none.
 
-These countermodels establish only the named failures of entailment. They do not claim that Worlds are fictional, that access paths never agree, or that Substrates normally destroy what they carry.
+These formal witnesses establish only the named scoped and anti-entailment results. They do not formalize Reality, claim that Worlds are fictional, claim that access paths never agree, or imply that Substrates normally destroy what they carry.
 
 ## World
 
@@ -103,11 +103,12 @@ Organon inherits the questions of persistence through Transformation and active 
 The noncanonical [WorldSubstrate.lean](../ontology/formal/WorldSubstrate.lean) defines:
 
 - `AccessPath`, with participant identity and a scoped availability predicate;
-- `World`, with nonempty participants and States, distinct access paths, an included Causal path, and a common Invariant;
-- `Substrate`, with persistent carrier States, nonempty Constraints, a scoped Causal path, and explicit Feeds witnesses; and
+- `World`, with nonempty participants and States, distinct participant-bound access paths, causal witnesses for availability, and a common Invariant;
+- `PersistenceWitness`, with an Invariant preserved across at least two directionally ordered States;
+- `Substrate`, with ordered source Persistence, nonempty Constraints, a scoped Causal path, and explicit Feeds witnesses; and
 - generic theorems exposing the access, invariant, constraint, and feeding obligations.
 
-The finite model constructs one World containing idle and active machine States while excluding a present broken State. Two access paths expose different States under one common Invariant. The Substrate supplies the two inputs of an activation-then-break path; every supplied input satisfies the carrier Invariant, while the final output does not. Carrier-to-content realization remains deliberately unformalized rather than represented by an unconstrained predicate.
+The finite model constructs one World containing active and standby machine States while excluding an inhabited broken State from its Scope. Each access path carries a nonempty Causal path beginning at its participant's current State, and every advertised available State is witnessed as an input or output on that path. The two paths expose different States under one common Invariant. The Substrate carries an ordered source-Persistence witness for idle then active, supplies those two inputs to an activation-then-break path, and admits a final output that violates the source Invariant. Carrier-to-content realization remains deliberately unformalized rather than represented by an unconstrained predicate.
 
 <!-- organon:proposal-statement WS-G1 type=open_formalization_gate -->
 ### WS-G1 — Open formalization gate: access and realization joins
@@ -120,7 +121,7 @@ The formal shadow does not yet encode the complete Causal path from Environment 
 | --- | --- | --- | --- | --- |
 | WS-D1 | Proposed definition | World | Configuration, Entity, Environment, State, Relation, Causal path, Perception, Interpretation, Action, Constraint, Sense, Map, Reference, Scope, Invariant | Finite inhabited World |
 | WS-D2 | Proposed definition | Substrate | Configuration, Scope, Persistence, Invariant, State, Transformation, Feeds, Constraint, Difference | Finite inhabited Substrate |
-| WS-C1 | Anti-collapse constraint | World does not entail Reality | WS-D1, Presence, Reality, Scope | `worldCanExcludePresentState` |
+| WS-C1 | Anti-collapse constraint | World Scope need not include every State of its carrier type | WS-D1, State, Scope | `worldScopeCanExcludeCarrierState` |
 | WS-C2 | Anti-collapse constraint | Common World does not entail identical access | WS-D1, Invariant | `worldAccessPathsNeedNotAgree` |
 | WS-C3 | Anti-collapse constraint | Persistent source States do not entail invariant-preserving outputs | WS-D2, Persistence, Invariant, Transformation | `substrateInputPersistenceDoesNotEntailOutputPersistence` |
 | WS-C4 | Anti-collapse constraint | Substrate does not entail persistence of what it carries | WS-D2, Persistence, realization relation | Blocked on WS-G1 realization relation |
@@ -128,13 +129,13 @@ The formal shadow does not yet encode the complete Causal path from Environment 
 
 ## Promotion boundary
 
-This dossier accompanies a proposed promotion into Organon v0.12:
+This dossier records the promotion enacted in Organon v0.12:
 
-- promote World and Substrate with stable identifiers and exact dependencies;
+- World and Substrate received stable identifiers and exact dependencies;
 - add C12 and C13 as binding anti-collapse constraints;
 - add the optional `situated-world` adoption profile;
 - preserve Reality, Environment, Map, Reference, and Substrate as distinct;
 - preserve every stronger fidelity, realization, emergence, and direct-access Claim behind WS-G1; and
 - keep the other quarantined vocabulary unchanged.
 
-The dossier remains nonbinding review and provenance material. The single-file ontology, registry, profiles, provenance, changelog, release note, and formal receipt enact the promotion only if this pull request is accepted.
+The dossier remains nonbinding provenance material. Promotion is enacted only by the single-file ontology and its governed registry, profiles, provenance, changelog, release note, and formal receipt; the dossier's lifecycle state records that outcome without becoming a second canonical ontology.

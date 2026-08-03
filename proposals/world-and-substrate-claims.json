@@ -1,12 +1,16 @@
 {
   "schema_version": 1,
   "proposal_id": "world-and-substrate",
-  "status": "ready-for-review",
+  "status": "promoted",
   "binding": false,
   "markdown": "world-and-substrate.md",
   "formal_shadow": "../ontology/formal/WorldSubstrate.lean",
   "formal_evidence": [
     "../ontology/formal/Model.lean"
+  ],
+  "introduced_terms": [
+    "organon:World",
+    "organon:Substrate"
   ],
   "local_symbols": [
     "local:AccessPath",
@@ -56,14 +60,13 @@
     {
       "id": "WS-C1",
       "type": "anti_collapse_constraint",
-      "subject": "World does not entail Reality",
+      "subject": "World Scope need not include every State of its carrier type",
       "depends_on": [
         "WS-D1",
-        "organon:Presence",
-        "organon:Reality",
+        "organon:State",
         "organon:Scope"
       ],
-      "formal_symbol": "worldCanExcludePresentState"
+      "formal_symbol": "worldScopeCanExcludeCarrierState"
     },
     {
       "id": "WS-C2",
@@ -103,8 +106,8 @@
       "type": "open_formalization_gate",
       "subject": "Complete access, fidelity, and realization joins",
       "depends_on": [
-        "organon:World",
-        "organon:Substrate",
+        "WS-D1",
+        "WS-D2",
         "organon:Environment",
         "organon:Sense",
         "organon:Perception",
