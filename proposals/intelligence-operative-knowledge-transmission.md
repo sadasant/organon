@@ -113,7 +113,7 @@ The noncanonical [IntelligenceKnowledge.lean](../ontology/formal/IntelligenceKno
 
 The finite model constructs:
 
-- one Agent-level cognitive pipeline whose Perception and Memory construct distinct Models and Interpretations for two States not enumerated by its Rule, with conforming Consequences;
+- one Agent-level cognitive pipeline whose Perception and Memory construct distinct Models and Interpretations for two States not enumerated by its Rule, with counterfactual witnesses that Perception and Memory each alter Model construction, Model alters Interpretation, Interpretation alters Action, and the resulting Consequences conform;
 - one fixed pipeline for which no pair can satisfy the adaptive witness;
 - one capable interpreter for whom a false Claim Record discriminatingly produces a locally conforming effect;
 - one dormant context in which the same Record type exists but no Operative Knowledge can be inhabited;

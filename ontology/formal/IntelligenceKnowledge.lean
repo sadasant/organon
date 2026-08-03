@@ -90,6 +90,28 @@ structure Intelligence
       scope.includes first ∧
       scope.includes second ∧
       AdaptiveAcross rule first second
+  perceptionAndMemoryDiscriminate :
+    ∃ situation alternativePerception alternativeMemory,
+      scope.includes situation ∧
+      rule.pipeline.modelFor situation ≠
+        rule.pipeline.constructModel alternativePerception
+          (rule.pipeline.remember situation) ∧
+      rule.pipeline.modelFor situation ≠
+        rule.pipeline.constructModel
+          (rule.pipeline.perceive situation) alternativeMemory
+  modelDiscriminatesInterpretation :
+    ∃ situation alternativeModel,
+      scope.includes situation ∧
+      rule.pipeline.interpretationFor situation ≠
+        rule.pipeline.interpret
+          (rule.pipeline.perceive situation)
+          (rule.pipeline.remember situation)
+          alternativeModel
+  interpretationDiscriminatesAction :
+    ∃ situation alternativeInterpretation,
+      scope.includes situation ∧
+      rule.pipeline.actionFor situation ≠
+        rule.pipeline.selectAction alternativeInterpretation
   novelConsequencesConform :
     ∀ situation,
       scope.includes situation →
@@ -174,6 +196,7 @@ inductive ToyPerception where
 
 inductive ToyMemory where
   | retained
+  | empty
   deriving DecidableEq
 
 inductive ToyModel where
@@ -212,13 +235,13 @@ def adaptivePipeline : CognitivePipeline
     | .novelB => .signalB
   remember := fun _ => .retained
   constructModel
-    | .familiar, _ => .baseline
-    | .signalA, _ => .generalizationA
-    | .signalB, _ => .generalizationB
+    | .signalA, .retained => .generalizationA
+    | .signalB, .retained => .generalizationB
+    | _, _ => .baseline
   interpret
-    | .familiar, _, _ => .repeat
-    | .signalA, _, _ => .adaptA
-    | .signalB, _, _ => .adaptB
+    | .signalA, .retained, .generalizationA => .adaptA
+    | .signalB, .retained, .generalizationB => .adaptB
+    | _, _, _ => .repeat
   selectAction
     | .repeat => .routine
     | .adaptA => .handleA
@@ -254,6 +277,17 @@ def adaptiveIntelligence : Intelligence
     refine ⟨.novelA, .novelB, trivial, trivial, ?_⟩
     simp [AdaptiveAcross, toyAdaptiveRule, adaptivePipeline,
       CognitivePipeline.modelFor, CognitivePipeline.interpretationFor]
+  perceptionAndMemoryDiscriminate := by
+    refine ⟨.novelA, .familiar, .empty, trivial, ?_, ?_⟩ <;>
+      simp [toyAdaptiveRule, adaptivePipeline, CognitivePipeline.modelFor]
+  modelDiscriminatesInterpretation := by
+    refine ⟨.novelA, .baseline, trivial, ?_⟩
+    simp [toyAdaptiveRule, adaptivePipeline,
+      CognitivePipeline.interpretationFor, CognitivePipeline.modelFor]
+  interpretationDiscriminatesAction := by
+    refine ⟨.novelA, .repeat, trivial, ?_⟩
+    simp [toyAdaptiveRule, adaptivePipeline, CognitivePipeline.actionFor,
+      CognitivePipeline.interpretationFor, CognitivePipeline.modelFor]
   novelConsequencesConform := by
     intro situation _ novel
     cases situation <;>

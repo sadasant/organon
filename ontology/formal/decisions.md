@@ -87,7 +87,7 @@ The finite Substrate supplies the ordered idle-then-active source sequence to an
 
 ## Intelligence requires a witnessed adaptive Difference
 
-`CognitivePipeline` composes Perception, Memory, Model construction, Interpretation, Action selection, and Consequence production. The `AdaptiveRule` owns that pipeline, so the enumeration predicate and Action-producing machinery cannot float independently. `Intelligence` requires two in-Scope States not enumerated by its Rule, a Difference in their constructed Models and Interpretations, and conforming Consequences. Fixed code is not excluded: the formal object is itself a fixed function. What is excluded is one invariant Model and Interpretation value across the witnessed novel States. Runtime allocation and the full Organon Causal path remain outside the shadow.
+`CognitivePipeline` composes Perception, Memory, Model construction, Interpretation, Action selection, and Consequence production. The `AdaptiveRule` owns that pipeline, so the enumeration predicate and Action-producing machinery cannot float independently. `Intelligence` requires two in-Scope States not enumerated by its Rule, a Difference in their constructed Models and Interpretations, and conforming Consequences. Additional counterfactual fields prove that Perception and Memory each alter Model construction, Model alters Interpretation, and Interpretation alters Action; those inputs cannot be decorative parameters. Fixed code is not excluded: the formal object is itself a fixed function. What is excluded is one invariant Model and Interpretation value across the witnessed novel States. Runtime allocation and the full Organon Causal path remain outside the shadow.
 
 ## Operative Knowledge is configurational and non-factive
 
