@@ -13,6 +13,7 @@ This note records how [Daniel's Ontology](./ontology.md) changed. Historical arg
 
 ### v0.15 - Profiles around the remaining quarantine
 
+- Added a noncanonical Absence-free `OrganonCore` reduct. Every currently encoded downstream Lean classifier and finite witness compiles without the Absence/Presence extension; preservation for the complete 104-term binding prose remains an explicit open gate.
 - Added Factive Operative Knowledge by joining the exact Claim carried by a load-bearing operative Record to Truth, and Warranted Knowledge by adding independently grounded Evidence admitted for that same Claim with the evidence claimant identified as the operative interpreter.
 - Added Moral Status Attribution and Moral Personhood Designation while leaving the candidate moral condition and moral worth quarantined; designation has no downstream effect without a separate Rule.
 - Split sovereignty into Constituent, Constituted, Boundary, and External profiles with different exercise, maximal-authority, effective-enforcement, and recognition obligations; the formal shadows require unequal boundary outcomes and Rule-, Standing-, Scope-, and principal-indexed external action.

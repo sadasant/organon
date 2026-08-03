@@ -1,4 +1,4 @@
-import DanielOntology
+import OrganonCore
 
 /-!
 # World and Substrate: formal shadows

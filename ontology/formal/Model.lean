@@ -1,4 +1,5 @@
-import DanielOntology
+import OrganonCore
+import OrganonCorePreservation
 import Consciousness
 import Operationalization
 import WorldSubstrate
@@ -284,7 +285,7 @@ theorem worldModelIsInhabited :
   ⟨machineWorld⟩
 
 theorem worldScopeCanExcludeCarrierState :
-    Present (State MachineState) ∧ ¬ machineWorld.scope.includes brokenState := by
+    Nonempty (State MachineState) ∧ ¬ machineWorld.scope.includes brokenState := by
   constructor
   · exact ⟨brokenState⟩
   · simp [machineWorld, machineWorldScope, operationalIdentity, brokenState]
@@ -491,4 +492,4 @@ theorem exerciseModelIsInhabited :
 end DanielOntology.Model
 
 def main : IO Unit :=
-  IO.println "DanielOntology v0.15 spike: ontology, consciousness, operationalization, World, Substrate, Truth, Trust, Alignment, adaptive knowledge, epistemic, moral, sovereignty, and valuation countermodels elaborated"
+  IO.println "OrganonCore v0.15 reduct: downstream classifiers and finite countermodels elaborated without the Absence extension"

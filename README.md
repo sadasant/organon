@@ -58,6 +58,8 @@ The ontology's essay evidence is indexed through the public [Essay Corpus](./pro
 
 The [Lean formalization](./ontology/formal/README.md) prices decisions that prose can hide. It encodes selected high-risk regions, including classical A3, Direction-indexed Transformations, explicit feeding between States, executable Specifications, contextual Capability, Order-indexed Permission, scoped Witness independence, a nontrivial Boundary model, discriminating Operationalization, finite World and Substrate witnesses, separate Truth, Trust, and Alignment countermodels, adaptive Intelligence plus operative-knowledge reconstruction, and finite epistemic, moral, sovereignty, and valuation profiles.
 
+The formal directory also contains an [Absence-free OrganonCore reduct](./ontology/formal/organon-core-reduct-report.md). The current downstream Lean classifiers and finite witnesses compile against that reduct without importing the Absence/Presence extension. This is a formal-shadow preservation result, not yet a proof about every binding prose term.
+
 Lean is not canonical. Compilation proves that the declarations elaborate under the pinned compiler. It does not prove that the encoding exhausted the prose, that the prose exhausted Reality, or that the compiler has become a metaphysician. The [formalization decisions](./ontology/formal/decisions.md) and [build receipt](./ontology/formal/build-receipt.md) preserve that boundary.
 
 ## Adoption and review

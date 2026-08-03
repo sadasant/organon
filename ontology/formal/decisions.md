@@ -13,6 +13,12 @@ These decisions belong to the Lean spike. They expose choices priced by formaliz
 
 `Absent α := α → False` is a local shadow inside Lean's already-present metatheory. It proves that a type has no inhabitants. It is not absolute Absence, which cannot become an object inside a formal system without contradicting its definition.
 
+## OrganonCore is an Absence-free conservative reduct
+
+`OrganonCore.lean` contains relational Missingness and all downstream formal classifiers without declaring or importing `Absent`, `Present`, or the performative mark. `DanielOntology.lean` imports that module and adds the local Absence/Presence experiment without redefining core structures. Every classifier module and the complete finite witness executable compile against `OrganonCore` alone.
+
+`OrganonCorePreservation.classificationPreserved` is definitionally true because extension semantics cannot be inspected by a core classifier. This establishes classification preservation for the current formal shadow and refutes the claim that those classifiers require Absence merely because the declarations previously occupied one file. It does not establish preservation for unformalized prose terms. The binding ontology has 104 registered terms; term-for-term formal parity remains necessary before the result can be generalized to the complete ontology.
+
 ## Presence is type-relative
 
 `Present α := Nonempty α` says that a particular type has an inhabitant. It does not yet encode Reality as the totality of every Presence.

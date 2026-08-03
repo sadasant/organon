@@ -1,4 +1,4 @@
-import DanielOntology
+import OrganonCore
 
 /-!
 # Consciousness proposal: formal shadow

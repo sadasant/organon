@@ -1,4 +1,4 @@
-import DanielOntology
+import OrganonCore
 
 /-!
 # Truth, Trust, and Alignment: formal shadows
