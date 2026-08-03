@@ -7,7 +7,7 @@ prose_ontology: "../ontology.md"
 ---
 # Formalization Decisions
 
-These decisions belong to the Lean spike. They expose choices priced by formalization. They do not independently revise [Daniel's Ontology v0.13](../ontology.md); accepted findings flow into the binding, single-file Markdown ontology through its changelog.
+These decisions belong to the Lean spike. They expose choices priced by formalization. They do not independently revise [Daniel's Ontology v0.14](../ontology.md); accepted findings flow into the binding, single-file Markdown ontology through its changelog.
 
 ## Absence is not `Empty`
 
@@ -85,6 +85,18 @@ The finite Substrate supplies the ordered idle-then-active source sequence to an
 
 `TruthSemantics` maps each toy Claim to its Representation, meaning Rule, constructive Specification, target, and Scope inside a proposal-local reality model. `isTrue` additionally requires `materiallyAdequate` for that exact Claim-Representation-Rule-Specification-target tuple and Scope membership before target membership and conformity. An earlier draft allowed arbitrary assignment functions to manufacture Truth from a convenient validator; the per-instance semantic join was added because successful validation alone is not correspondence.
 
+## Intelligence requires a witnessed adaptive Difference
+
+`CognitivePipeline` composes Perception, Memory, Model construction, Interpretation, Action selection, and Consequence production. `Intelligence` requires two in-Scope States not enumerated by its `AdaptiveRule`, a Difference in their constructed Models and Interpretations, and conforming Consequences. Fixed code is not excluded: the formal object is itself a fixed function. What is excluded is one invariant Model and Interpretation value across the witnessed novel States. Runtime allocation and the full Organon Causal path remain outside the shadow.
+
+## Operative Knowledge is configurational and non-factive
+
+`OperativeKnowledge` is indexed by an `InterpretiveContext`; its interpreter must satisfy the context's capability predicate. The Record must discriminate against an alternative in-Scope Record through a different Interpretation, and the realized effect must satisfy a constructive Specification. The finite witness deliberately uses a false `ToyClaim` that still produces local success, proving that this promoted operative sense does not silently absorb Truth. The same Record type in a context with no capable interpreter cannot inhabit Operative Knowledge.
+
+## Knowledge Transmission preserves specified function, not representation identity
+
+`KnowledgeTransmission` takes inhabited source and recipient Operative Knowledge as parameters. A medium must be encoded from the source Record, the recipient Record must be reconstructed from that medium, and one constructive Specification must accept the two realized effects. The finite witness changes both Record and Model while preserving success. This establishes the anti-copy seam but not universal semantic equivalence, transitivity, or a canonical encoding.
+
 `EpistemicAccess` remains separate, so the finite model proves one materially adequate Claim true while no modeled Agent can supply its target. The model does not provide a universal natural-language semantics, unique Claim interpretation, or bridge from `targetInRealityModel` to Reality as the totality of Presence. Those remain explicit gates. A constructive Specification can decide conformity when given its target even when no Agent can access that target; computational decidability and epistemic availability therefore remain separate commitments.
 
 ## Trust is accepted Dependence, not involuntary vulnerability
@@ -103,4 +115,4 @@ The false-Claim countermodel uses the exact Representation assigned to the same 
 
 ## Scope of the spike
 
-The spike formalizes A1-A5 and selected high-risk dependency regions. Its finite models construct one concrete Entity with an admitted preserving Transformation and a rejected identity-breaking Transformation, one standing-aware Permission and one contextual PermissionExercise, one Consciousness Designation whose candidate does not obtain, one discriminating Operationalization whose selected Transformation occurs in a Causal path, one scoped World with distinct access, one contextual Substrate with explicit feeding and constraint witnesses, one true Claim without modeled Agent access, one causally bound Trust, and one profile-scoped Alignment. Silent or negative structures supply countermodels for the named consciousness, representational, World, Substrate, Truth, Trust, and Alignment anti-entailments. The spike does not yet cover all derived terms, relation signatures, anti-collapse rules, remaining quarantined vocabulary, or deterministic Markdown rendering. Those remain promotion gates rather than implicit Claims of completeness.
+The spike formalizes A1-A5 and selected high-risk dependency regions. Its finite models construct one concrete Entity with an admitted preserving Transformation and a rejected identity-breaking Transformation, one standing-aware Permission and one contextual PermissionExercise, one Consciousness Designation whose candidate does not obtain, one discriminating Operationalization whose selected Transformation occurs in a Causal path, one scoped World with distinct access, one contextual Substrate with explicit feeding and constraint witnesses, one true Claim without modeled Agent access, one causally bound Trust, one profile-scoped Alignment, one adaptive Intelligence, two instances of Operative Knowledge, and one function-preserving Knowledge Transmission. Silent or negative structures supply countermodels for the named consciousness, representational, World, Substrate, Truth, Trust, Alignment, fixed-Interpretation, dormant-Record, and Record-copy anti-entailments. The spike does not yet cover all derived terms, relation signatures, anti-collapse rules, remaining quarantined vocabulary, or deterministic Markdown rendering. Those remain promotion gates rather than implicit Claims of completeness.

@@ -1,0 +1,78 @@
+{
+  "schema_version": 1,
+  "proposal_id": "intelligence-operative-knowledge-transmission",
+  "status": "promoted",
+  "binding": false,
+  "markdown": "intelligence-operative-knowledge-transmission.md",
+  "formal_shadow": "../ontology/formal/IntelligenceKnowledge.lean",
+  "formal_evidence": ["../ontology/formal/Model.lean"],
+  "introduced_terms": ["organon:Intelligence", "organon:OperativeKnowledge", "organon:KnowledgeTransmission"],
+  "local_symbols": [
+    "local:AdaptiveRule",
+    "local:CognitivePipeline",
+    "local:InterpretiveContext",
+    "local:RecordTransfer"
+  ],
+  "statements": [
+    {
+      "id": "IK-D1",
+      "type": "proposed_definition",
+      "subject": "Intelligence",
+      "depends_on": ["organon:Capability", "organon:Agent", "organon:Model", "organon:Interpretation", "organon:Perception", "organon:Memory", "organon:Action", "organon:Consequence", "organon:Specification", "organon:State", "organon:Rule", "organon:Scope", "organon:Difference", "local:AdaptiveRule", "local:CognitivePipeline"],
+      "formal_symbol": "Intelligence"
+    },
+    {
+      "id": "IK-D2",
+      "type": "proposed_definition",
+      "subject": "Operative Knowledge",
+      "depends_on": ["organon:Configuration", "organon:Record", "organon:Agent", "organon:Capability", "organon:Constraint", "organon:Rule", "organon:Model", "organon:Interpretation", "organon:CausalPath", "organon:Action", "organon:Transformation", "organon:State", "organon:Consequence", "organon:Specification", "organon:Scope", "organon:Difference", "local:InterpretiveContext"],
+      "formal_symbol": "OperativeKnowledge"
+    },
+    {
+      "id": "IK-D3",
+      "type": "proposed_definition",
+      "subject": "Knowledge Transmission",
+      "depends_on": ["organon:Relation", "IK-D2", "organon:Record", "organon:CausalPath", "organon:Specification", "organon:Scope", "organon:Configuration"],
+      "formal_symbol": "KnowledgeTransmission"
+    },
+    {
+      "id": "IK-C1",
+      "type": "anti_collapse_constraint",
+      "subject": "Intelligence is not a Model or fixed Interpretation",
+      "depends_on": ["IK-D1", "organon:Model", "organon:Interpretation", "organon:Capability", "organon:Truth", "organon:Alignment", "organon:Permission", "organon:Authority"],
+      "formal_symbol": "fixedInterpretationDoesNotAdapt"
+    },
+    {
+      "id": "IK-C2",
+      "type": "anti_collapse_constraint",
+      "subject": "Operative Knowledge is not stored information or Truth",
+      "depends_on": ["IK-D2", "organon:Record", "organon:Truth", "organon:Evidence"],
+      "formal_symbol": "operativeKnowledgeDoesNotEntailTruth"
+    },
+    {
+      "id": "IK-C3",
+      "type": "anti_collapse_constraint",
+      "subject": "Knowledge Transmission is not copying",
+      "depends_on": ["IK-D3", "organon:Record", "organon:Representation", "organon:Model", "organon:Interpretation", "local:RecordTransfer"],
+      "formal_symbol": "copiedRecordDoesNotSupplyRecipientKnowledge"
+    },
+    {
+      "id": "IK-G1",
+      "type": "open_formalization_gate",
+      "subject": "Runtime construction and full causal realization",
+      "depends_on": ["IK-D1", "organon:Agent", "organon:Rule", "organon:CausalPath", "organon:Action", "organon:Consequence", "local:CognitivePipeline"]
+    },
+    {
+      "id": "IK-G2",
+      "type": "open_formalization_gate",
+      "subject": "Semantic and functional preservation",
+      "depends_on": ["IK-D3", "organon:Map", "organon:Representation", "organon:Specification", "organon:Invariant"]
+    },
+    {
+      "id": "IK-G3",
+      "type": "open_formalization_gate",
+      "subject": "Factive and warranted knowledge",
+      "depends_on": ["IK-D2", "organon:Truth", "organon:Evidence", "organon:Claim"]
+    }
+  ]
+}

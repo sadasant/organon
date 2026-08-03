@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "ontology_version": "0.13.0",
+  "ontology_version": "0.14.0",
   "sources": {
     "essay:absence": {"kind": "published-corpus", "reference": "essays.md", "title": "Nothing Else Is So Exact As Absence"},
     "essay:shadow-world": {"kind": "published-corpus", "reference": "essays.md", "title": "The Shadow of the World"},
@@ -17,6 +17,8 @@
     "essay:priced-ledger": {"kind": "published-corpus", "reference": "essays.md", "title": "Priced as If the Ledger Exists"},
     "essay:artificial-persons": {"kind": "published-corpus", "reference": "essays.md", "title": "Artificial Persons"},
     "essay:delete-harness": {"kind": "published-corpus", "reference": "essays.md", "title": "Delete the Harness"},
+    "essay:knowledge-decay": {"kind": "published-corpus", "reference": "essays.md", "title": "Knowledge Decay"},
+    "essay:saturnalia": {"kind": "published-corpus", "reference": "essays.md", "title": "Saturnalia in the Age of Hermes"},
     "review:daniel": {"kind": "adopted-review", "reference": "../ontology/changelog.md", "title": "Daniel's direct ontology review"},
     "review:v0.9": {"kind": "external-review", "reference": "../reviews/2026-08-02-organon-review.md", "title": "Organon v0.9 adversarial review"},
     "formal:lean-v0.9": {"kind": "formalization", "reference": "../ontology/formal/decisions.md", "title": "Lean v0.9 formalization findings"},
@@ -24,7 +26,9 @@
     "formal:consciousness": {"kind": "formalization", "reference": "../ontology/formal/decisions.md", "title": "Consciousness discourse formalization findings"},
     "essay:epistemic-capture": {"kind": "published-corpus", "reference": "essays.md", "title": "Epistemic Capture"},
     "proposal:truth-trust-alignment": {"kind": "adopted-review", "reference": "../proposals/truth-trust-and-alignment.md", "title": "Truth Trust and Alignment promotion dossier"},
-    "formal:truth-trust-alignment": {"kind": "formalization", "reference": "../ontology/formal/decisions.md", "title": "Truth Trust and Alignment formalization findings"}
+    "formal:truth-trust-alignment": {"kind": "formalization", "reference": "../ontology/formal/decisions.md", "title": "Truth Trust and Alignment formalization findings"},
+    "proposal:intelligence-knowledge": {"kind": "adopted-review", "reference": "../proposals/intelligence-operative-knowledge-transmission.md", "title": "Intelligence Operative Knowledge and Knowledge Transmission promotion dossier"},
+    "formal:intelligence-knowledge": {"kind": "formalization", "reference": "../ontology/formal/decisions.md", "title": "Intelligence and operative knowledge formalization findings"}
   },
   "groups": [
     {
@@ -76,6 +80,11 @@
       "basis": "adopted-commitment",
       "sources": ["essay:reasoning-language", "essay:conspiracy-reason", "essay:higher-you-go", "essay:containment", "essay:epistemic-capture", "essay:delete-harness", "proposal:truth-trust-alignment", "formal:truth-trust-alignment", "review:daniel"],
       "terms": ["organon:Truth", "organon:Trust", "organon:Alignment"]
+    },
+    {
+      "basis": "adopted-commitment",
+      "sources": ["essay:reasoning-language", "essay:containment", "essay:knowledge-decay", "essay:saturnalia", "essay:beyond-function-calling", "essay:delete-harness", "proposal:intelligence-knowledge", "formal:intelligence-knowledge", "review:daniel"],
+      "terms": ["organon:Intelligence", "organon:OperativeKnowledge", "organon:KnowledgeTransmission"]
     }
   ]
 }
