@@ -548,4 +548,4 @@ theorem exerciseModelIsInhabited :
 end DanielOntology.Model
 
 def main : IO Unit :=
-  IO.println "OrganonCore v0.15 reduct: downstream shadows plus four preserved challenge classifiers and one blocked local-Reality shadow elaborated"
+  IO.println "OrganonCore v0.15 reduct: downstream shadows plus four preserved challenge classifiers and one pending Reality representation elaborated"

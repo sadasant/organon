@@ -20,8 +20,8 @@ PROVED_TRANSLATIONS = {
     "organon:Entity": "Every Entity now carries a classified Persistence witness for its identity.",
 }
 
-FIDELITY_GAPS: dict[str, str] = {
-    "organon:Reality": "The local carrier theorem is universe-relative and does not encode the totality of all Presence.",
+PENDING_DECISIONS: dict[str, str] = {
+    "organon:Reality": "Choose an ambient metatheoretic or universe-indexed projection; no local carrier is Reality as a whole.",
 }
 
 CHALLENGE_SUPPORT = {
@@ -71,10 +71,10 @@ def render() -> str:
             disposition = "translated"
             result = "proved"
             reason = PROVED_TRANSLATIONS[term_id]
-        elif term_id in FIDELITY_GAPS:
+        elif term_id in PENDING_DECISIONS:
             disposition = "challenge seam"
-            result = "blocked"
-            reason = FIDELITY_GAPS[term_id]
+            result = "pending"
+            reason = PENDING_DECISIONS[term_id]
         elif term_id in CHALLENGE_SUPPORT:
             disposition = "challenge support"
             result = "unknown"
@@ -112,7 +112,7 @@ def render() -> str:
         "",
         "This table accounts for every registered term. `proved` means only that the declared challenge classifier is preserved in Lean. It is not automatically a complete encoding of the binding prose. `compiled shadow` means a named Lean shadow builds without the Absence extension; it does not mean that the shadow is extensionally identical to the binding prose definition.",
         "",
-        f"Result totals: **{counts.get('proved', 0)} proved translations**, **{counts.get('blocked', 0)} blocked by a fidelity gap**, **{counts.get('excluded', 0)} intentionally excluded**, and **{counts.get('unknown', 0)} unknown**.",
+        f"Result totals: **{counts.get('proved', 0)} proved translations**, **{counts.get('pending', 0)} pending representation decision**, **{counts.get('excluded', 0)} intentionally excluded**, and **{counts.get('unknown', 0)} unknown**.",
         "",
         "| Claim | Term | Reduct disposition | Experiment result | Reason |",
         "|---|---|---|---|---|",

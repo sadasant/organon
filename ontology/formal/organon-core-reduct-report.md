@@ -17,7 +17,7 @@ This report distinguishes three claims that would otherwise be easy to collapse:
 2. **Binding-seam challenge:** the highest-risk Presence → Reality → Missingness → Persistence → Entity path is tested through explicit reduct translations without treating a weaker formal shadow as the binding definition.
 3. **Binding-ontology preservation:** every one of the 104 registered prose terms retains its extension after Absence is removed.
 
-The experiment proves the first claim and four challenge classifications in the second. Reality blocks completion of that seam: the local-carrier theorem is preserved, but it is not a faithful encoding of the totality of all Presence. The third remains unproved because 98 further registered terms still lack exact paired classifiers.
+The experiment proves the first claim and four challenge classifications in the second. Reality leaves one representation decision pending: the local-carrier theorem is preserved, but the binding totality may be treated as ambient and metatheoretic or projected as a universe-indexed family. The third remains unproved because 98 further registered terms still lack exact paired classifiers.
 
 ## Construction
 
@@ -66,7 +66,7 @@ The complete finite witness executable builds and runs from that import graph. T
 
 Relational Missingness survives the reduct. It needs a field, an expected value, and proof of nonmembership; it does not need absolute Absence. The extension can still prove that an inhabited `Missingness α` type is `Present`, but that theorem is commentary about the extension rather than a prerequisite for classifying Missingness.
 
-### The difficult seam did not refute the reduct, but Reality blocks completion
+### The difficult seam did not refute the reduct; Reality requires a representation decision
 
 Four declared challenge classifications survive the first falsification pass:
 
@@ -77,11 +77,11 @@ Four declared challenge classifications survive the first falsification pass:
 
 No paired case in these four classifications changes when the Absence extension is removed. The breaking history is rejected by both interpretations. This is evidence against Absence being load-bearing there; it is not a proof about the other terms.
 
-**Reality remains blocked.** `localRealityReductPreserved` proves only that every value of one carrier belongs to that carrier's local totality. Binding Reality is the totality of all Presence. Lean cannot collect every `Type u` and every larger universe into one same-level carrier without choosing a universe-indexed approximation or a stronger metatheoretic encoding. Either choice would add a commitment not present in the ontology. The experiment therefore refuses to count the local theorem as preservation of `organon:Reality`.
+**Reality remains pending.** `localRealityReductPreserved` proves only that every value of one carrier belongs to that carrier's local totality. Binding Reality is the totality of all Presence. It can be treated as the ambient metatheoretic domain in which every formal carrier is a scoped region, or projected through a universe-polymorphic family such as `RealityAt u`. Lean cannot collect every universe into one same-level carrier, but Organon does not require Reality to be an ordinary member of itself. This is therefore a representation decision, not evidence that the ontology is inconsistent and not a counterexample to the reduct. The experiment refuses to choose on behalf of the binding ontology.
 
 ### Not proven for the binding ontology
 
-The result does not establish preservation for all 104 registered terms. The audit records 4 proved challenge classifications, 1 Reality formalization blocker, 1 intentionally excluded primitive, and 98 `UNKNOWN` classifications. The formal spike remains intentionally partial, and several prose definitions depend on notions that are neither Absence nor formal core declarations, including representation or use, causal relevance, modality, support, denotation, material adequacy, and institutional eligibility.
+The result does not establish preservation for all 104 registered terms. The audit records 4 proved challenge classifications, 1 pending Reality representation decision, 1 intentionally excluded primitive, and 98 `UNKNOWN` classifications. The formal spike remains intentionally partial, and several prose definitions depend on notions that are neither Absence nor formal core declarations, including representation or use, causal relevance, modality, support, denotation, material adequacy, and institutional eligibility.
 
 The result also does not prove that absolute Absence is incoherent, eliminable from Daniel's metaphysics, or equivalent to a nonempty-domain convention. It proves a narrower architectural fact: the encoded applied classifiers do not inspect the Absence extension.
 
@@ -108,7 +108,7 @@ This draft does not change the binding ontology, term registry, primitive, axiom
 
 The warranted conclusion is:
 
-> Absolute Absence is not load-bearing for the classifications currently encoded in Lean or for four challenge classifications in the first binding seam. Full binding preservation is not proved: Reality lacks a faithful totality encoding, and 98 further terms remain UNKNOWN.
+> Absolute Absence is not load-bearing for the classifications currently encoded in Lean or for four challenge classifications in the first binding seam. Full binding preservation is not proved: Reality's formal representation is pending, and 98 further terms remain UNKNOWN.
 
 ## Next gates
 
