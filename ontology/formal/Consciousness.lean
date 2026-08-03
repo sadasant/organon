@@ -3,93 +3,152 @@ import DanielOntology
 /-!
 # Consciousness proposal: formal shadow
 
-This file formalizes the discourse and recognition machinery proposed for the
-quarantined term `Consciousness`. It deliberately does not define a universal
-Consciousness predicate or prove which entities instantiate one.
+This file formalizes the candidate-condition, Claim, and institutional
+designation machinery proposed for the quarantined term `Consciousness`. It
+deliberately does not define a universal Consciousness predicate.
 
-The formal result is a separation: a candidate condition, an attribution of
-that condition, and an Order's recognition of the attribution can vary
-independently. Recognition is institutionally real without becoming proof of
-the candidate condition.
+The theorems below state only the anti-entailments exhibited by their finite
+countermodels.
 -/
 
-universe u v w x y z
+universe u v w x y z q r
 
 namespace DanielOntology.ConsciousnessProposal
 
-structure CandidateCondition (Entity : Type u) (State : Type v) where
+structure CandidateCondition
+    (Entity : Type u)
+    (State : Type v)
+    (Condition : Type w) where
+  condition : Condition
+  obtains : Condition → Entity → State → Prop
   specification : Specification (Entity × State)
+  specificationCorrect :
+    ∀ entity state,
+      specification.conforms (entity, state) ↔
+        obtains condition entity state
 
 def CandidateCondition.holds
     {Entity : Type u}
     {State : Type v}
-    (candidate : CandidateCondition Entity State)
+    {Condition : Type w}
+    (candidate : CandidateCondition Entity State Condition)
     (entity : Entity)
     (state : State) : Prop :=
-  candidate.specification.conforms (entity, state)
+  candidate.obtains candidate.condition entity state
+
+inductive AttributionPerspective where
+  | firstPerson
+  | thirdPerson
+deriving DecidableEq, Repr
+
+structure ReferenceMap (Agent : Type u) (Entity : Type v) where
+  asEntity : Agent → Entity
+  sameUnder : Entity → Entity → Prop
+
+structure AttributionSemantics
+    (Representation : Type u)
+    (Language : Type v)
+    (Rule : Type w)
+    (Candidate : Type x) where
+  meansCandidate :
+    Rule → Language → Representation → Candidate → Prop
 
 structure ConsciousnessAttribution
     (Agent : Type u)
     (Entity : Type v)
     (State : Type w)
-    (Language : Type x)
-    (Rule : Type y) where
+    (Condition : Type x)
+    (Representation : Type y)
+    (Language : Type z)
+    (Rule : Type q)
+    (referenceMap : ReferenceMap Agent Entity)
+    (semantics : AttributionSemantics
+      Representation Language Rule (CandidateCondition Entity State Condition)) where
   claimId : Nat
   claimant : Agent
   target : Entity
   state : State
-  candidate : CandidateCondition Entity State
+  candidate : CandidateCondition Entity State Condition
+  representation : Representation
+  claimScope : Scope (Entity × State)
   language : Language
   meaningRule : Rule
-  inScope : candidate.specification.scope.includes (target, state)
+  meaningHolds :
+    semantics.meansCandidate meaningRule language representation candidate
+  inClaimScope :
+    claimScope.includes (target, state)
+  candidateInScope :
+    candidate.specification.scope.includes (target, state)
+  perspective : AttributionPerspective
+  perspectiveCorrect :
+    perspective = .firstPerson ↔
+      referenceMap.sameUnder (referenceMap.asEntity claimant) target
 
-structure RecognitionOrder
+structure DesignationOrder
     (Attribution : Type u)
     (Entity : Type v)
     (State : Type w)
-    (Rule : Type x) where
-  admits : Rule → Attribution → Prop
-  countsAsConscious : Entity → State → Prop
+    (Rule : Type x)
+    (Purpose : Type y) where
+  admits :
+    Rule → Purpose → Attribution → Prop
+  countsAsConscious :
+    Rule → Purpose → Attribution → Scope (Entity × State) → Prop
+  countingRequiresAdmission :
+    ∀ rule purpose attribution scope,
+      countsAsConscious rule purpose attribution scope →
+        admits rule purpose attribution
 
-structure RecognizedConsciousness
+structure ConsciousnessDesignation
     {Agent : Type u}
     {Entity : Type v}
     {State : Type w}
-    {Language : Type x}
-    {Rule : Type y}
-    (order : RecognitionOrder
-      (ConsciousnessAttribution Agent Entity State Language Rule)
-      Entity State Rule) where
-  attribution : ConsciousnessAttribution Agent Entity State Language Rule
-  admissionRule : Rule
-  admitted : order.admits admissionRule attribution
-  counted : order.countsAsConscious attribution.target attribution.state
+    {Condition : Type x}
+    {Representation : Type y}
+    {Language : Type z}
+    {Rule : Type q}
+    {Purpose : Type r}
+    {referenceMap : ReferenceMap Agent Entity}
+    {semantics : AttributionSemantics
+      Representation Language Rule (CandidateCondition Entity State Condition)}
+    (order : DesignationOrder
+      (ConsciousnessAttribution
+        Agent Entity State Condition Representation Language Rule referenceMap semantics)
+      Entity State Rule Purpose) where
+  attribution :
+    ConsciousnessAttribution
+      Agent Entity State Condition Representation Language Rule referenceMap semantics
+  rule : Rule
+  purpose : Purpose
+  scope : Scope (Entity × State)
+  targetInScope :
+    scope.includes (attribution.target, attribution.state)
+  counted :
+    order.countsAsConscious rule purpose attribution scope
 
-inductive EvidenceDisposition where
-  | supported
-  | defeated
-  | underdetermined
-deriving DecidableEq, Repr
-
-structure EvidentiaryProfile
+def ConsciousnessDesignation.admitted
     {Agent : Type u}
     {Entity : Type v}
     {State : Type w}
-    {Language : Type x}
-    {Rule : Type y}
-    (Observation : Type z)
-    (Evidence : Type)
-    (AdmissibilityRule : Type)
-    (attribution : ConsciousnessAttribution Agent Entity State Language Rule) where
-  observations : List Observation
-  evidence : List Evidence
-  admissibilityRule : AdmissibilityRule
-  admittedFor : Evidence →
-    ConsciousnessAttribution Agent Entity State Language Rule → Prop
-  allEvidenceAdmitted : ∀ item, item ∈ evidence → admittedFor item attribution
-  disposition : EvidenceDisposition
+    {Condition : Type x}
+    {Representation : Type y}
+    {Language : Type z}
+    {Rule : Type q}
+    {Purpose : Type r}
+    {referenceMap : ReferenceMap Agent Entity}
+    {semantics : AttributionSemantics
+      Representation Language Rule (CandidateCondition Entity State Condition)}
+    {order : DesignationOrder
+      (ConsciousnessAttribution
+        Agent Entity State Condition Representation Language Rule referenceMap semantics)
+      Entity State Rule Purpose}
+    (designation : ConsciousnessDesignation order) :
+    order.admits designation.rule designation.purpose designation.attribution :=
+  order.countingRequiresAdmission
+    designation.rule designation.purpose designation.attribution designation.scope
+    designation.counted
 
-/-! ## Finite anti-collapse witness -/
+/-! ## Finite anti-entailment witnesses -/
 
 inductive ToyEntity where
   | system
@@ -99,19 +158,38 @@ inductive ToyState where
   | running
 deriving DecidableEq, Repr
 
+inductive ToyCondition where
+  | positive
+  | negative
+deriving DecidableEq, Repr
+
+inductive ToyRepresentation where
+  | selfReport
+deriving DecidableEq, Repr
+
 inductive ToyLanguage where
   | ordinaryEnglish
 deriving DecidableEq, Repr
 
 inductive ToyRule where
-  | selfReport
+  | interpretSelfReport
   | institutionalReview
+deriving DecidableEq, Repr
+
+inductive ToyPurpose where
+  | classification
 deriving DecidableEq, Repr
 
 def toyScope : Scope (ToyEntity × ToyState) where
   includes := fun pair => pair = (.system, .running)
 
-def positiveCandidate : CandidateCondition ToyEntity ToyState where
+def toyObtains : ToyCondition → ToyEntity → ToyState → Prop
+  | .positive, .system, .running => True
+  | .negative, .system, .running => False
+
+def positiveCandidate : CandidateCondition ToyEntity ToyState ToyCondition where
+  condition := .positive
+  obtains := toyObtains
   specification := {
     scope := toyScope
     conforms := fun pair => pair = (.system, .running)
@@ -119,8 +197,11 @@ def positiveCandidate : CandidateCondition ToyEntity ToyState where
     conformityCorrect := by intro pair; simp
     conformityWithinScope := by intro pair conforming; exact conforming
   }
+  specificationCorrect := by intro entity state; cases entity <;> cases state <;> simp [toyObtains]
 
-def negativeCandidate : CandidateCondition ToyEntity ToyState where
+def negativeCandidate : CandidateCondition ToyEntity ToyState ToyCondition where
+  condition := .negative
+  obtains := toyObtains
   specification := {
     scope := toyScope
     conforms := fun _ => False
@@ -128,66 +209,121 @@ def negativeCandidate : CandidateCondition ToyEntity ToyState where
     conformityCorrect := by simp
     conformityWithinScope := by simp
   }
+  specificationCorrect := by intro entity state; cases entity <;> cases state <;> simp [toyObtains]
 
-def selfAttribution :
-    ConsciousnessAttribution ToyEntity ToyEntity ToyState ToyLanguage ToyRule where
+def toyReferenceMap : ReferenceMap ToyEntity ToyEntity where
+  asEntity := id
+  sameUnder := Eq
+
+def toyAttributionSemantics :
+    AttributionSemantics
+      ToyRepresentation ToyLanguage ToyRule
+      (CandidateCondition ToyEntity ToyState ToyCondition) where
+  meansCandidate := fun rule language representation _ =>
+    rule = .interpretSelfReport ∧
+    language = .ordinaryEnglish ∧
+    representation = .selfReport
+
+abbrev ToyAttribution :=
+  ConsciousnessAttribution
+    ToyEntity ToyEntity ToyState ToyCondition ToyRepresentation
+    ToyLanguage ToyRule toyReferenceMap toyAttributionSemantics
+
+def negativeAttribution : ToyAttribution where
   claimId := 1
   claimant := .system
   target := .system
   state := .running
   candidate := negativeCandidate
+  representation := .selfReport
+  claimScope := toyScope
   language := .ordinaryEnglish
-  meaningRule := .selfReport
-  inScope := by simp [negativeCandidate, toyScope]
+  meaningRule := .interpretSelfReport
+  meaningHolds := by simp [toyAttributionSemantics]
+  inClaimScope := by simp [toyScope]
+  candidateInScope := by simp [negativeCandidate, toyScope]
+  perspective := .firstPerson
+  perspectiveCorrect := by simp [toyReferenceMap]
 
-def recognizingOrder :
-    RecognitionOrder
-      (ConsciousnessAttribution ToyEntity ToyEntity ToyState ToyLanguage ToyRule)
-      ToyEntity ToyState ToyRule where
-  admits := fun rule attribution =>
-    rule = .institutionalReview ∧ attribution.claimId = 1
-  countsAsConscious := fun entity state =>
-    entity = .system ∧ state = .running
+def positiveAttribution : ToyAttribution where
+  claimId := 2
+  claimant := .system
+  target := .system
+  state := .running
+  candidate := positiveCandidate
+  representation := .selfReport
+  claimScope := toyScope
+  language := .ordinaryEnglish
+  meaningRule := .interpretSelfReport
+  meaningHolds := by simp [toyAttributionSemantics]
+  inClaimScope := by simp [toyScope]
+  candidateInScope := by simp [positiveCandidate, toyScope]
+  perspective := .firstPerson
+  perspectiveCorrect := by simp [toyReferenceMap]
 
-def recognizedSelfAttribution : RecognizedConsciousness recognizingOrder where
-  attribution := selfAttribution
-  admissionRule := .institutionalReview
-  admitted := by simp [recognizingOrder, selfAttribution]
-  counted := by simp [recognizingOrder]
+def designatingOrder :
+    DesignationOrder ToyAttribution ToyEntity ToyState ToyRule ToyPurpose where
+  admits := fun rule purpose attribution =>
+    rule = .institutionalReview ∧
+    purpose = .classification ∧
+    attribution.claimId = 1
+  countsAsConscious := fun rule purpose attribution scope =>
+    rule = .institutionalReview ∧
+    purpose = .classification ∧
+    attribution.claimId = 1 ∧
+    scope.includes (attribution.target, attribution.state)
+  countingRequiresAdmission := by
+    intro rule purpose attribution scope counted
+    exact ⟨counted.1, counted.2.1, counted.2.2.1⟩
 
-theorem recognitionDoesNotEntailCandidate :
-    recognizingOrder.countsAsConscious .system .running ∧
-    ¬ selfAttribution.candidate.holds .system .running := by
-  constructor
-  · simp [recognizingOrder]
-  · simp [CandidateCondition.holds, selfAttribution, negativeCandidate]
+def designatedAttribution : ConsciousnessDesignation designatingOrder where
+  attribution := negativeAttribution
+  rule := .institutionalReview
+  purpose := .classification
+  scope := toyScope
+  targetInScope := by simp [negativeAttribution, toyScope]
+  counted := by simp [designatingOrder, negativeAttribution, toyScope]
 
 theorem attributionDoesNotEntailCandidate :
-    selfAttribution.claimant = selfAttribution.target ∧
-    ¬ selfAttribution.candidate.holds selfAttribution.target selfAttribution.state := by
-  constructor
-  · rfl
-  · simp [CandidateCondition.holds, selfAttribution, negativeCandidate]
+    ∃ attribution : ToyAttribution,
+      attribution.perspective = .firstPerson ∧
+      ¬ attribution.candidate.holds attribution.target attribution.state := by
+  refine ⟨negativeAttribution, rfl, ?_⟩
+  simp [CandidateCondition.holds, negativeAttribution, negativeCandidate, toyObtains]
+
+theorem designationDoesNotEntailCandidate :
+    ∃ designation : ConsciousnessDesignation designatingOrder,
+      ¬ designation.attribution.candidate.holds
+        designation.attribution.target designation.attribution.state := by
+  refine ⟨designatedAttribution, ?_⟩
+  simp [CandidateCondition.holds, designatedAttribution, negativeAttribution,
+    negativeCandidate, toyObtains]
 
 def silentOrder :
-    RecognitionOrder
-      (ConsciousnessAttribution ToyEntity ToyEntity ToyState ToyLanguage ToyRule)
-      ToyEntity ToyState ToyRule where
-  admits := fun _ _ => False
-  countsAsConscious := fun _ _ => False
+    DesignationOrder ToyAttribution ToyEntity ToyState ToyRule ToyPurpose where
+  admits := fun _ _ _ => False
+  countsAsConscious := fun _ _ _ _ => False
+  countingRequiresAdmission := by simp
 
-theorem nonRecognitionDoesNotDecideCandidate :
-    (¬ silentOrder.countsAsConscious .system .running) ∧
-    positiveCandidate.holds .system .running ∧
-    ¬ negativeCandidate.holds .system .running := by
+theorem nonDesignationDoesNotDecideCandidate :
+    (¬ silentOrder.countsAsConscious
+      .institutionalReview .classification positiveAttribution toyScope) ∧
+    positiveAttribution.candidate.holds
+      positiveAttribution.target positiveAttribution.state ∧
+    (¬ silentOrder.countsAsConscious
+      .institutionalReview .classification negativeAttribution toyScope) ∧
+    ¬ negativeAttribution.candidate.holds
+      negativeAttribution.target negativeAttribution.state := by
   constructor
   · simp [silentOrder]
   · constructor
-    · simp [CandidateCondition.holds, positiveCandidate]
-    · simp [CandidateCondition.holds, negativeCandidate]
+    · simp [CandidateCondition.holds, positiveAttribution, positiveCandidate, toyObtains]
+    · constructor
+      · simp [silentOrder]
+      · simp [CandidateCondition.holds, negativeAttribution, negativeCandidate, toyObtains]
 
 theorem formalWitnessIsInhabited :
-    Nonempty (RecognizedConsciousness recognizingOrder) :=
-  ⟨recognizedSelfAttribution⟩
+    Nonempty (ConsciousnessDesignation designatingOrder) :=
+  ⟨designatedAttribution⟩
 
 end DanielOntology.ConsciousnessProposal

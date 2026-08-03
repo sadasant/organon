@@ -1,0 +1,191 @@
+{
+  "schema_version": 1,
+  "proposal_id": "consciousness",
+  "status": "ready-for-review",
+  "binding": false,
+  "markdown": "consciousness.md",
+  "formal_shadow": "../ontology/formal/Consciousness.lean",
+  "local_symbols": [
+    "local:CandidateCondition",
+    "ordinary:field"
+  ],
+  "statements": [
+    {
+      "id": "CC-D1",
+      "type": "proposed_definition",
+      "subject": "Consciousness Attribution",
+      "depends_on": [
+        "organon:Agent",
+        "organon:Claim",
+        "organon:Entity",
+        "local:CandidateCondition",
+        "organon:Configuration",
+        "organon:Specification",
+        "organon:Scope",
+        "organon:Language",
+        "organon:Rule",
+        "organon:Map"
+      ],
+      "formal_symbol": "ConsciousnessAttribution"
+    },
+    {
+      "id": "CC-D2",
+      "type": "proposed_definition",
+      "subject": "Consciousness Designation",
+      "depends_on": [
+        "CC-D1",
+        "organon:Order",
+        "organon:Rule",
+        "organon:Admission",
+        "organon:CountsAs",
+        "organon:Scope"
+      ],
+      "formal_symbol": "ConsciousnessDesignation"
+    },
+    {
+      "id": "CC-H1",
+      "type": "hypothesis",
+      "subject": "Historical alignment of first-person report and institutional credibility",
+      "depends_on": [
+        "organon:Claim",
+        "organon:Standing",
+        "organon:Recognition"
+      ]
+    },
+    {
+      "id": "CC-H2",
+      "type": "hypothesis",
+      "subject": "AI separation of self-attribution, provenance, Standing, and candidate obtainment",
+      "depends_on": [
+        "CC-D1",
+        "organon:Claim",
+        "organon:Standing",
+        "organon:CausalPath"
+      ]
+    },
+    {
+      "id": "CC-G1",
+      "type": "open_formalization_gate",
+      "subject": "Evidentiary profile and disposition",
+      "depends_on": [
+        "organon:Observation",
+        "organon:Witness",
+        "organon:IndependentFor",
+        "organon:Evidence",
+        "organon:AdmissibilityRule",
+        "organon:Order",
+        "organon:Rule"
+      ]
+    },
+    {
+      "id": "CC-G2",
+      "type": "open_evidence_gate",
+      "subject": "Historical, animal, and AI generalizations",
+      "depends_on": [
+        "organon:Observation",
+        "organon:Evidence"
+      ]
+    },
+    {
+      "id": "CC-C1",
+      "type": "anti_collapse_constraint",
+      "subject": "Attribution does not entail its candidate condition",
+      "depends_on": [
+        "CC-D1",
+        "local:CandidateCondition"
+      ],
+      "formal_symbol": "attributionDoesNotEntailCandidate"
+    },
+    {
+      "id": "CC-C2",
+      "type": "anti_collapse_constraint",
+      "subject": "Designation does not entail its candidate condition",
+      "depends_on": [
+        "CC-D2",
+        "CC-D1",
+        "local:CandidateCondition"
+      ],
+      "formal_symbol": "designationDoesNotEntailCandidate"
+    },
+    {
+      "id": "CC-C3",
+      "type": "anti_collapse_constraint",
+      "subject": "Non-attribution and non-designation do not establish Absence or negation",
+      "depends_on": [
+        "organon:Missingness",
+        "ordinary:field",
+        "organon:Order",
+        "CC-D1",
+        "CC-D2"
+      ],
+      "formal_symbol": "nonDesignationDoesNotDecideCandidate"
+    },
+    {
+      "id": "CC-C4",
+      "type": "anti_collapse_constraint",
+      "subject": "A first-person Claim is not independent Evidence for itself",
+      "depends_on": [
+        "organon:Claim",
+        "organon:Evidence",
+        "organon:IndependentFor"
+      ]
+    },
+    {
+      "id": "CC-C5",
+      "type": "anti_collapse_constraint",
+      "subject": "A third-person Observation is not unmediated access to an Interior",
+      "depends_on": [
+        "organon:Observation",
+        "organon:Interior",
+        "organon:Sense",
+        "organon:Map"
+      ]
+    },
+    {
+      "id": "CC-C6",
+      "type": "anti_collapse_constraint",
+      "subject": "Cognitive and agentic terms do not individually entail the candidate condition",
+      "depends_on": [
+        "organon:Interior",
+        "organon:Perception",
+        "organon:Memory",
+        "organon:Model",
+        "organon:Interpretation",
+        "organon:Agency"
+      ]
+    },
+    {
+      "id": "CC-C7",
+      "type": "anti_collapse_constraint",
+      "subject": "Institutional relations remain distinct unless a Rule connects them",
+      "depends_on": [
+        "organon:Person",
+        "organon:Standing",
+        "organon:CountsAs",
+        "organon:Rule",
+        "CC-D2"
+      ]
+    },
+    {
+      "id": "CC-C8",
+      "type": "anti_collapse_constraint",
+      "subject": "Probability qualifies assessment rather than Entity or Absence",
+      "depends_on": [
+        "organon:Claim",
+        "organon:Agent",
+        "organon:Order",
+        "organon:Evidence"
+      ]
+    },
+    {
+      "id": "CC-C9",
+      "type": "anti_collapse_constraint",
+      "subject": "UNKNOWN survives when Evidence does not decide a Claim",
+      "depends_on": [
+        "organon:Claim",
+        "organon:Evidence",
+        "organon:AdmissibilityRule"
+      ]
+    }
+  ]
+}

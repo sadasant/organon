@@ -23,9 +23,11 @@ This directory tests whether [Daniel's Ontology v0.9](../ontology.md) can become
 - Permission is produced through an Order-indexed chain of standing-aware claim, Authority, Grant, and Admission; exercise separately requires current Capability and absence of Revocation.
 - Witness independence is scoped to witness, claimant, Claim, Observation, and Order, with mechanical non-control and institutional non-authority.
 - One finite model admits an identity-preserving Transformation, rejects an identity-breaking one, evaluates a Specification, and inhabits Permission and PermissionExercise.
-- A separate consciousness-proposal shadow distinguishes a candidate condition, its attribution, and Order-indexed recognition, with finite witnesses that recognition does not entail the candidate and non-recognition does not decide it.
+- A separate consciousness-proposal shadow distinguishes a candidate condition, its Specification, its Attribution, and an Order-indexed Consciousness Designation, with finite witnesses that Attribution and Designation do not entail candidate obtainment and that non-designation does not decide it.
 
 See [Formalization Decisions](./decisions.md) for commitments exposed by Lean and [Build Receipt](./build-receipt.md) for reproducible evidence.
+
+The formal shadow models candidate conditions, Consciousness Attributions, and Order-indexed Consciousness Designations without defining a universal consciousness predicate. Its finite countermodels show that neither Attribution nor Designation entails candidate obtainment, and that candidate obtainment does not entail Designation. Designation remains institutionally dependent on an admitted Attribution. The artifact does not yet formalize evidentiary disposition.
 
 ## Canonicality boundary
 

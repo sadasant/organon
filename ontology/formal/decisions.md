@@ -55,7 +55,11 @@ Boundary Constraints are conjunctive admission conditions. An empty list admits 
 
 ## Consciousness discourse is formalized without a consciousness axiom
 
-The consciousness proposal separates a `CandidateCondition`, a `ConsciousnessAttribution`, and `RecognizedConsciousness`. Attribution records a claimant, target, State, candidate, Language, Rule, and Scope without carrying a proof that the candidate obtains. Recognition records institutional admission and counting without adding that proof. The finite witnesses exhibit recognition with a false candidate and non-recognition with both true and false candidates. The formal artifact therefore establishes logical independence, not a universal definition of consciousness.
+The consciousness proposal separates `CandidateCondition`, its `Specification`, `ConsciousnessAttribution`, and `ConsciousnessDesignation`. Attribution carries a Representation, independent Claim Scope, Language, meaning Rule, Reference Map, and checked first-person or third-person perspective without carrying a proof that the candidate obtains. Designation is one Order-indexed counting event; `DesignationOrder.countingRequiresAdmission` derives Admission from that event instead of storing an unrelated admission Claim. The finite witnesses establish only the named anti-entailments: Attribution does not entail candidate obtainment, Designation does not entail candidate obtainment, and non-designation does not decide candidate obtainment.
+
+The formal artifact does not encode an evidentiary disposition. Such a structure remains blocked until Evidence is joined to Observation, scoped Witness independence, admissibility provenance, and a declared evaluation Rule whose proved result supplies the disposition.
+
+The formal shadow models candidate conditions, Consciousness Attributions, and Order-indexed Consciousness Designations without defining a universal consciousness predicate. Its finite countermodels show that neither Attribution nor Designation entails candidate obtainment, and that candidate obtainment does not entail Designation. Designation remains institutionally dependent on an admitted Attribution. The artifact does not yet formalize evidentiary disposition.
 
 ## Relations use typed structures, not one universal relation type
 
@@ -63,4 +67,4 @@ Direction, Transformation, Boundary, Capability, and Permission have different a
 
 ## Scope of the spike
 
-The spike formalizes A1-A5 and selected high-risk dependency regions. Its finite models construct one concrete Entity with an admitted preserving Transformation and a rejected identity-breaking Transformation, one standing-aware Permission and one contextual PermissionExercise, and one consciousness-recognition record that remains independent from its candidate condition. It does not yet cover all derived terms, relation signatures, anti-collapse rules, quarantined vocabulary, or deterministic Markdown rendering. Those remain promotion gates rather than implicit Claims of completeness.
+The spike formalizes A1-A5 and selected high-risk dependency regions. Its finite models construct one concrete Entity with an admitted preserving Transformation and a rejected identity-breaking Transformation, one standing-aware Permission and one contextual PermissionExercise, and one Consciousness Designation whose candidate does not obtain. A silent Designation Order supplies the countermodel showing that non-designation does not decide candidate obtainment. The spike does not yet cover all derived terms, relation signatures, anti-collapse rules, quarantined vocabulary, or deterministic Markdown rendering. Those remain promotion gates rather than implicit Claims of completeness.
