@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "ontology_version": "0.12.0",
+  "ontology_version": "0.13.0",
   "profiles": {
     "agent": {
       "description": "Entities, boundaries, interpretation, action, tools, and contextual capability.",
@@ -64,6 +64,14 @@
       "roots": [
         "organon:World",
         "organon:Substrate"
+      ]
+    },
+    "correspondence-and-coordination": {
+      "description": "Claim-to-Reality truth conditions, accepted exposure to another Entity, and profile-scoped subject-target conformity without collapsing the three Relations.",
+      "roots": [
+        "organon:Truth",
+        "organon:Trust",
+        "organon:Alignment"
       ]
     }
   }

@@ -14,6 +14,9 @@ name = "Operationalization"
 [[lean_lib]]
 name = "WorldSubstrate"
 
+[[lean_lib]]
+name = "TruthTrustAlignment"
+
 [[lean_exe]]
 name = "ontology_check"
 root = "Model"

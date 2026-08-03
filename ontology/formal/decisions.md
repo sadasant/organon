@@ -7,7 +7,7 @@ prose_ontology: "../ontology.md"
 ---
 # Formalization Decisions
 
-These decisions belong to the Lean spike. They expose choices priced by formalization. They do not independently revise [Daniel's Ontology v0.12](../ontology.md); accepted findings flow into the binding, single-file Markdown ontology through its changelog.
+These decisions belong to the Lean spike. They expose choices priced by formalization. They do not independently revise [Daniel's Ontology v0.13](../ontology.md); accepted findings flow into the binding, single-file Markdown ontology through its changelog.
 
 ## Absence is not `Empty`
 
@@ -81,6 +81,24 @@ The finite model contains active and standby States while excluding the inhabite
 
 The finite Substrate supplies the ordered idle-then-active source sequence to an activation-then-break path. The sequence preserves the operational Invariant and every Transformation is admitted by the named Constraint, yet the final output violates that Invariant. This proves only that ordered source Persistence does not entail preservation of the same Invariant in every supported output. Every carrier-to-content, supervenience, emergence, or realization Claim remains outside the formal boundary until Organon defines a proof-bearing realization relation.
 
+## Truth separates correspondence from epistemic access
+
+`TruthSemantics` maps each toy Claim to a constructive Specification and a target admitted by a proposal-local reality model. `isTrue` requires both target membership and conformity. `EpistemicAccess` is separate, so the finite model can prove one Claim true while no modeled Agent can supply its target. This makes the intended anti-entailment precise without pretending that `targetInRealityModel` formalizes Reality as the totality of Presence.
+
+The model does not provide a universal natural-language semantics or unique Claim interpretation. Those are explicit gates. A constructive Specification can decide conformity when given its target even when no Agent can access that target; computational decidability and epistemic availability therefore remain separate commitments.
+
+## Trust binds exposure to an actual causal contribution
+
+`Trust` carries two distinct Entities, a nonempty Causal path, a future Transformation on that path, proof that the trustee supplies it, its output as Consequence, the same Transformation as the proposal-local exposure event, and proof that the truster does not determine it. An earlier draft used unconstrained `suppliedBy`, `dependsOn`, and `exposedTo` predicates; that draft was rejected because it could label arbitrary values without establishing a causal join.
+
+The remaining gap is exact rather than hidden: the core Lean ontology does not yet formalize Interior membership crossing a Boundary, so the proposal-local exposure event is a Transformation but not a proof of D040 Exposure. The finite witness establishes causal contribution and undetermined dependency, while the Interior-and-Boundary join remains an open promotion gate for stronger Trust Claims.
+
+## Alignment is conformity instantiated, not Specification possessed
+
+`AlignmentProfile` carries a constructive Specification over subject-reference pairs. `Alignment` requires a particular pair and a proof that it conforms. The finite model aligns one subject under one profile while rejecting it under an incompatible profile, and it uses different carrier types for subject and target so Alignment cannot be mistaken for identity.
+
+The model does not prove composition among behavioral, representational, incentive, or authority profiles. It also does not connect a profile's target to Reality. Therefore Alignment can be inhabited alongside a false Claim without contradiction: specified correspondence and Truth are separate Relations.
+
 ## Scope of the spike
 
-The spike formalizes A1-A5 and selected high-risk dependency regions. Its finite models construct one concrete Entity with an admitted preserving Transformation and a rejected identity-breaking Transformation, one standing-aware Permission and one contextual PermissionExercise, one Consciousness Designation whose candidate does not obtain, one discriminating Operationalization whose selected Transformation occurs in a Causal path, one scoped World with distinct access, and one contextual Substrate with explicit feeding and constraint witnesses. Silent or negative structures supply countermodels for the named consciousness, representational, World, and Substrate anti-entailments. The spike does not yet cover all derived terms, relation signatures, anti-collapse rules, quarantined vocabulary, or deterministic Markdown rendering. Those remain promotion gates rather than implicit Claims of completeness.
+The spike formalizes A1-A5 and selected high-risk dependency regions. Its finite models construct one concrete Entity with an admitted preserving Transformation and a rejected identity-breaking Transformation, one standing-aware Permission and one contextual PermissionExercise, one Consciousness Designation whose candidate does not obtain, one discriminating Operationalization whose selected Transformation occurs in a Causal path, one scoped World with distinct access, one contextual Substrate with explicit feeding and constraint witnesses, one true Claim without modeled Agent access, one causally bound Trust, and one profile-scoped Alignment. Silent or negative structures supply countermodels for the named consciousness, representational, World, Substrate, Truth, Trust, and Alignment anti-entailments. The spike does not yet cover all derived terms, relation signatures, anti-collapse rules, remaining quarantined vocabulary, or deterministic Markdown rendering. Those remain promotion gates rather than implicit Claims of completeness.

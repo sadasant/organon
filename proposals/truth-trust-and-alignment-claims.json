@@ -1,0 +1,87 @@
+{
+  "schema_version": 1,
+  "proposal_id": "truth-trust-and-alignment",
+  "status": "promoted",
+  "binding": false,
+  "markdown": "truth-trust-and-alignment.md",
+  "formal_shadow": "../ontology/formal/TruthTrustAlignment.lean",
+  "formal_evidence": ["../ontology/formal/Model.lean"],
+  "introduced_terms": ["organon:Truth", "organon:Trust", "organon:Alignment"],
+  "local_symbols": [
+    "local:TruthSemantics",
+    "local:EpistemicAccess",
+    "local:Contribution",
+    "local:AlignmentProfile",
+    "local:Identity",
+    "local:Confidence"
+  ],
+  "statements": [
+    {
+      "id": "TA-D1",
+      "type": "proposed_definition",
+      "subject": "Truth",
+      "depends_on": ["organon:Relation", "organon:Claim", "organon:Specification", "organon:Reality", "organon:Presence", "organon:Scope"],
+      "formal_symbol": "TruthSemantics"
+    },
+    {
+      "id": "TA-D2",
+      "type": "proposed_definition",
+      "subject": "Trust",
+      "depends_on": ["organon:Relation", "organon:Entity", "organon:Direction", "organon:State", "organon:Action", "organon:Claim", "organon:CausalPath", "organon:Exposure", "organon:Consequence", "organon:Control", "organon:Scope", "local:Contribution"],
+      "formal_symbol": "Trust"
+    },
+    {
+      "id": "TA-D3",
+      "type": "proposed_definition",
+      "subject": "Alignment",
+      "depends_on": ["organon:Relation", "organon:Configuration", "organon:Presence", "organon:Specification", "organon:Scope", "organon:State", "organon:Transformation", "organon:Difference", "organon:Direction", "local:AlignmentProfile"],
+      "formal_symbol": "Alignment"
+    },
+    {
+      "id": "TA-C1",
+      "type": "anti_collapse_constraint",
+      "subject": "Truth is not epistemic or institutional success",
+      "depends_on": ["TA-D1", "organon:Evidence", "organon:Admission", "local:EpistemicAccess"],
+      "formal_symbol": "truthDoesNotEntailAgentAccess"
+    },
+    {
+      "id": "TA-C2",
+      "type": "anti_collapse_constraint",
+      "subject": "Trust is not confidence prediction or authorization",
+      "depends_on": ["TA-D2", "organon:Permission", "organon:Authority", "organon:Evidence", "local:Confidence"],
+      "formal_symbol": "trustDoesNotEntailConfidenceOrPermission"
+    },
+    {
+      "id": "TA-C3",
+      "type": "anti_collapse_constraint",
+      "subject": "Alignment is profile scoped correspondence",
+      "depends_on": ["TA-D3", "local:Identity", "TA-D1", "TA-D2", "organon:Permission", "organon:Authority", "organon:Persistence"],
+      "formal_symbol": "alignmentIsProfileScoped"
+    },
+    {
+      "id": "TA-C4",
+      "type": "anti_collapse_constraint",
+      "subject": "No Truth Trust Alignment collapse",
+      "depends_on": ["TA-D1", "TA-D2", "TA-D3"],
+      "formal_symbol": "truthTrustAndAlignmentAreJointlyInhabited"
+    },
+    {
+      "id": "TA-G1",
+      "type": "open_formalization_gate",
+      "subject": "Complete Claim semantics and Reality bridge",
+      "depends_on": ["TA-D1", "organon:Claim", "organon:Map", "organon:Reality", "local:TruthSemantics"]
+    },
+    {
+      "id": "TA-G2",
+      "type": "open_formalization_gate",
+      "subject": "Trust contribution and profile dynamics",
+      "depends_on": ["TA-D2", "organon:CausalPath", "organon:Exposure", "organon:Evidence", "organon:Enforcement", "local:Contribution"]
+    },
+    {
+      "id": "TA-G3",
+      "type": "open_formalization_gate",
+      "subject": "Alignment profile composition and Persistence",
+      "depends_on": ["TA-D3", "organon:Specification", "organon:Rule", "organon:Persistence", "local:AlignmentProfile"]
+    }
+  ]
+}

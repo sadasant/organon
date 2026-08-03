@@ -11,6 +11,16 @@ This note records how [Daniel's Ontology](./ontology.md) changed. Historical arg
 
 ## Version history
 
+### v0.13 - Correspondence, exposure, and specified conformity
+
+- Defined Truth as correspondence among a Claim, its declared truth-condition Specification, and the relevant Presence in Reality, independently of Evidence, access, proof, consensus, or Admission.
+- Defined Trust as accepted scoped exposure or consequential dependence on another Entity's future contribution when the trusting Entity lacks Control sufficient to determine it.
+- Defined Alignment as directional subject-to-target conformity under one constructive Specification and Scope, with behavioral, representational, incentive, and authority uses retained as profiles rather than interchangeable meanings.
+- Added C14-C16 to prevent truth-status, trust-confidence-control, and alignment-totalization collapses, including exact separations among Truth, Trust, and Alignment.
+- Added the optional `correspondence-and-coordination` adoption profile.
+- Added Tarski, Baier, Jones, Hardin, Luhmann, and interactive AI alignment as local shadows with explicit non-inheritance boundaries.
+- Added finite Lean witnesses for a true Claim without modeled Agent access, causal Trust without confidence or Permission, and profile-scoped Alignment without identity or Truth; complete Reality semantics, Interior-boundary Exposure, and profile composition remain explicit gates.
+
 ### v0.12 - Situated Worlds and contextual Substrates
 
 - Defined World as a scoped Configuration of participants, selected Environment, available Causal paths, and a named Invariant persisting across distinct access paths.
