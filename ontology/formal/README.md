@@ -24,6 +24,7 @@ This directory tests whether selected regions of [Daniel's Ontology v0.11](../on
 - Witness independence is scoped to witness, claimant, Claim, Observation, and Order, with mechanical non-control and institutional non-authority.
 - One finite model admits an identity-preserving Transformation, rejects an identity-breaking one, evaluates a Specification, and inhabits Permission and PermissionExercise.
 - A separate consciousness-proposal shadow distinguishes a candidate condition, its Specification, its Attribution, and an Order-indexed Consciousness Designation, with finite witnesses that Attribution and Designation do not entail candidate obtainment and that non-designation does not decide it.
+- A finite Operationalization shadow joins a discriminating selection Rule, Interface, Scope, selected Transformation, and actual Causal-path membership. Countermodels show that this participation entails neither Map fidelity nor admission as Evidence.
 
 See [Formalization Decisions](./decisions.md) for commitments exposed by Lean and [Build Receipt](./build-receipt.md) for reproducible evidence.
 
@@ -33,7 +34,7 @@ The formal shadow models candidate conditions, Consciousness Attributions, and O
 
 The Lean source makes formal Claims. Successful elaboration by the pinned compiler is external Evidence that those Claims type-check. The theorem `presenceObtains` witnesses an inhabited mark inside Lean; the compiler receipt witnesses that the file itself was successfully elaborated. These levels must not be collapsed.
 
-The formal spike does not yet cover the complete ontology, generate the Markdown projection, prove satisfiability beyond its small models, settle identity through time beyond a Boundary-indexed Invariant, formalize Operationalization and C11, or define a universal consciousness condition. The v0.10 build receipt remains an exact historical receipt for the unchanged Lean sources rather than being relabeled as v0.11 evidence.
+The formal spike does not yet cover the complete ontology, generate the Markdown projection, prove satisfiability beyond its small models, settle identity through time beyond a Boundary-indexed Invariant, connect Operationalization to the full Map and Evidence structures, define general consequence semantics, or define a universal consciousness condition. The local fidelity and evidentiary predicates used by the finite Operationalization countermodels prove the stated anti-entailments without pretending to formalize those complete regions.
 
 ## Toolchain
 

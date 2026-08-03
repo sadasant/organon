@@ -593,9 +593,11 @@ This ontology does not define an Evidentiary Profile for consciousness discourse
 <a id="organon-operationalization"></a>
 <!-- organon:term organon:Operationalization claim=D082 -->
 
-**Operationalization** is the incorporation of a Representation into a Configuration of Rules and Interfaces such that the Representation can condition Transformations in a Causal path within a Scope.
+**Operationalization** is a Configuration joining a Representation, a Rule, an Interface, and a Scope in which the Rule selects at least one Transformation in response to that Representation, the Interface exposes that Transformation, and a Causal path contains it.
 
-An Operationalized Representation can contribute causally to later States and, when the path includes an Agent's Interpretation and Action, to Consequences. Causal efficacy does not make the Representation identical to what it represents or to Reality. It does not establish that a Claim expressed by the Representation is supported by Evidence. A distorted Map can still coordinate Action; the resulting Consequence establishes that the Representation participated in a Causal path, not that it represented its target faithfully.
+The selection must be discriminating: under the same Rule and within the same Scope, at least one distinct Representation would not select that Transformation. This distinguishes a Representation operating through its represented form from a physical carrier that happens to occur in a Causal path while its representational Difference does no work.
+
+An Operationalized Representation can contribute causally to later States and, when the path includes an Agent's Interpretation and Action, to Consequences. Causal efficacy does not make the Representation identical to what it represents or to Reality. It does not establish that a Claim expressed by the Representation is supported by Evidence. A distorted Map can still coordinate Action; the resulting Consequence establishes that the Representation participated through a Rule in a Causal path, not that it represented its target faithfully.
 
 ## Relation signatures
 
@@ -633,7 +635,7 @@ These signatures make the ontology operational. They are schemas, not executable
 | `constitutes` | Polity, coordinated Agency, existing Order | transformed Order |
 | `attributesConsciousness` | Agent, target Entity, State, Representation, candidate Specification, Language, meaning Rule, Map, Claim Scope | Consciousness Attribution; no entailment that the candidate condition obtains |
 | `designatesConsciousness` | Order, Rule, institutional purpose, admitted Consciousness Attribution, institutional Scope | one CountsAs event for the Attribution's target Entity and State; no downstream institutional effect without a separate Rule |
-| `operationalizes` | Representation, Configuration of Rules and Interfaces, Scope | Representation can condition Transformations in a Causal path; no entailment of representational identity, Map fidelity, or Evidence |
+| `operationalizes` | Representation, Rule, Interface, Scope, selected Transformation, Causal path | Rule discriminates the Representation, Interface exposes the selected Transformation, and that Transformation occurs in the path; no entailment of representational identity, Map fidelity, or Evidence |
 
 ## Binding consistency rules
 
@@ -657,7 +659,7 @@ These signatures make the ontology operational. They are schemas, not executable
 
 10. <!-- organon:claim C10 --> **No consciousness discourse collapse:** A Consciousness Attribution does not establish its candidate condition; a Consciousness Designation does not establish that condition or independently alter Standing, Personhood, Permissions, protections, Interfaces, or Consequences; and failure to attribute or designate establishes neither Absence nor negation. Missingness obtains only in a field or Order that represents or expects the relevant Attribution or Designation.
 
-11. <!-- organon:claim C11 --> **No representational efficacy collapse:** A Representation can condition a real Transformation without becoming identical to its target or to Reality, and without supplying Evidence for a Claim merely because a Consequence occurred.
+11. <!-- organon:claim C11 --> **No representational efficacy collapse:** Rule-mediated participation by a Representation in a real Transformation establishes neither identity with its target or Reality, nor fidelity of its Map, nor Evidence for its Claim merely because the selected Transformation or a later Consequence occurred.
 
 ## Quarantined vocabulary
 
@@ -686,6 +688,7 @@ This ontology does not claim that its local machinery is unprecedented. Nearly e
 | Entity, Boundary, Environment, Interior, and Observation | [Niklas Luhmann, *Social Systems*](https://www.sup.org/books/sociology/social-systems) | The system/environment distinction, operational boundary, self-reference, and the observer's inability to occupy an unmediated view from nowhere. | Entity here is not restricted to an autopoietic system of communications. These definitions are more general and therefore less rigorous than Luhmann's within his domain. |
 | Entity, State, Transformation, Persistence, and Relation | [Basic Formal Ontology 2020](https://bfo-ontology.github.io/bfo-2020.html), standardized as [ISO/IEC 21838-2:2021](https://www.iso.org/standard/74572.html), and the [DOLCE foundational ontology](https://www.loa.istc.cnr.it/index.php/dolce/) | The discipline of an upper ontology: explicit categories, typed Relations, dependency order, axiomatization, and consistency testing across domains. | This ontology is not BFO- or DOLCE-conformant and should not borrow their formal credibility. They are rigor benchmarks until an explicit mapping and contradiction audit exist. |
 | Declaration, Permission, Authority, Standing, Role, Person, Institution, and political Order | [John Searle, *Making the Social World*](https://academic.oup.com/book/5336) | Status functions, constitutive rules, declarations, deontic powers, and the form “X counts as Y in context C” strongly shadow the institutional stack. | A Declaration here is insufficient by utterance alone: it requires an Agent with Authority, a Specification, and an Order that records its Scope. The ontology also connects institutional counting to Capability, Boundary, Observation, Evidence, Ledger, and Constituent exercise. |
+| Representation, Rule, and Operationalization | [P. W. Bridgman, *The Logic of Modern Physics*](https://www.gutenberg.org/ebooks/70620), [John Searle, “Human Social Reality and Language”](https://doi.org/10.13128/Phe_Mi-19621), and [Terrence Deacon, *Incomplete Nature*](https://books.google.com/books?id=aT_y7ao96LgC) | Bridgman makes abstract concepts answerable to operations; Searle shows linguistic Representations creating institutional powers through constitutive Rules; Deacon argues that representational and purposive phenomena can have physical causal efficacy. | Operationalization here is broader than measurement, narrower than unconstrained causal influence, and neutral about Deacon's account of mind. It requires a discriminating Rule, exposed Transformation, Scope, and actual Causal-path witness; it does not make every operation semantic or every Representation institutionally constitutive. |
 
 ### The originality boundary
 

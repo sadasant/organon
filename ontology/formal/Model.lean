@@ -1,5 +1,6 @@
 import DanielOntology
 import Consciousness
+import Operationalization
 
 /-!
 # Daniel's Ontology: finite inhabited model
@@ -81,6 +82,84 @@ theorem boundaryRejectsBreaking : ¬ activationOnly.permits breakMachine := by
 theorem breakingViolatesIdentity :
     ¬ operationalIdentity.holds breakMachine.output := by
   simp [operationalIdentity, breakMachine, brokenState]
+
+/-! ## Operationalized Representation witness -/
+
+inductive MachineCommand where
+  | activate
+  | halt
+deriving DecidableEq, Repr
+
+open MachineCommand
+
+def commandSelectionRule :
+    SelectionRule MachineCommand operationalDirection where
+  selects := fun command transformation =>
+    match command with
+    | .activate =>
+        transformation.input.value = idle ∧
+        transformation.output.value = active
+    | .halt => False
+
+def commandInterface : OperationalInterface operationalDirection where
+  exposes := fun transformation =>
+    transformation.input.value = idle ∧
+    transformation.output.value = active
+
+def commandScope :
+    Scope (MachineCommand × Transformation operationalDirection) where
+  includes := fun _ => True
+
+def activationPath : CausalPath operationalDirection sequentialFeed where
+  steps := [activate]
+  connected := by simp [Chains]
+
+def activateOperationalization :
+    Operationalization MachineCommand operationalDirection sequentialFeed where
+  representation := .activate
+  rule := commandSelectionRule
+  interface := commandInterface
+  scope := commandScope
+  path := activationPath
+  selected := activate
+  selectedByRule := by
+    simp [commandSelectionRule, activate, idleState, activeState]
+  exposedByInterface := by
+    simp [commandInterface, activate, idleState, activeState]
+  inScope := trivial
+  occursInPath := by simp [activationPath]
+  discriminating := by
+    refine ⟨.halt, by decide, trivial, ?_⟩
+    simp [commandSelectionRule]
+
+def commandFaithful (_ : MachineCommand) : Prop := False
+
+def commandAdmittedAsEvidence (_ : MachineCommand) : Prop := False
+
+theorem operationalizationModelIsInhabited :
+    Nonempty
+      (Operationalization MachineCommand operationalDirection sequentialFeed) :=
+  ⟨activateOperationalization⟩
+
+theorem operationalizationDoesNotEntailFidelity :
+    ∃ operationalization :
+        Operationalization MachineCommand operationalDirection sequentialFeed,
+      ¬ commandFaithful operationalization.representation := by
+  exact ⟨activateOperationalization, by simp [commandFaithful]⟩
+
+theorem operationalizationDoesNotEntailEvidence :
+    ∃ operationalization :
+        Operationalization MachineCommand operationalDirection sequentialFeed,
+      ¬ commandAdmittedAsEvidence operationalization.representation := by
+  exact ⟨activateOperationalization, by simp [commandAdmittedAsEvidence]⟩
+
+theorem selectedConsequenceDoesNotEntailEvidence :
+    activateOperationalization.selected.output.value = active ∧
+    ¬ commandAdmittedAsEvidence
+      activateOperationalization.representation := by
+  constructor
+  · rfl
+  · simp [commandAdmittedAsEvidence]
 
 def activeScope : Scope (State MachineState) where
   includes := fun state => state.value = active
@@ -217,4 +296,4 @@ theorem exerciseModelIsInhabited :
 end DanielOntology.Model
 
 def main : IO Unit :=
-  IO.println "DanielOntology v0.10 spike: ontology and consciousness attribution-designation countermodels elaborated"
+  IO.println "DanielOntology v0.11 spike: ontology, consciousness, and operationalization countermodels elaborated"
