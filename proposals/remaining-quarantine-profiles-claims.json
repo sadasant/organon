@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "proposal_id": "remaining-quarantine-profiles",
+  "status": "partially-promoted",
+  "binding": false,
+  "markdown": "remaining-quarantine-profiles.md",
+  "formal_shadow": "../ontology/formal/QuarantineProfiles.lean",
+  "formal_evidence": ["../ontology/formal/Model.lean"],
+  "introduced_terms": [
+    "organon:FactiveOperativeKnowledge",
+    "organon:WarrantedKnowledge",
+    "organon:MoralStatusAttribution",
+    "organon:MoralPersonhoodDesignation",
+    "organon:ConstituentSovereignty",
+    "organon:ConstitutedSovereignty",
+    "organon:BoundarySovereignty",
+    "organon:ExternalSovereignty",
+    "organon:Preference",
+    "organon:UtilityMeasure",
+    "organon:Price"
+  ],
+  "local_symbols": [
+    "local:MoralCandidateCondition",
+    "local:EvidenceAdmission",
+    "local:SuperiorityRule",
+    "local:InstitutionalValuation"
+  ],
+  "statements": [
+    {"id":"QP-D1","type":"proposed_definition","subject":"Factive Operative Knowledge","depends_on":["organon:OperativeKnowledge","organon:Record","organon:Claim","organon:Truth","organon:Rule","organon:Specification","organon:Presence","organon:Scope"],"formal_symbol":"FactiveOperativeKnowledge"},
+    {"id":"QP-D2","type":"proposed_definition","subject":"Warranted Knowledge","depends_on":["QP-D1","organon:Evidence","organon:Admission","organon:IndependentFor","organon:Observation","organon:Witness","organon:AdmissibilityRule","organon:Order","organon:Claim"],"formal_symbol":"WarrantedKnowledge"},
+    {"id":"QP-D3","type":"proposed_definition","subject":"Moral Status Attribution","depends_on":["organon:Claim","organon:Agent","organon:Entity","organon:State","organon:Configuration","organon:Representation","organon:Specification","organon:Scope","organon:Language","organon:Rule","organon:Map","local:MoralCandidateCondition"],"formal_symbol":"MoralStatusAttribution"},
+    {"id":"QP-D4","type":"proposed_definition","subject":"Moral Personhood Designation","depends_on":["organon:Relation","organon:CountsAs","organon:Order","organon:Rule","organon:Admission","organon:Scope","organon:Entity","organon:State","QP-D3"],"formal_symbol":"MoralPersonhoodDesignation"},
+    {"id":"QP-D5","type":"proposed_definition","subject":"Constituent Sovereignty","depends_on":["organon:Configuration","organon:Polity","organon:ConstituentPower","organon:ConstituentExercise","organon:Order","organon:Rule","organon:Boundary","organon:Scope"],"formal_symbol":"ConstituentSovereignty"},
+    {"id":"QP-D6","type":"proposed_definition","subject":"Constituted Sovereignty","depends_on":["organon:Order","organon:Entity","organon:Standing","organon:Authority","organon:Action","organon:Scope","organon:Recognition","organon:Rule","local:SuperiorityRule"],"formal_symbol":"ConstitutedSovereignty"},
+    {"id":"QP-D7","type":"proposed_definition","subject":"Boundary Sovereignty","depends_on":["organon:Configuration","organon:Polity","organon:Entity","organon:Control","organon:Constraint","organon:Transformation","organon:Boundary","organon:Order","organon:Enforcement","organon:Consequence","organon:State","organon:Scope"],"formal_symbol":"BoundarySovereignty"},
+    {"id":"QP-D8","type":"proposed_definition","subject":"External Sovereignty","depends_on":["organon:Relation","organon:Order","organon:Entity","organon:Polity","organon:Recognition","organon:Standing","organon:Principal","organon:ActsFor","organon:Action","organon:Rule","organon:Scope"],"formal_symbol":"ExternalSovereignty"},
+    {"id":"QP-D9","type":"proposed_definition","subject":"Preference","depends_on":["organon:Relation","organon:Agent","organon:Rule","organon:State","organon:Consequence","organon:Scope"],"formal_symbol":"Preference"},
+    {"id":"QP-D10","type":"proposed_definition","subject":"Utility Measure","depends_on":["organon:Map","organon:Relation","organon:Rule","organon:Specification","organon:Scope","QP-D9"],"formal_symbol":"UtilityMeasure"},
+    {"id":"QP-D11","type":"proposed_definition","subject":"Price","depends_on":["organon:Relation","organon:Ledger","organon:Record","organon:Order","organon:Admission","organon:Rule","organon:Representation","organon:CountsAs","organon:Presence","organon:State","organon:Scope"],"formal_symbol":"Price"},
+    {"id":"QP-C1","type":"anti_collapse_constraint","subject":"Factivity and warrant are cumulative","depends_on":["QP-D1","QP-D2","organon:OperativeKnowledge","organon:Truth","organon:Evidence"]},
+    {"id":"QP-C2","type":"anti_collapse_constraint","subject":"Moral discourse does not decide moral status","depends_on":["QP-D3","QP-D4","organon:Person","organon:Standing","organon:Permission","organon:Interface","organon:Consequence","organon:Rule"]},
+    {"id":"QP-C3","type":"anti_collapse_constraint","subject":"Sovereignty profiles do not compose silently","depends_on":["QP-D5","QP-D6","QP-D7","QP-D8","organon:Truth","organon:Consequence"]},
+    {"id":"QP-C4","type":"anti_collapse_constraint","subject":"Valuation profiles remain distinct","depends_on":["QP-D9","QP-D10","QP-D11","organon:CountsAs","organon:Action","organon:Truth"]},
+    {"id":"QP-G1","type":"open_formalization_gate","subject":"Core evidence parity","depends_on":["QP-D2","organon:IndependentFor","organon:AdmissibilityRule","organon:Observation","organon:Evidence","organon:Admission"]},
+    {"id":"QP-G2","type":"open_formalization_gate","subject":"Moral condition and moral worth","depends_on":["QP-D3","QP-D4"]},
+    {"id":"QP-G3","type":"open_formalization_gate","subject":"Sovereignty realization and composition","depends_on":["QP-D5","QP-D6","QP-D7","QP-D8","organon:Authority","organon:Control","organon:Enforcement","organon:Recognition"]},
+    {"id":"QP-G4","type":"open_formalization_gate","subject":"Valuation semantics","depends_on":["QP-D9","QP-D10","QP-D11","organon:Action","organon:CountsAs"]}
+  ]
+}
