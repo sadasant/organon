@@ -14,6 +14,15 @@ universe u v
 
 namespace DanielOntology
 
+/-!
+The Rule owns the exact constructive Specification used to classify Flow
+occurrences. The two cannot drift as parallel fields.
+-/
+structure FlowRule
+    {Carrier : Type u}
+    (direction : Direction Carrier) where
+  specification : Specification (Transformation direction)
+
 structure Flow
     {Carrier : Type u}
     (direction : Direction Carrier) where
@@ -23,10 +32,10 @@ structure Flow
       occurrences = first :: second :: rest ∧
       (first.input ≠ second.input ∨ first.output ≠ second.output)
   occurrencesOrdered : OrderedBy direction.before (occurrences.map (·.output))
-  specification : Specification (Transformation direction)
+  rule : FlowRule direction
   occurrencesConform :
     ∀ occurrence, occurrence ∈ occurrences →
-      specification.conforms occurrence
+      rule.specification.conforms occurrence
   persistence : PersistenceWitness direction
   occurrenceOutputsArePersistence :
     occurrences.map (·.output) = persistence.states
@@ -46,12 +55,16 @@ structure RitualAccess
     endpoints.last.output ∈ participant.persistence.states
 
 structure Ritual
-    {Carrier : Type u}
-    (direction : Direction Carrier)
-    (feeding : FeedRelation Carrier) where
+    {Feature : Type u}
+    {Context : Type v}
+    (direction : Direction (Feature × Context))
+    (feeding : FeedRelation (Feature × Context)) where
   flow : Flow direction
-  participant : Entity Carrier
-  target : State Carrier
+  participant : Entity (Feature × Context)
+  target : Context
+  targetOccursThroughoutFlow :
+    ∀ occurrence, occurrence ∈ flow.occurrences →
+      occurrence.output.value.2 = target
   accesses : List (RitualAccess feeding flow participant)
   accessesNonempty : accesses ≠ []
   everyOccurrenceAccessed :
@@ -76,7 +89,7 @@ structure Meaning
     {feeding : FeedRelation (Feature × Context)}
     (ritual : Ritual direction feeding)
     where
-  scope : Scope (State (Feature × Context) × State (Feature × Context))
+  scope : Scope (State (Feature × Context) × Context)
   inScope : scope.includes (ritual.participant.current, ritual.target)
   sustainingContribution :
     CausalContribution Feature Context direction feeding
@@ -101,8 +114,23 @@ def MeaningRelation
     {feeding : FeedRelation (Feature × Context)}
     {ritual : Ritual direction feeding}
     (_meaning : Meaning ritual) :
-    State (Feature × Context) × State (Feature × Context) :=
+    State (Feature × Context) × Context :=
   (ritual.participant.current, ritual.target)
+
+theorem meaningContributionCarriesRitualTarget
+    {Feature : Type v}
+    {Context : Type u}
+    {direction : Direction (Feature × Context)}
+    {feeding : FeedRelation (Feature × Context)}
+    {ritual : Ritual direction feeding}
+    (meaning : Meaning ritual) :
+    meaning.sustainingContribution.leftEndpoints.first.output.value.2 =
+        ritual.target ∧
+      meaning.sustainingContribution.rightEndpoints.first.output.value.2 =
+        ritual.target := by
+  constructor
+  · exact ritual.targetOccursThroughoutFlow _ meaning.leftOriginatesInFlow
+  · exact ritual.targetOccursThroughoutFlow _ meaning.rightOriginatesInFlow
 
 /-!
 Current maintenance is intentionally weaker than continuous visible
@@ -121,18 +149,19 @@ theorem dormantResidueDoesNotSustain :
 
 /-! ## Finite private Ritual and anti-collapse witnesses -/
 
-def ritualFlowSpecification :
-    Specification (Transformation bridgeDirection) where
-  scope := ⟨fun _ => True⟩
-  conforms := fun occurrence => occurrence.output.value.2 = .output
-  decideConformity := fun occurrence =>
-    occurrence.output.value.2 == .output
-  conformityCorrect := by
-    intro occurrence
-    simp
-  conformityWithinScope := by
-    intro _ _
-    trivial
+def ritualFlowRule : FlowRule bridgeDirection where
+  specification := {
+    scope := ⟨fun _ => True⟩
+    conforms := fun occurrence => occurrence.output.value.2 = .output
+    decideConformity := fun occurrence =>
+      occurrence.output.value.2 == .output
+    conformityCorrect := by
+      intro occurrence
+      simp
+    conformityWithinScope := by
+      intro _ _
+      trivial
+  }
 
 def bridgeInvariant : Invariant BridgeCarrier where
   holds := fun _ => True
@@ -159,7 +188,7 @@ def repeatedBridgeFlow : Flow bridgeDirection where
   occurrencesOrdered := by
     simp [OrderedBy, bridgeDirection, lowTransformation, highTransformation,
       lowOutputState, highOutputState]
-  specification := ritualFlowSpecification
+  rule := ritualFlowRule
   occurrencesConform := by
     intro occurrence member
     simp only [List.mem_cons, List.not_mem_nil, or_false] at member
@@ -234,7 +263,13 @@ def highRitualAccess :
 def privateRitual : Ritual bridgeDirection bridgeFeed where
   flow := repeatedBridgeFlow
   participant := privateParticipantAtHigh
-  target := highInputState
+  target := .output
+  targetOccursThroughoutFlow := by
+    intro occurrence member
+    simp [repeatedBridgeFlow] at member
+    rcases member with rfl | rfl
+    · rfl
+    · rfl
   accesses := [lowRitualAccess, highRitualAccess]
   accessesNonempty := by simp
   everyOccurrenceAccessed := by
@@ -244,7 +279,7 @@ def privateRitual : Ritual bridgeDirection bridgeFeed where
     · exact ⟨lowRitualAccess, by simp, rfl⟩
     · exact ⟨highRitualAccess, by simp, rfl⟩
 
-def bridgeMeaningScope : Scope (State BridgeCarrier × State BridgeCarrier) :=
+def bridgeMeaningScope : Scope (State BridgeCarrier × BridgeStage) :=
   ⟨fun _ => True⟩
 
 def privateMeaning :
@@ -268,12 +303,9 @@ theorem privateMeaningIsInhabited :
       (Meaning privateRitual) :=
   ⟨privateMeaning⟩
 
-theorem meaningIsNotItsTarget :
-    (MeaningRelation privateMeaning).1 ≠ (MeaningRelation privateMeaning).2 := by
-  intro equal
-  have values := congrArg (fun state => state.value.2) equal
-  simp [MeaningRelation, privateRitual,
-    privateParticipantAtHigh, highOutputState, highInputState] at values
+theorem privateMeaningUsesRitualTarget :
+    (MeaningRelation privateMeaning).2 = privateRitual.target := by
+  rfl
 
 structure BareRepeatedFlow where
   flow : Flow bridgeDirection
@@ -319,7 +351,13 @@ def highRitualAccessAtLow :
 def privateRitualAtLow : Ritual bridgeDirection bridgeFeed where
   flow := repeatedBridgeFlow
   participant := privateParticipantAtLow
-  target := highInputState
+  target := .output
+  targetOccursThroughoutFlow := by
+    intro occurrence member
+    simp [repeatedBridgeFlow] at member
+    rcases member with rfl | rfl
+    · rfl
+    · rfl
   accesses := [lowRitualAccessAtLow, highRitualAccessAtLow]
   accessesNonempty := by simp
   everyOccurrenceAccessed := by

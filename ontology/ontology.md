@@ -784,7 +784,7 @@ Preference, Utility Measure, Price, institutional valuation, and moral worth rem
 
 **Ritual** is a persistent Configuration in which a Flow is repeatedly joined through participant-bound Causal paths to the Perception, Interpretation, or Action of at least one participating Entity, and Causal Contribution from those joined occurrences preserves one named participant-indexed Relation across distinct participant States within a Scope.
 
-One participating Entity is sufficient: Ritual need not be public, institutional, inherited, ceremonial, or directed toward another Agent. The recurrent target may be an Entity, State, Relation, Configuration, or environmental Difference and need not itself act. Flow without participant-bound causal access is not Ritual; a single Perception, Interpretation, or Action without Flow and persistence of the participant-indexed Relation is not Ritual.
+One participating Entity is sufficient: Ritual need not be public, institutional, inherited, ceremonial, or directed toward another Agent. The recurrent target may be an Entity, State, Relation, Configuration, or environmental Difference and need not itself act. The target must occupy the declared target position in every qualifying Flow occurrence and in the sustaining Causal Contribution; Scope membership alone cannot attach an unrelated target. Flow without participant-bound causal access is not Ritual; a single Perception, Interpretation, or Action without Flow and persistence of the participant-indexed Relation is not Ritual.
 
 <a id="organon-meaning"></a>
 <!-- organon:term organon:Meaning claim=D106 -->
@@ -854,7 +854,7 @@ These signatures make the ontology operational. They are schemas, not executable
 | `prefers` | Agent, ordered candidate States or Consequences, Rule, Scope | asymmetric partial ordering; no necessary numerical or behavioral representation |
 | `measuresUtility` | candidates, ordered measure space, Map, Rule, Specification, Scope | measured ordering; correspondence to Preference requires a separate witness |
 | `prices` | Ledger Record, Order, Rule, Representation of consideration, exchanged Presence, State, Scope | admitted exchange condition; no entailment of exchange, preference, utility, or worth |
-| `enactsRitual` | Flow, participating Entity, participant-bound Causal paths, Perception, Interpretation or Action, Causal Contribution, persistent Relation, Scope | Ritual; Flow or one access event alone is insufficient, while one participant is sufficient |
+| `enactsRitual` | Flow, recurrent target present in every occurrence, participating Entity, participant-bound Causal paths, Perception, Interpretation or Action, Causal Contribution, persistent Relation, Scope | Ritual; Flow, an arbitrary in-Scope target, or one access event alone is insufficient, while one participant is sufficient |
 | `sustainsMeaning` | Ritual, participating Entities, target Presences, actual sustaining Causal Contribution, Scope | participant-indexed Meaning Relation; no storage in the target or literal copying across participants |
 
 ## Binding consistency rules

@@ -7,7 +7,7 @@
   "formal_shadow": "../ontology/formal/RitualMeaning.lean",
   "formal_evidence": ["../ontology/formal/Model.lean"],
   "introduced_terms": ["organon:Ritual", "organon:Meaning"],
-  "local_symbols": ["local:RitualAccess", "local:SustainingSide", "local:DerivedMeaning"],
+  "local_symbols": ["local:FlowRule", "local:RitualAccess", "local:SustainingSide", "local:DerivedMeaning"],
   "statements": [
     {"id":"RM-D1","type":"proposed_definition","subject":"Flow","depends_on":["organon:Configuration","organon:Transformation","organon:Direction","organon:Rule","organon:Specification","organon:Scope","organon:Relation","organon:Invariant","organon:Persistence","organon:State","organon:Difference"],"formal_symbol":"Flow"},
     {"id":"RM-D2","type":"proposed_definition","subject":"Ritual","depends_on":["RM-D1","organon:Flow","organon:Configuration","organon:Persistence","organon:Entity","organon:CausalPath","organon:CausalContribution","organon:Perception","organon:Interpretation","organon:Action","organon:State","organon:Relation","organon:Scope","local:RitualAccess"],"formal_symbol":"Ritual"},
