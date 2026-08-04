@@ -14,10 +14,7 @@ universe u v
 
 namespace DanielOntology
 
-/-!
-The Rule owns the exact constructive Specification used to classify Flow
-occurrences. The two cannot drift as parallel fields.
--/
+/-! A Flow Rule belongs to a classification of a Flow, not to its obtainment. -/
 structure FlowRule
     {Carrier : Type u}
     (direction : Direction Carrier) where
@@ -32,13 +29,38 @@ structure Flow
       occurrences = first :: second :: rest ∧
       (first.input ≠ second.input ∨ first.output ≠ second.output)
   occurrencesOrdered : OrderedBy direction.before (occurrences.map (·.output))
-  rule : FlowRule direction
-  occurrencesConform :
-    ∀ occurrence, occurrence ∈ occurrences →
-      rule.specification.conforms occurrence
+  recurrence : Transformation direction → Transformation direction → Prop
+  occurrencesRecur : OrderedBy recurrence occurrences
   persistence : PersistenceWitness direction
   occurrenceOutputsArePersistence :
     occurrences.map (·.output) = persistence.states
+
+/-!
+Classification is an epistemic and operational witness for a Flow Claim. It
+does not constitute the Flow. The Rule owns the exact constructive
+Specification, every selected occurrence conforms, and at least one in-Scope
+non-occurrence is rejected so the classifier is not extensionally universal.
+-/
+structure FlowClassification
+    {Carrier : Type u}
+    {direction : Direction Carrier}
+    (flow : Flow direction) where
+  rule : FlowRule direction
+  occurrencesConform :
+    ∀ occurrence, occurrence ∈ flow.occurrences →
+      rule.specification.conforms occurrence
+  classificationTracksRecurrence :
+    OrderedBy
+      (fun earlier later =>
+        rule.specification.conforms earlier ∧
+          rule.specification.conforms later ∧
+          flow.recurrence earlier later)
+      flow.occurrences
+  rejectsInScopeNonOccurrence :
+    ∃ candidate,
+      rule.specification.scope.includes candidate ∧
+      candidate ∉ flow.occurrences ∧
+      ¬ rule.specification.conforms candidate
 
 structure RitualAccess
     {Carrier : Type u}
@@ -77,12 +99,17 @@ structure RitualUptake
     {direction : Direction (Feature × Context)}
     (feeding : FeedRelation (Feature × Context))
     (flow : Flow direction)
+    (classification : FlowClassification flow)
     (participant : Entity (Feature × Context)) where
   priorOccurrence : Transformation direction
   currentOccurrence : Transformation direction
   priorOccursInFlow : priorOccurrence ∈ flow.occurrences
   currentOccursInFlow : currentOccurrence ∈ flow.occurrences
   occurrencesDistinct : priorOccurrence ≠ currentOccurrence
+  recurrenceHolds : flow.recurrence priorOccurrence currentOccurrence
+  priorClassified : classification.rule.specification.conforms priorOccurrence
+  currentClassified :
+    classification.rule.specification.conforms currentOccurrence
   contribution : CausalContribution Feature Context direction feeding
   contributionBeginsWithPrior :
     contribution.leftEndpoints.first = priorOccurrence
@@ -126,6 +153,7 @@ structure Ritual
     (direction : Direction (Feature × Context))
     (feeding : FeedRelation (Feature × Context)) where
   flow : Flow direction
+  classification : FlowClassification flow
   participant : Entity (Feature × Context)
   target : TargetContinuity Target
   targetProjection : State (Feature × Context) → State Target
@@ -138,11 +166,11 @@ structure Ritual
     ∀ occurrence, occurrence ∈ flow.occurrences →
       ∃ access : RitualAccess feeding flow participant,
         access ∈ accesses ∧ access.occurrence = occurrence
-  uptakes : List (RitualUptake feeding flow participant)
+  uptakes : List (RitualUptake feeding flow classification participant)
   uptakesNonempty : uptakes ≠ []
   everyLaterOccurrenceUptaken :
     ∀ occurrence, occurrence ∈ flow.occurrences.tail →
-      ∃ uptake : RitualUptake feeding flow participant,
+      ∃ uptake : RitualUptake feeding flow classification participant,
         uptake ∈ uptakes ∧ uptake.currentOccurrence = occurrence
 
 inductive SustainingSide where
@@ -250,9 +278,9 @@ theorem dormantResidueDoesNotSustain :
 def ritualFlowRule : FlowRule bridgeDirection where
   specification := {
     scope := ⟨fun _ => True⟩
-    conforms := fun occurrence => occurrence.output.value.2 = .output
+    conforms := fun occurrence => occurrence.input.value.2 = .input
     decideConformity := fun occurrence =>
-      occurrence.output.value.2 == .output
+      occurrence.input.value.2 == .input
     conformityCorrect := by
       intro occurrence
       simp
@@ -286,16 +314,34 @@ def repeatedBridgeFlow : Flow bridgeDirection where
   occurrencesOrdered := by
     simp [OrderedBy, bridgeDirection, lowTransformation, highTransformation,
       lowOutputState, highOutputState]
-  rule := ritualFlowRule
-  occurrencesConform := by
-    intro occurrence member
-    simp only [List.mem_cons, List.not_mem_nil, or_false] at member
-    rcases member with rfl | rfl
-    · rfl
-    · rfl
+  recurrence := fun earlier later =>
+    earlier.output.value.2 = later.output.value.2 ∧
+      earlier.output.value.1 ≠ later.output.value.1
+  occurrencesRecur := by
+    simp [OrderedBy, lowTransformation, highTransformation, lowOutputState,
+      highOutputState]
   persistence := bridgeFlowPersistence
   occurrenceOutputsArePersistence := by
     simp [bridgeFlowPersistence, lowTransformation, highTransformation]
+
+def ritualFlowClassification : FlowClassification repeatedBridgeFlow where
+  rule := ritualFlowRule
+  occurrencesConform := by
+    intro occurrence member
+    simp [repeatedBridgeFlow] at member
+    rcases member with rfl | rfl
+    · rfl
+    · rfl
+  classificationTracksRecurrence := by
+    simp [OrderedBy, repeatedBridgeFlow, ritualFlowRule, lowTransformation,
+      highTransformation, lowInputState, highInputState, lowOutputState,
+      highOutputState]
+  rejectsInScopeNonOccurrence := by
+    refine ⟨bridgeOutputTransformation, trivial, ?_, ?_⟩
+    · simp [repeatedBridgeFlow, bridgeOutputTransformation, lowTransformation,
+        highTransformation, lowOutputState, highOutputState, lowInputState,
+        highInputState]
+    · simp [ritualFlowRule, bridgeOutputTransformation, lowOutputState]
 
 def privateIdentity : Invariant BridgeCarrier where
   holds := fun _ => True
@@ -371,7 +417,8 @@ def memoryConditionedRitualInterpretation
     highOutputState
 
 def privateRitualUptakeAtHigh :
-    RitualUptake bridgeFeed repeatedBridgeFlow privateParticipantAtHigh where
+    RitualUptake bridgeFeed repeatedBridgeFlow ritualFlowClassification
+      privateParticipantAtHigh where
   priorOccurrence := lowTransformation
   currentOccurrence := highTransformation
   priorOccursInFlow := by simp [repeatedBridgeFlow]
@@ -381,6 +428,11 @@ def privateRitualUptakeAtHigh :
     have values := congrArg (fun occurrence => occurrence.input.value.1) equal
     simp [lowTransformation, highTransformation, lowInputState,
       highInputState] at values
+  recurrenceHolds := by
+    simp [repeatedBridgeFlow, lowTransformation, highTransformation,
+      lowOutputState, highOutputState]
+  priorClassified := rfl
+  currentClassified := rfl
   contribution := bridgeContribution
   contributionBeginsWithPrior := rfl
   contributionBeginsWithCurrent := rfl
@@ -447,6 +499,7 @@ def highRitualAccess :
 def privateRitual :
     Ritual (Target := Option Bool) bridgeDirection bridgeFeed where
   flow := repeatedBridgeFlow
+  classification := ritualFlowClassification
   participant := privateParticipantAtHigh
   target := driftingRitualTarget
   targetProjection := fun state => ⟨some state.value.1⟩
@@ -530,6 +583,16 @@ structure BareRepeatedFlow where
 def recurrenceWithoutParticipant : BareRepeatedFlow :=
   ⟨repeatedBridgeFlow⟩
 
+theorem flowObtainsWithoutConstitutiveClassifier :
+    Nonempty (Flow bridgeDirection) :=
+  ⟨repeatedBridgeFlow⟩
+
+theorem ritualFlowClassifierIsNonUniversal :
+    ¬ ritualFlowClassification.rule.specification.conforms
+      bridgeOutputTransformation := by
+  simp [ritualFlowClassification, ritualFlowRule, bridgeOutputTransformation,
+    lowOutputState]
+
 theorem bareFlowCarriesNoParticipantAccess :
     Nonempty BareRepeatedFlow ∧
       (recurrenceWithoutParticipant.flow.occurrences.length = 2) := by
@@ -566,12 +629,16 @@ def highRitualAccessAtLow :
       privatePersistence]
 
 def privateRitualUptakeAtLow :
-    RitualUptake bridgeFeed repeatedBridgeFlow privateParticipantAtLow where
+    RitualUptake bridgeFeed repeatedBridgeFlow ritualFlowClassification
+      privateParticipantAtLow where
   priorOccurrence := lowTransformation
   currentOccurrence := highTransformation
   priorOccursInFlow := by simp [repeatedBridgeFlow]
   currentOccursInFlow := by simp [repeatedBridgeFlow]
   occurrencesDistinct := privateRitualUptakeAtHigh.occurrencesDistinct
+  recurrenceHolds := privateRitualUptakeAtHigh.recurrenceHolds
+  priorClassified := rfl
+  currentClassified := rfl
   contribution := bridgeContribution
   contributionBeginsWithPrior := rfl
   contributionBeginsWithCurrent := rfl
@@ -616,6 +683,7 @@ def privateRitualUptakeAtLow :
 def privateRitualAtLow :
     Ritual (Target := Option Bool) bridgeDirection bridgeFeed where
   flow := repeatedBridgeFlow
+  classification := ritualFlowClassification
   participant := privateParticipantAtLow
   target := driftingRitualTarget
   targetProjection := fun state => ⟨some state.value.1⟩

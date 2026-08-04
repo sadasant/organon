@@ -353,7 +353,9 @@ Interiority does not entail consciousness. Accountability for external effects d
 
 **Flow** is a repeated sequence of similar Transformations along persistent Relations.
 
-The sequence contains at least two distinct Transformation occurrences whose outputs are ordered under one Direction within one Scope. One Rule and constructive Specification decide the respect in which the occurrences are similar, and a named Relation or Invariant persists across their ordered States. The States need not repeat identically, the intervals need not be periodic, and the Entity classifying the Flow need not produce its Transformations.
+The sequence contains at least two distinct Transformation occurrences joined by one recurrence Relation, with their outputs ordered under one Direction within one Scope and a named Relation or Invariant persisting across those States. The recurrence Relation identifies the respect in which the occurrences repeat; the States need not be identical, the intervals need not be periodic, and no Agent, Representation, Rule, or Specification is required for the Flow to obtain.
+
+A Claim that selected occurrences constitute a Flow must name the recurrence Relation, Scope, and Persistence witness and supply a Rule with a constructive Specification that decides occurrence membership under that Relation. The classifier makes the Claim reproducible; it does not constitute the Flow. A conforming classifier does not establish that a Flow obtains unless the selected Transformations actually inhabit the named recurrence Relation and persistent history.
 
 <a id="organon-interface"></a>
 <!-- organon:term organon:Interface claim=D042 -->
@@ -782,7 +784,7 @@ Preference, Utility Measure, Price, institutional valuation, and moral worth rem
 <a id="organon-ritual"></a>
 <!-- organon:term organon:Ritual claim=D105 -->
 
-**Ritual** is a persistent Configuration in which successive occurrences of a Flow enter the Perception of at least one participating Entity, an internal Memory of a prior occurrence causally conditions the Interpretation of a later occurrence, and the sustaining Causal Contribution passes through that memory-conditioned Interpretation to preserve one named participant-indexed Relation across distinct participant States within a Scope.
+**Ritual** is a persistent Configuration in which successive occurrences of a Flow enter the Perception of at least one participating Entity, an internal Memory of a prior occurrence causally conditions the Interpretation of a later occurrence, that Interpretation classifies the later occurrence as recurrence under one Rule and constructive Specification of the Flow's recurrence Relation, and the sustaining Causal Contribution passes through the memory-conditioned Interpretation to preserve one named participant-indexed Relation across distinct participant States within a Scope.
 
 Memory is load-bearing only when substituting a different admissible Memory changes the resulting Interpretation; merely recording an earlier occurrence is insufficient. The first occurrence may establish conditions for later Ritual but does not constitute Ritual by itself. An outward Action is not required, and Memory need not be verbal, declarative, or consciously accessible.
 
@@ -856,7 +858,8 @@ These signatures make the ontology operational. They are schemas, not executable
 | `prefers` | Agent, ordered candidate States or Consequences, Rule, Scope | asymmetric partial ordering; no necessary numerical or behavioral representation |
 | `measuresUtility` | candidates, ordered measure space, Map, Rule, Specification, Scope | measured ordering; correspondence to Preference requires a separate witness |
 | `prices` | Ledger Record, Order, Rule, Representation of consideration, exchanged Presence, State, Scope | admitted exchange condition; no entailment of exchange, preference, utility, or worth |
-| `enactsRitual` | Flow, target identity criterion and Persistence witness, participating Entity, participant-bound Causal paths, Perception, prior Memory, memory-conditioned Interpretation, sustaining Causal Contribution, persistent Relation, Scope | Ritual; Memory must change the Interpretation under contrast, target drift must preserve the declared Invariant, and one participant is sufficient |
+| `classifiesFlow` | Flow Claim, selected Transformation occurrences, recurrence Relation, Rule, constructive Specification, Scope, Persistence witness | reproducible classification of the Claim; classifier conformity alone does not constitute or prove the Flow |
+| `enactsRitual` | Flow, one classification of its recurrence Relation, target identity criterion and Persistence witness, participating Entity, participant-bound Causal paths, Perception, prior Memory, memory-conditioned Interpretation, sustaining Causal Contribution, persistent Relation, Scope | Ritual; Interpretation must classify recurrence, Memory must change that Interpretation under contrast, target drift must preserve the declared Invariant, and one participant is sufficient |
 | `sustainsMeaning` | Ritual, participating Entities, target Presences, actual sustaining Causal Contribution, Scope | participant-indexed Meaning Relation; no storage in the target or literal copying across participants |
 
 ## Binding consistency rules
@@ -909,7 +912,7 @@ These signatures make the ontology operational. They are schemas, not executable
 
 24. <!-- organon:claim C24 --> **No hidden-bridge substitution:** An Entity identity Claim must name its Invariant and Persistence witness; a Representation must name its Denotation; causal efficacy must name a Causal Contribution comparison; Capability must name the Constraint interpretation and constructive possibility witness; evidential support or defeat must name Evidential Bearing; and institutional eligibility must resolve to Standing in a named Order, Rule, and Scope. None of these bridges follows from resemblance, assertion, co-occurrence, or an untyped predicate.
 
-25. <!-- organon:claim C25 --> **No recurrence-to-ritual collapse:** Ritual entails a Flow, participant-bound Perception of successive occurrences, a prior Memory whose substitution changes a later Interpretation, and a sustaining Causal Contribution passing through that Interpretation. Flow, recurrent exposure, a stored Record, Perception, Memory, Interpretation, or Action alone does not entail Ritual. Ritual does not require an outward Action, multiple participants, an Institution, an inherited social form, periodic intervals, conscious recall, or an Agent as its target.
+25. <!-- organon:claim C25 --> **No recurrence-to-ritual collapse:** Ritual entails a Flow, a Rule and constructive Specification through which the participant's Interpretation classifies recurrence under the Flow's Relation, participant-bound Perception of successive occurrences, a prior Memory whose substitution changes that Interpretation, and a sustaining Causal Contribution passing through it. Flow, a Flow classifier, recurrent exposure, a stored Record, Perception, Memory, Interpretation, or Action alone does not entail Ritual. Ritual does not require an outward Action, multiple participants, an Institution, an inherited social form, periodic intervals, conscious recall, or an Agent as its target.
 
 26. <!-- organon:claim C26 --> **Meaning is maintained, not stored:** Meaning entails a sustaining Ritual. A target Presence, Record, Memory, Symbol, or other ritual-derived Configuration does not contain Meaning independently. Visible enactment may stop while an actual derived Causal Contribution continues preserving the Relation; when neither enactment nor such contribution preserves it, the Relation ceases to obtain in the continuing Scope.
 
@@ -918,6 +921,8 @@ These signatures make the ontology operational. They are schemas, not executable
 28. <!-- organon:claim C28 --> **Meaning is not silent valuation or status:** Ritual and Meaning entail neither Preference, Utility Measure, Price, institutional valuation, Truth, consent, goodness, consciousness, moral status, moral personhood, nor moral worth. None of those classifications entails Ritual or Meaning without the required Flow, participant access, and sustaining Relation.
 
 29. <!-- organon:claim C29 --> **Target drift is neither identity nor substitution by default:** Variation among target States or Representations preserves one Ritual target only when a declared identity criterion and Persistence witness preserve one target Invariant and every qualifying occurrence reaches or denotes a State in that history. Drift within the Invariant does not terminate the Ritual; breaking the Invariant constitutes target substitution, and any subsequently constituted Meaning Relation is numerically distinct though it may be causally derived. Exact State equality, resemblance, shared naming, uninterrupted enactment, or Denotation alone does not prove target continuity.
+
+30. <!-- organon:claim C30 --> **No Flow-classification collapse:** A Flow obtains through its Transformation occurrences, recurrence Relation, ordered States, and Persistence, not through a Representation that classifies it. A Rule and constructive Specification are required for a reproducible Flow Claim but neither create the recurrence Relation nor establish that the selected occurrences inhabit it. Flow may obtain without any classifier, and different classifiers may track the same Flow without multiplying it.
 
 ## Quarantined vocabulary
 

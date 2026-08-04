@@ -13,11 +13,11 @@ This note records how [Daniel's Ontology](./ontology.md) changed. Historical arg
 
 ### v0.17 - Ritual-dependent Meaning
 
-- Strengthened Flow as the existing recurrence mechanism: at least two distinct Transformation occurrences, ordered outputs under one Direction, one constructive similarity Specification and Rule, one Scope, and a named persistent Relation or Invariant. Recurrence did not survive termhood as a duplicate.
+- Strengthened Flow as the existing ontic recurrence mechanism: at least two distinct Transformation occurrences, one recurrence Relation, ordered outputs under one Direction, one Scope, and a named persistent Relation or Invariant. A rejected draft made constructive classification constitutive; the adopted revision instead requires Rule and Specification for reproducible Flow Claims and for participant-relative Ritual Interpretation. Recurrence did not survive termhood as a duplicate.
 - Added Ritual as a persistent Configuration joining successive Flow occurrences to participant Perception, a prior internal Memory that makes a contrastive Difference to later Interpretation, and a sustaining Causal Contribution passing through that Interpretation. Private Ritual is sufficient; outward Action and conscious recall are not required.
 - Added Meaning as the participant-indexed Relation constituted and sustained through Ritual, not a property contained by a target, shrine, Symbol, Record, or Memory.
 - Reduced Ritual Residue to existing Records, Memories, Changes, Consequences, environmental Configurations, and Causal Contribution. Dormant carriers preserve conditions for reenactment rather than Meaning itself.
-- Added C25-C29 for recurrence/uptake, maintenance/storage, propagation/identity, valuation/status, and target-drift anti-collapses, plus the optional `ritual-meaning` adoption profile.
+- Added C25-C30 for recurrence/uptake, maintenance/storage, propagation/identity, valuation/status, target drift, and Flow/classification anti-collapses, plus the optional `ritual-meaning` adoption profile.
 - Added finite Lean witnesses for ordered repeated Flow, contrastively load-bearing Perception and Memory, private Ritual, target-State drift within one Invariant and Persistence history, a candidate substitution State rejected by that Invariant, causally joined Meaning, Flow without participant access, a single access event without Flow, derived-effect maintenance versus dormancy, and causally propagated but non-identical Meaning Relations.
 - Kept canonical Sense/Perception/Memory/Interpretation parity, represented-target Denotation, temporal decay, Beauty, Play, Love, sacredness, goodness, consent, consciousness, and moral worth outside the promoted formal boundary.
 
