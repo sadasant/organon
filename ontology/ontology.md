@@ -782,9 +782,11 @@ Preference, Utility Measure, Price, institutional valuation, and moral worth rem
 <a id="organon-ritual"></a>
 <!-- organon:term organon:Ritual claim=D105 -->
 
-**Ritual** is a persistent Configuration in which a Flow is repeatedly joined through participant-bound Causal paths to the Perception, Interpretation, or Action of at least one participating Entity, and Causal Contribution from those joined occurrences preserves one named participant-indexed Relation across distinct participant States within a Scope.
+**Ritual** is a persistent Configuration in which successive occurrences of a Flow enter the Perception of at least one participating Entity, an internal Memory of a prior occurrence causally conditions the Interpretation of a later occurrence, and the sustaining Causal Contribution passes through that memory-conditioned Interpretation to preserve one named participant-indexed Relation across distinct participant States within a Scope.
 
-One participating Entity is sufficient: Ritual need not be public, institutional, inherited, ceremonial, or directed toward another Agent. The recurrent target may be an Entity, State, Relation, Configuration, or environmental Difference and need not itself act. The target must occupy the declared target position in every qualifying Flow occurrence and in the sustaining Causal Contribution; Scope membership alone cannot attach an unrelated target. Flow without participant-bound causal access is not Ritual; a single Perception, Interpretation, or Action without Flow and persistence of the participant-indexed Relation is not Ritual.
+Memory is load-bearing only when substituting a different admissible Memory changes the resulting Interpretation; merely recording an earlier occurrence is insufficient. The first occurrence may establish conditions for later Ritual but does not constitute Ritual by itself. An outward Action is not required, and Memory need not be verbal, declarative, or consciously accessible.
+
+One participating Entity is sufficient: Ritual need not be public, institutional, inherited, ceremonial, or directed toward another Agent. The recurrent target may be an Entity, State, Relation, Configuration, or environmental Difference and need not itself act. The target may vary across States and Representations only when a declared identity criterion and Persistence witness preserve one target Invariant through those variations. Every qualifying occurrence must reach a State in that target history or, when mediated by a Representation, carry an exact Denotation to one. Scope membership alone cannot attach an unrelated target.
 
 <a id="organon-meaning"></a>
 <!-- organon:term organon:Meaning claim=D106 -->
@@ -854,7 +856,7 @@ These signatures make the ontology operational. They are schemas, not executable
 | `prefers` | Agent, ordered candidate States or Consequences, Rule, Scope | asymmetric partial ordering; no necessary numerical or behavioral representation |
 | `measuresUtility` | candidates, ordered measure space, Map, Rule, Specification, Scope | measured ordering; correspondence to Preference requires a separate witness |
 | `prices` | Ledger Record, Order, Rule, Representation of consideration, exchanged Presence, State, Scope | admitted exchange condition; no entailment of exchange, preference, utility, or worth |
-| `enactsRitual` | Flow, recurrent target present in every occurrence, participating Entity, participant-bound Causal paths, Perception, Interpretation or Action, Causal Contribution, persistent Relation, Scope | Ritual; Flow, an arbitrary in-Scope target, or one access event alone is insufficient, while one participant is sufficient |
+| `enactsRitual` | Flow, target identity criterion and Persistence witness, participating Entity, participant-bound Causal paths, Perception, prior Memory, memory-conditioned Interpretation, sustaining Causal Contribution, persistent Relation, Scope | Ritual; Memory must change the Interpretation under contrast, target drift must preserve the declared Invariant, and one participant is sufficient |
 | `sustainsMeaning` | Ritual, participating Entities, target Presences, actual sustaining Causal Contribution, Scope | participant-indexed Meaning Relation; no storage in the target or literal copying across participants |
 
 ## Binding consistency rules
@@ -907,13 +909,15 @@ These signatures make the ontology operational. They are schemas, not executable
 
 24. <!-- organon:claim C24 --> **No hidden-bridge substitution:** An Entity identity Claim must name its Invariant and Persistence witness; a Representation must name its Denotation; causal efficacy must name a Causal Contribution comparison; Capability must name the Constraint interpretation and constructive possibility witness; evidential support or defeat must name Evidential Bearing; and institutional eligibility must resolve to Standing in a named Order, Rule, and Scope. None of these bridges follows from resemblance, assertion, co-occurrence, or an untyped predicate.
 
-25. <!-- organon:claim C25 --> **No recurrence-to-ritual collapse:** Ritual entails a Flow and participant-bound causal access, but Flow alone does not entail Ritual. Perception, Interpretation, or Action alone does not entail Ritual without the qualifying Flow and persistence of the participant-indexed Relation. Ritual does not require multiple participants, an Institution, an inherited social form, periodic intervals, or an Agent as its target.
+25. <!-- organon:claim C25 --> **No recurrence-to-ritual collapse:** Ritual entails a Flow, participant-bound Perception of successive occurrences, a prior Memory whose substitution changes a later Interpretation, and a sustaining Causal Contribution passing through that Interpretation. Flow, recurrent exposure, a stored Record, Perception, Memory, Interpretation, or Action alone does not entail Ritual. Ritual does not require an outward Action, multiple participants, an Institution, an inherited social form, periodic intervals, conscious recall, or an Agent as its target.
 
 26. <!-- organon:claim C26 --> **Meaning is maintained, not stored:** Meaning entails a sustaining Ritual. A target Presence, Record, Memory, Symbol, or other ritual-derived Configuration does not contain Meaning independently. Visible enactment may stop while an actual derived Causal Contribution continues preserving the Relation; when neither enactment nor such contribution preserves it, the Relation ceases to obtain in the continuing Scope.
 
 27. <!-- organon:claim C27 --> **Meaning propagation is derivation, not copying:** A Meaning Relation produced through causal propagation to another participant is distinct from its source Relation. Shared target, Representation, Rule, or ritual form does not erase the different participant index.
 
 28. <!-- organon:claim C28 --> **Meaning is not silent valuation or status:** Ritual and Meaning entail neither Preference, Utility Measure, Price, institutional valuation, Truth, consent, goodness, consciousness, moral status, moral personhood, nor moral worth. None of those classifications entails Ritual or Meaning without the required Flow, participant access, and sustaining Relation.
+
+29. <!-- organon:claim C29 --> **Target drift is neither identity nor substitution by default:** Variation among target States or Representations preserves one Ritual target only when a declared identity criterion and Persistence witness preserve one target Invariant and every qualifying occurrence reaches or denotes a State in that history. Drift within the Invariant does not terminate the Ritual; breaking the Invariant constitutes target substitution, and any subsequently constituted Meaning Relation is numerically distinct though it may be causally derived. Exact State equality, resemblance, shared naming, uninterrupted enactment, or Denotation alone does not prove target continuity.
 
 ## Quarantined vocabulary
 
