@@ -33,6 +33,8 @@ An earlier draft also made one constructive Rule and Specification constitutive 
 
 Flow alone can occur with no participant. Ritual adds what Flow lacks: participant-bound Perception, an internal Memory of a prior occurrence that makes a contrastive Difference to later Interpretation, and a sustaining Causal Contribution passing through that Interpretation. Removing those joins classifies sunrise, an unattended oscillator, repeated exposure without retention, and conditioning without Interpretation as Ritual merely because they recur.
 
+This consequence is intended: when a rite becomes fully proceduralized such that substituting a different admissible Memory no longer changes its Interpretation, Ritual has died into Flow, although ritual-derived Causal Contributions may continue sustaining its Meaning temporarily under RM-C2 before that Relation ceases.
+
 ### Rejected new term: Ritual Residue
 
 The strongest reduction is also successful. A ritual-derived effect may already be a Record, Memory, Change in an Entity or Environment, Consequence, or Configuration of these terms. Causal Contribution states whether that effect actually makes a later Difference. Naming the collection Ritual Residue would add no classification not already available. The proposal therefore uses “ritual-derived effect” descriptively and denies that such an effect contains Meaning at rest.
