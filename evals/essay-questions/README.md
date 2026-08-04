@@ -59,3 +59,10 @@ The JSON result is the machine-readable record. The committed Markdown result is
 - whether the run completed all ten essays and forty questions.
 
 Generated answers are not Daniel-authored prose, corrections to the essays, or binding Organon Claims.
+
+## Recorded runs
+
+| Ontology snapshot | JSON | Markdown |
+|---|---|---|
+| v0.16 | [machine record](./results/gpt-5.6-luna-2026-08-04.json) | [readable projection](./results/gpt-5.6-luna-2026-08-04.md) |
+| v0.17 | [machine record](./results/gpt-5.6-luna-2026-08-04-v0.17.json) | [readable projection](./results/gpt-5.6-luna-2026-08-04-v0.17.md) |
