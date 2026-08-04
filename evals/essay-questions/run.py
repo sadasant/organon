@@ -25,9 +25,8 @@ DEFAULT_QUESTIONS = EVAL_ROOT / "questions.md"
 DEFAULT_ONTOLOGY = ROOT / "ontology" / "ontology.md"
 DEFAULT_SHORT_FORM = ROOT / "editorial" / "short-form.md"
 
-ESSAY_HEADING = re.compile(
-    r"^### \[\[(?P<path>Contexts/Essays/Works/[^|\]]+)\|(?P<title>[^\]]+)\]\]$"
-)
+ESSAY_HEADING = re.compile(r"^### (?P<title>.+)$")
+ESSAY_FILE = re.compile(r"^<!-- essay-file: (?P<path>[^>]+) -->$")
 QUESTION_ROW = re.compile(
     r"^\| (?P<id>[A-Z]{2}-\d+) \| (?P<lens>[^|]+?) \| "
     r"(?P<question>[^|]+?) \| (?P<pressure>[^|]+?) \|$"
@@ -43,7 +42,7 @@ class Question(BaseModel):
 
 class EssayQuestions(BaseModel):
     title: str
-    vault_path: str
+    essay_file: str
     questions: list[Question]
 
 
@@ -109,10 +108,15 @@ def parse_questions(markdown: str) -> list[EssayQuestions]:
         if heading:
             current = EssayQuestions(
                 title=heading.group("title"),
-                vault_path=heading.group("path") + ".md",
+                essay_file="",
                 questions=[],
             )
             essays.append(current)
+            continue
+
+        essay_file = ESSAY_FILE.match(line)
+        if essay_file and current is not None:
+            current.essay_file = essay_file.group("path").strip()
             continue
 
         row = QUESTION_ROW.match(line)
@@ -131,6 +135,8 @@ def parse_questions(markdown: str) -> list[EssayQuestions]:
     if any(len(essay.questions) != 4 for essay in essays):
         counts = {essay.title: len(essay.questions) for essay in essays}
         raise ValueError(f"Expected four questions per essay: {counts}")
+    if any(not essay.essay_file or not essay.essay_file.endswith(".md") for essay in essays):
+        raise ValueError("Every essay requires one relative Markdown essay-file selector")
     ids = [question.id for essay in essays for question in essay.questions]
     if len(ids) != 40 or len(ids) != len(set(ids)):
         raise ValueError("Question IDs must be exactly 40 unique values")
@@ -166,7 +172,7 @@ def escape_cell(value: str) -> str:
     return " ".join(value.replace("|", r"\|").split())
 
 
-def render_markdown(result: dict) -> str:
+def render_markdown(result: dict, obsidian_links: bool = False) -> str:
     metadata = result["run"]
     lines = [
         "---",
@@ -207,13 +213,17 @@ def render_markdown(result: dict) -> str:
     ]
 
     for essay in result["essays"]:
-        link = f"[[{essay['vault_path'][:-3]}|{essay['title']}]]"
+        if obsidian_links:
+            note = f"Contexts/Essays/Works/{essay['essay_file'][:-3]}"
+            essay_label = f"[[{note}|{essay['title']}]]"
+        else:
+            essay_label = essay["title"]
         for item in essay["answers"]:
             lines.append(
                 "| "
                 + " | ".join(
                     [
-                        escape_cell(link),
+                        escape_cell(essay_label),
                         escape_cell(item["question_id"]),
                         escape_cell(item["lens"]),
                         escape_cell(item["disposition"]),
@@ -252,6 +262,13 @@ def write_artifacts(result: dict, output_stem: Path, overwrite: bool) -> None:
     markdown_path.write_text(render_markdown(result), encoding="utf-8")
 
 
+def write_obsidian_projection(result: dict, output: Path, overwrite: bool) -> None:
+    if output.exists() and not overwrite:
+        raise FileExistsError(f"Refusing to overwrite {output}; pass --overwrite")
+    output.parent.mkdir(parents=True, exist_ok=True)
+    output.write_text(render_markdown(result, obsidian_links=True), encoding="utf-8")
+
+
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser()
     parser.add_argument(
@@ -274,6 +291,7 @@ def parse_args() -> argparse.Namespace:
     )
     parser.add_argument("--max-tokens", type=int, default=5000)
     parser.add_argument("--output-stem", type=Path, required=True)
+    parser.add_argument("--obsidian-output", type=Path)
     parser.add_argument("--overwrite", action="store_true")
     return parser.parse_args()
 
@@ -328,7 +346,9 @@ def main() -> None:
     }
 
     for essay_set in essay_sets:
-        essay_path = args.vault_root / essay_set.vault_path
+        essay_path = (
+            args.vault_root / "Contexts" / "Essays" / "Works" / essay_set.essay_file
+        )
         essay_text = read_text(essay_path)
         prediction = program(
             ontology=ontology,
@@ -350,7 +370,7 @@ def main() -> None:
         result["essays"].append(
             {
                 "title": essay_set.title,
-                "vault_path": essay_set.vault_path,
+                "essay_file": essay_set.essay_file,
                 "essay_sha256": sha256_text(essay_text),
                 "answers": answer_rows,
             }
@@ -367,6 +387,8 @@ def main() -> None:
     if not result["run"]["complete"]:
         raise RuntimeError("Evaluation did not produce the complete 10-essay/40-question set")
     write_artifacts(result, args.output_stem, args.overwrite)
+    if args.obsidian_output:
+        write_obsidian_projection(result, args.obsidian_output, args.overwrite)
 
 
 if __name__ == "__main__":

@@ -11,7 +11,7 @@ The ontology governs term use and anti-collapse constraints. The short-form note
 
 ## Context boundary
 
-The Organon repository does not absorb the essay corpus. `questions.md` is a versioned evaluation input containing Obsidian links to the canonical notes. At runtime, `run.py` resolves those links against `PARERGON_VAULT`, reads the ten essay bodies, and records a SHA-256 digest for every source. Generated answers can therefore be compared to the exact local corpus snapshot without duplicating the essays into this repository.
+The Organon repository does not absorb the essay corpus. `questions.md` is a versioned evaluation input containing repository-safe relative selectors for the canonical notes. At runtime, `run.py` resolves those selectors against `PARERGON_VAULT`, reads the ten essay bodies, and records a SHA-256 digest for every source. Generated answers can therefore be compared to the exact local corpus snapshot without duplicating the essays or private vault paths into this repository.
 
 ## Credential boundary
 
@@ -33,7 +33,8 @@ python3.12 -m venv .venv
 OPENAI_API_KEY='injected-by-your-secret-manager' \
 PARERGON_VAULT='/absolute/path/to/Parergon' \
 .venv/bin/python run.py \
-  --output-stem results/gpt-5.6-luna-YYYY-MM-DD
+  --output-stem results/gpt-5.6-luna-YYYY-MM-DD \
+  --obsidian-output '/absolute/path/to/Parergon/Contexts/Organon/Evaluations/Essay-Questions.md'
 ```
 
 Defaults:
@@ -48,7 +49,7 @@ The runner fails closed if a model omits, duplicates, or invents question IDs. I
 
 ## Artifacts
 
-The JSON result is the machine-readable record. The Markdown result is a projection for human review. Each records:
+The JSON result is the machine-readable record. The committed Markdown result is a repository-safe projection for human review. The optional Obsidian projection adds local wikilinks and is written only into the vault. Each records:
 
 - model and reasoning configuration;
 - source commit and generation time;

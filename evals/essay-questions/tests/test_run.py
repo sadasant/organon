@@ -23,7 +23,7 @@ def test_question_snapshot_is_exactly_ten_by_four():
 def test_answer_validation_restores_question_order():
     essay = MODULE.EssayQuestions(
         title="Test",
-        vault_path="Contexts/Essays/Works/test.md",
+        essay_file="test.md",
         questions=[
             MODULE.Question(id="AA-1", lens="Argument", question="One?", pressure_point="P1"),
             MODULE.Question(id="AA-2", lens="Evidence", question="Two?", pressure_point="P2"),
@@ -42,7 +42,7 @@ def test_answer_validation_restores_question_order():
 def test_answer_validation_rejects_missing_ids():
     essay = MODULE.EssayQuestions(
         title="Test",
-        vault_path="Contexts/Essays/Works/test.md",
+        essay_file="test.md",
         questions=[
             MODULE.Question(id=f"AA-{number}", lens="Argument", question="Q", pressure_point="P")
             for number in range(1, 5)
@@ -76,7 +76,7 @@ def test_markdown_projection_escapes_cells():
         "essays": [
             {
                 "title": "Essay",
-                "vault_path": "Contexts/Essays/Works/Essay.md",
+                "essay_file": "Essay.md",
                 "answers": [
                     {
                         "question_id": "AA-1",

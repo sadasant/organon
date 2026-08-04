@@ -1,6 +1,6 @@
 ---
 type: organon-evaluation-input
-source: Parergon/Contexts/Essays/Analysis/Reader Questions.md
+source: Parergon reader-question snapshot
 created: 2026-08-04
 updated: 2026-08-04
 canonical_essays_covered: 10
@@ -11,7 +11,8 @@ question_count: 40
 
 ## 2025
 
-### [[Contexts/Essays/Works/2025/12 December/Priced as If the Ledger Exists/Priced as If the Ledger Exists|Priced as If the Ledger Exists]]
+### Priced as If the Ledger Exists
+<!-- essay-file: 2025/12 December/Priced as If the Ledger Exists/Priced as If the Ledger Exists.md -->
 
 | ID | Lens | Reader question | Pressure point |
 |---|---|---|---|
@@ -22,7 +23,8 @@ question_count: 40
 
 ## 2026
 
-### [[Contexts/Essays/Works/2026/01 January/The Depth Behind the Simplest Rules A Chronicle of Prime Numbers/The Depth Behind the Simplest Rules A Chronicle of Prime Numbers|The Depth Behind the Simplest Rules]]
+### The Depth Behind the Simplest Rules
+<!-- essay-file: 2026/01 January/The Depth Behind the Simplest Rules A Chronicle of Prime Numbers/The Depth Behind the Simplest Rules A Chronicle of Prime Numbers.md -->
 
 | ID | Lens | Reader question | Pressure point |
 |---|---|---|---|
@@ -31,7 +33,8 @@ question_count: 40
 | DP-3 | Definition | What properties must the unnamed operator, space, or geometry possess for the Riemann zeros to become inevitable by definition? | The coda gestures toward a research program with unstated proof obligations. |
 | DP-4 | Boundary | When does “change position” name a real mathematical transformation rather than a retrospective metaphor for progress? | The essay's governing method should distinguish discovery from storytelling. |
 
-### [[Contexts/Essays/Works/2026/02 February/Epistemic Capture/Epistemic Capture|Epistemic Capture]]
+### Epistemic Capture
+<!-- essay-file: 2026/02 February/Epistemic Capture/Epistemic Capture.md -->
 
 | ID | Lens | Reader question | Pressure point |
 |---|---|---|---|
@@ -40,7 +43,8 @@ question_count: 40
 | EC-3 | Evidence | What observable signs would let a participant diagnose capture before hindsight makes it obvious? | The concept must work from within the compromised setting. |
 | EC-4 | Consequence | What procedure lets a room remain capable of action while preventing confidence, status, or narrative closure from certifying a claim? | The essay diagnoses a geometry but leaves governance design open. |
 
-### [[Contexts/Essays/Works/2026/02 February/Nothing Else Is So Exact As Absence A Chronicle of Zeros/Nothing Else Is So Exact As Absence A Chronicle of Zeros|Nothing Else Is So Exact As Absence]]
+### Nothing Else Is So Exact As Absence
+<!-- essay-file: 2026/02 February/Nothing Else Is So Exact As Absence A Chronicle of Zeros/Nothing Else Is So Exact As Absence A Chronicle of Zeros.md -->
 
 | ID | Lens | Reader question | Pressure point |
 |---|---|---|---|
@@ -49,7 +53,8 @@ question_count: 40
 | NZ-3 | Evidence | Which mathematical claims about zero and the zeta function are established results, and which support the broader metaphysical interpretation only analogically? | Mathematical precision can lend unearned necessity to ontology. |
 | NZ-4 | Boundary | What would count as a genuine counterexample to “reality filling the gap that perfect absence refuses to occupy”? | A primitive claim still needs its revision conditions made visible. |
 
-### [[Contexts/Essays/Works/2026/03 March/Gardening Is Not Agriculture/Gardening Is Not Agriculture|Gardening Is Not Agriculture]]
+### Gardening Is Not Agriculture
+<!-- essay-file: 2026/03 March/Gardening Is Not Agriculture/Gardening Is Not Agriculture.md -->
 
 | ID | Lens | Reader question | Pressure point |
 |---|---|---|---|
@@ -58,7 +63,8 @@ question_count: 40
 | GA-3 | Evidence | What project demonstrates increased throughput without destroying the expert context the essay calls reverence? | The synthesis of reconnaissance and scale can be tested operationally. |
 | GA-4 | Ethics | Who gains and loses authority when artisanal judgment becomes a standardized, machine-readable process? | Industrialization changes ownership as well as productivity. |
 
-### [[Contexts/Essays/Works/2026/03 March/The Shadow of the World/The Shadow of the World|The Shadow of the World]]
+### The Shadow of the World
+<!-- essay-file: 2026/03 March/The Shadow of the World/The Shadow of the World.md -->
 
 | ID | Lens | Reader question | Pressure point |
 |---|---|---|---|
@@ -67,7 +73,8 @@ question_count: 40
 | SW-3 | Evidence | Can one actual evaluation suite show how characteristic successes and absences reveal a model better than aggregate scores? | The spectral thesis invites a concrete demonstration. |
 | SW-4 | Boundary | Who chooses the constraints, and how can the evaluator's geometry itself be evaluated? | Every revealing prism can also impose a distortion. |
 
-### [[Contexts/Essays/Works/2026/05 May/Artificial Persons/Artificial Persons|Artificial Persons]]
+### Artificial Persons
+<!-- essay-file: 2026/05 May/Artificial Persons/Artificial Persons.md -->
 
 | ID | Lens | Reader question | Pressure point |
 |---|---|---|---|
@@ -76,7 +83,8 @@ question_count: 40
 | AP-3 | Evidence | Where has delegation to AI already changed who reviews, authorizes, or answers for work? | A workplace case would ground the Burnham thesis. |
 | AP-4 | Ethics | When an artificial person becomes an organ of a larger institution, whose purposes and protections govern conflicts among the nested bodies? | The organism metaphor does not settle jurisdiction. |
 
-### [[Contexts/Essays/Works/2026/06 June/In Lieu of Flowers/In Lieu of Flowers|In Lieu of Flowers]]
+### In Lieu of Flowers
+<!-- essay-file: 2026/06 June/In Lieu of Flowers/In Lieu of Flowers.md -->
 
 | ID | Lens | Reader question | Pressure point |
 |---|---|---|---|
@@ -85,7 +93,8 @@ question_count: 40
 | LF-3 | Boundary | How can agents inhabit COBOL, FoxPro, and modern services without laundering their inconsistencies into a conversational surface? | Mediation can conceal rather than repair institutional debt. |
 | LF-4 | Voice | Where does the historical argument end and the Idolum product claim begin, and what independent evidence should connect them? | The essay deliberately joins elegy, thesis, and announcement. |
 
-### [[Contexts/Essays/Works/2026/06 June/The Ladder Is a Clock/The Ladder Is a Clock|The Ladder Is a Clock]]
+### The Ladder Is a Clock
+<!-- essay-file: 2026/06 June/The Ladder Is a Clock/The Ladder Is a Clock.md -->
 
 | ID | Lens | Reader question | Pressure point |
 |---|---|---|---|
@@ -94,7 +103,8 @@ question_count: 40
 | LC-3 | Evidence | Which paired companies occupied similar technical rungs but diverged because their chosen problem spaces differed? | The central contrast invites a historical test. |
 | LC-4 | Consequence | What decision rule helps a team move to higher ground without merely chasing a larger, less defensible market? | The metaphor needs a disciplined transition criterion. |
 
-### [[Contexts/Essays/Works/2026/06 June/Delete the Harness/Delete the Harness|Delete the Harness]]
+### Delete the Harness
+<!-- essay-file: 2026/06 June/Delete the Harness/Delete the Harness.md -->
 
 | ID | Lens | Reader question | Pressure point |
 |---|---|---|---|
