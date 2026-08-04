@@ -4,7 +4,7 @@ status: verified
 canonicality: noncanonical
 created: 2026-08-02
 updated: 2026-08-04
-repository_commit: "658ca890d04ceef83c34c246532106f73e97378e"
+repository_commit: "b06b5132c51b40269f70910124f233356a6aedb1"
 ---
 # Lean Spike Build Receipt
 
@@ -34,7 +34,7 @@ OrganonCore v0.17 reduct: hidden bridge relations, private ritual, ritual-depend
 
 The Lean sources contain no `sorry`, `admit`, or `axiom` declaration. The existing formal witnesses remain intact: consciousness candidate/Attribution/Designation separation; discriminating Operationalization; participant-bound World access; ordered Substrate Persistence; Truth without modeled Agent access; accepted Trust versus involuntary Dependence; profile-scoped Alignment; joined adaptive Intelligence; useful-false Operative Knowledge; dormant Records; copied Records without recipient knowledge; and inter-agent plus self-transmission. The v0.16 bridge module additionally constructs unequal Denotation; paired-path Causal Contribution with a named Change whose Transformation joins the compared endpoints; constructive Capability realization; fully indexed Standing recorded for an exact Order, Rule, Entity, status, and Scope; and in-Scope supportive Evidential Bearing for a false Claim. `TruthSemantics.isTrue` requires its exact claim-indexed Denotation rather than a parallel free adequacy predicate.
 
-The v0.17 Ritual and Meaning shadow constructs a Flow with two distinct occurrences, one executable similarity Specification, and an exact output sequence carrying an ordered Persistence witness. One private participant's history contains endpoints reached by exact paths beginning with every Flow occurrence. Meaning shares the Ritual's carrier, Direction, and feeding Relation; both paths of its sustaining Causal Contribution begin with exact Flow occurrences, and the selected endpoint equals the participant State. A propagation witness joins distinct source and recipient participant States through that same contribution and proves their participant-indexed Meaning Relations unequal. Boolean maintenance cases establish only that an actual derived effect can remain active after visible enactment and that dormant storage alone leaves maintenance false.
+The v0.17 Ritual and Meaning shadow constructs a Flow with two distinct occurrences, a typed Rule owning the exact executable similarity Specification used for every occurrence, and an exact output sequence carrying an ordered Persistence witness. One private participant's history contains endpoints reached by exact paths beginning with every Flow occurrence, and one typed target component occurs in every Flow output. Meaning shares the Ritual's carrier, Direction, and feeding Relation; both paths of its sustaining Causal Contribution begin with exact Flow occurrences, which derives that both causal origins carry the Ritual target, and the selected endpoint equals the participant State. A propagation witness joins distinct source and recipient participant States through that same contribution and proves their participant-indexed Meaning Relations unequal. Boolean maintenance cases establish only that an actual derived effect can remain active after visible enactment and that dormant storage alone leaves maintenance false.
 
 The build separately compiles `OrganonCore`, which contains the current downstream formal vocabulary without `Absent`, `Present`, `Mark`, or the Absence/Presence theorems, and `DanielOntology`, which restores those declarations as a conservative extension. `OrganonCorePreservation` proves by definitional equality that every classifier expressible over the shared carrier has the same result before and after an arbitrary exclusive and exhaustive Absence/Presence extension. This establishes classification preservation for the present Lean shadow. It does not establish preservation for all 109 binding prose terms, because the formal shadow is not yet term-for-term complete; that larger claim remains `UNKNOWN`.
 
@@ -44,7 +44,7 @@ The shadow additionally constructs one Factive Operative Knowledge instance whos
 
 Proposal-local evidence, sovereignty, own-Principal, observed-choice, exchange, and moral-worth predicates remain formal shadows rather than complete joins to every core Organon structure. Reality, universal Claim semantics, universal moral conditions, Action attribution, complete Evidence parity, Interior-and-Boundary Exposure, Action-to-Change Consequence, complete Sense-to-Perception access, Ritual access parity through canonical Perception, Interpretation, or Action, temporal Meaning decay, fidelity, carrier realization, Alignment-profile composition, completeness and provenance of external Rule encodings, runtime construction, temporal ordering of transmission stages, universal semantic preservation, international-law sufficiency, preference revelation, expected utility, market clearing, Beauty, Play, Love, generic Knowledge, generic Sovereignty, and generic Value remain open formalization gates.
 
-The repository commit attested by this receipt is `658ca890d04ceef83c34c246532106f73e97378e`.
+The repository commit attested by this receipt is `b06b5132c51b40269f70910124f233356a6aedb1`.
 
 ## Source digests
 
@@ -53,7 +53,7 @@ The repository commit attested by this receipt is `658ca890d04ceef83c34c24653210
 - `OrganonCoreChallenge.lean`: `e3aa3028ce6aa5d449540abf87aefe0cfe96d9e25ae542020589e5d4f6777d8a`
 - `DanielOntology.lean`: `f8880dbdd90b198beba9392d3ef8ab18e575715f206ec1e497fe3d31eab69ba1`
 - `BridgeRelations.lean`: `a17cdd4eb893859d3895cc729f5726a9689eb97d6290d7aa40e99dfca010b7cf`
-- `RitualMeaning.lean`: `4de3dfe4c62ec696ae08a48db9880450dbfce565d9220b35fd7bcdd099f8ed1f`
+- `RitualMeaning.lean`: `1c85ace6e0fc9fe960a793ac3e05e2d9bfd1871692cf2982a33fb2fa00bf44f7`
 - `Consciousness.lean`: `18c9af64b04e3f822c97cf24371d17dd22bd34c89e036d7362207fbba4e9cd86`
 - `Operationalization.lean`: `14e75b936ad86f5a03292b316990b7d3ab7a1ada811cb1865ec2831ac8d1a3ce`
 - `WorldSubstrate.lean`: `d3a9d36f6acfe56318ba35dd1f742d2d2e73136f84d70ed27267eb7228122ec5`
