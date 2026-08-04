@@ -29,6 +29,9 @@ structure Flow
       occurrences = first :: second :: rest ∧
       (first.input ≠ second.input ∨ first.output ≠ second.output)
   occurrencesOrdered : OrderedBy direction.before (occurrences.map (·.output))
+  scope : Scope (Transformation direction)
+  occurrencesInScope :
+    ∀ occurrence, occurrence ∈ occurrences → scope.includes occurrence
   recurrence : Transformation direction → Transformation direction → Prop
   occurrencesRecur : OrderedBy recurrence occurrences
   persistence : PersistenceWitness direction
@@ -46,6 +49,10 @@ structure FlowClassification
     {direction : Direction Carrier}
     (flow : Flow direction) where
   rule : FlowRule direction
+  classificationScopeMatchesFlow :
+    ∀ candidate,
+      rule.specification.scope.includes candidate ↔
+        flow.scope.includes candidate
   occurrencesConform :
     ∀ occurrence, occurrence ∈ flow.occurrences →
       rule.specification.conforms occurrence
@@ -66,10 +73,13 @@ structure RitualAccess
     {Carrier : Type u}
     {direction : Direction Carrier}
     (feeding : FeedRelation Carrier)
-    (flow : Flow direction)
-    (participant : Entity Carrier) where
+  (flow : Flow direction)
+  (participant : Entity Carrier) where
+  index : Nat
+  indexInBounds : index < flow.occurrences.length
   occurrence : Transformation direction
   occursInFlow : occurrence ∈ flow.occurrences
+  occurrenceAtIndex : flow.occurrences[index]? = some occurrence
   path : CausalPath direction feeding
   endpoints : PathEndpoints path
   beginsWithOccurrence : endpoints.first = occurrence
@@ -101,11 +111,15 @@ structure RitualUptake
     (flow : Flow direction)
     (classification : FlowClassification flow)
     (participant : Entity (Feature × Context)) where
+  priorIndex : Nat
+  currentIndex : Nat
+  priorBeforeCurrent : priorIndex < currentIndex
   priorOccurrence : Transformation direction
   currentOccurrence : Transformation direction
   priorOccursInFlow : priorOccurrence ∈ flow.occurrences
   currentOccursInFlow : currentOccurrence ∈ flow.occurrences
-  occurrencesDistinct : priorOccurrence ≠ currentOccurrence
+  priorAtIndex : flow.occurrences[priorIndex]? = some priorOccurrence
+  currentAtIndex : flow.occurrences[currentIndex]? = some currentOccurrence
   recurrenceHolds : flow.recurrence priorOccurrence currentOccurrence
   priorClassified : classification.rule.specification.conforms priorOccurrence
   currentClassified :
@@ -150,10 +164,12 @@ structure Ritual
     {Feature : Type u}
     {Context : Type v}
     {Target : Type u}
+    {ParticipantIdentity : Type u}
     (direction : Direction (Feature × Context))
     (feeding : FeedRelation (Feature × Context)) where
   flow : Flow direction
   classification : FlowClassification flow
+  participantIdentity : ParticipantIdentity
   participant : Entity (Feature × Context)
   target : TargetContinuity Target
   targetProjection : State (Feature × Context) → State Target
@@ -163,43 +179,62 @@ structure Ritual
   accesses : List (RitualAccess feeding flow participant)
   accessesNonempty : accesses ≠ []
   everyOccurrenceAccessed :
-    ∀ occurrence, occurrence ∈ flow.occurrences →
+    ∀ index, index < flow.occurrences.length →
       ∃ access : RitualAccess feeding flow participant,
-        access ∈ accesses ∧ access.occurrence = occurrence
+        access ∈ accesses ∧ access.index = index
   uptakes : List (RitualUptake feeding flow classification participant)
   uptakesNonempty : uptakes ≠ []
   everyLaterOccurrenceUptaken :
-    ∀ occurrence, occurrence ∈ flow.occurrences.tail →
+    ∀ index, 0 < index → index < flow.occurrences.length →
       ∃ uptake : RitualUptake feeding flow classification participant,
-        uptake ∈ uptakes ∧ uptake.currentOccurrence = occurrence
+        uptake ∈ uptakes ∧ uptake.currentIndex = index
 
 inductive SustainingSide where
   | left
   | right
 deriving DecidableEq, Repr
 
+inductive MeaningSupportRoute where
+  | direct
+  | downstreamLeft
+  | downstreamRight
+deriving DecidableEq, Repr
+
 /-!
-`Meaning` is itself the participant-indexed Relation. The sustaining
-contribution must terminate in the participant State at which the relation is
-currently carried; it is not a decorative causal witness beside the Ritual.
+`Meaning` is itself the participant-indexed Relation historically constituted
+by the supplied Ritual. Its current sustaining contribution selects an actual
+uptake and is either that uptake's contribution or begins downstream from its
+interpreted State. It must also terminate in the participant State at which the
+relation is currently carried, so it is not a decorative causal witness.
 -/
 structure Meaning
     {Feature : Type v}
     {Context : Type u}
     {Target : Type v}
+    {ParticipantIdentity : Type v}
     {direction : Direction (Feature × Context)}
     {feeding : FeedRelation (Feature × Context)}
-    (ritual : Ritual (Target := Target) direction feeding)
+    (ritual : Ritual (Target := Target)
+      (ParticipantIdentity := ParticipantIdentity) direction feeding)
     where
-  scope : Scope (State (Feature × Context) × State Target)
+  scope : Scope (ParticipantIdentity × State Target)
   inScope :
-    scope.includes (ritual.participant.current, ritual.target.current)
+    scope.includes (ritual.participantIdentity, ritual.target.current)
+  supportingUptake :
+    RitualUptake feeding ritual.flow ritual.classification ritual.participant
+  supportingUptakeInRitual : supportingUptake ∈ ritual.uptakes
   sustainingContribution :
     CausalContribution Feature Context direction feeding
-  leftOriginatesInFlow :
-    sustainingContribution.leftEndpoints.first ∈ ritual.flow.occurrences
-  rightOriginatesInFlow :
-    sustainingContribution.rightEndpoints.first ∈ ritual.flow.occurrences
+  supportRoute : MeaningSupportRoute
+  supportJoined :
+    match supportRoute with
+    | .direct => sustainingContribution = supportingUptake.contribution
+    | .downstreamLeft =>
+        sustainingContribution.leftEndpoints.first.input =
+          supportingUptake.interpretedState
+    | .downstreamRight =>
+        sustainingContribution.rightEndpoints.first.input =
+          supportingUptake.interpretedState
   sustainingSide : SustainingSide
   contributionReachesParticipant :
     match sustainingSide with
@@ -214,46 +249,54 @@ def MeaningRelation
     {Feature : Type v}
     {Context : Type u}
     {Target : Type v}
+    {ParticipantIdentity : Type v}
     {direction : Direction (Feature × Context)}
     {feeding : FeedRelation (Feature × Context)}
-    {ritual : Ritual (Target := Target) direction feeding}
+    {ritual : Ritual (Target := Target)
+      (ParticipantIdentity := ParticipantIdentity) direction feeding}
     (_meaning : Meaning ritual) :
-    State (Feature × Context) × State Target :=
-  (ritual.participant.current, ritual.target.current)
+    ParticipantIdentity × State Target :=
+  (ritual.participantIdentity, ritual.target.current)
 
-theorem meaningContributionCarriesRitualTarget
+theorem meaningSupportCarriesRitualTarget
     {Feature : Type v}
     {Context : Type u}
     {Target : Type v}
+    {ParticipantIdentity : Type v}
     {direction : Direction (Feature × Context)}
     {feeding : FeedRelation (Feature × Context)}
-    {ritual : Ritual (Target := Target) direction feeding}
+    {ritual : Ritual (Target := Target)
+      (ParticipantIdentity := ParticipantIdentity) direction feeding}
     (meaning : Meaning ritual) :
     ritual.targetProjection
-        meaning.sustainingContribution.leftEndpoints.first.output ∈
+        meaning.supportingUptake.priorOccurrence.output ∈
           ritual.target.persistence.states ∧
       ritual.targetProjection
-        meaning.sustainingContribution.rightEndpoints.first.output ∈
+        meaning.supportingUptake.currentOccurrence.output ∈
           ritual.target.persistence.states := by
   constructor
-  · exact ritual.targetStatesOccurThroughoutFlow _ meaning.leftOriginatesInFlow
-  · exact ritual.targetStatesOccurThroughoutFlow _ meaning.rightOriginatesInFlow
+  · exact ritual.targetStatesOccurThroughoutFlow _
+      meaning.supportingUptake.priorOccursInFlow
+  · exact ritual.targetStatesOccurThroughoutFlow _
+      meaning.supportingUptake.currentOccursInFlow
 
-theorem meaningContributionPreservesTargetIdentity
+theorem meaningSupportPreservesTargetIdentity
     {Feature : Type v}
     {Context : Type u}
     {Target : Type v}
+    {ParticipantIdentity : Type v}
     {direction : Direction (Feature × Context)}
     {feeding : FeedRelation (Feature × Context)}
-    {ritual : Ritual (Target := Target) direction feeding}
+    {ritual : Ritual (Target := Target)
+      (ParticipantIdentity := ParticipantIdentity) direction feeding}
     (meaning : Meaning ritual) :
     ritual.target.persistence.invariant.holds
         (ritual.targetProjection
-          meaning.sustainingContribution.leftEndpoints.first.output) ∧
+          meaning.supportingUptake.priorOccurrence.output) ∧
       ritual.target.persistence.invariant.holds
         (ritual.targetProjection
-          meaning.sustainingContribution.rightEndpoints.first.output) := by
-  have targetStates := meaningContributionCarriesRitualTarget meaning
+          meaning.supportingUptake.currentOccurrence.output) := by
+  have targetStates := meaningSupportCarriesRitualTarget meaning
   constructor
   · exact ritual.target.persistence.invariantHolds _ targetStates.1
   · exact ritual.target.persistence.invariantHolds _ targetStates.2
@@ -302,6 +345,9 @@ def bridgeFlowPersistence : PersistenceWitness bridgeDirection where
   ordered := by
     simp [OrderedBy, bridgeDirection, lowOutputState, highOutputState]
 
+def bridgeFlowScope : Scope (Transformation bridgeDirection) :=
+  ⟨fun _ => True⟩
+
 def repeatedBridgeFlow : Flow bridgeDirection where
   occurrences := [lowTransformation, highTransformation]
   hasRepeatedOccurrences := by
@@ -314,6 +360,10 @@ def repeatedBridgeFlow : Flow bridgeDirection where
   occurrencesOrdered := by
     simp [OrderedBy, bridgeDirection, lowTransformation, highTransformation,
       lowOutputState, highOutputState]
+  scope := bridgeFlowScope
+  occurrencesInScope := by
+    intro _ _
+    trivial
   recurrence := fun earlier later =>
     earlier.output.value.2 = later.output.value.2 ∧
       earlier.output.value.1 ≠ later.output.value.1
@@ -326,6 +376,9 @@ def repeatedBridgeFlow : Flow bridgeDirection where
 
 def ritualFlowClassification : FlowClassification repeatedBridgeFlow where
   rule := ritualFlowRule
+  classificationScopeMatchesFlow := by
+    intro _
+    constructor <;> intro _ <;> trivial
   occurrencesConform := by
     intro occurrence member
     simp [repeatedBridgeFlow] at member
@@ -419,15 +472,15 @@ def memoryConditionedRitualInterpretation
 def privateRitualUptakeAtHigh :
     RitualUptake bridgeFeed repeatedBridgeFlow ritualFlowClassification
       privateParticipantAtHigh where
+  priorIndex := 0
+  currentIndex := 1
+  priorBeforeCurrent := by decide
   priorOccurrence := lowTransformation
   currentOccurrence := highTransformation
   priorOccursInFlow := by simp [repeatedBridgeFlow]
   currentOccursInFlow := by simp [repeatedBridgeFlow]
-  occurrencesDistinct := by
-    intro equal
-    have values := congrArg (fun occurrence => occurrence.input.value.1) equal
-    simp [lowTransformation, highTransformation, lowInputState,
-      highInputState] at values
+  priorAtIndex := rfl
+  currentAtIndex := rfl
   recurrenceHolds := by
     simp [repeatedBridgeFlow, lowTransformation, highTransformation,
       lowOutputState, highOutputState]
@@ -476,8 +529,11 @@ def privateRitualUptakeAtHigh :
 
 def lowRitualAccess :
     RitualAccess bridgeFeed repeatedBridgeFlow privateParticipantAtHigh where
+  index := 0
+  indexInBounds := by decide
   occurrence := lowTransformation
   occursInFlow := by simp [repeatedBridgeFlow]
+  occurrenceAtIndex := rfl
   path := lowPath
   endpoints := lowEndpoints
   beginsWithOccurrence := rfl
@@ -487,8 +543,11 @@ def lowRitualAccess :
 
 def highRitualAccess :
     RitualAccess bridgeFeed repeatedBridgeFlow privateParticipantAtHigh where
+  index := 1
+  indexInBounds := by decide
   occurrence := highTransformation
   occursInFlow := by simp [repeatedBridgeFlow]
+  occurrenceAtIndex := rfl
   path := highPath
   endpoints := highEndpoints
   beginsWithOccurrence := rfl
@@ -497,9 +556,11 @@ def highRitualAccess :
       privateParticipantAtHigh, privatePersistence]
 
 def privateRitual :
-    Ritual (Target := Option Bool) bridgeDirection bridgeFeed where
+    Ritual (Target := Option Bool) (ParticipantIdentity := Bool)
+      bridgeDirection bridgeFeed where
   flow := repeatedBridgeFlow
   classification := ritualFlowClassification
+  participantIdentity := true
   participant := privateParticipantAtHigh
   target := driftingRitualTarget
   targetProjection := fun state => ⟨some state.value.1⟩
@@ -514,37 +575,49 @@ def privateRitual :
   accesses := [lowRitualAccess, highRitualAccess]
   accessesNonempty := by simp
   everyOccurrenceAccessed := by
-    intro occurrence member
-    simp [repeatedBridgeFlow] at member
-    rcases member with rfl | rfl
-    · exact ⟨lowRitualAccess, by simp, rfl⟩
-    · exact ⟨highRitualAccess, by simp, rfl⟩
+    intro index bound
+    cases index with
+    | zero => exact ⟨lowRitualAccess, by simp, rfl⟩
+    | succ index =>
+        cases index with
+        | zero => exact ⟨highRitualAccess, by simp, rfl⟩
+        | succ index =>
+            change index + 1 + 1 < 2 at bound
+            omega
   uptakes := [privateRitualUptakeAtHigh]
   uptakesNonempty := by simp
   everyLaterOccurrenceUptaken := by
-    intro occurrence member
-    simp [repeatedBridgeFlow] at member
-    rcases member with rfl
-    exact ⟨privateRitualUptakeAtHigh, by simp, rfl⟩
+    intro index positive bound
+    cases index with
+    | zero => simp at positive
+    | succ index =>
+        cases index with
+        | zero => exact ⟨privateRitualUptakeAtHigh, by simp, rfl⟩
+        | succ index =>
+            change index + 1 + 1 < 2 at bound
+            omega
 
 def bridgeMeaningScope :
-    Scope (State BridgeCarrier × State (Option Bool)) :=
+    Scope (Bool × State (Option Bool)) :=
   ⟨fun _ => True⟩
 
 def privateMeaning :
     Meaning privateRitual where
   scope := bridgeMeaningScope
   inScope := trivial
+  supportingUptake := privateRitualUptakeAtHigh
+  supportingUptakeInRitual := by
+    change privateRitualUptakeAtHigh ∈ [privateRitualUptakeAtHigh]
+    simp
   sustainingContribution := bridgeContribution
-  leftOriginatesInFlow := by simp [repeatedBridgeFlow, privateRitual,
-    bridgeContribution, lowEndpoints]
-  rightOriginatesInFlow := by simp [repeatedBridgeFlow, privateRitual,
-    bridgeContribution, highEndpoints]
+  supportRoute := .direct
+  supportJoined := rfl
   sustainingSide := .right
   contributionReachesParticipant := rfl
 
 theorem privateRitualIsInhabited :
-    Nonempty (Ritual (Target := Option Bool) bridgeDirection bridgeFeed) :=
+    Nonempty (Ritual (Target := Option Bool) (ParticipantIdentity := Bool)
+      bridgeDirection bridgeFeed) :=
   ⟨privateRitual⟩
 
 theorem privateMeaningIsInhabited :
@@ -608,8 +681,11 @@ theorem onePerceptionDoesNotSupplyFlow :
 
 def lowRitualAccessAtLow :
     RitualAccess bridgeFeed repeatedBridgeFlow privateParticipantAtLow where
+  index := 0
+  indexInBounds := by decide
   occurrence := lowTransformation
   occursInFlow := by simp [repeatedBridgeFlow]
+  occurrenceAtIndex := rfl
   path := lowPath
   endpoints := lowEndpoints
   beginsWithOccurrence := rfl
@@ -619,8 +695,11 @@ def lowRitualAccessAtLow :
 
 def highRitualAccessAtLow :
     RitualAccess bridgeFeed repeatedBridgeFlow privateParticipantAtLow where
+  index := 1
+  indexInBounds := by decide
   occurrence := highTransformation
   occursInFlow := by simp [repeatedBridgeFlow]
+  occurrenceAtIndex := rfl
   path := highPath
   endpoints := highEndpoints
   beginsWithOccurrence := rfl
@@ -631,11 +710,15 @@ def highRitualAccessAtLow :
 def privateRitualUptakeAtLow :
     RitualUptake bridgeFeed repeatedBridgeFlow ritualFlowClassification
       privateParticipantAtLow where
+  priorIndex := 0
+  currentIndex := 1
+  priorBeforeCurrent := by decide
   priorOccurrence := lowTransformation
   currentOccurrence := highTransformation
   priorOccursInFlow := by simp [repeatedBridgeFlow]
   currentOccursInFlow := by simp [repeatedBridgeFlow]
-  occurrencesDistinct := privateRitualUptakeAtHigh.occurrencesDistinct
+  priorAtIndex := rfl
+  currentAtIndex := rfl
   recurrenceHolds := privateRitualUptakeAtHigh.recurrenceHolds
   priorClassified := rfl
   currentClassified := rfl
@@ -681,9 +764,11 @@ def privateRitualUptakeAtLow :
       lowOutputState, highOutputState]
 
 def privateRitualAtLow :
-    Ritual (Target := Option Bool) bridgeDirection bridgeFeed where
+    Ritual (Target := Option Bool) (ParticipantIdentity := Bool)
+      bridgeDirection bridgeFeed where
   flow := repeatedBridgeFlow
   classification := ritualFlowClassification
+  participantIdentity := false
   participant := privateParticipantAtLow
   target := driftingRitualTarget
   targetProjection := fun state => ⟨some state.value.1⟩
@@ -698,28 +783,39 @@ def privateRitualAtLow :
   accesses := [lowRitualAccessAtLow, highRitualAccessAtLow]
   accessesNonempty := by simp
   everyOccurrenceAccessed := by
-    intro occurrence member
-    simp [repeatedBridgeFlow] at member
-    rcases member with rfl | rfl
-    · exact ⟨lowRitualAccessAtLow, by simp, rfl⟩
-    · exact ⟨highRitualAccessAtLow, by simp, rfl⟩
+    intro index bound
+    cases index with
+    | zero => exact ⟨lowRitualAccessAtLow, by simp, rfl⟩
+    | succ index =>
+        cases index with
+        | zero => exact ⟨highRitualAccessAtLow, by simp, rfl⟩
+        | succ index =>
+            change index + 1 + 1 < 2 at bound
+            omega
   uptakes := [privateRitualUptakeAtLow]
   uptakesNonempty := by simp
   everyLaterOccurrenceUptaken := by
-    intro occurrence member
-    simp [repeatedBridgeFlow] at member
-    rcases member with rfl
-    exact ⟨privateRitualUptakeAtLow, by simp, rfl⟩
+    intro index positive bound
+    cases index with
+    | zero => simp at positive
+    | succ index =>
+        cases index with
+        | zero => exact ⟨privateRitualUptakeAtLow, by simp, rfl⟩
+        | succ index =>
+            change index + 1 + 1 < 2 at bound
+            omega
 
 def privateMeaningAtLow :
     Meaning privateRitualAtLow where
   scope := bridgeMeaningScope
   inScope := trivial
+  supportingUptake := privateRitualUptakeAtLow
+  supportingUptakeInRitual := by
+    change privateRitualUptakeAtLow ∈ [privateRitualUptakeAtLow]
+    simp
   sustainingContribution := bridgeContribution
-  leftOriginatesInFlow := by simp [repeatedBridgeFlow, privateRitualAtLow,
-    bridgeContribution, lowEndpoints]
-  rightOriginatesInFlow := by simp [repeatedBridgeFlow, privateRitualAtLow,
-    bridgeContribution, highEndpoints]
+  supportRoute := .direct
+  supportJoined := rfl
   sustainingSide := .left
   contributionReachesParticipant := rfl
 
@@ -729,6 +825,9 @@ structure DerivedMeaning
     (recipient :
       Meaning privateRitual) where
   contribution : CausalContribution Bool BridgeStage bridgeDirection bridgeFeed
+  participantIdentitiesDiffer :
+    privateRitualAtLow.participantIdentity ≠
+      privateRitual.participantIdentity
   sourceReached :
     contribution.leftEndpoints.last.output =
       privateRitualAtLow.participant.current
@@ -738,15 +837,41 @@ structure DerivedMeaning
 
 def transmittedMeaning : DerivedMeaning privateMeaningAtLow privateMeaning where
   contribution := bridgeContribution
+  participantIdentitiesDiffer := by decide
   sourceReached := rfl
   recipientReached := rfl
 
 theorem transmittedMeaningIsNotIdentical :
     MeaningRelation privateMeaningAtLow ≠ MeaningRelation privateMeaning := by
   intro equal
-  have participants := congrArg Prod.fst equal
-  have values := congrArg (fun state => state.value.1) participants
-  simp [MeaningRelation, privateRitualAtLow, privateRitual, privateParticipantAtLow,
-    privateParticipantAtHigh, lowOutputState, highOutputState] at values
+  exact transmittedMeaning.participantIdentitiesDiffer (congrArg Prod.fst equal)
+
+def privateRitualSameStateOtherIdentity :
+    Ritual (Target := Option Bool) (ParticipantIdentity := Bool)
+      bridgeDirection bridgeFeed :=
+  { privateRitual with participantIdentity := false }
+
+def privateMeaningSameStateOtherIdentity :
+    Meaning privateRitualSameStateOtherIdentity where
+  scope := bridgeMeaningScope
+  inScope := trivial
+  supportingUptake := privateRitualUptakeAtHigh
+  supportingUptakeInRitual := by
+    change privateRitualUptakeAtHigh ∈ [privateRitualUptakeAtHigh]
+    simp
+  sustainingContribution := bridgeContribution
+  supportRoute := .direct
+  supportJoined := rfl
+  sustainingSide := .right
+  contributionReachesParticipant := rfl
+
+theorem equalCurrentStateDoesNotEraseParticipantIndex :
+    privateRitualSameStateOtherIdentity.participant.current =
+        privateRitual.participant.current ∧
+      MeaningRelation privateMeaningSameStateOtherIdentity ≠
+        MeaningRelation privateMeaning := by
+  constructor
+  · rfl
+  · simp [MeaningRelation, privateRitualSameStateOtherIdentity, privateRitual]
 
 end DanielOntology

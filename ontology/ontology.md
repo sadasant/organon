@@ -353,9 +353,7 @@ Interiority does not entail consciousness. Accountability for external effects d
 
 **Flow** is a repeated sequence of similar Transformations along persistent Relations.
 
-The sequence contains at least two distinct Transformation occurrences joined by one recurrence Relation, with their outputs ordered under one Direction within one Scope and a named Relation or Invariant persisting across those States. The recurrence Relation identifies the respect in which the occurrences repeat; the States need not be identical, the intervals need not be periodic, and no Agent, Representation, Rule, or Specification is required for the Flow to obtain.
-
-A Claim that selected occurrences constitute a Flow must name the recurrence Relation, Scope, and Persistence witness and supply a Rule with a constructive Specification that decides occurrence membership under that Relation. The classifier makes the Claim reproducible; it does not constitute the Flow. A conforming classifier does not establish that a Flow obtains unless the selected Transformations actually inhabit the named recurrence Relation and persistent history.
+The sequence contains at least two distinct Transformation occurrences joined by one recurrence Relation and included within one Scope, with their outputs ordered under one Direction and a named Relation or Invariant persisting across those States. The recurrence Relation identifies the respect in which the occurrences repeat; the States need not be identical, the intervals need not be periodic, and no Agent, Representation, Rule, or Specification is required for the Flow to obtain.
 
 <a id="organon-interface"></a>
 <!-- organon:term organon:Interface claim=D042 -->
@@ -795,7 +793,7 @@ Ritual is not necessarily deliberate, voluntary, beneficial, or benign. An addic
 <a id="organon-meaning"></a>
 <!-- organon:term organon:Meaning claim=D106 -->
 
-**Meaning** is the participant-indexed Relation constituted and sustained by a Ritual among its participating Entities and target Presences within a Scope.
+**Meaning** is the participant-indexed Relation constituted by a Ritual among its participating Entities and target Presences within a Scope, then maintained by qualifying Ritual enactment or an actual ritual-derived Causal Contribution.
 
 Meaning is the Relation, not a property or substance contained by its target. Its Persistence requires ongoing Ritual enactment or actual Causal Contribution from ritual-derived Records, Memories, Changes, Consequences, or environmental Configurations. Preserving one possible carrier without an operative contribution preserves conditions for later reenactment, not Meaning by itself. Ending visible enactment does not immediately end Meaning while causally derived effects continue preserving the Relation; when neither enactment nor any such effect contributes, the Relation ceases to obtain in the continuing Scope. This does not erase its former Presence or Records of it.
 
@@ -916,7 +914,7 @@ These signatures make the ontology operational. They are schemas, not executable
 
 25. <!-- organon:claim C25 --> **No recurrence-to-ritual collapse:** Ritual entails a Flow, a Rule and constructive Specification through which the participant's Interpretation classifies recurrence under the Flow's Relation, participant-bound Perception of successive occurrences, a prior Memory whose substitution changes that Interpretation, and a sustaining Causal Contribution passing through it. Flow, a Flow classifier, recurrent exposure, a stored Record, Perception, Memory, Interpretation, or Action alone does not entail Ritual. Ritual does not require an outward Action, multiple participants, an Institution, an inherited social form, periodic intervals, conscious recall, or an Agent as its target.
 
-26. <!-- organon:claim C26 --> **Meaning is maintained, not stored:** Meaning entails a sustaining Ritual. A target Presence, Record, Memory, Symbol, or other ritual-derived Configuration does not contain Meaning independently. Visible enactment may stop while an actual derived Causal Contribution continues preserving the Relation; when neither enactment nor such contribution preserves it, the Relation ceases to obtain in the continuing Scope.
+26. <!-- organon:claim C26 --> **Meaning is maintained, not stored:** Meaning entails historical constitution by a Ritual and current maintenance by either qualifying Ritual enactment or an actual ritual-derived Causal Contribution. A target Presence, Record, Memory, Symbol, or other ritual-derived Configuration does not contain Meaning independently. When neither enactment nor such contribution preserves it, the Relation ceases to obtain in the continuing Scope.
 
 27. <!-- organon:claim C27 --> **Meaning propagation is derivation, not copying:** A Meaning Relation produced through causal propagation to another participant is distinct from its source Relation. Shared target, Representation, Rule, or ritual form does not erase the different participant index.
 
