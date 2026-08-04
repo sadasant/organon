@@ -32,6 +32,7 @@ This matters because an ontology can be internally consistent and still reflect 
 ```text
 ontology/       binding prose, stable term registry, profiles, and Lean experiment
 editorial/      long-form grammar and canonical short-form delivery language
+evals/          reproducible evaluations of Organon's instruments against governed material
 provenance/     essay, editorial, and term-level evidence lineage
 proposals/      nonbinding promotion dossiers for quarantined vocabulary
 reviews/        reusable review method and completed project audits
@@ -51,6 +52,8 @@ Capitalization is not adoption. A downstream repository adopts Organon by naming
 ## Editorial instruments
 
 The [Long-Form Editorial Grammar](./editorial/long-form.md) describes how a reader comes to need, receive, and carry a difficult idea. The canonical [Short Form](./editorial/short-form.md) governs sentence-scale delivery once that idea has been earned. Neither may silently redefine what the ontology says exists.
+
+The [essay-question evaluation](./evals/essay-questions/README.md) uses DSPy to test how a named model answers reader questions when the binding ontology and canonical short-form instrument are supplied as explicit context. Generated answers are evidence about one versioned prompt, model, and source snapshot; they are not additions to the ontology and are not Daniel-authored answers.
 
 The ontology's essay evidence is indexed through the public [Essay Corpus](./provenance/essays.md). Private drafts and review artifacts are declared through [Editorial Provenance](./provenance/editorial.md). [Term Provenance](./provenance/terms.md) records the lineage claimed for every stable term without presenting lineage as proof of truth.
 
