@@ -95,3 +95,28 @@ def test_markdown_projection_escapes_cells():
     assert "A \\| B?" in markdown
     assert "First line. Second line." in markdown
     assert "OPENAI_API_KEY" not in markdown
+
+
+def test_artifact_paths_preserve_dotted_model_name(tmp_path):
+    result = {
+        "run": {
+            "model": "gpt-5.6-luna",
+            "reasoning_effort": "medium",
+            "dspy_version": "3.3.0",
+            "litellm_version": "1.91.4",
+            "python_version": "3.12.9",
+            "generated_at": "2026-08-04T00:00:00+00:00",
+            "complete": True,
+            "essay_count": 0,
+            "question_count": 0,
+            "organon_commit": "abc",
+            "ontology_sha256": "o",
+            "short_form_sha256": "s",
+            "questions_sha256": "q",
+        },
+        "essays": [],
+    }
+    stem = tmp_path / "gpt-5.6-luna-2026-08-04"
+    MODULE.write_artifacts(result, stem, overwrite=False)
+    assert (tmp_path / "gpt-5.6-luna-2026-08-04.json").is_file()
+    assert (tmp_path / "gpt-5.6-luna-2026-08-04.md").is_file()

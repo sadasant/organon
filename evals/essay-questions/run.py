@@ -239,8 +239,8 @@ def render_markdown(result: dict) -> str:
 
 
 def write_artifacts(result: dict, output_stem: Path, overwrite: bool) -> None:
-    json_path = output_stem.with_suffix(".json")
-    markdown_path = output_stem.with_suffix(".md")
+    json_path = Path(f"{output_stem}.json")
+    markdown_path = Path(f"{output_stem}.md")
     for path in (json_path, markdown_path):
         if path.exists() and not overwrite:
             raise FileExistsError(f"Refusing to overwrite {path}; pass --overwrite")
