@@ -2,12 +2,22 @@
 type: formalization-decisions
 status: noncanonical
 created: 2026-08-02
-updated: 2026-08-03
+updated: 2026-08-04
 prose_ontology: "../ontology.md"
 ---
 # Formalization Decisions
 
-These decisions belong to the Lean spike. They expose choices priced by formalization. They do not independently revise [Daniel's Ontology v0.16](../ontology.md); accepted findings flow into the binding, single-file Markdown ontology through its changelog.
+These decisions belong to the Lean spike. They expose choices priced by formalization. They do not independently revise [Daniel's Ontology v0.17](../ontology.md); accepted findings flow into the binding, single-file Markdown ontology through its changelog.
+
+## Flow absorbs recurrence; Ritual and Meaning retain distinct burdens
+
+`Flow` is the formal recurrence structure. Its occurrence list contains at least two distinct Transformations, all occurrences satisfy one executable Specification, and the complete output-State list is definitionally the ordered history of one `PersistenceWitness`. That witness, rather than pointwise Invariant satisfaction, proves preservation across the sequence. A second Recurrence term would duplicate these obligations.
+
+`RitualAccess` is intentionally a weaker formal shadow than the binding prose: it begins with an exact Flow occurrence and ends in the participant Entity's ordered Persistence history. The current core does not expose a complete Sense-to-Perception, Interpretation, or Action structure with which to prove the exact uptake route. The proposal and release preserve that as an open parity gate rather than advertising participant-history membership as Perception.
+
+`Meaning` is the participant-target Relation, not a State classifier or a value stored in the target. Its Causal Contribution shares the Ritual's carrier, Direction, and feeding Relation; both comparison paths begin with exact Flow occurrences, and the selected endpoint is proved equal to the participant's current State. An earlier draft accepted an arbitrary realization function and an unrelated contribution; that was rejected as decorative. Another draft mislabeled participant identity Persistence as persistence of the Meaning Relation; that field was removed.
+
+The Boolean maintenance classifier prices only one narrow claim: actual derived contribution can continue maintenance after visible enactment, while neither active enactment nor an active derived contribution leaves maintenance false. It is not a temporal model of decay. Ritual-derived Records, Memories, and environmental Changes remain existing terms rather than a new Ritual Residue structure.
 
 ## Hidden bridges divide into metalanguage, derivation, and object Relations
 
@@ -25,9 +35,9 @@ Generic “use” does not survive termhood: each load-bearing occurrence resolv
 
 `OrganonCore.lean` contains relational Missingness and all downstream formal classifiers without declaring or importing `Absent`, `Present`, or the performative mark. `DanielOntology.lean` imports that module and adds the local Absence/Presence experiment without redefining core structures. Every classifier module and the complete finite witness executable compile against `OrganonCore` alone.
 
-`OrganonCorePreservation.classificationPreserved` is definitionally true because extension semantics cannot be inspected by a core classifier. This establishes classification preservation for the current formal shadow and refutes the claim that those classifiers require Absence merely because the declarations previously occupied one file. It does not establish preservation for unformalized prose terms. The binding ontology has 107 registered terms; term-for-term formal parity remains necessary before the result can be generalized to the complete ontology.
+`OrganonCorePreservation.classificationPreserved` is definitionally true because extension semantics cannot be inspected by a core classifier. This establishes classification preservation for the current formal shadow and refutes the claim that those classifiers require Absence merely because the declarations previously occupied one file. It does not establish preservation for unformalized prose terms. The binding ontology has 109 registered terms; term-for-term formal parity remains necessary before the result can be generalized to the complete ontology.
 
-The first falsification seam does more than inspect imports. `OrganonCoreChallenge` supplies challenge classifiers for Presence, Missingness, Persistence, and Entity. An adversarial identity-breaking history is rejected while a preserving ordered history is admitted. A local-Reality equivalence is proved but not promoted to preservation: one universe-relative carrier is not the totality of all Presence. Reality may instead remain ambient and metatheoretic or receive a universe-indexed projection; choosing between those representations belongs to the binding canonicalization follow-up. The generated registry audit therefore records four proved challenge classifications, one pending representation decision, one deliberately excluded primitive, and 101 unknowns. Unknown is binding: a compiled shadow without exact prose parity is not counted as a preserved term.
+The first falsification seam does more than inspect imports. `OrganonCoreChallenge` supplies challenge classifiers for Presence, Missingness, Persistence, and Entity. An adversarial identity-breaking history is rejected while a preserving ordered history is admitted. A local-Reality equivalence is proved but not promoted to preservation: one universe-relative carrier is not the totality of all Presence. Reality may instead remain ambient and metatheoretic or receive a universe-indexed projection; choosing between those representations belongs to the binding canonicalization follow-up. The generated registry audit therefore records four proved challenge classifications, one pending representation decision, one deliberately excluded primitive, and 103 unknowns. Unknown is binding: a compiled shadow without exact prose parity is not counted as a preserved term.
 
 ## Presence is type-relative
 

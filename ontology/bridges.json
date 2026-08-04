@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "ontology_version": "0.16.0",
+  "ontology_version": "0.17.0",
   "bridges": [
     {
       "id": "identity-criterion",

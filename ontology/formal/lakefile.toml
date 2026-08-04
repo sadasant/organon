@@ -35,6 +35,9 @@ name = "QuarantineProfiles"
 [[lean_lib]]
 name = "BridgeRelations"
 
+[[lean_lib]]
+name = "RitualMeaning"
+
 [[lean_exe]]
 name = "ontology_check"
 root = "Model"

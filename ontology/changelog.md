@@ -3,13 +3,23 @@ type: ontology-changelog
 status: active
 ontology: "ontology.md"
 created: 2026-08-02
-updated: 2026-08-03
+updated: 2026-08-04
 ---
 # Daniel's Ontology - Changelog
 
 This note records how [Daniel's Ontology](./ontology.md) changed. Historical argument, rejected formulations, maintenance policy, and feedback belong here rather than in the binding ontology.
 
 ## Version history
+
+### v0.17 - Ritual-dependent Meaning
+
+- Strengthened Flow as the existing recurrence mechanism: at least two distinct Transformation occurrences, ordered outputs under one Direction, one constructive similarity Specification and Rule, one Scope, and a named persistent Relation or Invariant. Recurrence did not survive termhood as a duplicate.
+- Added Ritual as a persistent Configuration joining Flow to at least one participant through participant-bound Causal paths and causal effects on Perception, Interpretation, or Action. Private Ritual is sufficient.
+- Added Meaning as the participant-indexed Relation constituted and sustained through Ritual, not a property contained by a target, shrine, Symbol, Record, or Memory.
+- Reduced Ritual Residue to existing Records, Memories, Changes, Consequences, environmental Configurations, and Causal Contribution. Dormant carriers preserve conditions for reenactment rather than Meaning itself.
+- Added C25-C28 for recurrence/access, maintenance/storage, propagation/identity, and valuation/status anti-collapses, plus the optional `ritual-meaning` adoption profile.
+- Added finite Lean witnesses for ordered repeated Flow, private Ritual, causally joined Meaning, Flow without participant access, a single access event without Flow, derived-effect maintenance versus dormancy, and causally propagated but non-identical Meaning Relations.
+- Kept complete Sense-to-Perception formal parity, temporal decay, Beauty, Play, Love, sacredness, goodness, consent, consciousness, and moral worth outside the promoted formal boundary.
 
 ### v0.16 - Hidden bridges made explicit
 

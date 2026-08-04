@@ -2,9 +2,9 @@
 type: editorial-ontology
 status: provisional-binding
 binding: true
-version: 0.16
+version: 0.17
 created: 2026-08-01
-updated: 2026-08-03
+updated: 2026-08-04
 evidence_scope: "Daniel's adopted commitments and the recovered essay corpus"
 corpus_audit: "../provenance/essays.md"
 term_registry: "terms.yaml"
@@ -352,6 +352,8 @@ Interiority does not entail consciousness. Accountability for external effects d
 <!-- organon:term organon:Flow claim=D041 -->
 
 **Flow** is a repeated sequence of similar Transformations along persistent Relations.
+
+The sequence contains at least two distinct Transformation occurrences whose outputs are ordered under one Direction within one Scope. One Rule and constructive Specification decide the respect in which the occurrences are similar, and a named Relation or Invariant persists across their ordered States. The States need not repeat identically, the intervals need not be periodic, and the Entity classifying the Flow need not produce its Transformations.
 
 <a id="organon-interface"></a>
 <!-- organon:term organon:Interface claim=D042 -->
@@ -775,6 +777,24 @@ The four sovereignty profiles do not entail one another. A Polity may exercise C
 
 Preference, Utility Measure, Price, institutional valuation, and moral worth remain distinct. Generic **Value** has no additional binding meaning and remains quarantined.
 
+### 30. Ritual and meaning
+
+<a id="organon-ritual"></a>
+<!-- organon:term organon:Ritual claim=D105 -->
+
+**Ritual** is a persistent Configuration in which a Flow is repeatedly joined through participant-bound Causal paths to the Perception, Interpretation, or Action of at least one participating Entity, and Causal Contribution from those joined occurrences preserves one named participant-indexed Relation across distinct participant States within a Scope.
+
+One participating Entity is sufficient: Ritual need not be public, institutional, inherited, ceremonial, or directed toward another Agent. The recurrent target may be an Entity, State, Relation, Configuration, or environmental Difference and need not itself act. Flow without participant-bound causal access is not Ritual; a single Perception, Interpretation, or Action without Flow and persistence of the participant-indexed Relation is not Ritual.
+
+<a id="organon-meaning"></a>
+<!-- organon:term organon:Meaning claim=D106 -->
+
+**Meaning** is the participant-indexed Relation constituted and sustained by a Ritual among its participating Entities and target Presences within a Scope.
+
+Meaning is the Relation, not a property or substance contained by its target. Its Persistence requires ongoing Ritual enactment or actual Causal Contribution from ritual-derived Records, Memories, Changes, Consequences, or environmental Configurations. Preserving one possible carrier without an operative contribution preserves conditions for later reenactment, not Meaning by itself. Ending visible enactment does not immediately end Meaning while causally derived effects continue preserving the Relation; when neither enactment nor any such effect contributes, the Relation ceases to obtain in the continuing Scope. This does not erase its former Presence or Records of it.
+
+Meaning propagated to another Entity is a causally derived but numerically distinct Relation because its participant index differs. Shared target, Representation, Rule, or form of enactment does not make the two Relations identical. Meaning is distinct from Denotation: an expression can denote a target without Ritual, while Ritual can sustain Meaning without an expression-target Relation.
+
 ## Relation signatures
 
 These signatures make the ontology operational. They are schemas, not executable syntax.
@@ -834,6 +854,8 @@ These signatures make the ontology operational. They are schemas, not executable
 | `prefers` | Agent, ordered candidate States or Consequences, Rule, Scope | asymmetric partial ordering; no necessary numerical or behavioral representation |
 | `measuresUtility` | candidates, ordered measure space, Map, Rule, Specification, Scope | measured ordering; correspondence to Preference requires a separate witness |
 | `prices` | Ledger Record, Order, Rule, Representation of consideration, exchanged Presence, State, Scope | admitted exchange condition; no entailment of exchange, preference, utility, or worth |
+| `enactsRitual` | Flow, participating Entity, participant-bound Causal paths, Perception, Interpretation or Action, Causal Contribution, persistent Relation, Scope | Ritual; Flow or one access event alone is insufficient, while one participant is sufficient |
+| `sustainsMeaning` | Ritual, participating Entities, target Presences, actual sustaining Causal Contribution, Scope | participant-indexed Meaning Relation; no storage in the target or literal copying across participants |
 
 ## Binding consistency rules
 
@@ -885,6 +907,14 @@ These signatures make the ontology operational. They are schemas, not executable
 
 24. <!-- organon:claim C24 --> **No hidden-bridge substitution:** An Entity identity Claim must name its Invariant and Persistence witness; a Representation must name its Denotation; causal efficacy must name a Causal Contribution comparison; Capability must name the Constraint interpretation and constructive possibility witness; evidential support or defeat must name Evidential Bearing; and institutional eligibility must resolve to Standing in a named Order, Rule, and Scope. None of these bridges follows from resemblance, assertion, co-occurrence, or an untyped predicate.
 
+25. <!-- organon:claim C25 --> **No recurrence-to-ritual collapse:** Ritual entails a Flow and participant-bound causal access, but Flow alone does not entail Ritual. Perception, Interpretation, or Action alone does not entail Ritual without the qualifying Flow and persistence of the participant-indexed Relation. Ritual does not require multiple participants, an Institution, an inherited social form, periodic intervals, or an Agent as its target.
+
+26. <!-- organon:claim C26 --> **Meaning is maintained, not stored:** Meaning entails a sustaining Ritual. A target Presence, Record, Memory, Symbol, or other ritual-derived Configuration does not contain Meaning independently. Visible enactment may stop while an actual derived Causal Contribution continues preserving the Relation; when neither enactment nor such contribution preserves it, the Relation ceases to obtain in the continuing Scope.
+
+27. <!-- organon:claim C27 --> **Meaning propagation is derivation, not copying:** A Meaning Relation produced through causal propagation to another participant is distinct from its source Relation. Shared target, Representation, Rule, or ritual form does not erase the different participant index.
+
+28. <!-- organon:claim C28 --> **Meaning is not silent valuation or status:** Ritual and Meaning entail neither Preference, Utility Measure, Price, institutional valuation, Truth, consent, goodness, consciousness, moral status, moral personhood, nor moral worth. None of those classifications entails Ritual or Meaning without the required Flow, participant access, and sustaining Relation.
+
 ## Quarantined vocabulary
 
 These terms occur in the corpus but have no binding definition yet. They may be used in ordinary or quoted language, but no argument may depend on their ontological meaning until they are defined and placed in the dependency order.
@@ -894,6 +924,7 @@ These terms occur in the corpus but have no binding definition yet. They may be 
 - **Moral personhood:** the underlying candidate condition and moral worth remain undefined. Moral Status Attribution and Moral Personhood Designation govern Claims and institutional status without deciding that condition or collapsing it into institutional Person.
 - **Sovereignty:** generic Sovereignty has no binding definition. Use Constituent, Constituted, Boundary, or External Sovereignty for the promoted profiles, or declare a Configuration joining them without treating that join as automatic.
 - **Value:** generic Value and moral worth remain undefined. Preference, Utility Measure, Price, and the institutional-valuation projection are distinct and may not substitute for one another.
+- **Beauty, Play, and Love:** these words have no binding genus here. They may be expressed, stabilized, or transformed through Ritual, but Meaning does not define them and their occurrence cannot be inferred from Meaning alone.
 
 ## Intellectual shadows and contribution
 
@@ -913,6 +944,7 @@ This ontology does not claim that its local machinery is unprecedented. Nearly e
 | Truth, Trust, and Alignment | [Alfred Tarski, “The Semantic Conception of Truth”](https://www.jfsowa.com/logic/tarski.htm), [Annette Baier, “Trust and Antitrust”](https://www.jstor.org/stable/2265347), [Karen Jones, “Trust as an Affective Attitude”](https://www.jstor.org/stable/2381965), [Russell Hardin, *Trust and Trustworthiness*](https://www.russellsage.org/publications/book/trust-and-trustworthiness), [Niklas Luhmann, *Trust and Power*](https://www.wiley.com/en-us/Trust+and+Power-p-9781509519458), and [Terry et al., “Interactive AI Alignment”](https://arxiv.org/abs/2311.00710) | Tarski disciplines Claim-to-condition correspondence and the object-language/metalanguage boundary; trust theory distinguishes vulnerability, attitude, encapsulated interest, and complexity reduction; alignment research distinguishes target Specification, process, and evaluation profiles. | Truth here requires local material adequacy but does not claim a complete Tarskian semantics for natural language. Trust requires maintained admission and undetermined contribution but not goodwill, optimism, confidence, or shared interest. Alignment is a generic specified-correspondence Relation, not a claim that one profile captures human values or composes with another. |
 | Intelligence, Operative Knowledge, and Knowledge Transmission | [Shane Legg and Marcus Hutter, “Universal Intelligence: A Definition of Machine Intelligence”](https://arxiv.org/abs/0712.3329), [Gilbert Ryle, *The Concept of Mind*](https://books.google.com/books?id=mSbjClXFaIkC), [Claude Shannon, “A Mathematical Theory of Communication”](https://onlinelibrary.wiley.com/doi/abs/10.1002/j.1538-7305.1948.tb00917.x), and [Dan Sperber, “Why a deep understanding of cultural evolution is incompatible with shallow psychology”](https://www.dan.sperber.fr/wp-content/uploads/2006_why-a-deep-understanding-of-cultural-evolution-is-incompatible.pdf) | Legg and Hutter test intelligence across environments rather than one task; Ryle resists reducing intelligent performance to prior propositions; Shannon disciplines source-channel-recipient structure; Sperber distinguishes reconstruction from literal copying in cultural transmission. | Intelligence here requires adaptive Model construction and resulting Interpretation rather than assigning a scalar measure or optimal policy. Operative Knowledge is a Record-interpreter Configuration and does not inherit Ryle's complete account of knowing-how. Knowledge Transmission adds semantic-functional reconstruction that Shannon deliberately brackets and does not claim a general theory of culture. |
 | Epistemic, moral, sovereign, and valuation profiles | [Edmund Gettier, “Is Justified True Belief Knowledge?”](https://www.jstor.org/stable/3326922), [Immanuel Kant, *Groundwork of the Metaphysics of Morals*](https://www.gutenberg.org/ebooks/5682), [Thomas Hobbes, *Leviathan*](https://www.gutenberg.org/ebooks/3207), [Carl Schmitt, *Political Theology*](https://press.uchicago.edu/ucp/books/book/chicago/P/bo3643854.html), [Antonio Negri, *Insurgencies*](https://www.upress.umn.edu/9780816622740/insurgencies/), the [Montevideo Convention](https://www.oas.org/juridico/english/sigs/a-40.html), [Paul Samuelson, “A Note on the Pure Theory of Consumer's Behaviour”](https://www.jstor.org/stable/2548836), and [John von Neumann and Oskar Morgenstern, *Theory of Games and Economic Behavior*](https://press.princeton.edu/books/paperback/9780691130613/theory-of-games-and-economic-behavior) | Gettier blocks an easy justified-true-belief analysis; Kant separates moral consideration from price; Hobbes, Schmitt, Negri, and recognition practice expose distinct loci of sovereign power; Samuelson and von Neumann and Morgenstern discipline preference and utility representation. | Organon does not solve knowledge, moral worth, sovereignty, or value as generic concepts. It promotes narrower Configurations and Relations, keeps candidate conditions separate from institutional designation, and refuses silent composition among profiles. |
+| Flow, Ritual, and Meaning | Émile Durkheim, *The Elementary Forms of Religious Life*; Roy Rappaport, *Ritual and Religion in the Making of Humanity*; Catherine Bell, *Ritual Theory, Ritual Practice*; Randall Collins, *Interaction Ritual Chains*; Charles Sanders Peirce's triadic semiotics; and Ludwig Wittgenstein's account of meaning and use | Repetition and formalized performance, participation, effects carried through practice, and the refusal to locate significance as a substance inside an isolated sign or object. | Organon permits private Ritual rather than requiring collective assembly, makes every sustaining causal join explicit, and defines Meaning as a participant-indexed Relation rather than emotional energy, sacred status, Denotation, or linguistic use. It does not claim that these sources share one theory or that any tradition reduces to this schema. |
 
 ### The originality boundary
 
@@ -939,5 +971,7 @@ For any essay, project narrative, or editorial evaluation:
 ## Scope and limitations
 
 Internal closure does not establish metaphysical completeness. Absence is primitive; A3 defines Presence as its exhaustive and exclusive complement; A4 demonstrates that Presence obtains because the ontology's own statement is already a mark. Presence is not causally generated or logically derived from Absence alone.
+
+Ritual-dependent Meaning is one binding account of significance, not a complete aesthetics, ethics, theology, philosophy of mind, or anthropology. Beauty, Play, Love, sacredness, grief, goodness, consent, consciousness, and moral worth remain outside the definition. The noncanonical formal shadow proves participant-history access and exact causal joins, not complete Sense-to-Perception uptake or a universal law of temporal decay.
 
 In the [Long-Form Editorial Grammar](../editorial/long-form.md), **Missingness** names the felt gap an article makes consequential. **Absence** remains reserved for the absolute primitive defined here.
