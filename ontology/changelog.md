@@ -18,7 +18,7 @@ This note records how [Daniel's Ontology](./ontology.md) changed. Historical arg
 - Added Meaning as the participant-indexed Relation constituted and sustained through Ritual, not a property contained by a target, shrine, Symbol, Record, or Memory.
 - Reduced Ritual Residue to existing Records, Memories, Changes, Consequences, environmental Configurations, and Causal Contribution. Dormant carriers preserve conditions for reenactment rather than Meaning itself.
 - Added C25-C29 for recurrence/uptake, maintenance/storage, propagation/identity, valuation/status, and target-drift anti-collapses, plus the optional `ritual-meaning` adoption profile.
-- Added finite Lean witnesses for ordered repeated Flow, contrastively load-bearing Memory, private Ritual, target-State drift within one Invariant and Persistence history, causally joined Meaning, Flow without participant access, a single access event without Flow, derived-effect maintenance versus dormancy, and causally propagated but non-identical Meaning Relations.
+- Added finite Lean witnesses for ordered repeated Flow, contrastively load-bearing Perception and Memory, private Ritual, target-State drift within one Invariant and Persistence history, a candidate substitution State rejected by that Invariant, causally joined Meaning, Flow without participant access, a single access event without Flow, derived-effect maintenance versus dormancy, and causally propagated but non-identical Meaning Relations.
 - Kept canonical Sense/Perception/Memory/Interpretation parity, represented-target Denotation, temporal decay, Beauty, Play, Love, sacredness, goodness, consent, consciousness, and moral worth outside the promoted formal boundary.
 
 ### v0.16 - Hidden bridges made explicit

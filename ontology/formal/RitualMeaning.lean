@@ -122,15 +122,16 @@ structure RitualUptake
 structure Ritual
     {Feature : Type u}
     {Context : Type v}
+    {Target : Type u}
     (direction : Direction (Feature × Context))
     (feeding : FeedRelation (Feature × Context)) where
   flow : Flow direction
   participant : Entity (Feature × Context)
-  target : TargetContinuity Feature
+  target : TargetContinuity Target
+  targetProjection : State (Feature × Context) → State Target
   targetStatesOccurThroughoutFlow :
     ∀ occurrence, occurrence ∈ flow.occurrences →
-      (⟨occurrence.output.value.1⟩ : State Feature) ∈
-        target.persistence.states
+      targetProjection occurrence.output ∈ target.persistence.states
   accesses : List (RitualAccess feeding flow participant)
   accessesNonempty : accesses ≠ []
   everyOccurrenceAccessed :
@@ -157,11 +158,12 @@ currently carried; it is not a decorative causal witness beside the Ritual.
 structure Meaning
     {Feature : Type v}
     {Context : Type u}
+    {Target : Type v}
     {direction : Direction (Feature × Context)}
     {feeding : FeedRelation (Feature × Context)}
-    (ritual : Ritual direction feeding)
+    (ritual : Ritual (Target := Target) direction feeding)
     where
-  scope : Scope (State (Feature × Context) × State Feature)
+  scope : Scope (State (Feature × Context) × State Target)
   inScope :
     scope.includes (ritual.participant.current, ritual.target.current)
   sustainingContribution :
@@ -183,24 +185,28 @@ structure Meaning
 def MeaningRelation
     {Feature : Type v}
     {Context : Type u}
+    {Target : Type v}
     {direction : Direction (Feature × Context)}
     {feeding : FeedRelation (Feature × Context)}
-    {ritual : Ritual direction feeding}
+    {ritual : Ritual (Target := Target) direction feeding}
     (_meaning : Meaning ritual) :
-    State (Feature × Context) × State Feature :=
+    State (Feature × Context) × State Target :=
   (ritual.participant.current, ritual.target.current)
 
 theorem meaningContributionCarriesRitualTarget
     {Feature : Type v}
     {Context : Type u}
+    {Target : Type v}
     {direction : Direction (Feature × Context)}
     {feeding : FeedRelation (Feature × Context)}
-    {ritual : Ritual direction feeding}
+    {ritual : Ritual (Target := Target) direction feeding}
     (meaning : Meaning ritual) :
-    (⟨meaning.sustainingContribution.leftEndpoints.first.output.value.1⟩ :
-        State Feature) ∈ ritual.target.persistence.states ∧
-      (⟨meaning.sustainingContribution.rightEndpoints.first.output.value.1⟩ :
-        State Feature) ∈ ritual.target.persistence.states := by
+    ritual.targetProjection
+        meaning.sustainingContribution.leftEndpoints.first.output ∈
+          ritual.target.persistence.states ∧
+      ritual.targetProjection
+        meaning.sustainingContribution.rightEndpoints.first.output ∈
+          ritual.target.persistence.states := by
   constructor
   · exact ritual.targetStatesOccurThroughoutFlow _ meaning.leftOriginatesInFlow
   · exact ritual.targetStatesOccurThroughoutFlow _ meaning.rightOriginatesInFlow
@@ -208,14 +214,17 @@ theorem meaningContributionCarriesRitualTarget
 theorem meaningContributionPreservesTargetIdentity
     {Feature : Type v}
     {Context : Type u}
+    {Target : Type v}
     {direction : Direction (Feature × Context)}
     {feeding : FeedRelation (Feature × Context)}
-    {ritual : Ritual direction feeding}
+    {ritual : Ritual (Target := Target) direction feeding}
     (meaning : Meaning ritual) :
     ritual.target.persistence.invariant.holds
-        ⟨meaning.sustainingContribution.leftEndpoints.first.output.value.1⟩ ∧
+        (ritual.targetProjection
+          meaning.sustainingContribution.leftEndpoints.first.output) ∧
       ritual.target.persistence.invariant.holds
-        ⟨meaning.sustainingContribution.rightEndpoints.first.output.value.1⟩ := by
+        (ritual.targetProjection
+          meaning.sustainingContribution.rightEndpoints.first.output) := by
   have targetStates := meaningContributionCarriesRitualTarget meaning
   constructor
   · exact ritual.target.persistence.invariantHolds _ targetStates.1
@@ -327,29 +336,31 @@ def privateParticipantAtHigh : Entity BridgeCarrier where
   currentInPersistence := by simp [privatePersistence]
   identityHolds := trivial
 
-def ritualTargetDirection : Direction Bool where
-  before := fun earlier later => earlier.value = false ∧ later.value = true
+def ritualTargetDirection : Direction (Option Bool) where
+  before := fun earlier later =>
+    earlier.value = some false ∧ later.value = some true
   asymmetric := by
     intro earlier later forward reverse
     simp_all
 
-def ritualTargetInvariant : Invariant Bool where
-  holds := fun _ => True
+def ritualTargetInvariant : Invariant (Option Bool) where
+  holds := fun state => state.value ≠ none
 
 def ritualTargetPersistence : PersistenceWitness ritualTargetDirection where
-  states := [⟨false⟩, ⟨true⟩]
-  hasTransition := ⟨⟨false⟩, ⟨true⟩, [], rfl⟩
+  states := [⟨some false⟩, ⟨some true⟩]
+  hasTransition := ⟨⟨some false⟩, ⟨some true⟩, [], rfl⟩
   invariant := ritualTargetInvariant
   invariantHolds := by
-    intro _ _
-    trivial
+    intro state member
+    simp only [List.mem_cons, List.not_mem_nil, or_false] at member
+    rcases member with rfl | rfl <;> simp [ritualTargetInvariant]
   ordered := by
     simp [OrderedBy, ritualTargetDirection]
 
-def driftingRitualTarget : TargetContinuity Bool where
+def driftingRitualTarget : TargetContinuity (Option Bool) where
   direction := ritualTargetDirection
   persistence := ritualTargetPersistence
-  current := ⟨true⟩
+  current := ⟨some true⟩
   currentInPersistence := by simp [ritualTargetPersistence]
 
 def memoryConditionedRitualInterpretation
@@ -433,10 +444,12 @@ def highRitualAccess :
     simp [highEndpoints, highPath, highTransformation,
       privateParticipantAtHigh, privatePersistence]
 
-def privateRitual : Ritual bridgeDirection bridgeFeed where
+def privateRitual :
+    Ritual (Target := Option Bool) bridgeDirection bridgeFeed where
   flow := repeatedBridgeFlow
   participant := privateParticipantAtHigh
   target := driftingRitualTarget
+  targetProjection := fun state => ⟨some state.value.1⟩
   targetStatesOccurThroughoutFlow := by
     intro occurrence member
     simp [repeatedBridgeFlow] at member
@@ -461,7 +474,8 @@ def privateRitual : Ritual bridgeDirection bridgeFeed where
     rcases member with rfl
     exact ⟨privateRitualUptakeAtHigh, by simp, rfl⟩
 
-def bridgeMeaningScope : Scope (State BridgeCarrier × State Bool) :=
+def bridgeMeaningScope :
+    Scope (State BridgeCarrier × State (Option Bool)) :=
   ⟨fun _ => True⟩
 
 def privateMeaning :
@@ -477,7 +491,7 @@ def privateMeaning :
   contributionReachesParticipant := rfl
 
 theorem privateRitualIsInhabited :
-    Nonempty (Ritual bridgeDirection bridgeFeed) :=
+    Nonempty (Ritual (Target := Option Bool) bridgeDirection bridgeFeed) :=
   ⟨privateRitual⟩
 
 theorem privateMeaningIsInhabited :
@@ -490,18 +504,25 @@ theorem privateMeaningUsesRitualTarget :
   rfl
 
 theorem privateRitualTargetDriftsWithinIdentity :
-    (⟨lowTransformation.output.value.1⟩ : State Bool) ≠
-        ⟨highTransformation.output.value.1⟩ ∧
+    privateRitual.targetProjection lowTransformation.output ≠
+        privateRitual.targetProjection highTransformation.output ∧
       privateRitual.target.persistence.invariant.holds
-        ⟨lowTransformation.output.value.1⟩ ∧
+        (privateRitual.targetProjection lowTransformation.output) ∧
       privateRitual.target.persistence.invariant.holds
-        ⟨highTransformation.output.value.1⟩ := by
+        (privateRitual.targetProjection highTransformation.output) := by
   constructor
   · intro equal
     have values := congrArg State.value equal
-    simp [lowTransformation, highTransformation, lowOutputState,
+    simp [privateRitual, lowTransformation, highTransformation, lowOutputState,
       highOutputState] at values
-  · exact ⟨trivial, trivial⟩
+  · constructor <;>
+      simp [privateRitual, driftingRitualTarget, ritualTargetPersistence,
+        ritualTargetInvariant, lowTransformation, highTransformation,
+        lowOutputState, highOutputState]
+
+theorem targetSubstitutionBreaksInvariant :
+    ¬ driftingRitualTarget.persistence.invariant.holds ⟨none⟩ := by
+  simp [driftingRitualTarget, ritualTargetPersistence, ritualTargetInvariant]
 
 structure BareRepeatedFlow where
   flow : Flow bridgeDirection
@@ -592,10 +613,12 @@ def privateRitualUptakeAtLow :
     simp [memoryConditionedRitualInterpretation, lowInputState,
       lowOutputState, highOutputState]
 
-def privateRitualAtLow : Ritual bridgeDirection bridgeFeed where
+def privateRitualAtLow :
+    Ritual (Target := Option Bool) bridgeDirection bridgeFeed where
   flow := repeatedBridgeFlow
   participant := privateParticipantAtLow
   target := driftingRitualTarget
+  targetProjection := fun state => ⟨some state.value.1⟩
   targetStatesOccurThroughoutFlow := by
     intro occurrence member
     simp [repeatedBridgeFlow] at member
