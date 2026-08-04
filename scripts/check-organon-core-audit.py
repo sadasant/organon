@@ -48,6 +48,8 @@ FORMAL_SHADOWS = {
     "organon:ConstituentSovereignty", "organon:ConstitutedSovereignty",
     "organon:BoundarySovereignty", "organon:ExternalSovereignty",
     "organon:Preference", "organon:UtilityMeasure", "organon:Price",
+    "organon:Denotation", "organon:CausalContribution",
+    "organon:EvidentialBearing",
 }
 
 
@@ -96,9 +98,6 @@ def render() -> str:
             f"| {term['claim_id']} | `{term_id}` | {disposition} | {result} | {reason} |"
         )
 
-    if len(rows) != 104:
-        raise ValueError(f"expected 104 registered terms, found {len(rows)}")
-
     return "\n".join([
         "---",
         "type: formal-experiment-audit",
@@ -133,7 +132,11 @@ def main() -> int:
     if not REPORT.exists() or REPORT.read_text(encoding="utf-8") != expected:
         print("OrganonCore term audit is stale; run with --write.", file=sys.stderr)
         return 1
-    print("OrganonCore term audit passed: 104 registered terms accounted for.")
+    registry = json.loads(REGISTRY.read_text(encoding="utf-8"))
+    print(
+        "OrganonCore term audit passed: "
+        f"{len(registry['terms'])} registered terms accounted for."
+    )
     return 0
 
 

@@ -20,21 +20,21 @@
       "id": "IK-D1",
       "type": "proposed_definition",
       "subject": "Intelligence",
-      "depends_on": ["organon:Capability", "organon:Agent", "organon:Model", "organon:Interpretation", "organon:Perception", "organon:Memory", "organon:Action", "organon:Consequence", "organon:Specification", "organon:State", "organon:Rule", "organon:Representation", "organon:Scope", "organon:Difference", "organon:CausalPath", "organon:Record", "organon:Tool", "organon:Substrate", "local:RuleEncoding", "local:AdaptiveRule", "local:CognitivePipeline", "local:JoinedAdaptiveCase"],
+      "depends_on": ["organon:Capability", "organon:Agent", "organon:Model", "organon:Interpretation", "organon:Perception", "organon:Memory", "organon:Action", "organon:Consequence", "organon:Specification", "organon:State", "organon:Rule", "organon:Representation", "organon:Scope", "organon:Difference", "organon:CausalPath", "organon:CausalContribution", "organon:Record", "organon:Tool", "organon:Substrate", "local:RuleEncoding", "local:AdaptiveRule", "local:CognitivePipeline", "local:JoinedAdaptiveCase"],
       "formal_symbol": "Intelligence"
     },
     {
       "id": "IK-D2",
       "type": "proposed_definition",
       "subject": "Operative Knowledge",
-      "depends_on": ["organon:Configuration", "organon:Record", "organon:Agent", "organon:Capability", "organon:Constraint", "organon:Rule", "organon:Model", "organon:Interpretation", "organon:CausalPath", "organon:Action", "organon:Transformation", "organon:State", "organon:Consequence", "organon:Specification", "organon:Scope", "organon:Difference", "organon:Truth", "organon:Evidence", "local:InterpretiveContext"],
+      "depends_on": ["organon:Configuration", "organon:Record", "organon:Agent", "organon:Capability", "organon:Constraint", "organon:Rule", "organon:Model", "organon:Interpretation", "organon:CausalPath", "organon:CausalContribution", "organon:Action", "organon:Transformation", "organon:State", "organon:Consequence", "organon:Specification", "organon:Scope", "organon:Difference", "organon:Truth", "organon:Evidence", "local:InterpretiveContext"],
       "formal_symbol": "OperativeKnowledge"
     },
     {
       "id": "IK-D3",
       "type": "proposed_definition",
       "subject": "Knowledge Transmission",
-      "depends_on": ["organon:Relation", "IK-D2", "organon:Record", "organon:CausalPath", "organon:Specification", "organon:Scope", "organon:Configuration", "organon:State", "organon:Agent", "organon:Representation", "organon:Model", "organon:Interpretation"],
+      "depends_on": ["organon:Relation", "IK-D2", "organon:Record", "organon:CausalPath", "organon:CausalContribution", "organon:Specification", "organon:Scope", "organon:Configuration", "organon:State", "organon:Agent", "organon:Representation", "organon:Model", "organon:Interpretation"],
       "formal_symbol": "KnowledgeTransmission"
     },
     {

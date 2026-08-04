@@ -1,5 +1,6 @@
 import Consciousness
 import IntelligenceKnowledge
+import BridgeRelations
 
 /-!
 # Epistemic, moral, sovereign, and valuation profiles
@@ -34,7 +35,6 @@ structure FactiveOperativeKnowledge
 structure EvidenceSemantics
     (Agent Claim Evidence Observation Witness Order Rule : Type u) where
   observes : Witness → Observation → Prop
-  supports : Evidence → Observation → Claim → Prop
   independentFor : Witness → Agent → Claim → Observation → Order → Prop
   admits : Order → Rule → Evidence → Claim → Prop
 
@@ -44,16 +44,15 @@ structure EvidenceAdmission
       Agent Claim Evidence Observation Witness Order Rule)
     (claim : Claim) where
   claimant : Agent
-  evidence : Evidence
   observation : Observation
   witness : Witness
-  order : Order
-  rule : Rule
+  bearing : EvidentialBearing Evidence Claim Rule Order (Scope (Evidence × Claim))
+  claimMatches : bearing.claim = claim
   observed : semantics.observes witness observation
-  supportsClaim : semantics.supports evidence observation claim
   independent :
-    semantics.independentFor witness claimant claim observation order
-  admitted : semantics.admits order rule evidence claim
+    semantics.independentFor witness claimant claim observation bearing.order
+  admitted : semantics.admits bearing.order bearing.rule bearing.evidence claim
+  supportive : bearing.disposition = .supporting
 
 structure WarrantedKnowledge
     {Record Agent OperativeRule Model Interpretation Action Effect : Type u}
@@ -94,28 +93,45 @@ def openEvidenceSemantics : EvidenceSemantics
     ToyAgent ToyClaim ToyEvidence ToyObservation ToyWitness ToyOrder
       ToyEvidenceRule where
   observes := fun _ _ => True
-  supports := fun evidence observation claim =>
-    evidence = .report ∧ observation = .observed ∧ claim = .accurate
   independentFor := fun _ _ _ _ _ => True
   admits := fun _ _ evidence claim =>
     evidence = .report ∧ claim = .accurate
+
+def accurateEvidenceBearing :
+    EvidentialBearing ToyEvidence ToyClaim ToyEvidenceRule ToyOrder
+      (Scope (ToyEvidence × ToyClaim)) where
+  evidence := .report
+  claim := .accurate
+  rule := .admitIndependent
+  order := .reviewing
+  scope := ⟨fun pair => pair = (.report, .accurate)⟩
+  evaluate := fun _ evidence claim =>
+    if evidence = .report ∧ claim = .accurate then
+      .supporting
+    else
+      .underdetermining
+  disposition := .supporting
+  evaluationHolds := by simp
+  records := fun order evidence claim rule scope disposition =>
+    order = .reviewing ∧ evidence = .report ∧ claim = .accurate ∧
+      rule = .admitIndependent ∧ scope.includes (evidence, claim) ∧
+      disposition = .supporting
+  recorded := by simp
 
 def warrantedAccurateKnowledge : WarrantedKnowledge
     accurateFactiveKnowledge ToyEvidence ToyObservation ToyWitness ToyOrder
       ToyEvidenceRule openEvidenceSemantics where
   admission := {
     claimant := .recipient
-    evidence := .report
     observation := .observed
     witness := .independent
-    order := .reviewing
-    rule := .admitIndependent
+    bearing := accurateEvidenceBearing
+    claimMatches := rfl
     observed := trivial
-    supportsClaim := by
-      simp [openEvidenceSemantics, accurateFactiveKnowledge]
     independent := trivial
     admitted := by
       simp [openEvidenceSemantics, accurateFactiveKnowledge]
+    supportive := rfl
   }
   claimantMatches := rfl
 
@@ -123,7 +139,6 @@ def closedEvidenceSemantics : EvidenceSemantics
     ToyAgent ToyClaim ToyEvidence ToyObservation ToyWitness ToyOrder
       ToyEvidenceRule where
   observes := fun _ _ => True
-  supports := fun _ _ _ => True
   independentFor := fun _ _ _ _ _ => True
   admits := fun _ _ _ _ => False
 

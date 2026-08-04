@@ -73,7 +73,7 @@ An institutional valuation is exactly a CountsAs event in which an Order assigns
 **QP-D1 — Factive Operative Knowledge:** Factive Operative Knowledge is an instance of Operative Knowledge whose load-bearing Record carries a declared Claim and for which Truth obtains for that exact Claim under its declared Rule, truth-condition Specification, relevant Presence, and Scope.
 
 <!-- organon:proposal-statement QP-D2 type=proposed_definition -->
-**QP-D2 — Warranted Knowledge:** Warranted Knowledge is Factive Operative Knowledge for which an Order admits Evidence supporting the same Claim under an Admissibility Rule, where the Evidence is joined to an Observation and a Witness that is IndependentFor the interpreting Agent of that Factive Operative Knowledge instance, Claim, Observation, and Order. Independence for another Agent does not satisfy the definition.
+**QP-D2 — Warranted Knowledge:** Warranted Knowledge is Factive Operative Knowledge for which an Order admits Evidence bearing supportively on the same Claim under an Admissibility Rule and evaluation Rule, where the Evidence is joined to an Observation and a Witness that is IndependentFor the interpreting Agent of that Factive Operative Knowledge instance, Claim, Observation, and Order. Independence for another Agent does not satisfy the definition.
 
 <!-- organon:proposal-statement QP-D3 type=proposed_definition -->
 **QP-D3 — Moral Status Attribution:** Moral Status Attribution is a Claim whose Representation, interpreted under a Rule, asserts that a target Entity in a State instantiates a separately specified candidate moral condition within a Scope. The Attribution identifies the candidate Specification and preserves claimant, target, Representation, interpretive Rule, and first-person or third-person provenance without establishing that the condition obtains.
@@ -145,7 +145,7 @@ The sovereignty structures encode the proposal's local seams rather than labels 
 ## Promotion gates that remain open
 
 <!-- organon:proposal-statement QP-G1 type=open_formalization_gate -->
-**QP-G1 — Core evidence parity:** The formal Evidence predicates remain proposal-local, but `claimantMatches` enforces that their claimant is the operative interpreter. Full parity requires constructing Warranted Knowledge from Organon's `IndependentFor`, Admissibility Rule provenance, Observation, Evidence, and Admission structures without a free substitute predicate.
+**QP-G1 — Core evidence parity:** v0.16 replaces the proposal-local support predicate with canonical Evidential Bearing, and `claimantMatches` enforces that its claimant is the operative interpreter. Full parity still requires deriving the remaining Observation, IndependentFor, Admissibility Rule provenance, Evidence, and Admission predicates from the core structures without free substitutes.
 
 <!-- organon:proposal-statement QP-G2 type=open_formalization_gate -->
 **QP-G2 — Moral condition and moral worth:** No binding Specification of the underlying moral condition or moral worth is supplied. Moral Status Attribution and Moral Personhood Designation remain discourse machinery only.

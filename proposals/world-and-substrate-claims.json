@@ -41,6 +41,7 @@
         "organon:Persistence",
         "organon:Reality",
         "organon:Evidence",
+        "organon:EvidentialBearing",
         "organon:Claim",
         "organon:Order",
         "organon:Rule",

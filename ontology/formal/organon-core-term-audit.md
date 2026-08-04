@@ -3,14 +3,14 @@ type: formal-experiment-audit
 status: draft
 canonicality: noncanonical
 created: 2026-08-03
-ontology_version: "0.15.0"
+ontology_version: "0.16.0"
 generated_by: scripts/check-organon-core-audit.py
 ---
 # OrganonCore term audit
 
 This table accounts for every registered term. `proved` means only that the declared challenge classifier is preserved in Lean. It is not automatically a complete encoding of the binding prose. `compiled shadow` means a named Lean shadow builds without the Absence extension; it does not mean that the shadow is extensionally identical to the binding prose definition.
 
-Result totals: **4 proved translations**, **1 pending representation decision**, **1 intentionally excluded**, and **98 unknown**.
+Result totals: **4 proved translations**, **1 pending representation decision**, **1 intentionally excluded**, and **101 unknown**.
 
 | Claim | Term | Reduct disposition | Experiment result | Reason |
 |---|---|---|---|---|
@@ -20,6 +20,7 @@ Result totals: **4 proved translations**, **1 pending representation decision**,
 | D001 | `organon:Reality` | challenge seam | pending | Choose an ambient metatheoretic or universe-indexed projection; no local carrier is Reality as a whole. |
 | D002 | `organon:Difference` | direct translation gate | unknown | The prose definition names Presence directly and lacks an exact paired classifier. |
 | D003 | `organon:Relation` | direct translation gate | unknown | The prose definition names Presence directly and lacks an exact paired classifier. |
+| D102 | `organon:Denotation` | compiled shadow | unknown | The Lean shadow is extension-invariant; exact prose parity is not established. |
 | D004 | `organon:Configuration` | direct translation gate | unknown | The prose definition names Presence directly and lacks an exact paired classifier. |
 | D005 | `organon:State` | compiled shadow | unknown | The Lean shadow is extension-invariant; exact prose parity is not established. |
 | D006 | `organon:Direction` | compiled shadow | unknown | The Lean shadow is extension-invariant; exact prose parity is not established. |
@@ -27,6 +28,7 @@ Result totals: **4 proved translations**, **1 pending representation decision**,
 | D008 | `organon:Change` | downstream translation gate | unknown | No exact paired classifier yet; dependency closure alone cannot prove preservation. |
 | D009 | `organon:Feeds` | compiled shadow | unknown | The Lean shadow is extension-invariant; exact prose parity is not established. |
 | D010 | `organon:CausalPath` | compiled shadow | unknown | The Lean shadow is extension-invariant; exact prose parity is not established. |
+| D103 | `organon:CausalContribution` | compiled shadow | unknown | The Lean shadow is extension-invariant; exact prose parity is not established. |
 | D011 | `organon:Invariant` | challenge support | unknown | Used by the adversarial history classifier; binding parity remains unproved. |
 | D012 | `organon:Persistence` | translated | proved | The classifier carries an ordered history and identity Invariant and is extension-invariant. |
 | D013 | `organon:Constraint` | compiled shadow | unknown | The Lean shadow is extension-invariant; exact prose parity is not established. |
@@ -83,6 +85,7 @@ Result totals: **4 proved translations**, **1 pending representation decision**,
 | D064 | `organon:AdmissibilityRule` | downstream translation gate | unknown | No exact paired classifier yet; dependency closure alone cannot prove preservation. |
 | D065 | `organon:IndependentFor` | compiled shadow | unknown | The Lean shadow is extension-invariant; exact prose parity is not established. |
 | D066 | `organon:Evidence` | downstream translation gate | unknown | No exact paired classifier yet; dependency closure alone cannot prove preservation. |
+| D104 | `organon:EvidentialBearing` | compiled shadow | unknown | The Lean shadow is extension-invariant; exact prose parity is not established. |
 | D067 | `organon:Attestation` | downstream translation gate | unknown | No exact paired classifier yet; dependency closure alone cannot prove preservation. |
 | D068 | `organon:Institution` | downstream translation gate | unknown | No exact paired classifier yet; dependency closure alone cannot prove preservation. |
 | D069 | `organon:Center` | downstream translation gate | unknown | No exact paired classifier yet; dependency closure alone cannot prove preservation. |

@@ -11,7 +11,6 @@
     "local:TruthSemantics",
     "local:EpistemicAccess",
     "local:Dependence",
-    "local:Contribution",
     "local:AlignmentProfile",
     "local:Confidence"
   ],
@@ -20,14 +19,14 @@
       "id": "TA-D1",
       "type": "proposed_definition",
       "subject": "Truth",
-      "depends_on": ["organon:Relation", "organon:Claim", "organon:Representation", "organon:Rule", "organon:Specification", "organon:Reality", "organon:Presence", "organon:Scope", "organon:Entity", "organon:Evidence", "organon:Admission"],
+      "depends_on": ["organon:Relation", "organon:Claim", "organon:Representation", "organon:Denotation", "organon:Rule", "organon:Specification", "organon:Reality", "organon:Presence", "organon:Scope", "organon:Entity", "organon:Evidence", "organon:EvidentialBearing", "organon:Admission"],
       "formal_symbol": "TruthSemantics"
     },
     {
       "id": "TA-D2",
       "type": "proposed_definition",
       "subject": "Trust",
-      "depends_on": ["organon:Relation", "organon:Entity", "organon:Boundary", "organon:Constraint", "organon:State", "organon:Action", "organon:Claim", "organon:CausalPath", "organon:Interior", "organon:Exposure", "organon:Consequence", "organon:Control", "organon:Scope", "organon:Evidence", "organon:Permission", "organon:Authority", "local:Contribution", "local:Dependence"],
+      "depends_on": ["organon:Relation", "organon:Entity", "organon:Boundary", "organon:Constraint", "organon:State", "organon:Action", "organon:Claim", "organon:CausalPath", "organon:CausalContribution", "organon:Interior", "organon:Exposure", "organon:Consequence", "organon:Control", "organon:Scope", "organon:Evidence", "organon:Permission", "organon:Authority", "local:Dependence"],
       "formal_symbol": "Trust"
     },
     {
@@ -75,7 +74,7 @@
       "id": "TA-G2",
       "type": "open_formalization_gate",
       "subject": "Trust Action Exposure and Consequence joins",
-      "depends_on": ["TA-D2", "organon:Action", "organon:CausalPath", "organon:Interior", "organon:Exposure", "organon:Consequence", "organon:Evidence", "organon:Enforcement", "local:Contribution", "local:Dependence"]
+      "depends_on": ["TA-D2", "organon:Action", "organon:CausalPath", "organon:CausalContribution", "organon:Interior", "organon:Exposure", "organon:Consequence", "organon:Evidence", "organon:Enforcement", "local:Dependence"]
     },
     {
       "id": "TA-G3",

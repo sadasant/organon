@@ -119,7 +119,7 @@ The formal shadow does not yet encode the complete Causal path from Environment 
 
 | ID | Type | Statement | Dependencies | Evidence or gate |
 | --- | --- | --- | --- | --- |
-| WS-D1 | Proposed definition | World | Configuration, Entity, Presence, Environment, State, Relation, Causal path, Perception, Interpretation, Action, Constraint, Sense, Map, Reference, Scope, Invariant, Persistence, Reality, Evidence, Claim, Order, Rule, Boundary | Finite inhabited World |
+| WS-D1 | Proposed definition | World | Configuration, Entity, Presence, Environment, State, Relation, Causal path, Perception, Interpretation, Action, Constraint, Sense, Map, Reference, Scope, Invariant, Persistence, Reality, Evidence, Evidential Bearing, Claim, Order, Rule, Boundary | Finite inhabited World |
 | WS-D2 | Proposed definition | Substrate | Configuration, Scope, Persistence, Invariant, State, Transformation, Feeds, Constraint, Difference, Representation, Entity, Environment, Tool | Finite inhabited Substrate |
 | WS-C1 | Anti-collapse constraint | World Scope need not include every State of its carrier type | WS-D1, State, Scope | `worldScopeCanExcludeCarrierState` |
 | WS-C2 | Anti-collapse constraint | Common World does not entail identical access | WS-D1, Invariant | `worldAccessPathsNeedNotAgree` |

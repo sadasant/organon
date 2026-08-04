@@ -7,6 +7,7 @@ import WorldSubstrate
 import TruthTrustAlignment
 import IntelligenceKnowledge
 import QuarantineProfiles
+import BridgeRelations
 
 /-!
 # Daniel's Ontology: finite inhabited model
@@ -474,9 +475,27 @@ def activationPermission : Permission ToyPrincipal ToyAgent ToyAction where
 
 def controllerCapability :
     Capability ToyAgent ToyAction ToyContext .controller where
-  can := fun context action =>
+  realization := fun context _ =>
+    if context.enabled then Unit else Empty
+  decideCan := fun context action =>
     match action with
-    | .activate => context.enabled = true
+    | .activate => context.enabled
+  decisionCorrect := by
+    intro context action
+    cases action
+    cases context with
+    | mk enabled =>
+        cases enabled
+        · constructor
+          · intro impossible
+            cases impossible
+          · rintro ⟨impossible⟩
+            exact nomatch impossible
+        · constructor
+          · intro _
+            exact ⟨()⟩
+          · intro _
+            rfl
 
 def activationExercise :
     PermissionExercise ToyPrincipal ToyAgent ToyAction ToyContext where
@@ -488,7 +507,7 @@ def activationExercise :
   inInterval := by
     simp [Interval.contains, activationPermission, activationClaim, maintenanceWindow]
   capability := controllerCapability
-  technicallyPossible := by rfl
+  technicallyPossible := ⟨()⟩
   stillAdmitted := by
     simp [activationPermission, toyOrder, activationClaim, activationGrant]
   notRevoked := by simp [activationPermission, toyOrder]
@@ -548,4 +567,4 @@ theorem exerciseModelIsInhabited :
 end DanielOntology.Model
 
 def main : IO Unit :=
-  IO.println "OrganonCore v0.15 reduct: downstream shadows plus four preserved challenge classifiers and one pending Reality representation elaborated"
+  IO.println "OrganonCore v0.16 reduct: hidden bridge relations, downstream shadows, four preserved challenge classifiers, and one pending Reality representation elaborated"
