@@ -8,6 +8,7 @@ import TruthTrustAlignment
 import IntelligenceKnowledge
 import QuarantineProfiles
 import BridgeRelations
+import RitualMeaning
 
 /-!
 # Daniel's Ontology: finite inhabited model
@@ -567,4 +568,4 @@ theorem exerciseModelIsInhabited :
 end DanielOntology.Model
 
 def main : IO Unit :=
-  IO.println "OrganonCore v0.16 reduct: hidden bridge relations, downstream shadows, four preserved challenge classifiers, and one pending Reality representation elaborated"
+  IO.println "OrganonCore v0.17 reduct: hidden bridge relations, private ritual, ritual-dependent meaning, downstream shadows, four preserved challenge classifiers, and one pending Reality representation elaborated"

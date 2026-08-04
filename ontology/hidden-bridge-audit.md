@@ -4,7 +4,7 @@ status: adopted
 canonicality: supporting
 created: 2026-08-03
 updated: 2026-08-03
-ontology_version: "0.16.0"
+ontology_version: "0.17.0"
 ---
 # Hidden Bridge Audit
 

@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "ontology_version": "0.16.0",
+  "ontology_version": "0.17.0",
   "sources": {
     "essay:absence": {"kind": "published-corpus", "reference": "essays.md", "title": "Nothing Else Is So Exact As Absence"},
     "essay:shadow-world": {"kind": "published-corpus", "reference": "essays.md", "title": "The Shadow of the World"},
@@ -32,7 +32,9 @@
     "proposal:quarantine-profiles": {"kind": "adopted-review", "reference": "../proposals/remaining-quarantine-profiles.md", "title": "Epistemic moral sovereign and valuation partial-promotion dossier"},
     "formal:quarantine-profiles": {"kind": "formalization", "reference": "../ontology/formal/decisions.md", "title": "Remaining quarantine profiles formalization findings"},
     "review:hidden-bridges": {"kind": "adopted-review", "reference": "../ontology/changelog.md", "title": "Hidden bridge audit"},
-    "formal:hidden-bridges": {"kind": "formalization", "reference": "../ontology/formal/decisions.md", "title": "Hidden bridge formalization findings"}
+    "formal:hidden-bridges": {"kind": "formalization", "reference": "../ontology/formal/decisions.md", "title": "Hidden bridge formalization findings"},
+    "proposal:ritual-meaning": {"kind": "adopted-review", "reference": "../proposals/ritual-and-meaning.md", "title": "Ritual and ritual-dependent Meaning promotion dossier"},
+    "formal:ritual-meaning": {"kind": "formalization", "reference": "../ontology/formal/decisions.md", "title": "Ritual and Meaning formalization findings"}
   },
   "groups": [
     {
@@ -99,6 +101,11 @@
       "basis": "review-repair",
       "sources": ["essay:reasoning-language", "essay:higher-you-go", "essay:epistemic-capture", "review:hidden-bridges", "formal:hidden-bridges", "review:daniel"],
       "terms": ["organon:Denotation", "organon:CausalContribution", "organon:EvidentialBearing"]
+    },
+    {
+      "basis": "adopted-commitment",
+      "sources": ["proposal:ritual-meaning", "formal:ritual-meaning", "review:daniel"],
+      "terms": ["organon:Ritual", "organon:Meaning"]
     }
   ]
 }

@@ -49,7 +49,8 @@ FORMAL_SHADOWS = {
     "organon:BoundarySovereignty", "organon:ExternalSovereignty",
     "organon:Preference", "organon:UtilityMeasure", "organon:Price",
     "organon:Denotation", "organon:CausalContribution",
-    "organon:EvidentialBearing",
+    "organon:EvidentialBearing", "organon:Flow", "organon:Ritual",
+    "organon:Meaning",
 }
 
 

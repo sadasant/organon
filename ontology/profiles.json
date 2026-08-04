@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "ontology_version": "0.16.0",
+  "ontology_version": "0.17.0",
   "profiles": {
     "agent": {
       "description": "Entities, boundaries, interpretation, action, tools, and contextual capability.",
@@ -112,6 +112,13 @@
         "organon:Preference",
         "organon:UtilityMeasure",
         "organon:Price"
+      ]
+    },
+    "ritual-meaning": {
+      "description": "Participant-bound classification of an ontic Flow through memory-conditioned Interpretation and invariant-preserving target continuity, plus the Meaning Relation it causally sustains without treating targets or Records as containers of significance.",
+      "roots": [
+        "organon:Ritual",
+        "organon:Meaning"
       ]
     }
   }
