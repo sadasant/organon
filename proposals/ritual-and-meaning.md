@@ -13,6 +13,8 @@ Promote Ritual and Meaning as derived terms, strengthen Flow by making its previ
 
 The candidate commitment is narrower than “ritual makes everything meaningful.” Meaning is the participant-indexed Relation constituted and sustained through Ritual. A target does not contain Meaning in isolation, repetition without memory-conditioned Interpretation is only Flow or conditioning, and a dormant remnant is not a reservoir of Meaning. Private Ritual is sufficient. Social propagation can produce a causally derived Meaning Relation, but not numerical identity with the source Relation.
 
+The account is also normatively neutral. Ritual need not be chosen, beneficial, or benign. Addiction and trauma loops can satisfy it when recurrence enters Perception, load-bearing Memory conditions later Interpretation, and the resulting Causal Contribution sustains the participant-indexed Relation. Repetition, compulsion, distress, or diagnosis alone is not enough. The “repeated too often, becomes a trap” case is therefore included without treating pathology as the genus of Ritual or Meaning as endorsement.
+
 ## Evidence and adopted clarification
 
 The immediate evidence is Daniel's adopted clarification: recurrence matters only when repeatedly joined to a participant; a private practice qualifies; the Relation sustained by that enactment is the Meaning; visible cessation need not end it instantly while actual derived effects continue contributing; when both enactment and those contributions stop, the current Relation is no longer sustained. The Sun example supplies the boundary case: recurrent solar Transformation is a Flow and repeated seeing is recurrent Perception; Ritual obtains only when Memory of prior encounters causally conditions Interpretation of a later encounter and thereby sustains the participant-target Relation.
@@ -70,6 +72,9 @@ Preference orders candidate States or Consequences; Meaning need not order anyth
 <!-- organon:proposal-statement RM-C6 type=anti_collapse_constraint -->
 **RM-C6 — Flow and its classification do not collapse:** Flow obtains through its Transformation occurrences, recurrence Relation, ordered States, and Persistence, not through the Representation that classifies it. A Rule and constructive Specification are required for a reproducible Flow Claim but neither creates the recurrence Relation nor proves that selected occurrences inhabit it. Flow may obtain without a classifier, and multiple classifiers can track one Flow without multiplying it.
 
+<!-- organon:proposal-statement RM-C7 type=anti_collapse_constraint -->
+**RM-C7 — Ritual does not entail benefit or consent:** Ritual and Meaning do not entail voluntary Action, consent, Preference, benefit, health, liberation, or moral endorsement. Addiction and trauma loops may instantiate Ritual and sustain Meaning when every defining causal and interpretive join obtains; recurrence, compulsion, distress, or diagnosis alone does not establish either term.
+
 ## Intellectual shadows
 
 Rappaport's account of ritual as formalized, repeated performance supplies the strongest local shadow for recurrence and enactment. Catherine Bell's ritualization resists treating Ritual as a neutral inventory of ceremonial objects. Durkheim and Collins emphasize collective participation and transmitted social effects; Organon deliberately permits one participant and treats later social effects as causally derived Relations rather than a group prerequisite. Peirce and Wittgenstein discipline the separation between signification, interpretive use, and practice; Organon retains Denotation and Rule-governed use as distinct from ritual-dependent Meaning.
@@ -102,7 +107,7 @@ The model does not pretend that an unlabeled endpoint in an Entity history is al
 
 ## Promotion decision
 
-Promote RM-D1 through RM-D3 and RM-C1 through RM-C6. Keep RM-G1 through RM-G4 open. Flow is revised in place with stable identity because its extension remains repeated similar Transformation and the revision makes its previously implicit recurrence Relation explicit without requiring a classifier for ontic obtainment. The rejected draft that made Specification constitutive was never canonical and requires no migration. Recurrence and Ritual Residue receive no stable identifiers.
+Promote RM-D1 through RM-D3 and RM-C1 through RM-C7. Keep RM-G1 through RM-G4 open. Flow is revised in place with stable identity because its extension remains repeated similar Transformation and the revision makes its previously implicit recurrence Relation explicit without requiring a classifier for ontic obtainment. The rejected draft that made Specification constitutive was never canonical and requires no migration. Recurrence and Ritual Residue receive no stable identifiers.
 
 ## Proposal statement registry
 
@@ -117,6 +122,7 @@ Promote RM-D1 through RM-D3 and RM-C1 through RM-C6. Keep RM-G1 through RM-G4 op
 | RM-C4 | Anti-collapse constraint | Significance does not silently become valuation or status | RM-D2, RM-D3, Preference, Utility Measure, Price, Truth, Consciousness Attribution, Moral Status Attribution, Moral Personhood Designation | Binding prose; candidate conditions remain quarantined |
 | RM-C5 | Anti-collapse constraint | Target drift is neither identity nor substitution by default | RM-D2, RM-D3, State, Representation, Denotation, Invariant, Persistence, Causal Contribution | `privateRitualTargetDriftsWithinIdentity`, `meaningContributionPreservesTargetIdentity`, `targetSubstitutionBreaksInvariant` |
 | RM-C6 | Anti-collapse constraint | Flow and its classification do not collapse | RM-D1, Transformation, Relation, State, Persistence, Representation, Rule, Specification, Claim | `flowObtainsWithoutConstitutiveClassifier`; structural separation of `Flow` and `FlowClassification`; `ritualFlowClassifierIsNonUniversal` |
+| RM-C7 | Anti-collapse constraint | Ritual does not entail benefit or consent | RM-D2, RM-D3, Action, Preference, Perception, Memory, Interpretation, Causal Contribution, Relation | Binding prose; benefit, health, consent, and diagnosis remain outside the formal shadow |
 | RM-G1 | Open formalization gate | Complete participant-uptake parity | RM-D2, Sense, Perception, Memory, Interpretation, Action, Interior, Boundary | Open |
 | RM-G2 | Open formalization gate | Temporal maintenance and decay | RM-D3, State, Direction, Persistence, Causal Contribution | Open |
 | RM-G3 | Open formalization gate | Qualitative descendants | Meaning | Open |

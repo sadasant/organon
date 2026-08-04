@@ -790,6 +790,8 @@ Memory is load-bearing only when substituting a different admissible Memory chan
 
 One participating Entity is sufficient: Ritual need not be public, institutional, inherited, ceremonial, or directed toward another Agent. The recurrent target may be an Entity, State, Relation, Configuration, or environmental Difference and need not itself act. The target may vary across States and Representations only when a declared identity criterion and Persistence witness preserve one target Invariant through those variations. Every qualifying occurrence must reach a State in that target history or, when mediated by a Representation, carry an exact Denotation to one. Scope membership alone cannot attach an unrelated target.
 
+Ritual is not necessarily deliberate, voluntary, beneficial, or benign. An addiction or trauma loop can qualify when repeated occurrences are perceived and interpreted through load-bearing Memory and the resulting Causal Contribution sustains a participant-indexed Relation. Mere compulsion, recurrence, distress, or diagnostic labeling remains insufficient without those joins. Repetition becoming a trap therefore does not cease to be Ritual merely because the Meaning it sustains constrains or harms its participant.
+
 <a id="organon-meaning"></a>
 <!-- organon:term organon:Meaning claim=D106 -->
 
@@ -923,6 +925,8 @@ These signatures make the ontology operational. They are schemas, not executable
 29. <!-- organon:claim C29 --> **Target drift is neither identity nor substitution by default:** Variation among target States or Representations preserves one Ritual target only when a declared identity criterion and Persistence witness preserve one target Invariant and every qualifying occurrence reaches or denotes a State in that history. Drift within the Invariant does not terminate the Ritual; breaking the Invariant constitutes target substitution, and any subsequently constituted Meaning Relation is numerically distinct though it may be causally derived. Exact State equality, resemblance, shared naming, uninterrupted enactment, or Denotation alone does not prove target continuity.
 
 30. <!-- organon:claim C30 --> **No Flow-classification collapse:** A Flow obtains through its Transformation occurrences, recurrence Relation, ordered States, and Persistence, not through a Representation that classifies it. A Rule and constructive Specification are required for a reproducible Flow Claim but neither create the recurrence Relation nor establish that the selected occurrences inhabit it. Flow may obtain without any classifier, and different classifiers may track the same Flow without multiplying it.
+
+31. <!-- organon:claim C31 --> **No Ritual-to-benefit collapse:** Ritual and Meaning do not entail voluntary Action, consent, Preference, benefit, health, liberation, or moral endorsement. Addiction and trauma loops may instantiate Ritual and sustain Meaning when every defining causal and interpretive join obtains; recurrence, compulsion, distress, or diagnosis alone does not establish either term.
 
 ## Quarantined vocabulary
 

@@ -154,6 +154,7 @@
     {"id":"C27","claim_type":"binding_constraint","depends_on":["organon:Meaning","organon:CausalContribution","organon:Entity","organon:Relation","organon:Representation","organon:Rule"]},
     {"id":"C28","claim_type":"binding_constraint","depends_on":["organon:Ritual","organon:Meaning","organon:Preference","organon:UtilityMeasure","organon:Price","organon:Truth","organon:ConsciousnessAttribution","organon:MoralStatusAttribution","organon:MoralPersonhoodDesignation"]},
     {"id":"C29","claim_type":"binding_constraint","depends_on":["organon:Ritual","organon:Meaning","organon:State","organon:Representation","organon:Denotation","organon:Invariant","organon:Persistence","organon:CausalContribution"]},
-    {"id":"C30","claim_type":"binding_constraint","depends_on":["organon:Flow","organon:Transformation","organon:Relation","organon:State","organon:Persistence","organon:Representation","organon:Rule","organon:Specification","organon:Claim"]}
+    {"id":"C30","claim_type":"binding_constraint","depends_on":["organon:Flow","organon:Transformation","organon:Relation","organon:State","organon:Persistence","organon:Representation","organon:Rule","organon:Specification","organon:Claim"]},
+    {"id":"C31","claim_type":"binding_constraint","depends_on":["organon:Ritual","organon:Meaning","organon:Action","organon:Preference","organon:Perception","organon:Memory","organon:Interpretation","organon:CausalContribution","organon:Relation"]}
   ]
 }
