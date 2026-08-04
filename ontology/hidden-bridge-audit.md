@@ -35,6 +35,14 @@ Relative possibility does not become Possibility. The only load-bearing modal us
 
 Institutional eligibility does not become a term because Standing already states the complete Order-, Rule-, Entity-, status-, and Scope-indexed Relation. A second predicate would allow eligibility and Standing to drift without explaining the difference.
 
+## Intellectual shadows
+
+Identity criteria inherit their local burden from David Wiggins's work on sameness and persistence: reidentification is criterion-governed, not supplied by resemblance alone. Denotation inherits Frege's discipline of separating an expression from what it designates, without importing his full sense-reference theory. Constraint-relative possibility is locally shadowed by Kripkean model-relative satisfaction and Martin-Löf's proof-as-inhabitant discipline; Organon uses neither unrestricted possible worlds nor constructive logic as a whole.
+
+Causal Contribution is locally shadowed by David Lewis's counterfactual dependence and James Woodward's interventionist comparison of changed inputs and outputs. Organon's paired paths are a finite typed test for one named Difference under declared matching conditions, not a complete theory of causation. Evidential Bearing is locally shadowed by Stephen Toulmin's separation of data, warrant, and claim; Organon instead makes the evaluation Rule and institutional Record explicit and does not inherit Toulmin's full argument schema.
+
+Standing already belongs to the Searlean institutional shadow documented in the binding ontology. Reducing eligibility to Standing preserves that inheritance without multiplying status predicates. The contribution of this audit is not any local bridge by itself, but forcing all six to cross the same dependency and anti-collapse boundary as the rest of Organon.
+
 ## Collapse audit
 
 - Denotation does not entail identity, fidelity, Truth, Interpretation, Operationalization, or Causal Contribution.
