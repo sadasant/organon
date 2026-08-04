@@ -11,6 +11,16 @@ This note records how [Daniel's Ontology](./ontology.md) changed. Historical arg
 
 ## Version history
 
+### v0.16 - Hidden bridges made explicit
+
+- Declared cross-State identity criteria and Constraint-relative possibility as metalanguage, while requiring Entity and Capability Claims to carry object-language witnesses rather than inheriting facts from the metalanguage.
+- Added Denotation as the ordered expression-target Relation required by Representation; generic “use” now resolves to Denotation, Interpretation, Operationalization, Tool use, or another named Relation rather than carrying an untyped semantic bridge.
+- Added Causal Contribution as a contrastive two-path Relation requiring a named input Difference, matched comparison, and downstream Change. Mere occurrence, precedence, or correlation no longer satisfies causal language in Operationalization, Trust, Intelligence, Operative Knowledge, or Knowledge Transmission.
+- Added Evidential Bearing as the Rule-, Order-, and Scope-indexed Relation producing supporting, defeating, or underdetermining dispositions. Evidence alone no longer carries an unexplained support property.
+- Reduced institutional eligibility to Standing under a named Order, Rule, and Scope instead of introducing a duplicate predicate.
+- Recast Capability as a constructive Specification of relatively possible Actions under stated Constraints and added C24, the no-hidden-bridge substitution rule.
+- Added finite Lean witnesses for unequal Denotation, paired-path Causal Contribution carrying a named endpoint Change, constructive Capability realization, fully indexed recorded Standing without a second eligibility predicate, and in-Scope supportive Evidential Bearing for a false Claim. Truth carries its claim-indexed Denotation, Trust carries the canonical two-path contribution, and Warranted Knowledge carries a recorded in-Scope supportive bearing rather than a free support predicate.
+
 ### v0.15 - Profiles around the remaining quarantine
 
 - Added a noncanonical Absence-free `OrganonCore` reduct. Every currently encoded downstream Lean classifier and finite witness compiles without the Absence/Presence extension. A falsification-first pass preserves challenge classifiers for Presence, Missingness, Persistence, and Entity, repairs Entity so it carries an ordered identity-Persistence witness, and accounts for all registry entries as 4 proved, 1 pending Reality representation decision, 1 deliberately excluded, and 98 unknown.

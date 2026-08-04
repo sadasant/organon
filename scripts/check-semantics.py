@@ -184,6 +184,15 @@ def main() -> int:
     if audit_check.returncode != 0:
         errors.append(audit_check.stderr.strip() or audit_check.stdout.strip())
 
+    bridge_check = subprocess.run(
+        [sys.executable, str(ROOT / "scripts" / "check-bridges.py")],
+        cwd=ROOT,
+        capture_output=True,
+        text=True,
+    )
+    if bridge_check.returncode != 0:
+        errors.append(bridge_check.stderr.strip() or bridge_check.stdout.strip())
+
     if errors:
         print("Semantic check failed:")
         for error in errors:

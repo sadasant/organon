@@ -32,6 +32,9 @@ name = "IntelligenceKnowledge"
 [[lean_lib]]
 name = "QuarantineProfiles"
 
+[[lean_lib]]
+name = "BridgeRelations"
+
 [[lean_exe]]
 name = "ontology_check"
 root = "Model"

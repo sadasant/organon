@@ -27,6 +27,11 @@ structure Missingness (α : Type u) where
   expected : α
   missing : ¬ field.contains expected
 
+/-! The field order is the expression-target order. No fidelity follows. -/
+structure Denotation (Expression : Type u) (Target : Type v) where
+  expression : Expression
+  target : Target
+
 /-! ## State, Direction, Transformation, Feeds, and Causal path -/
 
 structure State (Carrier : Type u) where
@@ -40,6 +45,11 @@ structure Transformation {Carrier : Type u} (direction : Direction Carrier) wher
   input : State Carrier
   output : State Carrier
   advances : direction.before input output
+
+/-! A Change is a named Difference joined by one Transformation. -/
+structure Change {Carrier : Type u} (direction : Direction Carrier) where
+  transformation : Transformation direction
+  differs : transformation.input ≠ transformation.output
 
 /-! `Feeds` can encode contribution without requiring State equality. -/
 structure FeedRelation (Carrier : Type u) where
@@ -61,6 +71,43 @@ structure CausalPath
     (feeding : FeedRelation Carrier) where
   steps : List (Transformation direction)
   connected : Chains feeding steps
+
+structure PathEndpoints
+    {Carrier : Type u}
+    {direction : Direction Carrier}
+    {feeding : FeedRelation Carrier}
+    (path : CausalPath direction feeding) where
+  first : Transformation direction
+  last : Transformation direction
+  startsWith : ∃ rest, path.steps = first :: rest
+  endsWith : ∃ prefixSteps, path.steps = prefixSteps ++ [last]
+
+/-!
+`CausalContribution` requires two witnessed paths, matching declared context,
+one named input difference, and a named downstream Change joining the compared
+endpoints. A Transformation merely occurring in one path cannot inhabit this
+structure.
+-/
+structure CausalContribution
+    (Feature : Type u)
+    (Context : Type v)
+    (direction : Direction (Feature × Context))
+    (feeding : FeedRelation (Feature × Context)) where
+  leftPath : CausalPath direction feeding
+  rightPath : CausalPath direction feeding
+  leftEndpoints : PathEndpoints leftPath
+  rightEndpoints : PathEndpoints rightPath
+  sameDeclaredContext :
+    leftEndpoints.first.input.value.2 =
+      rightEndpoints.first.input.value.2
+  inputDiffers :
+    leftEndpoints.first.input.value.1 ≠
+      rightEndpoints.first.input.value.1
+  downstreamChange : Change direction
+  changeStartsAt :
+    downstreamChange.transformation.input = leftEndpoints.last.output
+  changeEndsAt :
+    downstreamChange.transformation.output = rightEndpoints.last.output
 
 /-! ## Constraint, Invariant, Boundary, and Entity -/
 
@@ -134,6 +181,25 @@ structure Scope (α : Type u) where
   includes : α → Prop
 
 /-!
+Standing is indexed by the Order's recording relation and by the exact Rule,
+Entity, status or Action, and Scope. Eligibility is not a parallel predicate.
+-/
+structure StandingRelation
+    {Order : Type u}
+    {Entity : Type v}
+    {Rule : Type w}
+    {Status : Type x}
+    (records :
+      Order → Rule → Entity → Status → Scope (Entity × Status) → Prop)
+    (order : Order)
+    (rule : Rule)
+    (entity : Entity)
+    (status : Status)
+    (scope : Scope (Entity × Status)) where
+  inScope : scope.includes (entity, status)
+  recorded : records order rule entity status scope
+
+/-!
 The Boolean function and correctness proof are explicit data. A concrete
 Specification still requires evaluation evidence before its implementation may
 be advertised as operationally executable: Lean permits noncomputable values.
@@ -160,7 +226,21 @@ structure Capability
     (Action : Agent → Type v)
     (Context : Type w)
     (agent : Agent) where
-  can : Context → Action agent → Prop
+  realization : Context → Action agent → Type (max u v w)
+  decideCan : Context → Action agent → Bool
+  decisionCorrect :
+    ∀ context action,
+      decideCan context action = true ↔ Nonempty (realization context action)
+
+def Capability.can
+    {Agent : Type u}
+    {Action : Agent → Type v}
+    {Context : Type w}
+    {agent : Agent}
+    (capability : Capability Agent Action Context agent)
+    (context : Context)
+    (action : Action agent) : Prop :=
+  Nonempty (capability.realization context action)
 
 structure InstitutionalOrder (Principal : Type u) (Agent : Type v) where
   recognizesPrincipal : Principal → Prop

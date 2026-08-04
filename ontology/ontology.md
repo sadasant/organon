@@ -2,7 +2,7 @@
 type: editorial-ontology
 status: provisional-binding
 binding: true
-version: 0.15
+version: 0.16
 created: 2026-08-01
 updated: 2026-08-03
 evidence_scope: "Daniel's adopted commitments and the recovered essay corpus"
@@ -20,7 +20,11 @@ delivery_language: "../editorial/short-form.md"
 
 No ontology can define every word using only itself. Definition requires a metalanguage. This document therefore states its boundary instead of hiding it.
 
-The metalanguage supplies classical logic, including excluded middle, together with identity, negation, logical consequence, quantification, ordering, set membership, statements and marks, and the ability to distinguish an expression from what it denotes. These are rules for stating the ontology, not additional kinds of being inside it.
+The metalanguage supplies classical logic, including excluded middle, together with identity, negation, logical consequence, quantification, ordering, set membership, statements and marks, and the ability to distinguish an expression from what it denotes. Identity includes criteria for reidentifying what a statement treats as the same across ordered positions. An Entity claim must project that criterion into the object language by naming an Invariant, ordered States, and a Persistence witness; metalinguistic identity does not supply that witness.
+
+The metalanguage also supplies relative possibility as satisfiability under stated Constraints: a candidate is possible only when at least one declared interpretation of those Constraints admits it. Every binding use of “can” or “possible” must name that Constraint context and a constructive witness. Relative possibility is not an additional Presence, a prediction that an event will occur, or unrestricted metaphysical modality.
+
+These are rules for stating the ontology, not additional kinds of being inside it. The metalinguistic distinction between expression and target does not itself establish a Denotation in Reality; object-language Denotation is defined below. Likewise, identity criteria and relative possibility do not silently supply Entity, Capability, causal, evidentiary, or institutional facts.
 
 Within that boundary, every registered ontological term is either the primitive, an axiom concerning the primitive, a dependency-ordered definition, or a quarantined term with no binding meaning yet. Ordinary connective language and unmapped capitalization carry no independent ontological commitment.
 
@@ -109,6 +113,11 @@ The definitions below are dependency-ordered. A definition may depend on the met
 
 **Relation** is a Presence in which two or more Presences have an ordered association. A relation does not erase the differences among its participants.
 
+<a id="organon-denotation"></a>
+<!-- organon:term organon:Denotation claim=D102 -->
+
+**Denotation** is an ordered Relation whose first participant occupies an expression position and whose later participant is the Presence, Relation, or Configuration that is its target. A Denotation must name both participants and their ordered positions. It establishes neither fidelity, Truth, Interpretation, institutional status, nor participation in a Causal path.
+
 ### 4. Configuration and state
 
 <a id="organon-configuration"></a>
@@ -150,6 +159,11 @@ Direction internalizes as Presence an asymmetry that the metalanguage can state 
 
 **Causal path** is a sequence of Transformations sharing one Direction in which the output State of each Transformation Feeds the input State of the next. Its arrow is inherited from the Direction of its Transformations; reversing the sequence does not preserve the same Causal path.
 
+<a id="organon-causal-contribution"></a>
+<!-- organon:term organon:CausalContribution claim=D103 -->
+
+**Causal Contribution** is a Relation established by two nonempty comparison Causal paths that share one Direction and match at every stated input position except a named upstream Difference, while their endpoint States exhibit a named downstream Change. The upstream Difference contributes to that Change within the comparison. Both path witnesses and the matched-input account are required; occurrence in one path, temporal precedence, or correlation alone is insufficient.
+
 ### 6. Invariant and persistence
 
 <a id="organon-invariant"></a>
@@ -176,7 +190,7 @@ This is one definition, not two. A prohibition constrains possible action. A pri
 <a id="organon-entity"></a>
 <!-- organon:term organon:Entity claim=D014 -->
 
-**Entity** is a Configuration that retains identity through the Persistence of an Invariant named for that identity.
+**Entity** is a Configuration that retains identity through the Persistence of an Invariant named as its object-language identity criterion. The Entity claim must identify the ordered States and Persistence witness that realize the criterion supplied by the metalanguage.
 
 <a id="organon-boundary"></a>
 <!-- organon:term organon:Boundary claim=D015 -->
@@ -199,7 +213,7 @@ An Entity is not required to be biological, conscious, legal, or morally conside
 <a id="organon-representation"></a>
 <!-- organon:term organon:Representation claim=D017 -->
 
-**Representation** is a Presence used within a Relation to stand for another Presence, Relation, or Configuration. It is not identical with what it represents.
+**Representation** is the Presence occupying the expression position in a Denotation. A Representation claim must name that Denotation and its target. The Representation is not identical with its target, and Denotation alone establishes neither Interpretation nor causal or institutional use.
 
 <a id="organon-scope"></a>
 <!-- organon:term organon:Scope claim=D018 -->
@@ -219,12 +233,12 @@ An Entity is not required to be biological, conscious, legal, or morally conside
 <a id="organon-sign"></a>
 <!-- organon:term organon:Sign claim=D021 -->
 
-**Sign** is a Representation used as a trace of another Presence, Relation, or Change.
+**Sign** is a Representation whose target Presence, Relation, or Change is joined to the Sign by a Causal path ending in the State that contains it. A merely assigned Denotation without that path is not a trace.
 
 <a id="organon-symbol"></a>
 <!-- organon:term organon:Symbol claim=D022 -->
 
-**Symbol** is a Representation whose use is stabilized through repetition.
+**Symbol** is a Representation whose Denotation persists across repeated States or Transformations under a Rule.
 
 <a id="organon-language"></a>
 <!-- organon:term organon:Language claim=D023 -->
@@ -273,7 +287,7 @@ An Entity is not required to be biological, conscious, legal, or morally conside
 <a id="organon-model"></a>
 <!-- organon:term organon:Model claim=D031 -->
 
-**Model** is an organized Configuration of Representations and Transformations used to relate Perception and Memory to possible later States.
+**Model** is an organized Configuration of Representations and Transformations that relates Perception and Memory to later States under its stated Constraints.
 
 <a id="organon-action"></a>
 <!-- organon:term organon:Action claim=D032 -->
@@ -288,7 +302,7 @@ An Entity is not required to be biological, conscious, legal, or morally conside
 <a id="organon-interpretation"></a>
 <!-- organon:term organon:Interpretation claim=D034 -->
 
-**Interpretation** is a Transformation by which an Entity uses Perception, Memory, or a Model to distinguish among available Actions.
+**Interpretation** is a Transformation joining an Entity's Perception, Memory, or Model to a distinction among available Actions.
 
 ### 12. Agent and agency
 
@@ -314,7 +328,7 @@ A Model is not an Agent. It can participate in an Agent's Interpretation, but no
 <a id="organon-capability"></a>
 <!-- organon:term organon:Capability claim=D038 -->
 
-**Capability** is the set of Actions an Agent can produce under stated environmental, technical, and temporal Constraints.
+**Capability** is a Specification of Actions an Agent can produce under stated environmental, technical, and temporal Constraints. An Action belongs to that Capability only when the Specification's constructive procedure supplies at least one satisfying Configuration in which those Constraints admit an Action-producing Causal path for that Agent. The witness may precede completed exercise, but it must name the Constraint interpretation under which the Action is relatively possible.
 
 Capability says what can occur. It supplies no Permission, Authority, desirability, or truth.
 
@@ -371,7 +385,7 @@ Interiority does not entail consciousness. Accountability for external effects d
 <a id="organon-standing"></a>
 <!-- organon:term organon:Standing claim=D047 -->
 
-**Standing** is the Relation through which an Order records an Entity as eligible within a specified institutional Scope. Standing in one Order supplies no Standing in another.
+**Standing** is the Relation through which an Order, under a Rule, places an Entity within the domain of named institutional statuses or Actions in a specified Scope. “Institutional eligibility” is shorthand for the relevant Standing Relation, not an additional predicate. Standing in one Order supplies no Standing in another.
 
 <a id="organon-recognition"></a>
 <!-- organon:term organon:Recognition claim=D048 -->
@@ -482,12 +496,17 @@ Capability and institutional standing cannot substitute for each other in either
 
 **Evidence** is an Observation produced by a Witness IndependentFor the claimant and Claim, then admitted by the governing Order under an Admissibility Rule whose Scope includes the Observation and Claim.
 
+<a id="organon-evidential-bearing"></a>
+<!-- organon:term organon:EvidentialBearing claim=D104 -->
+
+**Evidential Bearing** is the Order-indexed Relation among Evidence, a Claim, an evaluation Rule, and a Scope in which the Rule's constructive procedure returns one declared disposition—supporting, defeating, or underdetermining—and the Order records that result. Supporting and defeating are therefore typed results of this Relation, not unexplained properties of Evidence. Evidential Bearing does not entail Truth, and the same Evidence may bear differently under another Rule or Scope.
+
 <a id="organon-attestation"></a>
 <!-- organon:term organon:Attestation claim=D067 -->
 
 **Attestation** is a Claim made by a Witness about an Observation or Evidence under a Specification of the Witness's identity, Scope, Order, and relevant independence.
 
-Evidence can support or defeat a Claim; it does not become truth by definition. No Agent's Claim, self-authored Rule, or domesticated Witness independently certifies that Agent.
+Evidence bears supportively or defeasibly on a Claim only through Evidential Bearing; it does not become Truth by definition. No Agent's Claim, self-authored Rule, or domesticated Witness independently certifies that Agent.
 
 ### 19. Institution, shadow system, and person
 
@@ -586,7 +605,7 @@ Designation depends institutionally on an admitted Consciousness Attribution. Ne
 
 Failure to attribute or designate consciousness does not establish Absence, failure of the candidate condition, or proof of negation. It constitutes Missingness only relative to a field or Order that represents or expects such an Attribution or Designation and does not contain one. An explicit refusal is itself a present Claim or Record.
 
-This ontology does not define an Evidentiary Profile for consciousness discourse. Supported, defeated, and underdetermined remain ordinary disposition labels until each Evidence item is joined to an Observation, a Witness IndependentFor the relevant claimant and Claim, an Admissibility Rule and Order, and an evaluation Rule whose result is proved equal to the recorded disposition.
+This ontology does not define a complete Evidentiary Profile for consciousness discourse. Generic Evidential Bearing applies only when each Evidence item is joined to an Observation, a Witness IndependentFor the relevant claimant and Claim, an Admissibility Rule and Order, and an evaluation Rule whose constructive result equals the recorded disposition.
 
 ### 22. Operationalized representation
 
@@ -597,7 +616,7 @@ This ontology does not define an Evidentiary Profile for consciousness discourse
 
 The selection must be discriminating: under the same Rule and within the same Scope, at least one distinct Representation would not select that Transformation. This distinguishes a Representation operating through its represented form from a physical carrier that happens to occur in a Causal path while its representational Difference does no work.
 
-An Operationalized Representation can contribute causally to later States and, when the path includes an Agent's Interpretation and Action, to Consequences. Causal efficacy does not make the Representation identical to what it represents or to Reality. It does not establish that a Claim expressed by the Representation is supported by Evidence. A distorted Map can still coordinate Action; the resulting Consequence establishes that the Representation participated through a Rule in a Causal path, not that it represented its target faithfully.
+An Operationalized Representation contributes causally to a later State only when a Causal Contribution comparison joins a Difference in that Representation to a downstream Change. When the compared path includes an Agent's Interpretation and Action, the Change may be a Consequence. Causal Contribution does not make the Representation identical to its target or to Reality, and it does not establish Evidential Bearing for its Claim. A distorted Map can still coordinate Action; a resulting Consequence establishes causal efficacy only with the required comparison witnesses.
 
 ### 23. World and substrate
 
@@ -608,7 +627,7 @@ An Operationalized Representation can contribute causally to later States and, w
 
 Availability requires an included Causal path: from an Environment through Sense into Perception, from an internal State through Action, or through both. A World must name at least one Invariant that persists across distinct combinations of Senses, Maps, or References within its Scope. The access paths may expose different States or Differences while still bearing on that common Invariant.
 
-A World is part of Reality, not an alternative to it. It includes participating Entities and therefore is not their Environment. A Map or Reference represents a World without becoming it. Agreement among Maps can supply Evidence for a Claim about a World; neither agreement nor consensus constitutes the World by itself.
+A World is part of Reality, not an alternative to it. It includes participating Entities and therefore is not their Environment. A Map or Reference represents a World without becoming it. Agreement among Maps can supply Observations later admitted as Evidence for a Claim about a World; supporting Evidential Bearing still requires an evaluation Rule and Order. Neither agreement nor consensus constitutes the World by itself.
 
 Different Worlds may overlap in Presence while differing in participants, Scope, available Causal paths, or named Invariants. An Order can transform a political World by changing actual Rules, institutional Boundaries, statuses, and available Actions. It does not create Reality from nothing.
 
@@ -626,14 +645,14 @@ A Substrate remains distinct from a Representation, Invariant, Entity, or functi
 <a id="organon-truth"></a>
 <!-- organon:term organon:Truth claim=D085 -->
 
-**Truth** is the Relation among a Claim, its Representation, the Specification declared as its truth condition, and the Presence in Reality within the Claim's Scope to which that Specification applies. The Relation requires a scoped material-adequacy witness: under a declared Rule, the Claim's Representation denotes that Specification applied to that Presence. Truth obtains exactly when this semantic join holds and the relevant Presence conforms to the Specification.
+**Truth** is the Relation among a Claim, its Representation, the Specification declared as its truth condition, and the Presence in Reality within the Claim's Scope to which that Specification applies. The Relation requires a scoped material-adequacy witness: under a declared Rule, a Denotation joins the Claim's Representation to that Specification applied to the relevant Presence. Truth obtains exactly when this semantic join holds and the relevant Presence conforms to the Specification.
 
-Truth does not depend on whether an Entity can identify, access, supply, prove, or institutionally admit that correspondence. The Specification's constructive decision procedure decides conformity when supplied the relevant Presence; Truth does not entail that any Entity can supply it. Evidence can support or defeat a Claim without becoming Truth, and Admission or consensus can preserve a false Claim.
+Truth does not depend on whether an Entity can identify, access, supply, prove, or institutionally admit that correspondence. The Specification's constructive decision procedure decides conformity when supplied the relevant Presence; Truth does not entail that any Entity can supply it. Evidential Bearing can support or defeat a Claim without becoming Truth, and Admission or consensus can preserve a false Claim.
 
 <a id="organon-trust"></a>
 <!-- organon:term organon:Trust claim=D086 -->
 
-**Trust** is a scoped Relation in which one Entity maintains within its Boundary a Constraint that admits a future Action, Claim, or State introduced into a Causal path by another Entity, while the trusting Entity lacks Control sufficient to determine that contribution when the Relation obtains. The admitted contribution exposes an Interior, conditions a later State, or participates in a path to Consequences for the trusting Entity.
+**Trust** is a scoped Relation in which one Entity maintains within its Boundary a Constraint that admits a future Action, Claim, or State from another Entity, a Causal Contribution joins a Difference introduced by that other Entity to an affected State, Exposure, or Consequence, and the trusting Entity lacks Control sufficient to determine that contribution when the Relation obtains.
 
 “Undetermined” is relational rather than metaphysical. The other Entity or its contribution may be deterministic while the trusting Entity cannot determine the relevant contribution through its available Control. Evidence, history, relationship, reputation, confidence, Permission, Authority, and incentives can condition whether Trust is extended; none is Trust itself. The accepting Constraint may be maintained under pressure, so coerced reliance can still instantiate Trust. Sheer involuntary vulnerability with no such maintained admission is dependence or Exposure, not Trust. Trust can be misplaced, and its existence does not entail favorable Consequences.
 
@@ -651,7 +670,7 @@ Alignment is indexed by its Specification and Scope. Behavioral, representationa
 
 **Intelligence** is the scoped Capability of an Agent to construct or revise Models and Interpretations from Perception and Memory so that it can select Actions whose Consequences conform to a Specification across States not individually enumerated by the Rule producing those Actions.
 
-Adaptation requires more than applying one unchanged Interpretation: within the Scope, at least two non-enumerated States must produce Differences in both the constructed Model and the resulting Interpretation while their Consequences satisfy the declared Specification. At least one witnessed State must carry one joined, load-bearing path in which changing the Perception or Memory changes the constructed Model, changing that Model changes the Interpretation, changing that Interpretation changes the selected Action, and changing that Action changes the Consequence.
+Adaptation requires more than applying one unchanged Interpretation: within the Scope, at least two non-enumerated States must produce Differences in both the constructed Model and the resulting Interpretation while their Consequences satisfy the declared Specification. At least one witnessed State must carry one joined, load-bearing path in which Causal Contribution comparisons join a Difference in Perception or Memory to a Model Change, that Model Difference to an Interpretation Change, that Interpretation Difference to an Action Change, and that Action Difference to a Consequence.
 
 “Non-enumerated” means not individually named in the producing Rule's recorded Representation; it does not mean unknowable, random, or outside Reality. An Intelligence Claim must expose that Representation and the Rule provenance under which it is treated as complete enough for this classification. A fixed lookup table whose cases are individually named is enumerated; a fixed general procedure is not disqualified merely because its implementation is fixed. A fixed implementation, executable, or set of model weights may participate as Record, Memory, Rule, Tool, or Substrate without either constituting or excluding Intelligence. The relevant Agent is the whole persistent Entity whose Perception, Memory, Model construction, Interpretation, Capability, and Action form the Causal path, not an isolated Model.
 
@@ -662,7 +681,7 @@ Intelligence does not entail Truth, Alignment, Permission, Authority, favorable 
 
 **Operative Knowledge** is a scoped Configuration joining a Record to an interpreting Agent with the Capability required under stated Constraints when, under a Rule, that Record discriminatingly conditions a Model or Interpretation in a Causal path to an Action or internal Transformation whose resulting State or Consequence conforms to a Specification.
 
-The Record participates discriminatingly only if replacing it with another in-Scope Record under the same Configuration alters the resulting Model, Interpretation, and selected Action or internal Transformation. The resulting State or Consequence must derive from that selected Action or Transformation rather than branch independently on the Record. A Record at rest, an interpreter without the required Capability, an uninterpreted Representation, or a merely stored Model is not Operative Knowledge. The resulting State, Consequence, or derivative Record is not Operative Knowledge by itself; it becomes part of a later instance only when joined again to a capable interpreter and the required operative path.
+The Record participates discriminatingly only if Causal Contribution comparisons between it and another in-Scope Record under the same Configuration join their Difference to Changes in the resulting Model, Interpretation, selected Action or internal Transformation, and resulting State or Consequence. A Record at rest, an interpreter without the required Capability, an uninterpreted Representation, or a merely stored Model is not Operative Knowledge. The resulting State, Consequence, or derivative Record is not Operative Knowledge by itself; it becomes part of a later instance only when joined again to a capable interpreter and the required operative path.
 
 Operative Knowledge is indexed by its Record, interpreter, Rule, Scope, and Specification. It may operate successfully under a local Specification while a Claim represented by the Record is false; Truth and Evidence require their own Relations. Bare **knowledge** remains ordinary language unless explicitly mapped to Operative Knowledge or promoted later under a different dependency-closed definition.
 
@@ -671,7 +690,7 @@ Operative Knowledge does not entail Intelligence: the operative Rule may enumera
 <a id="organon-knowledge-transmission"></a>
 <!-- organon:term organon:KnowledgeTransmission claim=D090 -->
 
-**Knowledge Transmission** is a scoped Relation between a source instance and a recipient instance of Operative Knowledge in which the source produces or exposes a Record through a Causal path, the recipient reconstructs Operative Knowledge from that mediated Record, and a declared Specification confirms preservation of the named operative function across the two resulting Configurations.
+**Knowledge Transmission** is a scoped Relation between a source instance and a recipient instance of Operative Knowledge in which the source produces or exposes a Record through a Causal path, a Causal Contribution joins a Difference in that mediated Record to the recipient reconstruction, and a declared Specification confirms preservation of the named operative function across the two resulting Configurations.
 
 The source and recipient instances must occupy distinct States or stages, but their interpreters need not be distinct Agents. One persistent Agent can externalize a Record and later reconstruct Operative Knowledge from it; self-documentation, checkpoint restoration, and Memory recovery are therefore eligible instances when the other conditions obtain.
 
@@ -689,11 +708,11 @@ The carried Claim must be joined to the Record that discriminatingly conditions 
 <a id="organon-warranted-knowledge"></a>
 <!-- organon:term organon:WarrantedKnowledge claim=D092 -->
 
-**Warranted Knowledge** is Factive Operative Knowledge for which an Order admits Evidence supporting the same Claim under an Admissibility Rule, where the Evidence is joined to an Observation and a Witness that is IndependentFor that claimant, Claim, Observation, and Order.
+**Warranted Knowledge** is Factive Operative Knowledge for which an Order admits Evidence bearing supportively on the same Claim under an Admissibility Rule and evaluation Rule, where the Evidence is joined to an Observation and a Witness that is IndependentFor that claimant, Claim, Observation, and Order.
 
 The claimant in that IndependentFor Relation is the interpreting Agent of the Factive Operative Knowledge instance. Evidence independent for one Agent cannot warrant another Agent's instance merely because both concern the same Claim.
 
-Warranted Knowledge therefore entails Factive Operative Knowledge, Truth for the carried Claim, and admitted Evidence for that Claim. The reverse implications fail separately. The Order does not create Truth by admitting Evidence, and factivity does not supply warrant when the claimant join, required Observation, independent Witness, Rule provenance, or Admission is missing. This definition is an Order-relative epistemic profile; it does not define every ordinary use of knowledge.
+Warranted Knowledge therefore entails Factive Operative Knowledge, Truth for the carried Claim, admitted Evidence for that Claim, and supportive Evidential Bearing. The reverse implications fail separately. The Order does not create Truth by admitting Evidence, and factivity does not supply warrant when the claimant join, required Observation, independent Witness, Rule provenance, Admission, evaluation Rule, or supportive disposition is missing. This definition is an Order-relative epistemic profile; it does not define every ordinary use of knowledge.
 
 ### 27. Moral-status discourse
 
@@ -762,8 +781,10 @@ These signatures make the ontology operational. They are schemas, not executable
 
 | Relation | Inputs | Result or constraint |
 | --- | --- | --- |
+| `denotes` | expression Presence, target Presence, Relation, or Configuration | Denotation with ordered expression and target positions; no entailment of fidelity, Truth, Interpretation, status, or causal use |
 | `directs` | Relation, input State, output State | forward ordering excludes reverse ordering under the same Relation |
 | `feeds` | output State, input State, Specification of contribution | part of one State supplies part of the other without requiring equality |
+| `contributesTo` | named input Difference, two matched nonempty Causal paths, named endpoint Change | contrastive Causal Contribution; occurrence, precedence, or correlation alone is insufficient |
 | `persists` | Configuration, Invariant, Boundary, ordered States | Entity identity |
 | `senses` | Entity, environmental Difference, constrained Boundary | Perception |
 | `remembers` | Entity, internal Record, later State | Memory conditions later State |
@@ -774,7 +795,7 @@ These signatures make the ontology operational. They are schemas, not executable
 | `specifies` | Representation, Scope, constructive decision procedure | Specification |
 | `observes` | Witness, Environment, Specification of Causal path | Observation |
 | `controls` | Agent, Constraint or process, Scope | Agent can configure, bypass, determine, or suppress the relevant mechanism |
-| `recognizes` | Order, Entity, Rule, Scope | Standing in that Order |
+| `recognizes` | Order, Rule, Entity, named institutional status or Action, Scope | Standing for that exact status or Action in that Order and Scope |
 | `actsFor` | Order, Agent, Principal, Scope | scoped representation of Principal by Agent |
 | `countsAs` | Order, Rule, Presence or Record, status, Scope | institutional status in that Order |
 | `authorizes` | Order, Agent, Principal, Scope | Actions may count as binding in that Order |
@@ -787,6 +808,7 @@ These signatures make the ontology operational. They are schemas, not executable
 | `isExercisable` | Permission, Action, time, Capability, Constraint Configuration | action-level coherence of authorization and technical possibility |
 | `enforces` | Order, Rule, Constraints, Records or Consequences | satisfaction or violation changes what happens |
 | `independentFor` | Witness, claimant, Claim, Observation, Order | mechanical non-control and institutional non-authority for this evidence scope |
+| `bearsOn` | Evidence, Claim, evaluation Rule, Order, Scope | recorded supporting, defeating, or underdetermining disposition; no entailment of Truth |
 | `attests` | Witness, Claim, Specification, Order | scoped Claim about Observation or Evidence |
 | `institutes` | Roles, Records, Interfaces, recurring Flows | persistent Order |
 | `constitutes` | Polity, coordinated Agency, existing Order | transformed Order |
@@ -795,14 +817,14 @@ These signatures make the ontology operational. They are schemas, not executable
 | `operationalizes` | Representation, Rule, Interface, Scope, selected Transformation, Causal path | Rule discriminates the Representation, Interface exposes the selected Transformation, and that Transformation occurs in the path; no entailment of representational identity, Map fidelity, or Evidence |
 | `composesWorld` | Entities, selected Environment, Scope, Constraints, included Causal paths, named Invariant | participant-scoped World whose distinct access paths bear on the common Invariant; no identity with Reality, Environment, Map, or Reference |
 | `servesAsSubstrate` | Configuration, Scope, persistent input States, Feeds, Constraints, family of Transformations | contextual Substrate; no entailment that carrier and carried Configuration are identical or persist together |
-| `isTrue` | Claim, Representation, declared Rule, truth-condition Specification, relevant Presence in Reality, Scope | materially adequate correspondence and conformity obtain independently of access, Evidence, proof, consensus, or Admission |
-| `trusts` | trusting Entity, other Entity, maintained Boundary Constraint, future contribution, Causal path, affected State or Exposure, Scope | accepted causal dependence without determining Control; involuntary dependence alone is insufficient |
+| `isTrue` | Claim, Representation, Denotation, declared Rule, truth-condition Specification, relevant Presence in Reality, Scope | the Denotation joins the exact Representation to the Rule-Specification-Presence tuple and conformity obtains independently of access, Evidence, proof, consensus, or Admission |
+| `trusts` | trusting Entity, other Entity, maintained Boundary Constraint, paired-path Causal Contribution, affected State, Exposure, or Consequence, Scope | accepted causal dependence without determining Control; involuntary dependence alone is insufficient |
 | `alignsUnder` | ordered subject Configuration, target Presence, Specification, Scope | conformity under this profile only; no identity, Truth, Authority, or cross-profile entailment |
 | `actsIntelligently` | Agent, Perception, Memory, constructed Models and Interpretations, non-enumerated States, selected Actions, Consequences, Specification, Scope | adaptive Capability across the declared Scope; no entailment of Truth, Authority, or global success |
-| `knowsOperatively` | Record, interpreting Agent, Capability, Constraints, Rule, Model or Interpretation, Causal path, Action or internal Transformation, resulting State or Consequence, Specification, Scope | Record makes a discriminating operative difference and the result conforms; storage or successful effect alone is insufficient |
-| `transmitsKnowledge` | source Operative Knowledge and State, mediated Record, Causal path, recipient Operative Knowledge and distinct later State, preservation Specification, Scope | recipient reconstructs the operative function; source and recipient may be the same Agent, while copied Record, identical Model, or literal fidelity is neither necessary nor sufficient |
+| `knowsOperatively` | Record, interpreting Agent, Capability, Constraints, Rule, Model or Interpretation, Causal path, Causal Contribution, Action or internal Transformation, resulting State or Consequence, Specification, Scope | Record makes a discriminating operative difference and the result conforms; storage or successful effect alone is insufficient |
+| `transmitsKnowledge` | source Operative Knowledge and State, mediated Record, Causal path, Causal Contribution, recipient Operative Knowledge and distinct later State, preservation Specification, Scope | recipient reconstructs the operative function; source and recipient may be the same Agent, while copied Record, identical Model, or literal fidelity is neither necessary nor sufficient |
 | `knowsFactively` | Operative Knowledge, load-bearing Record, carried Claim, Truth, Rule, truth-condition Specification, Presence, Scope | operative function and Truth obtain for the exact carried Claim; neither alone is sufficient |
-| `knowsWarrantedly` | Factive Operative Knowledge, Evidence, Observation, independent Witness, Admissibility Rule, Order, Admission | Evidence for the same true operative Claim is independently grounded and admitted |
+| `knowsWarrantedly` | Factive Operative Knowledge, Evidence, Observation, independent Witness, Admissibility Rule, evaluation Rule, Evidential Bearing, Scope, Order, Admission | Evidence for the same true operative Claim is independently grounded, admitted, and recorded as bearing supportively within the named Scope |
 | `attributesMoralStatus` | Agent, target Entity, State, Representation, candidate Specification, Language, meaning Rule, Map, Claim Scope | Moral Status Attribution; no entailment that the candidate condition obtains |
 | `designatesMoralPersonhood` | Order, Rule, institutional purpose, admitted Moral Status Attribution, institutional Scope | one CountsAs event for the Attribution's target; no downstream effect without a separate Rule |
 | `exercisesConstituentSovereignty` | Polity, Constituent Power, Constituent Exercise, transformed Order, Scope | founding or refounding exercise obtains; no entailment of other sovereignty profiles |
@@ -835,9 +857,9 @@ These signatures make the ontology operational. They are schemas, not executable
 
 10. <!-- organon:claim C10 --> **No consciousness discourse collapse:** A Consciousness Attribution does not establish its candidate condition; a Consciousness Designation does not establish that condition or independently alter Standing, Personhood, Permissions, protections, Interfaces, or Consequences; and failure to attribute or designate establishes neither Absence nor negation. Missingness obtains only in a field or Order that represents or expects the relevant Attribution or Designation.
 
-11. <!-- organon:claim C11 --> **No representational efficacy collapse:** Rule-mediated participation by a Representation in a real Transformation establishes neither identity with its target or Reality, nor fidelity of its Map, nor Evidence for its Claim merely because the selected Transformation or a later Consequence occurred.
+11. <!-- organon:claim C11 --> **No representational efficacy collapse:** Denotation and Rule-mediated participation by a Representation establish neither identity with its target or Reality, nor fidelity of its Map, Causal Contribution, nor Evidential Bearing for its Claim merely because the Representation or a later Consequence occurred.
 
-12. <!-- organon:claim C12 --> **No World collapse:** A World is neither Reality as a whole, an Entity's Environment, nor any Map or Reference through which the World is encountered. Convergence across access paths supports Claims about a common scoped Invariant; it does not provide unmediated access or make consensus constitutive of the World.
+12. <!-- organon:claim C12 --> **No World collapse:** A World is neither Reality as a whole, an Entity's Environment, nor any Map or Reference through which the World is encountered. Convergence across access paths may supply Observations; it supports a Claim about a common scoped Invariant only through Evidential Bearing. It does not provide unmediated access or make consensus constitutive of the World.
 
 13. <!-- organon:claim C13 --> **No Substrate collapse:** Substrate is a scoped function of a Configuration in a named family of Transformations, not a fundamental substance or intrinsic kind. The Substrate is not identical with a Representation, Invariant, Entity, or function carried through it, and Persistence of carrier and carried Configuration do not entail each other.
 
@@ -853,13 +875,15 @@ These signatures make the ontology operational. They are schemas, not executable
 
 19. <!-- organon:claim C19 --> **No knowledge-transmission-copy collapse:** Knowledge Transmission requires recipient Operative Knowledge in a distinct State or stage and preservation under a declared Specification. Copying, exposing, or preserving a Record does not entail Knowledge Transmission; transmission does not entail identical Records, Representations, Models, Interpretations, or distinct Agents; independent acquisition does not establish transmission from a source.
 
-20. <!-- organon:claim C20 --> **No factivity-warrant collapse:** Factive Operative Knowledge requires Operative Knowledge and Truth for the exact Claim carried by its load-bearing Record. Warranted Knowledge additionally requires Evidence admitted for that same Claim and independently grounded for the operative interpreter. Evidence independent for another Agent cannot fill that join. Operative Knowledge, Truth, Evidence, or Admission alone is insufficient, and institutional Admission does not create Truth.
+20. <!-- organon:claim C20 --> **No factivity-warrant collapse:** Factive Operative Knowledge requires Operative Knowledge and Truth for the exact Claim carried by its load-bearing Record. Warranted Knowledge additionally requires Evidence admitted for that same Claim, independently grounded for the operative interpreter, and joined supportively through Evidential Bearing. Evidence independent for another Agent cannot fill that join. Operative Knowledge, Truth, Evidence, Admission, or a disposition label alone is insufficient, and institutional Admission does not create Truth.
 
 21. <!-- organon:claim C21 --> **No moral-discourse-status collapse:** Moral Status Attribution and Moral Personhood Designation do not establish their candidate condition; non-attribution and non-designation do not establish its negation. Designation does not independently alter Personhood, Standing, protections, duties, Permissions, Interfaces, prohibited Actions, or Consequences; every downstream effect requires a separate Rule in a named Order and Scope.
 
 22. <!-- organon:claim C22 --> **No sovereignty-profile collapse:** Constituent, Constituted, Boundary, and External Sovereignty do not entail one another, generic Sovereignty, moral legitimacy, Truth, favorable Consequences, or moral personhood. A combined sovereignty Claim must name each profile and every Rule connecting them.
 
 23. <!-- organon:claim C23 --> **No value-profile collapse:** Preference, Utility Measure, Price, institutional valuation, and moral worth do not entail one another without an explicit correspondence Rule and witness. Action does not itself reveal Preference; measurement does not create desire; a Price does not establish exchange or worth; institutional status does not create moral worth.
+
+24. <!-- organon:claim C24 --> **No hidden-bridge substitution:** An Entity identity Claim must name its Invariant and Persistence witness; a Representation must name its Denotation; causal efficacy must name a Causal Contribution comparison; Capability must name the Constraint interpretation and constructive possibility witness; evidential support or defeat must name Evidential Bearing; and institutional eligibility must resolve to Standing in a named Order, Rule, and Scope. None of these bridges follows from resemblance, assertion, co-occurrence, or an untyped predicate.
 
 ## Quarantined vocabulary
 
@@ -881,6 +905,8 @@ This ontology does not claim that its local machinery is unprecedented. Nearly e
 | Missingness, holes, gaps, and shadows | [Roberto Casati and Achille Varzi, *Holes and Other Superficialities*](https://mitpress.mit.edu/9780262531337/holes-and-other-superficialities/) | A hole is not absolute nothing; it is a dependent, structured phenomenon involving a host, boundary, identity, causal role, and perception. This supports distinguishing present signs of Missingness from Absence. | Missingness is broader than holes and does not inherit Casati and Varzi's mereology or geometry. |
 | Entity, Boundary, Environment, Interior, and Observation | [Niklas Luhmann, *Social Systems*](https://www.sup.org/books/sociology/social-systems) | The system/environment distinction, operational boundary, self-reference, and the observer's inability to occupy an unmediated view from nowhere. | Entity here is not restricted to an autopoietic system of communications. These definitions are more general and therefore less rigorous than Luhmann's within his domain. |
 | Entity, State, Transformation, Persistence, and Relation | [Basic Formal Ontology 2020](https://bfo-ontology.github.io/bfo-2020.html), standardized as [ISO/IEC 21838-2:2021](https://www.iso.org/standard/74572.html), and the [DOLCE foundational ontology](https://www.loa.istc.cnr.it/index.php/dolce/) | The discipline of an upper ontology: explicit categories, typed Relations, dependency order, axiomatization, and consistency testing across domains. | This ontology is not BFO- or DOLCE-conformant and should not borrow their formal credibility. They are rigor benchmarks until an explicit mapping and contradiction audit exist. |
+| Identity criteria, Denotation, and relative possibility | David Wiggins, *Sameness and Substance Renewed*; Gottlob Frege, “On Sense and Reference”; Saul Kripke, *Naming and Necessity*; and Per Martin-Löf, *Intuitionistic Type Theory* | Wiggins disciplines reidentification across change; Frege separates an expression from what it designates; Kripke makes possibility relative to an interpretation; Martin-Löf makes constructive assertion answerable to an inhabitant. | Organon leaves identity criteria in the metalanguage but requires Entity to project one through Invariant and Persistence. Denotation does not import Fregean sense, and Capability uses Constraint-relative satisfiability rather than unrestricted possible worlds or constructive logic as a whole. |
+| Causal Contribution and Evidential Bearing | David Lewis, “Causation”; James Woodward, *Making Things Happen*; and Stephen Toulmin, *The Uses of Argument* | Lewis and Woodward discipline contrastive dependence rather than mere sequence; Toulmin separates data, warrant, and Claim. | Organon's paired paths test one named input Difference under declared matching conditions and do not supply a complete causal theory. Evidential Bearing makes the evaluation Rule and Order's Record explicit but does not inherit Toulmin's complete argument schema or guarantee epistemic quality. |
 | Declaration, Permission, Authority, Standing, Role, Person, Institution, and political Order | [John Searle, *Making the Social World*](https://academic.oup.com/book/5336) | Status functions, constitutive rules, declarations, deontic powers, and the form “X counts as Y in context C” strongly shadow the institutional stack. | A Declaration here is insufficient by utterance alone: it requires an Agent with Authority, a Specification, and an Order that records its Scope. The ontology also connects institutional counting to Capability, Boundary, Observation, Evidence, Ledger, and Constituent exercise. |
 | Representation, Rule, and Operationalization | [P. W. Bridgman, *The Logic of Modern Physics*](https://www.gutenberg.org/ebooks/70620), [John Searle, “Human Social Reality and Language”](https://doi.org/10.13128/Phe_Mi-19621), and [Terrence Deacon, *Incomplete Nature*](https://books.google.com/books?id=aT_y7ao96LgC) | Bridgman makes abstract concepts answerable to operations; Searle shows linguistic Representations creating institutional powers through constitutive Rules; Deacon argues that representational and purposive phenomena can have physical causal efficacy. | Operationalization here is broader than measurement, narrower than unconstrained causal influence, and neutral about Deacon's account of mind. It requires a discriminating Rule, exposed Transformation, Scope, and actual Causal-path witness; it does not make every operation semantic or every Representation institutionally constitutive. |
 | World and Substrate | [Jakob von Uexküll, *A Foray into the Worlds of Animals and Humans*](https://www.upress.umn.edu/9781452903798/a-foray-into-the-worlds-of-animals-and-humans/), [James J. Gibson, *The Ecological Approach to Visual Perception*](https://www.routledge.com/The-Ecological-Approach-to-Visual-Perception-Classic-Edition/Gibson/p/book/9781848725782), [Aristotle, *Physics*, Book I](https://classics.mit.edu/Aristotle/physics.1.i.html), and [Gilbert Simondon, *On the Mode of Existence of Technical Objects*](https://www.upress.umn.edu/9781517904876/on-the-mode-of-existence-of-technical-objects/) | Uexküll makes accessible worlds participant-relative; Gibson joins environment to possible perception and action; Aristotle identifies an underlying subject persisting through change; Simondon makes the associated milieu an active condition of technical operation rather than passive matter. | World here is not a private phenomenal bubble and does not adopt Gibson's direct realism: its common Invariant remains available only through constrained paths. Substrate is neither Aristotelian prime matter nor Simondon's associated milieu wholesale; it is a contextual Configuration specified by the input States it supplies and the Constraints it contributes to a named family of Transformations. |

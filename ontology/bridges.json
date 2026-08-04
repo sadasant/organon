@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "ontology_version": "0.16.0",
+  "bridges": [
+    {
+      "id": "identity-criterion",
+      "resolution": "declared-metalanguage-with-object-witness",
+      "term": null,
+      "required_terms": ["organon:Invariant", "organon:Persistence", "organon:Entity"]
+    },
+    {
+      "id": "denotation-and-use",
+      "resolution": "typed-relation-and-generic-use-elimination",
+      "term": "organon:Denotation",
+      "required_terms": ["organon:Representation", "organon:Interpretation", "organon:Operationalization", "organon:Tool"]
+    },
+    {
+      "id": "causal-contribution",
+      "resolution": "typed-relation",
+      "term": "organon:CausalContribution",
+      "required_terms": ["organon:Difference", "organon:CausalPath", "organon:Change"]
+    },
+    {
+      "id": "modal-capability",
+      "resolution": "declared-constraint-relative-satisfiability-with-object-witness",
+      "term": null,
+      "required_terms": ["organon:Constraint", "organon:Specification", "organon:Capability"]
+    },
+    {
+      "id": "evidential-support",
+      "resolution": "typed-relation",
+      "term": "organon:EvidentialBearing",
+      "required_terms": ["organon:Evidence", "organon:Claim", "organon:Rule", "organon:Order", "organon:Scope"]
+    },
+    {
+      "id": "institutional-eligibility",
+      "resolution": "derived-alias",
+      "term": "organon:Standing",
+      "required_terms": ["organon:Order", "organon:Rule", "organon:Scope"]
+    }
+  ]
+}

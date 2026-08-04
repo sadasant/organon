@@ -108,14 +108,14 @@ The prose protocol requires an eventual evaluation record to preserve claimant, 
 <!-- organon:proposal-statement CC-G1 type=open_formalization_gate -->
 ### Open formalization gate: evidentiary disposition
 
-This proposal specifies an evidentiary profile in prose but does not yet formalize one. Promotion of an Evidentiary Profile remains blocked until every Evidence item is connected to:
+Organon v0.16 now formalizes generic Evidential Bearing: an evaluation Rule can classify Evidence as supporting, defeating, or underdetermining a Claim, and an Order can record that exact result within a Scope. This proposal still does not formalize a complete consciousness-specific evidentiary profile. Its promotion remains blocked until every Evidence item is connected to:
 
 1. an Observation;
 2. a Witness with an IndependentFor proof for this claimant, Claim, Observation, and Order;
 3. an Admissibility Rule and governing Order that admit the Observation as Evidence; and
-4. a declared evaluation Rule whose result is proved equal to the recorded disposition.
+4. an Evidential Bearing whose declared evaluation Rule produces the disposition recorded by that Order in that Scope.
 
-Until those joins exist, supported, defeated, and underdetermined remain proposed disposition labels rather than proof-producing formal states.
+Until those joins exist in one consciousness-specific path, a generic Evidential Bearing does not decide a Consciousness Attribution or its candidate condition.
 
 <!-- organon:proposal-statement CC-G2 type=open_evidence_gate -->
 ### Open evidence gate: historical, animal, and AI generalizations

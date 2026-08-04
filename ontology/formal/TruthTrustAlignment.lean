@@ -5,8 +5,9 @@ import OrganonCore
 
 This file tests D085-D087 without identifying correspondence, accepted causal
 dependence, and profile-scoped conformity. Every Truth instance requires a
-local material-adequacy join. Trust extends a more general Dependence with
-admission through a Constraint maintained in the truster's Boundary.
+claim-indexed Denotation joined to the Rule, Specification, and target used by
+conformity. Trust extends a more general Dependence with admission through a
+Constraint maintained in the truster's Boundary.
 Alignment uses ordered subject and target roles, not Organon's temporal
 Direction.
 
@@ -25,22 +26,21 @@ structure TruthSemantics
   meaningRuleFor : Claim → MeaningRule
   specificationFor : Claim → Specification Target
   targetFor : Claim → Target
+  denotationFor :
+    Claim → Denotation Representation (MeaningRule × Specification Target × Target)
   scope : Scope (Claim × Target)
   targetInRealityModel : Target → Prop
-  materiallyAdequate :
-    Claim → Representation → MeaningRule →
-      Specification Target → Target → Prop
 
 def TruthSemantics.isTrue
     {Claim Representation MeaningRule Target : Type u}
     (semantics : TruthSemantics Claim Representation MeaningRule Target)
     (claim : Claim) : Prop :=
-  semantics.materiallyAdequate
-      claim
-      (semantics.representationFor claim)
-      (semantics.meaningRuleFor claim)
-      (semantics.specificationFor claim)
-      (semantics.targetFor claim) ∧
+  (semantics.denotationFor claim).expression =
+      semantics.representationFor claim ∧
+    (semantics.denotationFor claim).target =
+      (semantics.meaningRuleFor claim,
+        semantics.specificationFor claim,
+        semantics.targetFor claim) ∧
     semantics.scope.includes (claim, semantics.targetFor claim) ∧
     semantics.targetInRealityModel (semantics.targetFor claim) ∧
     (semantics.specificationFor claim).conforms (semantics.targetFor claim)
@@ -49,46 +49,54 @@ structure EpistemicAccess (Agent Target : Type u) where
   suppliesTarget : Agent → Target → Prop
 
 structure Dependence
-    {Carrier : Type u}
-    (direction : Direction Carrier)
-    (feeding : FeedRelation Carrier) where
-  dependent : Entity Carrier
-  contributorEntity : Entity Carrier
+    {Feature : Type u}
+    {Context : Type v}
+    (direction : Direction (Feature × Context))
+    (feeding : FeedRelation (Feature × Context)) where
+  dependent : Entity (Feature × Context)
+  contributorEntity : Entity (Feature × Context)
   distinct : dependent ≠ contributorEntity
   path : CausalPath direction feeding
   contribution : Transformation direction
   contributionOnPath : contribution ∈ path.steps
-  contributor : Transformation direction → Entity Carrier
+  comparison : CausalContribution Feature Context direction feeding
+  pathIsCompared : path = comparison.rightPath
+  contributionIsComparedEndpoint :
+    contribution = comparison.rightEndpoints.last
+  contributor : Transformation direction → Entity (Feature × Context)
   suppliedByContributor : contributor contribution = contributorEntity
-  relationState : State Carrier
+  relationState : State (Feature × Context)
   relationAtDependentState : relationState = dependent.current
   contributionIsFuture : direction.before relationState contribution.output
-  dependentOutput : State Carrier
+  dependentOutput : State (Feature × Context)
   outputFollowsContribution : dependentOutput = contribution.output
-  determines : Entity Carrier → Transformation direction → Prop
+  determines : Entity (Feature × Context) → Transformation direction → Prop
   contributionUndeterminedByDependent :
     ¬ determines dependent contribution
 
 def Dependence.isAccepted
-    {Carrier : Type u}
-    {direction : Direction Carrier}
-    {feeding : FeedRelation Carrier}
+    {Feature : Type u}
+    {Context : Type v}
+    {direction : Direction (Feature × Context)}
+    {feeding : FeedRelation (Feature × Context)}
     (dependence : Dependence direction feeding) : Prop :=
   ∃ constraint,
     constraint ∈ dependence.dependent.boundary.constraints ∧
       constraint.permits dependence.contribution
 
 structure Trust
-    {Carrier : Type u}
-    (direction : Direction Carrier)
-    (feeding : FeedRelation Carrier) where
+    {Feature : Type u}
+    {Context : Type v}
+    (direction : Direction (Feature × Context))
+    (feeding : FeedRelation (Feature × Context)) where
   dependence : Dependence direction feeding
   accepted : dependence.isAccepted
 
 def Dependence.isTrusted
-    {Carrier : Type u}
-    {direction : Direction Carrier}
-    {feeding : FeedRelation Carrier}
+    {Feature : Type u}
+    {Context : Type v}
+    {direction : Direction (Feature × Context)}
+    {feeding : FeedRelation (Feature × Context)}
     (dependence : Dependence direction feeding) : Prop :=
   ∃ trust : Trust direction feeding, trust.dependence = dependence
 
@@ -149,22 +157,20 @@ def toyTruthSemantics :
   targetFor
     | .accurate => .obtaining
     | .mistaken => .excluded
+  denotationFor := fun claim =>
+    { expression :=
+        match claim with
+        | .accurate => .accurateRepresentation
+        | .mistaken => .mistakenRepresentation
+      target :=
+        (.literal, toyTruthSpecification claim,
+          match claim with
+          | .accurate => .obtaining
+          | .mistaken => .excluded) }
   scope := ⟨fun _ => True⟩
   targetInRealityModel
     | .obtaining => True
     | .excluded => True
-  materiallyAdequate :=
-    fun claim representation meaningRule specification target =>
-    representation =
-        (match claim with
-         | .accurate => .accurateRepresentation
-         | .mistaken => .mistakenRepresentation) ∧
-      meaningRule = .literal ∧
-      specification = toyTruthSpecification claim ∧
-      target =
-        (match claim with
-         | .accurate => .obtaining
-         | .mistaken => .excluded)
 
 def sealedAccess : EpistemicAccess Unit ToyFact where
   suppliesTarget := fun _ _ => False
@@ -180,30 +186,46 @@ theorem truthDoesNotEntailAgentAccess :
   · intro agent
     simp [sealedAccess]
 
-theorem adequateClaimAndRealityModelDoNotEntailTruth :
-    toyTruthSemantics.materiallyAdequate
-        .mistaken
-        (toyTruthSemantics.representationFor .mistaken)
-        (toyTruthSemantics.meaningRuleFor .mistaken)
-        (toyTruthSemantics.specificationFor .mistaken)
-        (toyTruthSemantics.targetFor .mistaken) ∧
+theorem denotationAndRealityModelDoNotEntailTruth :
+    (toyTruthSemantics.denotationFor .mistaken).expression =
+        toyTruthSemantics.representationFor .mistaken ∧
+      (toyTruthSemantics.denotationFor .mistaken).target =
+        (toyTruthSemantics.meaningRuleFor .mistaken,
+          toyTruthSemantics.specificationFor .mistaken,
+          toyTruthSemantics.targetFor .mistaken) ∧
       toyTruthSemantics.targetInRealityModel
         (toyTruthSemantics.targetFor .mistaken) ∧
       ¬ toyTruthSemantics.isTrue .mistaken := by
   simp [TruthSemantics.isTrue, toyTruthSemantics,
     toyTruthSpecification]
 
-inductive TrustCarrier where
+inductive TrustStage where
   | privateState
   | affectedState
   deriving DecidableEq
 
+abbrev TrustCarrier := Bool × TrustStage
+
+def baselinePrivate : State TrustCarrier := ⟨(false, .privateState)⟩
+def contributedPrivate : State TrustCarrier := ⟨(true, .privateState)⟩
+def baselineAffected : State TrustCarrier := ⟨(false, .affectedState)⟩
+def contributedAffected : State TrustCarrier := ⟨(true, .affectedState)⟩
+
 def trustDirection : Direction TrustCarrier where
   before := fun first second =>
-    first.value = .privateState ∧ second.value = .affectedState
+    (first.value.2 = .privateState ∧ second.value.2 = .affectedState) ∨
+    (first = baselineAffected ∧ second = contributedAffected)
   asymmetric := by
     intro first second forward backward
-    simp_all
+    rcases forward with forward | ⟨rfl, rfl⟩
+    · rcases backward with backward | ⟨reverseStart, reverseEnd⟩
+      · simp_all
+      · subst second
+        subst first
+        simp [baselineAffected, contributedAffected] at forward
+    · rcases backward with backward | ⟨reverseStart, reverseEnd⟩
+      · simp [baselineAffected, contributedAffected] at backward
+      · simp [baselineAffected, contributedAffected] at reverseStart
 
 def trustFeed : FeedRelation TrustCarrier where
   feeds := fun _ _ => True
@@ -213,8 +235,8 @@ def trustIdentity : Invariant TrustCarrier where
 
 def admissionConstraint : Constraint TrustCarrier where
   permits := fun transformation =>
-    transformation.input.value = .privateState ∧
-      transformation.output.value = .affectedState
+    transformation.input.value.2 = .privateState ∧
+      transformation.output.value.2 = .affectedState
 
 def acceptingBoundary : Boundary TrustCarrier trustIdentity where
   constraints := [admissionConstraint]
@@ -225,11 +247,20 @@ def closedBoundary : Boundary TrustCarrier trustIdentity where
   preserves := by simp [trustIdentity]
 
 def trustPersistence : PersistenceWitness trustDirection where
-  states := [⟨.privateState⟩, ⟨.affectedState⟩]
-  hasTransition := ⟨⟨.privateState⟩, ⟨.affectedState⟩, [], rfl⟩
+  states := [baselinePrivate, baselineAffected]
+  hasTransition := ⟨baselinePrivate, baselineAffected, [], rfl⟩
   invariant := trustIdentity
   invariantHolds := by simp [trustIdentity]
-  ordered := by simp [OrderedBy, trustDirection]
+  ordered := by
+    simp [OrderedBy, trustDirection, baselinePrivate, baselineAffected]
+
+def delegatePersistence : PersistenceWitness trustDirection where
+  states := [contributedPrivate, contributedAffected]
+  hasTransition := ⟨contributedPrivate, contributedAffected, [], rfl⟩
+  invariant := trustIdentity
+  invariantHolds := by simp [trustIdentity]
+  ordered := by
+    simp [OrderedBy, trustDirection, contributedPrivate, contributedAffected]
 
 def acceptingPrincipal : Entity TrustCarrier where
   identity := trustIdentity
@@ -237,7 +268,7 @@ def acceptingPrincipal : Entity TrustCarrier where
   persistenceDirection := trustDirection
   persistence := trustPersistence
   persistenceNamesIdentity := rfl
-  current := ⟨.privateState⟩
+  current := baselinePrivate
   currentInPersistence := by simp [trustPersistence]
   identityHolds := by simp [trustIdentity]
 
@@ -247,7 +278,7 @@ def unwillingPrincipal : Entity TrustCarrier where
   persistenceDirection := trustDirection
   persistence := trustPersistence
   persistenceNamesIdentity := rfl
-  current := ⟨.privateState⟩
+  current := baselinePrivate
   currentInPersistence := by simp [trustPersistence]
   identityHolds := by simp [trustIdentity]
 
@@ -255,20 +286,67 @@ def delegateEntity : Entity TrustCarrier where
   identity := trustIdentity
   boundary := closedBoundary
   persistenceDirection := trustDirection
-  persistence := trustPersistence
+  persistence := delegatePersistence
   persistenceNamesIdentity := rfl
-  current := ⟨.affectedState⟩
-  currentInPersistence := by simp [trustPersistence]
+  current := contributedAffected
+  currentInPersistence := by simp [delegatePersistence]
   identityHolds := by simp [trustIdentity]
 
 def contributedTransformation : Transformation trustDirection where
-  input := ⟨.privateState⟩
-  output := ⟨.affectedState⟩
-  advances := by simp [trustDirection]
+  input := contributedPrivate
+  output := contributedAffected
+  advances := by
+    simp [trustDirection, contributedPrivate, contributedAffected]
+
+def baselineTransformation : Transformation trustDirection where
+  input := baselinePrivate
+  output := baselineAffected
+  advances := by simp [trustDirection, baselinePrivate, baselineAffected]
+
+def trustOutputTransformation : Transformation trustDirection where
+  input := baselineAffected
+  output := contributedAffected
+  advances := by right; exact ⟨rfl, rfl⟩
+
+def trustOutputChange : Change trustDirection where
+  transformation := trustOutputTransformation
+  differs := by
+    intro equal
+    have values := congrArg State.value equal
+    simp [trustOutputTransformation, baselineAffected,
+      contributedAffected] at values
 
 def contributionPath : CausalPath trustDirection trustFeed where
   steps := [contributedTransformation]
   connected := by simp [Chains]
+
+def baselinePath : CausalPath trustDirection trustFeed where
+  steps := [baselineTransformation]
+  connected := by simp [Chains]
+
+def baselineEndpoints : PathEndpoints baselinePath where
+  first := baselineTransformation
+  last := baselineTransformation
+  startsWith := ⟨[], rfl⟩
+  endsWith := ⟨[], rfl⟩
+
+def contributionEndpoints : PathEndpoints contributionPath where
+  first := contributedTransformation
+  last := contributedTransformation
+  startsWith := ⟨[], rfl⟩
+  endsWith := ⟨[], rfl⟩
+
+def trustCausalContribution :
+    CausalContribution Bool TrustStage trustDirection trustFeed where
+  leftPath := baselinePath
+  rightPath := contributionPath
+  leftEndpoints := baselineEndpoints
+  rightEndpoints := contributionEndpoints
+  sameDeclaredContext := rfl
+  inputDiffers := by decide
+  downstreamChange := trustOutputChange
+  changeStartsAt := rfl
+  changeEndsAt := rfl
 
 def acceptedDependence : Dependence trustDirection trustFeed where
   dependent := acceptingPrincipal
@@ -276,16 +354,21 @@ def acceptedDependence : Dependence trustDirection trustFeed where
   distinct := by
     intro equal
     have currentEqual := congrArg Entity.current equal
-    simp [acceptingPrincipal, delegateEntity] at currentEqual
+    simp [acceptingPrincipal, delegateEntity, baselinePrivate,
+      contributedAffected] at currentEqual
   path := contributionPath
   contribution := contributedTransformation
   contributionOnPath := by simp [contributionPath]
+  comparison := trustCausalContribution
+  pathIsCompared := rfl
+  contributionIsComparedEndpoint := rfl
   contributor := fun _ => delegateEntity
   suppliedByContributor := rfl
   relationState := acceptingPrincipal.current
   relationAtDependentState := rfl
   contributionIsFuture := by
-    simp [acceptingPrincipal, contributedTransformation, trustDirection]
+    simp [acceptingPrincipal, contributedTransformation, trustDirection,
+      baselinePrivate, contributedAffected]
   dependentOutput := contributedTransformation.output
   outputFollowsContribution := rfl
   determines := fun _ _ => False
@@ -297,16 +380,21 @@ def involuntaryDependence : Dependence trustDirection trustFeed where
   distinct := by
     intro equal
     have currentEqual := congrArg Entity.current equal
-    simp [unwillingPrincipal, delegateEntity] at currentEqual
+    simp [unwillingPrincipal, delegateEntity, baselinePrivate,
+      contributedAffected] at currentEqual
   path := contributionPath
   contribution := contributedTransformation
   contributionOnPath := by simp [contributionPath]
+  comparison := trustCausalContribution
+  pathIsCompared := rfl
+  contributionIsComparedEndpoint := rfl
   contributor := fun _ => delegateEntity
   suppliedByContributor := rfl
   relationState := unwillingPrincipal.current
   relationAtDependentState := rfl
   contributionIsFuture := by
-    simp [unwillingPrincipal, contributedTransformation, trustDirection]
+    simp [unwillingPrincipal, contributedTransformation, trustDirection,
+      baselinePrivate, contributedAffected]
   dependentOutput := contributedTransformation.output
   outputFollowsContribution := rfl
   determines := fun _ _ => False
@@ -318,7 +406,7 @@ def toyTrust : Trust trustDirection trustFeed where
     refine ⟨admissionConstraint, ?_, ?_⟩
     · simp [acceptedDependence, acceptingPrincipal, acceptingBoundary]
     · simp [acceptedDependence, contributedTransformation,
-        admissionConstraint]
+        admissionConstraint, contributedPrivate, contributedAffected]
 
 def toyConfidence : Entity TrustCarrier → Entity TrustCarrier → Prop :=
   fun dependent contributor =>
