@@ -64,7 +64,7 @@ This is more than possessing a Specification: Alignment is the Relation that obt
 
 ## Dependency audit
 
-Truth depends on Claim, Representation, Rule, Specification, Reality, Presence, Scope, and Relation. `Specification` supplies constructive conformity; `Claim` supplies the asserted Representation and Scope; the declared Rule supplies the interpretation context for the per-instance material-adequacy witness; Reality supplies the truth-maker boundary. The definition adds no universal semantic theory joining every Representation to every Presence.
+Truth depends on Claim, Representation, Denotation, Rule, Specification, Reality, Presence, Scope, Relation, Entity, Evidence, Evidential Bearing, and Admission. `Specification` supplies constructive conformity; `Claim` supplies the asserted Representation and Scope; the claim-indexed Denotation joins that Representation to the exact Rule-Specification-Presence tuple; Reality supplies the truth-maker boundary. Evidence, Evidential Bearing, and Admission remain explicit non-substitutes. The definition adds no universal semantic theory joining every Representation to every Presence.
 
 Trust depends on Relation, Entity, Boundary, Constraint, State, Action, Claim, Causal path, Causal Contribution, Interior, Exposure, Consequence, Control, and Scope. Direction enters through the paired Causal paths required by Causal Contribution. The earlier local contribution abbreviation was promoted in v0.16 because one-path membership could not distinguish causal efficacy from inert occurrence. The formal shadow still calls the path's immediate result `dependentOutput`, reserving canonical Consequence for a later Action-to-Change join.
 
@@ -88,10 +88,10 @@ The local contribution is the joint anti-collapse: materially adequate correspon
 
 ## Formal shadow
 
-The noncanonical [TruthTrustAlignment.lean](../ontology/formal/TruthTrustAlignment.lean) defines proposal-local `TruthSemantics`, `EpistemicAccess`, `Dependence`, `Trust`, `AlignmentProfile`, `Alignment`, and `JointSituation` structures. Truth requires Scope membership and a material-adequacy relation connecting the same Claim, Representation, meaning Rule, Specification, and target used by conformity. Trust extends an actual future Transformation on a Causal path with admission through a Constraint in the dependent Entity's Boundary. Its finite instance establishes:
+The noncanonical [TruthTrustAlignment.lean](../ontology/formal/TruthTrustAlignment.lean) defines proposal-local `TruthSemantics`, `EpistemicAccess`, `Dependence`, `Trust`, `AlignmentProfile`, `Alignment`, and `JointSituation` structures. Truth requires Scope membership and a claim-indexed Denotation whose expression is the Claim's Representation and whose target is the exact meaning Rule, Specification, and Presence used by conformity. Trust extends an actual future Transformation on a Causal path with admission through a Constraint in the dependent Entity's Boundary. Its finite instance establishes:
 
 - one true Claim whose target no modeled Agent can supply;
-- one materially adequate Claim and present target that do not satisfy their truth-condition Specification;
+- one exactly denoted Claim and present target that do not satisfy their truth-condition Specification;
 - one Trust Relation without confidence or Permission;
 - confidence and causal dependence between the same two Entities without accepted Trust;
 - one Alignment that satisfies one profile but not an incompatible profile;
@@ -104,7 +104,7 @@ The reality predicate is explicitly a `targetInRealityModel` relation rather tha
 <!-- organon:proposal-statement TA-G1 type=open_formalization_gate -->
 ### TA-G1 — Open formalization gate: universal Claim semantics and Reality bridge
 
-Each Truth instance now requires a local material-adequacy relation, but promotion does not supply a universal Map from every natural-language Claim to one truth-condition Specification and target Presence, nor a formal bridge identifying Lean's `targetInRealityModel` with Organon's Reality. Claims of semantic completeness, unique interpretation, or machine decision of Truth remain blocked until those joins exist.
+Each Truth instance now requires a claim-indexed Denotation to the exact Rule-Specification-Presence tuple, but promotion does not supply a universal Map from every natural-language Claim to one truth-condition Specification and target Presence, nor a formal bridge identifying Lean's `targetInRealityModel` with Organon's Reality. Claims of semantic completeness, unique interpretation, or machine decision of Truth remain blocked until those joins exist.
 
 <!-- organon:proposal-statement TA-G2 type=open_formalization_gate -->
 ### TA-G2 — Open formalization gate: Trust Action, Exposure, and Consequence joins
@@ -120,10 +120,10 @@ The formal shadow models conformity under separate Specifications. It does not p
 
 | ID | Type | Statement | Dependencies | Evidence or gate |
 | --- | --- | --- | --- | --- |
-| TA-D1 | Proposed definition | Truth | Relation, Claim, Representation, Rule, Specification, Reality, Presence, Scope, Entity, Evidence, Admission | `TruthSemantics.isTrue` |
-| TA-D2 | Proposed definition | Trust | Relation, Entity, Boundary, Constraint, State, Action, Claim, Causal path, Interior, Exposure, Consequence, Control, Scope, Evidence, Permission, Authority | `Trust` finite inhabitant |
+| TA-D1 | Proposed definition | Truth | Relation, Claim, Representation, Denotation, Rule, Specification, Reality, Presence, Scope, Entity, Evidence, Evidential Bearing, Admission | `TruthSemantics.isTrue` |
+| TA-D2 | Proposed definition | Trust | Relation, Entity, Boundary, Constraint, State, Action, Claim, Causal path, Causal Contribution, Direction, Interior, Exposure, Consequence, Control, Scope, Evidence, Permission, Authority | `Trust` finite inhabitant |
 | TA-D3 | Proposed definition | Alignment | Relation, Configuration, Presence, Specification, Scope, State, Transformation, Difference, TA-D1, TA-D2, Permission, Authority, Agency, Persistence | `Alignment` finite inhabitant |
-| TA-C1 | Anti-collapse constraint | Truth is not epistemic or institutional success | TA-D1, Evidence, Admission | `truthDoesNotEntailAgentAccess`, `adequateClaimAndRealityModelDoNotEntailTruth`; universal joins gated by TA-G1 |
+| TA-C1 | Anti-collapse constraint | Truth is not epistemic or institutional success | TA-D1, Evidence, Admission | `truthDoesNotEntailAgentAccess`, `denotationAndRealityModelDoNotEntailTruth`; universal joins gated by TA-G1 |
 | TA-C2 | Anti-collapse constraint | Trust is not confidence, prediction, authorization, or involuntary vulnerability | TA-D2, Permission, Authority, Evidence | `trustDoesNotEntailConfidenceOrPermission`, `confidenceAndDependenceDoNotEntailTrust`; stronger joins gated by TA-G2 |
 | TA-C3 | Anti-collapse constraint | Alignment is profile-scoped correspondence | TA-D3, Identity, Truth, Trust, Permission, Authority, Persistence | `alignmentIsProfileScoped`, `alignmentDoesNotEntailIdentity`, `alignedClaimDoesNotEntailTruth`; other joins gated by TA-G3 |
 | TA-C4 | Anti-collapse constraint | No Truth-Trust-Alignment collapse | TA-D1, TA-D2, TA-D3 | Finite cross-countermodels and open gates |
@@ -139,7 +139,7 @@ This dossier records the promotion enacted in Organon v0.13:
 - add three binding anti-collapse constraints preserving epistemic, relational, and profile boundaries;
 - add an optional `correspondence-and-coordination` adoption profile;
 - add corpus and intellectual-shadow provenance;
-- keep confidence, prediction, value, purpose, and contribution as ordinary language rather than silently promoting them; and
+- at v0.13, keep confidence, prediction, value, purpose, and contribution as ordinary language; v0.16 later promotes the narrower typed Causal Contribution relation without changing the other quarantines; and
 - preserve TA-G1 through TA-G3 as explicit limits on formal and semantic completeness.
 
 The dossier remains nonbinding provenance material. Promotion occurs only through the canonical single-file ontology and governed projections.

@@ -19,7 +19,7 @@ This note records how [Daniel's Ontology](./ontology.md) changed. Historical arg
 - Added Evidential Bearing as the Rule-, Order-, and Scope-indexed Relation producing supporting, defeating, or underdetermining dispositions. Evidence alone no longer carries an unexplained support property.
 - Reduced institutional eligibility to Standing under a named Order, Rule, and Scope instead of introducing a duplicate predicate.
 - Recast Capability as a constructive Specification of relatively possible Actions under stated Constraints and added C24, the no-hidden-bridge substitution rule.
-- Added finite Lean witnesses for unequal Denotation, paired-path Causal Contribution, constructive Capability realization, Standing without a second eligibility predicate, and supportive Evidential Bearing for a false Claim. The Trust witness now carries the canonical two-path contribution, and Warranted Knowledge carries a recorded supportive bearing rather than a free support predicate.
+- Added finite Lean witnesses for unequal Denotation, paired-path Causal Contribution carrying a named endpoint Change, constructive Capability realization, fully indexed recorded Standing without a second eligibility predicate, and in-Scope supportive Evidential Bearing for a false Claim. Truth carries its claim-indexed Denotation, Trust carries the canonical two-path contribution, and Warranted Knowledge carries a recorded in-Scope supportive bearing rather than a free support predicate.
 
 ### v0.15 - Profiles around the remaining quarantine
 

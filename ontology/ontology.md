@@ -287,7 +287,7 @@ An Entity is not required to be biological, conscious, legal, or morally conside
 <a id="organon-model"></a>
 <!-- organon:term organon:Model claim=D031 -->
 
-**Model** is an organized Configuration of Representations and Transformations that relates Perception and Memory to later States admitted as relatively possible under its stated Constraints.
+**Model** is an organized Configuration of Representations and Transformations that relates Perception and Memory to later States under its stated Constraints.
 
 <a id="organon-action"></a>
 <!-- organon:term organon:Action claim=D032 -->
@@ -795,7 +795,7 @@ These signatures make the ontology operational. They are schemas, not executable
 | `specifies` | Representation, Scope, constructive decision procedure | Specification |
 | `observes` | Witness, Environment, Specification of Causal path | Observation |
 | `controls` | Agent, Constraint or process, Scope | Agent can configure, bypass, determine, or suppress the relevant mechanism |
-| `recognizes` | Order, Entity, Rule, Scope | Standing in that Order |
+| `recognizes` | Order, Rule, Entity, named institutional status or Action, Scope | Standing for that exact status or Action in that Order and Scope |
 | `actsFor` | Order, Agent, Principal, Scope | scoped representation of Principal by Agent |
 | `countsAs` | Order, Rule, Presence or Record, status, Scope | institutional status in that Order |
 | `authorizes` | Order, Agent, Principal, Scope | Actions may count as binding in that Order |
@@ -817,14 +817,14 @@ These signatures make the ontology operational. They are schemas, not executable
 | `operationalizes` | Representation, Rule, Interface, Scope, selected Transformation, Causal path | Rule discriminates the Representation, Interface exposes the selected Transformation, and that Transformation occurs in the path; no entailment of representational identity, Map fidelity, or Evidence |
 | `composesWorld` | Entities, selected Environment, Scope, Constraints, included Causal paths, named Invariant | participant-scoped World whose distinct access paths bear on the common Invariant; no identity with Reality, Environment, Map, or Reference |
 | `servesAsSubstrate` | Configuration, Scope, persistent input States, Feeds, Constraints, family of Transformations | contextual Substrate; no entailment that carrier and carried Configuration are identical or persist together |
-| `isTrue` | Claim, Representation, declared Rule, truth-condition Specification, relevant Presence in Reality, Scope | materially adequate correspondence and conformity obtain independently of access, Evidence, proof, consensus, or Admission |
-| `trusts` | trusting Entity, other Entity, maintained Boundary Constraint, future contribution, Causal path, affected State or Exposure, Scope | accepted causal dependence without determining Control; involuntary dependence alone is insufficient |
+| `isTrue` | Claim, Representation, Denotation, declared Rule, truth-condition Specification, relevant Presence in Reality, Scope | the Denotation joins the exact Representation to the Rule-Specification-Presence tuple and conformity obtains independently of access, Evidence, proof, consensus, or Admission |
+| `trusts` | trusting Entity, other Entity, maintained Boundary Constraint, paired-path Causal Contribution, affected State, Exposure, or Consequence, Scope | accepted causal dependence without determining Control; involuntary dependence alone is insufficient |
 | `alignsUnder` | ordered subject Configuration, target Presence, Specification, Scope | conformity under this profile only; no identity, Truth, Authority, or cross-profile entailment |
 | `actsIntelligently` | Agent, Perception, Memory, constructed Models and Interpretations, non-enumerated States, selected Actions, Consequences, Specification, Scope | adaptive Capability across the declared Scope; no entailment of Truth, Authority, or global success |
-| `knowsOperatively` | Record, interpreting Agent, Capability, Constraints, Rule, Model or Interpretation, Causal path, Action or internal Transformation, resulting State or Consequence, Specification, Scope | Record makes a discriminating operative difference and the result conforms; storage or successful effect alone is insufficient |
-| `transmitsKnowledge` | source Operative Knowledge and State, mediated Record, Causal path, recipient Operative Knowledge and distinct later State, preservation Specification, Scope | recipient reconstructs the operative function; source and recipient may be the same Agent, while copied Record, identical Model, or literal fidelity is neither necessary nor sufficient |
+| `knowsOperatively` | Record, interpreting Agent, Capability, Constraints, Rule, Model or Interpretation, Causal path, Causal Contribution, Action or internal Transformation, resulting State or Consequence, Specification, Scope | Record makes a discriminating operative difference and the result conforms; storage or successful effect alone is insufficient |
+| `transmitsKnowledge` | source Operative Knowledge and State, mediated Record, Causal path, Causal Contribution, recipient Operative Knowledge and distinct later State, preservation Specification, Scope | recipient reconstructs the operative function; source and recipient may be the same Agent, while copied Record, identical Model, or literal fidelity is neither necessary nor sufficient |
 | `knowsFactively` | Operative Knowledge, load-bearing Record, carried Claim, Truth, Rule, truth-condition Specification, Presence, Scope | operative function and Truth obtain for the exact carried Claim; neither alone is sufficient |
-| `knowsWarrantedly` | Factive Operative Knowledge, Evidence, Observation, independent Witness, Admissibility Rule, Order, Admission | Evidence for the same true operative Claim is independently grounded and admitted |
+| `knowsWarrantedly` | Factive Operative Knowledge, Evidence, Observation, independent Witness, Admissibility Rule, evaluation Rule, Evidential Bearing, Scope, Order, Admission | Evidence for the same true operative Claim is independently grounded, admitted, and recorded as bearing supportively within the named Scope |
 | `attributesMoralStatus` | Agent, target Entity, State, Representation, candidate Specification, Language, meaning Rule, Map, Claim Scope | Moral Status Attribution; no entailment that the candidate condition obtains |
 | `designatesMoralPersonhood` | Order, Rule, institutional purpose, admitted Moral Status Attribution, institutional Scope | one CountsAs event for the Attribution's target; no downstream effect without a separate Rule |
 | `exercisesConstituentSovereignty` | Polity, Constituent Power, Constituent Exercise, transformed Order, Scope | founding or refounding exercise obtains; no entailment of other sovereignty profiles |

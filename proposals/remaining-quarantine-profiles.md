@@ -145,7 +145,7 @@ The sovereignty structures encode the proposal's local seams rather than labels 
 ## Promotion gates that remain open
 
 <!-- organon:proposal-statement QP-G1 type=open_formalization_gate -->
-**QP-G1 — Core evidence parity:** v0.16 replaces the proposal-local support predicate with canonical Evidential Bearing, and `claimantMatches` enforces that its claimant is the operative interpreter. Full parity still requires deriving the remaining Observation, IndependentFor, Admissibility Rule provenance, Evidence, and Admission predicates from the core structures without free substitutes.
+**QP-G1 — Core evidence parity:** v0.16 replaces the proposal-local support predicate with canonical Evidential Bearing, proves the exact Evidence-Claim pair belongs to its Scope, records the evaluation Rule's supportive disposition in the governing Order, and uses `claimantMatches` to identify its claimant with the operative interpreter. Full parity still requires deriving the remaining Observation, IndependentFor, Admissibility Rule provenance, Evidence, and Admission predicates from the core structures without free substitutes.
 
 <!-- organon:proposal-statement QP-G2 type=open_formalization_gate -->
 **QP-G2 — Moral condition and moral worth:** No binding Specification of the underlying moral condition or moral worth is supplied. Moral Status Attribution and Moral Personhood Designation remain discourse machinery only.
@@ -167,7 +167,7 @@ Promote QP-D1 through QP-D11, QP-P1, and QP-C1 through QP-C4. Keep the six unres
 | ID | Type | Statement | Dependencies | Evidence or gate |
 | --- | --- | --- | --- | --- |
 | QP-D1 | Proposed definition | Factive Operative Knowledge | Operative Knowledge, Record, Claim, Truth, Rule, Specification, Presence, Scope | `accurateFactiveKnowledge`, `operativeKnowledgeDoesNotEntailFactiveKnowledge` |
-| QP-D2 | Proposed definition | Warranted Knowledge | QP-D1, Evidence, Admission, IndependentFor, Observation, Witness, Admissibility Rule, Order, Claim | `warrantedAccurateKnowledge`, `factiveKnowledgeDoesNotEntailWarrant` |
+| QP-D2 | Proposed definition | Warranted Knowledge | QP-D1, Evidence, Evidential Bearing, Admission, IndependentFor, Observation, Witness, Admissibility Rule, evaluation Rule, Scope, Order, Claim | `warrantedAccurateKnowledge`, `factiveKnowledgeDoesNotEntailWarrant` |
 | QP-D3 | Proposed definition | Moral Status Attribution | Claim, Agent, Entity, State, Representation, Specification, Scope, Language, Rule, Map, candidate condition | `deniedMoralAttribution`, `affirmedMoralAttribution` |
 | QP-D4 | Proposed definition | Moral Personhood Designation | Relation, CountsAs, Order, Rule, Admission, Scope, Entity, State, QP-D3 | `deniedMoralDesignation` |
 | QP-D5 | Proposed definition | Constituent Sovereignty | Configuration, Polity, Constituent Power, Constituent Exercise, Order, Rule, Boundary, Scope | `constituentWitness` |
@@ -181,7 +181,7 @@ Promote QP-D1 through QP-D11, QP-P1, and QP-C1 through QP-C4. Keep the six unres
 | QP-C2 | Anti-collapse constraint | Moral discourse does not decide moral status | QP-D3, QP-D4, Person, Standing, Permission, Interface, Consequence, Rule | Moral countermodels |
 | QP-C3 | Anti-collapse constraint | Sovereignty profiles do not compose silently | QP-D5-QP-D8, Truth, Consequence | Sovereignty countermodels |
 | QP-C4 | Anti-collapse constraint | Valuation profiles remain distinct | QP-D9-QP-D11, CountsAs, Action, Truth | Valuation countermodels |
-| QP-G1 | Open formalization gate | Core evidence parity | QP-D2, IndependentFor, Admissibility Rule, Observation, Evidence, Admission | Open |
+| QP-G1 | Open formalization gate | Core evidence parity | QP-D2, IndependentFor, Admissibility Rule, Observation, Evidence, Evidential Bearing, evaluation Rule, Scope, Order, Admission | Open |
 | QP-G2 | Open formalization gate | Moral condition and moral worth | QP-D3, QP-D4 | Open |
 | QP-G3 | Open formalization gate | Sovereignty realization and composition | QP-D5-QP-D8, Authority, Control, Enforcement, Recognition | Open |
 | QP-G4 | Open formalization gate | Valuation semantics | QP-D9-QP-D11, Action, CountsAs | Open |

@@ -41,7 +41,7 @@
     {"id":"QP-C2","type":"anti_collapse_constraint","subject":"Moral discourse does not decide moral status","depends_on":["QP-D3","QP-D4","organon:Person","organon:Standing","organon:Permission","organon:Interface","organon:Consequence","organon:Rule"]},
     {"id":"QP-C3","type":"anti_collapse_constraint","subject":"Sovereignty profiles do not compose silently","depends_on":["QP-D5","QP-D6","QP-D7","QP-D8","organon:Truth","organon:Consequence"]},
     {"id":"QP-C4","type":"anti_collapse_constraint","subject":"Valuation profiles remain distinct","depends_on":["QP-D9","QP-D10","QP-D11","organon:CountsAs","organon:Action","organon:Truth"]},
-    {"id":"QP-G1","type":"open_formalization_gate","subject":"Core evidence parity","depends_on":["QP-D2","organon:IndependentFor","organon:AdmissibilityRule","organon:Observation","organon:Evidence","organon:EvidentialBearing","organon:Admission"]},
+    {"id":"QP-G1","type":"open_formalization_gate","subject":"Core evidence parity","depends_on":["QP-D2","organon:IndependentFor","organon:AdmissibilityRule","organon:Observation","organon:Evidence","organon:EvidentialBearing","organon:Rule","organon:Scope","organon:Order","organon:Admission"]},
     {"id":"QP-G2","type":"open_formalization_gate","subject":"Moral condition and moral worth","depends_on":["QP-D3","QP-D4"]},
     {"id":"QP-G3","type":"open_formalization_gate","subject":"Sovereignty realization and composition","depends_on":["QP-D5","QP-D6","QP-D7","QP-D8","organon:Authority","organon:Control","organon:Enforcement","organon:Recognition"]},
     {"id":"QP-G4","type":"open_formalization_gate","subject":"Valuation semantics","depends_on":["QP-D9","QP-D10","QP-D11","organon:Action","organon:CountsAs"]}

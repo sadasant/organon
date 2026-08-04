@@ -10,7 +10,7 @@ witnesses. Institutional eligibility reduces to Standing rather than receiving
 a second predicate.
 -/
 
-universe u v w x y
+universe u v w x
 
 namespace DanielOntology
 
@@ -24,34 +24,20 @@ structure EvidentialBearing
     (Evidence : Type u)
     (Claim : Type v)
     (Rule : Type w)
-    (Order : Type x)
-    (BearingScope : Type y) where
+    (Order : Type x) where
   evidence : Evidence
   claim : Claim
   rule : Rule
   order : Order
-  scope : BearingScope
+  scope : Scope (Evidence × Claim)
+  inScope : scope.includes (evidence, claim)
   evaluate : Rule → Evidence → Claim → EvidentialDisposition
   disposition : EvidentialDisposition
   evaluationHolds : evaluate rule evidence claim = disposition
   records :
-    Order → Evidence → Claim → Rule → BearingScope →
+    Order → Evidence → Claim → Rule → Scope (Evidence × Claim) →
       EvidentialDisposition → Prop
   recorded : records order evidence claim rule scope disposition
-
-structure StandingRelation
-    (Order : Type u)
-    (Entity : Type v)
-    (Rule : Type w)
-    (Status : Type x)
-    (StandingScope : Type y) where
-  order : Order
-  entity : Entity
-  rule : Rule
-  status : Status
-  scope : StandingScope
-  applies : Order → Rule → Entity → Status → StandingScope → Prop
-  holds : applies order rule entity status scope
 
 theorem capabilitySuppliesRealization
     {Agent : Type u}
@@ -92,10 +78,11 @@ def highOutputState : State BridgeCarrier := ⟨(true, output)⟩
 def bridgeDirection : Direction BridgeCarrier where
   before := fun input output =>
     (input = lowInputState ∧ output = lowOutputState) ∨
-    (input = highInputState ∧ output = highOutputState)
+    (input = highInputState ∧ output = highOutputState) ∨
+    (input = lowOutputState ∧ output = highOutputState)
   asymmetric := by
     intro input output forward reverse
-    rcases forward with ⟨rfl, rfl⟩ | ⟨rfl, rfl⟩ <;>
+    rcases forward with ⟨rfl, rfl⟩ | ⟨rfl, rfl⟩ | ⟨rfl, rfl⟩ <;>
       simp [lowInputState, highInputState, lowOutputState,
         highOutputState] at reverse
 
@@ -110,7 +97,19 @@ def lowTransformation : Transformation bridgeDirection where
 def highTransformation : Transformation bridgeDirection where
   input := highInputState
   output := highOutputState
-  advances := by right; exact ⟨rfl, rfl⟩
+  advances := by right; left; exact ⟨rfl, rfl⟩
+
+def bridgeOutputTransformation : Transformation bridgeDirection where
+  input := lowOutputState
+  output := highOutputState
+  advances := by right; right; exact ⟨rfl, rfl⟩
+
+def bridgeOutputChange : Change bridgeDirection where
+  transformation := bridgeOutputTransformation
+  differs := by
+    intro equal
+    have values := congrArg State.value equal
+    simp [bridgeOutputTransformation, lowOutputState, highOutputState] at values
 
 def lowPath : CausalPath bridgeDirection bridgeFeed where
   steps := [lowTransformation]
@@ -140,9 +139,9 @@ def bridgeContribution :
   rightEndpoints := highEndpoints
   sameDeclaredContext := rfl
   inputDiffers := by decide
-  outputDiffers := by
-    simp [lowEndpoints, highEndpoints, lowTransformation,
-      highTransformation, lowOutputState, highOutputState]
+  downstreamChange := bridgeOutputChange
+  changeStartsAt := rfl
+  changeEndsAt := rfl
 
 theorem contributionRequiresTwoNonemptyPaths
     (contribution :
@@ -175,23 +174,44 @@ inductive ToyBearingOrder where
   | laboratory
 deriving DecidableEq, Repr
 
-inductive ToyBearingScope where
-  | local
-deriving DecidableEq, Repr
-
 def supportiveFalseBearing :
     EvidentialBearing ToyEvidence ToyBridgeClaim ToyEvaluationRule
-      ToyBearingOrder ToyBearingScope where
+      ToyBearingOrder where
   evidence := .observation
   claim := .mistaken
   rule := .accepts
   order := .laboratory
-  scope := .local
+  scope := ⟨fun pair => pair = (.observation, .mistaken)⟩
+  inScope := rfl
   evaluate := fun _ _ _ => .supporting
   disposition := .supporting
   evaluationHolds := rfl
   records := fun _ _ _ _ _ disposition => disposition = .supporting
   recorded := rfl
+
+inductive ToyStandingEntity where
+  | participant
+deriving DecidableEq, Repr
+
+inductive ToyStandingStatus where
+  | mayReview
+deriving DecidableEq, Repr
+
+def toyStandingScope : Scope (ToyStandingEntity × ToyStandingStatus) :=
+  ⟨fun pair => pair = (.participant, .mayReview)⟩
+
+def toyStandingRecords :
+    ToyBearingOrder → ToyEvaluationRule → ToyStandingEntity →
+      ToyStandingStatus → Scope (ToyStandingEntity × ToyStandingStatus) → Prop :=
+  fun order rule entity status scope =>
+    order = .laboratory ∧ rule = .accepts ∧
+      scope.includes (entity, status)
+
+def finiteStandingWitness :
+    StandingRelation toyStandingRecords .laboratory .accepts
+      .participant .mayReview toyStandingScope where
+  inScope := rfl
+  recorded := by simp [toyStandingRecords, toyStandingScope]
 
 def bridgeTruth : ToyBridgeClaim → Prop := fun _ => False
 

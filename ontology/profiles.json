@@ -13,13 +13,14 @@
       ]
     },
     "evidence": {
-      "description": "Claims, observations, scoped independence, admissibility, evidence, attestations, and receipts.",
+      "description": "Claims, observations, scoped independence, admissibility, evidence, recorded supporting or defeating bearing, attestations, and receipts.",
       "roots": [
         "organon:Claim",
         "organon:Witness",
         "organon:Control",
         "organon:IndependentFor",
         "organon:Evidence",
+        "organon:EvidentialBearing",
         "organon:Attestation",
         "organon:Receipt"
       ]

@@ -46,6 +46,11 @@ structure Transformation {Carrier : Type u} (direction : Direction Carrier) wher
   output : State Carrier
   advances : direction.before input output
 
+/-! A Change is a named Difference joined by one Transformation. -/
+structure Change {Carrier : Type u} (direction : Direction Carrier) where
+  transformation : Transformation direction
+  differs : transformation.input ≠ transformation.output
+
 /-! `Feeds` can encode contribution without requiring State equality. -/
 structure FeedRelation (Carrier : Type u) where
   feeds : State Carrier → State Carrier → Prop
@@ -79,8 +84,9 @@ structure PathEndpoints
 
 /-!
 `CausalContribution` requires two witnessed paths, matching declared context,
-one named input difference, and a downstream output difference. A
-Transformation merely occurring in one path cannot inhabit this structure.
+one named input difference, and a named downstream Change joining the compared
+endpoints. A Transformation merely occurring in one path cannot inhabit this
+structure.
 -/
 structure CausalContribution
     (Feature : Type u)
@@ -97,8 +103,11 @@ structure CausalContribution
   inputDiffers :
     leftEndpoints.first.input.value.1 ≠
       rightEndpoints.first.input.value.1
-  outputDiffers :
-    leftEndpoints.last.output ≠ rightEndpoints.last.output
+  downstreamChange : Change direction
+  changeStartsAt :
+    downstreamChange.transformation.input = leftEndpoints.last.output
+  changeEndsAt :
+    downstreamChange.transformation.output = rightEndpoints.last.output
 
 /-! ## Constraint, Invariant, Boundary, and Entity -/
 
@@ -170,6 +179,25 @@ theorem entityIdentityPersists
 
 structure Scope (α : Type u) where
   includes : α → Prop
+
+/-!
+Standing is indexed by the Order's recording relation and by the exact Rule,
+Entity, status or Action, and Scope. Eligibility is not a parallel predicate.
+-/
+structure StandingRelation
+    {Order : Type u}
+    {Entity : Type v}
+    {Rule : Type w}
+    {Status : Type x}
+    (records :
+      Order → Rule → Entity → Status → Scope (Entity × Status) → Prop)
+    (order : Order)
+    (rule : Rule)
+    (entity : Entity)
+    (status : Status)
+    (scope : Scope (Entity × Status)) where
+  inScope : scope.includes (entity, status)
+  recorded : records order rule entity status scope
 
 /-!
 The Boolean function and correctness proof are explicit data. A concrete

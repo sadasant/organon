@@ -5,8 +5,9 @@ import OrganonCore
 
 This file tests D085-D087 without identifying correspondence, accepted causal
 dependence, and profile-scoped conformity. Every Truth instance requires a
-local material-adequacy join. Trust extends a more general Dependence with
-admission through a Constraint maintained in the truster's Boundary.
+claim-indexed Denotation joined to the Rule, Specification, and target used by
+conformity. Trust extends a more general Dependence with admission through a
+Constraint maintained in the truster's Boundary.
 Alignment uses ordered subject and target roles, not Organon's temporal
 Direction.
 
@@ -25,22 +26,21 @@ structure TruthSemantics
   meaningRuleFor : Claim → MeaningRule
   specificationFor : Claim → Specification Target
   targetFor : Claim → Target
+  denotationFor :
+    Claim → Denotation Representation (MeaningRule × Specification Target × Target)
   scope : Scope (Claim × Target)
   targetInRealityModel : Target → Prop
-  materiallyAdequate :
-    Claim → Representation → MeaningRule →
-      Specification Target → Target → Prop
 
 def TruthSemantics.isTrue
     {Claim Representation MeaningRule Target : Type u}
     (semantics : TruthSemantics Claim Representation MeaningRule Target)
     (claim : Claim) : Prop :=
-  semantics.materiallyAdequate
-      claim
-      (semantics.representationFor claim)
-      (semantics.meaningRuleFor claim)
-      (semantics.specificationFor claim)
-      (semantics.targetFor claim) ∧
+  (semantics.denotationFor claim).expression =
+      semantics.representationFor claim ∧
+    (semantics.denotationFor claim).target =
+      (semantics.meaningRuleFor claim,
+        semantics.specificationFor claim,
+        semantics.targetFor claim) ∧
     semantics.scope.includes (claim, semantics.targetFor claim) ∧
     semantics.targetInRealityModel (semantics.targetFor claim) ∧
     (semantics.specificationFor claim).conforms (semantics.targetFor claim)
@@ -157,22 +157,20 @@ def toyTruthSemantics :
   targetFor
     | .accurate => .obtaining
     | .mistaken => .excluded
+  denotationFor := fun claim =>
+    { expression :=
+        match claim with
+        | .accurate => .accurateRepresentation
+        | .mistaken => .mistakenRepresentation
+      target :=
+        (.literal, toyTruthSpecification claim,
+          match claim with
+          | .accurate => .obtaining
+          | .mistaken => .excluded) }
   scope := ⟨fun _ => True⟩
   targetInRealityModel
     | .obtaining => True
     | .excluded => True
-  materiallyAdequate :=
-    fun claim representation meaningRule specification target =>
-    representation =
-        (match claim with
-         | .accurate => .accurateRepresentation
-         | .mistaken => .mistakenRepresentation) ∧
-      meaningRule = .literal ∧
-      specification = toyTruthSpecification claim ∧
-      target =
-        (match claim with
-         | .accurate => .obtaining
-         | .mistaken => .excluded)
 
 def sealedAccess : EpistemicAccess Unit ToyFact where
   suppliesTarget := fun _ _ => False
@@ -188,13 +186,13 @@ theorem truthDoesNotEntailAgentAccess :
   · intro agent
     simp [sealedAccess]
 
-theorem adequateClaimAndRealityModelDoNotEntailTruth :
-    toyTruthSemantics.materiallyAdequate
-        .mistaken
-        (toyTruthSemantics.representationFor .mistaken)
-        (toyTruthSemantics.meaningRuleFor .mistaken)
-        (toyTruthSemantics.specificationFor .mistaken)
-        (toyTruthSemantics.targetFor .mistaken) ∧
+theorem denotationAndRealityModelDoNotEntailTruth :
+    (toyTruthSemantics.denotationFor .mistaken).expression =
+        toyTruthSemantics.representationFor .mistaken ∧
+      (toyTruthSemantics.denotationFor .mistaken).target =
+        (toyTruthSemantics.meaningRuleFor .mistaken,
+          toyTruthSemantics.specificationFor .mistaken,
+          toyTruthSemantics.targetFor .mistaken) ∧
       toyTruthSemantics.targetInRealityModel
         (toyTruthSemantics.targetFor .mistaken) ∧
       ¬ toyTruthSemantics.isTrue .mistaken := by
@@ -215,10 +213,19 @@ def contributedAffected : State TrustCarrier := ⟨(true, .affectedState)⟩
 
 def trustDirection : Direction TrustCarrier where
   before := fun first second =>
-    first.value.2 = .privateState ∧ second.value.2 = .affectedState
+    (first.value.2 = .privateState ∧ second.value.2 = .affectedState) ∨
+    (first = baselineAffected ∧ second = contributedAffected)
   asymmetric := by
     intro first second forward backward
-    simp_all
+    rcases forward with forward | ⟨rfl, rfl⟩
+    · rcases backward with backward | ⟨reverseStart, reverseEnd⟩
+      · simp_all
+      · subst second
+        subst first
+        simp [baselineAffected, contributedAffected] at forward
+    · rcases backward with backward | ⟨reverseStart, reverseEnd⟩
+      · simp [baselineAffected, contributedAffected] at backward
+      · simp [baselineAffected, contributedAffected] at reverseStart
 
 def trustFeed : FeedRelation TrustCarrier where
   feeds := fun _ _ => True
@@ -296,6 +303,19 @@ def baselineTransformation : Transformation trustDirection where
   output := baselineAffected
   advances := by simp [trustDirection, baselinePrivate, baselineAffected]
 
+def trustOutputTransformation : Transformation trustDirection where
+  input := baselineAffected
+  output := contributedAffected
+  advances := by right; exact ⟨rfl, rfl⟩
+
+def trustOutputChange : Change trustDirection where
+  transformation := trustOutputTransformation
+  differs := by
+    intro equal
+    have values := congrArg State.value equal
+    simp [trustOutputTransformation, baselineAffected,
+      contributedAffected] at values
+
 def contributionPath : CausalPath trustDirection trustFeed where
   steps := [contributedTransformation]
   connected := by simp [Chains]
@@ -324,9 +344,9 @@ def trustCausalContribution :
   rightEndpoints := contributionEndpoints
   sameDeclaredContext := rfl
   inputDiffers := by decide
-  outputDiffers := by
-    simp [baselineEndpoints, contributionEndpoints, baselineTransformation,
-      contributedTransformation, baselineAffected, contributedAffected]
+  downstreamChange := trustOutputChange
+  changeStartsAt := rfl
+  changeEndsAt := rfl
 
 def acceptedDependence : Dependence trustDirection trustFeed where
   dependent := acceptingPrincipal

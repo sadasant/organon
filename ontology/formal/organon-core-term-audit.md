@@ -25,7 +25,7 @@ Result totals: **4 proved translations**, **1 pending representation decision**,
 | D005 | `organon:State` | compiled shadow | unknown | The Lean shadow is extension-invariant; exact prose parity is not established. |
 | D006 | `organon:Direction` | compiled shadow | unknown | The Lean shadow is extension-invariant; exact prose parity is not established. |
 | D007 | `organon:Transformation` | compiled shadow | unknown | The Lean shadow is extension-invariant; exact prose parity is not established. |
-| D008 | `organon:Change` | downstream translation gate | unknown | No exact paired classifier yet; dependency closure alone cannot prove preservation. |
+| D008 | `organon:Change` | compiled shadow | unknown | The Lean shadow is extension-invariant; exact prose parity is not established. |
 | D009 | `organon:Feeds` | compiled shadow | unknown | The Lean shadow is extension-invariant; exact prose parity is not established. |
 | D010 | `organon:CausalPath` | compiled shadow | unknown | The Lean shadow is extension-invariant; exact prose parity is not established. |
 | D103 | `organon:CausalContribution` | compiled shadow | unknown | The Lean shadow is extension-invariant; exact prose parity is not established. |
@@ -65,7 +65,7 @@ Result totals: **4 proved translations**, **1 pending representation decision**,
 | D044 | `organon:Witness` | downstream translation gate | unknown | No exact paired classifier yet; dependency closure alone cannot prove preservation. |
 | D045 | `organon:Control` | downstream translation gate | unknown | No exact paired classifier yet; dependency closure alone cannot prove preservation. |
 | D046 | `organon:Order` | downstream translation gate | unknown | No exact paired classifier yet; dependency closure alone cannot prove preservation. |
-| D047 | `organon:Standing` | downstream translation gate | unknown | No exact paired classifier yet; dependency closure alone cannot prove preservation. |
+| D047 | `organon:Standing` | compiled shadow | unknown | The Lean shadow is extension-invariant; exact prose parity is not established. |
 | D048 | `organon:Recognition` | downstream translation gate | unknown | No exact paired classifier yet; dependency closure alone cannot prove preservation. |
 | D049 | `organon:Principal` | downstream translation gate | unknown | No exact paired classifier yet; dependency closure alone cannot prove preservation. |
 | D050 | `organon:ActsFor` | downstream translation gate | unknown | No exact paired classifier yet; dependency closure alone cannot prove preservation. |

@@ -26,6 +26,28 @@ PROMOTED = {
     "evidential-support": "organon:EvidentialBearing",
     "institutional-eligibility": "organon:Standing",
 }
+REQUIRED_TERMS = {
+    "identity-criterion": [
+        "organon:Invariant", "organon:Persistence", "organon:Entity"
+    ],
+    "denotation-and-use": [
+        "organon:Representation", "organon:Interpretation",
+        "organon:Operationalization", "organon:Tool"
+    ],
+    "causal-contribution": [
+        "organon:Difference", "organon:CausalPath", "organon:Change"
+    ],
+    "modal-capability": [
+        "organon:Constraint", "organon:Specification", "organon:Capability"
+    ],
+    "evidential-support": [
+        "organon:Evidence", "organon:Claim", "organon:Rule",
+        "organon:Order", "organon:Scope"
+    ],
+    "institutional-eligibility": [
+        "organon:Order", "organon:Rule", "organon:Scope"
+    ],
+}
 FORBIDDEN_TERMS = {"organon:Use", "organon:Eligibility", "organon:Possibility"}
 
 
@@ -58,7 +80,17 @@ def main() -> int:
             errors.append(f"{bridge_id}: wrong resolution")
         if entry.get("term") != PROMOTED.get(bridge_id):
             errors.append(f"{bridge_id}: wrong promoted or derived term")
-        for term_id in entry.get("required_terms", []):
+        required_terms = entry.get("required_terms")
+        if not isinstance(required_terms, list) or not all(
+            isinstance(term_id, str) for term_id in required_terms
+        ):
+            errors.append(f"{bridge_id}: required_terms must be a string list")
+            continue
+        if len(required_terms) != len(set(required_terms)):
+            errors.append(f"{bridge_id}: duplicate required term")
+        if required_terms != REQUIRED_TERMS[bridge_id]:
+            errors.append(f"{bridge_id}: required term set or order drift")
+        for term_id in required_terms:
             if term_id not in known_terms:
                 errors.append(f"{bridge_id}: unknown required term {term_id}")
 
