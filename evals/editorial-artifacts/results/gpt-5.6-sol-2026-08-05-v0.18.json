@@ -2,7 +2,7 @@
   "schema_version": 1,
   "run": {
     "evaluation": "editorial-artifacts",
-    "generated_at": "2026-08-05T05:51:44+00:00",
+    "generated_at": "2026-08-05T05:53:49+00:00",
     "generator_model": "gpt-5.6-sol",
     "judge_model": "gpt-5.6-sol",
     "generator_reasoning_effort": "high",
@@ -13,7 +13,7 @@
     "dspy_version": "3.3.0",
     "litellm_version": "1.91.4",
     "python_version": "3.12.9",
-    "organon_commit": "c888c4e32edf8351dacb283e0daf28bddc1f0adc",
+    "organon_commit": "4687ad27fca01ec7c2471988306bf1f0a37b203e",
     "ontology_sha256": "81c03318a3bc2b07cc3a7a9949c3da54dd885320b2f3ec246f4c5498d5cbcde1",
     "short_form_sha256": "7ac9254f6f8964a1776f2eeacbfe36fdaad591701174116c0527c1f2c1b472be",
     "long_form_sha256": "fb8f21b7dc03e2e44737fef723d94abdbb62a044ead89a6a7579d07d23b55d68",
