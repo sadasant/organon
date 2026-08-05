@@ -9,6 +9,7 @@ import importlib.metadata
 import json
 import os
 import platform
+import re
 import subprocess
 from datetime import UTC, datetime
 from pathlib import Path
@@ -24,6 +25,9 @@ DEFAULT_TARGETS = EVAL_ROOT / "targets.json"
 DEFAULT_ONTOLOGY = ROOT / "ontology" / "ontology.md"
 DEFAULT_SHORT_FORM = ROOT / "editorial" / "short-form.md"
 DEFAULT_LONG_FORM = ROOT / "editorial" / "long-form.md"
+MODEL_GUIDANCE_URL = "https://developers.openai.com/api/docs/guides/latest-model?model=gpt-5.6"
+PROMPT_GUIDANCE_URL = "https://developers.openai.com/api/docs/guides/prompt-guidance-gpt-5p6.md"
+PROMPT_CONTRACT_VERSION = "gpt-5.6-v1"
 
 
 class LongFormDraft(BaseModel):
@@ -71,18 +75,24 @@ class LongFormJudgment(BaseModel):
 
 
 class GenerateLongForm(dspy.Signature):
-    """Write one reviewable long-form artifact from the supplied instruments.
+    """Create the reviewable artifact described by the target.
 
-    Use the ontology as binding vocabulary and anti-collapse discipline, never
-    as proof that a factual Claim is true. Use the long-form grammar to build
-    the reader relationship without exposing six mandatory section labels. Use
-    the short-form instrument for deliveries, not voice cosplay. Honor at least
-    one serious resistance. Do not invent biography, project history, formal
-    results, or citations. Each declared delivery must stand alone as a 15 to
-    100 word reader-facing unit: enter through a concrete problem, use ordinary
-    language first, introduce only terms necessary to preserve a distinction,
-    and stop once the beat lands. source_anchors must contain only exact source
-    paths from the supplied source list or the three instrument paths.
+    Success means the complete draft matches the target's audience, purpose,
+    desired inheritance, artifact kind, and word range; preserves every
+    safety-critical fact, command, status, nonclaim, and link needed by that
+    purpose; honors at least one serious resistance; and uses only declared
+    source anchors. For a replacement README, preserve its genre and factual
+    claims first, then improve clarity, hierarchy, and flow without adding a
+    promotional claim.
+
+    Treat the ontology as binding vocabulary and anti-collapse discipline, not
+    proof of a factual Claim. Use the long-form grammar for the reader's
+    transition without exposing six formulaic section labels. Use short form
+    only for one to five declared deliveries of 15 to 100 words each. Do not
+    invent biography, history, results, metrics, citations, or capabilities.
+    source_anchors may contain only exact supplied source or instrument paths.
+    Stop when the target is operationally complete; omit optional background
+    and repetition before omitting a required fact, boundary, or next action.
     """
 
     ontology: str = dspy.InputField()
@@ -94,14 +104,14 @@ class GenerateLongForm(dspy.Signature):
 
 
 class ReviseLongForm(dspy.Signature):
-    """Revise a draft only where deterministic or judge evidence requires it.
+    """Return one complete replacement draft that resolves supplied failures.
 
-    Preserve successful structure and source fidelity. Resolve every supplied
-    failure without mechanically adding the six long-form functions as visible
-    headings. A failed delivery must be rewritten as a 15 to 100 word
-    standalone reader-facing unit that begins with a concrete situation and
-    earns any specialized term after the reader understands the problem.
-    Return a complete replacement draft using the same schema.
+    Preserve successful structure, source-backed facts, commands, links,
+    boundaries, genre, and tone. Change only what the deterministic or judge
+    evidence requires. Do not add claims, promotional language, or visible
+    six-function scaffolding. Keep each delivery within 15 to 100 words and
+    earn specialized terms after the concrete problem is clear. Stop once all
+    reported failures and the target contract are satisfied.
     """
 
     ontology: str = dspy.InputField()
@@ -134,7 +144,11 @@ class JudgeDeliveries(dspy.Signature):
 
     Score 0 to 4. Do not require humor or imitation. Require literal clarity,
     compression, preserved actors/mechanism/stakes, disciplined ambiguity, and
-    a clean stopping point. Judge each score against evidence in the draft.
+    a clean stopping point. You receive only the declared sentence-scale
+    deliveries, not the complete artifact. Judge each delivery against the
+    explicit 15-to-100-word contract. Do not assess the complete artifact's
+    length, sections, installation coverage, or operational completeness here;
+    those belong to deterministic and long-form evaluation.
     """
 
     short_form: str = dspy.InputField()
@@ -150,6 +164,8 @@ class JudgeLongForm(dspy.Signature):
     transition rather than visible headings. Penalize manufactured Missingness,
     straw resistance, unearned delivery, recap presented as revaluation,
     nonportable inheritance, and formulaic six-beat staging.
+    Do not estimate or score word-count compliance; the deterministic layer
+    computes it exactly. Judge structure and proportionality from the text.
     """
 
     long_form: str = dspy.InputField()
@@ -186,6 +202,20 @@ def judgment_passed(judgment: dict) -> bool:
     return not judgment["critical_violations"] and min(score_values(judgment)) >= 3
 
 
+def delivery_target(target: dict) -> dict:
+    """Give the delivery judge context without the artifact-length contract."""
+    return {
+        "id": target["id"],
+        "audience": target["audience"],
+        "purpose": target["purpose"],
+        "delivery_contract": {
+            "unit": "declared sentence-scale delivery, not complete artifact",
+            "word_range": [15, 100],
+            "artifact_completeness_out_of_scope": True,
+        },
+    }
+
+
 def call_judge_with_retry(program, **kwargs):
     last_error: Exception | None = None
     target = json.loads(kwargs["target_json"])
@@ -206,11 +236,14 @@ def call_judge_with_retry(program, **kwargs):
     raise last_error
 
 
-def deterministic_checks(draft: LongFormDraft, allowed_sources: set[str]) -> dict:
+def deterministic_checks(
+    draft: LongFormDraft, allowed_sources: set[str], target: dict | None = None
+) -> dict:
     words = len(draft.markdown.split())
+    minimum_words, maximum_words = (target or {}).get("word_range", [800, 2200])
     delivery_words = [len(delivery.split()) for delivery in draft.deliveries]
     checks = {
-        "word_range_800_2200": 800 <= words <= 2200,
+        "word_range": minimum_words <= words <= maximum_words,
         "title_present": bool(draft.title.strip()),
         "reader_start_present": bool(draft.reader_start.strip()),
         "missingness_present": bool(draft.consequential_missingness.strip()),
@@ -225,6 +258,7 @@ def deterministic_checks(draft: LongFormDraft, allowed_sources: set[str]) -> dic
     }
     return {
         "passed": all(checks.values()), "word_count": words,
+        "required_word_range": [minimum_words, maximum_words],
         "delivery_word_counts": delivery_words, "checks": checks,
     }
 
@@ -235,6 +269,12 @@ def source_dossier(target: dict) -> tuple[str, dict[str, str]]:
     for relative in target["source_files"]:
         text = read_text(ROOT / relative)
         digests[relative] = sha256_text(text)
+        expected = target.get("source_digests", {}).get(relative)
+        if expected and digests[relative] != expected:
+            raise ValueError(
+                f"source digest mismatch for {relative}: "
+                f"expected {expected}, got {digests[relative]}"
+            )
         sections.append(f"\n\n# SOURCE: {relative}\n\n{text}")
     return "".join(sections).lstrip(), digests
 
@@ -252,7 +292,7 @@ def evaluate_draft(
     long_form_judge,
 ) -> dict:
     draft_json = draft.model_dump_json()
-    deterministic = deterministic_checks(draft, allowed_sources)
+    deterministic = deterministic_checks(draft, allowed_sources, target)
     ontology_result = call_judge_with_retry(
         ontology_judge,
         ontology=ontology,
@@ -263,7 +303,7 @@ def evaluate_draft(
     delivery_result = call_judge_with_retry(
         delivery_judge,
         short_form=short_form,
-        target_json=json.dumps(target),
+        target_json=json.dumps(delivery_target(target)),
         deliveries_json=json.dumps({"deliveries": draft.deliveries}, ensure_ascii=False),
     )
     long_form_result = call_judge_with_retry(
@@ -296,10 +336,10 @@ def render_markdown(result: dict) -> str:
         f"passed: {str(run['passed']).lower()}",
         "---",
         "",
-        "# Organon long-form artifacts",
+        "# Long-form editorial artifacts",
         "",
         "> [!summary]",
-        f"> Generated {run['target_count']} long-form artifacts under the v0.17 ontology, canonical short-form instrument, and provisional long-form grammar. Deterministic checks and three separate judge calls evaluated each final draft. These remain generated proposals for Daniel's review.",
+        f"> Generated {run['target_count']} long-form artifacts under the current ontology, canonical short-form instrument, and provisional long-form grammar. Deterministic checks and three separate judge calls evaluated each final draft. These remain generated proposals for Daniel's review.",
         "",
         "## Run",
         "",
@@ -359,16 +399,20 @@ def render_markdown(result: dict) -> str:
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser()
     parser.add_argument("--targets", type=Path, default=DEFAULT_TARGETS)
+    parser.add_argument("--target-id", action="append", dest="target_ids")
     parser.add_argument("--ontology", type=Path, default=DEFAULT_ONTOLOGY)
     parser.add_argument("--short-form", type=Path, default=DEFAULT_SHORT_FORM)
     parser.add_argument("--long-form", type=Path, default=DEFAULT_LONG_FORM)
-    parser.add_argument("--generator-model", default="gpt-5.6-luna")
-    parser.add_argument("--judge-model", default="gpt-5.6-luna")
+    parser.add_argument("--generator-model", default="gpt-5.6-sol")
+    parser.add_argument("--judge-model", default="gpt-5.6-sol")
     parser.add_argument("--generator-reasoning-effort", default="high")
     parser.add_argument("--judge-reasoning-effort", default="high")
+    parser.add_argument("--request-timeout", type=float, default=600.0)
     parser.add_argument("--max-revisions", type=int, default=1)
     parser.add_argument("--output-stem", type=Path, required=True)
+    parser.add_argument("--artifact-output-dir", type=Path)
     parser.add_argument("--obsidian-output", type=Path)
+    parser.add_argument("--obsidian-artifact-output-dir", type=Path)
     return parser.parse_args()
 
 
@@ -377,19 +421,30 @@ def main() -> None:
     if not os.environ.get("OPENAI_API_KEY"):
         raise SystemExit("OPENAI_API_KEY is required and is never written")
     targets = json.loads(read_text(args.targets))["targets"]
-    if len(targets) != 2 or len({target["id"] for target in targets}) != 2:
-        raise SystemExit("The initial contract requires exactly two unique targets")
+    if not targets or len({target["id"] for target in targets}) != len(targets):
+        raise SystemExit("The contract requires one or more uniquely identified targets")
+    if any(not re.fullmatch(r"[a-z0-9]+(?:-[a-z0-9]+)*", target["id"]) for target in targets):
+        raise SystemExit("Target IDs must be lowercase hyphenated path-safe names")
+    if args.target_ids:
+        requested = set(args.target_ids)
+        known = {target["id"] for target in targets}
+        unknown = requested - known
+        if unknown:
+            raise SystemExit(f"Unknown target IDs: {', '.join(sorted(unknown))}")
+        targets = [target for target in targets if target["id"] in requested]
     ontology = read_text(args.ontology)
     short_form = read_text(args.short_form)
     long_form = read_text(args.long_form)
 
     generator_lm = dspy.LM(
         f"openai/{args.generator_model}", model_type="responses",
-        reasoning_effort=args.generator_reasoning_effort, max_tokens=12000, cache=True,
+        reasoning_effort=args.generator_reasoning_effort, max_tokens=12000,
+        timeout=args.request_timeout, cache=True,
     )
     judge_lm = dspy.LM(
         f"openai/{args.judge_model}", model_type="responses",
-        reasoning_effort=args.judge_reasoning_effort, max_tokens=7000, cache=True,
+        reasoning_effort=args.judge_reasoning_effort, max_tokens=7000,
+        timeout=args.request_timeout, cache=True,
     )
     dspy.configure(lm=generator_lm, adapter=dspy.JSONAdapter())
     generator = dspy.Predict(GenerateLongForm)
@@ -400,6 +455,7 @@ def main() -> None:
     artifacts = []
 
     for target in targets:
+        print(f"[{target['id']}] generate", flush=True)
         dossier, source_digests = source_dossier(target)
         target_json = json.dumps(target, ensure_ascii=False)
         allowed_sources = set(target["source_files"]) | {
@@ -412,6 +468,7 @@ def main() -> None:
         ).draft
         attempts = []
         for attempt in range(args.max_revisions + 1):
+            print(f"[{target['id']}] judge attempt {attempt + 1}", flush=True)
             dspy.configure(lm=judge_lm, adapter=dspy.JSONAdapter())
             evaluation = evaluate_draft(
                 draft, target, allowed_sources, ontology, short_form, long_form,
@@ -424,6 +481,7 @@ def main() -> None:
             })
             if evaluation["passed"] or attempt == args.max_revisions:
                 break
+            print(f"[{target['id']}] revise", flush=True)
             dspy.configure(lm=generator_lm, adapter=dspy.JSONAdapter())
             draft = reviser(
                 ontology=ontology, short_form=short_form, long_form=long_form,
@@ -451,6 +509,9 @@ def main() -> None:
             "judge_model": args.judge_model,
             "generator_reasoning_effort": args.generator_reasoning_effort,
             "judge_reasoning_effort": args.judge_reasoning_effort,
+            "model_guidance_url": MODEL_GUIDANCE_URL,
+            "prompt_guidance_url": PROMPT_GUIDANCE_URL,
+            "prompt_contract_version": PROMPT_CONTRACT_VERSION,
             "dspy_version": importlib.metadata.version("dspy"),
             "litellm_version": importlib.metadata.version("litellm"),
             "python_version": platform.python_version(),
@@ -462,8 +523,8 @@ def main() -> None:
             "target_count": len(artifacts),
             "passed_count": passed_count,
             "revision_count": len(artifacts) - passed_count,
-            "complete": len(artifacts) == 2,
-            "passed": len(artifacts) == 2 and passed_count == 2,
+            "complete": len(artifacts) == len(targets),
+            "passed": len(artifacts) == len(targets) and passed_count == len(targets),
         },
         "artifacts": artifacts,
     }
@@ -473,6 +534,14 @@ def main() -> None:
     json_path.write_text(json.dumps(result, indent=2, ensure_ascii=False) + "\n")
     markdown = render_markdown(result)
     markdown_path.write_text(markdown)
+    for output_dir in filter(None, [
+        args.artifact_output_dir, args.obsidian_artifact_output_dir
+    ]):
+        output_dir.mkdir(parents=True, exist_ok=True)
+        for artifact in artifacts:
+            (output_dir / f"{artifact['target_id']}.md").write_text(
+                artifact["draft"]["markdown"].strip() + "\n"
+            )
     if args.obsidian_output:
         args.obsidian_output.parent.mkdir(parents=True, exist_ok=True)
         args.obsidian_output.write_text(markdown)

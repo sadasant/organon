@@ -7,6 +7,7 @@
       "audience": "A technically experienced reader who builds AI or developer infrastructure but has not encountered Organon.",
       "purpose": "Explain why Organon exists, what kind of failure it addresses, how ontology, editorial grammar, and formal pressure work together, and how another project can use the instrument without surrendering local judgment.",
       "desired_inheritance": "A shared vocabulary is infrastructure only when its correspondences, authority, and revision conditions remain inspectable.",
+      "word_range": [800, 2200],
       "source_files": [
         "README.md",
         "DANIEL.md",
@@ -20,12 +21,55 @@
       "audience": "A philosophically curious technical reader willing to inspect a formal-ish ontology without accepting its primitive commitments in advance.",
       "purpose": "Present the ontology as one dependency-ordered instrument: its classical Absence and Presence commitments, derived entity and causal machinery, institutional layer, anti-collapse discipline, formal shadow, and explicit limits.",
       "desired_inheritance": "An ontology becomes usable when a reader can locate both the definition doing the work and the commitment that would have to change for the classification to change.",
+      "word_range": [800, 2200],
       "source_files": [
         "ontology/changelog.md",
         "ontology/formal/README.md",
         "ontology/formal/decisions.md",
         "ontology/formal/organon-core-reduct-report.md"
       ]
+    },
+    {
+      "id": "engram-main-readme",
+      "artifact_kind": "replacement-readme",
+      "working_title": "Engram",
+      "audience": "A developer who wants to operate local tmux sessions remotely from a phone and must understand the trust, privacy, installation, and operating boundaries before giving a Telegram bot access.",
+      "purpose": "Regenerate Engram's main README as a concise but operationally complete front door. Preserve its product identity, guide-versus-snapshot choice, first-run path, privacy and authority boundaries, authenticated GitHub capability model, supported platforms, verification posture, and links needed to reach deeper documentation. Improve narrative progression without turning evidence into promises or omitting safety-critical setup details.",
+      "desired_inheritance": "Engram makes remote terminal work legible without pretending that an interpreted guide is the terminal, or that remote convenience should carry ambient authority.",
+      "word_range": [1800, 3200],
+      "source_files": [
+        "evals/editorial-artifacts/sources/engram-main-README.md"
+      ],
+      "source_digests": {
+        "evals/editorial-artifacts/sources/engram-main-README.md": "9afbd67bc4c676718147c0901dbb668fe1216932d84233a196e33c7039d73154"
+      },
+      "source_provenance": {
+        "repository": "https://github.com/idolum-ai/engram",
+        "ref": "main",
+        "commit": "645c76c624cbb6e21f9d4187b3fc093f36b6cf38",
+        "path": "README.md"
+      }
+    },
+    {
+      "id": "kenogram-main-readme",
+      "artifact_kind": "replacement-readme",
+      "working_title": "Kenogram",
+      "audience": "A developer, platform operator, or security reviewer deciding whether a rootless declared Linux world is an appropriate execution boundary for a tool-using AI agent.",
+      "purpose": "Regenerate Kenogram's main README as a precise and usable front door. Preserve the declared-world model, security boundary and nonclaims, supported runtime and status, first-world path, evidence posture, composition paths, adjacent-system comparison limits, naming lineage, and links needed for rigorous evaluation. Improve the reader journey without weakening fail-closed language or promoting evaluation evidence into certification.",
+      "desired_inheritance": "A useful agent world begins with the authority the host explicitly admits, not with the ambient computer the agent happens to inhabit.",
+      "word_range": [1200, 2600],
+      "source_files": [
+        "evals/editorial-artifacts/sources/kenogram-main-README.md"
+      ],
+      "source_digests": {
+        "evals/editorial-artifacts/sources/kenogram-main-README.md": "14fc98339a83364cf59e88249ea08d9baa1581047fabeca109e371f8b91549af"
+      },
+      "source_provenance": {
+        "repository": "https://github.com/idolum-ai/kenogram",
+        "ref": "main",
+        "commit": "4cd6551971a7dd6ba0d65d10d5d5a6133ec9c59f",
+        "path": "README.md"
+      }
     }
   ]
 }

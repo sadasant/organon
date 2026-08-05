@@ -70,13 +70,77 @@ def test_judgment_gate_requires_all_scores_at_least_three():
     assert not MODULE.judgment_passed(judgment)
 
 
-def test_target_file_defines_exactly_two_unique_targets():
+def test_target_file_defines_unique_digest_pinned_targets():
     import json
 
     targets = json.loads((ROOT / "targets.json").read_text())["targets"]
-    assert len(targets) == 2
-    assert len({target["id"] for target in targets}) == 2
+    assert len(targets) == 4
+    assert len({target["id"] for target in targets}) == len(targets)
     for target in targets:
         dossier, digests = MODULE.source_dossier(target)
         assert dossier
         assert set(digests) == set(target["source_files"])
+        for path, expected in target.get("source_digests", {}).items():
+            assert digests[path] == expected
+
+
+def test_target_specific_word_range_is_enforced():
+    target = {"word_range": [1000, 1200]}
+    result = MODULE.deterministic_checks(
+        draft_with_words(900), {"README.md", "ontology/ontology.md"}, target
+    )
+    assert not result["passed"]
+    assert result["required_word_range"] == [1000, 1200]
+
+
+def test_source_digest_mismatch_fails_closed(tmp_path, monkeypatch):
+    source = tmp_path / "README.md"
+    source.write_text("source\n")
+    monkeypatch.setattr(MODULE, "ROOT", tmp_path)
+    target = {
+        "source_files": ["README.md"],
+        "source_digests": {"README.md": "0" * 64},
+    }
+    try:
+        MODULE.source_dossier(target)
+    except ValueError as error:
+        assert "source digest mismatch" in str(error)
+    else:
+        raise AssertionError("digest mismatch should fail closed")
+
+
+def test_target_ids_are_path_safe():
+    import json
+    import re
+
+    targets = json.loads((ROOT / "targets.json").read_text())["targets"]
+    assert all(
+        re.fullmatch(r"[a-z0-9]+(?:-[a-z0-9]+)*", target["id"])
+        for target in targets
+    )
+
+
+def test_default_models_are_gpt_5_6_sol(monkeypatch):
+    monkeypatch.setattr(sys, "argv", ["run.py", "--output-stem", "results/test"])
+    args = MODULE.parse_args()
+    assert args.generator_model == "gpt-5.6-sol"
+    assert args.judge_model == "gpt-5.6-sol"
+    assert args.request_timeout == 600.0
+
+
+def test_delivery_judge_context_excludes_artifact_word_range():
+    target = {
+        "id": "readme",
+        "audience": "operator",
+        "purpose": "replace the README",
+        "word_range": [1800, 3200],
+    }
+    context = MODULE.delivery_target(target)
+    assert "word_range" not in context
+    assert context["delivery_contract"]["word_range"] == [15, 100]
+    assert context["delivery_contract"]["artifact_completeness_out_of_scope"]
+
+
+def test_gpt_5_6_prompt_guidance_is_versioned():
+    assert MODULE.PROMPT_CONTRACT_VERSION == "gpt-5.6-v1"
+    assert MODULE.PROMPT_GUIDANCE_URL.endswith("prompt-guidance-gpt-5p6.md")
