@@ -21,7 +21,7 @@ from pydantic import BaseModel, Field
 ROOT = Path(__file__).resolve().parents[2]
 EVAL_ROOT = Path(__file__).resolve().parent
 DEFAULT_ONTOLOGY = ROOT / "ontology" / "ontology.md"
-DEFAULT_SHORT_FORM = ROOT / "editorial" / "short-form.md"
+DEFAULT_ANSWER_FORM = ROOT / "editorial" / "essay-answer-form.md"
 DEFAULT_QUESTIONS = EVAL_ROOT / "questions.md"
 SENTENCE_END = re.compile(r"[.!?](?:[\"'”’)]*)\s+")
 ALLOWED_DISPOSITIONS = {
@@ -46,10 +46,12 @@ class OntologyJudgment(BaseModel):
 
 class EditorialJudgment(BaseModel):
     question_id: str
-    literal_clarity: int = Field(ge=0, le=4)
-    compression: int = Field(ge=0, le=4)
-    actors_mechanism_stakes: int = Field(ge=0, le=4)
-    ambiguity_and_stopping: int = Field(ge=0, le=4)
+    responsiveness: int = Field(ge=0, le=4)
+    interlocutor_fit: int = Field(ge=0, le=4)
+    proportionality: int = Field(ge=0, le=4)
+    necessary_bridge: int = Field(ge=0, le=4)
+    epistemic_boundary: int = Field(ge=0, le=4)
+    stopping_discipline: int = Field(ge=0, le=4)
     critical_violations: list[str]
     evidence: str
     revision: str
@@ -61,7 +63,9 @@ class JudgeOntologyAnswers(dspy.Signature):
     Score each criterion from 0 to 4. A 3 means the answer satisfies the
     instrument with only non-load-bearing imperfections; 4 means unusually
     exact. Penalize invented authorial positions, ontology-term substitution,
-    silent anti-collapse violations, and claims stronger than the essay.
+    silent anti-collapse violations, and claims stronger than the essay. This
+    is a correctness guard: do not require the visible answer to restate a full
+    ontology dependency chain unless the question itself asks for one.
     Quote or precisely locate evidence from the answer. Return exactly one
     judgment for every supplied question ID and no others.
     """
@@ -74,17 +78,19 @@ class JudgeOntologyAnswers(dspy.Signature):
 
 
 class JudgeEditorialAnswers(dspy.Signature):
-    """Judge answer delivery under the canonical short-form instrument.
+    """Judge answer delivery under the proposed Essay-Answer Form.
 
-    This is not a voice-imitation test. Score literal clarity, compression,
-    preservation of actors/mechanism/stakes, and disciplined ambiguity and
-    stopping from 0 to 4. A 3 means fit for review without a load-bearing
-    delivery defect. Do not demand humor, irony, or a polished closing line.
-    Quote evidence from the answer. Return exactly one judgment for every
-    supplied question ID and no others.
+    Score responsiveness, interlocutor fit, proportionality, the necessary
+    bridge, epistemic boundary, and stopping discipline from 0 to 4. A 3 means
+    fit for review without a load-bearing defect. Check that the interlocutor
+    hypothesis is thin, evidenced, and defeasible; do not reward invented
+    biography or exhaustive background. Judge whether the visible answer pays
+    this question's debt for this hypothesized reader, not whether it could
+    survive as a standalone essay. Quote evidence from the answer. Return
+    exactly one judgment for every supplied question ID and no others.
     """
 
-    short_form: str = dspy.InputField()
+    answer_form: str = dspy.InputField()
     essay_title: str = dspy.InputField()
     answer_bundle_json: str = dspy.InputField()
     judgments: list[EditorialJudgment] = dspy.OutputField()
@@ -122,10 +128,24 @@ def deterministic_checks(answer: dict) -> dict:
     sentences = sentence_count(answer["answer"])
     checks = {
         "known_disposition": answer["disposition"] in ALLOWED_DISPOSITIONS,
-        "answer_word_range_40_140": 40 <= words <= 140,
-        "answer_sentence_range_2_6": 2 <= sentences <= 6,
+        "answer_word_range_35_90": 35 <= words <= 90,
+        "answer_sentence_range_2_4": 2 <= sentences <= 4,
         "has_locatable_anchor": bool(answer["essay_anchors"]),
         "has_limitation": bool(answer["limitation"].strip()),
+        "has_interlocutor_background": bool(
+            answer.get("interlocutor", {}).get("probable_background", "").strip()
+        ),
+        "has_interlocutor_purpose": bool(
+            answer.get("interlocutor", {}).get("likely_purpose", "").strip()
+        ),
+        "has_interlocutor_evidence": bool(
+            answer.get("interlocutor", {}).get("question_evidence", [])
+        ),
+        "has_stopping_condition": bool(
+            answer.get("interlocutor", {}).get("stopping_condition", "").strip()
+        ),
+        "known_interlocutor_confidence": answer.get("interlocutor", {}).get("confidence")
+        in {"low", "medium", "high"},
         "has_question_and_pressure": bool(answer["question"].strip())
         and bool(answer["pressure_point"].strip()),
     }
@@ -191,7 +211,7 @@ def render_markdown(result: dict, obsidian_links: bool = False) -> str:
         "# Essay-question judgments",
         "",
         "> [!summary]",
-        f"> Deterministic checks plus separate ontology and short-form judges evaluated {run['question_count']} generated answers. {run['passed_count']} passed the complete gate and {run['revision_count']} require revision. Judge output is generated Evidence about this run, not an independent proof or Daniel-authored verdict.",
+        f"> Deterministic checks plus separate ontology and Essay-Answer Form judges evaluated {run['question_count']} generated answers. {run['passed_count']} passed the complete gate and {run['revision_count']} require revision. Judge output is generated Evidence about this run, not an independent proof or Daniel-authored verdict.",
         "",
         "## Run",
         "",
@@ -202,7 +222,7 @@ def render_markdown(result: dict, obsidian_links: bool = False) -> str:
         f"| Judge model | `{run['judge_model']}` |",
         f"| Judge reasoning | `{run['judge_reasoning_effort']}` |",
         f"| Ontology SHA-256 | `{run['ontology_sha256']}` |",
-        f"| Short-form SHA-256 | `{run['short_form_sha256']}` |",
+        f"| Essay-Answer Form SHA-256 | `{run['answer_form_sha256']}` |",
         f"| Complete gate | {run['passed_count']} pass / {run['revision_count']} revise |",
         "",
         "## Judgments",
@@ -242,7 +262,7 @@ def render_markdown(result: dict, obsidian_links: bool = False) -> str:
         "",
         "## Gate semantics",
         "",
-        "An answer passes only when all deterministic checks pass, every ontology and editorial criterion scores at least 3/4, and neither judge reports a critical violation. The judges use the same named model family as generation but separate prompts and calls. Their agreement is not independent human validation.",
+        "An answer passes only when all deterministic checks pass, every ontology and Essay-Answer Form criterion scores at least 3/4, and neither judge reports a critical violation. The ontology judge guards correctness without demanding exhaustive dependency rendering. The editorial judge evaluates the answer relative to its evidenced interlocutor hypothesis. The judges use the same named model family as generation but separate prompts and calls. Their agreement is not independent human validation.",
         "",
     ])
     return "\n".join(lines)
@@ -264,7 +284,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--source-result", type=Path, required=True)
     parser.add_argument("--vault-root", type=Path, required=True)
     parser.add_argument("--ontology", type=Path, default=DEFAULT_ONTOLOGY)
-    parser.add_argument("--short-form", type=Path, default=DEFAULT_SHORT_FORM)
+    parser.add_argument("--answer-form", type=Path, default=DEFAULT_ANSWER_FORM)
     parser.add_argument("--judge-model", default="gpt-5.6-luna")
     parser.add_argument("--judge-reasoning-effort", default="high")
     parser.add_argument("--output-stem", type=Path, required=True)
@@ -282,11 +302,11 @@ def main() -> None:
         raise SystemExit("OPENAI_API_KEY is required and is never written")
     source = json.loads(read_text(args.source_result))
     ontology = read_text(args.ontology)
-    short_form = read_text(args.short_form)
+    answer_form = read_text(args.answer_form)
     if source["run"]["ontology_sha256"] != sha256_text(ontology):
         raise SystemExit("Source result ontology digest does not match current input")
-    if source["run"]["short_form_sha256"] != sha256_text(short_form):
-        raise SystemExit("Source result short-form digest does not match current input")
+    if source["run"]["answer_form_sha256"] != sha256_text(answer_form):
+        raise SystemExit("Source result Essay-Answer Form digest does not match current input")
 
     lm = dspy.LM(
         f"openai/{args.judge_model}",
@@ -307,8 +327,8 @@ def main() -> None:
         baseline = json.loads(read_text(args.baseline_evaluation))
         if baseline["run"]["ontology_sha256"] != sha256_text(ontology):
             raise SystemExit("Baseline evaluation ontology digest does not match current input")
-        if baseline["run"]["short_form_sha256"] != sha256_text(short_form):
-            raise SystemExit("Baseline evaluation short-form digest does not match current input")
+        if baseline["run"]["answer_form_sha256"] != sha256_text(answer_form):
+            raise SystemExit("Baseline evaluation Essay-Answer Form digest does not match current input")
         baseline_source_path = args.baseline_evaluation.parent / baseline["run"]["source_result"]
         if sha256_path(baseline_source_path) != baseline["run"]["source_result_sha256"]:
             raise SystemExit("Baseline source result digest does not match its evaluation")
@@ -348,7 +368,7 @@ def main() -> None:
             editorial_by_id = {
                 result.question_id: result.model_dump()
                 for result in call_judge_with_id_retry(
-                    editorial_judge, expected_ids, bundle, short_form=short_form,
+                    editorial_judge, expected_ids, bundle, answer_form=answer_form,
                     essay_title=essay["title"],
                 )
             }
@@ -380,6 +400,7 @@ def main() -> None:
         })
 
     question_count = sum(len(essay["judgments"]) for essay in essays)
+    expected_question_count = source["run"].get("expected_question_count", 40)
     result = {
         "schema_version": 1,
         "run": {
@@ -393,16 +414,18 @@ def main() -> None:
             "source_result": args.source_result.name,
             "source_result_sha256": sha256_path(args.source_result),
             "ontology_sha256": sha256_text(ontology),
-            "short_form_sha256": sha256_text(short_form),
+            "answer_form_sha256": sha256_text(answer_form),
             "question_count": question_count,
+            "expected_question_count": expected_question_count,
+            "selection_sha256": source["run"].get("selection_sha256"),
             "passed_count": passed_count,
             "revision_count": question_count - passed_count,
             "reused_judgment_count": reused_count,
             "rejudged_count": question_count - reused_count,
             "baseline_evaluation": args.baseline_evaluation.name if args.baseline_evaluation else None,
             "baseline_evaluation_sha256": sha256_path(args.baseline_evaluation) if args.baseline_evaluation else None,
-            "complete": question_count == 40,
-            "passed": question_count == 40 and passed_count == question_count,
+            "complete": question_count == expected_question_count,
+            "passed": question_count == expected_question_count and passed_count == question_count,
         },
         "essays": essays,
     }

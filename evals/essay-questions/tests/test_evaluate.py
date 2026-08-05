@@ -17,6 +17,15 @@ def sample_answer() -> dict:
     return {
         "question_id": "AA-1",
         "disposition": "partly_answered",
+        "interlocutor": {
+            "probable_background": "A reader testing whether one example generalizes.",
+            "likely_purpose": "Determine the supported scope.",
+            "shared_vocabulary": ["mechanism", "generalize"],
+            "possible_mistaken_premise": "One example may be treated as a general proof.",
+            "confidence": "high",
+            "question_evidence": ["Does the mechanism generalize?"],
+            "stopping_condition": "State the example's scope and what further case is needed.",
+        },
         "answer": (
             "The essay names the mechanism and the actor responsible for it, "
             "but stops before proving that the mechanism is general. The answer "
@@ -67,7 +76,7 @@ def test_markdown_reports_gate_without_private_paths():
             "source_result_sha256": "r",
             "judge_reasoning_effort": "high",
             "ontology_sha256": "o",
-            "short_form_sha256": "s",
+            "answer_form_sha256": "a",
         },
         "essays": [{
             "title": "Essay",
@@ -88,10 +97,12 @@ def test_markdown_reports_gate_without_private_paths():
                 },
                 "editorial": {
                     "question_id": "AA-1",
-                    "literal_clarity": 3,
-                    "compression": 3,
-                    "actors_mechanism_stakes": 3,
-                    "ambiguity_and_stopping": 3,
+                    "responsiveness": 3,
+                    "interlocutor_fit": 3,
+                    "proportionality": 3,
+                    "necessary_bridge": 3,
+                    "epistemic_boundary": 3,
+                    "stopping_discipline": 3,
                     "critical_violations": [],
                     "evidence": "Clear.",
                     "revision": "",

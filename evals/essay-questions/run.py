@@ -23,7 +23,7 @@ ROOT = Path(__file__).resolve().parents[2]
 EVAL_ROOT = Path(__file__).resolve().parent
 DEFAULT_QUESTIONS = EVAL_ROOT / "questions.md"
 DEFAULT_ONTOLOGY = ROOT / "ontology" / "ontology.md"
-DEFAULT_SHORT_FORM = ROOT / "editorial" / "short-form.md"
+DEFAULT_ANSWER_FORM = ROOT / "editorial" / "essay-answer-form.md"
 
 ESSAY_HEADING = re.compile(r"^### (?P<title>.+)$")
 ESSAY_FILE = re.compile(r"^<!-- essay-file: (?P<path>[^>]+) -->$")
@@ -46,11 +46,34 @@ class EssayQuestions(BaseModel):
     questions: list[Question]
 
 
+class InterlocutorHypothesis(BaseModel):
+    probable_background: str = Field(
+        description="The thinnest reader background supported by the question."
+    )
+    likely_purpose: str = Field(
+        description="What the reader appears to be testing, deciding, or resisting."
+    )
+    shared_vocabulary: list[str] = Field(
+        description="Terms the question itself makes safe to treat as shared."
+    )
+    possible_mistaken_premise: str = Field(
+        description="A premise that may need repair, or 'none identified'."
+    )
+    confidence: Literal["low", "medium", "high"]
+    question_evidence: list[str] = Field(
+        description="Short phrases or features from the question supporting the hypothesis."
+    )
+    stopping_condition: str = Field(
+        description="What would discharge this question's present pressure."
+    )
+
+
 class AnswerDraft(BaseModel):
     question_id: str = Field(description="Exact question ID supplied in the input.")
     disposition: Literal["answered", "partly_answered", "inferable", "open", "misframed"]
+    interlocutor: InterlocutorHypothesis
     answer: str = Field(
-        description="A concise direct answer of roughly two to five sentences."
+        description="A 35 to 90 word direct answer in two to four sentences; the ceiling is not a target."
     )
     essay_anchors: list[str] = Field(
         description="Section headings or brief location descriptions from the essay."
@@ -63,24 +86,31 @@ class AnswerDraft(BaseModel):
 class AnswerEssayQuestions(dspy.Signature):
     """Answer reader questions from the essay without inventing Daniel's position.
 
+    First construct the thinnest interlocutor hypothesis supported by each
+    question's words, lens, and pressure point. Do not invent biography, motive,
+    status, or hostility. Then answer through the proposed Essay-Answer Form.
     Treat the ontology as binding vocabulary and anti-collapse discipline, not as
-    evidence that the essay's factual claims are true. Treat the short-form
-    instrument as guidance for clear, compact delivery, not permission to imitate
-    samples or add jokes. For each question, distinguish what the essay answers,
-    what can be cautiously inferred, and what remains open. Use only anchors that
-    a reader can locate in the supplied essay. Return exactly one answer for every
-    supplied question ID and no others.
+    evidence that the essay's factual claims are true and not as vocabulary that
+    must be exhaustively rendered. State the answer early, supply only the bridge
+    this reader needs, mark the epistemic boundary, and stop when the question's
+    pressure is discharged. Keep the visible answer between 35 and 90 words in
+    two to four sentences. Put anticipated follow-ups in metadata, not the answer.
+    Use only anchors a reader can locate in the essay.
+    Return exactly one answer for every supplied question ID and no others.
     """
 
     ontology: str = dspy.InputField(
         description="Complete binding Organon ontology in Markdown."
     )
-    short_form: str = dspy.InputField(
-        description="Complete canonical short-form editorial instrument."
+    answer_form: str = dspy.InputField(
+        description="Complete proposed Essay-Answer Form editorial instrument."
     )
     essay_title: str = dspy.InputField()
     essay: str = dspy.InputField(description="Complete canonical essay Markdown.")
     questions: list[Question] = dspy.InputField()
+    retry_instruction: str = dspy.InputField(
+        description="Empty on the first attempt; schema-repair instruction on retries."
+    )
     answers: list[AnswerDraft] = dspy.OutputField()
 
 
@@ -158,6 +188,49 @@ def validate_answers(
     return [by_id[question_id] for question_id in expected]
 
 
+def generate_with_retry(program, *, essay_set: EssayQuestions, **kwargs) -> list[AnswerDraft]:
+    last_error: Exception | None = None
+    for attempt in range(3):
+        try:
+            prediction = program(
+                questions=essay_set.questions,
+                retry_instruction=(
+                    "" if attempt == 0 else
+                    "The prior response was incomplete or invalid. Return exactly one "
+                    "complete AnswerDraft for every supplied question ID. Every answer "
+                    "must include all interlocutor fields, answer, essay_anchors, and limitation."
+                ),
+                **kwargs,
+            )
+            return validate_answers(essay_set, prediction.answers)
+        except Exception as error:
+            last_error = error
+    assert last_error is not None
+    raise last_error
+
+
+def select_questions(
+    essays: list[EssayQuestions], selection_path: Path | None
+) -> tuple[list[EssayQuestions], str | None]:
+    if selection_path is None:
+        return essays, None
+    selection_text = read_text(selection_path)
+    selected_ids = json.loads(selection_text)["question_ids"]
+    if not selected_ids or len(selected_ids) != len(set(selected_ids)):
+        raise ValueError("Selection requires unique question IDs")
+    known_ids = {question.id for essay in essays for question in essay.questions}
+    unknown = set(selected_ids) - known_ids
+    if unknown:
+        raise ValueError(f"Selection contains unknown question IDs: {sorted(unknown)}")
+    wanted = set(selected_ids)
+    selected = []
+    for essay in essays:
+        questions = [question for question in essay.questions if question.id in wanted]
+        if questions:
+            selected.append(essay.model_copy(update={"questions": questions}))
+    return selected, sha256_text(selection_text)
+
+
 def git_head() -> str:
     result = subprocess.run(
         ["git", "-C", str(ROOT), "rev-parse", "HEAD"],
@@ -189,7 +262,7 @@ def render_markdown(result: dict, obsidian_links: bool = False) -> str:
         "# Essay-question evaluation",
         "",
         "> [!summary]",
-        f"> `{escape_cell(metadata['model'])}` answered {metadata['question_count']} reader questions across {metadata['essay_count']} essays with the complete binding ontology and canonical short-form instrument in context. These are generated answers, not Daniel-authored positions or binding Organon Claims.",
+        f"> `{escape_cell(metadata['model'])}` answered {metadata['question_count']} reader questions across {metadata['essay_count']} essays with the complete binding ontology and proposed Essay-Answer Form in context. Each answer records a provisional interlocutor hypothesis. These are generated answers, not Daniel-authored positions or binding Organon Claims.",
         "",
         "## Run",
         "",
@@ -203,13 +276,14 @@ def render_markdown(result: dict, obsidian_links: bool = False) -> str:
         f"| Generated | {escape_cell(metadata['generated_at'])} |",
         f"| Organon commit | `{escape_cell(metadata['organon_commit'])}` |",
         f"| Ontology SHA-256 | `{metadata['ontology_sha256']}` |",
-        f"| Short-form SHA-256 | `{metadata['short_form_sha256']}` |",
+        f"| Essay-Answer Form SHA-256 | `{metadata['answer_form_sha256']}` |",
         f"| Questions SHA-256 | `{metadata['questions_sha256']}` |",
+        f"| Selection SHA-256 | `{metadata['selection_sha256'] or 'complete-set'}` |",
         "",
         "## Answers",
         "",
-        "| Essay | ID | Lens | Disposition | Question | Answer | Essay anchors | Limitation |",
-        "|---|---|---|---|---|---|---|---|",
+        "| Essay | ID | Lens | Disposition | Question | Interlocutor hypothesis | Answer | Essay anchors | Limitation |",
+        "|---|---|---|---|---|---|---|---|---|",
     ]
 
     for essay in result["essays"]:
@@ -228,6 +302,11 @@ def render_markdown(result: dict, obsidian_links: bool = False) -> str:
                         escape_cell(item["lens"]),
                         escape_cell(item["disposition"]),
                         escape_cell(item["question"]),
+                        escape_cell(
+                            f"{item['interlocutor']['probable_background']} "
+                            f"Purpose: {item['interlocutor']['likely_purpose']} "
+                            f"Confidence: {item['interlocutor']['confidence']}."
+                        ),
                         escape_cell(item["answer"]),
                         escape_cell("; ".join(item["essay_anchors"])),
                         escape_cell(item["limitation"]),
@@ -280,7 +359,11 @@ def parse_args() -> argparse.Namespace:
     )
     parser.add_argument("--questions", type=Path, default=DEFAULT_QUESTIONS)
     parser.add_argument("--ontology", type=Path, default=DEFAULT_ONTOLOGY)
-    parser.add_argument("--short-form", type=Path, default=DEFAULT_SHORT_FORM)
+    parser.add_argument("--answer-form", type=Path, default=DEFAULT_ANSWER_FORM)
+    parser.add_argument(
+        "--selection", type=Path,
+        help="Optional JSON file containing a unique question_ids calibration subset.",
+    )
     parser.add_argument(
         "--model", default=os.environ.get("OPENAI_MODEL", "gpt-5.6-luna")
     )
@@ -305,8 +388,10 @@ def main() -> None:
 
     questions_text = read_text(args.questions)
     ontology = read_text(args.ontology)
-    short_form = read_text(args.short_form)
-    essay_sets = parse_questions(questions_text)
+    answer_form = read_text(args.answer_form)
+    essay_sets, selection_sha256 = select_questions(
+        parse_questions(questions_text), args.selection
+    )
 
     lm = dspy.LM(
         f"openai/{args.model}",
@@ -334,10 +419,14 @@ def main() -> None:
             "organon_commit": git_head(),
             "ontology_path": display_path(args.ontology),
             "ontology_sha256": sha256_text(ontology),
-            "short_form_path": display_path(args.short_form),
-            "short_form_sha256": sha256_text(short_form),
+            "answer_form_path": display_path(args.answer_form),
+            "answer_form_sha256": sha256_text(answer_form),
             "questions_path": display_path(args.questions),
             "questions_sha256": sha256_text(questions_text),
+            "selection_path": display_path(args.selection) if args.selection else None,
+            "selection_sha256": selection_sha256,
+            "expected_essay_count": len(essay_sets),
+            "expected_question_count": sum(len(essay.questions) for essay in essay_sets),
             "essay_count": 0,
             "question_count": 0,
             "complete": False,
@@ -350,14 +439,14 @@ def main() -> None:
             args.vault_root / "Contexts" / "Essays" / "Works" / essay_set.essay_file
         )
         essay_text = read_text(essay_path)
-        prediction = program(
+        answers = generate_with_retry(
+            program,
+            essay_set=essay_set,
             ontology=ontology,
-            short_form=short_form,
+            answer_form=answer_form,
             essay_title=essay_set.title,
             essay=essay_text,
-            questions=essay_set.questions,
         )
-        answers = validate_answers(essay_set, prediction.answers)
         questions_by_id = {question.id: question for question in essay_set.questions}
         answer_rows = []
         for answer in answers:
@@ -381,11 +470,11 @@ def main() -> None:
         len(essay["answers"]) for essay in result["essays"]
     )
     result["run"]["complete"] = (
-        result["run"]["essay_count"] == 10
-        and result["run"]["question_count"] == 40
+        result["run"]["essay_count"] == result["run"]["expected_essay_count"]
+        and result["run"]["question_count"] == result["run"]["expected_question_count"]
     )
     if not result["run"]["complete"]:
-        raise RuntimeError("Evaluation did not produce the complete 10-essay/40-question set")
+        raise RuntimeError("Evaluation did not produce the complete selected question set")
     write_artifacts(result, args.output_stem, args.overwrite)
     if args.obsidian_output:
         write_obsidian_projection(result, args.obsidian_output, args.overwrite)

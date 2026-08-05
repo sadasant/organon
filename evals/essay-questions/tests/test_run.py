@@ -3,6 +3,7 @@ import sys
 from pathlib import Path
 
 import pytest
+from types import SimpleNamespace
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -13,11 +14,31 @@ sys.modules[SPEC.name] = MODULE
 SPEC.loader.exec_module(MODULE)
 
 
+def interlocutor():
+    return MODULE.InterlocutorHypothesis(
+        probable_background="A reader familiar with the example.",
+        likely_purpose="Test whether the claim generalizes.",
+        shared_vocabulary=["example"],
+        possible_mistaken_premise="none identified",
+        confidence="medium",
+        question_evidence=["Does it generalize?"],
+        stopping_condition="State the supported scope and its limitation.",
+    )
+
+
 def test_question_snapshot_is_exactly_ten_by_four():
     essays = MODULE.parse_questions((ROOT / "questions.md").read_text())
     assert len(essays) == 10
     assert sum(len(essay.questions) for essay in essays) == 40
     assert len({q.id for essay in essays for q in essay.questions}) == 40
+
+
+def test_calibration_selects_one_question_per_essay():
+    essays = MODULE.parse_questions((ROOT / "questions.md").read_text())
+    selected, digest = MODULE.select_questions(essays, ROOT / "calibration.json")
+    assert len(selected) == 10
+    assert sum(len(essay.questions) for essay in selected) == 10
+    assert digest
 
 
 def test_answer_validation_restores_question_order():
@@ -32,7 +53,7 @@ def test_answer_validation_restores_question_order():
         ],
     )
     answers = [
-        MODULE.AnswerDraft(question_id=f"AA-{number}", disposition="open", answer="A", essay_anchors=[], limitation="L")
+        MODULE.AnswerDraft(question_id=f"AA-{number}", disposition="open", interlocutor=interlocutor(), answer="A", essay_anchors=[], limitation="L")
         for number in (4, 3, 2, 1)
     ]
     ordered = MODULE.validate_answers(essay, answers)
@@ -49,11 +70,39 @@ def test_answer_validation_rejects_missing_ids():
         ],
     )
     answers = [
-        MODULE.AnswerDraft(question_id=f"AA-{number}", disposition="open", answer="A", essay_anchors=[], limitation="L")
+        MODULE.AnswerDraft(question_id=f"AA-{number}", disposition="open", interlocutor=interlocutor(), answer="A", essay_anchors=[], limitation="L")
         for number in range(1, 4)
     ]
     with pytest.raises(ValueError, match="expected IDs"):
         MODULE.validate_answers(essay, answers)
+
+
+def test_generation_retries_incomplete_structured_response():
+    essay = MODULE.EssayQuestions(
+        title="Test",
+        essay_file="test.md",
+        questions=[
+            MODULE.Question(id="AA-1", lens="Argument", question="One?", pressure_point="P")
+        ],
+    )
+    calls = []
+
+    def program(**kwargs):
+        calls.append(kwargs["retry_instruction"])
+        if len(calls) == 1:
+            raise ValueError("incomplete")
+        return SimpleNamespace(answers=[
+            MODULE.AnswerDraft(
+                question_id="AA-1", disposition="open", interlocutor=interlocutor(),
+                answer="The essay leaves this question open. Another case is required.",
+                essay_anchors=["Example"], limitation="No second case.",
+            )
+        ])
+
+    answers = MODULE.generate_with_retry(program, essay_set=essay, ontology="o")
+    assert answers[0].question_id == "AA-1"
+    assert calls == ["", calls[1]]
+    assert "prior response" in calls[1]
 
 
 def test_markdown_projection_escapes_cells():
@@ -70,8 +119,9 @@ def test_markdown_projection_escapes_cells():
             "question_count": 1,
             "organon_commit": "abc",
             "ontology_sha256": "o",
-            "short_form_sha256": "s",
+            "answer_form_sha256": "a",
             "questions_sha256": "q",
+            "selection_sha256": None,
         },
         "essays": [
             {
@@ -83,6 +133,11 @@ def test_markdown_projection_escapes_cells():
                         "lens": "Evidence",
                         "disposition": "open",
                         "question": "A | B?",
+                        "interlocutor": {
+                            "probable_background": "A reader.",
+                            "likely_purpose": "Test the claim.",
+                            "confidence": "low",
+                        },
                         "answer": "First line.\nSecond line.",
                         "essay_anchors": ["Part | One"],
                         "limitation": "Unknown.",
@@ -111,8 +166,9 @@ def test_artifact_paths_preserve_dotted_model_name(tmp_path):
             "question_count": 0,
             "organon_commit": "abc",
             "ontology_sha256": "o",
-            "short_form_sha256": "s",
+            "answer_form_sha256": "a",
             "questions_sha256": "q",
+            "selection_sha256": None,
         },
         "essays": [],
     }

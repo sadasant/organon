@@ -36,16 +36,18 @@ class RefineEssayAnswers(dspy.Signature):
     """Rewrite exactly the failed answer IDs using their recorded judge evidence.
 
     Preserve the essay's position and do not invent Daniel's answer. Resolve the
-    ontology and editorial defects named by the judges, keep factual Claims
-    bounded by the essay and retain locatable anchors. When compression or
-    clarity failed, prefer the judge's proposed wording over adding ontology
-    exposition: use 45 to 85 words, two to four sentences, and introduce only
-    the ontology terms needed to prevent a specific collapse. Return exactly
-    one revised AnswerDraft for every failed ID and no passing IDs.
+    ontology and Essay-Answer Form defects named by the judges. Revise the
+    interlocutor hypothesis when its evidence or fit failed. Keep factual Claims
+    bounded by the essay, retain locatable anchors, state the answer early, add
+    only the bridge this reader needs, and stop when the question's pressure is
+    discharged. Keep the visible answer between 35 and 90 words in two to four
+    sentences; the ceiling is not a target. Do not add ontology exposition merely
+    to make the answer more defensible. Return exactly one revised AnswerDraft
+    for every failed ID and no passing IDs.
     """
 
     ontology: str = dspy.InputField()
-    short_form: str = dspy.InputField()
+    answer_form: str = dspy.InputField()
     essay_title: str = dspy.InputField()
     essay: str = dspy.InputField()
     failed_bundle_json: str = dspy.InputField()
@@ -80,7 +82,10 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--evaluation", type=Path, required=True)
     parser.add_argument("--vault-root", type=Path, required=True)
     parser.add_argument("--ontology", type=Path, default=ROOT / "ontology" / "ontology.md")
-    parser.add_argument("--short-form", type=Path, default=ROOT / "editorial" / "short-form.md")
+    parser.add_argument(
+        "--answer-form", type=Path,
+        default=ROOT / "editorial" / "essay-answer-form.md",
+    )
     parser.add_argument("--model", default="gpt-5.6-luna")
     parser.add_argument("--reasoning-effort", default="high")
     parser.add_argument("--output-stem", type=Path, required=True)
@@ -95,7 +100,7 @@ def main() -> None:
     source = json.loads(args.source_result.read_text())
     evaluation = json.loads(args.evaluation.read_text())
     ontology = args.ontology.read_text()
-    short_form = args.short_form.read_text()
+    answer_form = args.answer_form.read_text()
     if evaluation["run"]["source_result_sha256"] != sha256_path(args.source_result):
         raise SystemExit("Evaluation does not govern the supplied source result")
 
@@ -122,7 +127,7 @@ def main() -> None:
         essay_path = args.vault_root / "Contexts" / "Essays" / "Works" / essay["essay_file"]
         prediction = program(
             ontology=ontology,
-            short_form=short_form,
+            answer_form=answer_form,
             essay_title=essay["title"],
             essay=essay_path.read_text(),
             failed_bundle_json=json.dumps(bundle, ensure_ascii=False),
@@ -148,7 +153,7 @@ def main() -> None:
         "model": args.model,
         "reasoning_effort": args.reasoning_effort,
         "revised_question_ids": revised_ids,
-        "preserved_question_count": 40 - len(revised_ids),
+        "preserved_question_count": source["run"]["question_count"] - len(revised_ids),
     }
     RUN.write_artifacts(source, args.output_stem, overwrite=False)
     if args.obsidian_output:
