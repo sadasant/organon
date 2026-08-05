@@ -12,6 +12,13 @@ from urllib.parse import unquote
 
 ROOT = Path(__file__).resolve().parent.parent
 HISTORICAL_PREFIX = "ontology/history/"
+# These Markdown files preserve or project another repository's root. Continue
+# scanning them for private paths and wikilinks, but resolve their relative
+# links only when they are reviewed in that declared upstream repository.
+FOREIGN_ROOT_PREFIXES = (
+    "evals/editorial-artifacts/sources/",
+    "evals/editorial-artifacts/results/",
+)
 WIKILINK = re.compile(r"!?\[\[[^]]+\]\]")
 MARKDOWN_LINK = re.compile(r"!?\[[^]]*\]\(([^)]+)\)")
 SCHEME = re.compile(r"^[A-Za-z][A-Za-z0-9+.-]*:")
@@ -63,6 +70,8 @@ def main() -> int:
                 errors.append(f"{relative}: historical exemption lacks provenance notice")
             continue
 
+        foreign_root = relative.startswith(FOREIGN_ROOT_PREFIXES)
+
         for number, line in visible_lines(path):
             if WIKILINK.search(line):
                 errors.append(f"{relative}:{number}: Obsidian wikilink in active document")
@@ -71,7 +80,7 @@ def main() -> int:
 
             for match in MARKDOWN_LINK.finditer(line):
                 target = local_target(match.group(1))
-                if target is None:
+                if target is None or foreign_root:
                     continue
                 resolved = (path.parent / target).resolve()
                 try:
