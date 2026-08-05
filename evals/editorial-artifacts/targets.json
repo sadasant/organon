@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "targets": [
+    {
+      "id": "organon-project",
+      "working_title": "The Instrument That Refuses to Win by Definition",
+      "audience": "A technically experienced reader who builds AI or developer infrastructure but has not encountered Organon.",
+      "purpose": "Explain why Organon exists, what kind of failure it addresses, how ontology, editorial grammar, and formal pressure work together, and how another project can use the instrument without surrendering local judgment.",
+      "desired_inheritance": "A shared vocabulary is infrastructure only when its correspondences, authority, and revision conditions remain inspectable.",
+      "source_files": [
+        "README.md",
+        "DANIEL.md",
+        "CONTRIBUTING.md",
+        "provenance/editorial.md"
+      ]
+    },
+    {
+      "id": "organon-ontology",
+      "working_title": "A Vocabulary That Has to Survive Its Own Definitions",
+      "audience": "A philosophically curious technical reader willing to inspect a formal-ish ontology without accepting its primitive commitments in advance.",
+      "purpose": "Present the ontology as one dependency-ordered instrument: its classical Absence and Presence commitments, derived entity and causal machinery, institutional layer, anti-collapse discipline, formal shadow, and explicit limits.",
+      "desired_inheritance": "An ontology becomes usable when a reader can locate both the definition doing the work and the commitment that would have to change for the classification to change.",
+      "source_files": [
+        "ontology/changelog.md",
+        "ontology/formal/README.md",
+        "ontology/formal/decisions.md",
+        "ontology/formal/organon-core-reduct-report.md"
+      ]
+    }
+  ]
+}

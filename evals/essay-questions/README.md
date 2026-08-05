@@ -60,9 +60,15 @@ The JSON result is the machine-readable record. The committed Markdown result is
 
 Generated answers are not Daniel-authored prose, corrections to the essays, or binding Organon Claims.
 
+`evaluate.py` applies deterministic answer-contract checks and two separate judge calls to a recorded result: one for ontology fidelity and one for canonical short-form delivery. An answer passes only when every deterministic check passes, every judge criterion scores at least 3/4, and neither judge reports a critical violation. `--baseline-evaluation` reuses a prior judgment only when the complete answer record has the same canonical digest; changed answers alone are rejudged. This makes a refinement sequence attributable rather than allowing a fresh judge pass to reopen unchanged answers. Same-model generation and judging remains an explicit limitation.
+
+`refine.py` rewrites only failed answer IDs and records the source and evaluation digests. Passing answers are preserved byte-for-byte. Refinement is bounded by the caller; a residual failed gate remains a result, not permission to lower the threshold or loop indefinitely.
+
 ## Recorded runs
 
 | Ontology snapshot | JSON | Markdown |
 |---|---|---|
 | v0.16 | [machine record](./results/gpt-5.6-luna-2026-08-04.json) | [readable projection](./results/gpt-5.6-luna-2026-08-04.md) |
 | v0.17 | [machine record](./results/gpt-5.6-luna-2026-08-04-v0.17.json) | [readable projection](./results/gpt-5.6-luna-2026-08-04-v0.17.md) |
+| v0.17 refined candidate (35/40 pass) | [machine record](./results/gpt-5.6-luna-2026-08-05-v0.17-final.json) | [readable projection](./results/gpt-5.6-luna-2026-08-05-v0.17-final.md) |
+| v0.17 final judgments | [machine record](./results/gpt-5.6-luna-2026-08-05-v0.17-final-evaluation.json) | [readable projection](./results/gpt-5.6-luna-2026-08-05-v0.17-final-evaluation.md) |

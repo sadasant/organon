@@ -1,0 +1,683 @@
+{
+  "schema_version": 1,
+  "run": {
+    "evaluation": "essay-questions",
+    "model": "gpt-5.6-luna",
+    "provider": "openai",
+    "api_surface": "responses",
+    "reasoning_effort": "medium",
+    "dspy_version": "3.3.0",
+    "litellm_version": "1.91.4",
+    "python_version": "3.12.9",
+    "generated_at": "2026-08-05T00:44:32+00:00",
+    "organon_commit": "c2fbe310832a27933bc02645e91fe3861a811189",
+    "ontology_path": "ontology/ontology.md",
+    "ontology_sha256": "81c03318a3bc2b07cc3a7a9949c3da54dd885320b2f3ec246f4c5498d5cbcde1",
+    "short_form_path": "editorial/short-form.md",
+    "short_form_sha256": "7ac9254f6f8964a1776f2eeacbfe36fdaad591701174116c0527c1f2c1b472be",
+    "questions_path": "evals/essay-questions/questions.md",
+    "questions_sha256": "4a88045e4b5a7c5d9de54b4b9e6ce2c130eacc862233c5448089e3a42921323f",
+    "essay_count": 10,
+    "question_count": 40,
+    "complete": true,
+    "revision": {
+      "source_result": "gpt-5.6-luna-2026-08-05-v0.17-refined-2.json",
+      "source_result_sha256": "4bf91ca7e5a31e53916204e0aa23e1377de3aea242e76af1a3aa1ea4d27dd3c2",
+      "evaluation": "gpt-5.6-luna-2026-08-05-v0.17-refined-2-evaluation.json",
+      "evaluation_sha256": "1ccac40268084bbfbdf7e5b989c8bd98472b1153b359c18dfc248456e2b3ba53",
+      "model": "gpt-5.6-luna",
+      "reasoning_effort": "high",
+      "revised_question_ids": [
+        "PL-1",
+        "PL-3",
+        "DP-2",
+        "EC-4",
+        "SW-1",
+        "AP-1",
+        "LF-3"
+      ],
+      "preserved_question_count": 33
+    }
+  },
+  "essays": [
+    {
+      "title": "Priced as If the Ledger Exists",
+      "essay_file": "2025/12 December/Priced as If the Ledger Exists/Priced as If the Ledger Exists.md",
+      "essay_sha256": "64e8f6c396750e8e3ea10420f8d8743bcfb389a421fcd794035300d3792545fd",
+      "answers": [
+        {
+          "question_id": "PL-1",
+          "disposition": "partly_answered",
+          "answer": "A legitimate work ledger should show who changed what, when, through which actual workflow, and with what effect. It should also preserve exceptions, judgments, responsible roles and authority, required skills and resources, baselines, costs, and downstream consequences—not merely payroll, dashboards, financial outputs, or past outcomes. The essay presents this as a practical account of work; it does not supply a complete formal ledger schema.",
+          "essay_anchors": [
+            "The Missing Ledger",
+            "The Digital Workforce",
+            "Precedents Dismissed as Anomalies",
+            "Is anyone working on the ledger?"
+          ],
+          "limitation": "The essay does not specify complete retention, access, validation, or record-typing rules, nor how practical categories such as authority and judgment map to a formal Ledger.",
+          "lens": "Definition",
+          "question": "What must a legitimate work ledger record beyond tasks, costs, outputs, skills, evidence, and authority?",
+          "pressure_point": "The metaphor becomes consequential once it selects the world it makes visible."
+        },
+        {
+          "question_id": "PL-2",
+          "disposition": "answered",
+          "answer": "Software productivity gains do not transfer automatically because software work leaves a reconstructable trail—code, requirements, tests, builds, deployments, timestamps, and effects—while other work is scattered across spreadsheets, email, informal agreements, habits, and improvisation. Without that baseline, firms cannot tell what a role actually contains or what automation changed. The essay describes narrow workflows such as payment validation, remediation, code repair, and document processing as feasible or deployed, but treats expansion from those cases to whole roles as the unsupported leap.",
+          "essay_anchors": [
+            "The Missing Ledger",
+            "The Digital Workforce",
+            "Is anyone working on the ledger?"
+          ],
+          "limitation": "The essay does not establish measured productivity gains in those narrow workflows or provide a systematic account of when transfer succeeds; it argues that a mapped workflow is a prerequisite for evaluating the claim.",
+          "lens": "Argument",
+          "question": "Why can software productivity gains not transfer to other functions without a ledger, and where have they transferred anyway?",
+          "pressure_point": "Counterexamples could refine the scope of the claim."
+        },
+        {
+          "question_id": "PL-3",
+          "disposition": "partly_answered",
+          "answer": "The minimal addition is a joined record of sequence, exceptions, responsible actor, authorization, required skills, baseline, cost, and downstream effects. Payroll, financial, HR, control, and dashboard systems preserve fragments; the proposed ledger would connect them into an auditable account of how work happened and who was responsible. In the ontology’s formal sense, that account would also require typed records, identifiable producers, and relevant Standing, but the essay mainly argues for the practical process log.",
+          "essay_anchors": [
+            "The Missing Ledger",
+            "The Digital Workforce",
+            "So what?",
+            "Is anyone working on the ledger?"
+          ],
+          "limitation": "The essay does not discuss process-mining or audit systems by name, so it cannot establish that they are unable to capture this joined chain or demonstrate the proposal’s marginal advantage over them.",
+          "lens": "Evidence",
+          "question": "What would a minimal ledger reveal that current process mining, audit, HR, and financial systems cannot?",
+          "pressure_point": "The proposal should establish marginal information value."
+        },
+        {
+          "question_id": "PL-4",
+          "disposition": "open",
+          "answer": "The essay does not explain how to prevent a work ledger from becoming a surveillance or metric-gaming system. It does show the danger of distorted representations: Wells Fargo measured cross-sell ratios while losing track of legitimate work, and Amazon’s hiring model encoded historical bias because its target for good hiring was poorly specified. A cautious implication is that the ledger would need to preserve exceptions, judgment, and legitimate work rather than treating whatever is easiest to count as the work itself, but Daniel does not supply governance rules for doing so.",
+          "essay_anchors": [
+            "Precedents Dismissed as Anomalies",
+            "The Missing Ledger",
+            "Is anyone working on the ledger?"
+          ],
+          "limitation": "Safeguards for privacy, worker control, access, contestability, metric gaming, and the representation of informal care are outside the essay’s developed argument.",
+          "lens": "Ethics",
+          "question": "How can a work ledger avoid becoming a surveillance and metric-gaming infrastructure that erases informal care and judgment?",
+          "pressure_point": "Legibility can industrialize the wrong representation."
+        }
+      ]
+    },
+    {
+      "title": "The Depth Behind the Simplest Rules",
+      "essay_file": "2026/01 January/The Depth Behind the Simplest Rules A Chronicle of Prime Numbers/The Depth Behind the Simplest Rules A Chronicle of Prime Numbers.md",
+      "essay_sha256": "3d991443d90b216a4eabb930d4cb4de8e044322059e6f003c47cfb1859102cef",
+      "answers": [
+        {
+          "question_id": "DP-1",
+          "disposition": "partly_answered",
+          "answer": "Prime research does look like a cumulative change of viewpoint: Euclid’s exceptions become Euler’s generators, Gauss’s population, and eventually Riemannian and spectral structure. But the sequence is retrospective; the essay names abandoned programs and competing methods—Dirichlet’s method “worked just enough,” while later reformulations remained incomplete—without comparing the rival paths in detail.",
+          "essay_anchors": [
+            "The Rules of the Game",
+            "The Methods",
+            "The Breach",
+            "Refractions",
+            "Coda"
+          ],
+          "limitation": "The essay supports a narrated progression but does not provide a full historiographical comparison of competing schools or lines of work that never entered the Riemann-Hypothesis story.",
+          "lens": "Argument",
+          "question": "Does the history of prime-number research support one cumulative change of viewpoint, or does the chronicle smooth over competing and abandoned programs?",
+          "pressure_point": "Narrative coherence can exceed historical coherence."
+        },
+        {
+          "question_id": "DP-2",
+          "disposition": "partly_answered",
+          "answer": "The essay presents dates, correspondence, published papers, quotations, and mathematical results—especially Gauss’s letter to Encke, Riemann’s 1859 paper, and the accounts of Fermat, Euler, and Wiles—as documented historical material. Motivations and inner states are reconstructed where the prose says “Perhaps,” “It must have felt,” or “He must have,” as in Fermat’s imagined challenge and Riemann’s isolation; these are not established facts in the essay. Calling primes “errors,” “walls,” “shadows,” or a “game,” and describing the history as a “war” or “world stage,” is literary compression that organizes the mathematics rather than documenting literal events. The citations and quotations are source-presented material, not automatically independent Evidence without further verification and admissibility.",
+          "essay_anchors": [
+            "The Rules of the Game",
+            "The Wager",
+            "Pure Instinct",
+            "The Breach",
+            "When Play Hardens into Sport",
+            "Coda"
+          ],
+          "limitation": "The essay does not independently audit every historical scene, quotation, or motivation against its sources, so these classifications describe how the essay presents the material rather than supplying a complete historical record.",
+          "lens": "Evidence",
+          "question": "Which scenes and motivations are documented history, which are interpretive reconstruction, and which are literary compression?",
+          "pressure_point": "The essay intentionally makes mathematics narratively immediate."
+        },
+        {
+          "question_id": "DP-3",
+          "disposition": "open",
+          "answer": "The essay points toward an object that would make the zeros’ placement a structural consequence rather than an isolated theorem: perhaps an operator with the right spectrum, a geometry generating the explicit formula, or a positivity or stability condition that becomes automatic. In “Refractions,” it explicitly describes Connes’s incomplete adèle-class-space candidate, alongside Selberg-style self-adjointness, unitarity, spectral correspondence, and the de Bruijn–Newman boundary. The essay does not identify a completed candidate satisfying all these requirements or establish which are necessary or sufficient.",
+          "essay_anchors": [
+            "Refractions",
+            "The First Conviction",
+            "Coda"
+          ],
+          "limitation": "The successful operator, space, or geometry remains a research-program gesture; no completed construction or proof connects all the listed properties to the Riemann zeros.",
+          "lens": "Definition",
+          "question": "What properties must the unnamed operator, space, or geometry possess for the Riemann zeros to become inevitable by definition?",
+          "pressure_point": "The coda gestures toward a research program with unstated proof obligations."
+        },
+        {
+          "question_id": "DP-4",
+          "disposition": "partly_answered",
+          "answer": "“Change position” is literal when a specified operation changes what can be seen: roots of unity filter residue classes, Chebyshev reweights prime counts, and Riemann moves from series to integral and complex-plane analysis. It becomes metaphor when primes become “errors,” “walls,” or “shadows,” or when mathematical operations are retold as humanity finding a better vantage point. Without named input and output States, a Direction, a mapping, and a Scope, not every use qualifies as a binding Transformation.",
+          "essay_anchors": [
+            "The Methods",
+            "The Breach",
+            "Sharpening the Lens",
+            "Refractions",
+            "Coda"
+          ],
+          "limitation": "The essay does not supply typed State, Direction, mapping, and Scope witnesses for every use of “position,” so some boundary cases remain unresolved.",
+          "lens": "Boundary",
+          "question": "When does “change position” name a real mathematical transformation rather than a retrospective metaphor for progress?",
+          "pressure_point": "The essay's governing method should distinguish discovery from storytelling."
+        }
+      ]
+    },
+    {
+      "title": "Epistemic Capture",
+      "essay_file": "2026/02 February/Epistemic Capture/Epistemic Capture.md",
+      "essay_sha256": "8b0c866967c623296ed40470c0b90ad47bb8171b706ac3b2034fc41d62328728",
+      "answers": [
+        {
+          "question_id": "EC-1",
+          "disposition": "inferable",
+          "answer": "The essay treats epistemic capture as a room preserving a load-bearing object or frame even when credible challenges threaten its coherence, reclassifying the challenger rather than absorbing the challenge. Ordinary error may be corrected without threatening the room; fraud depends on deception or bad faith; groupthink and motivated reasoning describe narrower psychological or social mechanisms. Institutional necessity can explain why a room preserves coordination, but capture names the point at which that preservation makes destabilizing evidence or uncertainty socially irrelevant.",
+          "essay_anchors": [
+            "The Geometry",
+            "The Room"
+          ],
+          "limitation": "The essay does not provide formal diagnostic criteria separating capture from every neighboring category, and it explicitly resists reducing the cases to corruption or bad actors.",
+          "lens": "Definition",
+          "question": "What distinguishes epistemic capture from ordinary error, groupthink, motivated reasoning, fraud, or institutional necessity?",
+          "pressure_point": "Neighboring failures can look identical from inside the room."
+        },
+        {
+          "question_id": "EC-2",
+          "disposition": "answered",
+          "answer": "The essay argues that uncertainty carries an immediate social and operational cost: saying “I don’t know” can look incompetent, slow the agenda, or threaten the legitimacy of a decision. Being wrong carries a delayed and distributed cost, while fluent confidence lets the room preserve momentum, coherence, and the feeling that someone is in control. Escalation can convert uncertainty into accountable review, but it requires staffing, supervision, and a willingness to pay for slower service, so institutions often substitute performed knowledge instead.",
+          "essay_anchors": [
+            "The Cases",
+            "The Room",
+            "The Geometry"
+          ],
+          "limitation": "The essay acknowledges that institutions can act under uncertainty, but it does not develop a separate framework for explicit risk-bearing decisions or specify when proceeding is justified.",
+          "lens": "Argument",
+          "question": "Why does the need to proceed convert uncertainty into performed knowledge rather than into explicit risk-bearing decisions?",
+          "pressure_point": "Institutions sometimes act while preserving uncertainty."
+        },
+        {
+          "question_id": "EC-3",
+          "disposition": "partly_answered",
+          "answer": "Before hindsight, a participant can watch for credibility signals becoming detached from access or consequence: highly specific confidence from a system that has not seen the relevant data, polished objects moving rapidly into plans, and no clear route for checking or escalating uncertainty. Another warning sign is social rather than factual: questions about grounding are treated as disruptive, the conversation routes around the questioner, or doubt is recoded as misalignment and personality failure. These signs indicate a dangerous frame, but they do not by themselves establish that a particular claim is false.",
+          "essay_anchors": [
+            "The Room",
+            "The Cases",
+            "The Geometry"
+          ],
+          "limitation": "The essay offers patterns of recognition rather than a validated test, evidentiary checklist, or intervention protocol that reliably diagnoses capture from inside the room.",
+          "lens": "Evidence",
+          "question": "What observable signs would let a participant diagnose capture before hindsight makes it obvious?",
+          "pressure_point": "The concept must work from within the compromised setting."
+        },
+        {
+          "question_id": "EC-4",
+          "disposition": "inferable",
+          "answer": "The essay supports a minimum procedure rather than a complete one: record each Claim and its provenance, seek grounding, keep unresolved uncertainty visible, and escalate it for human review before consequential Action. In the ontology’s stricter design, call something Evidence only when an Observation from a Witness IndependentFor the relevant Claim is admitted by a governing Order under an Admissibility Rule and evaluated under a named Rule; otherwise, treat it as a Claim or unresolved Record. A named person or Role could be assigned by that Order to escalate or stop action when evidence is missing or underdetermining, but that is a proposed governance arrangement, not a consequence of confidence or status. The essay does not specify the thresholds, technical Capability, Enforcement, or escalation design.",
+          "essay_anchors": [
+            "The Cases",
+            "What Remains"
+          ],
+          "limitation": "The essay supports provenance, grounding, visible uncertainty, escalation, and human review, but it does not specify the governing Order, evidentiary thresholds, Witness independence, technical Capability, Authority, Enforcement, or stopping rule.",
+          "lens": "Consequence",
+          "question": "What procedure lets a room remain capable of action while preventing confidence, status, or narrative closure from certifying a claim?",
+          "pressure_point": "The essay diagnoses a geometry but leaves governance design open."
+        }
+      ]
+    },
+    {
+      "title": "Nothing Else Is So Exact As Absence",
+      "essay_file": "2026/02 February/Nothing Else Is So Exact As Absence A Chronicle of Zeros/Nothing Else Is So Exact As Absence A Chronicle of Zeros.md",
+      "essay_sha256": "0bb953748f07bc82880c18f9cb9823f4f70f671fa19d2ebb1eca5439dc97cfb9",
+      "answers": [
+        {
+          "question_id": "NZ-1",
+          "disposition": "answered",
+          "answer": "Within the binding Organon ontology, Absence is an absolute primitive: it is neither a limit concept, an uninhabited type, nor merely a failed representation. The essay explores mathematical and metaphorical approaches to absence, but those examples concern structured gaps, zeros, limits, or horizons within Presence; they do not redefine the primitive. The essay’s phrase “perfect absence” is therefore best read as an allusion to this exact, non-internalizable primitive rather than as a new mathematical object.",
+          "essay_anchors": [
+            "Leibniz’s question and “What if there is no outside?”",
+            "The Question",
+            "Coda"
+          ],
+          "limitation": "The essay does not explicitly state the full Organon definition or distinguish every candidate category named in the question; that clarification comes from the binding ontology.",
+          "lens": "Definition",
+          "question": "Is Absence a metaphysical primitive, a limit concept, an uninhabited type, or a name for the exact constraint revealed by failed representation?",
+          "pressure_point": "The essay moves among mathematics, ontology, and metaphor."
+        },
+        {
+          "question_id": "NZ-2",
+          "disposition": "partly_answered",
+          "answer": "The essay does not establish that failed representation logically entails Presence. Its argument is performative: once nothing is stated, questioned, pictured, or represented, a mark or distinction is already present, so the attempt does not produce or reveal Absence itself. Organon formalizes this as A4: the occurrence of a statement witnesses Presence, while the failure to represent perfect Absence alone does not.",
+          "essay_anchors": [
+            "“But what is ‘rien’—nothing at all?”",
+            "“If nothingness exists anywhere…”",
+            "Coda: “There is no outside”"
+          ],
+          "limitation": "The essay moves from representational difficulty to a broader ontological conclusion without fully separating that performative witness from a proof that every failed representation entails Presence.",
+          "lens": "Argument",
+          "question": "Why does the impossibility of representing perfect absence entail Presence rather than merely expose the limits of a representational system?",
+          "pressure_point": "This is the performative hinge later formalized in Organon."
+        },
+        {
+          "question_id": "NZ-3",
+          "disposition": "partly_answered",
+          "answer": "The essay presents the prime–zeta explicit formula, functional-equation symmetry, Möbius/incidence-algebra identities, Weil’s equivalence between RH and a positivity condition, and the conditional GNS construction as established mathematical relationships. Computed zeros, GUE-like spacing, sampled positivity, and absent “leaks” are computational observations or empirical support presented by the essay, not proofs of RH or of a self-adjoint operator. Claims that zeros mark cancellation’s limit, that primes and zeros share one underlying structure, or that absent geometry explains the boundary are analogies, not deductions.",
+          "essay_anchors": [
+            "Approach Through Algebra",
+            "Approach Through Geometry",
+            "The Meeting Point",
+            "Approach Through Measurement",
+            "The Firewall"
+          ],
+          "limitation": "This follows the essay’s presentation and does not independently verify its formulas, citations, historical claims, or computational experiments; the essay does not establish its broader metaphysical interpretation.",
+          "lens": "Evidence",
+          "question": "Which mathematical claims about zero and the zeta function are established results, and which support the broader metaphysical interpretation only analogically?",
+          "pressure_point": "Mathematical precision can lend unearned necessity to ontology."
+        },
+        {
+          "question_id": "NZ-4",
+          "disposition": "open",
+          "answer": "The essay gives no genuine counterexample because it never specifies what “reality filling the gap” would measure. Under A1–A3, absolute Absence cannot be internally located in Presence: A1 denies Absence any interior, and A3 excludes it as a third condition; demonstrating such a case would expose inconsistency or require revising the binding ontology, not provide an ordinary counterexample. A zero off the critical line would challenge RH, not this metaphysical claim; the remaining challenge is that the closing formulation lacks a declared Scope, Specification, and revision criterion.",
+          "essay_anchors": [
+            "The Firewall",
+            "“A counterexample could hide…”",
+            "Final paragraph of the Coda"
+          ],
+          "limitation": "The essay does not operationalize “reality filling the gap” or state a test for failure, so its metaphysical revision conditions remain open.",
+          "lens": "Boundary",
+          "question": "What would count as a genuine counterexample to “reality filling the gap that perfect absence refuses to occupy”?",
+          "pressure_point": "A primitive claim still needs its revision conditions made visible."
+        }
+      ]
+    },
+    {
+      "title": "Gardening Is Not Agriculture",
+      "essay_file": "2026/03 March/Gardening Is Not Agriculture/Gardening Is Not Agriculture.md",
+      "essay_sha256": "5de33980bf78ea0e02c534b9771a7d806e6e9823e9bf021e80e184c9b269927a",
+      "answers": [
+        {
+          "question_id": "GA-1",
+          "disposition": "partly_answered",
+          "answer": "The essay’s explicit contrast is between gardening—local, reactive work—and agriculture—system-wide survey, bottleneck identification, planning, and recurring-failure management. Manufacturing appears mainly as an analogy for standardized, repeatable production, not as a separately defined software practice; library-building describes the knowledge-distribution infrastructure that makes scale possible. The distinctions are illustrative rather than a reproducible classification system.",
+          "essay_anchors": [
+            "The Data Objection",
+            "From Bonsai to Toyota",
+            "Gardening Remains"
+          ],
+          "limitation": "The essay supplies contrasts and examples but no measurable thresholds or constructive procedure for classifying another team’s practice.",
+          "lens": "Definition",
+          "question": "Which practices make software work gardening, agriculture, manufacturing, library-building, or something else?",
+          "pressure_point": "The central distinction needs classifications another team can reproduce."
+        },
+        {
+          "question_id": "GA-2",
+          "disposition": "answered",
+          "answer": "Earlier standardization efforts imposed structure before teams could move enough knowledge through it, so frameworks added roles and layers without removing the bottleneck. The essay presents AI as changing that sequence: it can survey code, build testable maps, and reduce reconnaissance and onboarding time, allowing someone to prototype, test, or develop an idea without the former delay. AI may increase technical Capability, but it does not by itself create the Authority or Permission required for organizational adoption or deployment.",
+          "essay_anchors": [
+            "The Graveyard of Good Intentions",
+            "The Throughput Revolution",
+            "From Bonsai to Toyota"
+          ],
+          "limitation": "This is the essay’s thesis and historical interpretation; it does not independently prove that AI will avoid the failures of earlier standardization movements.",
+          "lens": "Argument",
+          "question": "Why does AI make industrial throughput possible now when decades of software standardization repeatedly failed to eliminate local knowledge?",
+          "pressure_point": "The historical discontinuity is a load-bearing claim."
+        },
+        {
+          "question_id": "GA-3",
+          "disposition": "answered",
+          "answer": "The Azure SDK Test Proxy project is the essay’s clearest example. Daniel first surveyed how different language teams recorded and replayed HTTP traffic, identified their shared transport-layer problem, and built a small prototype; after socialization across teams, DevOps implemented a common Test Proxy and shipped it across the Azure SDKs. The example combines scalable standardization with expert reverence for local context, because reconnaissance and validation with the people living in each codebase preceded generalization.",
+          "essay_anchors": [
+            "The Throughput Revolution",
+            "The Test Proxy example within “The Throughput Revolution”",
+            "From Bonsai to Toyota"
+          ],
+          "limitation": "The essay reports the project’s timeline and deployment, but it does not provide operational metrics proving that throughput increased or quantify how much contextual expertise was preserved.",
+          "lens": "Evidence",
+          "question": "What project demonstrates increased throughput without destroying the expert context the essay calls reverence?",
+          "pressure_point": "The synthesis of reconnaissance and scale can be tested operationally."
+        },
+        {
+          "question_id": "GA-4",
+          "disposition": "partly_answered",
+          "answer": "The essay shows a shift in positional advantage, not yet a demonstrated transfer of formal Authority. AI and standardization let people who recognize patterns prototype and develop them without waiting on experts who control deployment, schemas, or institutional memory; organizations gain coordination capacity while those experts may lose their monopoly. Human judgment remains central, but technical capability alone does not authorize organizational adoption or deployment.",
+          "essay_anchors": [
+            "Software Engineering’s Feudal Era",
+            "The Throughput Revolution",
+            "From Bonsai to Toyota"
+          ],
+          "limitation": "The essay does not specify who owns, credits, compensates, or answers for machine-readable judgment when standardization causes harm.",
+          "lens": "Ethics",
+          "question": "Who gains and loses authority when artisanal judgment becomes a standardized, machine-readable process?",
+          "pressure_point": "Industrialization changes ownership as well as productivity."
+        }
+      ]
+    },
+    {
+      "title": "The Shadow of the World",
+      "essay_file": "2026/03 March/The Shadow of the World/The Shadow of the World.md",
+      "essay_sha256": "cb193265be53c8b812e8d5934f964e532ff1453443aad30d43e24e661fd0b46f",
+      "answers": [
+        {
+          "question_id": "SW-1",
+          "disposition": "partly_answered",
+          "answer": "A reference spectrum is not the world merely because it is built from expert behavior or appears to capture an invariant. For it to participate in a World, the account would need to specify the relevant Entities, scoped Environment, access Causal paths, Constraints, and an Invariant that persists across those paths. The spectrum is otherwise a constructed Reference—a Map with stated scope and distortions—that can represent part of the World without becoming the World or Reality. The essay does not establish that its invariant belongs to what it measures rather than to the Reference itself.",
+          "essay_anchors": [
+            "“The reference is constructed, not discovered.”",
+            "“The reference for AI is constructed the same way.”",
+            "Conclusion: “The reference spectrum is the world.”"
+          ],
+          "limitation": "The essay proposes convergence on an invariant but does not supply the World’s required entities, access paths, Constraints, and Persistence witness, or prove that the invariant is independent of the reference’s construction.",
+          "lens": "Definition",
+          "question": "What makes a reference spectrum part of the world rather than another model of it?",
+          "pressure_point": "The conclusion gives references unusually strong ontological status."
+        },
+        {
+          "question_id": "SW-2",
+          "disposition": "partly_answered",
+          "answer": "The essay says convergence requires different constraint regimes, a shared structure that survives translation, and instruments whose distortions are known, consistent, and correctable. That gives a proposed test for trustworthy convergence, but not a sufficient safeguard: multiple systems can still share a common blind spot, and the essay does not specify an independent procedure for detecting that case. Agreement therefore supports a candidate invariant but does not by itself establish contact with Reality.",
+          "essay_anchors": [
+            "“What they measured converges across constraint regimes.”",
+            "“The structure that survives translation between all three is the invariant.”",
+            "“honest means: its distortions are known, consistent, and correctable.”"
+          ],
+          "limitation": "No independent witness, adversarial constraint regime, or formal correction procedure is provided to distinguish genuine convergence from correlated measurement error.",
+          "lens": "Argument",
+          "question": "Under what conditions do multiple constrained evaluations converge on an invariant rather than share the same blind spot?",
+          "pressure_point": "Agreement among prisms does not guarantee contact with reality."
+        },
+        {
+          "question_id": "SW-3",
+          "disposition": "open",
+          "answer": "No—not in this essay. It proposes recording confidence, hedging, refusals, scope acknowledgment, and other distributional features, and it names partial tools and frameworks. But it presents no completed evaluation suite, dataset, model comparison, or result showing that spectral fingerprints explain a model better than aggregate scores; the claim remains a research proposal.",
+          "essay_anchors": [
+            "“The instrument works like this.”",
+            "“Each model has a spectral fingerprint.”",
+            "“The most valuable artifacts in the system are not the models. They are the references.”"
+          ],
+          "limitation": "The essay proposes the evaluation instrument but does not demonstrate it with data, a concrete case study, or comparative results.",
+          "lens": "Evidence",
+          "question": "Can one actual evaluation suite show how characteristic successes and absences reveal a model better than aggregate scores?",
+          "pressure_point": "The spectral thesis invites a concrete demonstration."
+        },
+        {
+          "question_id": "SW-4",
+          "disposition": "partly_answered",
+          "answer": "The essay assigns constraint selection to identifiable institutions and experts: the CIE constructs daylight standards, and domain experts supply reference behavior for AI. It also acknowledges that every instrument produces a partial image and insists that distortions be known, consistent, and correctable. However, it does not explain who should authorize those choices, what independent constraints should evaluate the evaluator, or how to detect a distortion built into the reference itself.",
+          "essay_anchors": [
+            "“The reference is constructed, not discovered.”",
+            "“The CIE … declared the result a standard.”",
+            "“The reference distributions are domain-specific.”",
+            "“its geometry is honest.”"
+          ],
+          "limitation": "The essay offers a norm of disclosed and correctable distortion, but no institutional governance model or recursive evaluation method for the evaluator’s own geometry.",
+          "lens": "Boundary",
+          "question": "Who chooses the constraints, and how can the evaluator's geometry itself be evaluated?",
+          "pressure_point": "Every revealing prism can also impose a distortion."
+        }
+      ]
+    },
+    {
+      "title": "Artificial Persons",
+      "essay_file": "2026/05 May/Artificial Persons/Artificial Persons.md",
+      "essay_sha256": "676fd8c29eb36fe640f30566fd7722f925532669b492a73e7a0308fc450ac68b",
+      "answers": [
+        {
+          "question_id": "AP-1",
+          "disposition": "partly_answered",
+          "answer": "Legal personality is best read here as institutional Person: an Order records an Entity’s Standing to serve as a Principal or bear Consequences. The corporations, states, and other institutions in the essay motivate this possibility but do not establish the relevant Order, Rule, Standing, or identity witness. Agency is different: it is the relation between an Agent’s Interpretation and its selection or production of Action, so observation, modeling, and tool use do not by themselves make an institution or AI an Agent. Moral standing concerns a separate question of moral consideration; the ontology treats Moral Status Attribution as a Claim and Moral Personhood Designation as a distinct, Order-indexed status, neither of which proves the underlying condition. A Role is an Order-indexed bundle of Actions, Permissions, Authority, and Consequences, while an Interface is a Boundary with explicitly represented permitted Transformations; the essay’s “animation” names AI-mediated institutional action but supplies no threshold for crossing any of these boundaries.",
+          "essay_anchors": [
+            "The Egg",
+            "No Longer Human",
+            "The ancient male womb"
+          ],
+          "limitation": "The essay does not establish the Orders, Rules, Standing, identity and Persistence witnesses, moral-condition Specification, or causal evidence needed to classify any named institution or AI system under these distinctions.",
+          "lens": "Definition",
+          "question": "How do artificial personhood, agency, legal personality, moral standing, role, and interface animation differ?",
+          "pressure_point": "The essay's provocation depends on terms with distinct legal and philosophical histories."
+        },
+        {
+          "question_id": "AP-2",
+          "disposition": "partly_answered",
+          "answer": "The essay's answer is that delegation does not remove responsibility: it creates more places where people and institutions must set boundaries, review work, audit decisions, and absorb liability. As AI's technical power and reach expand, the essay expects these coordination and accountability tasks to multiply across users, managers, institutions, and policy layers, producing managerialization. But it does not show why vendors, owners, insurers, or automated governance could not absorb the liability instead, so managerialization remains its argument rather than a demonstrated necessity.",
+          "essay_anchors": [
+            "Artificial People",
+            "Liability",
+            "No Longer Human"
+          ],
+          "limitation": "The essay does not compare managerialization with vendor, owner, insurer, or automated-governance arrangements, nor provide a scoped Capability claim with a constructive possibility witness.",
+          "lens": "Argument",
+          "question": "Why should AI increase managerialization rather than move liability directly to vendors, owners, insurers, or automated governance?",
+          "pressure_point": "Several institutional equilibria are possible."
+        },
+        {
+          "question_id": "AP-3",
+          "disposition": "open",
+          "answer": "The essay offers only a generalized workplace scenario: a programmer uses agents, delegates implementation, and becomes responsible for reviews, approvals, rollback plans, and permissions. It does not identify a concrete organization, incident, workflow, or documented change showing who actually reviewed, authorized, or answered for AI-produced work. The Burnham and Orwell material supplies historical framing rather than evidence of present AI delegation.",
+          "essay_anchors": [
+            "Artificial People",
+            "Liability",
+            "No Longer Human"
+          ],
+          "limitation": "No workplace case study, named actors, records, or independent observations are supplied to substantiate the claim.",
+          "lens": "Evidence",
+          "question": "Where has delegation to AI already changed who reviews, authorizes, or answers for work?",
+          "pressure_point": "A workplace case would ground the Burnham thesis."
+        },
+        {
+          "question_id": "AP-4",
+          "disposition": "open",
+          "answer": "The essay says institutions can absorb and release AI systems as admissible agents by funding, naming, insuring, filtering, and supervising them, while corporations, markets, states, and planetary civilization form nested bodies. But it never identifies a governing Order, Rule, or Authority that decides whose purpose wins when those bodies, or their members, conflict. In the ontology's terms, it establishes no Standing, Authority, Role, Permission, or downstream protection under a named Order; the nested-body metaphor offers incubation, not jurisdiction.",
+          "essay_anchors": [
+            "The Shell",
+            "The ancient male womb",
+            "The Egg"
+          ],
+          "limitation": "The essay provides no jurisdictional framework, conflict procedure, or protection rule for competing institutional purposes and authorities.",
+          "lens": "Ethics",
+          "question": "When an artificial person becomes an organ of a larger institution, whose purposes and protections govern conflicts among the nested bodies?",
+          "pressure_point": "The organism metaphor does not settle jurisdiction."
+        }
+      ]
+    },
+    {
+      "title": "In Lieu of Flowers",
+      "essay_file": "2026/06 June/In Lieu of Flowers/In Lieu of Flowers.md",
+      "essay_sha256": "b14c1521498352b64fd9ff8748e34eb06260644f97149ba000e2538fa9e457ab",
+      "answers": [
+        {
+          "question_id": "LF-1",
+          "disposition": "answered",
+          "answer": "The essay rejects a single-cause obituary. It says the deeper failure was the belief that firms could be made fully legible through a high-dimensional, prescriptive model, when organizations actually depend on people carrying a simple, repeatable story in relatively low-trust environments. Software rents and subscriptions intensified lock-in and made transformation permanent, but they are presented as distortions of the larger mistake rather than its fundamental cause.",
+          "essay_anchors": [
+            "### The dream of the real-time firm",
+            "### “No Software,” and the rent that replaced it",
+            "### What May Not Return"
+          ],
+          "limitation": "The essay offers an interpretive diagnosis rather than a comparative causal test showing how much weight each cause deserves.",
+          "lens": "Argument",
+          "question": "Did the real-time enterprise fail because its dream was wrong, because software rents distorted it, or because organizations could never be fully formalized?",
+          "pressure_point": "The obituary offers several causes with different lessons."
+        },
+        {
+          "question_id": "LF-2",
+          "disposition": "partly_answered",
+          "answer": "The essay does not decide which legacy systems to keep. It names COBOL and FoxPro as systems that could be put back to work, and suggests preserving useful old infrastructure as databases, APIs, and software-level contracts. A keep-or-retire decision would need to show that a named task still depends on a system’s data or rules and that its results can be verified; the essay supplies no such threshold.",
+          "essay_anchors": [
+            "### The present",
+            "### In lieu of flowers"
+          ],
+          "limitation": "The essay provides no system-specific test or constructive procedure for choosing among COBOL, FoxPro, replacement, or retirement.",
+          "lens": "Evidence",
+          "question": "Which legacy systems are valuable substrates for agents, and which should actually be retired rather than animated?",
+          "pressure_point": "Preservation needs a selection rule."
+        },
+        {
+          "question_id": "LF-3",
+          "disposition": "partly_answered",
+          "answer": "The essay proposes letting agents perform bounded execution across COBOL, FoxPro, and modern services while keeping governance and consequential release authority in human hands. A ledger records what was actually done, so the conversational surface is not the only account of action; making inconsistencies inspectable is an intended function of the arrangement, not a demonstrated capability. The essay supplies no Constraint-specific procedure or witness for detecting, reconciling, or repairing conflicts among those systems.",
+          "essay_anchors": [
+            "### The present",
+            "### In lieu of flowers"
+          ],
+          "limitation": "The essay does not specify the governing Constraints, approval structure, observation process, or technical method needed to detect and resolve inconsistencies.",
+          "lens": "Boundary",
+          "question": "How can agents inhabit COBOL, FoxPro, and modern services without laundering their inconsistencies into a conversational surface?",
+          "pressure_point": "Mediation can conceal rather than repair institutional debt."
+        },
+        {
+          "question_id": "LF-4",
+          "disposition": "partly_answered",
+          "answer": "The historical argument becomes a product pitch at “That’s the bet we’re making at Idolum,” when the essay introduces Aphelion and its proposed use across legacy and newer systems. The architecture sets boundaries, but a demonstration does not prove reliability, authority, or customer value. Independent tests and records of what Aphelion actually did across COBOL, FoxPro, and modern services would connect the history to the product claim; the essay provides none.",
+          "essay_anchors": [
+            "### The present",
+            "### The man inside the machine",
+            "### In lieu of flowers"
+          ],
+          "limitation": "The essay provides historical sources and a product description, but no independent validation of Aphelion’s operation or customer outcomes.",
+          "lens": "Voice",
+          "question": "Where does the historical argument end and the Idolum product claim begin, and what independent evidence should connect them?",
+          "pressure_point": "The essay deliberately joins elegy, thesis, and announcement."
+        }
+      ]
+    },
+    {
+      "title": "The Ladder Is a Clock",
+      "essay_file": "2026/06 June/The Ladder Is a Clock/The Ladder Is a Clock.md",
+      "essay_sha256": "504a9fe98d48ba2db869fd9396adec1b7dce21c781cb5664041ca658b0f3c449",
+      "answers": [
+        {
+          "question_id": "LC-1",
+          "disposition": "answered",
+          "answer": "The rungs primarily measure defensibility: how difficult it is for others to copy the company’s claim as that claim is buried progressively deeper in prompts, harnesses, training, weights, or a custom model. They do not reliably measure maturity or strength. Because each rung becomes commoditized over time, the ladder also functions as a clock: it shows where the market’s waterline currently is and how quickly yesterday’s advantage is becoming standard practice.",
+          "essay_anchors": [
+            "The seven stages of AI maturity, and what they measure.",
+            "Buoyancy",
+            "The Flood",
+            "Mining Futures"
+          ],
+          "limitation": "The essay does not provide a quantitative measure of the rate of commoditization or capability growth.",
+          "lens": "Definition",
+          "question": "What does each rung measure if the ladder is really exposure to time, commoditization, and rising capability?",
+          "pressure_point": "Maturity, defensibility, and chronology are related but non-identical."
+        },
+        {
+          "question_id": "LC-2",
+          "disposition": "partly_answered",
+          "answer": "In the essay’s economic argument, a thesis sets the ceiling by choosing the ground on which execution operates: it identifies the problem space the company is betting will be worth working. A stack can be copied or commoditized, while an exclusive, difficult-to-rebuild ground may support a higher valuation even when the technical components match. Execution, distribution, regulation, and capital still affect whether the company reaches that proposed ceiling; the essay does not establish how those factors interact or whether the bet succeeds.",
+          "essay_anchors": [
+            "Mining Futures",
+            "Main Character Syndrome",
+            "Decided by Lot"
+          ],
+          "limitation": "The essay asserts this hierarchy without analyzing how execution, distribution, regulation, or capital may themselves determine the outcome.",
+          "lens": "Argument",
+          "question": "Why does a company's thesis set its ceiling when execution, distribution, regulation, and capital can dominate outcomes?",
+          "pressure_point": "The essay privileges choice of ground over other causal factors."
+        },
+        {
+          "question_id": "LC-3",
+          "disposition": "open",
+          "answer": "The essay does not identify a historical pair of companies that occupied comparable technical rungs and then diverged because they chose different problem spaces. It offers only a hypothetical comparison: two companies with the same seed, teams, models, harnesses, and rung, but one working a single task and the other working the broader operation containing that task. The contrast illustrates the argument, but it is not evidence about named companies.",
+          "essay_anchors": [
+            "Main Character Syndrome",
+            "Decided by Lot"
+          ],
+          "limitation": "No paired-company case study, valuation comparison, or historical outcome is supplied.",
+          "lens": "Evidence",
+          "question": "Which paired companies occupied similar technical rungs but diverged because their chosen problem spaces differed?",
+          "pressure_point": "The central contrast invites a historical test."
+        },
+        {
+          "question_id": "LC-4",
+          "disposition": "inferable",
+          "answer": "The essay’s implied heuristic is to move upward only when the proposed ground appears more valuable and harder to copy, not merely larger. Ask whether it is exclusive or open, narrow enough to work but large enough to matter, difficult to reconstruct from public materials, and durable long enough for the team to reach higher ground before its current position floods. This is an investment checklist, not a binding Rule: the essay supplies no thresholds, Scope, constructive membership test, or transition condition.",
+          "essay_anchors": [
+            "Mining Futures",
+            "Main Character Syndrome",
+            "Decided by Lot"
+          ],
+          "limitation": "The essay does not specify thresholds for exclusivity, market size, reconstructibility, durability, or the speed required to justify moving.",
+          "lens": "Consequence",
+          "question": "What decision rule helps a team move to higher ground without merely chasing a larger, less defensible market?",
+          "pressure_point": "The metaphor needs a disciplined transition criterion."
+        }
+      ]
+    },
+    {
+      "title": "Delete the Harness",
+      "essay_file": "2026/06 June/Delete the Harness/Delete the Harness.md",
+      "essay_sha256": "fddc0a4aa67f3fa3906d347b58a56fb7589c450816e963e6422ecb8ba0df33d0",
+      "answers": [
+        {
+          "question_id": "DH-1",
+          "disposition": "answered",
+          "answer": "The disposable layer is model-specific scaffolding: orchestration, routing, recovery logic, prompt chains, retrieval pipelines, and similar machinery that a more capable model may absorb. The durable layer is the authority and evidence substrate: privilege boundaries, typed permission lifecycles, independently produced evidence, the execution ledger, and the auditable rules governing what may count as complete or authorized. The essay's compact prescription is: “Delete the harness. Keep the ledger.”",
+          "essay_anchors": [
+            "“Second concession: the model will absorb the scaffold”",
+            "“Authority is not a capability”",
+            "“The clause you already believe”"
+          ],
+          "limitation": "The essay does not provide a complete formal decomposition of every harness component or specify exactly which runtime services would survive deletion in every implementation.",
+          "lens": "Definition",
+          "question": "Which parts of a harness are disposable model scaffolding and which are durable runtime, policy, evidence, or authority infrastructure?",
+          "pressure_point": "“Delete” is a precise provocation only if the boundary is explicit."
+        },
+        {
+          "question_id": "DH-2",
+          "disposition": "partly_answered",
+          "answer": "The essay's answer is structural rather than trust-based: the model may submit claims, propose actions, and influence conversational inputs, but it cannot unilaterally create an accepted evidence row, grant itself authority, or mark work complete. Runtime-generated observations, independently computed hashes, typed records, privileged write paths, and package-boundary checks are intended to make authorization depend on an external verification path rather than the model's self-report. That remains safe only if those observation and admission paths are themselves outside the model's Control; the essay asserts this design but does not prove that every possible influence path is excluded.",
+          "essay_anchors": [
+            "“Authority is not a capability”",
+            "“The single most important rule in Aphelion”",
+            "“The wager”"
+          ],
+          "limitation": "The essay describes the intended architecture and its causal separation, but supplies no independent audit or exhaustive threat analysis showing that model-influenced inputs can never manipulate observations, records, or privileged components.",
+          "lens": "Argument",
+          "question": "Why does externalizing authority remain safe when the model can influence the observations and records on which authorization depends?",
+          "pressure_point": "The evidence path must be causally load-bearing rather than decorative."
+        },
+        {
+          "question_id": "DH-3",
+          "disposition": "open",
+          "answer": "The essay does not report a completed attack campaign or claim that any wager class has been defeated. Instead, it invites reproducible attacks against three classes: unauthorized authority-managed actions, completion without required evidence, and misleading authority-relevant rendering. The background-context study concerns model behavior under social pressure, not a reported break of the wager, so the status of all three classes remains untested in the essay.",
+          "essay_anchors": [
+            "“The wager”",
+            "The three numbered “break classes”",
+            "“P.S.”"
+          ],
+          "limitation": "No attempted attacks, successful exploits, failed reproductions, claimed prizes, or class-by-class test results are documented in the supplied essay.",
+          "lens": "Evidence",
+          "question": "What attacks have been attempted against the wager, what failed, and which classes remain untested?",
+          "pressure_point": "The essay makes a reproducible security claim."
+        },
+        {
+          "question_id": "DH-4",
+          "disposition": "partly_answered",
+          "answer": "The essay claims that authority-bearing effects are routed through active grants, matching authority-use references, typed records, and an approval surface rendered from the ledger. It also acknowledges costs and limits: permission approval remains a human judgment, the kernel must remain small enough to audit, and side-effect-free calls are not gated. These mechanisms address the proposed invariant, but the essay does not establish that universal gating is always available, non-gameable, or free from excessive centralization and operational burden.",
+          "essay_anchors": [
+            "“In Aphelion, a permission is a typed record with a lifecycle”",
+            "“One boundary remains to be stated”",
+            "“The wager”",
+            "“P.S.”"
+          ],
+          "limitation": "The essay excludes upstream-dependency vulnerabilities and operator judgment from the wager, and it offers no performance, availability, organizational, or centralization analysis of applying the ledger boundary at every authority-bearing effect.",
+          "lens": "Boundary",
+          "question": "Can every authority-bearing effect be gated by a ledger without creating an unavailable, gameable, or overly centralized control plane?",
+          "pressure_point": "The invariant may impose operational and institutional costs."
+        }
+      ]
+    }
+  ]
+}
