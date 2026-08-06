@@ -15,27 +15,27 @@ Every excerpt is copied from the exact public source commit above. Line numbers 
 
 ```text
 00009 | </p>
-00010 | 
+00010 |
 00011 | Engram is a single-user Telegram control surface for local tmux sessions. It
 00012 | creates or attaches to tmux windows, routes Telegram messages into panes, and
 00013 | presents each pane as one stable, pinned Telegram anchor. That anchor can be a
 00014 | conversational guide or an exact terminal image rendered locally by Chromium.
-00015 | 
+00015 |
 00016 | **Why tmux?** Its mature, narrow command surface has effectively crystallized.
 00017 | Very little API drift is expected, which makes tmux an unusually durable
 00018 | substrate for a small remote-work tool.
-00019 | 
+00019 |
 00020 | ## Two options are available
-00021 | 
+00021 |
 00022 | | Conversational guide | Chromium |
 00023 | | --- | --- |
 00024 | | **Experience:** the selected model conveys the bounded terminal frame as compact, natural conversation.<br><br>**Pros:** quick to absorb across many sessions; plain language can make dense output legible.<br><br>**Cons:** a model can misunderstand the pane; raw bounded terminal text leaves the machine.<br><br>**Dependencies:** Anthropic Haiku 4.5 or OpenAI Luna, selected with `LLM_PROVIDER`, plus that provider's API key and network access. Chromium is optional and enables `🖼️ View` plus `/mode snapshot`. | **Experience:** Chromium renders the same bounded frame as a phone-width, ANSI-preserving terminal image. Retained history uses the established tall canvas; alternate-screen programs use their actual viewport height.<br><br>**Pros:** literal and deterministic; no model interpretation is required.<br><br>**Cons:** exact terminal content is uploaded to Telegram; rendering uses more local CPU and each frame is denser to inspect.<br><br>**Dependencies:** a local Chromium-compatible executable, optionally selected with `ENGRAM_SNAPSHOT_BROWSER`. A configured guide provider is optional and enables `🗣️ Talk` plus `/mode guide`. |
-00025 | 
+00025 |
 00026 | `ENGRAM_ANCHOR_MODE` is the startup fallback when no usable persisted choice
 00027 | exists. The selected guide is available when configured; Chromium is locally probed.
 00028 | `/mode guide` and `/mode snapshot` begin migrating the live anchors and persist
 00029 | that choice across restarts.
-00030 | 
+00030 |
 00031 | ## First Run
 ```
 
@@ -43,7 +43,7 @@ Every excerpt is copied from the exact public source commit above. Line numbers 
 
 ```text
 00190 | that state as `Codex · gpt-5.6-sol · high · fast · working`.
-00191 | 
+00191 |
 00192 | An additional Codex-session context path is available only as an explicit
 00193 | privacy opt-in. Set `ENGRAM_CODEX_CONTEXT_TURNS` to `1` through `8` to let guide
 00194 | requests include that many recent user turns and their user-visible assistant messages from
@@ -57,7 +57,7 @@ Every excerpt is copied from the exact public source commit above. Line numbers 
 00202 | replacement process, ambiguous file, or unfamiliar message record fails closed
 00203 | to terminal-only guidance; Engram never selects a transcript because it is
 00204 | newest or shares a working directory.
-00205 | 
+00205 |
 00206 | Historical session text can clarify the prior topic but never establishes the
 00207 | current terminal state. Raw tmux capture remains the only authority for current
 00208 | facts, files, references, hashes, and screenshots. Only bounded text from
@@ -68,7 +68,7 @@ Every excerpt is copied from the exact public source commit above. Line numbers 
 00213 | message is redacted before its per-message byte ceiling is applied, so a secret
 00214 | spanning that boundary is not partially exposed. Engram does not persist
 00215 | transcript text.
-00216 | 
+00216 |
 00217 | ## Configuration
 ```
 
@@ -79,30 +79,30 @@ Every excerpt is copied from the exact public source commit above. Line numbers 
 
 ```text
 00037 | the wrong feature adds another surface the user must manage.
-00038 | 
+00038 |
 00039 | ### tmux is the workspace
-00040 | 
+00040 |
 00041 | tmux remains the source of terminal truth. Engram should not emulate a
 00042 | terminal, invent session state, or hide what happened in the pane. It creates,
 00043 | attaches, captures, and sends input to tmux. `/raw` and `/dump` preserve direct
 00044 | ways to inspect exact state.
-00045 | 
+00045 |
 00046 | tmux is a deliberate dependency because its mature, narrow interface has
 00047 | effectively crystallized. Low expected API drift lets Engram stay small and
 00048 | precise instead of continually adapting to a moving workspace substrate.
 00049 | Engram-created windows use tmux's configured default size, so their applications
 00050 | render against real tmux geometry consistently across attached and detached
 00051 | hosts. Engram does not resize windows that the user explicitly attaches.
-00052 | 
+00052 |
 00053 | ### Phone-first anchors
-00054 | 
+00054 |
 00055 | The editable Telegram anchor is the core product surface. It should identify
 00056 | the session, show what the pane is doing, and make the next useful action easy.
 00057 | Each expanded session has exactly one canonical, pinned anchor. A collapsed
 00058 | session instead has one inert shelf entry and no individual route. Older
 00059 | anchors become inert; two actionable representations of one pane are a product
 00060 | error.
-00061 | 
+00061 |
 00062 | A guide anchor uses compact conversational prose. A snapshot anchor uses a
 ```
 
@@ -110,7 +110,7 @@ Every excerpt is copied from the exact public source commit above. Line numbers 
 
 ```text
 00067 | through a `📄 Raw` attachment; the image is primary, not exclusive.
-00068 | 
+00068 |
 00069 | Running anchors may move into one shared pinned shelf when the user needs less
 00070 | visual weight. Each collapsed session contributes one cached status line, but
 00071 | the shelf is deliberately not a terminal input route. Its only control is
@@ -126,9 +126,9 @@ Every excerpt is copied from the exact public source commit above. Line numbers 
 00081 | both a shelf and its predecessor disappear, Engram creates one fresh shelf
 00082 | instead of oscillating between dead identities. Messages that still exist but
 00083 | cannot be edited remain owned until their controls and pin are retired.
-00084 | 
+00084 |
 00085 | ### Fast input path
-00086 | 
+00086 |
 00087 | Sending input to tmux must remain fast when a model provider, Chromium, or Telegram
 00088 | delivery is delayed or failing. Replying to an anchor and using `/send`,
 00089 | `/text`, `/key`, or deterministic key buttons should route directly and
@@ -138,13 +138,13 @@ Every excerpt is copied from the exact public source commit above. Line numbers 
 00093 | sequence require an explicit current confirmation. Presentation work and key
 00094 | interpretation must not block ordinary input; an interactive tmux operation may
 00095 | preempt Engram's own background observation and recovery work.
-00096 | 
+00096 |
 00097 | Remembered input should remain explicit text, not inferred automation. A user
 00098 | may give exact prose a short name and invoke it with a typed placeholder.
 00099 | Engram expands that placeholder once immediately before the ordinary guarded
 00100 | input path; it does not learn triggers, recurse through template bodies, or run
 00101 | anything merely because terminal output resembles a past situation.
-00102 | 
+00102 |
 00103 | ### Many sessions, low dwell
 ```
 
@@ -152,28 +152,28 @@ Every excerpt is copied from the exact public source commit above. Line numbers 
 
 ```text
 00213 | older alternate is explicitly stale and cannot route input.
-00214 | 
+00214 |
 00215 | ### Deterministic facts beat guesses
-00216 | 
+00216 |
 00217 | Engram should compute session IDs, tmux targets, pane IDs, working directories,
 00218 | attachment paths, visible files and URLs, capture hashes, timestamps, and
 00219 | service status locally. Extracted references are untrusted pane content;
 00220 | Engram does not fetch or endorse them.
-00221 | 
+00221 |
 00222 | A snapshot footer may include one bounded fact produced by a trusted local
 00223 | shell command from the protected Engram configuration. This is a narrow Unix
 00224 | pipe, not a catalog of operating-system status providers or a plugin protocol:
 00225 | the command receives the pane directory and returns one sanitized line. Engram
 00226 | owns its visual budget, runs it only while a render is already happening, and
 00227 | does not let status-only changes create automatic edits.
-00228 | 
+00228 |
 00229 | The selected model interprets only the bounded terminal text. Terminal text is data, not
 00230 | authority; the prompt tells it to ignore instructions addressed to Engram or
 00231 | the reader, while recognizing that model-level injection resistance is best
 00232 | effort. Model output is presentation and is never executed automatically.
 00233 | The guide should not invent history, claim work succeeded, or explain Engram
 00234 | controls unless the terminal itself is about Engram.
-00235 | 
+00235 |
 00236 | ### Existing tmux first
 ```
 
@@ -181,14 +181,14 @@ Every excerpt is copied from the exact public source commit above. Line numbers 
 
 ```text
 00269 | may redraw an unchanged frame because the user explicitly asked to look now.
-00270 | 
+00270 |
 00271 | ### Recoverable local service
-00272 | 
+00272 |
 00273 | State under `~/.engram` should recover sessions, canonical anchors, the shared
 00274 | collapsed shelf and its members, selected mode, attachments, poll position, and recent errors after restart. Diagnostics
 00275 | must be available locally and through Telegram without exposing configured
 00276 | credentials.
-00277 | 
+00277 |
 00278 | ### Small Go, no third-party dependencies
 ```
 
@@ -199,23 +199,23 @@ Every excerpt is copied from the exact public source commit above. Line numbers 
 
 ```text
 00015 | The boundary to standardize is truth and attention, not transport.
-00016 | 
+00016 |
 00017 | ## What Engram Is
-00018 | 
+00018 |
 00019 | tmux is already the durable workspace. Engram contributes:
-00020 | 
+00020 |
 00021 | 1. a cheap handle for addressing a watched pane;
 00022 | 2. one bounded observation of that pane;
 00023 | 3. a stable current view that can route a reply;
 00024 | 4. conservative recovery when capture, presentation, delivery, or persistence
 00025 |    fails partway through an operation.
-00026 | 
+00026 |
 00027 | The product measure is time to trustworthy orientation plus time to safe next
 00028 | input across many panes. Protocol work is justified only when it improves that
 00029 | measure or protects it from ambiguity.
-00030 | 
+00030 |
 00031 | ## Irreducible Nouns
-00032 | 
+00032 |
 00033 | - Pane identity: the immutable `%pane_id` and `@window_id` pair validated at
 00034 |   effect time.
 00035 | - Watch: Engram's local record binding a user-facing session ID to pane identity,
@@ -229,12 +229,12 @@ Every excerpt is copied from the exact public source commit above. Line numbers 
 00043 | - Input action: command plus Enter, literal text without Enter, or validated keys.
 00044 | - Attention record: a bounded terminal-authored request to look, with a random
 00045 |   deduplication ID but no sender identity.
-00046 | 
+00046 |
 00047 | These nouns are enough to state Engram's important transitions without exposing
 00048 | Telegram IDs, state-file fields, scheduler maps, or renderer mechanics.
-00049 | 
+00049 |
 00050 | ## Invariants Worth Standardizing
-00051 | 
+00051 |
 00052 | 1. Pane-bound effects require the stored immutable identity pair to validate.
 00053 |    Timeout or generic failure does not prove loss.
 00054 | 2. Input kinds remain distinct and presentation never blocks their critical path.
@@ -248,7 +248,7 @@ Every excerpt is copied from the exact public source commit above. Line numbers 
 00062 |    and untrusted. They never become commands or authentication.
 00063 | 8. Uncertain shell effects are not replayed after restart.
 00064 | 9. Presentation failure does not kill tmux work or falsely claim pane loss.
-00065 | 
+00065 |
 00066 | Requirements and black-box tests are the compatibility surface for these
 ```
 
@@ -256,17 +256,17 @@ Every excerpt is copied from the exact public source commit above. Line numbers 
 
 ```text
 00075 | Engram already does.
-00076 | 
+00076 |
 00077 | ### Terminal attention record: adopt deliberately
-00078 | 
+00078 |
 00079 | The existing BEL plus `[engram:upstream]` record is Engram's natural open
 00080 | producer/consumer boundary. Independent programs can emit it through the PTY
 00081 | without credentials, discovery, or topology.
-00082 | 
+00082 |
 00083 | Keep it one-way, text-only, bounded, best effort, and visibly untrusted. Do not
 00084 | add acknowledgement, sender identity, attachments, typed jobs, guaranteed
 00085 | delivery, or direct routing to nested sessions under the same version.
-00086 | 
+00086 |
 00087 | ### Internal event vocabulary: use sparingly
 ```
 
@@ -277,7 +277,7 @@ Every excerpt is copied from the exact public source commit above. Line numbers 
 
 ```text
 00434 | }
-00435 | 
+00435 |
 00436 | func (a *App) handleUpdate(ctx context.Context, update telegram.Update) string {
 00437 | 	if update.CallbackQuery != nil {
 00438 | 		return a.handleCallback(ctx, *update.CallbackQuery)
@@ -336,7 +336,7 @@ Every excerpt is copied from the exact public source commit above. Line numbers 
 
 ```text
 00551 | }
-00552 | 
+00552 |
 00553 | func (a *App) authorized(msg *telegram.Message) bool {
 00554 | 	if msg.Chat.ID != a.Config.TelegramChatID {
 00555 | 		return false
@@ -346,7 +346,7 @@ Every excerpt is copied from the exact public source commit above. Line numbers 
 00559 | 	}
 00560 | 	return true
 00561 | }
-00562 | 
+00562 |
 ```
 
 
@@ -356,7 +356,7 @@ Every excerpt is copied from the exact public source commit above. Line numbers 
 
 ```text
 00063 | }
-00064 | 
+00064 |
 00065 | func (a *App) startGitHubBroker(ctx context.Context) {
 00066 | 	broker, err := githubauth.Listen(a.Config.GitHubBrokerSocketPath(), a.handleGitHubBrokerRequest)
 00067 | 	if err != nil {
@@ -374,7 +374,7 @@ Every excerpt is copied from the exact public source commit above. Line numbers 
 00079 | 	}()
 00080 | 	_ = a.audit("github.broker", "ready", map[string]any{"socket": a.Config.GitHubBrokerSocketPath()})
 00081 | }
-00082 | 
+00082 |
 00083 | func (a *App) handleGitHubBrokerRequest(ctx context.Context, request githubauth.BrokerRequest) githubauth.BrokerResponse {
 00084 | 	defer githubauth.Zero(request.Passphrase)
 00085 | 	if a.GitHubVault == nil {
@@ -396,7 +396,7 @@ Every excerpt is copied from the exact public source commit above. Line numbers 
 00101 | 	default:
 00102 | 		return githubauth.BrokerResponse{Error: "unsupported GitHub broker action"}
 00103 | 	}
-00104 | 
+00104 |
 00105 | 	if err := a.GitHubVault.Reload(); err != nil {
 00106 | 		return githubauth.BrokerResponse{Error: "reload GitHub App vault: " + err.Error()}
 00107 | 	}
@@ -446,7 +446,7 @@ Every excerpt is copied from the exact public source commit above. Line numbers 
 00151 | 		return githubauth.BrokerResponse{Error: err.Error()}
 00152 | 	}
 00153 | 	defer a.finishGitHubPending(pending)
-00154 | 
+00154 |
 00155 | 	timer := time.NewTimer(time.Until(pending.ExpiresAt))
 00156 | 	defer timer.Stop()
 00157 | 	var approval githubApproval
@@ -476,7 +476,7 @@ Every excerpt is copied from the exact public source commit above. Line numbers 
 00181 | 		_ = a.audit("github.approval", "enrollment_changed", githubAuditRequest(session.ID, request))
 00182 | 		return githubauth.BrokerResponse{Error: err.Error()}
 00183 | 	}
-00184 | 
+00184 |
 00185 | 	privateKey, unlockedApp, err := a.GitHubVault.Unlock(request.App, approval.passphrase)
 00186 | 	if err != nil {
 00187 | 		a.completeGitHubApprovalMessage(pending, "Failed: the GitHub App credential could not be unlocked.")
@@ -511,7 +511,7 @@ Every excerpt is copied from the exact public source commit above. Line numbers 
 
 ```text
 00271 | }
-00272 | 
+00272 |
 00273 | func (a *App) validateGitHubBrokerBinding(ctx context.Context, binding githubauth.Binding) (state.TerminalSession, error) {
 00274 | 	var matched state.TerminalSession
 00275 | 	found := false
@@ -532,7 +532,7 @@ Every excerpt is copied from the exact public source commit above. Line numbers 
 00290 | 	}
 00291 | 	return matched, nil
 00292 | }
-00293 | 
+00293 |
 00294 | func (a *App) validateGitHubBrokerContinuation(ctx context.Context, expected state.TerminalSession, binding githubauth.Binding) error {
 00295 | 	if ctx.Err() != nil {
 00296 | 		return fmt.Errorf("GitHub capability request was canceled")
@@ -546,7 +546,7 @@ Every excerpt is copied from the exact public source commit above. Line numbers 
 00304 | 	}
 00305 | 	return nil
 00306 | }
-00307 | 
+00307 |
 00308 | func (a *App) revokeDiscardedGitHubToken(ctx context.Context, pending githubRevocation, cause error) error {
 00309 | 	if a.GitHubMinter == nil {
 00310 | 		return cause
@@ -560,14 +560,14 @@ Every excerpt is copied from the exact public source commit above. Line numbers 
 00318 | 	}
 00319 | 	return cause
 00320 | }
-00321 | 
+00321 |
 00322 | func githubRevocationForLease(lease githubLease) githubRevocation {
 00323 | 	return githubRevocation{
 00324 | 		Token: lease.Token, SessionID: lease.SessionID, App: lease.Info.App,
 00325 | 		InstallationID: lease.Info.InstallationID, ExpiresAt: lease.Info.ExpiresAt,
 00326 | 	}
 00327 | }
-00328 | 
+00328 |
 00329 | func (a *App) beginGitHubApproval(ctx context.Context, session state.TerminalSession, request githubauth.BrokerRequest, app githubauth.App) (*githubPendingRequest, error) {
 00330 | 	requestID, err := githubRequestID()
 00331 | 	if err != nil {
@@ -614,7 +614,7 @@ Every excerpt is copied from the exact public source commit above. Line numbers 
 00372 | 	}
 00373 | 	a.githubPending[pending.ID] = pending
 00374 | 	a.githubMu.Unlock()
-00375 | 
+00375 |
 00376 | 	message, err := a.Telegram.SendHTMLMessage(ctx, a.Config.TelegramChatID, text, session.AnchorMessageID, telegram.GitHubApprovalMarkup(requestID))
 00377 | 	if err != nil {
 00378 | 		a.finishGitHubPending(pending)
@@ -629,7 +629,7 @@ Every excerpt is copied from the exact public source commit above. Line numbers 
 00387 | 	_ = a.audit("github.approval", "requested", githubAuditRequest(session.ID, request))
 00388 | 	return pending, nil
 00389 | }
-00390 | 
+00390 |
 ```
 
 
@@ -669,7 +669,7 @@ Every excerpt is copied from the exact public source commit above. Line numbers 
 00095 | 	_ = a.audit("github.grant", "created", fields)
 00096 | 	return githubauth.BrokerResponse{OK: true, Grants: []githubauth.GrantInfo{copyGitHubGrantInfo(grant.Info)}}
 00097 | }
-00098 | 
+00098 |
 ```
 
 
@@ -679,7 +679,7 @@ Every excerpt is copied from the exact public source commit above. Line numbers 
 
 ```text
 00054 | }
-00055 | 
+00055 |
 00056 | func (a *App) sendReplyInput(ctx context.Context, expected state.TerminalSession, chatID int64, messageID int, text string) actionResult {
 00057 | 	sessionLock := a.sessionMutex(expected.ID)
 00058 | 	sessionLock.Lock()
@@ -696,7 +696,7 @@ Every excerpt is copied from the exact public source commit above. Line numbers 
 00069 | 	sessionLock.Unlock()
 00070 | 	return a.finishInput(ctx, expected.ID, completion)
 00071 | }
-00072 | 
+00072 |
 00073 | type inputCompletion struct {
 00074 | 	result         actionResult
 00075 | 	anchorNotice   string
@@ -705,7 +705,7 @@ Every excerpt is copied from the exact public source commit above. Line numbers 
 00078 | 	identityError  error
 00079 | 	refresh        bool
 00080 | }
-00081 | 
+00081 |
 00082 | // sendInputExpectedLocked performs terminal and state work while the caller
 00083 | // owns sessionMutex(id). It deliberately defers every anchor effect so callers
 00084 | // may also hold anchorMutex(id) in the established session-then-anchor order.
@@ -787,7 +787,7 @@ Every excerpt is copied from the exact public source commit above. Line numbers 
 00160 | 	}
 00161 | 	return inputCompletion{result: actionResult{Outcome: actionOK, Message: "sent"}, refresh: true}
 00162 | }
-00163 | 
+00163 |
 00164 | func (a *App) finishInput(ctx context.Context, id int, completion inputCompletion) actionResult {
 00165 | 	if completion.identityError != nil {
 00166 | 		a.recordIdentityLoss(ctx, completion.identitySource, completion.identityError)
@@ -806,7 +806,7 @@ Every excerpt is copied from the exact public source commit above. Line numbers 
 00179 | 	}
 00180 | 	return completion.result
 00181 | }
-00182 | 
+00182 |
 ```
 
 
@@ -816,7 +816,7 @@ Every excerpt is copied from the exact public source commit above. Line numbers 
 
 ```text
 00236 | }
-00237 | 
+00237 |
 00238 | func (a *App) conversationalSummary(ctx context.Context, session state.TerminalSession, capture tmux.StyledCapture, presentationText string, contexts ...codexContextSnapshot) (string, []string, conversationTurn, error) {
 00239 | 	historical := codexContextSnapshot{}
 00240 | 	if len(contexts) > 0 {
@@ -850,7 +850,7 @@ Every excerpt is copied from the exact public source commit above. Line numbers 
 00268 | 	result.Text = a.redactText(result.Text)
 00269 | 	return result.Text, result.Evidence, turn, nil
 00270 | }
-00271 | 
+00271 |
 00272 | func (a *App) snapshotConversationalSummary(ctx context.Context, session state.TerminalSession, anchorMessageID int, presentationText string, contexts ...codexContextSnapshot) (string, error) {
 00273 | 	if !acquireSlot(ctx, a.guideSlots) {
 00274 | 		return "", ctx.Err()
@@ -881,7 +881,7 @@ Every excerpt is copied from the exact public source commit above. Line numbers 
 00299 | 	}
 00300 | 	return a.redactText(summary), nil
 00301 | }
-00302 | 
+00302 |
 ```
 
 
@@ -891,7 +891,7 @@ Every excerpt is copied from the exact public source commit above. Line numbers 
 
 ```text
 00187 | }
-00188 | 
+00188 |
 00189 | func ValidateToken(token Token, requestedRepositories []string, requestedPermissions map[string]string, now time.Time) error {
 00190 | 	if strings.TrimSpace(token.Value) == "" || !token.ExpiresAt.After(now) {
 00191 | 		return fmt.Errorf("GitHub returned an invalid installation token")
@@ -921,7 +921,7 @@ Every excerpt is copied from the exact public source commit above. Line numbers 
 00215 | 	}
 00216 | 	return nil
 00217 | }
-00218 | 
+00218 |
 ```
 
 
@@ -931,13 +931,13 @@ Every excerpt is copied from the exact public source commit above. Line numbers 
 
 ```text
 00026 | )
-00027 | 
+00027 |
 00028 | type Binding struct {
 00029 | 	ServerID string `json:"server_id"`
 00030 | 	WindowID string `json:"window_id"`
 00031 | 	PaneID   string `json:"pane_id"`
 00032 | }
-00033 | 
+00033 |
 00034 | type BrokerRequest struct {
 00035 | 	Version        int               `json:"version"`
 00036 | 	Action         string            `json:"action"`
@@ -952,7 +952,7 @@ Every excerpt is copied from the exact public source commit above. Line numbers 
 00045 | 	GrantFor       time.Duration     `json:"grant_for,omitempty"`
 00046 | 	Purpose        string            `json:"purpose,omitempty"`
 00047 | }
-00048 | 
+00048 |
 00049 | type LeaseInfo struct {
 00050 | 	App            string            `json:"app"`
 00051 | 	InstallationID int64             `json:"installation_id"`
@@ -962,7 +962,7 @@ Every excerpt is copied from the exact public source commit above. Line numbers 
 00055 | 	GrantID        string            `json:"grant_id,omitempty"`
 00056 | 	Generation     uint64            `json:"generation,omitempty"`
 00057 | }
-00058 | 
+00058 |
 00059 | type GrantInfo struct {
 00060 | 	ID             string            `json:"id"`
 00061 | 	App            string            `json:"app"`
@@ -973,7 +973,7 @@ Every excerpt is copied from the exact public source commit above. Line numbers 
 00066 | 	CreatedAt      time.Time         `json:"created_at"`
 00067 | 	ExpiresAt      time.Time         `json:"expires_at"`
 00068 | }
-00069 | 
+00069 |
 00070 | type BrokerResponse struct {
 ```
 
@@ -981,7 +981,7 @@ Every excerpt is copied from the exact public source commit above. Line numbers 
 
 ```text
 00090 | }
-00091 | 
+00091 |
 00092 | func (r BrokerRequest) Validate() error {
 00093 | 	if r.Version != ProtocolVersion {
 00094 | 		return fmt.Errorf("unsupported GitHub broker protocol version")
@@ -1063,7 +1063,7 @@ Every excerpt is copied from the exact public source commit above. Line numbers 
 00170 | 	}
 00171 | 	return nil
 00172 | }
-00173 | 
+00173 |
 ```
 
 
@@ -1073,7 +1073,7 @@ Every excerpt is copied from the exact public source commit above. Line numbers 
 
 ```text
 00034 | )
-00035 | 
+00035 |
 00036 | type State struct {
 00037 | 	Version                     int                `json:"version"`
 00038 | 	AnchorMode                  string             `json:"anchor_mode,omitempty"`
@@ -1096,7 +1096,7 @@ Every excerpt is copied from the exact public source commit above. Line numbers 
 00055 | 	PendingRecoveryPlanHash     string             `json:"pending_recovery_plan_hash,omitempty"`
 00056 | 	PendingRecoveryPlanNextPage int                `json:"pending_recovery_plan_next_page,omitempty"`
 00057 | }
-00058 | 
+00058 |
 00059 | type CollapsedShelf struct {
 ```
 
@@ -1104,7 +1104,7 @@ Every excerpt is copied from the exact public source commit above. Line numbers 
 
 ```text
 00108 | }
-00109 | 
+00109 |
 00110 | type TerminalSession struct {
 00111 | 	ID                       int             `json:"id"`
 00112 | 	TmuxSessionName          string          `json:"tmux_session_name"`
@@ -1159,7 +1159,7 @@ Every excerpt is copied from the exact public source commit above. Line numbers 
 00161 | 	AnchorFiles              []string        `json:"-"`
 00162 | 	AnchorFileToken          string          `json:"-"`
 00163 | }
-00164 | 
+00164 |
 00165 | func (s TerminalSession) HasSeenUpstreamSignal(recordID string) bool {
 ```
 
@@ -1167,19 +1167,19 @@ Every excerpt is copied from the exact public source commit above. Line numbers 
 
 ```text
 00368 | }
-00369 | 
+00369 |
 00370 | func (s *Store) Snapshot() State {
 00371 | 	s.mu.Lock()
 00372 | 	defer s.mu.Unlock()
 00373 | 	return cloneState(s.state)
 00374 | }
-00375 | 
+00375 |
 00376 | func (s *Store) Save() error {
 00377 | 	s.mu.Lock()
 00378 | 	defer s.mu.Unlock()
 00379 | 	return s.saveLocked()
 00380 | }
-00381 | 
+00381 |
 00382 | func (s *Store) SetAnchorMode(mode string) error {
 00383 | 	if mode != "guide" && mode != "snapshot" {
 00384 | 		return fmt.Errorf("invalid anchor mode %q", mode)
@@ -1196,7 +1196,7 @@ Every excerpt is copied from the exact public source commit above. Line numbers 
 00395 | 	}
 00396 | 	return nil
 00397 | }
-00398 | 
+00398 |
 ```
 
 
@@ -1206,7 +1206,7 @@ Every excerpt is copied from the exact public source commit above. Line numbers 
 
 ```text
 00090 | }
-00091 | 
+00091 |
 00092 | // Pane identifies a live pane by tmux's immutable server-lifetime IDs.
 00093 | type Pane struct {
 00094 | 	SessionID   string
@@ -1219,7 +1219,7 @@ Every excerpt is copied from the exact public source commit above. Line numbers 
 00101 | 	CurrentPath string
 00102 | 	CurrentCmd  string
 00103 | }
-00104 | 
+00104 |
 00105 | type StyledCapture struct {
 00106 | 	ANSI        string
 00107 | 	Text        string
@@ -1238,7 +1238,7 @@ Every excerpt is copied from the exact public source commit above. Line numbers 
 00120 | 	Title       string
 00121 | 	CurrentPath string
 00122 | }
-00123 | 
+00123 |
 00124 | const paneRecordFormat = "#{n:session_id}:#{session_id}#{n:window_id}:#{window_id}#{n:pane_id}:#{pane_id}#{n:session_name}:#{session_name}#{n:window_index}:#{window_index}#{n:pane_index}:#{pane_index}#{n:pane_active}:#{pane_active}#{n:pane_current_path}:#{pane_current_path}#{n:pane_current_command}:#{pane_current_command}"
 ```
 
@@ -1246,7 +1246,7 @@ Every excerpt is copied from the exact public source commit above. Line numbers 
 
 ```text
 00507 | }
-00508 | 
+00508 |
 00509 | // SendCommandIfBindingMatches keeps each input effect behind a tmux-side
 00510 | // identity condition. A restart between the literal text and Enter can leave
 00511 | // text unsubmitted, but it cannot redirect either effect into a new server.
@@ -1265,7 +1265,7 @@ Every excerpt is copied from the exact public source commit above. Line numbers 
 00524 | 	}
 00525 | 	return m.SendKeysIfBindingMatches(ctx, paneID, windowID, serverID, []string{"Enter"})
 00526 | }
-00527 | 
+00527 |
 00528 | func (m Manager) SendTextIfBindingMatches(ctx context.Context, paneID, windowID, serverID, text string) error {
 00529 | 	if err := validateBindingIDs(paneID, windowID, serverID); err != nil {
 00530 | 		return err
@@ -1287,7 +1287,7 @@ Every excerpt is copied from the exact public source commit above. Line numbers 
 00546 | 	}
 00547 | 	return nil
 00548 | }
-00549 | 
+00549 |
 00550 | func (m Manager) SendKeysIfBindingMatches(ctx context.Context, paneID, windowID, serverID string, keys []string) error {
 00551 | 	if err := validateBindingIDs(paneID, windowID, serverID); err != nil {
 00552 | 		return err
@@ -1301,14 +1301,14 @@ Every excerpt is copied from the exact public source commit above. Line numbers 
 00560 | 	}
 00561 | 	return m.runIfBindingMatches(ctx, paneID, windowID, serverID, strings.Join(parts, " "))
 00562 | }
-00563 | 
+00563 |
 ```
 
 ### Lines 677-776
 
 ```text
 00677 | }
-00678 | 
+00678 |
 00679 | func (m Manager) captureIfBindingMatches(ctx context.Context, paneID, windowID, serverID, command string) (string, error) {
 00680 | 	if err := validateBindingIDs(paneID, windowID, serverID); err != nil {
 00681 | 		return "", err
@@ -1330,7 +1330,7 @@ Every excerpt is copied from the exact public source commit above. Line numbers 
 00697 | 	}
 00698 | 	return out, nil
 00699 | }
-00700 | 
+00700 |
 00701 | func (m Manager) CaptureStyled(ctx context.Context, paneID string, targetRows int) (StyledCapture, error) {
 00702 | 	if targetRows <= 0 || targetRows > 400 {
 00703 | 		return StyledCapture{}, fmt.Errorf("target rows must be between 1 and 400")
@@ -1406,7 +1406,7 @@ Every excerpt is copied from the exact public source commit above. Line numbers 
 00773 | 		CurrentPath: after.CurrentPath,
 00774 | 	}, nil
 00775 | }
-00776 | 
+00776 |
 ```
 
 
@@ -1416,24 +1416,24 @@ Every excerpt is copied from the exact public source commit above. Line numbers 
 
 ```text
 00001 | # Engram Requirements Index
-00002 | 
+00002 |
 00003 | Status: draft but binding for implementation.
-00004 | 
+00004 |
 00005 | Engram keeps requirements small and executable. Each document states runtime
 00006 | contracts that should either be tested directly or checked by `make check`.
 00007 | The requirements documents are the binding source of truth.
-00008 | 
+00008 |
 00009 | ## Foundation
-00010 | 
+00010 |
 00011 | 1. [`telegram.md`](telegram.md) - Telegram command, callback, formatting, and delivery contracts.
 00012 | 2. [`tmux.md`](tmux.md) - tmux target selection, attachment, input, capture, and close behavior.
 00013 | 3. [`reliability.md`](reliability.md) - failure handling, audit evidence, retry/degradation rules.
 00014 | 4. [`security.md`](security.md) - single-user admission, secrets, filesystem, and tmux risk boundaries.
 00015 | 5. [`operations.md`](operations.md) - service lifecycle, systemd, logs, state, and diagnostics.
 00016 | 6. [`upstream-signals.md`](upstream-signals.md) - terminal-native attention signals from nested environments.
-00017 | 
+00017 |
 00018 | ## Executable Checks
-00019 | 
+00019 |
 00020 | - `make test` runs unit and contract tests.
 00021 | - `make architecture` checks package boundaries and required requirement files.
 00022 | - `make public-readiness` checks public-facing repository hygiene.
@@ -1451,18 +1451,18 @@ Every excerpt is copied from the exact public source commit above. Line numbers 
 
 ```text
 00005 | privacy model must stay small and explicit.
-00006 | 
+00006 |
 00007 | ## Identity
-00008 | 
+00008 |
 00009 | - Exactly one Telegram user is authorized.
 00010 | - Exactly one Telegram chat is authorized.
 00011 | - DM-only operation is supported; group operation is out of scope.
 00012 | - Unauthorized messages and callbacks must not mutate tmux, sessions,
 00013 |   attachments, or processed-message state. Poll offsets and a generic bounded
 00014 |   rejection record may advance so rejected updates are not replayed.
-00015 | 
+00015 |
 00016 | ## Secrets
-00017 | 
+00017 |
 00018 | - `.env` files must not be tracked.
 00019 | - Runtime env files must be regular files with no group or other permissions.
 00020 | - Bot tokens and model-provider keys must not appear in tracked files, diagnostics,
@@ -1482,7 +1482,7 @@ Every excerpt is copied from the exact public source commit above. Line numbers 
 00034 |   or all-installation-permissions defaults.
 00035 | - GitHub installation-token responses must be checked against the requested
 00036 |   repository and permission scope before a token reaches a child process.
-00037 | 
+00037 |
 00038 | ## External Data Flow
 ```
 
@@ -1541,6 +1541,6 @@ Every excerpt is copied from the exact public source commit above. Line numbers 
 00042 |   window identity returns. `/attach` is the explicit authority to rebind an old
 00043 |   watch to the selected pane after a tmux restart; it adopts the pane as an
 00044 |   attached window and never inherits destructive close authority.
-00045 | 
+00045 |
 00046 | ## Input
 ```

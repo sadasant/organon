@@ -91,10 +91,10 @@ def build(repo: Path, ontology: Path, project: str, expected_commit: str) -> tup
         sections.extend(["", f"## `{relative}`", ""])
         for start, end in covered:
             sections.extend([f"### Lines {start}-{end}", "", "```text"])
-            sections.extend(
-                f"{number:05d} | {lines[number - 1]}"
-                for number in range(start, end + 1)
-            )
+            for number in range(start, end + 1):
+                source_line = lines[number - 1]
+                separator = " | " if source_line else " |"
+                sections.append(f"{number:05d}{separator}{source_line}")
             sections.extend(["```", ""])
     return "\n".join(sections).rstrip() + "\n", index
 
