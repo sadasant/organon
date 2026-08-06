@@ -41,4 +41,3 @@ def write_projection(path: Path | None, value: str) -> None:
         raise FileExistsError(f"refusing to overwrite projection: {path}")
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(value, encoding="utf-8")
-

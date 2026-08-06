@@ -116,4 +116,3 @@ To improve another project later:
 The transferable muscle is not “ask a model to rewrite the README.” It is the
 ability to preserve identity, separate kinds of judgment, and show exactly why
 the proposed artifact deserves a maintainer's attention.
-

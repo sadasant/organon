@@ -36,4 +36,3 @@ def test_target_selection_is_exact():
         ROOT / "inputs" / "targets.json", "kenogram-project-ontology"
     )
     assert target["project"] == "Kenogram"
-

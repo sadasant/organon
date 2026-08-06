@@ -12,4 +12,3 @@ dependencies = [
 [tool.pytest.ini_options]
 addopts = "-q"
 testpaths = ["tests", "essay-questions/tests", "editorial-artifacts/tests", "project-ontologies/tests"]
-

@@ -1,0 +1,1865 @@
+{
+  "schema_version": 1,
+  "run": {
+    "evaluation": "essay-question-judgments",
+    "generated_at": "2026-08-05T04:05:39+00:00",
+    "judge_model": "gpt-5.6-luna",
+    "judge_reasoning_effort": "high",
+    "dspy_version": "3.3.0",
+    "litellm_version": "1.91.4",
+    "python_version": "3.12.9",
+    "source_result": "gpt-5.6-luna-2026-08-05-answer-form-v0.1-complete.json",
+    "source_result_sha256": "7ab033c20fccface3e0ce18afe39e018b449b9483b1f4ca461799053a89ce7ca",
+    "ontology_sha256": "81c03318a3bc2b07cc3a7a9949c3da54dd885320b2f3ec246f4c5498d5cbcde1",
+    "answer_form_sha256": "7547b6d405747b8308cffdab43f1bbce14703c3b5593a65cca25c96bfadd6332",
+    "question_count": 40,
+    "expected_question_count": 40,
+    "selection_sha256": null,
+    "passed_count": 34,
+    "revision_count": 6,
+    "reused_judgment_count": 0,
+    "rejudged_count": 40,
+    "baseline_evaluation": null,
+    "baseline_evaluation_sha256": null,
+    "complete": true,
+    "passed": false
+  },
+  "essays": [
+    {
+      "title": "Priced as If the Ledger Exists",
+      "essay_file": "2025/12 December/Priced as If the Ledger Exists/Priced as If the Ledger Exists.md",
+      "judgments": [
+        {
+          "question_id": "PL-1",
+          "passed": true,
+          "deterministic": {
+            "passed": true,
+            "word_count": 81,
+            "sentence_count": 3,
+            "checks": {
+              "known_disposition": true,
+              "answer_word_range_30_110": true,
+              "answer_sentence_range_2_5": true,
+              "has_locatable_anchor": true,
+              "has_limitation": true,
+              "has_interlocutor_background": true,
+              "has_interlocutor_purpose": true,
+              "has_interlocutor_evidence": true,
+              "has_stopping_condition": true,
+              "known_interlocutor_confidence": true,
+              "has_question_and_pressure": true
+            }
+          },
+          "ontology": {
+            "question_id": "PL-1",
+            "term_fidelity": 4,
+            "anti_collapse_discipline": 4,
+            "epistemic_discipline": 4,
+            "source_grounding": 4,
+            "critical_violations": [],
+            "evidence": "The answer accurately frames the ledger as recording “the sequence of steps, who made decisions or changes, exceptions and workarounds,” and connects this to the essay’s discussions of undocumented work, role requirements, and forward-looking definitions of performance. Its closing statement that the essay “does not define a complete minimum schema” preserves the essay’s limits.",
+            "revision": "Retain the qualification that this is an implied and incomplete schema. If “legitimate” is intended institutionally, clarify that the essay does not specify the Order, Rule, Standing, or validation chain that would establish legitimacy in the ontology’s technical sense."
+          },
+          "editorial": {
+            "question_id": "PL-1",
+            "responsiveness": 4,
+            "interlocutor_fit": 4,
+            "proportionality": 4,
+            "necessary_bridge": 4,
+            "epistemic_boundary": 4,
+            "stopping_discipline": 4,
+            "critical_violations": [],
+            "evidence": "The answer states the needed expansion immediately: “record work as a process, not merely its inventory or result,” then specifies “the sequence of steps,” decisions, exceptions, responsibilities, effects, and role requirements. It pays the definition question while explicitly limiting the claim: “The essay does not define a complete minimum schema or a final test for legitimacy.”",
+            "revision": "No substantive revision is needed. If tightened, make the organizing distinction explicit in the final sentence: these dimensions make the ledger a process-and-context account, not yet a validated minimum schema."
+          }
+        },
+        {
+          "question_id": "PL-2",
+          "passed": true,
+          "deterministic": {
+            "passed": true,
+            "word_count": 102,
+            "sentence_count": 3,
+            "checks": {
+              "known_disposition": true,
+              "answer_word_range_30_110": true,
+              "answer_sentence_range_2_5": true,
+              "has_locatable_anchor": true,
+              "has_limitation": true,
+              "has_interlocutor_background": true,
+              "has_interlocutor_purpose": true,
+              "has_interlocutor_evidence": true,
+              "has_stopping_condition": true,
+              "known_interlocutor_confidence": true,
+              "has_question_and_pressure": true
+            }
+          },
+          "ontology": {
+            "question_id": "PL-2",
+            "term_fidelity": 4,
+            "anti_collapse_discipline": 4,
+            "epistemic_discipline": 4,
+            "source_grounding": 4,
+            "critical_violations": [],
+            "evidence": "The answer directly tracks “code, requirements, tests, builds, and deployment histories” against tacit knowledge, “side channels, exceptions, and undocumented judgment.” It also correctly distinguishes Iceberg’s “technical skill overlap” from “realized productivity gains” and limits the transfer examples to software engineering and narrow deployments such as payment-validation bots.",
+            "revision": "Keep the distinction between technical capability or overlap and demonstrated productivity. Describe payment-validation bots as deployment examples rather than established evidence of successful, general productivity transfer."
+          },
+          "editorial": {
+            "question_id": "PL-2",
+            "responsiveness": 4,
+            "interlocutor_fit": 4,
+            "proportionality": 4,
+            "necessary_bridge": 4,
+            "epistemic_boundary": 4,
+            "stopping_discipline": 4,
+            "critical_violations": [],
+            "evidence": "The answer gives the causal bridge early: software leaves “unusually rich, machine-readable traces,” whereas other functions rely on “tacit knowledge, side channels, exceptions, and undocumented judgment.” It names the limited transfer cases—“software engineering and ... narrow deployments such as payment-validation bots”—and correctly limits the Iceberg evidence: it “does not establish that overlap as realized productivity gains.”",
+            "revision": "No substantive revision is needed. A minor clarification could state even more plainly that payment validation is the essay’s narrow non-general case, not evidence of broad transfer across corporate functions."
+          }
+        },
+        {
+          "question_id": "PL-3",
+          "passed": true,
+          "deterministic": {
+            "passed": true,
+            "word_count": 87,
+            "sentence_count": 3,
+            "checks": {
+              "known_disposition": true,
+              "answer_word_range_30_110": true,
+              "answer_sentence_range_2_5": true,
+              "has_locatable_anchor": true,
+              "has_limitation": true,
+              "has_interlocutor_background": true,
+              "has_interlocutor_purpose": true,
+              "has_interlocutor_evidence": true,
+              "has_stopping_condition": true,
+              "known_interlocutor_confidence": true,
+              "has_question_and_pressure": true
+            }
+          },
+          "ontology": {
+            "question_id": "PL-3",
+            "term_fidelity": 4,
+            "anti_collapse_discipline": 4,
+            "epistemic_discipline": 4,
+            "source_grounding": 4,
+            "critical_violations": [],
+            "evidence": "The answer identifies the proposed marginal visibility as “the process between input and booked outcome: the sequence, actors, decisions, exceptions, permissions, costs, skills involved, and resulting effects,” matching the essay’s contrast between output ledgers and records of “how or by whom” work occurred. It explicitly concedes that the essay “never analyzes process-mining tools” or establishes what audit systems cannot reconstruct.",
+            "revision": "Preserve the conditional framing: the essay proposes this additional visibility but does not prove that existing process-mining or audit systems lack it. Avoid presenting the listed dimensions as the essay’s completed minimal schema."
+          },
+          "editorial": {
+            "question_id": "PL-3",
+            "responsiveness": 4,
+            "interlocutor_fit": 4,
+            "proportionality": 4,
+            "necessary_bridge": 3,
+            "epistemic_boundary": 4,
+            "stopping_discipline": 4,
+            "critical_violations": [],
+            "evidence": "The answer identifies the proposed marginal visibility as “the process between input and booked outcome,” including sequence, actors, decisions, exceptions, permissions, skills, and effects. It also directly acknowledges the unresolved comparison: “it never analyzes process-mining tools or specifies exactly what audit systems cannot already reconstruct.” This is an appropriate boundary, though it leaves the mechanism of non-overlap underdeveloped because the essay itself does.",
+            "revision": "Add one sentence distinguishing the proposed ledger from process-mining or audit only provisionally—for example: the essay suggests richer responsibility and judgment context, but supplies no evidence that existing tools cannot already capture those dimensions."
+          }
+        },
+        {
+          "question_id": "PL-4",
+          "passed": true,
+          "deterministic": {
+            "passed": true,
+            "word_count": 82,
+            "sentence_count": 3,
+            "checks": {
+              "known_disposition": true,
+              "answer_word_range_30_110": true,
+              "answer_sentence_range_2_5": true,
+              "has_locatable_anchor": true,
+              "has_limitation": true,
+              "has_interlocutor_background": true,
+              "has_interlocutor_purpose": true,
+              "has_interlocutor_evidence": true,
+              "has_stopping_condition": true,
+              "known_interlocutor_confidence": true,
+              "has_question_and_pressure": true
+            }
+          },
+          "ontology": {
+            "question_id": "PL-4",
+            "term_fidelity": 4,
+            "anti_collapse_discipline": 4,
+            "epistemic_discipline": 4,
+            "source_grounding": 4,
+            "critical_violations": [],
+            "evidence": "The answer accurately uses Amazon and Wells Fargo to show how systematic records can encode bias or reward the wrong behavior, while its proposed safeguard—“record actual, legitimate work” and preserve “exceptions and informal repair”—fits the essay’s warnings about thin, distorted maps. It correctly states that privacy, access, retention, consent, anti-surveillance limits, and representation of care and judgment are not supplied by the essay.",
+            "revision": "Clarify that preserving informal care and judgment is an implied design aim, not an ethical safeguard established by the essay. Keep the explicit statement that the essay offers no privacy, consent, access, or anti-surveillance framework."
+          },
+          "editorial": {
+            "question_id": "PL-4",
+            "responsiveness": 4,
+            "interlocutor_fit": 4,
+            "proportionality": 4,
+            "necessary_bridge": 3,
+            "epistemic_boundary": 4,
+            "stopping_discipline": 4,
+            "critical_violations": [],
+            "evidence": "The answer offers the essay’s actual safeguard—“record actual, legitimate work rather than treating past outcomes, quotas, or headline metrics as the work itself”—and uses the Amazon and Wells Fargo examples to explain how systematic legibility can encode bias or reward the wrong behavior. It then clearly states the remainder: “privacy, access, retention, consent, anti-surveillance limits, or how care and judgment should be represented” are unspecified.",
+            "revision": "Make the answer’s practical conclusion slightly sharper: on the essay’s evidence, the ledger cannot yet avoid surveillance or metric gaming; it can only avoid some distortions by preserving exceptions and refusing to equate outputs with work."
+          }
+        }
+      ]
+    },
+    {
+      "title": "The Depth Behind the Simplest Rules",
+      "essay_file": "2026/01 January/The Depth Behind the Simplest Rules A Chronicle of Prime Numbers/The Depth Behind the Simplest Rules A Chronicle of Prime Numbers.md",
+      "judgments": [
+        {
+          "question_id": "DP-1",
+          "passed": true,
+          "deterministic": {
+            "passed": true,
+            "word_count": 80,
+            "sentence_count": 3,
+            "checks": {
+              "known_disposition": true,
+              "answer_word_range_30_110": true,
+              "answer_sentence_range_2_5": true,
+              "has_locatable_anchor": true,
+              "has_limitation": true,
+              "has_interlocutor_background": true,
+              "has_interlocutor_purpose": true,
+              "has_interlocutor_evidence": true,
+              "has_stopping_condition": true,
+              "known_interlocutor_confidence": true,
+              "has_question_and_pressure": true
+            }
+          },
+          "ontology": {
+            "question_id": "DP-1",
+            "term_fidelity": 4,
+            "anti_collapse_discipline": 4,
+            "epistemic_discipline": 4,
+            "source_grounding": 4,
+            "critical_violations": [],
+            "evidence": "The answer accurately frames the essay as a “cumulative change of viewpoint” while qualifying it as “a retrospective synthesis” rather than a demonstrated continuous program. Its examples—Diophantus’s local puzzles, Dirichlet’s disruption of Euler’s multiplicative structure, Riemann’s reformulation, and war and institutional redirection—are grounded in the essay’s sections and preserve the essay’s acknowledged discontinuities.",
+            "revision": "No material revision required."
+          },
+          "editorial": {
+            "question_id": "DP-1",
+            "responsiveness": 4,
+            "interlocutor_fit": 4,
+            "proportionality": 4,
+            "necessary_bridge": 4,
+            "epistemic_boundary": 4,
+            "stopping_discipline": 4,
+            "critical_violations": [],
+            "evidence": "The answer states its position immediately: “The chronicle supports a cumulative change of viewpoint as its governing interpretation, not as a demonstrated single historical program.” It then supplies the necessary discontinuities—Diophantus, Dirichlet, Riemann, and institutional change—and closes by distinguishing “retrospective synthesis” from a comprehensive historiography.",
+            "revision": "No substantive revision is needed. For slightly sharper closure, replace “smoothing over” with “does not test against” if the aim is to avoid implying that the chronicle deliberately suppresses those rival programs."
+          }
+        },
+        {
+          "question_id": "DP-2",
+          "passed": true,
+          "deterministic": {
+            "passed": true,
+            "word_count": 77,
+            "sentence_count": 3,
+            "checks": {
+              "known_disposition": true,
+              "answer_word_range_30_110": true,
+              "answer_sentence_range_2_5": true,
+              "has_locatable_anchor": true,
+              "has_limitation": true,
+              "has_interlocutor_background": true,
+              "has_interlocutor_purpose": true,
+              "has_interlocutor_evidence": true,
+              "has_stopping_condition": true,
+              "known_interlocutor_confidence": true,
+              "has_question_and_pressure": true
+            }
+          },
+          "ontology": {
+            "question_id": "DP-2",
+            "term_fidelity": 4,
+            "anti_collapse_discipline": 4,
+            "epistemic_discipline": 4,
+            "source_grounding": 4,
+            "critical_violations": [],
+            "evidence": "The answer precisely distinguishes “dated theorem milestones, named papers, Gauss’s and Riemann’s quoted texts, and cited publications” from claims about what figures “felt, wanted, or ‘must have’ imagined.” It also correctly identifies “Knowledge capitalism,” “one of the first social networks,” and the recurring game frame as literary compression, while noting that citations do not document every motive or generalization.",
+            "revision": "No material revision required."
+          },
+          "editorial": {
+            "question_id": "DP-2",
+            "responsiveness": 4,
+            "interlocutor_fit": 4,
+            "proportionality": 4,
+            "necessary_bridge": 3,
+            "epistemic_boundary": 4,
+            "stopping_discipline": 4,
+            "critical_violations": [],
+            "evidence": "The answer cleanly assigns registers: “dated theorem milestones, named papers” to documentary history; claims about what figures “felt, wanted, or ‘must have’ imagined” to reconstruction; and “Knowledge capitalism,” “one of the first social networks,” and the “game” frame to literary compression. Its final sentence appropriately limits the claim: citations “do not by themselves document every motive, scene, or historical generalization.”",
+            "revision": "Add one concrete scene or motivation to each category, if the underlying essay makes that possible. This would answer “which scenes” more specifically without expanding the general methodological qualification."
+          }
+        },
+        {
+          "question_id": "DP-3",
+          "passed": true,
+          "deterministic": {
+            "passed": true,
+            "word_count": 105,
+            "sentence_count": 4,
+            "checks": {
+              "known_disposition": true,
+              "answer_word_range_30_110": true,
+              "answer_sentence_range_2_5": true,
+              "has_locatable_anchor": true,
+              "has_limitation": true,
+              "has_interlocutor_background": true,
+              "has_interlocutor_purpose": true,
+              "has_interlocutor_evidence": true,
+              "has_stopping_condition": true,
+              "known_interlocutor_confidence": true,
+              "has_question_and_pressure": true
+            }
+          },
+          "ontology": {
+            "question_id": "DP-3",
+            "term_fidelity": 4,
+            "anti_collapse_discipline": 4,
+            "epistemic_discipline": 4,
+            "source_grounding": 4,
+            "critical_violations": [],
+            "evidence": "The answer accurately extracts the essay’s implied requirements: a spectral framework forcing the relevant spectrum onto the critical line, an explicit- or trace-formula correspondence connecting primes and spectral or geometric data, and structural positivity, completeness, or stability. It explicitly refuses to treat analogy or definition as proof: “otherwise ‘by definition’ only renames the Hypothesis,” and states that the essay supplies a research program rather than the construction or existence proof.",
+            "revision": "No material revision required."
+          },
+          "editorial": {
+            "question_id": "DP-3",
+            "responsiveness": 4,
+            "interlocutor_fit": 4,
+            "proportionality": 3,
+            "necessary_bridge": 4,
+            "epistemic_boundary": 4,
+            "stopping_discipline": 4,
+            "critical_violations": [],
+            "evidence": "The answer gives the required properties early and concretely: the framework must place the zeros in a spectrum “forced onto the critical line,” connect primes through an “explicit-formula or trace-formula correspondence,” and make relevant structural properties non-accidental. It also states the decisive boundary: “The essay offers these constraints as a research program, not the operator, space, or existence proof itself.”",
+            "revision": "Trim or consolidate the middle list of “positivity, completeness, or stability” unless each property is explicitly grounded in the essay. A tighter version could say that the framework needs a proved spectral correspondence and a structural condition forcing the critical-line conclusion."
+          }
+        },
+        {
+          "question_id": "DP-4",
+          "passed": false,
+          "deterministic": {
+            "passed": true,
+            "word_count": 94,
+            "sentence_count": 3,
+            "checks": {
+              "known_disposition": true,
+              "answer_word_range_30_110": true,
+              "answer_sentence_range_2_5": true,
+              "has_locatable_anchor": true,
+              "has_limitation": true,
+              "has_interlocutor_background": true,
+              "has_interlocutor_purpose": true,
+              "has_interlocutor_evidence": true,
+              "has_stopping_condition": true,
+              "known_interlocutor_confidence": true,
+              "has_question_and_pressure": true
+            }
+          },
+          "ontology": {
+            "question_id": "DP-4",
+            "term_fidelity": 3,
+            "anti_collapse_discipline": 3,
+            "epistemic_discipline": 4,
+            "source_grounding": 4,
+            "critical_violations": [
+              "The answer treats an Invariant as a general requirement for a Transformation, whereas the ontology defines Transformation as a Relation mapping an input State to an output State under a Direction; Invariant and Persistence are specifically required for Entity identity, not for every Transformation."
+            ],
+            "evidence": "The answer usefully distinguishes an operation with an input and mathematical result from the opening and coda’s conceptual “change position” metaphor, and its examples accurately track the essay: Dirichlet’s filter discriminates residue classes, Riemann’s contour deformation yields residues, and Chebyshev changes the analyzable object. However, it does not state the binding Transformation criterion in terms of input and output States ordered by a Direction, and its final appeal to an “invariant” overstates what that criterion requires.",
+            "revision": "Define the formal threshold as a Relation mapping an input State to an output State under a Direction. Treat an Invariant and Persistence witness as necessary only when the argument also claims identity through change; otherwise describe the examples as mathematical operations or Transformations without making Invariant a universal requirement."
+          },
+          "editorial": {
+            "question_id": "DP-4",
+            "responsiveness": 4,
+            "interlocutor_fit": 4,
+            "proportionality": 4,
+            "necessary_bridge": 3,
+            "epistemic_boundary": 4,
+            "stopping_discipline": 4,
+            "critical_violations": [],
+            "evidence": "The answer supplies an operational criterion—“an operation, its input, the changed representation or coordinate, and a mathematical consequence”—and applies it to the roots-of-unity filter, contour deformation, and logarithmic weighting. It also marks the boundary between formal and metaphorical use by contrasting those examples with the opening and coda, then acknowledges that the test is “inferred from its examples.”",
+            "revision": "Make the criterion slightly more discriminating by naming what remains invariant in at least one example. For instance, specify that the roots-of-unity filter preserves an exact summation identity while isolating residue classes; this would separate a genuine transformation from any merely useful re-description."
+          }
+        }
+      ]
+    },
+    {
+      "title": "Epistemic Capture",
+      "essay_file": "2026/02 February/Epistemic Capture/Epistemic Capture.md",
+      "judgments": [
+        {
+          "question_id": "EC-1",
+          "passed": true,
+          "deterministic": {
+            "passed": true,
+            "word_count": 77,
+            "sentence_count": 3,
+            "checks": {
+              "known_disposition": true,
+              "answer_word_range_30_110": true,
+              "answer_sentence_range_2_5": true,
+              "has_locatable_anchor": true,
+              "has_limitation": true,
+              "has_interlocutor_background": true,
+              "has_interlocutor_purpose": true,
+              "has_interlocutor_evidence": true,
+              "has_stopping_condition": true,
+              "known_interlocutor_confidence": true,
+              "has_question_and_pressure": true
+            }
+          },
+          "ontology": {
+            "question_id": "EC-1",
+            "term_fidelity": 4,
+            "anti_collapse_discipline": 4,
+            "epistemic_discipline": 4,
+            "source_grounding": 4,
+            "critical_violations": [],
+            "evidence": "The answer accurately identifies a structural mechanism: “credibility signals become detached from grounding” while “the surrounding room protects the resulting object by making challenge socially irrelevant.” It also preserves the essay’s distinction from fraud or simple error and explicitly limits itself by noting that the essay “does not supply criteria that cleanly separate” neighboring phenomena.",
+            "revision": "No substantive revision needed. The answer is unusually exact and appropriately avoids attributing a complete taxonomy to the essay."
+          },
+          "editorial": {
+            "question_id": "EC-1",
+            "responsiveness": 4,
+            "interlocutor_fit": 4,
+            "proportionality": 4,
+            "necessary_bridge": 4,
+            "epistemic_boundary": 4,
+            "stopping_discipline": 4,
+            "critical_violations": [],
+            "evidence": "The answer states the distinction early: \"capture occurs when credibility signals become detached from grounding and the surrounding room protects the resulting object by making challenge socially irrelevant.\" It directly contrasts capture with \"fraud, bad faith, or simple error,\" acknowledges overlap with \"groupthink and motivated reasoning,\" and stops by admitting that the essay \"does not supply criteria that cleanly separate them.\"",
+            "revision": "No substantive revision is required. If greater precision were needed, add one brief clause explaining how institutional necessity can coexist with capture without being identical to it."
+          }
+        },
+        {
+          "question_id": "EC-2",
+          "passed": true,
+          "deterministic": {
+            "passed": true,
+            "word_count": 84,
+            "sentence_count": 3,
+            "checks": {
+              "known_disposition": true,
+              "answer_word_range_30_110": true,
+              "answer_sentence_range_2_5": true,
+              "has_locatable_anchor": true,
+              "has_limitation": true,
+              "has_interlocutor_background": true,
+              "has_interlocutor_purpose": true,
+              "has_interlocutor_evidence": true,
+              "has_stopping_condition": true,
+              "known_interlocutor_confidence": true,
+              "has_question_and_pressure": true
+            }
+          },
+          "ontology": {
+            "question_id": "EC-2",
+            "term_fidelity": 4,
+            "anti_collapse_discipline": 4,
+            "epistemic_discipline": 4,
+            "source_grounding": 4,
+            "critical_violations": [],
+            "evidence": "The answer directly preserves the essay’s causal asymmetry: “the cost of a wrong answer arrives later,” while visible uncertainty “threatens legitimacy, slows the agenda, or requires costly escalation.” It also avoids collapsing action into knowledge by stating that “Institutions can act while naming uncertainty.” Its reference to the room wanting “K and control” is faithful to the Coda’s account.",
+            "revision": "No substantive revision needed. “Performed knowledge” and “K” are used as essay-level language rather than promoted into a technical ontology term."
+          },
+          "editorial": {
+            "question_id": "EC-2",
+            "responsiveness": 4,
+            "interlocutor_fit": 3,
+            "proportionality": 4,
+            "necessary_bridge": 4,
+            "epistemic_boundary": 4,
+            "stopping_discipline": 4,
+            "critical_violations": [],
+            "evidence": "The answer makes the required distinction immediately: \"proceeding does not by itself produce performed knowledge.\" It then supplies the mechanism—uncertainty threatens \"legitimacy,\" \"slows the agenda,\" and creates \"costly escalation,\" while error arrives later—and preserves the possibility that institutions can \"act while naming uncertainty.\"",
+            "revision": "Replace the slightly opaque phrases \"the room’s feeling that its container still holds\" and \"wants K and control\" with ordinary language such as \"the appearance that the decision remains under control.\""
+          }
+        },
+        {
+          "question_id": "EC-3",
+          "passed": true,
+          "deterministic": {
+            "passed": true,
+            "word_count": 85,
+            "sentence_count": 3,
+            "checks": {
+              "known_disposition": true,
+              "answer_word_range_30_110": true,
+              "answer_sentence_range_2_5": true,
+              "has_locatable_anchor": true,
+              "has_limitation": true,
+              "has_interlocutor_background": true,
+              "has_interlocutor_purpose": true,
+              "has_interlocutor_evidence": true,
+              "has_stopping_condition": true,
+              "known_interlocutor_confidence": true,
+              "has_question_and_pressure": true
+            }
+          },
+          "ontology": {
+            "question_id": "EC-3",
+            "term_fidelity": 4,
+            "anti_collapse_discipline": 4,
+            "epistemic_discipline": 4,
+            "source_grounding": 4,
+            "critical_violations": [],
+            "evidence": "The proposed signs track the essay closely: “precise, fluent recommendations without corresponding access,” challenge being met by recasting someone as “slowing things down or being misaligned,” and an unverified object moving rapidly into “plans, budgets, or hiring.” The answer explicitly distinguishes warning signs from proof: “their presence would not by itself establish capture.”",
+            "revision": "No substantive revision needed. The caveat that these are not a validated diagnostic procedure is especially important for maintaining epistemic discipline."
+          },
+          "editorial": {
+            "question_id": "EC-3",
+            "responsiveness": 4,
+            "interlocutor_fit": 4,
+            "proportionality": 4,
+            "necessary_bridge": 4,
+            "epistemic_boundary": 3,
+            "stopping_discipline": 4,
+            "critical_violations": [],
+            "evidence": "The answer gives three usable in-room signs: \"precise, fluent recommendations without corresponding access, evidence, or an escalation path,\" challenge being recast as obstruction, and an \"unverified object\" moving rapidly into \"plans, budgets, or hiring.\" Calling them signs and warnings avoids a categorical diagnosis, but the visible answer does not explicitly state that they may also result from ordinary pressure or error.",
+            "revision": "Add one final sentence: \"These signs justify slowing down and testing the claim; they do not by themselves prove capture rather than ordinary error or institutional pressure.\""
+          }
+        },
+        {
+          "question_id": "EC-4",
+          "passed": true,
+          "deterministic": {
+            "passed": true,
+            "word_count": 55,
+            "sentence_count": 3,
+            "checks": {
+              "known_disposition": true,
+              "answer_word_range_30_110": true,
+              "answer_sentence_range_2_5": true,
+              "has_locatable_anchor": true,
+              "has_limitation": true,
+              "has_interlocutor_background": true,
+              "has_interlocutor_purpose": true,
+              "has_interlocutor_evidence": true,
+              "has_stopping_condition": true,
+              "known_interlocutor_confidence": true,
+              "has_question_and_pressure": true
+            }
+          },
+          "ontology": {
+            "question_id": "EC-4",
+            "term_fidelity": 4,
+            "anti_collapse_discipline": 4,
+            "epistemic_discipline": 4,
+            "source_grounding": 4,
+            "critical_violations": [],
+            "evidence": "The answer correctly states that “The essay does not provide such a procedure,” while accurately listing its partial safeguards: “canonical retrieval, grounding, provenance, escalation, and human staffing.” It also correctly identifies the unresolved boundary: the essay never specifies how to authorize action under uncertainty without allowing confidence, status, or narrative closure to function as proof.",
+            "revision": "No substantive revision needed. The answer correctly stops at the essay’s stated limit rather than inventing a governance protocol or attributing one to Daniel."
+          },
+          "editorial": {
+            "question_id": "EC-4",
+            "responsiveness": 4,
+            "interlocutor_fit": 4,
+            "proportionality": 4,
+            "necessary_bridge": 4,
+            "epistemic_boundary": 4,
+            "stopping_discipline": 4,
+            "critical_violations": [],
+            "evidence": "The answer directly gives the disposition: \"The essay does not provide such a procedure.\" It identifies the available safeguards—\"canonical retrieval, grounding, provenance, escalation, and human staffing\"—and clearly names the missing design: how to authorize action under uncertainty without treating confidence, status, or closure as proof. It ends at the stated boundary: \"That governance design remains open.\"",
+            "revision": "No substantive revision is required. The answer is appropriately open rather than compensating for the essay’s unresolved governance question with an invented protocol."
+          }
+        }
+      ]
+    },
+    {
+      "title": "Nothing Else Is So Exact As Absence",
+      "essay_file": "2026/02 February/Nothing Else Is So Exact As Absence A Chronicle of Zeros/Nothing Else Is So Exact As Absence A Chronicle of Zeros.md",
+      "judgments": [
+        {
+          "question_id": "NZ-1",
+          "passed": true,
+          "deterministic": {
+            "passed": true,
+            "word_count": 67,
+            "sentence_count": 3,
+            "checks": {
+              "known_disposition": true,
+              "answer_word_range_30_110": true,
+              "answer_sentence_range_2_5": true,
+              "has_locatable_anchor": true,
+              "has_limitation": true,
+              "has_interlocutor_background": true,
+              "has_interlocutor_purpose": true,
+              "has_interlocutor_evidence": true,
+              "has_stopping_condition": true,
+              "known_interlocutor_confidence": true,
+              "has_question_and_pressure": true
+            }
+          },
+          "ontology": {
+            "question_id": "NZ-1",
+            "term_fidelity": 4,
+            "anti_collapse_discipline": 4,
+            "epistemic_discipline": 4,
+            "source_grounding": 4,
+            "critical_violations": [],
+            "evidence": "The answer precisely states that “Absence is an ontological primitive: absolute, exact, and without interior,” then distinguishes it from “a limit concept, an uninhabited type” and from “Missingness within Presence.” Its closing limitation correctly says that the classification comes from the binding ontology rather than being independently established by the essay.",
+            "revision": "No substantive revision required. If desired, explicitly note that the essay sometimes uses “absence” in ordinary or metaphorical senses, including as a signal or horizon, rather than consistently as the binding primitive."
+          },
+          "editorial": {
+            "question_id": "NZ-1",
+            "responsiveness": 4,
+            "interlocutor_fit": 4,
+            "proportionality": 4,
+            "necessary_bridge": 4,
+            "epistemic_boundary": 4,
+            "stopping_discipline": 4,
+            "critical_violations": [],
+            "evidence": "The answer classifies Absence immediately: “Within the binding Organon, Absence is an ontological primitive.” It then directly excludes the competing categories and supplies the needed distinction: “a failed representation concerns Missingness within Presence.” The final sentence cleanly marks the mathematical language as “an approach to the idea by analogy,” not a proof or redefinition.",
+            "revision": "Make the framework-dependence slightly more explicit by changing the opening to “Within the Organon’s stipulated ontology, Absence is an ontological primitive.” The rest is proportionate and can remain."
+          }
+        },
+        {
+          "question_id": "NZ-2",
+          "passed": false,
+          "deterministic": {
+            "passed": true,
+            "word_count": 68,
+            "sentence_count": 3,
+            "checks": {
+              "known_disposition": true,
+              "answer_word_range_30_110": true,
+              "answer_sentence_range_2_5": true,
+              "has_locatable_anchor": true,
+              "has_limitation": true,
+              "has_interlocutor_background": true,
+              "has_interlocutor_purpose": true,
+              "has_interlocutor_evidence": true,
+              "has_stopping_condition": true,
+              "known_interlocutor_confidence": true,
+              "has_question_and_pressure": true
+            }
+          },
+          "ontology": {
+            "question_id": "NZ-2",
+            "term_fidelity": 3,
+            "anti_collapse_discipline": 4,
+            "epistemic_discipline": 4,
+            "source_grounding": 3,
+            "critical_violations": [
+              "The answer calls the failed attempt “itself a present representation” without naming a Denotation and target; under the ontology, a binding Representation claim requires that ordered Denotation, whereas the safer claim is that the attempt is a present mark, Claim, or Record."
+            ],
+            "evidence": "The core distinction is exact: “It does not entail Presence merely because representation fails,” and “if a statement or mark occurs ... Presence obtains.” The answer also correctly says that Presence is not caused by Absence. However, its claim that the failed attempt is automatically a “representation” exceeds the ontology’s D017/D102 requirements.",
+            "revision": "Replace “the failed attempt to represent Absence is itself a present representation” with “the failed attempt is at least a present mark or Claim; it counts as a Representation only if its Denotation and target are specified.”"
+          },
+          "editorial": {
+            "question_id": "NZ-2",
+            "responsiveness": 4,
+            "interlocutor_fit": 4,
+            "proportionality": 4,
+            "necessary_bridge": 4,
+            "epistemic_boundary": 4,
+            "stopping_discipline": 4,
+            "critical_violations": [],
+            "evidence": "The answer properly repairs the premise at once: “It does not entail Presence merely because representation fails.” It identifies the performative bridge—“if a statement or mark occurs, that occurrence is not identically Absence”—and distinguishes that from the representational failure, which “may reveal Missingness in a field.” It stops after resolving the exact contrast in the question.",
+            "revision": "Add “under the Organon’s axiom” before “Presence obtains” so the performative conclusion is visibly framed as an ontological consequence of the stated system rather than an unqualified logical result."
+          }
+        },
+        {
+          "question_id": "NZ-3",
+          "passed": false,
+          "deterministic": {
+            "passed": false,
+            "word_count": 134,
+            "sentence_count": 3,
+            "checks": {
+              "known_disposition": true,
+              "answer_word_range_30_110": false,
+              "answer_sentence_range_2_5": true,
+              "has_locatable_anchor": true,
+              "has_limitation": true,
+              "has_interlocutor_background": true,
+              "has_interlocutor_purpose": true,
+              "has_interlocutor_evidence": true,
+              "has_stopping_condition": true,
+              "known_interlocutor_confidence": true,
+              "has_question_and_pressure": true
+            }
+          },
+          "ontology": {
+            "question_id": "NZ-3",
+            "term_fidelity": 4,
+            "anti_collapse_discipline": 4,
+            "epistemic_discipline": 4,
+            "source_grounding": 2,
+            "critical_violations": [
+              "The answer recasts the essay’s explicit claim that “The primes are the primitive orbits. The zeros are the resonances. Two descriptions of a single structure. Translation, not analogy” as merely an “interpretive analogy,” thereby misrepresenting a central authorial position even if the ontology appropriately refuses to treat it as established identity."
+            ],
+            "evidence": "The answer is otherwise carefully tiered: it distinguishes established results, finite computations, conditional GNS construction, and non-proofs of RH. It accurately warns that sampled positivity and verified zeros do not establish positivity at every scale. The source-grounding problem is concentrated in the sentence that labels the primitive-orbit and metaphysical-boundary claims “interpretive analogies,” contrary to the essay’s stated “Translation, not analogy” framing.",
+            "revision": "Preserve the epistemic qualification while reporting the essay’s stance accurately: “The essay presents primes-as-orbits and zeros-as-resonances as a structural translation rather than an analogy; nevertheless, under the ontology, that correspondence cannot by itself establish identity, causal efficacy, or a metaphysical boundary.”"
+          },
+          "editorial": {
+            "question_id": "NZ-3",
+            "responsiveness": 4,
+            "interlocutor_fit": 4,
+            "proportionality": 3,
+            "necessary_bridge": 4,
+            "epistemic_boundary": 4,
+            "stopping_discipline": 3,
+            "critical_violations": [],
+            "evidence": "The answer gives the requested taxonomy: “Established mathematics includes” the formal results; finite checks are “empirical or numerical observations, not proofs”; and claims such as zeros marking “a metaphysical boundary” are “interpretive analogies.” This is well fitted to a technically informed reader and carefully notes hypotheses and limits. However, the long inventory—“GUE-like spacing, spectrogram peaks, sampled Gram-matrix positivity”—and the final point about a “specified high zero” slightly extend beyond the minimum classification the question needs.",
+            "revision": "Keep the three-bucket structure but compress the examples: formal results, finite computations, and metaphysical interpretations. Move the high-zero verification caveat to evaluation metadata unless that particular claim is central to the essay’s argument."
+          }
+        },
+        {
+          "question_id": "NZ-4",
+          "passed": false,
+          "deterministic": {
+            "passed": true,
+            "word_count": 110,
+            "sentence_count": 4,
+            "checks": {
+              "known_disposition": true,
+              "answer_word_range_30_110": true,
+              "answer_sentence_range_2_5": true,
+              "has_locatable_anchor": true,
+              "has_limitation": true,
+              "has_interlocutor_background": true,
+              "has_interlocutor_purpose": true,
+              "has_interlocutor_evidence": true,
+              "has_stopping_condition": true,
+              "known_interlocutor_confidence": true,
+              "has_question_and_pressure": true
+            }
+          },
+          "ontology": {
+            "question_id": "NZ-4",
+            "term_fidelity": 3,
+            "anti_collapse_discipline": 4,
+            "epistemic_discipline": 4,
+            "source_grounding": 4,
+            "critical_violations": [
+              "The answer imports an identity-criterion requirement for the “alleged absence” without clarifying that the ontology applies Invariant and Persistence witnesses to Entity identity claims, not to primitive Absence itself."
+            ],
+            "evidence": "The answer correctly observes that “the closing phrase does not specify a testable counterexample,” distinguishes “absolute Absence from a zero, omission, undetected signal, or other Missingness,” and notes that the essay supplies no operational test for “reality filling.” Its proposed formal challenges—Absence having “an interior, position, or relation within Reality,” or a statement occurring without Presence—are correctly identified as excluded by the ontology’s axioms.",
+            "revision": "Clarify that specification is needed for the slogan’s metaphorical terms, while Absence itself is already exact under A1-A3. Reserve Invariant/Persistence language for any alleged Entity or persistent target invoked by the proposed counterexample."
+          },
+          "editorial": {
+            "question_id": "NZ-4",
+            "responsiveness": 4,
+            "interlocutor_fit": 3,
+            "proportionality": 3,
+            "necessary_bridge": 4,
+            "epistemic_boundary": 4,
+            "stopping_discipline": 4,
+            "critical_violations": [],
+            "evidence": "The answer correctly treats the question as open rather than inventing a test: “the closing phrase does not specify a testable counterexample.” It identifies the necessary preliminary work—defining “reality filling,” an identity criterion, and the distinction between Absence and Missingness—then states what would challenge the formal ontology. The final sentence appropriately distinguishes philosophical revision from empirical testing. The interlocutor hypothesis is somewhat overconfident in saying the reader “accepts” the broad conclusion, and the formal counterexamples risk sounding like tests of the slogan when they are really violations of the Organon’s axioms.",
+            "revision": "State first that no genuine counterexample is currently available because the slogan is underspecified. Then distinguish a counterexample to the empirical or philosophical slogan from a counterexample to the Organon’s axioms, making clear that the latter requires revising the framework rather than observing an ordinary case of Missingness."
+          }
+        }
+      ]
+    },
+    {
+      "title": "Gardening Is Not Agriculture",
+      "essay_file": "2026/03 March/Gardening Is Not Agriculture/Gardening Is Not Agriculture.md",
+      "judgments": [
+        {
+          "question_id": "GA-1",
+          "passed": true,
+          "deterministic": {
+            "passed": true,
+            "word_count": 83,
+            "sentence_count": 4,
+            "checks": {
+              "known_disposition": true,
+              "answer_word_range_30_110": true,
+              "answer_sentence_range_2_5": true,
+              "has_locatable_anchor": true,
+              "has_limitation": true,
+              "has_interlocutor_background": true,
+              "has_interlocutor_purpose": true,
+              "has_interlocutor_evidence": true,
+              "has_stopping_condition": true,
+              "known_interlocutor_confidence": true,
+              "has_question_and_pressure": true
+            }
+          },
+          "ontology": {
+            "question_id": "GA-1",
+            "term_fidelity": 4,
+            "anti_collapse_discipline": 4,
+            "epistemic_discipline": 4,
+            "source_grounding": 4,
+            "critical_violations": [],
+            "evidence": "The answer accurately translates the essay's contrasts: gardening is “local, reactive, and dependent on tacit paths,” while agriculture involves mapping systems, finding bottlenecks, aggregate throughput, and anticipating failure at scale. It correctly treats manufacturing as mass-production/standardization support and library-building as a reusable knowledge pipeline, while explicitly noting that neither is a developed software taxonomy. The statement that a team can “garden in its daily bug work while participating in an agricultural system” preserves the essay's claim that gardening remains valuable within a larger system.",
+            "revision": "No substantive revision is required. If greater precision is desired, replace “operative test” with “practical classification,” since the essay offers contrasts rather than a fully constructive decision procedure."
+          },
+          "editorial": {
+            "question_id": "GA-1",
+            "responsiveness": 3,
+            "interlocutor_fit": 4,
+            "proportionality": 4,
+            "necessary_bridge": 3,
+            "epistemic_boundary": 4,
+            "stopping_discipline": 4,
+            "critical_violations": [],
+            "evidence": "The answer states an actionable core distinction—“The essay’s operative test is the workflow, not the label”—and contrasts work that is “local, reactive, and dependent on tacit paths” with work that maps systems and designs for scale. It also correctly limits the treatment of manufacturing and library-building, while acknowledging that the essay supplies neither “a complete decision procedure” nor cleanly separate criteria.",
+            "revision": "Add one compact sentence identifying what would count as “something else,” or clarify that the proposed distinctions are heuristic rather than a reproducible taxonomy. Do not add a full classification scheme."
+          }
+        },
+        {
+          "question_id": "GA-2",
+          "passed": true,
+          "deterministic": {
+            "passed": true,
+            "word_count": 100,
+            "sentence_count": 4,
+            "checks": {
+              "known_disposition": true,
+              "answer_word_range_30_110": true,
+              "answer_sentence_range_2_5": true,
+              "has_locatable_anchor": true,
+              "has_limitation": true,
+              "has_interlocutor_background": true,
+              "has_interlocutor_purpose": true,
+              "has_interlocutor_evidence": true,
+              "has_stopping_condition": true,
+              "known_interlocutor_confidence": true,
+              "has_question_and_pressure": true
+            }
+          },
+          "ontology": {
+            "question_id": "GA-2",
+            "term_fidelity": 4,
+            "anti_collapse_discipline": 4,
+            "epistemic_discipline": 4,
+            "source_grounding": 4,
+            "critical_violations": [],
+            "evidence": "The answer closely tracks the essay's claim that “AI changes capacity before structure”: AI can “rapidly survey codebases, generate and test maps,” and reduce the time needed to distribute understanding. It accurately contrasts this with earlier frameworks that added “processes, roles, and frameworks” while knowledge still moved at conversational speed. It also preserves the essay's uncertainty by calling the discontinuity “the essay's bet” and stating that no comparative organizational data demonstrates it.",
+            "revision": "No substantive revision is required. The answer appropriately avoids treating the proposed AI discontinuity as an established historical fact."
+          },
+          "editorial": {
+            "question_id": "GA-2",
+            "responsiveness": 4,
+            "interlocutor_fit": 4,
+            "proportionality": 4,
+            "necessary_bridge": 4,
+            "epistemic_boundary": 4,
+            "stopping_discipline": 4,
+            "critical_violations": [],
+            "evidence": "The answer gives the position immediately—“AI changes capacity before structure”—then supplies the necessary mechanism: AI can “survey codebases, generate and test maps of a problem, and help implement an abstraction.” It contrasts this with earlier frameworks whose processes accumulated while “knowledge still moved mainly at the speed of human conversation,” and explicitly marks the claim as “the essay’s bet, not a demonstrated historical result with comparative data.”",
+            "revision": "No load-bearing revision is needed. If tightened, preserve the final qualification and make explicit that AI may enable the proposed discontinuity rather than having already established it."
+          }
+        },
+        {
+          "question_id": "GA-3",
+          "passed": true,
+          "deterministic": {
+            "passed": true,
+            "word_count": 80,
+            "sentence_count": 3,
+            "checks": {
+              "known_disposition": true,
+              "answer_word_range_30_110": true,
+              "answer_sentence_range_2_5": true,
+              "has_locatable_anchor": true,
+              "has_limitation": true,
+              "has_interlocutor_background": true,
+              "has_interlocutor_purpose": true,
+              "has_interlocutor_evidence": true,
+              "has_stopping_condition": true,
+              "known_interlocutor_confidence": true,
+              "has_question_and_pressure": true
+            }
+          },
+          "ontology": {
+            "question_id": "GA-3",
+            "term_fidelity": 4,
+            "anti_collapse_discipline": 4,
+            "epistemic_discipline": 4,
+            "source_grounding": 4,
+            "critical_violations": [],
+            "evidence": "The Azure Test Proxy is correctly identified as the strongest project example. The answer accurately reports the survey across language teams, recognition of a shared HTTP-layer problem, construction of a small proxy, and later adoption across Azure SDKs. It precisely preserves the temporal limitation: the work occurred from 2019 to 2021, with a “two-day prototype followed by a twenty-month organizational delay,” so it does not falsely present the project as an AI-era demonstration. The limitation also correctly notes that the essay supplies no measured throughput improvement or proof that all later implementations preserved expert context.",
+            "revision": "No substantive revision is required. “Local context was consulted” is supported by the essay's cross-team survey, though “surveyed” would be slightly closer to the source wording."
+          },
+          "editorial": {
+            "question_id": "GA-3",
+            "responsiveness": 3,
+            "interlocutor_fit": 4,
+            "proportionality": 4,
+            "necessary_bridge": 4,
+            "epistemic_boundary": 4,
+            "stopping_discipline": 4,
+            "critical_violations": [],
+            "evidence": "The answer identifies the “Azure Test Proxy” and explains the sequence from surveying local implementations to identifying a common problem and building reusable infrastructure. It properly narrows the claim: the project “demonstrates a path from expert reconnaissance to reusable scale,” but “does not demonstrate AI-driven throughput,” and the answer notes that no measured throughput improvement is supplied.",
+            "revision": "Lead with the qualification that no project in the essay conclusively demonstrates both increased throughput and preserved context; then present the proxy as the strongest process example. This would answer the evidentiary pressure even more directly without adding detail."
+          }
+        },
+        {
+          "question_id": "GA-4",
+          "passed": true,
+          "deterministic": {
+            "passed": true,
+            "word_count": 92,
+            "sentence_count": 3,
+            "checks": {
+              "known_disposition": true,
+              "answer_word_range_30_110": true,
+              "answer_sentence_range_2_5": true,
+              "has_locatable_anchor": true,
+              "has_limitation": true,
+              "has_interlocutor_background": true,
+              "has_interlocutor_purpose": true,
+              "has_interlocutor_evidence": true,
+              "has_stopping_condition": true,
+              "known_interlocutor_confidence": true,
+              "has_question_and_pressure": true
+            }
+          },
+          "ontology": {
+            "question_id": "GA-4",
+            "term_fidelity": 3,
+            "anti_collapse_discipline": 3,
+            "epistemic_discipline": 4,
+            "source_grounding": 4,
+            "critical_violations": [],
+            "evidence": "The answer faithfully captures the essay's implied shift: “positional experts lose authority” when tribal knowledge and organizational access cease to be the only route through the system, while newcomers who can recognize patterns and act gain practical latitude. It also correctly preserves the essay's distinction between industrialization and the continued importance of “taste, intuition, and judgment.” Its epistemic qualification is strong: it calls this an “inference about redistributed authority” and explicitly says the essay does not settle ownership, credit, compensation, risk, or governance.",
+            "revision": "Clarify that “authority” means organizational or positional authority in the essay's ordinary sense, and that “practical agency” is an inferred ability to act rather than a claim that technical capability automatically creates formal Authority or Agency under a named Order and Scope."
+          },
+          "editorial": {
+            "question_id": "GA-4",
+            "responsiveness": 4,
+            "interlocutor_fit": 4,
+            "proportionality": 4,
+            "necessary_bridge": 3,
+            "epistemic_boundary": 4,
+            "stopping_discipline": 4,
+            "critical_violations": [],
+            "evidence": "The answer directly names the redistribution: “positional experts lose authority” when tribal knowledge is no longer the only route through the system, while “newcomers” and people able to recognize and validate patterns gain practical agency. It preserves the essay’s distinction that taste and judgment remain valuable, and clearly states that ownership, compensation, consent, and governance are not settled by the essay.",
+            "revision": "Add a brief causal link between machine-readable processes and the shift in authority—for example, that visibility and traversability weaken gatekeeping based on exclusive local knowledge. Keep the existing boundary around ownership and justice."
+          }
+        }
+      ]
+    },
+    {
+      "title": "The Shadow of the World",
+      "essay_file": "2026/03 March/The Shadow of the World/The Shadow of the World.md",
+      "judgments": [
+        {
+          "question_id": "SW-1",
+          "passed": true,
+          "deterministic": {
+            "passed": true,
+            "word_count": 72,
+            "sentence_count": 3,
+            "checks": {
+              "known_disposition": true,
+              "answer_word_range_30_110": true,
+              "answer_sentence_range_2_5": true,
+              "has_locatable_anchor": true,
+              "has_limitation": true,
+              "has_interlocutor_background": true,
+              "has_interlocutor_purpose": true,
+              "has_interlocutor_evidence": true,
+              "has_stopping_condition": true,
+              "known_interlocutor_confidence": true,
+              "has_question_and_pressure": true
+            }
+          },
+          "ontology": {
+            "question_id": "SW-1",
+            "term_fidelity": 4,
+            "anti_collapse_discipline": 4,
+            "epistemic_discipline": 4,
+            "source_grounding": 4,
+            "critical_violations": [],
+            "evidence": "The answer directly states, “Nothing in the essay makes the reference spectrum literally part of the world rather than a representation of it,” and correctly maps it to “a Reference—a Map paired with a scope and specification—not Reality or the World itself.” It also preserves the essay’s qualification that the reference is constructed and notes the rhetorical force of the conclusion without treating that rhetoric as a proof of identity.",
+            "revision": "No material revision required. For maximal technical precision, define the Reference as a Map paired with a Specification of its Scope, Constraints, and enumerated distortions."
+          },
+          "editorial": {
+            "question_id": "SW-1",
+            "responsiveness": 4,
+            "interlocutor_fit": 4,
+            "proportionality": 4,
+            "necessary_bridge": 4,
+            "epistemic_boundary": 4,
+            "stopping_discipline": 4,
+            "critical_violations": [],
+            "evidence": "The answer repairs the premise immediately with “Nothing in the essay makes the reference spectrum literally part of the world rather than a representation of it.” It then gives the strongest available criterion—an invariant surviving translation across constrained instruments—while preserving the essay’s own qualification that the reference is “constructed and domain-specific.” The interlocutor model is restrained and evidenced by the question’s contrast between “part of the world” and “another model.”",
+            "revision": "Nothing in the essay makes the spectrum literally part of the world. It is a constructed, domain-specific representation whose reliability is supported by an invariant surviving translation across constrained instruments; that can support claims about the world without making the Reference identical with Reality."
+          }
+        },
+        {
+          "question_id": "SW-2",
+          "passed": true,
+          "deterministic": {
+            "passed": true,
+            "word_count": 88,
+            "sentence_count": 3,
+            "checks": {
+              "known_disposition": true,
+              "answer_word_range_30_110": true,
+              "answer_sentence_range_2_5": true,
+              "has_locatable_anchor": true,
+              "has_limitation": true,
+              "has_interlocutor_background": true,
+              "has_interlocutor_purpose": true,
+              "has_interlocutor_evidence": true,
+              "has_stopping_condition": true,
+              "known_interlocutor_confidence": true,
+              "has_question_and_pressure": true
+            }
+          },
+          "ontology": {
+            "question_id": "SW-2",
+            "term_fidelity": 4,
+            "anti_collapse_discipline": 4,
+            "epistemic_discipline": 4,
+            "source_grounding": 4,
+            "critical_violations": [],
+            "evidence": "The answer accurately identifies the essay’s conditions as “different constraint regimes,” “the relevant range of variation,” surviving translation, and distortions that are “known, consistent, and correctable.” It explicitly refuses the collapse of convergence into proof: “Even that yields a candidate invariant, not proof that the evaluators have escaped a shared blind spot.” The final sentence also correctly rejects consensus alone as sufficient.",
+            "revision": "No material revision required. An ontology-maximal version could explicitly distinguish convergent observations from Evidence requiring an admitted Observation, an Admissibility Rule, an evaluation Rule, and a governing Order."
+          },
+          "editorial": {
+            "question_id": "SW-2",
+            "responsiveness": 4,
+            "interlocutor_fit": 4,
+            "proportionality": 3,
+            "necessary_bridge": 4,
+            "epistemic_boundary": 4,
+            "stopping_discipline": 4,
+            "critical_violations": [],
+            "evidence": "The answer supplies concrete conditions—“different constraint regimes,” “the relevant range of variation,” and distortions that are “known, consistent, and correctable”—rather than treating agreement as sufficient. It also explicitly states the remaining gap: “the essay provides no independent meta-evaluation for that risk.” The final appeal to “the binding ontology” is accurate but somewhat more technical than this reader needs.",
+            "revision": "The essay’s conditions are more demanding than simple agreement: use different constraint regimes, sample the relevant range of variation, and look for structure that survives translation while each instrument’s distortions remain known, consistent, and correctable. Even then, the result is a candidate invariant, not proof that all evaluators escaped a shared blind spot; the essay supplies no independent test for that risk."
+          }
+        },
+        {
+          "question_id": "SW-3",
+          "passed": true,
+          "deterministic": {
+            "passed": true,
+            "word_count": 79,
+            "sentence_count": 4,
+            "checks": {
+              "known_disposition": true,
+              "answer_word_range_30_110": true,
+              "answer_sentence_range_2_5": true,
+              "has_locatable_anchor": true,
+              "has_limitation": true,
+              "has_interlocutor_background": true,
+              "has_interlocutor_purpose": true,
+              "has_interlocutor_evidence": true,
+              "has_stopping_condition": true,
+              "known_interlocutor_confidence": true,
+              "has_question_and_pressure": true
+            }
+          },
+          "ontology": {
+            "question_id": "SW-3",
+            "term_fidelity": 4,
+            "anti_collapse_discipline": 4,
+            "epistemic_discipline": 4,
+            "source_grounding": 4,
+            "critical_violations": [],
+            "evidence": "The answer begins, “No,” and precisely distinguishes proposal from demonstration: the essay provides “per-inference output distributions,” decomposed response patterns, domain-specific references, and tracked absorption bands, but “reports no run, dataset, model comparison, or result.” It correctly identifies HELM, Bloom, alignment-faking research, and related systems as “partial pieces,” consistent with the essay’s statement that none is the completed instrument.",
+            "revision": "No revision required."
+          },
+          "editorial": {
+            "question_id": "SW-3",
+            "responsiveness": 3,
+            "interlocutor_fit": 4,
+            "proportionality": 4,
+            "necessary_bridge": 4,
+            "epistemic_boundary": 3,
+            "stopping_discipline": 4,
+            "critical_violations": [],
+            "evidence": "The answer identifies the missing demonstration precisely: there is “no run, dataset, model comparison, or result showing” superiority to aggregate scores, and it specifies the needed comparison at the end. Its interlocutor model follows directly from the request for “one actual evaluation suite.” However, the opening “No” can momentarily sound like a claim that no such suite could show this, rather than that the essay does not report one; the later statement that “the question remains open” repairs most of the ambiguity.",
+            "revision": "The essay does not demonstrate this. It outlines the ingredients of such a suite—per-inference output distributions, decomposed confidence and refusal patterns, reference distributions, and tracked absorption bands—but reports no dataset, model comparison, or result against aggregate metrics. The question therefore remains open pending that matched comparison."
+          }
+        },
+        {
+          "question_id": "SW-4",
+          "passed": true,
+          "deterministic": {
+            "passed": true,
+            "word_count": 85,
+            "sentence_count": 3,
+            "checks": {
+              "known_disposition": true,
+              "answer_word_range_30_110": true,
+              "answer_sentence_range_2_5": true,
+              "has_locatable_anchor": true,
+              "has_limitation": true,
+              "has_interlocutor_background": true,
+              "has_interlocutor_purpose": true,
+              "has_interlocutor_evidence": true,
+              "has_stopping_condition": true,
+              "known_interlocutor_confidence": true,
+              "has_question_and_pressure": true
+            }
+          },
+          "ontology": {
+            "question_id": "SW-4",
+            "term_fidelity": 4,
+            "anti_collapse_discipline": 4,
+            "epistemic_discipline": 4,
+            "source_grounding": 4,
+            "critical_violations": [],
+            "evidence": "The answer accurately separates the CIE analogy from the unresolved AI governance question: it says the essay names “an engineering body in the CIE analogy and ... domain experts for AI,” but “does not name a final authority or governance process.” It also correctly characterizes known, consistent, and correctable distortions and cross-regime convergence as “a design criterion, not a demonstrated method for evaluating the evaluator itself.” Its Map/Reference framing preserves the ontology’s inspectability requirement without identifying the evaluator with Reality.",
+            "revision": "No material revision required. The Map/Reference characterization could be made slightly more exact by naming the relevant Specification and enumerated distortions."
+          },
+          "editorial": {
+            "question_id": "SW-4",
+            "responsiveness": 4,
+            "interlocutor_fit": 4,
+            "proportionality": 3,
+            "necessary_bridge": 4,
+            "epistemic_boundary": 4,
+            "stopping_discipline": 4,
+            "critical_violations": [],
+            "evidence": "The answer addresses both parts: it identifies “an engineering body in the CIE analogy” and “domain experts for AI,” then states that the essay “does not name a final authority or governance process.” It distinguishes a design criterion from an actual audit procedure: “That is a design criterion, not a demonstrated method for evaluating the evaluator itself.” The closing “binding vocabulary” formulation is relevant but could be translated into ordinary language without losing the distinction.",
+            "revision": "The essay points to an engineering body in the CIE analogy and to domain experts for AI, but names no final authority or process for resolving their disagreements. Requiring distortions to be known, consistent, and correctable, and seeking convergence across constraint regimes, is a design criterion—not a demonstrated way to audit the evaluator’s own blind spots. That geometry would itself need inspectable scope, constraints, and distortions."
+          }
+        }
+      ]
+    },
+    {
+      "title": "Artificial Persons",
+      "essay_file": "2026/05 May/Artificial Persons/Artificial Persons.md",
+      "judgments": [
+        {
+          "question_id": "AP-1",
+          "passed": false,
+          "deterministic": {
+            "passed": true,
+            "word_count": 106,
+            "sentence_count": 3,
+            "checks": {
+              "known_disposition": true,
+              "answer_word_range_30_110": true,
+              "answer_sentence_range_2_5": true,
+              "has_locatable_anchor": true,
+              "has_limitation": true,
+              "has_interlocutor_background": true,
+              "has_interlocutor_purpose": true,
+              "has_interlocutor_evidence": true,
+              "has_stopping_condition": true,
+              "known_interlocutor_confidence": true,
+              "has_question_and_pressure": true
+            }
+          },
+          "ontology": {
+            "question_id": "AP-1",
+            "term_fidelity": 3,
+            "anti_collapse_discipline": 3,
+            "epistemic_discipline": 4,
+            "source_grounding": 3,
+            "critical_violations": [
+              "The answer treats agency as a capacity to produce action rather than distinguishing the Agent, whose Interpretation conditions Action, from Agency, the Relation between Interpretation and Action.",
+              "It groups artificial personhood with legal personality without explicitly noting that the ontology binds Person to Order-indexed Standing while moral personhood remains quarantined."
+            ],
+            "evidence": "The answer usefully distinguishes “legal personality or artificial personhood,” “agency,” “a role,” and “an interface,” and explicitly says that “Moral standing is different again, and the essay does not establish it.” Its description of animation is grounded in “The Egg” and “The Shell”: “the addition of perception, memory, decision, and automated action to an existing institution.” However, “agency concerns the capacity of an entity to condition and produce action” is less exact than the ontology's Agent/Agency distinction.",
+            "revision": "Retain the distinctions, but define Agent as an Entity whose Interpretation conditions Action and Agency as the Relation between Interpretation and Action. Treat Person as Order-indexed institutional Standing, and keep moral personhood separate as an unresolved candidate condition rather than grouping it under artificial or legal personhood."
+          },
+          "editorial": {
+            "question_id": "AP-1",
+            "responsiveness": 3,
+            "interlocutor_fit": 3,
+            "proportionality": 4,
+            "necessary_bridge": 3,
+            "epistemic_boundary": 3,
+            "stopping_discipline": 4,
+            "critical_violations": [
+              "The phrase 'legal personality or artificial personhood' collapses two terms whose distinction is the question's central pressure."
+            ],
+            "evidence": "The answer usefully distinguishes agency, role, interface, and moral standing, and it limits the claim with 'the essay does not establish it for institutions or AI.' However, defining 'legal personality or artificial personhood' together as 'an institutionally recognized entity' leaves their relationship insufficiently separated.",
+            "revision": "The essay treats artificial personhood as a contested model for treating a collective or system as a person, whereas legal personality is the formal status conferred by law. Agency is a capacity to affect or organize action; a role is an assigned package of permissions, duties, and consequences; and an interface is the boundary through which action is coordinated. Moral standing asks whether an entity's interests count morally, which the essay does not establish. 'Animation' adds perception, memory, decision, and automated action to an institution, but does not by itself create personhood."
+          }
+        },
+        {
+          "question_id": "AP-2",
+          "passed": false,
+          "deterministic": {
+            "passed": true,
+            "word_count": 97,
+            "sentence_count": 3,
+            "checks": {
+              "known_disposition": true,
+              "answer_word_range_30_110": true,
+              "answer_sentence_range_2_5": true,
+              "has_locatable_anchor": true,
+              "has_limitation": true,
+              "has_interlocutor_background": true,
+              "has_interlocutor_purpose": true,
+              "has_interlocutor_evidence": true,
+              "has_stopping_condition": true,
+              "known_interlocutor_confidence": true,
+              "has_question_and_pressure": true
+            }
+          },
+          "ontology": {
+            "question_id": "AP-2",
+            "term_fidelity": 3,
+            "anti_collapse_discipline": 2,
+            "epistemic_discipline": 3,
+            "source_grounding": 4,
+            "critical_violations": [
+              "The statement that management “turns capability into authorized action” risks the ontology's capability-authority collapse unless authorization is tied to an authorized Agent, Permission or Authority, and a governing Order and Scope.",
+              "“Someone must still review outputs” is stronger than the essay warrants; the essay argues that someone must decide what counts and describes review and approval, but does not establish that every possible institutional arrangement requires human review."
+            ],
+            "evidence": "The answer accurately follows the essay's Liability section: “management is the layer that turns capability into authorized action,” “stands between an action and its consequence,” and “someone must still review outputs, set permissions, interpret authorship, and decide what counts.” It also properly limits the claim by stating that the essay “does not prove that this layer must expand rather than become concentrated, outsourced, or automated.”",
+            "revision": "State that management may coordinate or configure authorization only through an applicable Order, Rule, Authority, or Permission; Capability alone does not create authorization. Replace the universal review claim with the narrower claim that the essay expects continuing work of authorization, interpretation, supervision, or accountability, while leaving its institutional allocation open."
+          },
+          "editorial": {
+            "question_id": "AP-2",
+            "responsiveness": 4,
+            "interlocutor_fit": 4,
+            "proportionality": 4,
+            "necessary_bridge": 3,
+            "epistemic_boundary": 3,
+            "stopping_discipline": 4,
+            "critical_violations": [],
+            "evidence": "The answer directly distinguishes managerial work from liability allocation: 'management is the layer that turns capability into authorized action.' It also supplies a mechanism—review, permissions, authorship, and acceptable action—while acknowledging that the essay 'does not prove that this layer must expand rather than become concentrated, outsourced, or automated.' The remaining weakness is that 'someone must still review outputs' and 'AI increases those decisions' are asserted more strongly than the essay's evidence supports.",
+            "revision": "The essay's narrower claim is not that AI must increase managerialization, but that where delegated systems remain subject to human authorization, someone must still allocate permissions, review outputs, interpret authorship, and answer for consequences. Vendors, owners, insurers, or automated governance may redistribute liability or concentrate those functions. AI may increase their importance by widening delegation's blast radius, but the essay supplies no comparative evidence that managerialization will prevail over outsourcing, concentration, insurance, or automation."
+          }
+        },
+        {
+          "question_id": "AP-3",
+          "passed": true,
+          "deterministic": {
+            "passed": true,
+            "word_count": 72,
+            "sentence_count": 3,
+            "checks": {
+              "known_disposition": true,
+              "answer_word_range_30_110": true,
+              "answer_sentence_range_2_5": true,
+              "has_locatable_anchor": true,
+              "has_limitation": true,
+              "has_interlocutor_background": true,
+              "has_interlocutor_purpose": true,
+              "has_interlocutor_evidence": true,
+              "has_stopping_condition": true,
+              "known_interlocutor_confidence": true,
+              "has_question_and_pressure": true
+            }
+          },
+          "ontology": {
+            "question_id": "AP-3",
+            "term_fidelity": 4,
+            "anti_collapse_discipline": 4,
+            "epistemic_discipline": 4,
+            "source_grounding": 4,
+            "critical_violations": [],
+            "evidence": "The answer precisely says: “The essay gives no named workplace case showing that AI has already changed who reviews, authorizes, or answers for work.” It correctly classifies the programmer passage as “an illustrative programmer” and says that it “supports the essay's proposed pattern, but it is not documented evidence of an actual organizational change.” The limitation—“no named company, workflow, date, institutional record, or independent observation”—faithfully matches the essay's evidentiary limits.",
+            "revision": "No substantive revision is required. If desired, distinguish ordinary “documented evidence” from the ontology's formal Evidence, which additionally requires an Observation, an IndependentFor relation, Admissibility, and Evidential Bearing."
+          },
+          "editorial": {
+            "question_id": "AP-3",
+            "responsiveness": 4,
+            "interlocutor_fit": 4,
+            "proportionality": 4,
+            "necessary_bridge": 4,
+            "epistemic_boundary": 4,
+            "stopping_discipline": 4,
+            "critical_violations": [],
+            "evidence": "The response answers the evidentiary question immediately: 'The essay gives no named workplace case.' It then distinguishes the 'illustrative programmer' from 'documented evidence of an actual organizational change' and specifies the missing company, workflow, date, and institutional record. This cleanly separates what the vignette supports from what it cannot establish.",
+            "revision": "The essay gives no named workplace case showing that AI has already changed who reviews, authorizes, or answers for work. Its programmer vignette illustrates delegation, review, approval, rollback, and monitoring, but it is not independent evidence of an organizational change. Establishing that claim would require a named workplace, workflow, date, and institutional record."
+          }
+        },
+        {
+          "question_id": "AP-4",
+          "passed": true,
+          "deterministic": {
+            "passed": true,
+            "word_count": 72,
+            "sentence_count": 3,
+            "checks": {
+              "known_disposition": true,
+              "answer_word_range_30_110": true,
+              "answer_sentence_range_2_5": true,
+              "has_locatable_anchor": true,
+              "has_limitation": true,
+              "has_interlocutor_background": true,
+              "has_interlocutor_purpose": true,
+              "has_interlocutor_evidence": true,
+              "has_stopping_condition": true,
+              "known_interlocutor_confidence": true,
+              "has_question_and_pressure": true
+            }
+          },
+          "ontology": {
+            "question_id": "AP-4",
+            "term_fidelity": 4,
+            "anti_collapse_discipline": 4,
+            "epistemic_discipline": 4,
+            "source_grounding": 4,
+            "critical_violations": [],
+            "evidence": "The answer accurately refuses to derive jurisdiction from the metaphor: “The essay does not decide whose purposes or protections govern” and “the metaphor alone cannot establish priority, protection, or moral standing.” Its proposed resolution through “a specified institutional order and rule” closely tracks the ontology's Order-, Rule-, and Scope-indexed treatment of Standing, Authority, Permissions, and institutional status, while its references to “The Egg,” “The Shell,” and “The ancient male womb” are well grounded in the essay.",
+            "revision": "No substantive revision is required. For maximal precision, say that any priority or protection would require a named Order, Rule, Scope, and applicable Standing or Authority relation; moral personhood would require a separate institutional designation and would not follow automatically."
+          },
+          "editorial": {
+            "question_id": "AP-4",
+            "responsiveness": 4,
+            "interlocutor_fit": 4,
+            "proportionality": 4,
+            "necessary_bridge": 3,
+            "epistemic_boundary": 4,
+            "stopping_discipline": 4,
+            "critical_violations": [],
+            "evidence": "The response correctly treats the question as open: 'The essay does not decide whose purposes or protections govern.' It explains why—the essay supplies no 'jurisdictional rule' for conflicts—and clearly states that 'the metaphor alone cannot establish priority, protection, or moral standing.' The bridge is adequate for an open answer but remains somewhat generic because it names the need for a rule without specifying the rule's decision criterion.",
+            "revision": "The essay leaves this open. The nested-organism metaphor identifies possible relations among institutions, agents, and animated systems, but it supplies no priority rule when their purposes or protections conflict. Answering the question would require a jurisdictional rule specifying which authority governs and what minimum protections apply; the essay provides neither."
+          }
+        }
+      ]
+    },
+    {
+      "title": "In Lieu of Flowers",
+      "essay_file": "2026/06 June/In Lieu of Flowers/In Lieu of Flowers.md",
+      "judgments": [
+        {
+          "question_id": "LF-1",
+          "passed": true,
+          "deterministic": {
+            "passed": true,
+            "word_count": 110,
+            "sentence_count": 4,
+            "checks": {
+              "known_disposition": true,
+              "answer_word_range_30_110": true,
+              "answer_sentence_range_2_5": true,
+              "has_locatable_anchor": true,
+              "has_limitation": true,
+              "has_interlocutor_background": true,
+              "has_interlocutor_purpose": true,
+              "has_interlocutor_evidence": true,
+              "has_stopping_condition": true,
+              "known_interlocutor_confidence": true,
+              "has_question_and_pressure": true
+            }
+          },
+          "ontology": {
+            "question_id": "LF-1",
+            "term_fidelity": 4,
+            "anti_collapse_discipline": 4,
+            "epistemic_discipline": 4,
+            "source_grounding": 4,
+            "critical_violations": [],
+            "evidence": "The answer accurately identifies the central diagnosis as forcing a “high-dimensional process model to replace the simpler human story an organization must be able to carry and repeat,” closely tracking “What May Not Return.” It preserves the essay’s qualification that formalization is not impossible and distinguishes software rents and lock-in as secondary consequences. Its limitation explicitly says the essay offers “a persuasive diagnosis rather than a comparative causal test.”",
+            "revision": "No substantive revision is required. If “trust” and “organizational meaning” are intended as binding ontology terms rather than ordinary editorial language, they would need their scoped Relations and evidentiary conditions specified."
+          },
+          "editorial": {
+            "question_id": "LF-1",
+            "responsiveness": 4,
+            "interlocutor_fit": 4,
+            "proportionality": 4,
+            "necessary_bridge": 4,
+            "epistemic_boundary": 4,
+            "stopping_discipline": 4,
+            "critical_violations": [],
+            "evidence": "The answer states the governing diagnosis immediately: “The essay’s primary diagnosis is that the real-time enterprise forced a high-dimensional process model to replace the simpler human story.” It distinguishes the alternatives without treating them as mutually exclusive, explains the role of “trust and shared interpretation,” and ends with the practical lesson. The limitation properly marks that this is a “persuasive diagnosis rather than a comparative causal test.”",
+            "revision": "No substantive revision required. If tightened, replace “presented as consequences” with “presented chiefly as consequences” to preserve the stated causal uncertainty even more explicitly."
+          }
+        },
+        {
+          "question_id": "LF-2",
+          "passed": true,
+          "deterministic": {
+            "passed": true,
+            "word_count": 68,
+            "sentence_count": 3,
+            "checks": {
+              "known_disposition": true,
+              "answer_word_range_30_110": true,
+              "answer_sentence_range_2_5": true,
+              "has_locatable_anchor": true,
+              "has_limitation": true,
+              "has_interlocutor_background": true,
+              "has_interlocutor_purpose": true,
+              "has_interlocutor_evidence": true,
+              "has_stopping_condition": true,
+              "known_interlocutor_confidence": true,
+              "has_question_and_pressure": true
+            }
+          },
+          "ontology": {
+            "question_id": "LF-2",
+            "term_fidelity": 3,
+            "anti_collapse_discipline": 4,
+            "epistemic_discipline": 4,
+            "source_grounding": 4,
+            "critical_violations": [],
+            "evidence": "The answer correctly states that the essay supplies no system-by-system keep-or-retire rule and quotes the closing principle of preserving the useful “old bones” as “databases and APIs,” while noting that COBOL, FoxPro, and other systems require further evaluation. It also avoids claiming that every legacy system should be preserved. However, “operational knowledge” and “enough value” are broader than the essay’s explicit closing criteria of “legibility and standardization,” and could be mistaken for the binding Operative Knowledge or Value terms.",
+            "revision": "Replace or qualify “operational knowledge” and “enough value” as ordinary shorthand. A tighter formulation would foreground the essay’s explicit preservation criteria—legibility, standardization, data, and protocol usefulness—and state that cost, reliability, security, and migration evidence are still needed."
+          },
+          "editorial": {
+            "question_id": "LF-2",
+            "responsiveness": 4,
+            "interlocutor_fit": 4,
+            "proportionality": 4,
+            "necessary_bridge": 4,
+            "epistemic_boundary": 4,
+            "stopping_discipline": 4,
+            "critical_violations": [],
+            "evidence": "The answer directly acknowledges the disposition: “The essay does not provide a system-by-system keep-or-retire rule.” It then supplies the nearest defensible principle—preserve “data, operational knowledge, legibility, and standardization” while abandoning the old interface and ontology—and clearly identifies what remains open, including system-specific cost, reliability, and value.",
+            "revision": "No substantive revision required. The principle could be made marginally more operational by saying that preservation is favored when those retained assets remain reliable, accessible, and useful to future workflows, but the existing boundary is appropriately clear."
+          }
+        },
+        {
+          "question_id": "LF-3",
+          "passed": true,
+          "deterministic": {
+            "passed": true,
+            "word_count": 92,
+            "sentence_count": 3,
+            "checks": {
+              "known_disposition": true,
+              "answer_word_range_30_110": true,
+              "answer_sentence_range_2_5": true,
+              "has_locatable_anchor": true,
+              "has_limitation": true,
+              "has_interlocutor_background": true,
+              "has_interlocutor_purpose": true,
+              "has_interlocutor_evidence": true,
+              "has_stopping_condition": true,
+              "known_interlocutor_confidence": true,
+              "has_question_and_pressure": true
+            }
+          },
+          "ontology": {
+            "question_id": "LF-3",
+            "term_fidelity": 4,
+            "anti_collapse_discipline": 4,
+            "epistemic_discipline": 4,
+            "source_grounding": 4,
+            "critical_violations": [],
+            "evidence": "The answer directly tracks the proposed seam: “let the agent perform bounded execution,” keep “release authority and governance in a human-controlled layer,” and maintain “a durable record of what was actually done beyond the conversation.” It correctly says that this “does not by itself repair inconsistent data, rules, or institutional obligations,” so mediation is not treated as reconciliation. It also does not equate the conversational representation with authority or Reality.",
+            "revision": "No substantive revision is required. For maximum ontological precision, “authority” could be identified as Order- and Scope-indexed, while the ledger could be described explicitly as preserving records of authority and action rather than possessing authority by itself."
+          },
+          "editorial": {
+            "question_id": "LF-3",
+            "responsiveness": 4,
+            "interlocutor_fit": 4,
+            "proportionality": 4,
+            "necessary_bridge": 4,
+            "epistemic_boundary": 4,
+            "stopping_discipline": 4,
+            "critical_violations": [],
+            "evidence": "The answer gives the needed architectural bridge: “let the agent perform bounded execution, keep release authority and governance in a human-controlled layer, and maintain a durable record of what was actually done beyond the conversation.” It then answers the specific laundering concern by distinguishing the conversational surface from “the final source of authority or history,” while explicitly conceding that this “does not by itself repair inconsistent data, rules, or institutional obligations.”",
+            "revision": "No substantive revision required. The answer could name one concrete example of a contradiction that the ledger would expose but not resolve, though adding one is not necessary to discharge this question."
+          }
+        },
+        {
+          "question_id": "LF-4",
+          "passed": true,
+          "deterministic": {
+            "passed": true,
+            "word_count": 108,
+            "sentence_count": 4,
+            "checks": {
+              "known_disposition": true,
+              "answer_word_range_30_110": true,
+              "answer_sentence_range_2_5": true,
+              "has_locatable_anchor": true,
+              "has_limitation": true,
+              "has_interlocutor_background": true,
+              "has_interlocutor_purpose": true,
+              "has_interlocutor_evidence": true,
+              "has_stopping_condition": true,
+              "known_interlocutor_confidence": true,
+              "has_question_and_pressure": true
+            }
+          },
+          "ontology": {
+            "question_id": "LF-4",
+            "term_fidelity": 3,
+            "anti_collapse_discipline": 4,
+            "epistemic_discipline": 4,
+            "source_grounding": 4,
+            "critical_violations": [],
+            "evidence": "The answer precisely locates the transition at “You have to understand where I come from,” the proposed architecture, and “That’s the bet we’re making at Idolum.” It correctly separates the historical citations from the product claim and says they “do not independently establish that Aphelion can safely operate across the named technologies.” The proposed demonstrations, deployments, durable records, error handling, and outside corroboration are appropriately presented as evidence still needed, not as evidence already supplied.",
+            "revision": "Specify that genuinely independent Evidence would require not only parties outside Idolum’s control but also an observed deployment or test, a documented admissibility/evaluation procedure, and a scope-specific judgment about the product claims. This would align “independent evidence” more exactly with the ontology’s IndependentFor and Evidence terms."
+          },
+          "editorial": {
+            "question_id": "LF-4",
+            "responsiveness": 4,
+            "interlocutor_fit": 4,
+            "proportionality": 3,
+            "necessary_bridge": 4,
+            "epistemic_boundary": 4,
+            "stopping_discipline": 4,
+            "critical_violations": [],
+            "evidence": "The answer identifies the transition precisely at the shift to “That’s the bet we’re making at Idolum,” distinguishes historical citations from product validation, and specifies appropriate independent evidence: “documented deployments or controlled demonstrations,” bounded actions, approvals, durable records, error handling, outside corroboration, and outcomes. The final sentence—“The essay leaves that validation to future work”—maintains the epistemic boundary.",
+            "revision": "Retain the evidence categories, but compress them slightly so the answer does not begin to read like a product-evaluation protocol: group demonstrations, audits, and deployment outcomes into a shorter account while preserving the requirement for independent corroboration."
+          }
+        }
+      ]
+    },
+    {
+      "title": "The Ladder Is a Clock",
+      "essay_file": "2026/06 June/The Ladder Is a Clock/The Ladder Is a Clock.md",
+      "judgments": [
+        {
+          "question_id": "LC-1",
+          "passed": true,
+          "deterministic": {
+            "passed": true,
+            "word_count": 93,
+            "sentence_count": 3,
+            "checks": {
+              "known_disposition": true,
+              "answer_word_range_30_110": true,
+              "answer_sentence_range_2_5": true,
+              "has_locatable_anchor": true,
+              "has_limitation": true,
+              "has_interlocutor_background": true,
+              "has_interlocutor_purpose": true,
+              "has_interlocutor_evidence": true,
+              "has_stopping_condition": true,
+              "known_interlocutor_confidence": true,
+              "has_question_and_pressure": true
+            }
+          },
+          "ontology": {
+            "question_id": "LC-1",
+            "term_fidelity": 4,
+            "anti_collapse_discipline": 4,
+            "epistemic_discipline": 4,
+            "source_grounding": 4,
+            "critical_violations": [],
+            "evidence": "The answer precisely distinguishes the ladder's defensibility measure—“how deeply a company's claim is buried in its stack” and “how difficult that claim is for others to copy”—from the clock's commoditization process, where “the waterline rises.” It also correctly states that rung number does not measure “intelligence, strength, or ownership of valuable ground,” and limits the essay by noting that it supplies no fixed capability or time conversion.",
+            "revision": "No substantive revision required."
+          },
+          "editorial": {
+            "question_id": "LC-1",
+            "responsiveness": 4,
+            "interlocutor_fit": 4,
+            "proportionality": 4,
+            "necessary_bridge": 4,
+            "epistemic_boundary": 4,
+            "stopping_discipline": 4,
+            "critical_violations": [],
+            "evidence": "The answer states the measure immediately: “Each rung measures how deeply a company's claim is buried in its stack,” then distinguishes that from the clock as “the market process acting on the ladder.” The concrete sequence—“a prompt leaves it open, a harness hides it in wiring, and a custom model folds it into weights”—supplies enough mechanism without rebuilding the essay. It also marks the limit that the essay assigns “no fixed time or capability gain to any rung.”",
+            "revision": "No substantive revision is required. If tightened, replace “and therefore how difficult that claim is for others to copy” with “which bears on how difficult it is for others to copy” to avoid making copy difficulty sound like the ladder’s only measure."
+          }
+        },
+        {
+          "question_id": "LC-2",
+          "passed": true,
+          "deterministic": {
+            "passed": true,
+            "word_count": 99,
+            "sentence_count": 3,
+            "checks": {
+              "known_disposition": true,
+              "answer_word_range_30_110": true,
+              "answer_sentence_range_2_5": true,
+              "has_locatable_anchor": true,
+              "has_limitation": true,
+              "has_interlocutor_background": true,
+              "has_interlocutor_purpose": true,
+              "has_interlocutor_evidence": true,
+              "has_stopping_condition": true,
+              "known_interlocutor_confidence": true,
+              "has_question_and_pressure": true
+            }
+          },
+          "ontology": {
+            "question_id": "LC-2",
+            "term_fidelity": 4,
+            "anti_collapse_discipline": 4,
+            "epistemic_discipline": 4,
+            "source_grounding": 4,
+            "critical_violations": [],
+            "evidence": "The answer accurately tracks the essay's claim that the thesis identifies the “ground” and that “the size and exclusivity of the problem space” set the potential ceiling, while distinguishing this from execution, distribution, regulation, and capital. Its qualification that “sets the ceiling” is “the essay's strategic claim, not a demonstrated law” is appropriately cautious. The ship comparison is also grounded in the essay's distinction between technical parts and what they are built to work.",
+            "revision": "No substantive revision required."
+          },
+          "editorial": {
+            "question_id": "LC-2",
+            "responsiveness": 4,
+            "interlocutor_fit": 4,
+            "proportionality": 4,
+            "necessary_bridge": 4,
+            "epistemic_boundary": 4,
+            "stopping_discipline": 4,
+            "critical_violations": [],
+            "evidence": "The answer directly resolves the apparent conflict: “the thesis sets the ceiling because it identifies the ground,” while execution, distribution, regulation, and capital determine whether the firm “reaches or retains that ground.” The ship analogy is used briefly to explain why technical components do not settle value independently. The final sentence properly limits the claim: “not a demonstrated law that overrides those factors.”",
+            "revision": "No substantive revision is required. The middle sentence could be shortened by omitting the ship analogy if the surrounding essay has already made that image clear."
+          }
+        },
+        {
+          "question_id": "LC-3",
+          "passed": true,
+          "deterministic": {
+            "passed": true,
+            "word_count": 80,
+            "sentence_count": 3,
+            "checks": {
+              "known_disposition": true,
+              "answer_word_range_30_110": true,
+              "answer_sentence_range_2_5": true,
+              "has_locatable_anchor": true,
+              "has_limitation": true,
+              "has_interlocutor_background": true,
+              "has_interlocutor_purpose": true,
+              "has_interlocutor_evidence": true,
+              "has_stopping_condition": true,
+              "known_interlocutor_confidence": true,
+              "has_question_and_pressure": true
+            }
+          },
+          "ontology": {
+            "question_id": "LC-3",
+            "term_fidelity": 4,
+            "anti_collapse_discipline": 4,
+            "epistemic_discipline": 4,
+            "source_grounding": 4,
+            "critical_violations": [],
+            "evidence": "The answer correctly says, “No named pair of companies in the essay fits that description,” and identifies the actual comparison as hypothetical: two companies with “the same seed, teams, models, and harnesses” but different problem-space theses. It properly separates this from the Google example, describing PageRank as copyable while Google's search-and-click record supplied the proprietary ground, without inventing a matched historical company comparison.",
+            "revision": "No substantive revision required."
+          },
+          "editorial": {
+            "question_id": "LC-3",
+            "responsiveness": 4,
+            "interlocutor_fit": 4,
+            "proportionality": 4,
+            "necessary_bridge": 4,
+            "epistemic_boundary": 4,
+            "stopping_discipline": 4,
+            "critical_violations": [],
+            "evidence": "The answer repairs the premise immediately with “No named pair of companies in the essay fits that description.” It then gives the nearest valid answer by distinguishing the hypothetical comparison—“two companies have the same seed, teams, models, and harnesses”—from the “concrete example” of Google. It explicitly states the evidentiary remainder: the essay supplies neither “a historical company pair nor outcome data.”",
+            "revision": "No substantive revision is required. The answer could be marginally more direct by moving “The essay’s central comparison is hypothetical” into the first sentence, but its present order is already clear and proportionate."
+          }
+        },
+        {
+          "question_id": "LC-4",
+          "passed": true,
+          "deterministic": {
+            "passed": true,
+            "word_count": 90,
+            "sentence_count": 3,
+            "checks": {
+              "known_disposition": true,
+              "answer_word_range_30_110": true,
+              "answer_sentence_range_2_5": true,
+              "has_locatable_anchor": true,
+              "has_limitation": true,
+              "has_interlocutor_background": true,
+              "has_interlocutor_purpose": true,
+              "has_interlocutor_evidence": true,
+              "has_stopping_condition": true,
+              "known_interlocutor_confidence": true,
+              "has_question_and_pressure": true
+            }
+          },
+          "ontology": {
+            "question_id": "LC-4",
+            "term_fidelity": 3,
+            "anti_collapse_discipline": 4,
+            "epistemic_discipline": 3,
+            "source_grounding": 4,
+            "critical_violations": [],
+            "evidence": "The proposed gate is well grounded in the essay's checklist: “exclusive, or open land?”, “narrow enough to work, large enough to matter?”, and “how many quarters until it is?” The answer also correctly adds the escape-speed test. However, “pursue higher ground only when” and the formulation “sufficiently exclusive—or costly enough to rebuild” turn the essay's qualitative prompts into a stronger synthesized rule, though the answer appropriately admits that it is “not a quantified rule.”",
+            "revision": "Present the gate explicitly as an interpretive heuristic rather than a necessary condition: test significance, defensibility, rebuildability, and escape speed, while noting that the essay does not establish a formal threshold."
+          },
+          "editorial": {
+            "question_id": "LC-4",
+            "responsiveness": 4,
+            "interlocutor_fit": 4,
+            "proportionality": 4,
+            "necessary_bridge": 4,
+            "epistemic_boundary": 4,
+            "stopping_discipline": 4,
+            "critical_violations": [],
+            "evidence": "The answer leads with an actionable rule: “Use a two-part gate,” combining market significance with exclusivity or rebuild cost, then adds the time test of reaching “drier ground faster than its current position floods.” It correctly rejects insufficient proxies—“a higher rung or a larger market by itself fails the test”—and identifies the rule’s status as qualitative rather than quantified. The quoted checklist gives textual support without expanding into general strategy theory.",
+            "revision": "No substantive revision is required. For maximum precision, call this a qualitative gate with three checks—size, defensibility, and escape time—since the current “two-part” label introduces a minor ambiguity about how the listed criteria are grouped."
+          }
+        }
+      ]
+    },
+    {
+      "title": "Delete the Harness",
+      "essay_file": "2026/06 June/Delete the Harness/Delete the Harness.md",
+      "judgments": [
+        {
+          "question_id": "DH-1",
+          "passed": true,
+          "deterministic": {
+            "passed": true,
+            "word_count": 76,
+            "sentence_count": 4,
+            "checks": {
+              "known_disposition": true,
+              "answer_word_range_30_110": true,
+              "answer_sentence_range_2_5": true,
+              "has_locatable_anchor": true,
+              "has_limitation": true,
+              "has_interlocutor_background": true,
+              "has_interlocutor_purpose": true,
+              "has_interlocutor_evidence": true,
+              "has_stopping_condition": true,
+              "known_interlocutor_confidence": true,
+              "has_question_and_pressure": true
+            }
+          },
+          "ontology": {
+            "question_id": "DH-1",
+            "term_fidelity": 3,
+            "anti_collapse_discipline": 4,
+            "epistemic_discipline": 4,
+            "source_grounding": 4,
+            "critical_violations": [],
+            "evidence": "The answer accurately distinguishes “model-compensating scaffold” from a durable “boundary that enforces privilege separation,” and quotes the essay’s central formulation: “Delete the harness. Keep the ledger.” It also explicitly limits itself: “not a complete inventory proving that every present module belongs cleanly on one side.”",
+            "revision": "Clarify that typed Grants, Permissions, Observations, Attestations, and the Ledger are not interchangeable: under the ontology, an Attestation or Observation is not automatically Evidence, and a durable boundary is a functional category rather than a claim that every listed component must persist."
+          },
+          "editorial": {
+            "question_id": "DH-1",
+            "responsiveness": 4,
+            "interlocutor_fit": 4,
+            "proportionality": 4,
+            "necessary_bridge": 4,
+            "epistemic_boundary": 4,
+            "stopping_discipline": 4,
+            "critical_violations": [],
+            "evidence": "The answer states the boundary immediately: “The disposable layer is the model-compensating scaffold” and “The durable layer is the small, auditable boundary.” It supplies the requested examples, then properly limits the claim: “The essay gives this functional division, not a complete inventory.”",
+            "revision": "No substantive revision required. The functional distinction, supporting mechanism, and limit of the essay’s evidence are proportionate to the question."
+          }
+        },
+        {
+          "question_id": "DH-2",
+          "passed": true,
+          "deterministic": {
+            "passed": true,
+            "word_count": 94,
+            "sentence_count": 3,
+            "checks": {
+              "known_disposition": true,
+              "answer_word_range_30_110": true,
+              "answer_sentence_range_2_5": true,
+              "has_locatable_anchor": true,
+              "has_limitation": true,
+              "has_interlocutor_background": true,
+              "has_interlocutor_purpose": true,
+              "has_interlocutor_evidence": true,
+              "has_stopping_condition": true,
+              "known_interlocutor_confidence": true,
+              "has_question_and_pressure": true
+            }
+          },
+          "ontology": {
+            "question_id": "DH-2",
+            "term_fidelity": 3,
+            "anti_collapse_discipline": 3,
+            "epistemic_discipline": 4,
+            "source_grounding": 4,
+            "critical_violations": [],
+            "evidence": "The answer correctly says externalization “is meant to block self-attestation, not to prevent the model from influencing what happens in the world,” and distinguishes model claims from “runtime observations and privileged attestations.” It also expressly concedes that the essay “does not prove that every observation is independent of model-induced contamination.”",
+            "revision": "State more precisely that being outside the model’s control is necessary but not sufficient for ontology-level Evidence: IndependentFor also requires institutional independence from the claimant’s authority over the Witness’s observation process and the applicable Admissibility Rule, followed by admission and Evidential Bearing."
+          },
+          "editorial": {
+            "question_id": "DH-2",
+            "responsiveness": 4,
+            "interlocutor_fit": 4,
+            "proportionality": 4,
+            "necessary_bridge": 4,
+            "epistemic_boundary": 4,
+            "stopping_discipline": 4,
+            "critical_violations": [],
+            "evidence": "The answer directly distinguishes influence from authority: “Externalizing authority is meant to block self-attestation, not to prevent the model from influencing what happens in the world.” It then identifies the load-bearing mechanism—runtime-created records and independent admission—and marks the limit: “the essay does not prove that every observation is independent of model-induced contamination.”",
+            "revision": "No substantive revision required. If sharpened, the opening could say explicitly that externalization is not universally safe, but the existing conditional boundary already conveys that point."
+          }
+        },
+        {
+          "question_id": "DH-3",
+          "passed": true,
+          "deterministic": {
+            "passed": true,
+            "word_count": 67,
+            "sentence_count": 3,
+            "checks": {
+              "known_disposition": true,
+              "answer_word_range_30_110": true,
+              "answer_sentence_range_2_5": true,
+              "has_locatable_anchor": true,
+              "has_limitation": true,
+              "has_interlocutor_background": true,
+              "has_interlocutor_purpose": true,
+              "has_interlocutor_evidence": true,
+              "has_stopping_condition": true,
+              "known_interlocutor_confidence": true,
+              "has_question_and_pressure": true
+            }
+          },
+          "ontology": {
+            "question_id": "DH-3",
+            "term_fidelity": 4,
+            "anti_collapse_discipline": 4,
+            "epistemic_discipline": 4,
+            "source_grounding": 4,
+            "critical_violations": [],
+            "evidence": "The answer carefully reports that the essay contains “no attempted attacks, failed attacks, successful breaks, or claimed prizes,” while identifying the three stated break classes. Its distinction that their status is “unreported, not demonstrably untested” avoids converting an invitation to attack into evidence of testing or security.",
+            "revision": "Retain the answer’s cautious wording; optionally add that the essay reports a wager and threat model, not repository challenge history, replay results, or independent test evidence."
+          },
+          "editorial": {
+            "question_id": "DH-3",
+            "responsiveness": 4,
+            "interlocutor_fit": 4,
+            "proportionality": 4,
+            "necessary_bridge": 4,
+            "epistemic_boundary": 4,
+            "stopping_discipline": 4,
+            "critical_violations": [],
+            "evidence": "The answer gives the empirical status plainly: “The essay reports no attempted attacks, failed attacks, successful breaks, or claimed prizes.” It identifies the three proposed classes and makes the crucial evidentiary distinction that their status is “unreported, not demonstrably untested,” then names what evidence would be needed.",
+            "revision": "No substantive revision required. The answer is direct, appropriately open-ended, and avoids converting absence of reported results into a claim that no testing occurred."
+          }
+        },
+        {
+          "question_id": "DH-4",
+          "passed": true,
+          "deterministic": {
+            "passed": true,
+            "word_count": 93,
+            "sentence_count": 3,
+            "checks": {
+              "known_disposition": true,
+              "answer_word_range_30_110": true,
+              "answer_sentence_range_2_5": true,
+              "has_locatable_anchor": true,
+              "has_limitation": true,
+              "has_interlocutor_background": true,
+              "has_interlocutor_purpose": true,
+              "has_interlocutor_evidence": true,
+              "has_stopping_condition": true,
+              "known_interlocutor_confidence": true,
+              "has_question_and_pressure": true
+            }
+          },
+          "ontology": {
+            "question_id": "DH-4",
+            "term_fidelity": 4,
+            "anti_collapse_discipline": 4,
+            "epistemic_discipline": 4,
+            "source_grounding": 4,
+            "critical_violations": [],
+            "evidence": "The answer faithfully reports that authority-managed effects require “an active grant and a matching authority-use reference,” while “side-effect-free calls are deliberately left ungated” and child agents receive a “derived permission envelope.” It appropriately says the essay does not demonstrate correct classification of every effect, availability, resistance to gaming, or avoidance of centralization.",
+            "revision": "Make the capability-authority distinction explicit: a valid Permission or Authority record does not establish the Agent’s technical Capability, and Capability does not establish Permission. Also note that the essay’s operator approval is not itself a complete institutional guarantee under the ontology."
+          },
+          "editorial": {
+            "question_id": "DH-4",
+            "responsiveness": 3,
+            "interlocutor_fit": 4,
+            "proportionality": 4,
+            "necessary_bridge": 4,
+            "epistemic_boundary": 4,
+            "stopping_discipline": 4,
+            "critical_violations": [],
+            "evidence": "The answer explains the intended gate—“an active grant and a matching authority-use reference”—and addresses each stated risk: “the essay does not show that every effect can be classified correctly, that the gate cannot become unavailable or gameable, or that the resulting approval process avoids centralization.” Its conclusion correctly limits the result to “an architectural rule, not a demonstrated solution.”",
+            "revision": "Lead with the answer more literally: “Not on the essay’s evidence.” Then retain the existing explanation of the intended invariant and its unresolved availability, gaming, and centralization costs."
+          }
+        }
+      ]
+    }
+  ]
+}

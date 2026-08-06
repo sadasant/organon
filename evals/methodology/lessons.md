@@ -53,4 +53,3 @@ lessons retained after removing the intermediate artifacts.
 Raw iterations are laboratory debris unless they change the instrument. Keep
 one canonical record of the learned experiment, encode its lesson in code or
 methodology, and let Git history preserve the rest.
-

@@ -81,4 +81,3 @@ def render_improvement_plans(plans: list[dict]) -> str:
                 )
             lines.extend(["", f"Evidence: {action['evidence']}", ""])
     return "\n".join(lines).rstrip() + "\n"
-

@@ -43,4 +43,3 @@ def validate_evaluation_result(result: dict) -> None:
         raise ValueError("committed input manifest contains a non-SHA-256 value")
     if not isinstance(result.get("improvement_plans"), list):
         raise ValueError("final evaluation requires improvement_plans")
-

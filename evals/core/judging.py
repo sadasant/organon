@@ -52,4 +52,3 @@ def call_structured_with_retry(program, *, output_field: str = "judgment", **kwa
 
 def escape_cell(value: object) -> str:
     return " ".join(str(value).replace("|", "\\|").split())
-
