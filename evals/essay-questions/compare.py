@@ -4,22 +4,22 @@
 from __future__ import annotations
 
 import argparse
-import hashlib
 import json
 import re
+import sys
 from datetime import UTC, datetime
 from pathlib import Path
 
 
+EVALS_ROOT = Path(__file__).resolve().parents[1]
+if str(EVALS_ROOT) not in sys.path:
+    sys.path.insert(0, str(EVALS_ROOT))
+
+from core.contracts import read_json, sha256_path
+from core.workspace import RunWorkspace, write_projection
+
+
 SENTENCE_END = re.compile(r"[.!?](?:[\"'”’)]*)\s+")
-
-
-def read_json(path: Path) -> dict:
-    return json.loads(path.read_text(encoding="utf-8"))
-
-
-def sha256_path(path: Path) -> str:
-    return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
 def sentence_count(value: str) -> int:
@@ -163,7 +163,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--baseline", type=Path, required=True)
     parser.add_argument("--candidate", type=Path, required=True)
     parser.add_argument("--evaluation", type=Path, required=True)
-    parser.add_argument("--output-stem", type=Path, required=True)
+    parser.add_argument("--run-dir", type=Path, required=True)
     parser.add_argument("--obsidian-output", type=Path)
     return parser.parse_args()
 
@@ -174,19 +174,10 @@ def main() -> None:
         read_json(args.baseline), read_json(args.candidate),
         read_json(args.evaluation), args,
     )
-    json_path = Path(f"{args.output_stem}.json")
-    markdown_path = Path(f"{args.output_stem}.md")
-    for path in (json_path, markdown_path):
-        if path.exists():
-            raise FileExistsError(f"Refusing to overwrite {path}")
-        path.parent.mkdir(parents=True, exist_ok=True)
-    json_path.write_text(json.dumps(result, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
-    markdown_path.write_text(render(result), encoding="utf-8")
-    if args.obsidian_output:
-        if args.obsidian_output.exists():
-            raise FileExistsError(f"Refusing to overwrite {args.obsidian_output}")
-        args.obsidian_output.parent.mkdir(parents=True, exist_ok=True)
-        args.obsidian_output.write_text(render(result, obsidian_links=True), encoding="utf-8")
+    workspace = RunWorkspace(args.run_dir)
+    workspace.write_json("comparison.json", result)
+    workspace.write_text("comparison.md", render(result))
+    write_projection(args.obsidian_output, render(result, obsidian_links=True))
 
 
 if __name__ == "__main__":

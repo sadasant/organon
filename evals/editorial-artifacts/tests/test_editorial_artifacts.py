@@ -73,7 +73,7 @@ def test_judgment_gate_requires_all_scores_at_least_three():
 def test_target_file_defines_unique_digest_pinned_targets():
     import json
 
-    targets = json.loads((ROOT / "targets.json").read_text())["targets"]
+    targets = json.loads((ROOT / "inputs" / "targets.json").read_text())["targets"]
     assert len(targets) == 4
     assert len({target["id"] for target in targets}) == len(targets)
     for target in targets:
@@ -146,7 +146,7 @@ def test_target_ids_are_path_safe():
     import json
     import re
 
-    targets = json.loads((ROOT / "targets.json").read_text())["targets"]
+    targets = json.loads((ROOT / "inputs" / "targets.json").read_text())["targets"]
     assert all(
         re.fullmatch(r"[a-z0-9]+(?:-[a-z0-9]+)*", target["id"])
         for target in targets
@@ -154,7 +154,7 @@ def test_target_ids_are_path_safe():
 
 
 def test_default_models_are_gpt_5_6_sol(monkeypatch):
-    monkeypatch.setattr(sys, "argv", ["run.py", "--output-stem", "results/test"])
+    monkeypatch.setattr(sys, "argv", ["run.py", "--run-dir", "results/test"])
     args = MODULE.parse_args()
     assert args.generator_model == "gpt-5.6-sol"
     assert args.judge_model == "gpt-5.6-sol"

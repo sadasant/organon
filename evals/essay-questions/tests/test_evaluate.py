@@ -57,9 +57,9 @@ def test_judge_gate_requires_every_score_and_no_critical_violation():
         "evidence": "Exact.",
         "revision": "",
     }
-    assert MODULE.judge_passed(passing)
+    assert MODULE.judgment_passed(passing)
     passing["source_grounding"] = 2
-    assert not MODULE.judge_passed(passing)
+    assert not MODULE.judgment_passed(passing)
 
 
 def test_markdown_reports_gate_without_private_paths():

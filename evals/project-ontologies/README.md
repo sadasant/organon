@@ -1,37 +1,67 @@
-# Project-ontology evaluation
+# Project-ontology suite
 
-This evaluation judges project-specific ontology dossiers against two separate
-contracts in a fixed order:
+This suite generates or evaluates source-pinned descriptions of a repository's
+local vocabulary and its proposed mappings into Organon. Generation always
+produces a candidate; judgment begins only after those exact bytes are reviewed,
+registered in `inputs/targets.json`, and committed.
 
-1. the complete binding Organon ontology, for term fidelity, dependency order,
-   anti-collapse discipline, and load-bearing causal and institutional joins;
-2. the versioned project-ontology documentation rubric, with the canonical
-   short-form and provisional long-form instruments as bounded supporting
-   context.
+## Contract
 
-The runner does not generate or revise the ontologies. It evaluates exact
-committed ontology and source snapshots pinned in `targets.json`. Deterministic
-checks validate snapshot identity, source digests, required sections, embedded
-mapping manifests, registered `organon:*` identifiers, and source-reference
-line bounds before either model judge runs.
+Every project ontology describes local terms first, then marks mappings as
+`exact`, `refinement`, `conflict`, or `unmapped`. Its embedded machine manifest
+must cite exact upstream ranges covered by the generated source dossier.
 
-Both judges use separate calls. Same-model agreement is generated evidence
-about one pipeline run, not independent validation, project adoption, or a
-binding Organon claim.
+The ordered gate is:
+
+1. deterministic provenance, headings, manifest, registered IDs, and line bounds;
+2. Organon dependency, anti-collapse, causal, epistemic, and institutional fidelity;
+3. open-source traceability, coverage, cadence, local-language preservation,
+   maintenance readiness, and delivery.
+
+A plausible analogy does not count as a refinement. Unclosed dependency packets
+become explicit promotion gates in the improvement plan.
+
+## Inputs and outputs
+
+```text
+inputs/
+├── targets.json
+├── documentation-rubric.md
+└── sources/
+results/<run>/
+├── run.json
+├── report.md
+├── improvement-plan.json
+└── improvement-plan.md
+```
+
+`build-source-dossier.py` verifies the exact public checkout commit and copies
+only cited ranges, retaining upstream line coordinates and file digests.
+
+`generate.py` creates a fresh candidate or, when given both an existing
+candidate and its `improvement-plan.json`, performs one evidence-bounded
+revision. It runs the deterministic manifest and citation gate before writing.
+The generated candidate is not silently inserted into `project-ontologies/`.
 
 ## Run
 
 ```sh
-python run.py \
-  --output-stem results/gpt-5.6-sol-2026-08-06-v0.17 \
-  --obsidian-output /absolute/path/to/Parergon/Contexts/Organon/Evaluations/Project-Ontologies-GPT-5-6-Sol-2026-08-06-v0.17.md
+OPENAI_API_KEY='injected-by-your-secret-manager' \
+python evals/project-ontologies/generate.py \
+  --target-id engram-project-ontology \
+  --run-dir /tmp/engram-ontology-candidate
+
+OPENAI_API_KEY='injected-by-your-secret-manager' \
+python evals/project-ontologies/run.py \
+  --run-dir evals/project-ontologies/results/YYYY-MM-DD-organon-v0.17
 ```
 
-The default judge is `gpt-5.6-sol` with `high` reasoning effort and a ten-minute
-fail-closed request timeout.
+The Organon judge runs before the documentation judge. Same-model agreement is
+useful generated pressure, not independent certification or project adoption.
 
-## Recorded run
+## Retained finding
 
-- [GPT-5.6 Sol, Organon v0.17, 2026-08-06](./results/gpt-5.6-sol-2026-08-06-v0.17.md)
-  — Kenogram passed both judge layers; Engram passed documentation review and
-  remains at `revise` on Organon dependency closure.
+The canonical run finds Kenogram review-ready under both layers. Engram is
+documentation-ready but remains at `revise` on Organon dependency closure. That
+is a successful output: the improvement plan says which candidate mappings must
+be downgraded or supplied with complete dependency packets before promotion.

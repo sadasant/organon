@@ -24,15 +24,19 @@ EVALS_ROOT = EVAL_ROOT.parent
 if str(EVALS_ROOT) not in sys.path:
     sys.path.insert(0, str(EVALS_ROOT))
 
-from io_contracts import (
+from core import METHODOLOGY_VERSION
+from core.contracts import (
     committed_input_manifest,
     git_head,
+    methodology_inputs,
+    read_text,
     resolve_within,
-    sha256_path,
     sha256_text,
 )
+from core.judging import escape_cell
+from core.workspace import RunWorkspace, write_projection
 
-DEFAULT_QUESTIONS = EVAL_ROOT / "questions.md"
+DEFAULT_QUESTIONS = EVAL_ROOT / "inputs" / "questions.md"
 DEFAULT_ONTOLOGY = ROOT / "ontology" / "ontology.md"
 DEFAULT_ANSWER_FORM = ROOT / "editorial" / "essay-answer-form.md"
 
@@ -123,10 +127,6 @@ class AnswerEssayQuestions(dspy.Signature):
         description="Empty on the first attempt; schema-repair instruction on retries."
     )
     answers: list[AnswerDraft] = dspy.OutputField()
-
-
-def read_text(path: Path) -> str:
-    return path.read_text(encoding="utf-8")
 
 
 def display_path(path: Path) -> str:
@@ -248,10 +248,6 @@ def resolve_essay_path(vault_root: Path, selector: str) -> Path:
     return resolve_within(works_root, selector, label="essay-file selector")
 
 
-def escape_cell(value: str) -> str:
-    return " ".join(value.replace("|", r"\|").split())
-
-
 def render_markdown(result: dict, obsidian_links: bool = False) -> str:
     metadata = result["run"]
     lines = [
@@ -334,25 +330,10 @@ def render_markdown(result: dict, obsidian_links: bool = False) -> str:
     return "\n".join(lines)
 
 
-def write_artifacts(result: dict, output_stem: Path, overwrite: bool) -> None:
-    json_path = Path(f"{output_stem}.json")
-    markdown_path = Path(f"{output_stem}.md")
-    for path in (json_path, markdown_path):
-        if path.exists() and not overwrite:
-            raise FileExistsError(f"Refusing to overwrite {path}; pass --overwrite")
-        path.parent.mkdir(parents=True, exist_ok=True)
-
-    json_path.write_text(
-        json.dumps(result, indent=2, ensure_ascii=False) + "\n", encoding="utf-8"
-    )
-    markdown_path.write_text(render_markdown(result), encoding="utf-8")
-
-
-def write_obsidian_projection(result: dict, output: Path, overwrite: bool) -> None:
-    if output.exists() and not overwrite:
-        raise FileExistsError(f"Refusing to overwrite {output}; pass --overwrite")
-    output.parent.mkdir(parents=True, exist_ok=True)
-    output.write_text(render_markdown(result, obsidian_links=True), encoding="utf-8")
+def write_artifacts(result: dict, run_dir: Path) -> None:
+    workspace = RunWorkspace(run_dir)
+    workspace.write_json("candidate.json", result)
+    workspace.write_text("candidate.md", render_markdown(result))
 
 
 def parse_args() -> argparse.Namespace:
@@ -380,9 +361,8 @@ def parse_args() -> argparse.Namespace:
         choices=["none", "low", "medium", "high", "xhigh", "max"],
     )
     parser.add_argument("--max-tokens", type=int, default=5000)
-    parser.add_argument("--output-stem", type=Path, required=True)
+    parser.add_argument("--run-dir", type=Path, required=True)
     parser.add_argument("--obsidian-output", type=Path)
-    parser.add_argument("--overwrite", action="store_true")
     return parser.parse_args()
 
 
@@ -396,7 +376,9 @@ def main() -> None:
     questions_text = read_text(args.questions)
     ontology = read_text(args.ontology)
     answer_form = read_text(args.answer_form)
-    control_inputs = [Path(__file__), args.questions, args.ontology, args.answer_form]
+    control_inputs = methodology_inputs(EVALS_ROOT) + [
+        Path(__file__), args.questions, args.ontology, args.answer_form
+    ]
     if args.selection:
         control_inputs.append(args.selection)
     input_manifest = committed_input_manifest(ROOT, control_inputs)
@@ -416,9 +398,19 @@ def main() -> None:
 
     generated_at = datetime.now(UTC).replace(microsecond=0).isoformat()
     result: dict = {
-        "schema_version": 1,
+        "schema_version": 2,
         "run": {
             "evaluation": "essay-questions",
+            "methodology_version": METHODOLOGY_VERSION,
+            "stages": [
+                "snapshot",
+                "deterministic-preflight",
+                "generate",
+                "ordered-judges",
+                "bounded-revision",
+                "compare",
+                "human-promotion",
+            ],
             "model": args.model,
             "provider": "openai",
             "api_surface": "responses",
@@ -485,9 +477,11 @@ def main() -> None:
     )
     if not result["run"]["complete"]:
         raise RuntimeError("Evaluation did not produce the complete selected question set")
-    write_artifacts(result, args.output_stem, args.overwrite)
-    if args.obsidian_output:
-        write_obsidian_projection(result, args.obsidian_output, args.overwrite)
+    write_artifacts(result, args.run_dir)
+    write_projection(
+        args.obsidian_output,
+        render_markdown(result, obsidian_links=True),
+    )
 
 
 if __name__ == "__main__":

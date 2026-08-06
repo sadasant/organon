@@ -1,0 +1,15 @@
+[project]
+name = "organon-evals"
+version = "1.0.0"
+description = "Source-pinned generation, evaluation, and improvement workflows governed by Organon"
+requires-python = ">=3.11,<3.14"
+dependencies = [
+  "dspy==3.3.0",
+  "litellm==1.91.4",
+  "PyYAML==6.0.3",
+]
+
+[tool.pytest.ini_options]
+addopts = "-q"
+testpaths = ["tests", "essay-questions/tests", "editorial-artifacts/tests", "project-ontologies/tests"]
+

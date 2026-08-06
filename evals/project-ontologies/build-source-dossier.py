@@ -16,7 +16,7 @@ EVALS_ROOT = Path(__file__).resolve().parents[1]
 if str(EVALS_ROOT) not in sys.path:
     sys.path.insert(0, str(EVALS_ROOT))
 
-from io_contracts import resolve_within, sha256_path
+from core.contracts import resolve_within, sha256_path
 
 
 SOURCE_REF = re.compile(r"(?P<path>[A-Za-z0-9_./-]+\.(?:md|go)):(?P<start>\d+)(?:-(?P<end>\d+))?")

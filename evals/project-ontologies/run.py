@@ -24,21 +24,33 @@ EVALS_ROOT = EVAL_ROOT.parent
 if str(EVALS_ROOT) not in sys.path:
     sys.path.insert(0, str(EVALS_ROOT))
 
-from io_contracts import (
+from core import METHODOLOGY_VERSION
+from core.contracts import (
     committed_input_manifest,
     git_head,
+    methodology_inputs,
+    read_text,
     resolve_within,
     sha256_path,
     sha256_text,
 )
+from core.improvement import improvement_plan, render_improvement_plans
+from core.judging import (
+    call_structured_with_retry,
+    escape_cell,
+    judgment_passed,
+    score_values,
+)
+from core.result import validate_evaluation_result
+from core.workspace import RunWorkspace, write_projection
 
 
-DEFAULT_TARGETS = EVAL_ROOT / "targets.json"
+DEFAULT_TARGETS = EVAL_ROOT / "inputs" / "targets.json"
 DEFAULT_ONTOLOGY = ROOT / "ontology" / "ontology.md"
 DEFAULT_REGISTRY = ROOT / "ontology" / "terms.yaml"
 DEFAULT_SHORT_FORM = ROOT / "editorial" / "short-form.md"
 DEFAULT_LONG_FORM = ROOT / "editorial" / "long-form.md"
-DEFAULT_DOCUMENTATION_RUBRIC = EVAL_ROOT / "documentation-rubric.md"
+DEFAULT_DOCUMENTATION_RUBRIC = EVAL_ROOT / "inputs" / "documentation-rubric.md"
 MODEL_GUIDANCE_URL = "https://developers.openai.com/api/docs/guides/latest-model?model=gpt-5.6"
 PROMPT_GUIDANCE_URL = "https://developers.openai.com/api/docs/guides/prompt-guidance-gpt-5p6.md"
 PROMPT_CONTRACT_VERSION = "gpt-5.6-project-ontology-v1"
@@ -124,10 +136,6 @@ class JudgeProjectOntologyDocumentation(dspy.Signature):
     source_dossier: str = dspy.InputField()
     project_ontology: str = dspy.InputField()
     judgment: DocumentationProjectJudgment = dspy.OutputField()
-
-
-def read_text(path: Path) -> str:
-    return path.read_text(encoding="utf-8")
 
 
 def parse_frontmatter(markdown: str) -> dict:
@@ -278,41 +286,6 @@ def deterministic_checks(
     }
 
 
-def score_values(judgment: dict) -> list[int]:
-    excluded = {"critical_violations", "evidence", "revision"}
-    return [
-        value for key, value in judgment.items()
-        if key not in excluded and isinstance(value, int)
-    ]
-
-
-def judgment_passed(judgment: dict) -> bool:
-    return not judgment["critical_violations"] and min(score_values(judgment)) >= 3
-
-
-def call_judge_with_retry(program, **kwargs) -> dict:
-    last_error: Exception | None = None
-    target = json.loads(kwargs["target_json"])
-    for attempt in range(3):
-        call_kwargs = dict(kwargs)
-        if attempt:
-            retry_target = dict(target)
-            retry_target["_retry_instruction"] = (
-                "Return one complete judgment matching every required field; do not omit scores."
-            )
-            call_kwargs["target_json"] = json.dumps(retry_target, ensure_ascii=False)
-        try:
-            return program(**call_kwargs).judgment.model_dump()
-        except Exception as error:
-            last_error = error
-    assert last_error is not None
-    raise last_error
-
-
-def escape_cell(value: object) -> str:
-    return " ".join(str(value).replace("|", "\\|").split())
-
-
 def render_markdown(result: dict) -> str:
     run = result["run"]
     lines = [
@@ -385,7 +358,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--judge-model", default="gpt-5.6-sol")
     parser.add_argument("--judge-reasoning-effort", default="high")
     parser.add_argument("--request-timeout", type=float, default=600.0)
-    parser.add_argument("--output-stem", type=Path, required=True)
+    parser.add_argument("--run-dir", type=Path, required=True)
     parser.add_argument("--obsidian-output", type=Path)
     return parser.parse_args()
 
@@ -432,7 +405,8 @@ def main() -> None:
 
     input_manifest = committed_input_manifest(
         ROOT,
-        [
+        methodology_inputs(EVALS_ROOT)
+        + [
             Path(__file__), EVAL_ROOT / "build-source-dossier.py", args.targets, args.ontology, args.registry,
             args.short_form, args.long_form, args.documentation_rubric,
         ]
@@ -455,7 +429,7 @@ def main() -> None:
     for target, _, ontology_text, dossier, source_digests, deterministic in prepared:
         target_json = json.dumps(target, ensure_ascii=False)
         print(f"[{target['id']}] Organon judge", flush=True)
-        ontology_result = call_judge_with_retry(
+        ontology_result = call_structured_with_retry(
             ontology_judge,
             ontology=ontology,
             target_json=target_json,
@@ -463,7 +437,7 @@ def main() -> None:
             project_ontology=ontology_text,
         )
         print(f"[{target['id']}] documentation judge", flush=True)
-        documentation_result = call_judge_with_retry(
+        documentation_result = call_structured_with_retry(
             documentation_judge,
             documentation_rubric=documentation_rubric,
             short_form=short_form,
@@ -492,10 +466,54 @@ def main() -> None:
         })
 
     passed_count = sum(int(item["passed"]) for item in assessments)
+    plans = [
+        improvement_plan(
+            target_id=assessment["target_id"],
+            artifact_kind="project-ontology",
+            passed=assessment["passed"],
+            preserve=[
+                "project-local vocabulary before Organon mapping",
+                "exact public source citations and nonclaims",
+                "every conflict, uncertainty, and anti-collapse distinction already established",
+            ],
+            layers=[
+                {
+                    "name": "deterministic contract",
+                    "passed": assessment["deterministic"]["passed"],
+                    "critical_violations": [
+                        key
+                        for key, value in assessment["deterministic"]["checks"].items()
+                        if not value
+                    ],
+                    "revision": "Repair every failed deterministic check.",
+                    "evidence": "Exact manifest and source-contract output.",
+                },
+                {
+                    "name": "Organon ontology",
+                    "passed": judgment_passed(assessment["ontology"]),
+                    **assessment["ontology"],
+                },
+                {
+                    "name": "open-source documentation",
+                    "passed": judgment_passed(assessment["documentation"]),
+                    **assessment["documentation"],
+                },
+            ],
+        )
+        for assessment in assessments
+    ]
     result = {
-        "schema_version": 1,
+        "schema_version": 2,
         "run": {
             "evaluation": "project-ontologies",
+            "methodology_version": METHODOLOGY_VERSION,
+            "stages": [
+                "snapshot",
+                "deterministic-preflight",
+                "ordered-judges",
+                "improvement-plan",
+                "human-promotion",
+            ],
             "generated_at": datetime.now(UTC).replace(microsecond=0).isoformat(),
             "judge_model": args.judge_model,
             "judge_reasoning_effort": args.judge_reasoning_effort,
@@ -521,21 +539,16 @@ def main() -> None:
             "passed": len(assessments) == len(targets) and passed_count == len(targets),
         },
         "assessments": assessments,
+        "improvement_plans": plans,
     }
-    json_path = Path(f"{args.output_stem}.json")
-    markdown_path = Path(f"{args.output_stem}.md")
-    for path in (json_path, markdown_path):
-        if path.exists():
-            raise FileExistsError(f"Refusing to overwrite {path}")
-        path.parent.mkdir(parents=True, exist_ok=True)
-    json_path.write_text(json.dumps(result, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    validate_evaluation_result(result)
+    workspace = RunWorkspace(args.run_dir)
+    workspace.write_json("run.json", result)
     markdown = render_markdown(result)
-    markdown_path.write_text(markdown, encoding="utf-8")
-    if args.obsidian_output:
-        if args.obsidian_output.exists():
-            raise FileExistsError(f"Refusing to overwrite {args.obsidian_output}")
-        args.obsidian_output.parent.mkdir(parents=True, exist_ok=True)
-        args.obsidian_output.write_text(markdown, encoding="utf-8")
+    workspace.write_text("report.md", markdown)
+    workspace.write_json("improvement-plan.json", plans)
+    workspace.write_text("improvement-plan.md", render_improvement_plans(plans))
+    write_projection(args.obsidian_output, markdown)
 
 
 if __name__ == "__main__":

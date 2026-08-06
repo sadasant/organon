@@ -24,9 +24,27 @@ EVALS_ROOT = EVAL_ROOT.parent
 if str(EVALS_ROOT) not in sys.path:
     sys.path.insert(0, str(EVALS_ROOT))
 
-from io_contracts import committed_input_manifest, git_head, resolve_within, sha256_text
+from core import METHODOLOGY_VERSION
+from core.contracts import (
+    committed_input_manifest,
+    git_head,
+    methodology_inputs,
+    pinned_sources,
+    read_text,
+    resolve_within,
+    sha256_text,
+)
+from core.improvement import improvement_plan, render_improvement_plans
+from core.judging import (
+    call_structured_with_retry,
+    escape_cell,
+    judgment_passed,
+    score_values,
+)
+from core.result import validate_evaluation_result
+from core.workspace import RunWorkspace, write_projection
 
-DEFAULT_TARGETS = EVAL_ROOT / "targets.json"
+DEFAULT_TARGETS = EVAL_ROOT / "inputs" / "targets.json"
 DEFAULT_ONTOLOGY = ROOT / "ontology" / "ontology.md"
 DEFAULT_SHORT_FORM = ROOT / "editorial" / "short-form.md"
 DEFAULT_LONG_FORM = ROOT / "editorial" / "long-form.md"
@@ -179,23 +197,6 @@ class JudgeLongForm(dspy.Signature):
     judgment: LongFormJudgment = dspy.OutputField()
 
 
-def read_text(path: Path) -> str:
-    return path.read_text(encoding="utf-8")
-
-
-def escape_cell(value: object) -> str:
-    return str(value).replace("|", "\\|").replace("\n", " ")
-
-
-def score_values(judgment: dict) -> list[int]:
-    excluded = {"critical_violations", "evidence", "revision"}
-    return [value for key, value in judgment.items() if key not in excluded and isinstance(value, int)]
-
-
-def judgment_passed(judgment: dict) -> bool:
-    return not judgment["critical_violations"] and min(score_values(judgment)) >= 3
-
-
 def delivery_target(target: dict) -> dict:
     """Give the delivery judge context without the artifact-length contract."""
     return {
@@ -208,26 +209,6 @@ def delivery_target(target: dict) -> dict:
             "artifact_completeness_out_of_scope": True,
         },
     }
-
-
-def call_judge_with_retry(program, **kwargs):
-    last_error: Exception | None = None
-    target = json.loads(kwargs["target_json"])
-    for attempt in range(3):
-        call_kwargs = dict(kwargs)
-        if attempt:
-            call_target = dict(target)
-            call_target["_retry_instruction"] = (
-                "The previous response lacked the required structured judgment. "
-                "Return one complete judgment matching the declared schema."
-            )
-            call_kwargs["target_json"] = json.dumps(call_target, ensure_ascii=False)
-        try:
-            return program(**call_kwargs).judgment.model_dump()
-        except Exception as error:
-            last_error = error
-    assert last_error is not None
-    raise last_error
 
 
 def deterministic_checks(
@@ -258,23 +239,10 @@ def deterministic_checks(
 
 
 def source_dossier(target: dict) -> tuple[str, dict[str, str]]:
-    sections = []
-    digests = {}
-    declared = target.get("source_digests")
-    if not isinstance(declared, dict) or set(declared) != set(target["source_files"]):
-        raise ValueError("source_digests must pin every source_file exactly")
-    for relative in target["source_files"]:
-        source_path = resolve_within(ROOT, relative, label="target source selector")
-        text = read_text(source_path)
-        digests[relative] = sha256_text(text)
-        expected = declared[relative]
-        if digests[relative] != expected:
-            raise ValueError(
-                f"source digest mismatch for {relative}: "
-                f"expected {expected}, got {digests[relative]}"
-            )
-        sections.append(f"\n\n# SOURCE: {relative}\n\n{text}")
-    return "".join(sections).lstrip(), digests
+    dossier, digests, _ = pinned_sources(
+        ROOT, target["source_files"], target.get("source_digests", {})
+    )
+    return dossier, digests
 
 
 def evaluate_draft(
@@ -291,20 +259,20 @@ def evaluate_draft(
 ) -> dict:
     draft_json = draft.model_dump_json()
     deterministic = deterministic_checks(draft, allowed_sources, target)
-    ontology_result = call_judge_with_retry(
+    ontology_result = call_structured_with_retry(
         ontology_judge,
         ontology=ontology,
         target_json=json.dumps(target),
         source_dossier=dossier,
         draft_json=draft_json,
     )
-    delivery_result = call_judge_with_retry(
+    delivery_result = call_structured_with_retry(
         delivery_judge,
         short_form=short_form,
         target_json=json.dumps(delivery_target(target)),
         deliveries_json=json.dumps({"deliveries": draft.deliveries}, ensure_ascii=False),
     )
-    long_form_result = call_judge_with_retry(
+    long_form_result = call_structured_with_retry(
         long_form_judge,
         long_form=long_form,
         target_json=json.dumps(target),
@@ -407,8 +375,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--judge-reasoning-effort", default="high")
     parser.add_argument("--request-timeout", type=float, default=600.0)
     parser.add_argument("--max-revisions", type=int, default=1)
-    parser.add_argument("--output-stem", type=Path, required=True)
-    parser.add_argument("--artifact-output-dir", type=Path)
+    parser.add_argument("--run-dir", type=Path, required=True)
     parser.add_argument("--obsidian-output", type=Path)
     parser.add_argument("--obsidian-artifact-output-dir", type=Path)
     return parser.parse_args()
@@ -440,7 +407,8 @@ def main() -> None:
     ]
     input_manifest = committed_input_manifest(
         ROOT,
-        [Path(__file__), args.targets, args.ontology, args.short_form, args.long_form]
+        methodology_inputs(EVALS_ROOT)
+        + [Path(__file__), args.targets, args.ontology, args.short_form, args.long_form]
         + source_paths,
     )
 
@@ -508,10 +476,45 @@ def main() -> None:
         })
 
     passed_count = sum(int(artifact["evaluation"]["passed"]) for artifact in artifacts)
+    plans = [
+        improvement_plan(
+            target_id=artifact["target_id"],
+            artifact_kind=artifact["target"].get("artifact_kind", "documentation"),
+            passed=artifact["evaluation"]["passed"],
+            preserve=[
+                "source-backed facts, commands, links, and status boundaries",
+                "the target audience and operational purpose",
+                "every layer that already passed",
+            ],
+            layers=[
+                {
+                    "name": name,
+                    "passed": judgment_passed(artifact["evaluation"][key]),
+                    **artifact["evaluation"][key],
+                }
+                for key, name in (
+                    ("ontology", "Organon ontology"),
+                    ("delivery", "short-form delivery"),
+                    ("long_form", "long-form grammar"),
+                )
+            ],
+        )
+        for artifact in artifacts
+    ]
     result = {
-        "schema_version": 1,
+        "schema_version": 2,
         "run": {
             "evaluation": "editorial-artifacts",
+            "methodology_version": METHODOLOGY_VERSION,
+            "stages": [
+                "snapshot",
+                "deterministic-preflight",
+                "generate",
+                "ordered-judges",
+                "bounded-revision",
+                "improvement-plan",
+                "human-promotion",
+            ],
             "generated_at": datetime.now(UTC).replace(microsecond=0).isoformat(),
             "generator_model": args.generator_model,
             "judge_model": args.judge_model,
@@ -536,24 +539,28 @@ def main() -> None:
             "passed": len(artifacts) == len(targets) and passed_count == len(targets),
         },
         "artifacts": artifacts,
+        "improvement_plans": plans,
     }
-    json_path = Path(f"{args.output_stem}.json")
-    markdown_path = Path(f"{args.output_stem}.md")
-    json_path.parent.mkdir(parents=True, exist_ok=True)
-    json_path.write_text(json.dumps(result, indent=2, ensure_ascii=False) + "\n")
+    validate_evaluation_result(result)
+    workspace = RunWorkspace(args.run_dir)
+    workspace.write_json("run.json", result)
     markdown = render_markdown(result)
-    markdown_path.write_text(markdown)
-    for output_dir in filter(None, [
-        args.artifact_output_dir, args.obsidian_artifact_output_dir
-    ]):
-        output_dir.mkdir(parents=True, exist_ok=True)
+    workspace.write_text("report.md", markdown)
+    workspace.write_json("improvement-plan.json", plans)
+    workspace.write_text("improvement-plan.md", render_improvement_plans(plans))
+    for artifact in artifacts:
+        workspace.write_text(
+            f"artifacts/{artifact['target_id']}.md",
+            artifact["draft"]["markdown"].strip() + "\n",
+        )
+    if args.obsidian_artifact_output_dir:
+        args.obsidian_artifact_output_dir.mkdir(parents=True, exist_ok=True)
         for artifact in artifacts:
-            (output_dir / f"{artifact['target_id']}.md").write_text(
-                artifact["draft"]["markdown"].strip() + "\n"
+            write_projection(
+                args.obsidian_artifact_output_dir / f"{artifact['target_id']}.md",
+                artifact["draft"]["markdown"].strip() + "\n",
             )
-    if args.obsidian_output:
-        args.obsidian_output.parent.mkdir(parents=True, exist_ok=True)
-        args.obsidian_output.write_text(markdown)
+    write_projection(args.obsidian_output, markdown)
 
 
 if __name__ == "__main__":

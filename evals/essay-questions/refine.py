@@ -29,6 +29,14 @@ def load_run_module():
 
 RUN = load_run_module()
 
+from core.contracts import (
+    committed_input_manifest,
+    methodology_inputs,
+    sha256_path,
+    sha256_text,
+)
+from core.workspace import write_projection
+
 
 class RefineEssayAnswers(dspy.Signature):
     """Rewrite exactly the failed answer IDs using their recorded judge evidence.
@@ -72,7 +80,7 @@ def parse_args() -> argparse.Namespace:
     )
     parser.add_argument("--model", default="gpt-5.6-luna")
     parser.add_argument("--reasoning-effort", default="high")
-    parser.add_argument("--output-stem", type=Path, required=True)
+    parser.add_argument("--run-dir", type=Path, required=True)
     parser.add_argument("--obsidian-output", type=Path)
     return parser.parse_args()
 
@@ -85,11 +93,16 @@ def main() -> None:
     evaluation = json.loads(args.evaluation.read_text())
     ontology = args.ontology.read_text()
     answer_form = args.answer_form.read_text()
-    source_result_sha256 = RUN.sha256_path(args.source_result)
+    source_result_sha256 = sha256_path(args.source_result)
     if evaluation["run"]["source_result_sha256"] != source_result_sha256:
         raise SystemExit("Evaluation does not govern the supplied source result")
-    input_manifest = RUN.committed_input_manifest(
-        ROOT, [Path(__file__), EVAL_ROOT / "run.py", args.ontology, args.answer_form]
+    input_manifest = committed_input_manifest(
+        ROOT,
+        methodology_inputs(EVAL_ROOT.parent)
+        + [
+            Path(__file__), EVAL_ROOT / "run.py", args.ontology, args.answer_form,
+            args.source_result, args.evaluation,
+        ],
     )
 
     judgments_by_title = {essay["title"]: essay for essay in evaluation["essays"]}
@@ -114,7 +127,7 @@ def main() -> None:
         } for item in failed]
         essay_path = RUN.resolve_essay_path(args.vault_root, essay["essay_file"])
         essay_text = essay_path.read_text()
-        if RUN.sha256_text(essay_text) != essay["essay_sha256"]:
+        if sha256_text(essay_text) != essay["essay_sha256"]:
             raise SystemExit(f"Essay digest changed: {essay['title']}")
         prediction = program(
             ontology=ontology,
@@ -140,16 +153,18 @@ def main() -> None:
         "source_result": args.source_result.name,
         "source_result_sha256": source_result_sha256,
         "evaluation": args.evaluation.name,
-        "evaluation_sha256": RUN.sha256_path(args.evaluation),
+        "evaluation_sha256": sha256_path(args.evaluation),
         "committed_inputs_sha256": input_manifest,
         "model": args.model,
         "reasoning_effort": args.reasoning_effort,
         "revised_question_ids": revised_ids,
         "preserved_question_count": source["run"]["question_count"] - len(revised_ids),
     }
-    RUN.write_artifacts(source, args.output_stem, overwrite=False)
-    if args.obsidian_output:
-        RUN.write_obsidian_projection(source, args.obsidian_output, overwrite=False)
+    RUN.write_artifacts(source, args.run_dir)
+    write_projection(
+        args.obsidian_output,
+        RUN.render_markdown(source, obsidian_links=True),
+    )
 
 
 if __name__ == "__main__":

@@ -16,7 +16,7 @@ HISTORICAL_PREFIX = "ontology/history/"
 # scanning them for private paths and wikilinks, but resolve their relative
 # links only when they are reviewed in that declared upstream repository.
 FOREIGN_ROOT_PREFIXES = (
-    "evals/editorial-artifacts/sources/",
+    "evals/editorial-artifacts/inputs/sources/",
     "evals/editorial-artifacts/results/",
 )
 WIKILINK = re.compile(r"!?\[\[[^]]+\]\]")

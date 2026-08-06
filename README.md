@@ -32,7 +32,7 @@ This matters because an ontology can be internally consistent and still reflect 
 ```text
 ontology/       binding prose, stable term registry, profiles, and Lean experiment
 editorial/      long-form, short-form, and relational answer instruments
-evals/          reproducible evaluations of Organon's instruments against governed material
+evals/          one source-pinned lifecycle for generation, judgment, improvement, and review
 project-ontologies/ source-pinned candidate mappings for downstream projects
 provenance/     essay, editorial, and term-level evidence lineage
 proposals/      nonbinding promotion dossiers for quarantined vocabulary
@@ -54,9 +54,9 @@ Capitalization is not adoption. A downstream repository adopts Organon by naming
 
 The [Long-Form Editorial Grammar](./editorial/long-form.md) describes how a reader comes to need, receive, and carry a difficult idea. The canonical [Short Form](./editorial/short-form.md) governs sentence-scale delivery once that idea has been earned. The proposed [Essay-Answer Form](./editorial/essay-answer-form.md) governs a different relation: answering a particular question through a restrained, evidenced hypothesis about its reader. None may silently redefine what the ontology says exists.
 
-The [essay-question evaluation](./evals/essay-questions/README.md) uses DSPy to test how a named model answers reader questions when the binding ontology and a versioned editorial answer form are supplied as explicit context. Generated answers and interlocutor hypotheses are evidence about one versioned prompt, model, and source snapshot; they are not additions to the ontology, facts about actual readers, or Daniel-authored answers.
+The [evaluation methodology](./evals/methodology/README.md) governs every retained DSPy experiment: pin the source, preflight deterministic facts, generate when appropriate, judge in non-overlapping layers, turn failures into bounded improvement work, compare exact candidates, and leave promotion to a human maintainer. The [essay-question suite](./evals/essay-questions/README.md) applies it to reader answers without treating generated interlocutor hypotheses as facts about actual readers.
 
-The [project ontologies](./project-ontologies/README.md) apply the same source-pinned discipline to Engram and Kenogram. Their [two-stage evaluation](./evals/project-ontologies/README.md) first checks fidelity to the binding ontology, then checks source traceability, documentation cadence, maintenance readiness, and delivery. The dossiers remain generated candidates rather than adoption claims.
+The [project ontologies](./project-ontologies/README.md) apply the same discipline to Engram and Kenogram. Their [two-stage suite](./evals/project-ontologies/README.md) checks Organon dependency closure before open-source documentation quality and emits explicit promotion gates. The [editorial-artifact suite](./evals/editorial-artifacts/README.md) carries the same lifecycle into README and long-form candidates. None of these outputs becomes an adoption claim by passing an automated gate.
 
 The ontology's essay evidence is indexed through the public [Essay Corpus](./provenance/essays.md). Private drafts and review artifacts are declared through [Editorial Provenance](./provenance/editorial.md). [Term Provenance](./provenance/terms.md) records the lineage claimed for every stable term without presenting lineage as proof of truth.
 

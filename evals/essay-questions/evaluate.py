@@ -4,7 +4,6 @@
 from __future__ import annotations
 
 import argparse
-import hashlib
 import importlib.util
 import importlib.metadata
 import json
@@ -24,7 +23,7 @@ ROOT = Path(__file__).resolve().parents[2]
 EVAL_ROOT = Path(__file__).resolve().parent
 DEFAULT_ONTOLOGY = ROOT / "ontology" / "ontology.md"
 DEFAULT_ANSWER_FORM = ROOT / "editorial" / "essay-answer-form.md"
-DEFAULT_QUESTIONS = EVAL_ROOT / "questions.md"
+DEFAULT_QUESTIONS = EVAL_ROOT / "inputs" / "questions.md"
 SENTENCE_END = re.compile(r"[.!?](?:[\"'”’)]*)\s+")
 ALLOWED_DISPOSITIONS = {
     "answered",
@@ -45,6 +44,19 @@ def load_run_module():
 
 
 RUN = load_run_module()
+
+from core import METHODOLOGY_VERSION
+from core.contracts import (
+    canonical_digest,
+    methodology_inputs,
+    read_text,
+    sha256_path,
+    sha256_text,
+)
+from core.improvement import improvement_plan, render_improvement_plans
+from core.judging import escape_cell, judgment_passed, score_values
+from core.result import validate_evaluation_result
+from core.workspace import RunWorkspace, write_projection
 
 
 class OntologyJudgment(BaseModel):
@@ -110,22 +122,6 @@ class JudgeEditorialAnswers(dspy.Signature):
     judgments: list[EditorialJudgment] = dspy.OutputField()
 
 
-def read_text(path: Path) -> str:
-    return path.read_text(encoding="utf-8")
-
-
-def sha256_text(value: str) -> str:
-    return hashlib.sha256(value.encode("utf-8")).hexdigest()
-
-
-def sha256_path(path: Path) -> str:
-    return hashlib.sha256(path.read_bytes()).hexdigest()
-
-
-def canonical_digest(value: object) -> str:
-    return sha256_text(json.dumps(value, sort_keys=True, ensure_ascii=False))
-
-
 def can_reuse_judgment(
     answer: dict,
     essay_sha256: str,
@@ -136,10 +132,6 @@ def can_reuse_judgment(
         prior_answer_sha256 == canonical_digest(answer)
         and prior_essay_sha256 == essay_sha256
     )
-
-
-def escape_cell(value: str) -> str:
-    return " ".join(value.replace("|", r"\|").split())
 
 
 def sentence_count(value: str) -> int:
@@ -210,16 +202,6 @@ def call_judge_with_id_retry(program, expected: list[str], bundle: str, **kwargs
             last_error = error
     assert last_error is not None
     raise last_error
-
-
-def score_values(judgment: dict) -> list[int]:
-    return [value for key, value in judgment.items() if key not in {
-        "question_id", "critical_violations", "evidence", "revision"
-    } and isinstance(value, int)]
-
-
-def judge_passed(judgment: dict) -> bool:
-    return not judgment["critical_violations"] and min(score_values(judgment)) >= 3
 
 
 def render_markdown(result: dict, obsidian_links: bool = False) -> str:
@@ -294,17 +276,6 @@ def render_markdown(result: dict, obsidian_links: bool = False) -> str:
     return "\n".join(lines)
 
 
-def write_artifacts(result: dict, stem: Path, obsidian_output: Path | None) -> None:
-    json_path = Path(f"{stem}.json")
-    markdown_path = Path(f"{stem}.md")
-    json_path.parent.mkdir(parents=True, exist_ok=True)
-    json_path.write_text(json.dumps(result, indent=2, ensure_ascii=False) + "\n")
-    markdown_path.write_text(render_markdown(result))
-    if obsidian_output:
-        obsidian_output.parent.mkdir(parents=True, exist_ok=True)
-        obsidian_output.write_text(render_markdown(result, obsidian_links=True))
-
-
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser()
     parser.add_argument("--source-result", type=Path, required=True)
@@ -313,7 +284,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--answer-form", type=Path, default=DEFAULT_ANSWER_FORM)
     parser.add_argument("--judge-model", default="gpt-5.6-luna")
     parser.add_argument("--judge-reasoning-effort", default="high")
-    parser.add_argument("--output-stem", type=Path, required=True)
+    parser.add_argument("--run-dir", type=Path, required=True)
     parser.add_argument("--obsidian-output", type=Path)
     parser.add_argument(
         "--baseline-evaluation", type=Path,
@@ -329,9 +300,13 @@ def main() -> None:
     source = json.loads(read_text(args.source_result))
     ontology = read_text(args.ontology)
     answer_form = read_text(args.answer_form)
-    input_manifest = RUN.committed_input_manifest(
-        ROOT, [Path(__file__), EVAL_ROOT / "run.py", args.ontology, args.answer_form]
-    )
+    governed_inputs = methodology_inputs(EVAL_ROOT.parent) + [
+        Path(__file__), EVAL_ROOT / "run.py", args.ontology, args.answer_form,
+        args.source_result,
+    ]
+    if args.baseline_evaluation:
+        governed_inputs.append(args.baseline_evaluation)
+    input_manifest = RUN.committed_input_manifest(ROOT, governed_inputs)
     if source["run"]["ontology_sha256"] != sha256_text(ontology):
         raise SystemExit("Source result ontology digest does not match current input")
     if source["run"]["answer_form_sha256"] != sha256_text(answer_form):
@@ -423,7 +398,11 @@ def main() -> None:
                 ontology_data = prior["ontology"]
                 editorial_data = prior["editorial"]
                 reused_count += 1
-            passed = deterministic["passed"] and judge_passed(ontology_data) and judge_passed(editorial_data)
+            passed = (
+                deterministic["passed"]
+                and judgment_passed(ontology_data)
+                and judgment_passed(editorial_data)
+            )
             passed_count += int(passed)
             rows.append({
                 "question_id": answer["question_id"],
@@ -441,9 +420,19 @@ def main() -> None:
     question_count = sum(len(essay["judgments"]) for essay in essays)
     expected_question_count = source["run"].get("expected_question_count", 40)
     result = {
-        "schema_version": 1,
+        "schema_version": 2,
         "run": {
             "evaluation": "essay-question-judgments",
+            "methodology_version": METHODOLOGY_VERSION,
+            "stages": [
+                "snapshot",
+                "deterministic-preflight",
+                "generate",
+                "ordered-judges",
+                "bounded-revision",
+                "compare",
+                "human-promotion",
+            ],
             "generated_at": datetime.now(UTC).replace(microsecond=0).isoformat(),
             "judge_model": args.judge_model,
             "judge_reasoning_effort": args.judge_reasoning_effort,
@@ -470,7 +459,55 @@ def main() -> None:
         },
         "essays": essays,
     }
-    write_artifacts(result, args.output_stem, args.obsidian_output)
+    plans = []
+    for essay in essays:
+        for row in essay["judgments"]:
+            if row["passed"]:
+                continue
+            plans.append(
+                improvement_plan(
+                    target_id=row["question_id"],
+                    artifact_kind="essay-answer",
+                    passed=False,
+                    preserve=[
+                        "the essay's actual position and locatable anchors",
+                        "the evidenced interlocutor hypothesis",
+                        "every deterministic or judge layer that already passed",
+                    ],
+                    layers=[
+                        {
+                            "name": "deterministic answer contract",
+                            "passed": row["deterministic"]["passed"],
+                            "critical_violations": [
+                                key
+                                for key, value in row["deterministic"]["checks"].items()
+                                if not value
+                            ],
+                            "revision": "Repair the failed answer-shape checks only.",
+                            "evidence": json.dumps(row["deterministic"], ensure_ascii=False),
+                        },
+                        {
+                            "name": "Organon ontology",
+                            "passed": judgment_passed(row["ontology"]),
+                            **row["ontology"],
+                        },
+                        {
+                            "name": "Essay-Answer Form",
+                            "passed": judgment_passed(row["editorial"]),
+                            **row["editorial"],
+                        },
+                    ],
+                )
+            )
+    result["improvement_plans"] = plans
+    validate_evaluation_result(result)
+    workspace = RunWorkspace(args.run_dir)
+    workspace.write_json("evaluation.json", result)
+    report = render_markdown(result)
+    workspace.write_text("evaluation.md", report)
+    workspace.write_json("improvement-plan.json", plans)
+    workspace.write_text("improvement-plan.md", render_improvement_plans(plans))
+    write_projection(args.obsidian_output, render_markdown(result, obsidian_links=True))
 
 
 if __name__ == "__main__":

@@ -10,7 +10,7 @@ EVALS_ROOT = Path(__file__).resolve().parents[1]
 if str(EVALS_ROOT) not in sys.path:
     sys.path.insert(0, str(EVALS_ROOT))
 
-from io_contracts import committed_input_manifest, resolve_within
+from core.contracts import committed_input_manifest, resolve_within
 
 
 def test_resolve_within_rejects_absolute_traversal_and_escaping_symlink(tmp_path):
@@ -45,5 +45,5 @@ def test_committed_input_manifest_rejects_dirty_control_input(tmp_path):
     )
     assert "control.md" in committed_input_manifest(tmp_path, [control])
     control.write_text("dirty\n")
-    with pytest.raises(RuntimeError, match="differs from HEAD"):
+    with pytest.raises(ValueError, match="differs from HEAD"):
         committed_input_manifest(tmp_path, [control])

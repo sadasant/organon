@@ -27,15 +27,17 @@ def interlocutor():
 
 
 def test_question_snapshot_is_exactly_ten_by_four():
-    essays = MODULE.parse_questions((ROOT / "questions.md").read_text())
+    essays = MODULE.parse_questions((ROOT / "inputs" / "questions.md").read_text())
     assert len(essays) == 10
     assert sum(len(essay.questions) for essay in essays) == 40
     assert len({q.id for essay in essays for q in essay.questions}) == 40
 
 
 def test_calibration_selects_one_question_per_essay():
-    essays = MODULE.parse_questions((ROOT / "questions.md").read_text())
-    selected, digest = MODULE.select_questions(essays, ROOT / "calibration.json")
+    essays = MODULE.parse_questions((ROOT / "inputs" / "questions.md").read_text())
+    selected, digest = MODULE.select_questions(
+        essays, ROOT / "inputs" / "calibration.json"
+    )
     assert len(selected) == 10
     assert sum(len(essay.questions) for essay in selected) == 10
     assert digest
@@ -170,7 +172,7 @@ def test_markdown_projection_escapes_cells():
     assert "OPENAI_API_KEY" not in markdown
 
 
-def test_artifact_paths_preserve_dotted_model_name(tmp_path):
+def test_run_workspace_preserves_dotted_model_name(tmp_path):
     result = {
         "run": {
             "model": "gpt-5.6-luna",
@@ -190,7 +192,7 @@ def test_artifact_paths_preserve_dotted_model_name(tmp_path):
         },
         "essays": [],
     }
-    stem = tmp_path / "gpt-5.6-luna-2026-08-04"
-    MODULE.write_artifacts(result, stem, overwrite=False)
-    assert (tmp_path / "gpt-5.6-luna-2026-08-04.json").is_file()
-    assert (tmp_path / "gpt-5.6-luna-2026-08-04.md").is_file()
+    run_dir = tmp_path / "gpt-5.6-luna-2026-08-04"
+    MODULE.write_artifacts(result, run_dir)
+    assert (run_dir / "candidate.json").is_file()
+    assert (run_dir / "candidate.md").is_file()

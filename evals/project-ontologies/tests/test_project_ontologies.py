@@ -118,7 +118,7 @@ def test_source_dossier_is_digest_pinned_and_confined(tmp_path, monkeypatch):
 
 
 def test_default_judge_and_prompt_contract(monkeypatch):
-    monkeypatch.setattr(sys, "argv", ["run.py", "--output-stem", "result"])
+    monkeypatch.setattr(sys, "argv", ["run.py", "--run-dir", "result"])
     args = MODULE.parse_args()
     assert args.judge_model == "gpt-5.6-sol"
     assert args.judge_reasoning_effort == "high"
@@ -127,7 +127,7 @@ def test_default_judge_and_prompt_contract(monkeypatch):
 
 
 def test_registered_targets_pass_exact_deterministic_contract():
-    targets = json.loads((ROOT / "targets.json").read_text())["targets"]
+    targets = json.loads((ROOT / "inputs" / "targets.json").read_text())["targets"]
     known_ids = MODULE.registry_ids(MODULE.DEFAULT_REGISTRY)
     assert {target["project"] for target in targets} == {"Engram", "Kenogram"}
     for target in targets:
