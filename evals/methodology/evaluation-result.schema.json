@@ -1,0 +1,56 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/sadasant/organon/evals/methodology/evaluation-result.schema.json",
+  "title": "Organon evaluation result envelope",
+  "type": "object",
+  "required": ["schema_version", "run", "improvement_plans"],
+  "properties": {
+    "schema_version": {"const": 2},
+    "run": {
+      "type": "object",
+      "required": [
+        "evaluation",
+        "methodology_version",
+        "stages",
+        "organon_commit",
+        "committed_inputs_sha256",
+        "complete",
+        "passed"
+      ],
+      "properties": {
+        "methodology_version": {"const": "1.0"},
+        "stages": {
+          "type": "array",
+          "minItems": 4,
+          "items": {"type": "string"},
+          "uniqueItems": true
+        },
+        "organon_commit": {"type": "string", "pattern": "^[0-9a-f]{40}$"},
+        "committed_inputs_sha256": {
+          "type": "object",
+          "minProperties": 1,
+          "additionalProperties": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          }
+        },
+        "complete": {"type": "boolean"},
+        "passed": {"type": "boolean"}
+      }
+    },
+    "improvement_plans": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "target_id",
+          "artifact_kind",
+          "disposition",
+          "preserve",
+          "actions",
+          "promotion_rule"
+        ]
+      }
+    }
+  }
+}

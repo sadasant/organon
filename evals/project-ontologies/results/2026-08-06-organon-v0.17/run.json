@@ -1,0 +1,252 @@
+{
+  "schema_version": 2,
+  "run": {
+    "evaluation": "project-ontologies",
+    "methodology_version": "1.0",
+    "stages": [
+      "snapshot",
+      "deterministic-preflight",
+      "ordered-judges",
+      "improvement-plan",
+      "human-promotion"
+    ],
+    "generated_at": "2026-08-06T15:40:13+00:00",
+    "judge_model": "gpt-5.6-sol",
+    "judge_reasoning_effort": "high",
+    "judge_order": [
+      "organon-ontology",
+      "open-source-documentation"
+    ],
+    "dspy_version": "3.3.0",
+    "litellm_version": "1.91.4",
+    "python_version": "3.12.9",
+    "organon_commit": "ed74b8731fe08d9dba21c69955335214858bf780",
+    "committed_inputs_sha256": {
+      "editorial/long-form.md": "fb8f21b7dc03e2e44737fef723d94abdbb62a044ead89a6a7579d07d23b55d68",
+      "editorial/short-form.md": "7ac9254f6f8964a1776f2eeacbfe36fdaad591701174116c0527c1f2c1b472be",
+      "evals/core/__init__.py": "fbc7e74e3088297f2658cfd630a7cd5101ea64ab7e6249f138b9ba6d3b1efce8",
+      "evals/core/contracts.py": "0c4a42bbea92fa7e4c2805e7dd0c79a9b4cb95f6aba4616d2b886115689078ce",
+      "evals/core/improvement.py": "b1f832fc39c5f0a8e0a50765d89c180a80e7cc30f35a055331b3abe94b7ff8ef",
+      "evals/core/judging.py": "006434277ef6cd8c1a0e66e073e5f886a83bbe15df2d1a4f528bac6c282924c5",
+      "evals/core/result.py": "75aee2de405bdbe822a3cad8a93f5aa8cead784a69a874eecb82ddde0ba75f09",
+      "evals/core/workspace.py": "0d9d81ab99a37b35897482bdd992c840795bf40d5a172d3d530955a89302e9c2",
+      "evals/methodology/README.md": "fb406bdd61a9f4362bbac3435abea8decb295ee111107eb53d05ed296a13ff09",
+      "evals/methodology/evaluation-result.schema.json": "d6e2bee36b28cfb91dd7a05984d1aa32ffff7e696fc9169aa5d65b8db5bdfa12",
+      "evals/methodology/lessons.md": "b124cadfc30a1088d22c352a941182a6509ad9d5da3ca0deba272dfa0075cb16",
+      "evals/methodology/profiles.json": "ebeca6a8b666986e09ad7e159feecaa7dc799e295008127ee1082170b2535757",
+      "evals/project-ontologies/build-source-dossier.py": "889dfd2a5561ed30537bf9d1bdb61f925b48c584a03f1c03700c15419534567e",
+      "evals/project-ontologies/inputs/documentation-rubric.md": "3ca1eeb33767711dc466e3d987b6aa9ebdaac4dd2604ab7652ac10a47667b452",
+      "evals/project-ontologies/inputs/sources/engram.index.json": "75ff122ff4b1fffb1b242723d832c7628316fc0e3abe58b48ca81c93ba73dcec",
+      "evals/project-ontologies/inputs/sources/engram.md": "fc4388892457957fd6d88653f5990e6399425aa34d6f3f6ab1d75953cb7519b2",
+      "evals/project-ontologies/inputs/sources/kenogram.index.json": "8ff5a4fb90e11f0c56cd8c9a2efb5be5d65cdc65711dd6d776ca29e8c092aadd",
+      "evals/project-ontologies/inputs/sources/kenogram.md": "5f39794dc42d3857ff5dabe2d775616bd02cf13ad67d3602a601c260e341ec46",
+      "evals/project-ontologies/inputs/targets.json": "a53dc36354028eca25c3deed3a37987a9d804c155a182bca14fce653bed99ae8",
+      "evals/project-ontologies/run.py": "2c2a32acdee65341be438b105ffb1d11c13f669495684435d53b6148ce8d079b",
+      "evals/requirements.txt": "3ae3114472086ded7ac30484c90295a678bd5907b6f2abf662c8f3744b76dcfc",
+      "ontology/ontology.md": "81c03318a3bc2b07cc3a7a9949c3da54dd885320b2f3ec246f4c5498d5cbcde1",
+      "ontology/terms.yaml": "10fb5fbb880bf4cb1982640f16699c8ebe3ce5c740f3af0c37ac54be813a4314",
+      "project-ontologies/engram.md": "43646fc2b5b454e287644635db292abf9c3bb9e764cf140ad62a2f6c78bd546f",
+      "project-ontologies/kenogram.md": "e602dd0fa0a435a79de48294f38333374682f1aab20c8a942e6a42399fecbc91"
+    },
+    "ontology_sha256": "81c03318a3bc2b07cc3a7a9949c3da54dd885320b2f3ec246f4c5498d5cbcde1",
+    "registry_sha256": "10fb5fbb880bf4cb1982640f16699c8ebe3ce5c740f3af0c37ac54be813a4314",
+    "short_form_sha256": "7ac9254f6f8964a1776f2eeacbfe36fdaad591701174116c0527c1f2c1b472be",
+    "long_form_sha256": "fb8f21b7dc03e2e44737fef723d94abdbb62a044ead89a6a7579d07d23b55d68",
+    "documentation_rubric_sha256": "3ca1eeb33767711dc466e3d987b6aa9ebdaac4dd2604ab7652ac10a47667b452",
+    "targets_sha256": "a53dc36354028eca25c3deed3a37987a9d804c155a182bca14fce653bed99ae8",
+    "model_guidance_url": "https://developers.openai.com/api/docs/guides/latest-model?model=gpt-5.6",
+    "prompt_guidance_url": "https://developers.openai.com/api/docs/guides/prompt-guidance-gpt-5p6.md",
+    "prompt_contract_version": "gpt-5.6-project-ontology-v1",
+    "target_count": 2,
+    "passed_count": 0,
+    "revision_count": 2,
+    "complete": true,
+    "passed": false
+  },
+  "assessments": [
+    {
+      "target_id": "engram-project-ontology",
+      "project": "Engram",
+      "repository": "https://github.com/idolum-ai/engram",
+      "commit": "645c76c624cbb6e21f9d4187b3fc093f36b6cf38",
+      "ontology_file": "project-ontologies/engram.md",
+      "ontology_sha256": "43646fc2b5b454e287644635db292abf9c3bb9e764cf140ad62a2f6c78bd546f",
+      "source_digests": {
+        "evals/project-ontologies/inputs/sources/engram.md": "fc4388892457957fd6d88653f5990e6399425aa34d6f3f6ab1d75953cb7519b2"
+      },
+      "deterministic": {
+        "passed": true,
+        "checks": {
+          "frontmatter_project": true,
+          "frontmatter_repository": true,
+          "frontmatter_branch": true,
+          "frontmatter_commit": true,
+          "frontmatter_organon_version": true,
+          "frontmatter_status": true,
+          "required_headings": true,
+          "no_private_path": true,
+          "mapping_schema_version": true,
+          "mapping_project_matches": true,
+          "mapping_snapshot_matches": true,
+          "mapping_has_mappings": true,
+          "mapping_unique_mapping_pairs": true,
+          "mapping_known_mapping_classes": true,
+          "mapping_registered_ids": true,
+          "mapping_evidence_present": true,
+          "mapping_evidence_valid": true
+        },
+        "mapping_count": 26
+      },
+      "ontology": {
+        "term_fidelity": 2,
+        "dependency_order": 2,
+        "anti_collapse_discipline": 3,
+        "load_bearing_paths": 2,
+        "epistemic_and_institutional_boundary": 2,
+        "critical_violations": [
+          "`authorized-human → organon:Agent` is marked exact, but the cited user/chat admission checks establish only configured message eligibility. They do not establish the human as an Entity with a named Invariant and Persistence witness or join that Entity's Interpretation to an Action.",
+          "Several positive refinements omit constitutive dependencies that the project itself acknowledges as unresolved. The pane lacks a complete Entity Persistence witness; the canonical anchor is called an Interface without identifying whose Entity Boundary it composes; and `watch-accessible-domain → World` lacks a complete participant/Sense/access-path account and an explicit common Invariant across distinct access paths.",
+          "`github-capability-request → Claim` introduces an unnamed 'local requesting Agent' even though the request structure carries no claimant identity. `authorization-regime → Order` likewise lacks an established plurality of Agents because Engram remains unmapped as an Agent and tmux, GitHub, and child processes are not shown to satisfy Agent. These mappings bypass the dependencies later used to describe the authority path.",
+          "The path titled 'remote input to terminal consequence' overstates demonstrated causal efficacy. The cited code proves guarded delivery of text or keys to tmux, local recording, and a later bounded capture; it does not join the input Difference to a named downstream Change or observed terminal Consequence. A successful send and later refresh cannot supply that bridge.",
+          "`terminal-source-of-truth → Reference` is not supported as written. The cited source treats tmux as the live workspace and operational authority for current terminal facts, whereas an Organon Reference must be a Map paired with a Specification of Scope, Constraints, and enumerated distortions. The live tmux target is not thereby a Representation or Map."
+        ],
+        "evidence": "The candidate is notably disciplined about major non-entailments: it rejects repository tests as `organon:Evidence`, rejects tmux idiom as `organon:Truth`, declines Permission/Grant/Receipt promotion, distinguishes Watch, pane, Frame, and anchor, and explicitly limits institution and production claims. Those findings are faithful to `requirements/INDEX.md:3-24`, `docs/design-principles.md:215-234`, and the GitHub broker sources. Its engineering paths also cite genuinely connected stages: admission in `internal/app/app.go:436-455`, current-route and binding checks in `internal/app/input.go:56-180`, tmux-side guarded effects in `internal/tmux/tmux.go:509-561`, and exact GitHub scope validation in `internal/githubauth/client.go:189-216`. However, these strengths do not close the positive mappings above. In particular, `internal/app/app.go:553-560` identifies an authorized account, not an Organon Agent; `docs/design-principles.md:53-60` establishes actionable-anchor uniqueness, not an Entity Boundary; `internal/githubauth/types.go:28-47` carries a pane binding and requested scope but no asserting Agent or Principal; and the input implementation records a successful send without proving a downstream shell result. The manifest's unqualified `exact` and `refinement` classifications therefore conflict with the prose's own promotion gates.",
+        "revision": "Downgrade `authorized-human`, pane Entity, canonical Interface, input Action, watch World, GitHub Claim, and local Order to candidate or unmapped status unless each missing dependency is supplied. For the human Agent, name the Entity identity criterion, ordered States, Persistence witness, Interpretation, and selected Action. For the pane, explicitly identify ordered pane States and the validation sequence that witnesses Persistence of the identity tuple. Treat the anchor initially as a Representation governed by routing Rules and Constraints; promote it to Interface only after naming the Entity, indexed Boundary, and represented permitted Transformations. Rebuild the World mapping with named participating Entities, selected Environment, Constraints, included Sense/Action causal paths, and a common Invariant across guide and snapshot access. Treat a broker request as a request Record or Representation until a named asserting Agent is carried; keep the authorization regime an Order candidate until a plurality of qualifying Agents and recurring coordination Relations are established. Rename the causal path to 'remote message to guarded tmux input' unless a downstream State/Change is observed and joined; any causal-efficacy claim must add matched Causal Contribution witnesses. Leave 'source of truth' as project idiom, or map a specific raw-capture Map to Reference only after declaring its Denotation, Scope, decision procedure, Constraints, omissions, and distortions. Make these qualifications explicit in the machine manifest rather than relying on global candidate prose."
+      },
+      "documentation": {
+        "source_traceability": 3,
+        "coverage_and_proportion": 4,
+        "documentation_cadence": 4,
+        "local_language_preservation": 4,
+        "maintenance_readiness": 3,
+        "sentence_delivery": 3,
+        "critical_violations": [],
+        "evidence": "The ontology is review-ready. It pins the repository and commit, distinguishes repository self-description from proof, and supports the central classifications and paths with exact file-and-line citations. Particularly strong traces include Watch and Frame definitions (`docs/protocol-posture.md:31-48`), guarded input (`internal/app/input.go:56-180`), tmux identity checks and capture (`internal/tmux/tmux.go:509-561`, `701-774`), and the GitHub authority path (`internal/app/github_auth.go:149-210`, `273-388`). A few material participant and boundary classifications—such as Telegram as Environment, GitHub as an Institution candidate, and the local filesystem as Substrate—lack citations in their own rows, preventing an exemplary traceability score. Coverage is comprehensive without becoming a general feature inventory: actors, boundaries, states, transformations, causal and authority paths, evidence limits, invariants, nonclaims, and unresolved gates are all present. The progression follows the required cadence almost exactly: scope and purpose, local vocabulary, participants, paths, mappings, then promotion gates. Project terms are defined before Organon mappings, and exact, refinement, conflict, and unmapped outcomes remain distinct. Maintenance information includes the exact commit, Organon version, nonclaims, uncertainties, and machine-readable gates, but it does not explicitly state operational drift triggers such as changes to cited requirements, identity tuples, routing state, authority flow, source snapshot, or Organon version. Sentences generally preserve actors and mechanisms, though several classification passages use dense specialist noun chains, and the final consistency recap repeats conclusions after the document has already reached a clean stopping point.",
+        "revision": "Add a short maintenance section listing explicit re-review triggers: a new source commit or digest, Organon-version change, changes to requirements authority, pane identity fields, current-route rules, frame persistence, Telegram admission, GitHub approval or token-scope validation, and evidence policy. Add exact citations directly to every material participant, world, environment, substrate, and boundary-case classification. Correct the heading hierarchy so “Causal path,” “Authority path,” and “Evidence path” are visibly nested under “Load-bearing paths.” Then remove or compress the final consistency recap and shorten the densest Organon qualification sentences without removing their actors, scope, or gating conditions."
+      },
+      "passed": false
+    },
+    {
+      "target_id": "kenogram-project-ontology",
+      "project": "Kenogram",
+      "repository": "https://github.com/idolum-ai/kenogram",
+      "commit": "8c00104bb4b666d844715bf9840634cf92e571e2",
+      "ontology_file": "project-ontologies/kenogram.md",
+      "ontology_sha256": "e602dd0fa0a435a79de48294f38333374682f1aab20c8a942e6a42399fecbc91",
+      "source_digests": {
+        "evals/project-ontologies/inputs/sources/kenogram.md": "5f39794dc42d3857ff5dabe2d775616bd02cf13ad67d3602a601c260e341ec46"
+      },
+      "deterministic": {
+        "passed": true,
+        "checks": {
+          "frontmatter_project": true,
+          "frontmatter_repository": true,
+          "frontmatter_branch": true,
+          "frontmatter_commit": true,
+          "frontmatter_organon_version": true,
+          "frontmatter_status": true,
+          "required_headings": true,
+          "no_private_path": true,
+          "mapping_schema_version": true,
+          "mapping_project_matches": true,
+          "mapping_snapshot_matches": true,
+          "mapping_has_mappings": true,
+          "mapping_unique_mapping_pairs": true,
+          "mapping_known_mapping_classes": true,
+          "mapping_registered_ids": true,
+          "mapping_evidence_present": true,
+          "mapping_evidence_valid": true
+        },
+        "mapping_count": 24
+      },
+      "ontology": {
+        "term_fidelity": 2,
+        "dependency_order": 2,
+        "anti_collapse_discipline": 3,
+        "load_bearing_paths": 2,
+        "epistemic_and_institutional_boundary": 4,
+        "critical_violations": [
+          "Several `refinement` mappings attach stable Organon IDs even though the local meanings omit constitutive conditions. Most importantly, `allow_operation` and `network allowance` lack the Order, Standing, Authority, Principal, Permission Claim, Grant, and Admission chain required for `organon:Grant` and `organon:Permission`. These should remain unmapped or conflict mappings until a deployment supplies the complete chain.",
+          "`semantic planner / validator` is mapped to `organon:Rule` primarily because the executable mechanism maps inputs to outputs. An Organon Rule is a Specification of a Constraint or Transformation, not the validating Tool merely because it executes that specification. The rule representation and validator mechanism must be distinguished.",
+          "The named loopback byte stream is mapped to `organon:Interface` without identifying it as a Boundary Configuration, the coordinating Entities, and the represented permitted Transformations. A named endpoint or stream alone does not satisfy the Interface definition.",
+          "The per-world hash-chained history is mapped to `organon:Ledger` even while the ontology admits that it does not preserve the required distinctions among Claims, Permissions, Observations, Evidence, Attestations, and Receipts, including producer and Standing. Ordered records alone are not an Organon Ledger.",
+          "The asserted joined causal path is a workflow trace rather than a complete `organon:CausalPath`: it does not enumerate input and output States, Transformations sharing one Direction, or the Feeds account between adjacent Transformations. The inspection step also invokes Sense and Observation without naming the sensing Entity, its Boundary constraints, and the specified Environment-to-Sense causal path.",
+          "Materialized-generation Entity status is described as having an explicit identity criterion, but the cited generation names, digests, and runtime fields do not themselves state one preserved Invariant or provide its Persistence witness across the ordered lifecycle States. The document later acknowledges this missing bridge, so the positive wording and stable-ID refinement mapping are premature."
+        ],
+        "evidence": "The ontology is strongly source-pinned and unusually disciplined about epistemic and institutional limits. It correctly preserves Kenogram's disclaimers, distinguishes declared, implemented, observed, and Organon Evidence, treats local runtime `Evidence` and manifests as producer Records rather than independent Evidence, and refuses to promote hashes into identity or Truth. It also correctly marks local `declaration`, `world`, `authoritative generation`, and backend `Evidence` as conflicts with the corresponding Organon terms, distinguishes capability from institutional authority, and treats scoped network nonavailability as other than `organon:Absence`. The authority and evidence sections explicitly state that deployment-specific Standing, Principal, Authority, IndependentFor, Admission, Order, and evaluation-Rule joins are external promotion gates; thus no production security, certification, adoption, Truth, or Evidence claim is improperly established. However, that discipline is not applied consistently to the refinement mappings. Rule, Interface, Ledger, Entity, Tool/Organ, Order/Institution, Grant/Permission, Observation, Attestation, and Canonical-system profiles are mapped before their earlier dependencies or exact witnesses are supplied. The causal workflow connects relevant Kenogram components and is supported by the cited source, but it does not satisfy Organon's formal Causal-path joins. These are load-bearing mapping defects, so the ontology is not yet review-ready at the score-3 threshold.",
+        "revision": "Retain the strong source and nonpromotion boundaries, but make incomplete profiles explicitly conditional or unmapped rather than stable-ID refinements. Separate the represented semantic Rule from the parser/planner Tool that executes it. Define any Specification as a complete Configuration naming its Representation, Denotation target, Scope, and constructive decision procedure. Map the loopback mechanism to Interface only after identifying the Boundary Configuration, coordinating Entities, and represented permitted Transformations. Reclassify per-world history as an ordered Record system unless it is extended to preserve every required Ledger distinction, producer, and Standing. Reclassify `allow`, network allowance, runtime governance, project governance, and applied-plan canonicality as local mechanical vocabulary until an actual Order and complete institutional chain are named. For Entity claims, state one exact Invariant, ordered States, and Persistence witness; otherwise retain Configuration. Replace the claimed causal path with either an explicitly labeled workflow trace or a table enumerating each Transformation, input/output State, shared Direction, and Feeds join. For Observation and Evidence, name the sensing Entity and Boundary, field-level inspection path, claimant, exact Claim, Witness, IndependentFor constraints, governing Order, Admissibility Rule, Admission, evaluation Rule, and recorded disposition. Remove direct Agent, Tool, Organ, Institution, and Canonical-system assertions where their identity or institutional dependencies remain only hypothetical."
+      },
+      "documentation": {
+        "source_traceability": 3,
+        "coverage_and_proportion": 4,
+        "documentation_cadence": 4,
+        "local_language_preservation": 4,
+        "maintenance_readiness": 2,
+        "sentence_delivery": 3,
+        "critical_violations": [],
+        "evidence": "The ontology is broadly review-ready. It pins the repository and commit, uses commit-specific file-and-line links throughout, treats repository self-description as declared or implemented rather than independent proof, and reconstructs actors, boundaries, lifecycle states, transformations, authority paths, evidence paths, nonclaims, and promotion gates without becoming a feature inventory. Its progression closely follows the required cadence: scope and purpose precede local vocabulary, followed by participants, load-bearing paths, mappings, boundary cases, and unresolved gates. Local terms such as declaration, world, authority, evidence, generation, and world-pattern are defined before mapping, and exact/refinement/conflict/unmapped outcomes remain distinct. Traceability falls short of exemplary because a few compound claims exceed their cited ranges: the opening nonclaim citation does not directly cover every listed disclaimer, and some compound machine mappings cite only part of the named mechanism. Maintenance readiness is the main weakness. The document pins the current snapshot and records uncertainty, but it does not state operational drift triggers or a re-review procedure. The machine-consumable manifest also omits several mappings present in the prose table, including generation/Configuration, replacement/Transformation, network invariants, Permission, and CanonicalSystem, without identifying itself as a subset. Sentences generally preserve actors and mechanisms, though several classification paragraphs are dense, and the concluding recap repeats distinctions already established.",
+        "revision": "Add a short maintenance section naming explicit re-review triggers: repository commit or source-digest change; Organon version change; declaration or plan schema change; lifecycle authority-state change; network-invariant change; governed-job evidence, verifier, or publication-contract change; and changes to the local meanings of world, declaration, authority, evidence, or generation. State how a maintainer should refresh citations, rerun mappings, and record unresolved changes. Reconcile the YAML manifest with the prose mapping table by making it complete or labeling it as a deliberately bounded subset. Split compound mappings where one citation does not support every component. Correct the opening disclaimer citations so production stability, multi-tenant hardening, compliance, and certification each point to their exact supporting lines. Finally, compress the densest classification sentences and remove or shorten the concluding recap so the document stops after its actionable gates and maintained mapping artifact."
+      },
+      "passed": false
+    }
+  ],
+  "improvement_plans": [
+    {
+      "target_id": "engram-project-ontology",
+      "artifact_kind": "project-ontology",
+      "disposition": "revise",
+      "preserve": [
+        "project-local vocabulary before Organon mapping",
+        "exact public source citations and nonclaims",
+        "every conflict, uncertainty, and anti-collapse distinction already established"
+      ],
+      "actions": [
+        {
+          "layer": "Organon ontology",
+          "critical_violations": [
+            "`authorized-human → organon:Agent` is marked exact, but the cited user/chat admission checks establish only configured message eligibility. They do not establish the human as an Entity with a named Invariant and Persistence witness or join that Entity's Interpretation to an Action.",
+            "Several positive refinements omit constitutive dependencies that the project itself acknowledges as unresolved. The pane lacks a complete Entity Persistence witness; the canonical anchor is called an Interface without identifying whose Entity Boundary it composes; and `watch-accessible-domain → World` lacks a complete participant/Sense/access-path account and an explicit common Invariant across distinct access paths.",
+            "`github-capability-request → Claim` introduces an unnamed 'local requesting Agent' even though the request structure carries no claimant identity. `authorization-regime → Order` likewise lacks an established plurality of Agents because Engram remains unmapped as an Agent and tmux, GitHub, and child processes are not shown to satisfy Agent. These mappings bypass the dependencies later used to describe the authority path.",
+            "The path titled 'remote input to terminal consequence' overstates demonstrated causal efficacy. The cited code proves guarded delivery of text or keys to tmux, local recording, and a later bounded capture; it does not join the input Difference to a named downstream Change or observed terminal Consequence. A successful send and later refresh cannot supply that bridge.",
+            "`terminal-source-of-truth → Reference` is not supported as written. The cited source treats tmux as the live workspace and operational authority for current terminal facts, whereas an Organon Reference must be a Map paired with a Specification of Scope, Constraints, and enumerated distortions. The live tmux target is not thereby a Representation or Map."
+          ],
+          "revision": "Downgrade `authorized-human`, pane Entity, canonical Interface, input Action, watch World, GitHub Claim, and local Order to candidate or unmapped status unless each missing dependency is supplied. For the human Agent, name the Entity identity criterion, ordered States, Persistence witness, Interpretation, and selected Action. For the pane, explicitly identify ordered pane States and the validation sequence that witnesses Persistence of the identity tuple. Treat the anchor initially as a Representation governed by routing Rules and Constraints; promote it to Interface only after naming the Entity, indexed Boundary, and represented permitted Transformations. Rebuild the World mapping with named participating Entities, selected Environment, Constraints, included Sense/Action causal paths, and a common Invariant across guide and snapshot access. Treat a broker request as a request Record or Representation until a named asserting Agent is carried; keep the authorization regime an Order candidate until a plurality of qualifying Agents and recurring coordination Relations are established. Rename the causal path to 'remote message to guarded tmux input' unless a downstream State/Change is observed and joined; any causal-efficacy claim must add matched Causal Contribution witnesses. Leave 'source of truth' as project idiom, or map a specific raw-capture Map to Reference only after declaring its Denotation, Scope, decision procedure, Constraints, omissions, and distortions. Make these qualifications explicit in the machine manifest rather than relying on global candidate prose.",
+          "evidence": "The candidate is notably disciplined about major non-entailments: it rejects repository tests as `organon:Evidence`, rejects tmux idiom as `organon:Truth`, declines Permission/Grant/Receipt promotion, distinguishes Watch, pane, Frame, and anchor, and explicitly limits institution and production claims. Those findings are faithful to `requirements/INDEX.md:3-24`, `docs/design-principles.md:215-234`, and the GitHub broker sources. Its engineering paths also cite genuinely connected stages: admission in `internal/app/app.go:436-455`, current-route and binding checks in `internal/app/input.go:56-180`, tmux-side guarded effects in `internal/tmux/tmux.go:509-561`, and exact GitHub scope validation in `internal/githubauth/client.go:189-216`. However, these strengths do not close the positive mappings above. In particular, `internal/app/app.go:553-560` identifies an authorized account, not an Organon Agent; `docs/design-principles.md:53-60` establishes actionable-anchor uniqueness, not an Entity Boundary; `internal/githubauth/types.go:28-47` carries a pane binding and requested scope but no asserting Agent or Principal; and the input implementation records a successful send without proving a downstream shell result. The manifest's unqualified `exact` and `refinement` classifications therefore conflict with the prose's own promotion gates."
+        }
+      ],
+      "promotion_rule": "Human review is required after every failed layer is repaired and the exact revised bytes pass a fresh evaluation."
+    },
+    {
+      "target_id": "kenogram-project-ontology",
+      "artifact_kind": "project-ontology",
+      "disposition": "revise",
+      "preserve": [
+        "project-local vocabulary before Organon mapping",
+        "exact public source citations and nonclaims",
+        "every conflict, uncertainty, and anti-collapse distinction already established"
+      ],
+      "actions": [
+        {
+          "layer": "Organon ontology",
+          "critical_violations": [
+            "Several `refinement` mappings attach stable Organon IDs even though the local meanings omit constitutive conditions. Most importantly, `allow_operation` and `network allowance` lack the Order, Standing, Authority, Principal, Permission Claim, Grant, and Admission chain required for `organon:Grant` and `organon:Permission`. These should remain unmapped or conflict mappings until a deployment supplies the complete chain.",
+            "`semantic planner / validator` is mapped to `organon:Rule` primarily because the executable mechanism maps inputs to outputs. An Organon Rule is a Specification of a Constraint or Transformation, not the validating Tool merely because it executes that specification. The rule representation and validator mechanism must be distinguished.",
+            "The named loopback byte stream is mapped to `organon:Interface` without identifying it as a Boundary Configuration, the coordinating Entities, and the represented permitted Transformations. A named endpoint or stream alone does not satisfy the Interface definition.",
+            "The per-world hash-chained history is mapped to `organon:Ledger` even while the ontology admits that it does not preserve the required distinctions among Claims, Permissions, Observations, Evidence, Attestations, and Receipts, including producer and Standing. Ordered records alone are not an Organon Ledger.",
+            "The asserted joined causal path is a workflow trace rather than a complete `organon:CausalPath`: it does not enumerate input and output States, Transformations sharing one Direction, or the Feeds account between adjacent Transformations. The inspection step also invokes Sense and Observation without naming the sensing Entity, its Boundary constraints, and the specified Environment-to-Sense causal path.",
+            "Materialized-generation Entity status is described as having an explicit identity criterion, but the cited generation names, digests, and runtime fields do not themselves state one preserved Invariant or provide its Persistence witness across the ordered lifecycle States. The document later acknowledges this missing bridge, so the positive wording and stable-ID refinement mapping are premature."
+          ],
+          "revision": "Retain the strong source and nonpromotion boundaries, but make incomplete profiles explicitly conditional or unmapped rather than stable-ID refinements. Separate the represented semantic Rule from the parser/planner Tool that executes it. Define any Specification as a complete Configuration naming its Representation, Denotation target, Scope, and constructive decision procedure. Map the loopback mechanism to Interface only after identifying the Boundary Configuration, coordinating Entities, and represented permitted Transformations. Reclassify per-world history as an ordered Record system unless it is extended to preserve every required Ledger distinction, producer, and Standing. Reclassify `allow`, network allowance, runtime governance, project governance, and applied-plan canonicality as local mechanical vocabulary until an actual Order and complete institutional chain are named. For Entity claims, state one exact Invariant, ordered States, and Persistence witness; otherwise retain Configuration. Replace the claimed causal path with either an explicitly labeled workflow trace or a table enumerating each Transformation, input/output State, shared Direction, and Feeds join. For Observation and Evidence, name the sensing Entity and Boundary, field-level inspection path, claimant, exact Claim, Witness, IndependentFor constraints, governing Order, Admissibility Rule, Admission, evaluation Rule, and recorded disposition. Remove direct Agent, Tool, Organ, Institution, and Canonical-system assertions where their identity or institutional dependencies remain only hypothetical.",
+          "evidence": "The ontology is strongly source-pinned and unusually disciplined about epistemic and institutional limits. It correctly preserves Kenogram's disclaimers, distinguishes declared, implemented, observed, and Organon Evidence, treats local runtime `Evidence` and manifests as producer Records rather than independent Evidence, and refuses to promote hashes into identity or Truth. It also correctly marks local `declaration`, `world`, `authoritative generation`, and backend `Evidence` as conflicts with the corresponding Organon terms, distinguishes capability from institutional authority, and treats scoped network nonavailability as other than `organon:Absence`. The authority and evidence sections explicitly state that deployment-specific Standing, Principal, Authority, IndependentFor, Admission, Order, and evaluation-Rule joins are external promotion gates; thus no production security, certification, adoption, Truth, or Evidence claim is improperly established. However, that discipline is not applied consistently to the refinement mappings. Rule, Interface, Ledger, Entity, Tool/Organ, Order/Institution, Grant/Permission, Observation, Attestation, and Canonical-system profiles are mapped before their earlier dependencies or exact witnesses are supplied. The causal workflow connects relevant Kenogram components and is supported by the cited source, but it does not satisfy Organon's formal Causal-path joins. These are load-bearing mapping defects, so the ontology is not yet review-ready at the score-3 threshold."
+        },
+        {
+          "layer": "open-source documentation",
+          "critical_violations": [],
+          "revision": "Add a short maintenance section naming explicit re-review triggers: repository commit or source-digest change; Organon version change; declaration or plan schema change; lifecycle authority-state change; network-invariant change; governed-job evidence, verifier, or publication-contract change; and changes to the local meanings of world, declaration, authority, evidence, or generation. State how a maintainer should refresh citations, rerun mappings, and record unresolved changes. Reconcile the YAML manifest with the prose mapping table by making it complete or labeling it as a deliberately bounded subset. Split compound mappings where one citation does not support every component. Correct the opening disclaimer citations so production stability, multi-tenant hardening, compliance, and certification each point to their exact supporting lines. Finally, compress the densest classification sentences and remove or shorten the concluding recap so the document stops after its actionable gates and maintained mapping artifact.",
+          "evidence": "The ontology is broadly review-ready. It pins the repository and commit, uses commit-specific file-and-line links throughout, treats repository self-description as declared or implemented rather than independent proof, and reconstructs actors, boundaries, lifecycle states, transformations, authority paths, evidence paths, nonclaims, and promotion gates without becoming a feature inventory. Its progression closely follows the required cadence: scope and purpose precede local vocabulary, followed by participants, load-bearing paths, mappings, boundary cases, and unresolved gates. Local terms such as declaration, world, authority, evidence, generation, and world-pattern are defined before mapping, and exact/refinement/conflict/unmapped outcomes remain distinct. Traceability falls short of exemplary because a few compound claims exceed their cited ranges: the opening nonclaim citation does not directly cover every listed disclaimer, and some compound machine mappings cite only part of the named mechanism. Maintenance readiness is the main weakness. The document pins the current snapshot and records uncertainty, but it does not state operational drift triggers or a re-review procedure. The machine-consumable manifest also omits several mappings present in the prose table, including generation/Configuration, replacement/Transformation, network invariants, Permission, and CanonicalSystem, without identifying itself as a subset. Sentences generally preserve actors and mechanisms, though several classification paragraphs are dense, and the concluding recap repeats distinctions already established."
+        }
+      ],
+      "promotion_rule": "Human review is required after every failed layer is repaired and the exact revised bytes pass a fresh evaluation."
+    }
+  ]
+}

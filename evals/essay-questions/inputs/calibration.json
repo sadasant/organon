@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "purpose": "One question per essay spanning answered, partly answered, inferable, and open dispositions in the v0.17 baseline.",
+  "question_ids": [
+    "PL-1",
+    "DP-2",
+    "EC-4",
+    "NZ-4",
+    "GA-2",
+    "SW-1",
+    "AP-1",
+    "LF-3",
+    "LC-4",
+    "DH-2"
+  ]
+}

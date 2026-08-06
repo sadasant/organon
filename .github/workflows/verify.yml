@@ -26,6 +26,15 @@ jobs:
           python3 scripts/check-proposals.py
           python3 scripts/check-adoption.py examples/organon-adoption.json --repo-root .
 
+      - name: Install evaluation test dependencies
+        run: |
+          python3 -m venv /tmp/organon-evals
+          /tmp/organon-evals/bin/python -m pip install --disable-pip-version-check -r evals/requirements-dev.txt
+
+      - name: Verify evaluation contracts
+        run: |
+          /tmp/organon-evals/bin/python -m pytest evals
+
       - name: Install Lean and build the formal shadow
         uses: leanprover/lean-action@38fbc41a8c28c4cbaec22d7f7de508ec2e7c0dd9 # v1.5.0
         with:

@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "methodology_version": "1.0",
+  "profiles": [
+    {
+      "id": "essay-answer",
+      "owns_generation": true,
+      "ordered_layers": [
+        "deterministic-answer-contract",
+        "organon-ontology",
+        "essay-answer-form"
+      ],
+      "comparison": "required-when-baseline-exists",
+      "promotion": "daniel-review"
+    },
+    {
+      "id": "documentation",
+      "owns_generation": true,
+      "ordered_layers": [
+        "deterministic-artifact-contract",
+        "organon-ontology",
+        "short-form-delivery",
+        "long-form-grammar"
+      ],
+      "comparison": "required-before-target-repository-change",
+      "promotion": "target-maintainer-review"
+    },
+    {
+      "id": "project-ontology",
+      "owns_generation": true,
+      "ordered_layers": [
+        "deterministic-mapping-and-provenance-contract",
+        "organon-ontology",
+        "open-source-documentation"
+      ],
+      "comparison": "required-after-source-or-ontology-change",
+      "promotion": "project-maintainer-adoption"
+    }
+  ]
+}
