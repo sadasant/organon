@@ -113,3 +113,12 @@ def test_markdown_reports_gate_without_private_paths():
     markdown = MODULE.render_markdown(result)
     assert "1 pass / 0 revise" in markdown
     assert "/Users/" not in markdown
+
+
+def test_reuse_requires_same_answer_and_same_essay_snapshot():
+    answer = sample_answer()
+    digest = MODULE.canonical_digest(answer)
+    assert MODULE.can_reuse_judgment(answer, "essay-a", digest, "essay-a")
+    assert not MODULE.can_reuse_judgment(answer, "essay-b", digest, "essay-a")
+    changed = dict(answer, answer=answer["answer"] + " Changed.")
+    assert not MODULE.can_reuse_judgment(changed, "essay-a", digest, "essay-a")

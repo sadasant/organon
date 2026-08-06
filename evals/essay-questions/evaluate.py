@@ -5,11 +5,13 @@ from __future__ import annotations
 
 import argparse
 import hashlib
+import importlib.util
 import importlib.metadata
 import json
 import os
 import platform
 import re
+import sys
 from datetime import UTC, datetime
 from pathlib import Path
 from typing import Literal
@@ -31,6 +33,18 @@ ALLOWED_DISPOSITIONS = {
     "open",
     "misframed",
 }
+
+
+def load_run_module():
+    spec = importlib.util.spec_from_file_location("organon_essay_run_for_judges", EVAL_ROOT / "run.py")
+    assert spec and spec.loader
+    module = importlib.util.module_from_spec(spec)
+    sys.modules[spec.name] = module
+    spec.loader.exec_module(module)
+    return module
+
+
+RUN = load_run_module()
 
 
 class OntologyJudgment(BaseModel):
@@ -110,6 +124,18 @@ def sha256_path(path: Path) -> str:
 
 def canonical_digest(value: object) -> str:
     return sha256_text(json.dumps(value, sort_keys=True, ensure_ascii=False))
+
+
+def can_reuse_judgment(
+    answer: dict,
+    essay_sha256: str,
+    prior_answer_sha256: str | None,
+    prior_essay_sha256: str | None,
+) -> bool:
+    return (
+        prior_answer_sha256 == canonical_digest(answer)
+        and prior_essay_sha256 == essay_sha256
+    )
 
 
 def escape_cell(value: str) -> str:
@@ -303,6 +329,9 @@ def main() -> None:
     source = json.loads(read_text(args.source_result))
     ontology = read_text(args.ontology)
     answer_form = read_text(args.answer_form)
+    input_manifest = RUN.committed_input_manifest(
+        ROOT, [Path(__file__), EVAL_ROOT / "run.py", args.ontology, args.answer_form]
+    )
     if source["run"]["ontology_sha256"] != sha256_text(ontology):
         raise SystemExit("Source result ontology digest does not match current input")
     if source["run"]["answer_form_sha256"] != sha256_text(answer_form):
@@ -323,13 +352,18 @@ def main() -> None:
     reused_count = 0
     baseline_rows = {}
     baseline_answers = {}
+    baseline_essay_digests = {}
     if args.baseline_evaluation:
         baseline = json.loads(read_text(args.baseline_evaluation))
         if baseline["run"]["ontology_sha256"] != sha256_text(ontology):
             raise SystemExit("Baseline evaluation ontology digest does not match current input")
         if baseline["run"]["answer_form_sha256"] != sha256_text(answer_form):
             raise SystemExit("Baseline evaluation Essay-Answer Form digest does not match current input")
-        baseline_source_path = args.baseline_evaluation.parent / baseline["run"]["source_result"]
+        baseline_source_path = RUN.resolve_within(
+            args.baseline_evaluation.parent,
+            baseline["run"]["source_result"],
+            label="baseline source-result selector",
+        )
         if sha256_path(baseline_source_path) != baseline["run"]["source_result_sha256"]:
             raise SystemExit("Baseline source result digest does not match its evaluation")
         baseline_source = json.loads(read_text(baseline_source_path))
@@ -341,17 +375,22 @@ def main() -> None:
             ):
                 key = (baseline_essay["essay_file"], answer["question_id"])
                 baseline_answers[key] = canonical_digest(answer)
+                baseline_essay_digests[key] = baseline_essay["essay_sha256"]
                 baseline_rows[key] = judgment
 
     for essay in source["essays"]:
-        essay_path = args.vault_root / "Contexts" / "Essays" / "Works" / essay["essay_file"]
+        essay_path = RUN.resolve_essay_path(args.vault_root, essay["essay_file"])
         essay_text = read_text(essay_path)
         if sha256_text(essay_text) != essay["essay_sha256"]:
             raise SystemExit(f"Essay digest changed: {essay['title']}")
         changed_answers = [
             answer for answer in essay["answers"]
-            if baseline_answers.get((essay["essay_file"], answer["question_id"]))
-            != canonical_digest(answer)
+            if not can_reuse_judgment(
+                answer,
+                essay["essay_sha256"],
+                baseline_answers.get((essay["essay_file"], answer["question_id"])),
+                baseline_essay_digests.get((essay["essay_file"], answer["question_id"])),
+            )
         ]
         expected_ids = [answer["question_id"] for answer in changed_answers]
         ontology_by_id = {}
@@ -411,6 +450,8 @@ def main() -> None:
             "dspy_version": importlib.metadata.version("dspy"),
             "litellm_version": importlib.metadata.version("litellm"),
             "python_version": platform.python_version(),
+            "organon_commit": RUN.git_head(ROOT),
+            "committed_inputs_sha256": input_manifest,
             "source_result": args.source_result.name,
             "source_result_sha256": sha256_path(args.source_result),
             "ontology_sha256": sha256_text(ontology),

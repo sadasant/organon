@@ -4,13 +4,12 @@
 from __future__ import annotations
 
 import argparse
-import hashlib
 import importlib.metadata
 import json
 import os
 import platform
 import re
-import subprocess
+import sys
 from datetime import UTC, datetime
 from pathlib import Path
 from typing import Literal
@@ -21,6 +20,18 @@ from pydantic import BaseModel, Field
 
 ROOT = Path(__file__).resolve().parents[2]
 EVAL_ROOT = Path(__file__).resolve().parent
+EVALS_ROOT = EVAL_ROOT.parent
+if str(EVALS_ROOT) not in sys.path:
+    sys.path.insert(0, str(EVALS_ROOT))
+
+from io_contracts import (
+    committed_input_manifest,
+    git_head,
+    resolve_within,
+    sha256_path,
+    sha256_text,
+)
+
 DEFAULT_QUESTIONS = EVAL_ROOT / "questions.md"
 DEFAULT_ONTOLOGY = ROOT / "ontology" / "ontology.md"
 DEFAULT_ANSWER_FORM = ROOT / "editorial" / "essay-answer-form.md"
@@ -114,10 +125,6 @@ class AnswerEssayQuestions(dspy.Signature):
     answers: list[AnswerDraft] = dspy.OutputField()
 
 
-def sha256_text(value: str) -> str:
-    return hashlib.sha256(value.encode("utf-8")).hexdigest()
-
-
 def read_text(path: Path) -> str:
     return path.read_text(encoding="utf-8")
 
@@ -167,6 +174,11 @@ def parse_questions(markdown: str) -> list[EssayQuestions]:
         raise ValueError(f"Expected four questions per essay: {counts}")
     if any(not essay.essay_file or not essay.essay_file.endswith(".md") for essay in essays):
         raise ValueError("Every essay requires one relative Markdown essay-file selector")
+    if any(
+        Path(essay.essay_file).is_absolute() or ".." in Path(essay.essay_file).parts
+        for essay in essays
+    ):
+        raise ValueError("Essay-file selectors must remain beneath the canonical Works root")
     ids = [question.id for essay in essays for question in essay.questions]
     if len(ids) != 40 or len(ids) != len(set(ids)):
         raise ValueError("Question IDs must be exactly 40 unique values")
@@ -231,14 +243,9 @@ def select_questions(
     return selected, sha256_text(selection_text)
 
 
-def git_head() -> str:
-    result = subprocess.run(
-        ["git", "-C", str(ROOT), "rev-parse", "HEAD"],
-        check=True,
-        capture_output=True,
-        text=True,
-    )
-    return result.stdout.strip()
+def resolve_essay_path(vault_root: Path, selector: str) -> Path:
+    works_root = vault_root / "Contexts" / "Essays" / "Works"
+    return resolve_within(works_root, selector, label="essay-file selector")
 
 
 def escape_cell(value: str) -> str:
@@ -389,6 +396,10 @@ def main() -> None:
     questions_text = read_text(args.questions)
     ontology = read_text(args.ontology)
     answer_form = read_text(args.answer_form)
+    control_inputs = [Path(__file__), args.questions, args.ontology, args.answer_form]
+    if args.selection:
+        control_inputs.append(args.selection)
+    input_manifest = committed_input_manifest(ROOT, control_inputs)
     essay_sets, selection_sha256 = select_questions(
         parse_questions(questions_text), args.selection
     )
@@ -416,7 +427,8 @@ def main() -> None:
             "litellm_version": importlib.metadata.version("litellm"),
             "python_version": platform.python_version(),
             "generated_at": generated_at,
-            "organon_commit": git_head(),
+            "organon_commit": git_head(ROOT),
+            "committed_inputs_sha256": input_manifest,
             "ontology_path": display_path(args.ontology),
             "ontology_sha256": sha256_text(ontology),
             "answer_form_path": display_path(args.answer_form),
@@ -435,9 +447,7 @@ def main() -> None:
     }
 
     for essay_set in essay_sets:
-        essay_path = (
-            args.vault_root / "Contexts" / "Essays" / "Works" / essay_set.essay_file
-        )
+        essay_path = resolve_essay_path(args.vault_root, essay_set.essay_file)
         essay_text = read_text(essay_path)
         answers = generate_with_retry(
             program,

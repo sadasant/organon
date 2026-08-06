@@ -4,11 +4,9 @@
 from __future__ import annotations
 
 import argparse
-import hashlib
 import importlib.util
 import json
 import os
-import subprocess
 import sys
 from datetime import UTC, datetime
 from pathlib import Path
@@ -54,20 +52,6 @@ class RefineEssayAnswers(dspy.Signature):
     answers: list[RUN.AnswerDraft] = dspy.OutputField()
 
 
-def sha256_path(path: Path) -> str:
-    return hashlib.sha256(path.read_bytes()).hexdigest()
-
-
-def git_head() -> str:
-    result = subprocess.run(
-        ["git", "-C", str(ROOT), "rev-parse", "HEAD"],
-        check=True,
-        capture_output=True,
-        text=True,
-    )
-    return result.stdout.strip()
-
-
 def merge_revisions(original: list[dict], revisions: list[dict], failed_ids: list[str]) -> list[dict]:
     actual = [revision["question_id"] for revision in revisions]
     if len(actual) != len(set(actual)) or set(actual) != set(failed_ids):
@@ -101,8 +85,12 @@ def main() -> None:
     evaluation = json.loads(args.evaluation.read_text())
     ontology = args.ontology.read_text()
     answer_form = args.answer_form.read_text()
-    if evaluation["run"]["source_result_sha256"] != sha256_path(args.source_result):
+    source_result_sha256 = RUN.sha256_path(args.source_result)
+    if evaluation["run"]["source_result_sha256"] != source_result_sha256:
         raise SystemExit("Evaluation does not govern the supplied source result")
+    input_manifest = RUN.committed_input_manifest(
+        ROOT, [Path(__file__), EVAL_ROOT / "run.py", args.ontology, args.answer_form]
+    )
 
     judgments_by_title = {essay["title"]: essay for essay in evaluation["essays"]}
     lm = dspy.LM(
@@ -124,12 +112,15 @@ def main() -> None:
             "answer": answers_by_id[item["question_id"]],
             "evaluation": item,
         } for item in failed]
-        essay_path = args.vault_root / "Contexts" / "Essays" / "Works" / essay["essay_file"]
+        essay_path = RUN.resolve_essay_path(args.vault_root, essay["essay_file"])
+        essay_text = essay_path.read_text()
+        if RUN.sha256_text(essay_text) != essay["essay_sha256"]:
+            raise SystemExit(f"Essay digest changed: {essay['title']}")
         prediction = program(
             ontology=ontology,
             answer_form=answer_form,
             essay_title=essay["title"],
-            essay=essay_path.read_text(),
+            essay=essay_text,
             failed_bundle_json=json.dumps(bundle, ensure_ascii=False),
         )
         revisions = [answer.model_dump() for answer in prediction.answers]
@@ -144,12 +135,13 @@ def main() -> None:
         revised_ids.extend(failed_ids)
 
     source["run"]["generated_at"] = datetime.now(UTC).replace(microsecond=0).isoformat()
-    source["run"]["organon_commit"] = git_head()
+    source["run"]["organon_commit"] = RUN.git_head(ROOT)
     source["run"]["revision"] = {
         "source_result": args.source_result.name,
-        "source_result_sha256": sha256_path(args.source_result),
+        "source_result_sha256": source_result_sha256,
         "evaluation": args.evaluation.name,
-        "evaluation_sha256": sha256_path(args.evaluation),
+        "evaluation_sha256": RUN.sha256_path(args.evaluation),
+        "committed_inputs_sha256": input_manifest,
         "model": args.model,
         "reasoning_effort": args.reasoning_effort,
         "revised_question_ids": revised_ids,

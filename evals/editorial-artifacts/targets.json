@@ -13,7 +13,13 @@
         "DANIEL.md",
         "CONTRIBUTING.md",
         "provenance/editorial.md"
-      ]
+      ],
+      "source_digests": {
+        "README.md": "48f1611d901d1631fdbaf4f2c694760ccdfab620be8d37979e57d41d485a1fbb",
+        "DANIEL.md": "130cdc6cb4b4960ca4d4303a70d5bfdd996d4c08af254827acf6285a4fc91396",
+        "CONTRIBUTING.md": "bc6a3ff2dfe44df71fbc06c5804d45f4c395a3c328f4ba5351e9aad36caaf49c",
+        "provenance/editorial.md": "4b7b2bfacffa2d5fdad0be7033fcf4abf1ae31b69b9e54cb2aaa3cba0a3ff350"
+      }
     },
     {
       "id": "organon-ontology",
@@ -27,7 +33,13 @@
         "ontology/formal/README.md",
         "ontology/formal/decisions.md",
         "ontology/formal/organon-core-reduct-report.md"
-      ]
+      ],
+      "source_digests": {
+        "ontology/changelog.md": "39f7c8cb3a2c1396cb24021900616076a22c6bd08caa8030be5704260cb8b0ab",
+        "ontology/formal/README.md": "be97225328086ff86e93050705d5389999d88a42f3142fbfcd5dfaa922730414",
+        "ontology/formal/decisions.md": "f34864664a9da6d3e5d605eb52c677537ee3ee1947372bbd6bb95c695090a5c6",
+        "ontology/formal/organon-core-reduct-report.md": "884cabfa51eae7cced4a7032776b08005b8b5ed1eeafd52ffa7fe688c8de7673"
+      }
     },
     {
       "id": "engram-main-readme",

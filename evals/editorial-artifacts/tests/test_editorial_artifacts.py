@@ -109,6 +109,39 @@ def test_source_digest_mismatch_fails_closed(tmp_path, monkeypatch):
         raise AssertionError("digest mismatch should fail closed")
 
 
+def test_source_dossier_requires_digest_for_every_source(tmp_path, monkeypatch):
+    (tmp_path / "README.md").write_text("source\n")
+    monkeypatch.setattr(MODULE, "ROOT", tmp_path)
+    target = {"source_files": ["README.md"], "source_digests": {}}
+    try:
+        MODULE.source_dossier(target)
+    except ValueError as error:
+        assert "pin every source_file" in str(error)
+    else:
+        raise AssertionError("missing source digest should fail closed")
+
+
+def test_source_dossier_rejects_absolute_traversal_and_symlink_escape(tmp_path, monkeypatch):
+    root = tmp_path / "repo"
+    root.mkdir()
+    outside = tmp_path / "outside.md"
+    outside.write_text("outside\n")
+    (root / "escape.md").symlink_to(outside)
+    monkeypatch.setattr(MODULE, "ROOT", root)
+
+    for selector in (str(outside), "../outside.md", "escape.md"):
+        target = {
+            "source_files": [selector],
+            "source_digests": {selector: MODULE.sha256_text("outside\n")},
+        }
+        try:
+            MODULE.source_dossier(target)
+        except ValueError:
+            pass
+        else:
+            raise AssertionError(f"escaping selector should fail closed: {selector}")
+
+
 def test_target_ids_are_path_safe():
     import json
     import re

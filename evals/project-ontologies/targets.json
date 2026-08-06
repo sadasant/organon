@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "targets": [
+    {
+      "id": "engram-project-ontology",
+      "project": "Engram",
+      "organon_version": "0.17.0",
+      "ontology_file": "project-ontologies/engram.md",
+      "ontology_sha256": "43646fc2b5b454e287644635db292abf9c3bb9e764cf140ad62a2f6c78bd546f",
+      "source_files": [
+        "evals/project-ontologies/sources/engram.md"
+      ],
+      "source_digests": {
+        "evals/project-ontologies/sources/engram.md": "e966bbdc0261d83c92a0d1f5b126de71a320d6b11690de293640b3d6e15d7251"
+      },
+      "source_index_file": "evals/project-ontologies/sources/engram.index.json",
+      "source_index_sha256": "75ff122ff4b1fffb1b242723d832c7628316fc0e3abe58b48ca81c93ba73dcec",
+      "source_provenance": {
+        "repository": "https://github.com/idolum-ai/engram",
+        "ref": "main",
+        "commit": "645c76c624cbb6e21f9d4187b3fc093f36b6cf38"
+      }
+    },
+    {
+      "id": "kenogram-project-ontology",
+      "project": "Kenogram",
+      "organon_version": "0.17.0",
+      "ontology_file": "project-ontologies/kenogram.md",
+      "ontology_sha256": "e602dd0fa0a435a79de48294f38333374682f1aab20c8a942e6a42399fecbc91",
+      "source_files": [
+        "evals/project-ontologies/sources/kenogram.md"
+      ],
+      "source_digests": {
+        "evals/project-ontologies/sources/kenogram.md": "fded0ecf468c06c691239316930c6384b2416e337803352ee00058555a380159"
+      },
+      "source_index_file": "evals/project-ontologies/sources/kenogram.index.json",
+      "source_index_sha256": "8ff5a4fb90e11f0c56cd8c9a2efb5be5d65cdc65711dd6d776ca29e8c092aadd",
+      "source_provenance": {
+        "repository": "https://github.com/idolum-ai/kenogram",
+        "ref": "main",
+        "commit": "8c00104bb4b666d844715bf9840634cf92e571e2"
+      }
+    }
+  ]
+}

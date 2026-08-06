@@ -1,0 +1,391 @@
+{
+  "schema_version": 1,
+  "project": "Engram",
+  "commit": "645c76c624cbb6e21f9d4187b3fc093f36b6cf38",
+  "files": {
+    "README.md": {
+      "sha256": "9afbd67bc4c676718147c0901dbb668fe1216932d84233a196e33c7039d73154",
+      "line_count": 1255,
+      "cited_ranges": [
+        [
+          11,
+          18
+        ],
+        [
+          20,
+          29
+        ],
+        [
+          192,
+          215
+        ]
+      ],
+      "covered_ranges": [
+        [
+          9,
+          31
+        ],
+        [
+          190,
+          217
+        ]
+      ]
+    },
+    "docs/design-principles.md": {
+      "sha256": "0c3e84f310e3d4d4fa78c59d7da5fdf008c9f240cf3bd6a5ecf0708cb0d256ea",
+      "line_count": 319,
+      "cited_ranges": [
+        [
+          39,
+          51
+        ],
+        [
+          53,
+          60
+        ],
+        [
+          69,
+          83
+        ],
+        [
+          85,
+          101
+        ],
+        [
+          215,
+          234
+        ],
+        [
+          271,
+          276
+        ]
+      ],
+      "covered_ranges": [
+        [
+          37,
+          62
+        ],
+        [
+          67,
+          103
+        ],
+        [
+          213,
+          236
+        ],
+        [
+          269,
+          278
+        ]
+      ]
+    },
+    "docs/protocol-posture.md": {
+      "sha256": "85a6db1cc9202ebca301244fbdf5f285ccb1cdbc7240628a392f48703302ddb3",
+      "line_count": 155,
+      "cited_ranges": [
+        [
+          17,
+          29
+        ],
+        [
+          31,
+          48
+        ],
+        [
+          50,
+          64
+        ],
+        [
+          77,
+          85
+        ]
+      ],
+      "covered_ranges": [
+        [
+          15,
+          66
+        ],
+        [
+          75,
+          87
+        ]
+      ]
+    },
+    "internal/app/app.go": {
+      "sha256": "1bda2d83feb060001e05f811de8d45d11852845efb310b985f62f97ca788b33d",
+      "line_count": 1171,
+      "cited_ranges": [
+        [
+          436,
+          455
+        ],
+        [
+          500,
+          520
+        ],
+        [
+          553,
+          560
+        ]
+      ],
+      "covered_ranges": [
+        [
+          434,
+          457
+        ],
+        [
+          498,
+          522
+        ],
+        [
+          551,
+          562
+        ]
+      ]
+    },
+    "internal/app/github_auth.go": {
+      "sha256": "f76d25d1658f8bb97c37fbef7adb022ee497c40d794d5fe34e3b2ee7749a8098",
+      "line_count": 1257,
+      "cited_ranges": [
+        [
+          65,
+          210
+        ],
+        [
+          273,
+          388
+        ]
+      ],
+      "covered_ranges": [
+        [
+          63,
+          212
+        ],
+        [
+          271,
+          390
+        ]
+      ]
+    },
+    "internal/app/github_grant.go": {
+      "sha256": "1273f6fc348e5135cced6604da35000292a2e32f9ce7fa1d7891a4f3147cd336",
+      "line_count": 357,
+      "cited_ranges": [
+        [
+          69,
+          96
+        ]
+      ],
+      "covered_ranges": [
+        [
+          67,
+          98
+        ]
+      ]
+    },
+    "internal/app/input.go": {
+      "sha256": "23f85f7207fc866da2404be5d253167b5b856f8a88e45ddb8abb1ffccc094912",
+      "line_count": 344,
+      "cited_ranges": [
+        [
+          56,
+          180
+        ]
+      ],
+      "covered_ranges": [
+        [
+          54,
+          182
+        ]
+      ]
+    },
+    "internal/app/refresh.go": {
+      "sha256": "b030922e3b6dbcfbc3a9d896199870f0106cc24a555f8b8af9bf81a614dfdd6b",
+      "line_count": 803,
+      "cited_ranges": [
+        [
+          238,
+          300
+        ]
+      ],
+      "covered_ranges": [
+        [
+          236,
+          302
+        ]
+      ]
+    },
+    "internal/githubauth/client.go": {
+      "sha256": "39bea5b5b703e20efc96192930188429fe0cf99e2fa34955a9f5dbcc45191ae8",
+      "line_count": 309,
+      "cited_ranges": [
+        [
+          189,
+          216
+        ]
+      ],
+      "covered_ranges": [
+        [
+          187,
+          218
+        ]
+      ]
+    },
+    "internal/githubauth/types.go": {
+      "sha256": "00db3a12ccdde8c5cb06163426beba9db06bb2b0cbdb91055e101e2e69ce2c6e",
+      "line_count": 366,
+      "cited_ranges": [
+        [
+          28,
+          47
+        ],
+        [
+          49,
+          68
+        ],
+        [
+          92,
+          171
+        ]
+      ],
+      "covered_ranges": [
+        [
+          26,
+          70
+        ],
+        [
+          90,
+          173
+        ]
+      ]
+    },
+    "internal/state/state.go": {
+      "sha256": "a330924d8824ba99136cc82f089e8f9aabb45b9285362228fc102ab0903088fe",
+      "line_count": 1999,
+      "cited_ranges": [
+        [
+          36,
+          57
+        ],
+        [
+          110,
+          163
+        ],
+        [
+          370,
+          396
+        ]
+      ],
+      "covered_ranges": [
+        [
+          34,
+          59
+        ],
+        [
+          108,
+          165
+        ],
+        [
+          368,
+          398
+        ]
+      ]
+    },
+    "internal/tmux/tmux.go": {
+      "sha256": "3025b29d058871d15a5663eeba2cbda769fa4ede0643c3e3b4fa5f1fedc3134f",
+      "line_count": 1338,
+      "cited_ranges": [
+        [
+          92,
+          103
+        ],
+        [
+          105,
+          122
+        ],
+        [
+          509,
+          561
+        ],
+        [
+          679,
+          698
+        ],
+        [
+          701,
+          774
+        ]
+      ],
+      "covered_ranges": [
+        [
+          90,
+          124
+        ],
+        [
+          507,
+          563
+        ],
+        [
+          677,
+          776
+        ]
+      ]
+    },
+    "requirements/INDEX.md": {
+      "sha256": "f30110978bbb57972e7b7deacc594124b01ecb2da98bc47ad5569c287bc12c38",
+      "line_count": 27,
+      "cited_ranges": [
+        [
+          1,
+          27
+        ]
+      ],
+      "covered_ranges": [
+        [
+          1,
+          27
+        ]
+      ]
+    },
+    "requirements/security.md": {
+      "sha256": "b7155a8b21ae58401923bc9d61eac6c77cb10271d2c2b6761b3fbc65a8b23802",
+      "line_count": 425,
+      "cited_ranges": [
+        [
+          7,
+          36
+        ],
+        [
+          102,
+          123
+        ]
+      ],
+      "covered_ranges": [
+        [
+          5,
+          38
+        ],
+        [
+          100,
+          125
+        ]
+      ]
+    },
+    "requirements/tmux.md": {
+      "sha256": "7d597d5f59b9e92e9c86b32e7e7c762399871dd26e483676950e1d77746d9180",
+      "line_count": 293,
+      "cited_ranges": [
+        [
+          29,
+          44
+        ]
+      ],
+      "covered_ranges": [
+        [
+          27,
+          46
+        ]
+      ]
+    }
+  }
+}

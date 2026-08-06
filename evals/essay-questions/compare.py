@@ -46,7 +46,16 @@ def index_judgments(result: dict) -> dict[str, dict]:
     }
 
 
+def validate_evaluation_candidate(evaluation: dict, candidate_path: Path) -> None:
+    run = evaluation.get("run", {})
+    if run.get("source_result") != candidate_path.name:
+        raise ValueError("Evaluation source-result name does not match the candidate")
+    if run.get("source_result_sha256") != sha256_path(candidate_path):
+        raise ValueError("Evaluation source-result digest does not match the candidate")
+
+
 def build_comparison(baseline: dict, candidate: dict, evaluation: dict, args) -> dict:
+    validate_evaluation_candidate(evaluation, args.candidate)
     old = index_answers(baseline)
     new = index_answers(candidate)
     judgments = index_judgments(evaluation)

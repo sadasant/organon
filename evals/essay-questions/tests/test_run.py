@@ -41,6 +41,24 @@ def test_calibration_selects_one_question_per_essay():
     assert digest
 
 
+def test_essay_path_is_confined_beneath_works_root(tmp_path):
+    works = tmp_path / "Contexts" / "Essays" / "Works"
+    works.mkdir(parents=True)
+    safe = works / "Essay.md"
+    safe.write_text("essay\n")
+    outside = tmp_path / "outside.md"
+    outside.write_text("outside\n")
+    (works / "Escape.md").symlink_to(outside)
+
+    assert MODULE.resolve_essay_path(tmp_path, "Essay.md") == safe
+    with pytest.raises(ValueError, match="must be relative"):
+        MODULE.resolve_essay_path(tmp_path, str(outside))
+    with pytest.raises(ValueError, match="escapes"):
+        MODULE.resolve_essay_path(tmp_path, "../outside.md")
+    with pytest.raises(ValueError, match="escapes"):
+        MODULE.resolve_essay_path(tmp_path, "Escape.md")
+
+
 def test_answer_validation_restores_question_order():
     essay = MODULE.EssayQuestions(
         title="Test",

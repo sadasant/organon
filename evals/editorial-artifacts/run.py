@@ -4,13 +4,12 @@
 from __future__ import annotations
 
 import argparse
-import hashlib
 import importlib.metadata
 import json
 import os
 import platform
 import re
-import subprocess
+import sys
 from datetime import UTC, datetime
 from pathlib import Path
 from typing import Literal
@@ -21,6 +20,12 @@ from pydantic import BaseModel, Field
 
 ROOT = Path(__file__).resolve().parents[2]
 EVAL_ROOT = Path(__file__).resolve().parent
+EVALS_ROOT = EVAL_ROOT.parent
+if str(EVALS_ROOT) not in sys.path:
+    sys.path.insert(0, str(EVALS_ROOT))
+
+from io_contracts import committed_input_manifest, git_head, resolve_within, sha256_text
+
 DEFAULT_TARGETS = EVAL_ROOT / "targets.json"
 DEFAULT_ONTOLOGY = ROOT / "ontology" / "ontology.md"
 DEFAULT_SHORT_FORM = ROOT / "editorial" / "short-form.md"
@@ -178,17 +183,6 @@ def read_text(path: Path) -> str:
     return path.read_text(encoding="utf-8")
 
 
-def sha256_text(value: str) -> str:
-    return hashlib.sha256(value.encode("utf-8")).hexdigest()
-
-
-def repository_commit() -> str:
-    return subprocess.run(
-        ["git", "rev-parse", "HEAD"], cwd=ROOT, check=True,
-        capture_output=True, text=True,
-    ).stdout.strip()
-
-
 def escape_cell(value: object) -> str:
     return str(value).replace("|", "\\|").replace("\n", " ")
 
@@ -266,11 +260,15 @@ def deterministic_checks(
 def source_dossier(target: dict) -> tuple[str, dict[str, str]]:
     sections = []
     digests = {}
+    declared = target.get("source_digests")
+    if not isinstance(declared, dict) or set(declared) != set(target["source_files"]):
+        raise ValueError("source_digests must pin every source_file exactly")
     for relative in target["source_files"]:
-        text = read_text(ROOT / relative)
+        source_path = resolve_within(ROOT, relative, label="target source selector")
+        text = read_text(source_path)
         digests[relative] = sha256_text(text)
-        expected = target.get("source_digests", {}).get(relative)
-        if expected and digests[relative] != expected:
+        expected = declared[relative]
+        if digests[relative] != expected:
             raise ValueError(
                 f"source digest mismatch for {relative}: "
                 f"expected {expected}, got {digests[relative]}"
@@ -435,6 +433,16 @@ def main() -> None:
     ontology = read_text(args.ontology)
     short_form = read_text(args.short_form)
     long_form = read_text(args.long_form)
+    source_paths = [
+        resolve_within(ROOT, relative, label="target source selector")
+        for target in targets
+        for relative in target["source_files"]
+    ]
+    input_manifest = committed_input_manifest(
+        ROOT,
+        [Path(__file__), args.targets, args.ontology, args.short_form, args.long_form]
+        + source_paths,
+    )
 
     generator_lm = dspy.LM(
         f"openai/{args.generator_model}", model_type="responses",
@@ -515,7 +523,8 @@ def main() -> None:
             "dspy_version": importlib.metadata.version("dspy"),
             "litellm_version": importlib.metadata.version("litellm"),
             "python_version": platform.python_version(),
-            "organon_commit": repository_commit(),
+            "organon_commit": git_head(ROOT),
+            "committed_inputs_sha256": input_manifest,
             "ontology_sha256": sha256_text(ontology),
             "short_form_sha256": sha256_text(short_form),
             "long_form_sha256": sha256_text(long_form),
