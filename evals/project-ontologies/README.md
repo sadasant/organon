@@ -29,3 +29,9 @@ python run.py \
 
 The default judge is `gpt-5.6-sol` with `high` reasoning effort and a ten-minute
 fail-closed request timeout.
+
+## Recorded run
+
+- [GPT-5.6 Sol, Organon v0.17, 2026-08-06](./results/gpt-5.6-sol-2026-08-06-v0.17.md)
+  — Kenogram passed both judge layers; Engram passed documentation review and
+  remains at `revise` on Organon dependency closure.
