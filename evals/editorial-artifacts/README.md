@@ -53,8 +53,10 @@ recorded in the run.
 
 ## Retained finding
 
-The canonical Sol run preserves the Engram and Kenogram README candidates as
-worked examples. Their value is not that generated prose “won.” It is that each
-candidate can be traced to exact source bytes, inspected with layer-specific
-evidence, and carried into a later target-repository review without confusing
-proposal, evaluation, and adoption.
+The [canonical Sol run](results/2026-08-06-readmes/report.md) passed both the
+Engram and Kenogram README candidates through deterministic, Organon,
+short-form, and long-form gates. Their value is not that generated prose “won.”
+It is that each candidate can be traced to exact source bytes, inspected with
+layer-specific evidence, and carried into a later target-repository review
+without confusing proposal, evaluation, and adoption. Both remain held for
+human review rather than silently promoted.

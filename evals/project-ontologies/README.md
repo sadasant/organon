@@ -61,7 +61,10 @@ useful generated pressure, not independent certification or project adoption.
 
 ## Retained finding
 
-The canonical run finds Kenogram review-ready under both layers. Engram is
-documentation-ready but remains at `revise` on Organon dependency closure. That
-is a successful output: the improvement plan says which candidate mappings must
-be downgraded or supplied with complete dependency packets before promotion.
+The [canonical run](results/2026-08-06-organon-v0.17/report.md) holds both
+project ontologies at `revise`. Their local vocabularies, public citations, and
+anti-collapse boundaries are strong; their positive mappings still promote
+several incomplete dependency packets. The generated
+[improvement plan](results/2026-08-06-organon-v0.17/improvement-plan.md) names
+the exact missing causal, institutional, identity, and maintenance joins. That
+is a successful evaluation result, not a reason to relax the mapping contract.

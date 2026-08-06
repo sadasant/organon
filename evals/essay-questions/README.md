@@ -62,9 +62,11 @@ selects the ten-question calibration surface.
 
 ## Retained finding
 
-The v0.2 experiment is the canonical retained run. Its 35–90 word contract
-reduced visible answer length from 2,965 to 2,641 words while 39 of 40 answers
-passed. The remaining AP-1 failure exposed a real pressure: ordinary
-“artificial personhood” language tends to collapse Organon's distinct
-Institution, Person, and Agency terms. The result remains a calibration finding,
-not a reason to weaken the ontology or the gate.
+The [v0.2 experiment](results/2026-08-05-answer-form-v0.2/evaluation.md)
+is the canonical retained run. Its 35–90 word contract reduced visible answer
+length from 2,965 to 2,641 words; a fresh judgment under methodology v1.0 passed
+38 of 40 answers. DP-4 overstated an incomplete mathematical analogy, while
+AP-1 collapsed Organon's distinct Institution and Person terms. The bounded
+[improvement plan](results/2026-08-05-answer-form-v0.2/improvement-plan.md)
+preserves both failures as calibration evidence rather than weakening the
+ontology or the gate.

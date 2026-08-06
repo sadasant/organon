@@ -1,0 +1,26 @@
+[
+  {
+    "target_id": "engram-main-readme",
+    "artifact_kind": "replacement-readme",
+    "disposition": "hold",
+    "preserve": [
+      "source-backed facts, commands, links, and status boundaries",
+      "the target audience and operational purpose",
+      "every layer that already passed"
+    ],
+    "actions": [],
+    "promotion_rule": "Human review is required after every failed layer is repaired and the exact revised bytes pass a fresh evaluation."
+  },
+  {
+    "target_id": "kenogram-main-readme",
+    "artifact_kind": "replacement-readme",
+    "disposition": "hold",
+    "preserve": [
+      "source-backed facts, commands, links, and status boundaries",
+      "the target audience and operational purpose",
+      "every layer that already passed"
+    ],
+    "actions": [],
+    "promotion_rule": "Human review is required after every failed layer is repaired and the exact revised bytes pass a fresh evaluation."
+  }
+]
