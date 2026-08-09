@@ -3,12 +3,12 @@ type: formal-build-receipt
 status: verified
 canonicality: noncanonical
 created: 2026-08-02
-updated: 2026-08-04
-repository_commit: "76506a87b031b2afb6241f4b26638498809845b5"
+updated: 2026-08-09
+repository_commit: "8b2cd2458bcf307254f77e843ad5b56fcadb1dca"
 ---
 # Lean Spike Build Receipt
 
-This receipt records external Evidence for the noncanonical Lean spike. It does not promote the spike over [Daniel's Ontology v0.17](../ontology.md).
+This receipt records external Evidence for the noncanonical Lean spike. It does not promote the spike over [Daniel's Ontology v0.18](../ontology.md).
 
 ## Toolchain
 
@@ -29,7 +29,7 @@ lake exe ontology_check
 Result: all 28 build jobs completed successfully. The executable printed:
 
 ```text
-OrganonCore v0.17 reduct: hidden bridge relations, private ritual, ritual-dependent meaning, downstream shadows, four preserved challenge classifiers, and one pending Reality representation elaborated
+OrganonCore v0.18-compatible reduct: hidden bridge relations, private ritual, ritual-dependent meaning, downstream shadows, four preserved challenge classifiers, one pending Reality representation elaboration, and metalinguistic definition admission
 ```
 
 The Lean sources contain no `sorry`, `admit`, or `axiom` declaration. The existing formal witnesses remain intact: consciousness candidate/Attribution/Designation separation; discriminating Operationalization; participant-bound World access; ordered Substrate Persistence; Truth without modeled Agent access; accepted Trust versus involuntary Dependence; profile-scoped Alignment; joined adaptive Intelligence; useful-false Operative Knowledge; dormant Records; copied Records without recipient knowledge; and inter-agent plus self-transmission. The v0.16 bridge module additionally constructs unequal Denotation; paired-path Causal Contribution with a named Change whose Transformation joins the compared endpoints; constructive Capability realization; fully indexed Standing recorded for an exact Order, Rule, Entity, status, and Scope; and in-Scope supportive Evidential Bearing for a false Claim. `TruthSemantics.isTrue` requires its exact claim-indexed Denotation rather than a parallel free adequacy predicate.
@@ -44,7 +44,7 @@ The shadow additionally constructs one Factive Operative Knowledge instance whos
 
 Proposal-local evidence, sovereignty, own-Principal, observed-choice, exchange, and moral-worth predicates remain formal shadows rather than complete joins to every core Organon structure. Reality, universal Claim semantics, universal moral conditions, Action attribution, complete Evidence parity, Interior-and-Boundary Exposure, Action-to-Change Consequence, complete Sense-to-Perception access, Ritual uptake parity through canonical Perception, Memory, and Interpretation, represented-target Denotation, temporal Meaning decay, fidelity, carrier realization, Alignment-profile composition, completeness and provenance of external Rule encodings, runtime construction, temporal ordering of transmission stages, universal semantic preservation, international-law sufficiency, preference revelation, expected utility, market clearing, Beauty, Play, Love, generic Knowledge, generic Sovereignty, and generic Value remain open formalization gates.
 
-The repository commit attested by this receipt is `76506a87b031b2afb6241f4b26638498809845b5`.
+The repository commit attested by this receipt is `8b2cd2458bcf307254f77e843ad5b56fcadb1dca`.
 
 ## Source digests
 
@@ -60,6 +60,6 @@ The repository commit attested by this receipt is `76506a87b031b2afb6241f4b26638
 - `TruthTrustAlignment.lean`: `bdaa0217e7434c9bc1d7cd3a6a2d489c684fbf38ffeb98a87388864d1cd5a733`
 - `IntelligenceKnowledge.lean`: `bc0ad1caa81adb25316f79aecd5011e32cf94cc73e1e046f7e13bcd10779aee8`
 - `QuarantineProfiles.lean`: `245c94b5c1a8096e9fdea457b1cafba3ddf4f7ab9d98b214aaee8be5eebdbce4`
-- `Model.lean`: `bb4e887ee113af6bc65f4a74ccf090f9b9dcc8d585c615b1d0721018d363e308`
+- `Model.lean`: `2d15571cafb95bd3bb3f99382900a2c236f1d24b28e78dad4938f5b5770298c5`
 - `lakefile.toml`: `61800a79dff8f1ab771ba7589a4f70583812a90414f8c109b491d966890d0fd3`
 - `lean-toolchain`: `54727eec5cba149c18842e6deb5c41b369d66455c93ce135d7d5347c782b2325`

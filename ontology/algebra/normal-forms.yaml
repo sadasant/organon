@@ -1,0 +1,388 @@
+{
+  "schema_version": 1,
+  "status": "nonbinding-candidate-normal-forms",
+  "source_lock": "source-lock.json",
+  "cards": [
+    {
+      "id": "NF-ENTITY",
+      "term_id": "organon:Entity",
+      "result_kind": "classification",
+      "result": {"predicate": "Entity", "args": ["entity"]},
+      "variables": {"entity": "Configuration", "invariant": "Invariant", "history": "StateSequence"},
+      "participants": ["entity", "invariant"],
+      "participant_roles": {"entity": "identity-bearing Configuration", "invariant": "declared object-language identity criterion"},
+      "indices": ["history"],
+      "premises": [
+        {"id": "configuration", "predicate": "Configuration", "args": ["entity"]},
+        {"id": "identity-invariant", "predicate": "IdentityInvariant", "args": ["invariant", "entity"]},
+        {"id": "ordered-states", "predicate": "OrderedStates", "args": ["history", "entity"]}
+      ],
+      "witnesses": [
+        {"id": "persistence-witness", "predicate": "PersistenceWitness", "args": ["entity", "invariant", "history"]}
+      ],
+      "shared_variables": ["entity", "invariant", "history"],
+      "positive_entailments": ["the named Configuration classifies as one Entity under this identity history"],
+      "anti_entailments": [
+        {"kind": "insufficiency", "statement": "Configuration, resemblance, naming, storage, or uninterrupted occurrence alone does not entail Entity."}
+      ],
+      "mutation_policy": {
+        "split_variables": ["entity", "invariant", "history"],
+        "reverse_atoms": {},
+        "substitute_atoms": {
+          "persistence-witness": [
+            {"predicate": "Resemblance", "args": ["entity", "invariant", "history"], "shape": "carrier_content_collapse"},
+            {"predicate": "NamingContinuity", "args": ["entity", "invariant", "history"], "shape": "projection_inversion"},
+            {"predicate": "StorageContinuity", "args": ["entity", "invariant", "history"], "shape": "carrier_content_collapse"},
+            {"predicate": "UninterruptedOccurrence", "args": ["entity", "invariant", "history"], "shape": "premise_omission"}
+          ]
+        }
+      }
+    },
+    {
+      "id": "NF-DENOTATION",
+      "term_id": "organon:Denotation",
+      "result_kind": "bridge_relation",
+      "result": {"predicate": "Denotation", "args": ["denotation", "expression", "target"]},
+      "variables": {"denotation": "Denotation", "expression": "Expression", "target": "Presence"},
+      "participants": ["denotation", "expression", "target"],
+      "participant_roles": {"denotation": "ordered Relation being classified", "expression": "first expression position", "target": "later denoted target position"},
+      "indices": [],
+      "premises": [
+        {"id": "expression-position", "predicate": "ExpressionPosition", "args": ["expression"]},
+        {"id": "target-position", "predicate": "TargetPosition", "args": ["target"]},
+        {"id": "ordered-association", "predicate": "OrderedAssociation", "args": ["denotation", "expression", "target"]}
+      ],
+      "witnesses": [],
+      "shared_variables": ["expression", "target"],
+      "positive_entailments": ["the expression occupies the first role and the target the later role"],
+      "anti_entailments": [
+        {"kind": "non_identity", "statement": "Denotation does not identify the expression with its target."},
+        {"kind": "one_way_anti_entailment", "statement": "Denotation does not entail fidelity, Truth, Interpretation, status, or causal participation."}
+      ],
+      "mutation_policy": {
+        "split_variables": ["expression", "target"],
+        "reverse_atoms": {
+          "ordered-association": {"predicate": "InverseOrderedAssociation", "args": ["denotation", "target", "expression"]}
+        },
+        "substitute_atoms": {
+          "ordered-association": [
+            {"predicate": "Resembles", "args": ["denotation", "expression", "target"], "shape": "typed_substitution"},
+            {"predicate": "CoOccurs", "args": ["denotation", "expression", "target"], "shape": "typed_substitution"}
+          ]
+        }
+      }
+    },
+    {
+      "id": "NF-CAUSAL-CONTRIBUTION",
+      "term_id": "organon:CausalContribution",
+      "result_kind": "bridge_relation",
+      "result": {"predicate": "CausalContribution", "args": ["difference", "change", "path_a", "path_b"]},
+      "variables": {
+        "difference": "Difference", "change": "Change", "path_a": "CausalPath", "path_b": "CausalPath",
+        "direction": "Direction", "endpoint_a": "State", "endpoint_b": "State", "match": "MatchedInputAccount"
+      },
+      "participants": ["difference", "change", "path_a", "path_b"],
+      "participant_roles": {"difference": "named upstream contrast", "change": "named downstream endpoint Change", "path_a": "first comparison path", "path_b": "second comparison path"},
+      "indices": ["direction"],
+      "premises": [
+        {"id": "path-a", "predicate": "CausalPath", "args": ["path_a", "direction"]},
+        {"id": "path-b", "predicate": "CausalPath", "args": ["path_b", "direction"]},
+        {"id": "upstream-difference", "predicate": "UpstreamDifference", "args": ["difference", "path_a", "path_b"]},
+        {"id": "endpoint-a", "predicate": "Endpoint", "args": ["path_a", "endpoint_a"]},
+        {"id": "endpoint-b", "predicate": "Endpoint", "args": ["path_b", "endpoint_b"]},
+        {"id": "endpoint-change", "predicate": "EndpointChange", "args": ["change", "endpoint_a", "endpoint_b"]}
+      ],
+      "witnesses": [
+        {"id": "nonempty-a", "predicate": "NonemptyPath", "args": ["path_a"]},
+        {"id": "nonempty-b", "predicate": "NonemptyPath", "args": ["path_b"]},
+        {"id": "matched-inputs", "predicate": "MatchedInputsExcept", "args": ["match", "path_a", "path_b", "difference"]}
+      ],
+      "shared_variables": ["difference", "path_a", "path_b", "direction", "endpoint_a", "endpoint_b"],
+      "positive_entailments": ["the named upstream Difference contributes to the named endpoint Change within this paired comparison"],
+      "anti_entailments": [
+        {"kind": "insufficiency", "statement": "Occurrence, precedence, correlation, or one-path membership alone does not entail Causal Contribution."}
+      ],
+      "mutation_policy": {
+        "split_variables": ["difference", "path_a", "path_b", "direction", "endpoint_a", "endpoint_b"],
+        "reverse_atoms": {
+          "endpoint-change": {"predicate": "InverseEndpointChange", "args": ["change", "endpoint_b", "endpoint_a"]}
+        },
+        "substitute_atoms": {
+          "matched-inputs": [
+            {"predicate": "Occurrence", "args": ["match", "path_a", "path_b", "difference"], "shape": "typed_substitution"},
+            {"predicate": "Precedence", "args": ["match", "path_a", "path_b", "difference"], "shape": "typed_substitution"},
+            {"predicate": "Correlation", "args": ["match", "path_a", "path_b", "difference"], "shape": "typed_substitution"}
+          ]
+        }
+      }
+    },
+    {
+      "id": "NF-CAPABILITY",
+      "term_id": "organon:Capability",
+      "result_kind": "classification",
+      "result": {"predicate": "Capability", "args": ["capability", "agent", "action", "constraints"]},
+      "variables": {
+        "capability": "Specification", "agent": "Agent", "action": "Action", "constraints": "ConstraintSet",
+        "configuration": "Configuration", "path": "CausalPath", "procedure": "ConstructiveProcedure"
+      },
+      "participants": ["agent", "action"],
+      "participant_roles": {"agent": "producer under the Specification", "action": "Constraint-relative possible Action"},
+      "indices": ["constraints", "configuration"],
+      "premises": [
+        {"id": "specification", "predicate": "ActionSpecification", "args": ["capability", "action", "agent", "constraints"]},
+        {"id": "agent", "predicate": "Agent", "args": ["agent"]},
+        {"id": "action", "predicate": "Action", "args": ["action", "agent"]},
+        {"id": "constraint-interpretation", "predicate": "ConstraintInterpretation", "args": ["constraints", "configuration"]},
+        {"id": "action-path", "predicate": "ActionProducingPath", "args": ["path", "agent", "action", "configuration"]}
+      ],
+      "witnesses": [
+        {"id": "constructive-procedure", "predicate": "ConstructiveProcedure", "args": ["procedure", "capability", "action"]},
+        {"id": "satisfying-configuration", "predicate": "SatisfiesConstraints", "args": ["configuration", "constraints"]}
+      ],
+      "shared_variables": ["capability", "agent", "action", "constraints", "configuration"],
+      "positive_entailments": ["the Agent can produce this Action under this stated Constraint interpretation"],
+      "anti_entailments": [
+        {"kind": "one_way_anti_entailment", "statement": "Capability does not entail Permission, Authority, completed Action, favorable Consequence, or prediction."}
+      ],
+      "mutation_policy": {
+        "split_variables": ["capability", "agent", "action", "constraints", "configuration"],
+        "reverse_atoms": {},
+        "substitute_atoms": {
+          "action-path": [
+            {"predicate": "ActionOccurrence", "args": ["path", "agent", "action", "configuration"], "shape": "typed_substitution"},
+            {"predicate": "TemporalPrecedence", "args": ["path", "agent", "action", "configuration"], "shape": "typed_substitution"}
+          ],
+          "satisfying-configuration": [
+            {"predicate": "ClaimedPossible", "args": ["configuration", "constraints"], "shape": "projection_inversion"}
+          ]
+        }
+      }
+    },
+    {
+      "id": "NF-STANDING",
+      "term_id": "organon:Standing",
+      "result_kind": "institutional_relation",
+      "result": {"predicate": "Standing", "args": ["order", "rule", "entity", "status", "scope"]},
+      "variables": {
+        "order": "Order", "rule": "Rule", "entity": "Configuration", "status": "InstitutionalStatus",
+        "scope": "Scope", "record": "Record"
+      },
+      "participants": ["order", "entity", "status"],
+      "participant_roles": {"order": "status-recording institutional Order", "entity": "Entity placed within the domain", "status": "named institutional status or Action domain"},
+      "indices": ["order", "rule", "scope"],
+      "premises": [
+        {"id": "order", "predicate": "Order", "args": ["order"]},
+        {"id": "rule", "predicate": "RuleOfOrder", "args": ["rule", "order"]},
+        {"id": "entity", "predicate": "Entity", "args": ["entity"]},
+        {"id": "status", "predicate": "InstitutionalStatus", "args": ["status", "order"]},
+        {"id": "scope", "predicate": "ScopeOfOrder", "args": ["scope", "order"]},
+        {"id": "placement", "predicate": "PlacesWithinDomain", "args": ["order", "entity", "status", "rule", "scope"]}
+      ],
+      "witnesses": [
+        {"id": "standing-record", "predicate": "RecordedStanding", "args": ["record", "order", "entity", "status", "rule", "scope"]}
+      ],
+      "shared_variables": ["order", "rule", "entity", "status", "scope"],
+      "positive_entailments": ["this Entity has this status in this Order, under this Rule and Scope"],
+      "anti_entailments": [
+        {"kind": "index_sensitivity", "statement": "Standing in one Order supplies no Standing in another."},
+        {"kind": "one_way_anti_entailment", "statement": "Standing does not entail Capability, Permission, Authority, Recognition, or Action."}
+      ],
+      "mutation_policy": {
+        "split_variables": ["order", "rule", "entity", "status", "scope"],
+        "reverse_atoms": {
+          "placement": {"predicate": "InversePlacesWithinDomain", "args": ["order", "status", "entity", "rule", "scope"]}
+        },
+        "substitute_atoms": {
+          "standing-record": [
+            {"predicate": "StandingClaim", "args": ["record", "order", "entity", "status", "rule", "scope"], "shape": "projection_inversion"}
+          ]
+        }
+      }
+    },
+    {
+      "id": "NF-EXERCISABILITY",
+      "term_id": "organon:Exercisability",
+      "result_kind": "composed_relation",
+      "result": {"predicate": "Exercisability", "args": ["permission", "action", "time", "configuration"]},
+      "variables": {
+        "permission": "Permission", "order": "Order", "principal": "Principal", "agent": "Agent",
+        "scope": "Scope", "interval": "Interval", "grant": "Grant", "admission": "Admission",
+        "action": "Action", "time": "Time", "configuration": "Configuration",
+        "capability": "Specification", "constraints": "ConstraintSet"
+      },
+      "participants": ["permission", "agent", "action", "principal"],
+      "participant_roles": {"permission": "governing institutional Permission", "agent": "shared Permission and Capability subject", "action": "one Action tested for current exercise", "principal": "party represented by the Permission"},
+      "indices": ["order", "agent", "scope", "interval", "time", "configuration", "constraints"],
+      "premises": [
+        {"id": "permission", "predicate": "Permission", "args": ["permission", "order", "principal", "agent", "scope", "interval", "grant", "admission"]},
+        {"id": "action", "predicate": "Action", "args": ["action", "agent"]},
+        {"id": "in-scope", "predicate": "InScope", "args": ["action", "scope"]},
+        {"id": "in-interval", "predicate": "InInterval", "args": ["time", "interval"]},
+        {"id": "continued-admission", "predicate": "ContinuedAdmission", "args": ["order", "permission", "admission", "time"]},
+        {"id": "capability", "predicate": "Capability", "args": ["capability", "agent", "action", "constraints"]}
+      ],
+      "witnesses": [
+        {"id": "constraint-configuration", "predicate": "ConstraintConfiguration", "args": ["configuration", "constraints", "time"]},
+        {"id": "permission-action-match", "predicate": "PermissionActionMatch", "args": ["permission", "action", "agent", "scope"]}
+      ],
+      "shared_variables": ["permission", "order", "agent", "scope", "interval", "admission", "action", "time", "constraints"],
+      "positive_entailments": ["this one Action is currently exercisable under this Permission and Capability"],
+      "anti_entailments": [
+        {"kind": "bidirectional_independence", "statement": "Permission and Capability do not entail one another; they compose only through matching action-level indices."}
+      ],
+      "mutation_policy": {
+        "split_variables": ["permission", "order", "agent", "scope", "interval", "admission", "action", "time", "constraints"],
+        "reverse_atoms": {},
+        "substitute_atoms": {
+          "permission": [
+            {
+              "predicate": "PermissionClaim",
+              "args": ["permission_claim", "order", "agent", "action", "scope", "principal", "interval"],
+              "variables": {"permission_claim": "Claim"},
+              "shape": "projection_inversion"
+            }
+          ],
+          "continued-admission": [
+            {"predicate": "HistoricalAdmission", "args": ["order", "permission", "admission", "time"], "shape": "index_erasure"}
+          ],
+          "capability": [
+            {"predicate": "Authority", "args": ["order", "agent", "principal", "scope"], "shape": "typed_substitution"}
+          ]
+        }
+      }
+    },
+    {
+      "id": "NF-EVIDENCE",
+      "term_id": "organon:Evidence",
+      "result_kind": "epistemic_classification",
+      "result": {"predicate": "Evidence", "args": ["observation", "claim", "claimant", "order", "scope"]},
+      "variables": {
+        "observation": "Observation", "claim": "Claim", "claimant": "Agent", "witness": "Witness",
+        "order": "Order", "scope": "Scope", "admissibility_rule": "AdmissibilityRule"
+      },
+      "participants": ["observation", "claim", "claimant", "witness"],
+      "participant_roles": {"observation": "candidate admitted Observation", "claim": "Claim for which Evidence is indexed", "claimant": "Agent relative to whom independence is proved", "witness": "producer independent for this exact tuple"},
+      "indices": ["claimant", "order", "scope", "claim"],
+      "premises": [
+        {"id": "observation", "predicate": "Observation", "args": ["observation"]},
+        {"id": "witness", "predicate": "Witness", "args": ["witness"]},
+        {"id": "independence", "predicate": "IndependentFor", "args": ["witness", "claimant", "claim", "observation", "order", "scope"]},
+        {"id": "admissibility-rule", "predicate": "AdmissibilityRule", "args": ["admissibility_rule", "order"]},
+        {"id": "admission", "predicate": "Admission", "args": ["order", "observation", "admissibility_rule", "scope"]},
+        {"id": "observation-scope", "predicate": "InScope", "args": ["observation", "scope"]},
+        {"id": "claim-scope", "predicate": "InScope", "args": ["claim", "scope"]}
+      ],
+      "witnesses": [
+        {"id": "produced-by", "predicate": "ProducedBy", "args": ["observation", "witness"]}
+      ],
+      "shared_variables": ["observation", "claim", "witness", "order", "scope", "admissibility_rule"],
+      "positive_entailments": ["this admitted Observation is Evidence for this claimant and Claim in this Order and Scope"],
+      "anti_entailments": [
+        {"kind": "insufficiency", "statement": "Observation, distinct witness, or Admission alone does not entail Evidence."},
+        {"kind": "index_sensitivity", "statement": "Evidence independent for one claimant cannot be reused for another without a matching IndependentFor proof."}
+      ],
+      "mutation_policy": {
+        "split_variables": ["observation", "claim", "witness", "order", "scope", "admissibility_rule"],
+        "reverse_atoms": {
+          "produced-by": {"predicate": "Produces", "args": ["witness", "observation"]}
+        },
+        "substitute_atoms": {
+          "independence": [
+            {"predicate": "MerelyDistinct", "args": ["witness", "claimant", "claim", "observation", "order", "scope"], "shape": "typed_substitution"}
+          ],
+          "admission": [
+            {"predicate": "AdmissionClaim", "args": ["order", "observation", "admissibility_rule", "scope"], "shape": "projection_inversion"}
+          ]
+        }
+      }
+    },
+    {
+      "id": "NF-EVIDENTIAL-BEARING",
+      "term_id": "organon:EvidentialBearing",
+      "result_kind": "epistemic_relation",
+      "result": {"predicate": "EvidentialBearing", "args": ["evidence", "claim", "disposition", "order", "scope"]},
+      "variables": {
+        "evidence": "Observation", "claim": "Claim", "disposition": "Disposition", "order": "Order",
+        "scope": "Scope", "rule": "EvaluationRule", "record": "Record", "claimant": "Agent"
+      },
+      "participants": ["evidence", "claim", "disposition"],
+      "participant_roles": {"evidence": "admitted epistemic input", "claim": "evaluated Claim", "disposition": "constructively returned and recorded result"},
+      "indices": ["order", "rule", "scope"],
+      "premises": [
+        {"id": "evidence", "predicate": "Evidence", "args": ["evidence", "claim", "claimant", "order", "scope"]},
+        {"id": "claim", "predicate": "ClaimInScope", "args": ["claim", "scope"]},
+        {"id": "evaluation-rule", "predicate": "EvaluationRule", "args": ["rule", "order"]},
+        {"id": "rule-result", "predicate": "RuleResult", "args": ["rule", "evidence", "claim", "scope", "disposition"]}
+      ],
+      "witnesses": [
+        {"id": "constructive-evaluation", "predicate": "ConstructiveEvaluation", "args": ["rule", "evidence", "claim", "scope", "disposition"]},
+        {"id": "recorded-disposition", "predicate": "RecordedDisposition", "args": ["record", "order", "evidence", "claim", "rule", "scope", "disposition"]}
+      ],
+      "shared_variables": ["evidence", "claim", "disposition", "order", "scope", "rule"],
+      "positive_entailments": ["the declared disposition obtains for this Evidence and Claim under this Rule, Order, and Scope"],
+      "anti_entailments": [
+        {"kind": "one_way_anti_entailment", "statement": "Evidence does not entail supportive bearing, and supportive bearing does not entail Truth."},
+        {"kind": "index_sensitivity", "statement": "The same Evidence may bear differently under another Rule or Scope."}
+      ],
+      "mutation_policy": {
+        "split_variables": ["evidence", "claim", "disposition", "order", "scope", "rule"],
+        "reverse_atoms": {},
+        "substitute_atoms": {
+          "evaluation-rule": [
+            {"predicate": "ClaimantRule", "args": ["rule", "order"], "shape": "projection_inversion"}
+          ],
+          "recorded-disposition": [
+            {"predicate": "UnrecordedDisposition", "args": ["record", "order", "evidence", "claim", "rule", "scope", "disposition"], "shape": "premise_omission"}
+          ]
+        }
+      }
+    },
+    {
+      "id": "NF-TRUTH",
+      "term_id": "organon:Truth",
+      "result_kind": "semantic_relation",
+      "result": {"predicate": "Truth", "args": ["claim", "presence", "scope"]},
+      "variables": {
+        "claim": "Claim", "representation": "Representation", "denotation": "Denotation",
+        "specification": "Specification", "presence": "Presence", "rule": "Rule",
+        "scope": "Scope", "adequacy": "MaterialAdequacyWitness"
+      },
+      "participants": ["claim", "representation", "denotation", "specification", "presence"],
+      "participant_roles": {"claim": "truth-bearing Claim", "representation": "Claim expression", "denotation": "ordered expression-target Relation", "specification": "declared truth condition", "presence": "material target in Reality"},
+      "indices": ["claim", "rule", "scope"],
+      "premises": [
+        {"id": "claim", "predicate": "RepresentedClaim", "args": ["claim", "representation", "scope"]},
+        {"id": "representation", "predicate": "Representation", "args": ["representation"]},
+        {"id": "truth-specification", "predicate": "TruthSpecification", "args": ["specification", "claim", "scope"]},
+        {"id": "presence", "predicate": "Presence", "args": ["presence"]},
+        {"id": "presence-scope", "predicate": "InScope", "args": ["presence", "scope"]},
+        {"id": "denotation", "predicate": "Denotation", "args": ["denotation", "representation", "presence"]},
+        {"id": "applies-under", "predicate": "AppliesUnder", "args": ["specification", "presence", "rule", "scope"]},
+        {"id": "conformity", "predicate": "Conforms", "args": ["presence", "specification"]}
+      ],
+      "witnesses": [
+        {"id": "material-adequacy", "predicate": "MaterialAdequacy", "args": ["adequacy", "claim", "denotation", "specification", "rule", "scope"]}
+      ],
+      "shared_variables": ["claim", "representation", "denotation", "specification", "presence", "rule", "scope"],
+      "positive_entailments": ["this exact Claim is true under this scoped semantic join and conformity condition"],
+      "anti_entailments": [
+        {"kind": "bidirectional_independence", "statement": "Truth neither entails nor is entailed by Evidence, proof, consensus, Admission, access, or standing."}
+      ],
+      "mutation_policy": {
+        "split_variables": ["claim", "representation", "denotation", "specification", "presence", "rule", "scope"],
+        "reverse_atoms": {
+          "denotation": {"predicate": "InverseDenotation", "args": ["denotation", "presence", "representation"]}
+        },
+        "substitute_atoms": {
+          "denotation": [
+            {"predicate": "Resembles", "args": ["denotation", "representation", "presence"], "shape": "typed_substitution"},
+            {"predicate": "RefersInformally", "args": ["denotation", "representation", "presence"], "shape": "typed_substitution"}
+          ],
+          "conformity": [
+            {"predicate": "ValidatorClaim", "args": ["presence", "specification"], "shape": "projection_inversion"}
+          ]
+        }
+      }
+    }
+  ]
+}

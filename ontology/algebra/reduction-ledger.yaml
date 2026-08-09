@@ -1,0 +1,3657 @@
+{
+  "schema_version": 1,
+  "status": "generated-nonbinding-complete-reduction-audit",
+  "source_sha256": {
+    "ontology/terms.yaml": "c1d3573aafb8f31535eac88c164b2b4e32f0fbf5c635fbf46b2aff4357c66339",
+    "ontology/algebra/normal-forms.yaml": "e801315ee1104ee39aee834214c679a564cd3aac982980dc3b5b3a3a3fd29aa7",
+    "ontology/algebra/candidate-laws.yaml": "8d739e8c928f527ee8f66b28c4e3a8b696d0539333627bf26243d72073212550",
+    "ontology/algebra/claim-coverage.yaml": "17c549d7193e680b126fd112eaa36053105eb00a9c5b4b72655444d16594637a",
+    "ontology/algebra/consistency-dispositions.yaml": "7cff3e1464144c33c15319ac24a7ea8880b57ba797ce571d4592c3a14f04c4aa",
+    "scripts/build-reduction-audit.py": "829c676ca1fbfa183d8db1bd84f3686900e26ddca74c4991e4290d451652758a"
+  },
+  "question": "Do the retained foundation, nine positive normal forms, and six candidate disciplines preserve every registered Organon classification?",
+  "answer": "no",
+  "reason": "Complete reduction requires positive construction as well as prohibition of invalid collapses.",
+  "counts": {
+    "registered_terms": 109,
+    "registered_commitments": 42,
+    "candidate_laws": 6,
+    "normal_forms": 9,
+    "constructively_encoded": 9,
+    "positively_underdetermined": 97,
+    "retained_foundation": 3,
+    "consistency_candidate_clause_derived": 20,
+    "consistency_positive_schema_missing": 9,
+    "consistency_retained_governance": 2
+  },
+  "terms": [
+    {
+      "term": "organon:Absence",
+      "claim": "P1",
+      "claim_type": "primitive",
+      "depends_on": [],
+      "disposition": "retained_foundation",
+      "reason": "A reduction may test independence but cannot silently derive away a declared primitive or axiom."
+    },
+    {
+      "term": "organon:Presence",
+      "claim": "A3",
+      "claim_type": "axiom",
+      "depends_on": [
+        "organon:Absence"
+      ],
+      "disposition": "retained_foundation",
+      "reason": "A reduction may test independence but cannot silently derive away a declared primitive or axiom."
+    },
+    {
+      "term": "organon:Missingness",
+      "claim": "A5",
+      "claim_type": "axiom",
+      "depends_on": [
+        "organon:Presence"
+      ],
+      "disposition": "retained_foundation",
+      "reason": "A reduction may test independence but cannot silently derive away a declared primitive or axiom."
+    },
+    {
+      "term": "organon:Reality",
+      "claim": "D001",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Presence"
+      ],
+      "disposition": "positively_underdetermined",
+      "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
+      "paired_target_extension_sketch": {
+        "all_declared_dependencies_present": true,
+        "shared_dependency_extensions": [
+          "organon:Presence"
+        ],
+        "target_predicate": "organon:Reality",
+        "model_without_target_extension": [],
+        "model_with_target_extension": [
+          "candidate"
+        ],
+        "classification_differs": true
+      }
+    },
+    {
+      "term": "organon:Difference",
+      "claim": "D002",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Presence",
+        "organon:Reality"
+      ],
+      "disposition": "positively_underdetermined",
+      "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
+      "paired_target_extension_sketch": {
+        "all_declared_dependencies_present": true,
+        "shared_dependency_extensions": [
+          "organon:Presence",
+          "organon:Reality"
+        ],
+        "target_predicate": "organon:Difference",
+        "model_without_target_extension": [],
+        "model_with_target_extension": [
+          "candidate"
+        ],
+        "classification_differs": true
+      }
+    },
+    {
+      "term": "organon:Relation",
+      "claim": "D003",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Presence"
+      ],
+      "disposition": "positively_underdetermined",
+      "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
+      "paired_target_extension_sketch": {
+        "all_declared_dependencies_present": true,
+        "shared_dependency_extensions": [
+          "organon:Presence"
+        ],
+        "target_predicate": "organon:Relation",
+        "model_without_target_extension": [],
+        "model_with_target_extension": [
+          "candidate"
+        ],
+        "classification_differs": true
+      }
+    },
+    {
+      "term": "organon:Denotation",
+      "claim": "D102",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Presence",
+        "organon:Relation"
+      ],
+      "disposition": "constructively_encoded",
+      "reason": "A typed normal-form query is encoded by NF-DENOTATION and has a finite witness."
+    },
+    {
+      "term": "organon:Configuration",
+      "claim": "D004",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Presence",
+        "organon:Relation"
+      ],
+      "disposition": "positively_underdetermined",
+      "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
+      "paired_target_extension_sketch": {
+        "all_declared_dependencies_present": true,
+        "shared_dependency_extensions": [
+          "organon:Presence",
+          "organon:Relation"
+        ],
+        "target_predicate": "organon:Configuration",
+        "model_without_target_extension": [],
+        "model_with_target_extension": [
+          "candidate"
+        ],
+        "classification_differs": true
+      }
+    },
+    {
+      "term": "organon:State",
+      "claim": "D005",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Configuration"
+      ],
+      "disposition": "positively_underdetermined",
+      "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
+      "paired_target_extension_sketch": {
+        "all_declared_dependencies_present": true,
+        "shared_dependency_extensions": [
+          "organon:Configuration"
+        ],
+        "target_predicate": "organon:State",
+        "model_without_target_extension": [],
+        "model_with_target_extension": [
+          "candidate"
+        ],
+        "classification_differs": true
+      }
+    },
+    {
+      "term": "organon:Direction",
+      "claim": "D006",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Relation",
+        "organon:State"
+      ],
+      "disposition": "positively_underdetermined",
+      "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
+      "paired_target_extension_sketch": {
+        "all_declared_dependencies_present": true,
+        "shared_dependency_extensions": [
+          "organon:Relation",
+          "organon:State"
+        ],
+        "target_predicate": "organon:Direction",
+        "model_without_target_extension": [],
+        "model_with_target_extension": [
+          "candidate"
+        ],
+        "classification_differs": true
+      }
+    },
+    {
+      "term": "organon:Transformation",
+      "claim": "D007",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Relation",
+        "organon:State",
+        "organon:Direction"
+      ],
+      "disposition": "positively_underdetermined",
+      "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
+      "paired_target_extension_sketch": {
+        "all_declared_dependencies_present": true,
+        "shared_dependency_extensions": [
+          "organon:Relation",
+          "organon:State",
+          "organon:Direction"
+        ],
+        "target_predicate": "organon:Transformation",
+        "model_without_target_extension": [],
+        "model_with_target_extension": [
+          "candidate"
+        ],
+        "classification_differs": true
+      }
+    },
+    {
+      "term": "organon:Change",
+      "claim": "D008",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Difference",
+        "organon:State",
+        "organon:Transformation"
+      ],
+      "disposition": "positively_underdetermined",
+      "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
+      "paired_target_extension_sketch": {
+        "all_declared_dependencies_present": true,
+        "shared_dependency_extensions": [
+          "organon:Difference",
+          "organon:State",
+          "organon:Transformation"
+        ],
+        "target_predicate": "organon:Change",
+        "model_without_target_extension": [],
+        "model_with_target_extension": [
+          "candidate"
+        ],
+        "classification_differs": true
+      }
+    },
+    {
+      "term": "organon:Feeds",
+      "claim": "D009",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Relation",
+        "organon:State"
+      ],
+      "disposition": "positively_underdetermined",
+      "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
+      "paired_target_extension_sketch": {
+        "all_declared_dependencies_present": true,
+        "shared_dependency_extensions": [
+          "organon:Relation",
+          "organon:State"
+        ],
+        "target_predicate": "organon:Feeds",
+        "model_without_target_extension": [],
+        "model_with_target_extension": [
+          "candidate"
+        ],
+        "classification_differs": true
+      }
+    },
+    {
+      "term": "organon:CausalPath",
+      "claim": "D010",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Transformation",
+        "organon:Direction",
+        "organon:Feeds",
+        "organon:State"
+      ],
+      "disposition": "positively_underdetermined",
+      "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
+      "paired_target_extension_sketch": {
+        "all_declared_dependencies_present": true,
+        "shared_dependency_extensions": [
+          "organon:Transformation",
+          "organon:Direction",
+          "organon:Feeds",
+          "organon:State"
+        ],
+        "target_predicate": "organon:CausalPath",
+        "model_without_target_extension": [],
+        "model_with_target_extension": [
+          "candidate"
+        ],
+        "classification_differs": true
+      }
+    },
+    {
+      "term": "organon:CausalContribution",
+      "claim": "D103",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Relation",
+        "organon:Difference",
+        "organon:State",
+        "organon:Direction",
+        "organon:Transformation",
+        "organon:Change",
+        "organon:CausalPath"
+      ],
+      "disposition": "constructively_encoded",
+      "reason": "A typed normal-form query is encoded by NF-CAUSAL-CONTRIBUTION and has a finite witness."
+    },
+    {
+      "term": "organon:Invariant",
+      "claim": "D011",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Relation",
+        "organon:Configuration",
+        "organon:Transformation"
+      ],
+      "disposition": "positively_underdetermined",
+      "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
+      "paired_target_extension_sketch": {
+        "all_declared_dependencies_present": true,
+        "shared_dependency_extensions": [
+          "organon:Relation",
+          "organon:Configuration",
+          "organon:Transformation"
+        ],
+        "target_predicate": "organon:Invariant",
+        "model_without_target_extension": [],
+        "model_with_target_extension": [
+          "candidate"
+        ],
+        "classification_differs": true
+      }
+    },
+    {
+      "term": "organon:Persistence",
+      "claim": "D012",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Invariant",
+        "organon:State"
+      ],
+      "disposition": "positively_underdetermined",
+      "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
+      "paired_target_extension_sketch": {
+        "all_declared_dependencies_present": true,
+        "shared_dependency_extensions": [
+          "organon:Invariant",
+          "organon:State"
+        ],
+        "target_predicate": "organon:Persistence",
+        "model_without_target_extension": [],
+        "model_with_target_extension": [
+          "candidate"
+        ],
+        "classification_differs": true
+      }
+    },
+    {
+      "term": "organon:Constraint",
+      "claim": "D013",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Persistence",
+        "organon:Relation",
+        "organon:Transformation"
+      ],
+      "disposition": "positively_underdetermined",
+      "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
+      "paired_target_extension_sketch": {
+        "all_declared_dependencies_present": true,
+        "shared_dependency_extensions": [
+          "organon:Persistence",
+          "organon:Relation",
+          "organon:Transformation"
+        ],
+        "target_predicate": "organon:Constraint",
+        "model_without_target_extension": [],
+        "model_with_target_extension": [
+          "candidate"
+        ],
+        "classification_differs": true
+      }
+    },
+    {
+      "term": "organon:Entity",
+      "claim": "D014",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Configuration",
+        "organon:Persistence",
+        "organon:Invariant"
+      ],
+      "disposition": "constructively_encoded",
+      "reason": "A typed normal-form query is encoded by NF-ENTITY and has a finite witness."
+    },
+    {
+      "term": "organon:Boundary",
+      "claim": "D015",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Configuration",
+        "organon:Constraint",
+        "organon:Invariant",
+        "organon:Persistence",
+        "organon:Entity"
+      ],
+      "disposition": "positively_underdetermined",
+      "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
+      "paired_target_extension_sketch": {
+        "all_declared_dependencies_present": true,
+        "shared_dependency_extensions": [
+          "organon:Configuration",
+          "organon:Constraint",
+          "organon:Invariant",
+          "organon:Persistence",
+          "organon:Entity"
+        ],
+        "target_predicate": "organon:Boundary",
+        "model_without_target_extension": [],
+        "model_with_target_extension": [
+          "candidate"
+        ],
+        "classification_differs": true
+      }
+    },
+    {
+      "term": "organon:Environment",
+      "claim": "D016",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Presence",
+        "organon:Entity",
+        "organon:Boundary"
+      ],
+      "disposition": "positively_underdetermined",
+      "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
+      "paired_target_extension_sketch": {
+        "all_declared_dependencies_present": true,
+        "shared_dependency_extensions": [
+          "organon:Presence",
+          "organon:Entity",
+          "organon:Boundary"
+        ],
+        "target_predicate": "organon:Environment",
+        "model_without_target_extension": [],
+        "model_with_target_extension": [
+          "candidate"
+        ],
+        "classification_differs": true
+      }
+    },
+    {
+      "term": "organon:Representation",
+      "claim": "D017",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Presence",
+        "organon:Relation",
+        "organon:Denotation",
+        "organon:Configuration"
+      ],
+      "disposition": "positively_underdetermined",
+      "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
+      "paired_target_extension_sketch": {
+        "all_declared_dependencies_present": true,
+        "shared_dependency_extensions": [
+          "organon:Presence",
+          "organon:Relation",
+          "organon:Denotation",
+          "organon:Configuration"
+        ],
+        "target_predicate": "organon:Representation",
+        "model_without_target_extension": [],
+        "model_with_target_extension": [
+          "candidate"
+        ],
+        "classification_differs": true
+      }
+    },
+    {
+      "term": "organon:Scope",
+      "claim": "D018",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Presence",
+        "organon:Relation",
+        "organon:State",
+        "organon:Transformation",
+        "organon:Representation",
+        "organon:Constraint"
+      ],
+      "disposition": "positively_underdetermined",
+      "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
+      "paired_target_extension_sketch": {
+        "all_declared_dependencies_present": true,
+        "shared_dependency_extensions": [
+          "organon:Presence",
+          "organon:Relation",
+          "organon:State",
+          "organon:Transformation",
+          "organon:Representation",
+          "organon:Constraint"
+        ],
+        "target_predicate": "organon:Scope",
+        "model_without_target_extension": [],
+        "model_with_target_extension": [
+          "candidate"
+        ],
+        "classification_differs": true
+      }
+    },
+    {
+      "term": "organon:Specification",
+      "claim": "D019",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Representation",
+        "organon:Scope"
+      ],
+      "disposition": "positively_underdetermined",
+      "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
+      "paired_target_extension_sketch": {
+        "all_declared_dependencies_present": true,
+        "shared_dependency_extensions": [
+          "organon:Representation",
+          "organon:Scope"
+        ],
+        "target_predicate": "organon:Specification",
+        "model_without_target_extension": [],
+        "model_with_target_extension": [
+          "candidate"
+        ],
+        "classification_differs": true
+      }
+    },
+    {
+      "term": "organon:Rule",
+      "claim": "D020",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Specification",
+        "organon:Constraint",
+        "organon:Transformation"
+      ],
+      "disposition": "positively_underdetermined",
+      "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
+      "paired_target_extension_sketch": {
+        "all_declared_dependencies_present": true,
+        "shared_dependency_extensions": [
+          "organon:Specification",
+          "organon:Constraint",
+          "organon:Transformation"
+        ],
+        "target_predicate": "organon:Rule",
+        "model_without_target_extension": [],
+        "model_with_target_extension": [
+          "candidate"
+        ],
+        "classification_differs": true
+      }
+    },
+    {
+      "term": "organon:Sign",
+      "claim": "D021",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Representation",
+        "organon:Denotation",
+        "organon:Presence",
+        "organon:Relation",
+        "organon:Change",
+        "organon:CausalPath",
+        "organon:State"
+      ],
+      "disposition": "positively_underdetermined",
+      "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
+      "paired_target_extension_sketch": {
+        "all_declared_dependencies_present": true,
+        "shared_dependency_extensions": [
+          "organon:Representation",
+          "organon:Denotation",
+          "organon:Presence",
+          "organon:Relation",
+          "organon:Change",
+          "organon:CausalPath",
+          "organon:State"
+        ],
+        "target_predicate": "organon:Sign",
+        "model_without_target_extension": [],
+        "model_with_target_extension": [
+          "candidate"
+        ],
+        "classification_differs": true
+      }
+    },
+    {
+      "term": "organon:Symbol",
+      "claim": "D022",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Representation",
+        "organon:Denotation",
+        "organon:Persistence",
+        "organon:State",
+        "organon:Transformation",
+        "organon:Rule"
+      ],
+      "disposition": "positively_underdetermined",
+      "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
+      "paired_target_extension_sketch": {
+        "all_declared_dependencies_present": true,
+        "shared_dependency_extensions": [
+          "organon:Representation",
+          "organon:Denotation",
+          "organon:Persistence",
+          "organon:State",
+          "organon:Transformation",
+          "organon:Rule"
+        ],
+        "target_predicate": "organon:Symbol",
+        "model_without_target_extension": [],
+        "model_with_target_extension": [
+          "candidate"
+        ],
+        "classification_differs": true
+      }
+    },
+    {
+      "term": "organon:Language",
+      "claim": "D023",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Persistence",
+        "organon:Symbol",
+        "organon:Rule",
+        "organon:State"
+      ],
+      "disposition": "positively_underdetermined",
+      "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
+      "paired_target_extension_sketch": {
+        "all_declared_dependencies_present": true,
+        "shared_dependency_extensions": [
+          "organon:Persistence",
+          "organon:Symbol",
+          "organon:Rule",
+          "organon:State"
+        ],
+        "target_predicate": "organon:Language",
+        "model_without_target_extension": [],
+        "model_with_target_extension": [
+          "candidate"
+        ],
+        "classification_differs": true
+      }
+    },
+    {
+      "term": "organon:Map",
+      "claim": "D024",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Representation",
+        "organon:Reality"
+      ],
+      "disposition": "positively_underdetermined",
+      "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
+      "paired_target_extension_sketch": {
+        "all_declared_dependencies_present": true,
+        "shared_dependency_extensions": [
+          "organon:Representation",
+          "organon:Reality"
+        ],
+        "target_predicate": "organon:Map",
+        "model_without_target_extension": [],
+        "model_with_target_extension": [
+          "candidate"
+        ],
+        "classification_differs": true
+      }
+    },
+    {
+      "term": "organon:Reference",
+      "claim": "D025",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Map",
+        "organon:Specification",
+        "organon:Scope",
+        "organon:Constraint"
+      ],
+      "disposition": "positively_underdetermined",
+      "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
+      "paired_target_extension_sketch": {
+        "all_declared_dependencies_present": true,
+        "shared_dependency_extensions": [
+          "organon:Map",
+          "organon:Specification",
+          "organon:Scope",
+          "organon:Constraint"
+        ],
+        "target_predicate": "organon:Reference",
+        "model_without_target_extension": [],
+        "model_with_target_extension": [
+          "candidate"
+        ],
+        "classification_differs": true
+      }
+    },
+    {
+      "term": "organon:Sense",
+      "claim": "D026",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Constraint",
+        "organon:Entity",
+        "organon:Boundary",
+        "organon:Difference",
+        "organon:Environment",
+        "organon:CausalPath"
+      ],
+      "disposition": "positively_underdetermined",
+      "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
+      "paired_target_extension_sketch": {
+        "all_declared_dependencies_present": true,
+        "shared_dependency_extensions": [
+          "organon:Constraint",
+          "organon:Entity",
+          "organon:Boundary",
+          "organon:Difference",
+          "organon:Environment",
+          "organon:CausalPath"
+        ],
+        "target_predicate": "organon:Sense",
+        "model_without_target_extension": [],
+        "model_with_target_extension": [
+          "candidate"
+        ],
+        "classification_differs": true
+      }
+    },
+    {
+      "term": "organon:Perception",
+      "claim": "D027",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:State",
+        "organon:Sense"
+      ],
+      "disposition": "positively_underdetermined",
+      "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
+      "paired_target_extension_sketch": {
+        "all_declared_dependencies_present": true,
+        "shared_dependency_extensions": [
+          "organon:State",
+          "organon:Sense"
+        ],
+        "target_predicate": "organon:Perception",
+        "model_without_target_extension": [],
+        "model_with_target_extension": [
+          "candidate"
+        ],
+        "classification_differs": true
+      }
+    },
+    {
+      "term": "organon:Record",
+      "claim": "D028",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Persistence",
+        "organon:Representation",
+        "organon:State",
+        "organon:Relation",
+        "organon:Change"
+      ],
+      "disposition": "positively_underdetermined",
+      "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
+      "paired_target_extension_sketch": {
+        "all_declared_dependencies_present": true,
+        "shared_dependency_extensions": [
+          "organon:Persistence",
+          "organon:Representation",
+          "organon:State",
+          "organon:Relation",
+          "organon:Change"
+        ],
+        "target_predicate": "organon:Record",
+        "model_without_target_extension": [],
+        "model_with_target_extension": [
+          "candidate"
+        ],
+        "classification_differs": true
+      }
+    },
+    {
+      "term": "organon:Observation",
+      "claim": "D029",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Record",
+        "organon:Specification",
+        "organon:CausalPath",
+        "organon:Environment",
+        "organon:Sense",
+        "organon:Reality"
+      ],
+      "disposition": "positively_underdetermined",
+      "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
+      "paired_target_extension_sketch": {
+        "all_declared_dependencies_present": true,
+        "shared_dependency_extensions": [
+          "organon:Record",
+          "organon:Specification",
+          "organon:CausalPath",
+          "organon:Environment",
+          "organon:Sense",
+          "organon:Reality"
+        ],
+        "target_predicate": "organon:Observation",
+        "model_without_target_extension": [],
+        "model_with_target_extension": [
+          "candidate"
+        ],
+        "classification_differs": true
+      }
+    },
+    {
+      "term": "organon:Memory",
+      "claim": "D030",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Record",
+        "organon:Persistence",
+        "organon:State",
+        "organon:Entity"
+      ],
+      "disposition": "positively_underdetermined",
+      "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
+      "paired_target_extension_sketch": {
+        "all_declared_dependencies_present": true,
+        "shared_dependency_extensions": [
+          "organon:Record",
+          "organon:Persistence",
+          "organon:State",
+          "organon:Entity"
+        ],
+        "target_predicate": "organon:Memory",
+        "model_without_target_extension": [],
+        "model_with_target_extension": [
+          "candidate"
+        ],
+        "classification_differs": true
+      }
+    },
+    {
+      "term": "organon:Model",
+      "claim": "D031",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Configuration",
+        "organon:Representation",
+        "organon:Transformation",
+        "organon:Perception",
+        "organon:Memory",
+        "organon:State",
+        "organon:Constraint"
+      ],
+      "disposition": "positively_underdetermined",
+      "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
+      "paired_target_extension_sketch": {
+        "all_declared_dependencies_present": true,
+        "shared_dependency_extensions": [
+          "organon:Configuration",
+          "organon:Representation",
+          "organon:Transformation",
+          "organon:Perception",
+          "organon:Memory",
+          "organon:State",
+          "organon:Constraint"
+        ],
+        "target_predicate": "organon:Model",
+        "model_without_target_extension": [],
+        "model_with_target_extension": [
+          "candidate"
+        ],
+        "classification_differs": true
+      }
+    },
+    {
+      "term": "organon:Action",
+      "claim": "D032",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Transformation",
+        "organon:Entity",
+        "organon:Boundary",
+        "organon:CausalPath",
+        "organon:State"
+      ],
+      "disposition": "positively_underdetermined",
+      "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
+      "paired_target_extension_sketch": {
+        "all_declared_dependencies_present": true,
+        "shared_dependency_extensions": [
+          "organon:Transformation",
+          "organon:Entity",
+          "organon:Boundary",
+          "organon:CausalPath",
+          "organon:State"
+        ],
+        "target_predicate": "organon:Action",
+        "model_without_target_extension": [],
+        "model_with_target_extension": [
+          "candidate"
+        ],
+        "classification_differs": true
+      }
+    },
+    {
+      "term": "organon:Consequence",
+      "claim": "D033",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Change",
+        "organon:CausalPath",
+        "organon:Action"
+      ],
+      "disposition": "positively_underdetermined",
+      "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
+      "paired_target_extension_sketch": {
+        "all_declared_dependencies_present": true,
+        "shared_dependency_extensions": [
+          "organon:Change",
+          "organon:CausalPath",
+          "organon:Action"
+        ],
+        "target_predicate": "organon:Consequence",
+        "model_without_target_extension": [],
+        "model_with_target_extension": [
+          "candidate"
+        ],
+        "classification_differs": true
+      }
+    },
+    {
+      "term": "organon:Interpretation",
+      "claim": "D034",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Transformation",
+        "organon:Entity",
+        "organon:Perception",
+        "organon:Memory",
+        "organon:Model",
+        "organon:Action"
+      ],
+      "disposition": "positively_underdetermined",
+      "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
+      "paired_target_extension_sketch": {
+        "all_declared_dependencies_present": true,
+        "shared_dependency_extensions": [
+          "organon:Transformation",
+          "organon:Entity",
+          "organon:Perception",
+          "organon:Memory",
+          "organon:Model",
+          "organon:Action"
+        ],
+        "target_predicate": "organon:Interpretation",
+        "model_without_target_extension": [],
+        "model_with_target_extension": [
+          "candidate"
+        ],
+        "classification_differs": true
+      }
+    },
+    {
+      "term": "organon:Agent",
+      "claim": "D035",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Entity",
+        "organon:Interpretation",
+        "organon:Action"
+      ],
+      "disposition": "positively_underdetermined",
+      "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
+      "paired_target_extension_sketch": {
+        "all_declared_dependencies_present": true,
+        "shared_dependency_extensions": [
+          "organon:Entity",
+          "organon:Interpretation",
+          "organon:Action"
+        ],
+        "target_predicate": "organon:Agent",
+        "model_without_target_extension": [],
+        "model_with_target_extension": [
+          "candidate"
+        ],
+        "classification_differs": true
+      }
+    },
+    {
+      "term": "organon:Agency",
+      "claim": "D036",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Relation",
+        "organon:Agent",
+        "organon:Interpretation",
+        "organon:Action"
+      ],
+      "disposition": "positively_underdetermined",
+      "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
+      "paired_target_extension_sketch": {
+        "all_declared_dependencies_present": true,
+        "shared_dependency_extensions": [
+          "organon:Relation",
+          "organon:Agent",
+          "organon:Interpretation",
+          "organon:Action"
+        ],
+        "target_predicate": "organon:Agency",
+        "model_without_target_extension": [],
+        "model_with_target_extension": [
+          "candidate"
+        ],
+        "classification_differs": true
+      }
+    },
+    {
+      "term": "organon:Tool",
+      "claim": "D037",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Entity",
+        "organon:Agent",
+        "organon:CausalPath",
+        "organon:Action"
+      ],
+      "disposition": "positively_underdetermined",
+      "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
+      "paired_target_extension_sketch": {
+        "all_declared_dependencies_present": true,
+        "shared_dependency_extensions": [
+          "organon:Entity",
+          "organon:Agent",
+          "organon:CausalPath",
+          "organon:Action"
+        ],
+        "target_predicate": "organon:Tool",
+        "model_without_target_extension": [],
+        "model_with_target_extension": [
+          "candidate"
+        ],
+        "classification_differs": true
+      }
+    },
+    {
+      "term": "organon:Capability",
+      "claim": "D038",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Action",
+        "organon:Agent",
+        "organon:Constraint",
+        "organon:Specification",
+        "organon:Configuration",
+        "organon:CausalPath",
+        "organon:State",
+        "organon:Boundary"
+      ],
+      "disposition": "constructively_encoded",
+      "reason": "A typed normal-form query is encoded by NF-CAPABILITY and has a finite witness."
+    },
+    {
+      "term": "organon:Interior",
+      "claim": "D039",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Entity",
+        "organon:State",
+        "organon:Transformation",
+        "organon:Specification",
+        "organon:Boundary"
+      ],
+      "disposition": "positively_underdetermined",
+      "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
+      "paired_target_extension_sketch": {
+        "all_declared_dependencies_present": true,
+        "shared_dependency_extensions": [
+          "organon:Entity",
+          "organon:State",
+          "organon:Transformation",
+          "organon:Specification",
+          "organon:Boundary"
+        ],
+        "target_predicate": "organon:Interior",
+        "model_without_target_extension": [],
+        "model_with_target_extension": [
+          "candidate"
+        ],
+        "classification_differs": true
+      }
+    },
+    {
+      "term": "organon:Exposure",
+      "claim": "D040",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Transformation",
+        "organon:Interior",
+        "organon:State",
+        "organon:Boundary"
+      ],
+      "disposition": "positively_underdetermined",
+      "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
+      "paired_target_extension_sketch": {
+        "all_declared_dependencies_present": true,
+        "shared_dependency_extensions": [
+          "organon:Transformation",
+          "organon:Interior",
+          "organon:State",
+          "organon:Boundary"
+        ],
+        "target_predicate": "organon:Exposure",
+        "model_without_target_extension": [],
+        "model_with_target_extension": [
+          "candidate"
+        ],
+        "classification_differs": true
+      }
+    },
+    {
+      "term": "organon:Flow",
+      "claim": "D041",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Configuration",
+        "organon:Transformation",
+        "organon:Direction",
+        "organon:Scope",
+        "organon:Relation",
+        "organon:Invariant",
+        "organon:Persistence",
+        "organon:State",
+        "organon:Difference"
+      ],
+      "disposition": "positively_underdetermined",
+      "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
+      "paired_target_extension_sketch": {
+        "all_declared_dependencies_present": true,
+        "shared_dependency_extensions": [
+          "organon:Configuration",
+          "organon:Transformation",
+          "organon:Direction",
+          "organon:Scope",
+          "organon:Relation",
+          "organon:Invariant",
+          "organon:Persistence",
+          "organon:State",
+          "organon:Difference"
+        ],
+        "target_predicate": "organon:Flow",
+        "model_without_target_extension": [],
+        "model_with_target_extension": [
+          "candidate"
+        ],
+        "classification_differs": true
+      }
+    },
+    {
+      "term": "organon:Interface",
+      "claim": "D042",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Boundary",
+        "organon:Transformation",
+        "organon:Representation",
+        "organon:Entity"
+      ],
+      "disposition": "positively_underdetermined",
+      "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
+      "paired_target_extension_sketch": {
+        "all_declared_dependencies_present": true,
+        "shared_dependency_extensions": [
+          "organon:Boundary",
+          "organon:Transformation",
+          "organon:Representation",
+          "organon:Entity"
+        ],
+        "target_predicate": "organon:Interface",
+        "model_without_target_extension": [],
+        "model_with_target_extension": [
+          "candidate"
+        ],
+        "classification_differs": true
+      }
+    },
+    {
+      "term": "organon:Claim",
+      "claim": "D043",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Representation",
+        "organon:Agent",
+        "organon:Presence",
+        "organon:Relation",
+        "organon:Configuration",
+        "organon:Record",
+        "organon:Scope"
+      ],
+      "disposition": "positively_underdetermined",
+      "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
+      "paired_target_extension_sketch": {
+        "all_declared_dependencies_present": true,
+        "shared_dependency_extensions": [
+          "organon:Representation",
+          "organon:Agent",
+          "organon:Presence",
+          "organon:Relation",
+          "organon:Configuration",
+          "organon:Record",
+          "organon:Scope"
+        ],
+        "target_predicate": "organon:Claim",
+        "model_without_target_extension": [],
+        "model_with_target_extension": [
+          "candidate"
+        ],
+        "classification_differs": true
+      }
+    },
+    {
+      "term": "organon:Witness",
+      "claim": "D044",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Entity",
+        "organon:Agent",
+        "organon:Claim",
+        "organon:Observation"
+      ],
+      "disposition": "positively_underdetermined",
+      "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
+      "paired_target_extension_sketch": {
+        "all_declared_dependencies_present": true,
+        "shared_dependency_extensions": [
+          "organon:Entity",
+          "organon:Agent",
+          "organon:Claim",
+          "organon:Observation"
+        ],
+        "target_predicate": "organon:Witness",
+        "model_without_target_extension": [],
+        "model_with_target_extension": [
+          "candidate"
+        ],
+        "classification_differs": true
+      }
+    },
+    {
+      "term": "organon:Control",
+      "claim": "D045",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Relation",
+        "organon:Agent",
+        "organon:Constraint",
+        "organon:Rule",
+        "organon:Interface",
+        "organon:Observation",
+        "organon:Action",
+        "organon:CausalPath"
+      ],
+      "disposition": "positively_underdetermined",
+      "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
+      "paired_target_extension_sketch": {
+        "all_declared_dependencies_present": true,
+        "shared_dependency_extensions": [
+          "organon:Relation",
+          "organon:Agent",
+          "organon:Constraint",
+          "organon:Rule",
+          "organon:Interface",
+          "organon:Observation",
+          "organon:Action",
+          "organon:CausalPath"
+        ],
+        "target_predicate": "organon:Control",
+        "model_without_target_extension": [],
+        "model_with_target_extension": [
+          "candidate"
+        ],
+        "classification_differs": true
+      }
+    },
+    {
+      "term": "organon:Order",
+      "claim": "D046",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Configuration",
+        "organon:Constraint",
+        "organon:Record",
+        "organon:Interface",
+        "organon:Rule",
+        "organon:Relation",
+        "organon:Agent",
+        "organon:Action"
+      ],
+      "disposition": "positively_underdetermined",
+      "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
+      "paired_target_extension_sketch": {
+        "all_declared_dependencies_present": true,
+        "shared_dependency_extensions": [
+          "organon:Configuration",
+          "organon:Constraint",
+          "organon:Record",
+          "organon:Interface",
+          "organon:Rule",
+          "organon:Relation",
+          "organon:Agent",
+          "organon:Action"
+        ],
+        "target_predicate": "organon:Order",
+        "model_without_target_extension": [],
+        "model_with_target_extension": [
+          "candidate"
+        ],
+        "classification_differs": true
+      }
+    },
+    {
+      "term": "organon:Standing",
+      "claim": "D047",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Relation",
+        "organon:Order",
+        "organon:Record",
+        "organon:Entity",
+        "organon:Rule",
+        "organon:Scope"
+      ],
+      "disposition": "constructively_encoded",
+      "reason": "A typed normal-form query is encoded by NF-STANDING and has a finite witness."
+    },
+    {
+      "term": "organon:Recognition",
+      "claim": "D048",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Relation",
+        "organon:Order",
+        "organon:Standing",
+        "organon:Entity",
+        "organon:Rule",
+        "organon:Scope"
+      ],
+      "disposition": "positively_underdetermined",
+      "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
+      "paired_target_extension_sketch": {
+        "all_declared_dependencies_present": true,
+        "shared_dependency_extensions": [
+          "organon:Relation",
+          "organon:Order",
+          "organon:Standing",
+          "organon:Entity",
+          "organon:Rule",
+          "organon:Scope"
+        ],
+        "target_predicate": "organon:Recognition",
+        "model_without_target_extension": [],
+        "model_with_target_extension": [
+          "candidate"
+        ],
+        "classification_differs": true
+      }
+    },
+    {
+      "term": "organon:Principal",
+      "claim": "D049",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Entity",
+        "organon:Standing",
+        "organon:Order",
+        "organon:Action"
+      ],
+      "disposition": "positively_underdetermined",
+      "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
+      "paired_target_extension_sketch": {
+        "all_declared_dependencies_present": true,
+        "shared_dependency_extensions": [
+          "organon:Entity",
+          "organon:Standing",
+          "organon:Order",
+          "organon:Action"
+        ],
+        "target_predicate": "organon:Principal",
+        "model_without_target_extension": [],
+        "model_with_target_extension": [
+          "candidate"
+        ],
+        "classification_differs": true
+      }
+    },
+    {
+      "term": "organon:ActsFor",
+      "claim": "D050",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Relation",
+        "organon:Order",
+        "organon:Recognition",
+        "organon:Agent",
+        "organon:Principal",
+        "organon:Scope"
+      ],
+      "disposition": "positively_underdetermined",
+      "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
+      "paired_target_extension_sketch": {
+        "all_declared_dependencies_present": true,
+        "shared_dependency_extensions": [
+          "organon:Relation",
+          "organon:Order",
+          "organon:Recognition",
+          "organon:Agent",
+          "organon:Principal",
+          "organon:Scope"
+        ],
+        "target_predicate": "organon:ActsFor",
+        "model_without_target_extension": [],
+        "model_with_target_extension": [
+          "candidate"
+        ],
+        "classification_differs": true
+      }
+    },
+    {
+      "term": "organon:CountsAs",
+      "claim": "D051",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Relation",
+        "organon:Order",
+        "organon:Rule",
+        "organon:Presence",
+        "organon:Action",
+        "organon:Claim",
+        "organon:Record",
+        "organon:Scope"
+      ],
+      "disposition": "positively_underdetermined",
+      "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
+      "paired_target_extension_sketch": {
+        "all_declared_dependencies_present": true,
+        "shared_dependency_extensions": [
+          "organon:Relation",
+          "organon:Order",
+          "organon:Rule",
+          "organon:Presence",
+          "organon:Action",
+          "organon:Claim",
+          "organon:Record",
+          "organon:Scope"
+        ],
+        "target_predicate": "organon:CountsAs",
+        "model_without_target_extension": [],
+        "model_with_target_extension": [
+          "candidate"
+        ],
+        "classification_differs": true
+      }
+    },
+    {
+      "term": "organon:Authority",
+      "claim": "D052",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Relation",
+        "organon:Order",
+        "organon:Agent",
+        "organon:Action",
+        "organon:CountsAs",
+        "organon:Principal",
+        "organon:Scope"
+      ],
+      "disposition": "positively_underdetermined",
+      "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
+      "paired_target_extension_sketch": {
+        "all_declared_dependencies_present": true,
+        "shared_dependency_extensions": [
+          "organon:Relation",
+          "organon:Order",
+          "organon:Agent",
+          "organon:Action",
+          "organon:CountsAs",
+          "organon:Principal",
+          "organon:Scope"
+        ],
+        "target_predicate": "organon:Authority",
+        "model_without_target_extension": [],
+        "model_with_target_extension": [
+          "candidate"
+        ],
+        "classification_differs": true
+      }
+    },
+    {
+      "term": "organon:PermissionClaim",
+      "claim": "D053",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Claim",
+        "organon:Order",
+        "organon:Agent",
+        "organon:Action",
+        "organon:Scope",
+        "organon:Principal"
+      ],
+      "disposition": "positively_underdetermined",
+      "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
+      "paired_target_extension_sketch": {
+        "all_declared_dependencies_present": true,
+        "shared_dependency_extensions": [
+          "organon:Claim",
+          "organon:Order",
+          "organon:Agent",
+          "organon:Action",
+          "organon:Scope",
+          "organon:Principal"
+        ],
+        "target_predicate": "organon:PermissionClaim",
+        "model_without_target_extension": [],
+        "model_with_target_extension": [
+          "candidate"
+        ],
+        "classification_differs": true
+      }
+    },
+    {
+      "term": "organon:Declaration",
+      "claim": "D054",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Action",
+        "organon:Agent",
+        "organon:Authority",
+        "organon:Claim",
+        "organon:Specification",
+        "organon:Order",
+        "organon:Scope"
+      ],
+      "disposition": "positively_underdetermined",
+      "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
+      "paired_target_extension_sketch": {
+        "all_declared_dependencies_present": true,
+        "shared_dependency_extensions": [
+          "organon:Action",
+          "organon:Agent",
+          "organon:Authority",
+          "organon:Claim",
+          "organon:Specification",
+          "organon:Order",
+          "organon:Scope"
+        ],
+        "target_predicate": "organon:Declaration",
+        "model_without_target_extension": [],
+        "model_with_target_extension": [
+          "candidate"
+        ],
+        "classification_differs": true
+      }
+    },
+    {
+      "term": "organon:Grant",
+      "claim": "D055",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Declaration",
+        "organon:Claim",
+        "organon:PermissionClaim",
+        "organon:Authority",
+        "organon:Principal",
+        "organon:Agent",
+        "organon:Scope"
+      ],
+      "disposition": "positively_underdetermined",
+      "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
+      "paired_target_extension_sketch": {
+        "all_declared_dependencies_present": true,
+        "shared_dependency_extensions": [
+          "organon:Declaration",
+          "organon:Claim",
+          "organon:PermissionClaim",
+          "organon:Authority",
+          "organon:Principal",
+          "organon:Agent",
+          "organon:Scope"
+        ],
+        "target_predicate": "organon:Grant",
+        "model_without_target_extension": [],
+        "model_with_target_extension": [
+          "candidate"
+        ],
+        "classification_differs": true
+      }
+    },
+    {
+      "term": "organon:Admission",
+      "claim": "D056",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:CountsAs",
+        "organon:Order",
+        "organon:Rule",
+        "organon:Claim",
+        "organon:Observation",
+        "organon:Record"
+      ],
+      "disposition": "positively_underdetermined",
+      "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
+      "paired_target_extension_sketch": {
+        "all_declared_dependencies_present": true,
+        "shared_dependency_extensions": [
+          "organon:CountsAs",
+          "organon:Order",
+          "organon:Rule",
+          "organon:Claim",
+          "organon:Observation",
+          "organon:Record"
+        ],
+        "target_predicate": "organon:Admission",
+        "model_without_target_extension": [],
+        "model_with_target_extension": [
+          "candidate"
+        ],
+        "classification_differs": true
+      }
+    },
+    {
+      "term": "organon:Permission",
+      "claim": "D057",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Record",
+        "organon:Order",
+        "organon:PermissionClaim",
+        "organon:Grant",
+        "organon:Admission",
+        "organon:Principal",
+        "organon:Agent",
+        "organon:Scope"
+      ],
+      "disposition": "positively_underdetermined",
+      "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
+      "paired_target_extension_sketch": {
+        "all_declared_dependencies_present": true,
+        "shared_dependency_extensions": [
+          "organon:Record",
+          "organon:Order",
+          "organon:PermissionClaim",
+          "organon:Grant",
+          "organon:Admission",
+          "organon:Principal",
+          "organon:Agent",
+          "organon:Scope"
+        ],
+        "target_predicate": "organon:Permission",
+        "model_without_target_extension": [],
+        "model_with_target_extension": [
+          "candidate"
+        ],
+        "classification_differs": true
+      }
+    },
+    {
+      "term": "organon:Revocation",
+      "claim": "D058",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Declaration",
+        "organon:Authority",
+        "organon:Order",
+        "organon:Permission",
+        "organon:State"
+      ],
+      "disposition": "positively_underdetermined",
+      "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
+      "paired_target_extension_sketch": {
+        "all_declared_dependencies_present": true,
+        "shared_dependency_extensions": [
+          "organon:Declaration",
+          "organon:Authority",
+          "organon:Order",
+          "organon:Permission",
+          "organon:State"
+        ],
+        "target_predicate": "organon:Revocation",
+        "model_without_target_extension": [],
+        "model_with_target_extension": [
+          "candidate"
+        ],
+        "classification_differs": true
+      }
+    },
+    {
+      "term": "organon:PermissionExercise",
+      "claim": "D059",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Action",
+        "organon:Permission",
+        "organon:Agent",
+        "organon:Scope",
+        "organon:Revocation",
+        "organon:Order"
+      ],
+      "disposition": "positively_underdetermined",
+      "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
+      "paired_target_extension_sketch": {
+        "all_declared_dependencies_present": true,
+        "shared_dependency_extensions": [
+          "organon:Action",
+          "organon:Permission",
+          "organon:Agent",
+          "organon:Scope",
+          "organon:Revocation",
+          "organon:Order"
+        ],
+        "target_predicate": "organon:PermissionExercise",
+        "model_without_target_extension": [],
+        "model_with_target_extension": [
+          "candidate"
+        ],
+        "classification_differs": true
+      }
+    },
+    {
+      "term": "organon:Exercisability",
+      "claim": "D060",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Relation",
+        "organon:Permission",
+        "organon:Action",
+        "organon:Configuration",
+        "organon:Constraint",
+        "organon:Scope",
+        "organon:Order",
+        "organon:Agent",
+        "organon:Capability"
+      ],
+      "disposition": "constructively_encoded",
+      "reason": "A typed normal-form query is encoded by NF-EXERCISABILITY and has a finite witness."
+    },
+    {
+      "term": "organon:FullyExercisablePermission",
+      "claim": "D061",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Permission",
+        "organon:Action",
+        "organon:Scope",
+        "organon:Exercisability"
+      ],
+      "disposition": "positively_underdetermined",
+      "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
+      "paired_target_extension_sketch": {
+        "all_declared_dependencies_present": true,
+        "shared_dependency_extensions": [
+          "organon:Permission",
+          "organon:Action",
+          "organon:Scope",
+          "organon:Exercisability"
+        ],
+        "target_predicate": "organon:FullyExercisablePermission",
+        "model_without_target_extension": [],
+        "model_with_target_extension": [
+          "candidate"
+        ],
+        "classification_differs": true
+      }
+    },
+    {
+      "term": "organon:Enforcement",
+      "claim": "D062",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Relation",
+        "organon:Order",
+        "organon:Rule",
+        "organon:Constraint",
+        "organon:Record",
+        "organon:Consequence"
+      ],
+      "disposition": "positively_underdetermined",
+      "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
+      "paired_target_extension_sketch": {
+        "all_declared_dependencies_present": true,
+        "shared_dependency_extensions": [
+          "organon:Relation",
+          "organon:Order",
+          "organon:Rule",
+          "organon:Constraint",
+          "organon:Record",
+          "organon:Consequence"
+        ],
+        "target_predicate": "organon:Enforcement",
+        "model_without_target_extension": [],
+        "model_with_target_extension": [
+          "candidate"
+        ],
+        "classification_differs": true
+      }
+    },
+    {
+      "term": "organon:Role",
+      "claim": "D063",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Configuration",
+        "organon:Order",
+        "organon:Action",
+        "organon:Permission",
+        "organon:Authority",
+        "organon:Consequence",
+        "organon:Agent",
+        "organon:Standing"
+      ],
+      "disposition": "positively_underdetermined",
+      "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
+      "paired_target_extension_sketch": {
+        "all_declared_dependencies_present": true,
+        "shared_dependency_extensions": [
+          "organon:Configuration",
+          "organon:Order",
+          "organon:Action",
+          "organon:Permission",
+          "organon:Authority",
+          "organon:Consequence",
+          "organon:Agent",
+          "organon:Standing"
+        ],
+        "target_predicate": "organon:Role",
+        "model_without_target_extension": [],
+        "model_with_target_extension": [
+          "candidate"
+        ],
+        "classification_differs": true
+      }
+    },
+    {
+      "term": "organon:AdmissibilityRule",
+      "claim": "D064",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Rule",
+        "organon:Specification",
+        "organon:Declaration",
+        "organon:Order",
+        "organon:CountsAs",
+        "organon:Admission"
+      ],
+      "disposition": "positively_underdetermined",
+      "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
+      "paired_target_extension_sketch": {
+        "all_declared_dependencies_present": true,
+        "shared_dependency_extensions": [
+          "organon:Rule",
+          "organon:Specification",
+          "organon:Declaration",
+          "organon:Order",
+          "organon:CountsAs",
+          "organon:Admission"
+        ],
+        "target_predicate": "organon:AdmissibilityRule",
+        "model_without_target_extension": [],
+        "model_with_target_extension": [
+          "candidate"
+        ],
+        "classification_differs": true
+      }
+    },
+    {
+      "term": "organon:IndependentFor",
+      "claim": "D065",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Relation",
+        "organon:Witness",
+        "organon:Agent",
+        "organon:Claim",
+        "organon:Observation",
+        "organon:Order",
+        "organon:Constraint",
+        "organon:CausalPath",
+        "organon:Control",
+        "organon:Authority",
+        "organon:AdmissibilityRule",
+        "organon:Scope"
+      ],
+      "disposition": "positively_underdetermined",
+      "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
+      "paired_target_extension_sketch": {
+        "all_declared_dependencies_present": true,
+        "shared_dependency_extensions": [
+          "organon:Relation",
+          "organon:Witness",
+          "organon:Agent",
+          "organon:Claim",
+          "organon:Observation",
+          "organon:Order",
+          "organon:Constraint",
+          "organon:CausalPath",
+          "organon:Control",
+          "organon:Authority",
+          "organon:AdmissibilityRule",
+          "organon:Scope"
+        ],
+        "target_predicate": "organon:IndependentFor",
+        "model_without_target_extension": [],
+        "model_with_target_extension": [
+          "candidate"
+        ],
+        "classification_differs": true
+      }
+    },
+    {
+      "term": "organon:Evidence",
+      "claim": "D066",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Observation",
+        "organon:Witness",
+        "organon:IndependentFor",
+        "organon:Agent",
+        "organon:Claim",
+        "organon:Order",
+        "organon:AdmissibilityRule",
+        "organon:Scope",
+        "organon:Admission"
+      ],
+      "disposition": "constructively_encoded",
+      "reason": "A typed normal-form query is encoded by NF-EVIDENCE and has a finite witness."
+    },
+    {
+      "term": "organon:EvidentialBearing",
+      "claim": "D104",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Relation",
+        "organon:Evidence",
+        "organon:Claim",
+        "organon:Order",
+        "organon:Rule",
+        "organon:Scope",
+        "organon:Record"
+      ],
+      "disposition": "constructively_encoded",
+      "reason": "A typed normal-form query is encoded by NF-EVIDENTIAL-BEARING and has a finite witness."
+    },
+    {
+      "term": "organon:Attestation",
+      "claim": "D067",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Claim",
+        "organon:Witness",
+        "organon:Observation",
+        "organon:Evidence",
+        "organon:Specification",
+        "organon:Scope",
+        "organon:Order",
+        "organon:IndependentFor"
+      ],
+      "disposition": "positively_underdetermined",
+      "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
+      "paired_target_extension_sketch": {
+        "all_declared_dependencies_present": true,
+        "shared_dependency_extensions": [
+          "organon:Claim",
+          "organon:Witness",
+          "organon:Observation",
+          "organon:Evidence",
+          "organon:Specification",
+          "organon:Scope",
+          "organon:Order",
+          "organon:IndependentFor"
+        ],
+        "target_predicate": "organon:Attestation",
+        "model_without_target_extension": [],
+        "model_with_target_extension": [
+          "candidate"
+        ],
+        "classification_differs": true
+      }
+    },
+    {
+      "term": "organon:Institution",
+      "claim": "D068",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Order",
+        "organon:Role",
+        "organon:Record",
+        "organon:Interface",
+        "organon:Flow",
+        "organon:Agent",
+        "organon:Persistence"
+      ],
+      "disposition": "positively_underdetermined",
+      "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
+      "paired_target_extension_sketch": {
+        "all_declared_dependencies_present": true,
+        "shared_dependency_extensions": [
+          "organon:Order",
+          "organon:Role",
+          "organon:Record",
+          "organon:Interface",
+          "organon:Flow",
+          "organon:Agent",
+          "organon:Persistence"
+        ],
+        "target_predicate": "organon:Institution",
+        "model_without_target_extension": [],
+        "model_with_target_extension": [
+          "candidate"
+        ],
+        "classification_differs": true
+      }
+    },
+    {
+      "term": "organon:Center",
+      "claim": "D069",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Entity",
+        "organon:Institution",
+        "organon:Flow",
+        "organon:Constraint"
+      ],
+      "disposition": "positively_underdetermined",
+      "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
+      "paired_target_extension_sketch": {
+        "all_declared_dependencies_present": true,
+        "shared_dependency_extensions": [
+          "organon:Entity",
+          "organon:Institution",
+          "organon:Flow",
+          "organon:Constraint"
+        ],
+        "target_predicate": "organon:Center",
+        "model_without_target_extension": [],
+        "model_with_target_extension": [
+          "candidate"
+        ],
+        "classification_differs": true
+      }
+    },
+    {
+      "term": "organon:Organ",
+      "claim": "D070",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Persistence",
+        "organon:Configuration",
+        "organon:Transformation",
+        "organon:Entity",
+        "organon:Institution"
+      ],
+      "disposition": "positively_underdetermined",
+      "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
+      "paired_target_extension_sketch": {
+        "all_declared_dependencies_present": true,
+        "shared_dependency_extensions": [
+          "organon:Persistence",
+          "organon:Configuration",
+          "organon:Transformation",
+          "organon:Entity",
+          "organon:Institution"
+        ],
+        "target_predicate": "organon:Organ",
+        "model_without_target_extension": [],
+        "model_with_target_extension": [
+          "candidate"
+        ],
+        "classification_differs": true
+      }
+    },
+    {
+      "term": "organon:CanonicalSystem",
+      "claim": "D071",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Map",
+        "organon:Institution",
+        "organon:Recognition",
+        "organon:State",
+        "organon:Relation",
+        "organon:Action"
+      ],
+      "disposition": "positively_underdetermined",
+      "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
+      "paired_target_extension_sketch": {
+        "all_declared_dependencies_present": true,
+        "shared_dependency_extensions": [
+          "organon:Map",
+          "organon:Institution",
+          "organon:Recognition",
+          "organon:State",
+          "organon:Relation",
+          "organon:Action"
+        ],
+        "target_predicate": "organon:CanonicalSystem",
+        "model_without_target_extension": [],
+        "model_with_target_extension": [
+          "candidate"
+        ],
+        "classification_differs": true
+      }
+    },
+    {
+      "term": "organon:ShadowSystem",
+      "claim": "D072",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Persistence",
+        "organon:Configuration",
+        "organon:Record",
+        "organon:Relation",
+        "organon:Action",
+        "organon:CanonicalSystem"
+      ],
+      "disposition": "positively_underdetermined",
+      "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
+      "paired_target_extension_sketch": {
+        "all_declared_dependencies_present": true,
+        "shared_dependency_extensions": [
+          "organon:Persistence",
+          "organon:Configuration",
+          "organon:Record",
+          "organon:Relation",
+          "organon:Action",
+          "organon:CanonicalSystem"
+        ],
+        "target_predicate": "organon:ShadowSystem",
+        "model_without_target_extension": [],
+        "model_with_target_extension": [
+          "candidate"
+        ],
+        "classification_differs": true
+      }
+    },
+    {
+      "term": "organon:Person",
+      "claim": "D073",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Entity",
+        "organon:Order",
+        "organon:Standing",
+        "organon:Principal",
+        "organon:Consequence"
+      ],
+      "disposition": "positively_underdetermined",
+      "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
+      "paired_target_extension_sketch": {
+        "all_declared_dependencies_present": true,
+        "shared_dependency_extensions": [
+          "organon:Entity",
+          "organon:Order",
+          "organon:Standing",
+          "organon:Principal",
+          "organon:Consequence"
+        ],
+        "target_predicate": "organon:Person",
+        "model_without_target_extension": [],
+        "model_with_target_extension": [
+          "candidate"
+        ],
+        "classification_differs": true
+      }
+    },
+    {
+      "term": "organon:Receipt",
+      "claim": "D074",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Record",
+        "organon:Action",
+        "organon:Agent",
+        "organon:Authority",
+        "organon:Permission",
+        "organon:Scope",
+        "organon:Consequence"
+      ],
+      "disposition": "positively_underdetermined",
+      "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
+      "paired_target_extension_sketch": {
+        "all_declared_dependencies_present": true,
+        "shared_dependency_extensions": [
+          "organon:Record",
+          "organon:Action",
+          "organon:Agent",
+          "organon:Authority",
+          "organon:Permission",
+          "organon:Scope",
+          "organon:Consequence"
+        ],
+        "target_predicate": "organon:Receipt",
+        "model_without_target_extension": [],
+        "model_with_target_extension": [
+          "candidate"
+        ],
+        "classification_differs": true
+      }
+    },
+    {
+      "term": "organon:Ledger",
+      "claim": "D075",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Record",
+        "organon:Claim",
+        "organon:Permission",
+        "organon:Observation",
+        "organon:Evidence",
+        "organon:Attestation",
+        "organon:Receipt",
+        "organon:Standing"
+      ],
+      "disposition": "positively_underdetermined",
+      "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
+      "paired_target_extension_sketch": {
+        "all_declared_dependencies_present": true,
+        "shared_dependency_extensions": [
+          "organon:Record",
+          "organon:Claim",
+          "organon:Permission",
+          "organon:Observation",
+          "organon:Evidence",
+          "organon:Attestation",
+          "organon:Receipt",
+          "organon:Standing"
+        ],
+        "target_predicate": "organon:Ledger",
+        "model_without_target_extension": [],
+        "model_with_target_extension": [
+          "candidate"
+        ],
+        "classification_differs": true
+      }
+    },
+    {
+      "term": "organon:Polity",
+      "claim": "D076",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Agent",
+        "organon:Institution",
+        "organon:Action",
+        "organon:Order"
+      ],
+      "disposition": "positively_underdetermined",
+      "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
+      "paired_target_extension_sketch": {
+        "all_declared_dependencies_present": true,
+        "shared_dependency_extensions": [
+          "organon:Agent",
+          "organon:Institution",
+          "organon:Action",
+          "organon:Order"
+        ],
+        "target_predicate": "organon:Polity",
+        "model_without_target_extension": [],
+        "model_with_target_extension": [
+          "candidate"
+        ],
+        "classification_differs": true
+      }
+    },
+    {
+      "term": "organon:ConstitutedExercise",
+      "claim": "D077",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Authority",
+        "organon:Order"
+      ],
+      "disposition": "positively_underdetermined",
+      "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
+      "paired_target_extension_sketch": {
+        "all_declared_dependencies_present": true,
+        "shared_dependency_extensions": [
+          "organon:Authority",
+          "organon:Order"
+        ],
+        "target_predicate": "organon:ConstitutedExercise",
+        "model_without_target_extension": [],
+        "model_with_target_extension": [
+          "candidate"
+        ],
+        "classification_differs": true
+      }
+    },
+    {
+      "term": "organon:ConstituentExercise",
+      "claim": "D078",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Agency",
+        "organon:Action",
+        "organon:Order",
+        "organon:Authority",
+        "organon:Role",
+        "organon:Person",
+        "organon:Claim",
+        "organon:Boundary"
+      ],
+      "disposition": "positively_underdetermined",
+      "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
+      "paired_target_extension_sketch": {
+        "all_declared_dependencies_present": true,
+        "shared_dependency_extensions": [
+          "organon:Agency",
+          "organon:Action",
+          "organon:Order",
+          "organon:Authority",
+          "organon:Role",
+          "organon:Person",
+          "organon:Claim",
+          "organon:Boundary"
+        ],
+        "target_predicate": "organon:ConstituentExercise",
+        "model_without_target_extension": [],
+        "model_with_target_extension": [
+          "candidate"
+        ],
+        "classification_differs": true
+      }
+    },
+    {
+      "term": "organon:ConstituentPower",
+      "claim": "D079",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Persistence",
+        "organon:Capability",
+        "organon:Polity",
+        "organon:ConstituentExercise"
+      ],
+      "disposition": "positively_underdetermined",
+      "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
+      "paired_target_extension_sketch": {
+        "all_declared_dependencies_present": true,
+        "shared_dependency_extensions": [
+          "organon:Persistence",
+          "organon:Capability",
+          "organon:Polity",
+          "organon:ConstituentExercise"
+        ],
+        "target_predicate": "organon:ConstituentPower",
+        "model_without_target_extension": [],
+        "model_with_target_extension": [
+          "candidate"
+        ],
+        "classification_differs": true
+      }
+    },
+    {
+      "term": "organon:ConsciousnessAttribution",
+      "claim": "D080",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Agent",
+        "organon:Claim",
+        "organon:Entity",
+        "organon:State",
+        "organon:Configuration",
+        "organon:Representation",
+        "organon:Specification",
+        "organon:Scope",
+        "organon:Language",
+        "organon:Rule",
+        "organon:Map"
+      ],
+      "disposition": "positively_underdetermined",
+      "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
+      "paired_target_extension_sketch": {
+        "all_declared_dependencies_present": true,
+        "shared_dependency_extensions": [
+          "organon:Agent",
+          "organon:Claim",
+          "organon:Entity",
+          "organon:State",
+          "organon:Configuration",
+          "organon:Representation",
+          "organon:Specification",
+          "organon:Scope",
+          "organon:Language",
+          "organon:Rule",
+          "organon:Map"
+        ],
+        "target_predicate": "organon:ConsciousnessAttribution",
+        "model_without_target_extension": [],
+        "model_with_target_extension": [
+          "candidate"
+        ],
+        "classification_differs": true
+      }
+    },
+    {
+      "term": "organon:ConsciousnessDesignation",
+      "claim": "D081",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Relation",
+        "organon:CountsAs",
+        "organon:Order",
+        "organon:Rule",
+        "organon:Admission",
+        "organon:Scope",
+        "organon:Entity",
+        "organon:State",
+        "organon:ConsciousnessAttribution"
+      ],
+      "disposition": "positively_underdetermined",
+      "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
+      "paired_target_extension_sketch": {
+        "all_declared_dependencies_present": true,
+        "shared_dependency_extensions": [
+          "organon:Relation",
+          "organon:CountsAs",
+          "organon:Order",
+          "organon:Rule",
+          "organon:Admission",
+          "organon:Scope",
+          "organon:Entity",
+          "organon:State",
+          "organon:ConsciousnessAttribution"
+        ],
+        "target_predicate": "organon:ConsciousnessDesignation",
+        "model_without_target_extension": [],
+        "model_with_target_extension": [
+          "candidate"
+        ],
+        "classification_differs": true
+      }
+    },
+    {
+      "term": "organon:Operationalization",
+      "claim": "D082",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Representation",
+        "organon:Denotation",
+        "organon:Difference",
+        "organon:Configuration",
+        "organon:Rule",
+        "organon:Interface",
+        "organon:Transformation",
+        "organon:CausalPath",
+        "organon:CausalContribution",
+        "organon:Scope",
+        "organon:State",
+        "organon:Agent",
+        "organon:Interpretation",
+        "organon:Action",
+        "organon:Consequence",
+        "organon:Map",
+        "organon:Evidence",
+        "organon:EvidentialBearing"
+      ],
+      "disposition": "positively_underdetermined",
+      "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
+      "paired_target_extension_sketch": {
+        "all_declared_dependencies_present": true,
+        "shared_dependency_extensions": [
+          "organon:Representation",
+          "organon:Denotation",
+          "organon:Difference",
+          "organon:Configuration",
+          "organon:Rule",
+          "organon:Interface",
+          "organon:Transformation",
+          "organon:CausalPath",
+          "organon:CausalContribution",
+          "organon:Scope",
+          "organon:State",
+          "organon:Agent",
+          "organon:Interpretation",
+          "organon:Action",
+          "organon:Consequence",
+          "organon:Map",
+          "organon:Evidence",
+          "organon:EvidentialBearing"
+        ],
+        "target_predicate": "organon:Operationalization",
+        "model_without_target_extension": [],
+        "model_with_target_extension": [
+          "candidate"
+        ],
+        "classification_differs": true
+      }
+    },
+    {
+      "term": "organon:World",
+      "claim": "D083",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Configuration",
+        "organon:Entity",
+        "organon:Presence",
+        "organon:Environment",
+        "organon:State",
+        "organon:Relation",
+        "organon:CausalPath",
+        "organon:Perception",
+        "organon:Interpretation",
+        "organon:Action",
+        "organon:Constraint",
+        "organon:Sense",
+        "organon:Map",
+        "organon:Reference",
+        "organon:Scope",
+        "organon:Invariant",
+        "organon:Persistence",
+        "organon:Reality",
+        "organon:Evidence",
+        "organon:EvidentialBearing",
+        "organon:Claim",
+        "organon:Order",
+        "organon:Rule",
+        "organon:Boundary"
+      ],
+      "disposition": "positively_underdetermined",
+      "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
+      "paired_target_extension_sketch": {
+        "all_declared_dependencies_present": true,
+        "shared_dependency_extensions": [
+          "organon:Configuration",
+          "organon:Entity",
+          "organon:Presence",
+          "organon:Environment",
+          "organon:State",
+          "organon:Relation",
+          "organon:CausalPath",
+          "organon:Perception",
+          "organon:Interpretation",
+          "organon:Action",
+          "organon:Constraint",
+          "organon:Sense",
+          "organon:Map",
+          "organon:Reference",
+          "organon:Scope",
+          "organon:Invariant",
+          "organon:Persistence",
+          "organon:Reality",
+          "organon:Evidence",
+          "organon:EvidentialBearing",
+          "organon:Claim",
+          "organon:Order",
+          "organon:Rule",
+          "organon:Boundary"
+        ],
+        "target_predicate": "organon:World",
+        "model_without_target_extension": [],
+        "model_with_target_extension": [
+          "candidate"
+        ],
+        "classification_differs": true
+      }
+    },
+    {
+      "term": "organon:Substrate",
+      "claim": "D084",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Configuration",
+        "organon:Scope",
+        "organon:Persistence",
+        "organon:Invariant",
+        "organon:State",
+        "organon:Transformation",
+        "organon:Feeds",
+        "organon:Constraint",
+        "organon:Difference",
+        "organon:Representation",
+        "organon:Entity",
+        "organon:Environment",
+        "organon:Tool"
+      ],
+      "disposition": "positively_underdetermined",
+      "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
+      "paired_target_extension_sketch": {
+        "all_declared_dependencies_present": true,
+        "shared_dependency_extensions": [
+          "organon:Configuration",
+          "organon:Scope",
+          "organon:Persistence",
+          "organon:Invariant",
+          "organon:State",
+          "organon:Transformation",
+          "organon:Feeds",
+          "organon:Constraint",
+          "organon:Difference",
+          "organon:Representation",
+          "organon:Entity",
+          "organon:Environment",
+          "organon:Tool"
+        ],
+        "target_predicate": "organon:Substrate",
+        "model_without_target_extension": [],
+        "model_with_target_extension": [
+          "candidate"
+        ],
+        "classification_differs": true
+      }
+    },
+    {
+      "term": "organon:Truth",
+      "claim": "D085",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Relation",
+        "organon:Claim",
+        "organon:Representation",
+        "organon:Denotation",
+        "organon:Rule",
+        "organon:Specification",
+        "organon:Reality",
+        "organon:Presence",
+        "organon:Scope",
+        "organon:Entity",
+        "organon:Evidence",
+        "organon:EvidentialBearing",
+        "organon:Admission"
+      ],
+      "disposition": "constructively_encoded",
+      "reason": "A typed normal-form query is encoded by NF-TRUTH and has a finite witness."
+    },
+    {
+      "term": "organon:Trust",
+      "claim": "D086",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Relation",
+        "organon:Entity",
+        "organon:Boundary",
+        "organon:Constraint",
+        "organon:Scope",
+        "organon:Interior",
+        "organon:Exposure",
+        "organon:Consequence",
+        "organon:Action",
+        "organon:Claim",
+        "organon:State",
+        "organon:CausalPath",
+        "organon:CausalContribution",
+        "organon:Control",
+        "organon:Evidence",
+        "organon:Permission",
+        "organon:Authority"
+      ],
+      "disposition": "positively_underdetermined",
+      "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
+      "paired_target_extension_sketch": {
+        "all_declared_dependencies_present": true,
+        "shared_dependency_extensions": [
+          "organon:Relation",
+          "organon:Entity",
+          "organon:Boundary",
+          "organon:Constraint",
+          "organon:Scope",
+          "organon:Interior",
+          "organon:Exposure",
+          "organon:Consequence",
+          "organon:Action",
+          "organon:Claim",
+          "organon:State",
+          "organon:CausalPath",
+          "organon:CausalContribution",
+          "organon:Control",
+          "organon:Evidence",
+          "organon:Permission",
+          "organon:Authority"
+        ],
+        "target_predicate": "organon:Trust",
+        "model_without_target_extension": [],
+        "model_with_target_extension": [
+          "candidate"
+        ],
+        "classification_differs": true
+      }
+    },
+    {
+      "term": "organon:Alignment",
+      "claim": "D087",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Relation",
+        "organon:Configuration",
+        "organon:Presence",
+        "organon:Specification",
+        "organon:Scope",
+        "organon:State",
+        "organon:Transformation",
+        "organon:Difference",
+        "organon:Truth",
+        "organon:Trust",
+        "organon:Permission",
+        "organon:Authority",
+        "organon:Agency",
+        "organon:Persistence"
+      ],
+      "disposition": "positively_underdetermined",
+      "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
+      "paired_target_extension_sketch": {
+        "all_declared_dependencies_present": true,
+        "shared_dependency_extensions": [
+          "organon:Relation",
+          "organon:Configuration",
+          "organon:Presence",
+          "organon:Specification",
+          "organon:Scope",
+          "organon:State",
+          "organon:Transformation",
+          "organon:Difference",
+          "organon:Truth",
+          "organon:Trust",
+          "organon:Permission",
+          "organon:Authority",
+          "organon:Agency",
+          "organon:Persistence"
+        ],
+        "target_predicate": "organon:Alignment",
+        "model_without_target_extension": [],
+        "model_with_target_extension": [
+          "candidate"
+        ],
+        "classification_differs": true
+      }
+    },
+    {
+      "term": "organon:Intelligence",
+      "claim": "D088",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Capability",
+        "organon:Agent",
+        "organon:Model",
+        "organon:Interpretation",
+        "organon:Perception",
+        "organon:Memory",
+        "organon:Action",
+        "organon:Consequence",
+        "organon:Specification",
+        "organon:State",
+        "organon:Rule",
+        "organon:Representation",
+        "organon:Scope",
+        "organon:Difference",
+        "organon:CausalPath",
+        "organon:CausalContribution",
+        "organon:Record",
+        "organon:Tool",
+        "organon:Substrate"
+      ],
+      "disposition": "positively_underdetermined",
+      "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
+      "paired_target_extension_sketch": {
+        "all_declared_dependencies_present": true,
+        "shared_dependency_extensions": [
+          "organon:Capability",
+          "organon:Agent",
+          "organon:Model",
+          "organon:Interpretation",
+          "organon:Perception",
+          "organon:Memory",
+          "organon:Action",
+          "organon:Consequence",
+          "organon:Specification",
+          "organon:State",
+          "organon:Rule",
+          "organon:Representation",
+          "organon:Scope",
+          "organon:Difference",
+          "organon:CausalPath",
+          "organon:CausalContribution",
+          "organon:Record",
+          "organon:Tool",
+          "organon:Substrate"
+        ],
+        "target_predicate": "organon:Intelligence",
+        "model_without_target_extension": [],
+        "model_with_target_extension": [
+          "candidate"
+        ],
+        "classification_differs": true
+      }
+    },
+    {
+      "term": "organon:OperativeKnowledge",
+      "claim": "D089",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Configuration",
+        "organon:Record",
+        "organon:Agent",
+        "organon:Capability",
+        "organon:Constraint",
+        "organon:Rule",
+        "organon:Model",
+        "organon:Interpretation",
+        "organon:CausalPath",
+        "organon:CausalContribution",
+        "organon:Action",
+        "organon:Transformation",
+        "organon:State",
+        "organon:Consequence",
+        "organon:Specification",
+        "organon:Scope",
+        "organon:Truth",
+        "organon:Evidence",
+        "organon:Difference"
+      ],
+      "disposition": "positively_underdetermined",
+      "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
+      "paired_target_extension_sketch": {
+        "all_declared_dependencies_present": true,
+        "shared_dependency_extensions": [
+          "organon:Configuration",
+          "organon:Record",
+          "organon:Agent",
+          "organon:Capability",
+          "organon:Constraint",
+          "organon:Rule",
+          "organon:Model",
+          "organon:Interpretation",
+          "organon:CausalPath",
+          "organon:CausalContribution",
+          "organon:Action",
+          "organon:Transformation",
+          "organon:State",
+          "organon:Consequence",
+          "organon:Specification",
+          "organon:Scope",
+          "organon:Truth",
+          "organon:Evidence",
+          "organon:Difference"
+        ],
+        "target_predicate": "organon:OperativeKnowledge",
+        "model_without_target_extension": [],
+        "model_with_target_extension": [
+          "candidate"
+        ],
+        "classification_differs": true
+      }
+    },
+    {
+      "term": "organon:KnowledgeTransmission",
+      "claim": "D090",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Relation",
+        "organon:OperativeKnowledge",
+        "organon:Record",
+        "organon:CausalPath",
+        "organon:CausalContribution",
+        "organon:Specification",
+        "organon:Scope",
+        "organon:Configuration",
+        "organon:State",
+        "organon:Agent",
+        "organon:Representation",
+        "organon:Model",
+        "organon:Interpretation"
+      ],
+      "disposition": "positively_underdetermined",
+      "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
+      "paired_target_extension_sketch": {
+        "all_declared_dependencies_present": true,
+        "shared_dependency_extensions": [
+          "organon:Relation",
+          "organon:OperativeKnowledge",
+          "organon:Record",
+          "organon:CausalPath",
+          "organon:CausalContribution",
+          "organon:Specification",
+          "organon:Scope",
+          "organon:Configuration",
+          "organon:State",
+          "organon:Agent",
+          "organon:Representation",
+          "organon:Model",
+          "organon:Interpretation"
+        ],
+        "target_predicate": "organon:KnowledgeTransmission",
+        "model_without_target_extension": [],
+        "model_with_target_extension": [
+          "candidate"
+        ],
+        "classification_differs": true
+      }
+    },
+    {
+      "term": "organon:FactiveOperativeKnowledge",
+      "claim": "D091",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:OperativeKnowledge",
+        "organon:Record",
+        "organon:Claim",
+        "organon:Truth",
+        "organon:Rule",
+        "organon:Specification",
+        "organon:Presence",
+        "organon:Scope"
+      ],
+      "disposition": "positively_underdetermined",
+      "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
+      "paired_target_extension_sketch": {
+        "all_declared_dependencies_present": true,
+        "shared_dependency_extensions": [
+          "organon:OperativeKnowledge",
+          "organon:Record",
+          "organon:Claim",
+          "organon:Truth",
+          "organon:Rule",
+          "organon:Specification",
+          "organon:Presence",
+          "organon:Scope"
+        ],
+        "target_predicate": "organon:FactiveOperativeKnowledge",
+        "model_without_target_extension": [],
+        "model_with_target_extension": [
+          "candidate"
+        ],
+        "classification_differs": true
+      }
+    },
+    {
+      "term": "organon:WarrantedKnowledge",
+      "claim": "D092",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:FactiveOperativeKnowledge",
+        "organon:Evidence",
+        "organon:EvidentialBearing",
+        "organon:Admission",
+        "organon:IndependentFor",
+        "organon:Observation",
+        "organon:Witness",
+        "organon:AdmissibilityRule",
+        "organon:Order",
+        "organon:Rule",
+        "organon:Scope",
+        "organon:Claim"
+      ],
+      "disposition": "positively_underdetermined",
+      "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
+      "paired_target_extension_sketch": {
+        "all_declared_dependencies_present": true,
+        "shared_dependency_extensions": [
+          "organon:FactiveOperativeKnowledge",
+          "organon:Evidence",
+          "organon:EvidentialBearing",
+          "organon:Admission",
+          "organon:IndependentFor",
+          "organon:Observation",
+          "organon:Witness",
+          "organon:AdmissibilityRule",
+          "organon:Order",
+          "organon:Rule",
+          "organon:Scope",
+          "organon:Claim"
+        ],
+        "target_predicate": "organon:WarrantedKnowledge",
+        "model_without_target_extension": [],
+        "model_with_target_extension": [
+          "candidate"
+        ],
+        "classification_differs": true
+      }
+    },
+    {
+      "term": "organon:MoralStatusAttribution",
+      "claim": "D093",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Claim",
+        "organon:Agent",
+        "organon:Entity",
+        "organon:State",
+        "organon:Configuration",
+        "organon:Representation",
+        "organon:Specification",
+        "organon:Scope",
+        "organon:Language",
+        "organon:Rule",
+        "organon:Map"
+      ],
+      "disposition": "positively_underdetermined",
+      "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
+      "paired_target_extension_sketch": {
+        "all_declared_dependencies_present": true,
+        "shared_dependency_extensions": [
+          "organon:Claim",
+          "organon:Agent",
+          "organon:Entity",
+          "organon:State",
+          "organon:Configuration",
+          "organon:Representation",
+          "organon:Specification",
+          "organon:Scope",
+          "organon:Language",
+          "organon:Rule",
+          "organon:Map"
+        ],
+        "target_predicate": "organon:MoralStatusAttribution",
+        "model_without_target_extension": [],
+        "model_with_target_extension": [
+          "candidate"
+        ],
+        "classification_differs": true
+      }
+    },
+    {
+      "term": "organon:MoralPersonhoodDesignation",
+      "claim": "D094",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Relation",
+        "organon:CountsAs",
+        "organon:Order",
+        "organon:Rule",
+        "organon:Admission",
+        "organon:Scope",
+        "organon:Entity",
+        "organon:State",
+        "organon:MoralStatusAttribution"
+      ],
+      "disposition": "positively_underdetermined",
+      "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
+      "paired_target_extension_sketch": {
+        "all_declared_dependencies_present": true,
+        "shared_dependency_extensions": [
+          "organon:Relation",
+          "organon:CountsAs",
+          "organon:Order",
+          "organon:Rule",
+          "organon:Admission",
+          "organon:Scope",
+          "organon:Entity",
+          "organon:State",
+          "organon:MoralStatusAttribution"
+        ],
+        "target_predicate": "organon:MoralPersonhoodDesignation",
+        "model_without_target_extension": [],
+        "model_with_target_extension": [
+          "candidate"
+        ],
+        "classification_differs": true
+      }
+    },
+    {
+      "term": "organon:ConstituentSovereignty",
+      "claim": "D095",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Configuration",
+        "organon:Polity",
+        "organon:ConstituentPower",
+        "organon:ConstituentExercise",
+        "organon:Order",
+        "organon:Rule",
+        "organon:Boundary",
+        "organon:Scope"
+      ],
+      "disposition": "positively_underdetermined",
+      "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
+      "paired_target_extension_sketch": {
+        "all_declared_dependencies_present": true,
+        "shared_dependency_extensions": [
+          "organon:Configuration",
+          "organon:Polity",
+          "organon:ConstituentPower",
+          "organon:ConstituentExercise",
+          "organon:Order",
+          "organon:Rule",
+          "organon:Boundary",
+          "organon:Scope"
+        ],
+        "target_predicate": "organon:ConstituentSovereignty",
+        "model_without_target_extension": [],
+        "model_with_target_extension": [
+          "candidate"
+        ],
+        "classification_differs": true
+      }
+    },
+    {
+      "term": "organon:ConstitutedSovereignty",
+      "claim": "D096",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Order",
+        "organon:Entity",
+        "organon:Standing",
+        "organon:Authority",
+        "organon:Action",
+        "organon:Scope",
+        "organon:Recognition",
+        "organon:Rule"
+      ],
+      "disposition": "positively_underdetermined",
+      "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
+      "paired_target_extension_sketch": {
+        "all_declared_dependencies_present": true,
+        "shared_dependency_extensions": [
+          "organon:Order",
+          "organon:Entity",
+          "organon:Standing",
+          "organon:Authority",
+          "organon:Action",
+          "organon:Scope",
+          "organon:Recognition",
+          "organon:Rule"
+        ],
+        "target_predicate": "organon:ConstitutedSovereignty",
+        "model_without_target_extension": [],
+        "model_with_target_extension": [
+          "candidate"
+        ],
+        "classification_differs": true
+      }
+    },
+    {
+      "term": "organon:BoundarySovereignty",
+      "claim": "D097",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Configuration",
+        "organon:Polity",
+        "organon:Entity",
+        "organon:Control",
+        "organon:Constraint",
+        "organon:Transformation",
+        "organon:Boundary",
+        "organon:Order",
+        "organon:Enforcement",
+        "organon:Difference",
+        "organon:Consequence",
+        "organon:State",
+        "organon:Scope"
+      ],
+      "disposition": "positively_underdetermined",
+      "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
+      "paired_target_extension_sketch": {
+        "all_declared_dependencies_present": true,
+        "shared_dependency_extensions": [
+          "organon:Configuration",
+          "organon:Polity",
+          "organon:Entity",
+          "organon:Control",
+          "organon:Constraint",
+          "organon:Transformation",
+          "organon:Boundary",
+          "organon:Order",
+          "organon:Enforcement",
+          "organon:Difference",
+          "organon:Consequence",
+          "organon:State",
+          "organon:Scope"
+        ],
+        "target_predicate": "organon:BoundarySovereignty",
+        "model_without_target_extension": [],
+        "model_with_target_extension": [
+          "candidate"
+        ],
+        "classification_differs": true
+      }
+    },
+    {
+      "term": "organon:ExternalSovereignty",
+      "claim": "D098",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Relation",
+        "organon:Order",
+        "organon:Entity",
+        "organon:Polity",
+        "organon:Recognition",
+        "organon:Standing",
+        "organon:Principal",
+        "organon:ActsFor",
+        "organon:Action",
+        "organon:Rule",
+        "organon:Scope"
+      ],
+      "disposition": "positively_underdetermined",
+      "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
+      "paired_target_extension_sketch": {
+        "all_declared_dependencies_present": true,
+        "shared_dependency_extensions": [
+          "organon:Relation",
+          "organon:Order",
+          "organon:Entity",
+          "organon:Polity",
+          "organon:Recognition",
+          "organon:Standing",
+          "organon:Principal",
+          "organon:ActsFor",
+          "organon:Action",
+          "organon:Rule",
+          "organon:Scope"
+        ],
+        "target_predicate": "organon:ExternalSovereignty",
+        "model_without_target_extension": [],
+        "model_with_target_extension": [
+          "candidate"
+        ],
+        "classification_differs": true
+      }
+    },
+    {
+      "term": "organon:Preference",
+      "claim": "D099",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Relation",
+        "organon:Agent",
+        "organon:Rule",
+        "organon:State",
+        "organon:Consequence",
+        "organon:Scope"
+      ],
+      "disposition": "positively_underdetermined",
+      "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
+      "paired_target_extension_sketch": {
+        "all_declared_dependencies_present": true,
+        "shared_dependency_extensions": [
+          "organon:Relation",
+          "organon:Agent",
+          "organon:Rule",
+          "organon:State",
+          "organon:Consequence",
+          "organon:Scope"
+        ],
+        "target_predicate": "organon:Preference",
+        "model_without_target_extension": [],
+        "model_with_target_extension": [
+          "candidate"
+        ],
+        "classification_differs": true
+      }
+    },
+    {
+      "term": "organon:UtilityMeasure",
+      "claim": "D100",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Map",
+        "organon:Relation",
+        "organon:Rule",
+        "organon:Specification",
+        "organon:Scope",
+        "organon:Preference"
+      ],
+      "disposition": "positively_underdetermined",
+      "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
+      "paired_target_extension_sketch": {
+        "all_declared_dependencies_present": true,
+        "shared_dependency_extensions": [
+          "organon:Map",
+          "organon:Relation",
+          "organon:Rule",
+          "organon:Specification",
+          "organon:Scope",
+          "organon:Preference"
+        ],
+        "target_predicate": "organon:UtilityMeasure",
+        "model_without_target_extension": [],
+        "model_with_target_extension": [
+          "candidate"
+        ],
+        "classification_differs": true
+      }
+    },
+    {
+      "term": "organon:Price",
+      "claim": "D101",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Relation",
+        "organon:Ledger",
+        "organon:Record",
+        "organon:Order",
+        "organon:Admission",
+        "organon:Rule",
+        "organon:Representation",
+        "organon:CountsAs",
+        "organon:Presence",
+        "organon:State",
+        "organon:Scope"
+      ],
+      "disposition": "positively_underdetermined",
+      "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
+      "paired_target_extension_sketch": {
+        "all_declared_dependencies_present": true,
+        "shared_dependency_extensions": [
+          "organon:Relation",
+          "organon:Ledger",
+          "organon:Record",
+          "organon:Order",
+          "organon:Admission",
+          "organon:Rule",
+          "organon:Representation",
+          "organon:CountsAs",
+          "organon:Presence",
+          "organon:State",
+          "organon:Scope"
+        ],
+        "target_predicate": "organon:Price",
+        "model_without_target_extension": [],
+        "model_with_target_extension": [
+          "candidate"
+        ],
+        "classification_differs": true
+      }
+    },
+    {
+      "term": "organon:Ritual",
+      "claim": "D105",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Flow",
+        "organon:Configuration",
+        "organon:Persistence",
+        "organon:Invariant",
+        "organon:Entity",
+        "organon:CausalPath",
+        "organon:CausalContribution",
+        "organon:Perception",
+        "organon:Memory",
+        "organon:Interpretation",
+        "organon:Action",
+        "organon:State",
+        "organon:Relation",
+        "organon:Representation",
+        "organon:Denotation",
+        "organon:Rule",
+        "organon:Specification",
+        "organon:Scope"
+      ],
+      "disposition": "positively_underdetermined",
+      "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
+      "paired_target_extension_sketch": {
+        "all_declared_dependencies_present": true,
+        "shared_dependency_extensions": [
+          "organon:Flow",
+          "organon:Configuration",
+          "organon:Persistence",
+          "organon:Invariant",
+          "organon:Entity",
+          "organon:CausalPath",
+          "organon:CausalContribution",
+          "organon:Perception",
+          "organon:Memory",
+          "organon:Interpretation",
+          "organon:Action",
+          "organon:State",
+          "organon:Relation",
+          "organon:Representation",
+          "organon:Denotation",
+          "organon:Rule",
+          "organon:Specification",
+          "organon:Scope"
+        ],
+        "target_predicate": "organon:Ritual",
+        "model_without_target_extension": [],
+        "model_with_target_extension": [
+          "candidate"
+        ],
+        "classification_differs": true
+      }
+    },
+    {
+      "term": "organon:Meaning",
+      "claim": "D106",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Ritual",
+        "organon:Relation",
+        "organon:Entity",
+        "organon:Presence",
+        "organon:Scope",
+        "organon:State",
+        "organon:CausalContribution",
+        "organon:Record",
+        "organon:Memory",
+        "organon:Change",
+        "organon:Consequence",
+        "organon:Environment"
+      ],
+      "disposition": "positively_underdetermined",
+      "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
+      "paired_target_extension_sketch": {
+        "all_declared_dependencies_present": true,
+        "shared_dependency_extensions": [
+          "organon:Ritual",
+          "organon:Relation",
+          "organon:Entity",
+          "organon:Presence",
+          "organon:Scope",
+          "organon:State",
+          "organon:CausalContribution",
+          "organon:Record",
+          "organon:Memory",
+          "organon:Change",
+          "organon:Consequence",
+          "organon:Environment"
+        ],
+        "target_predicate": "organon:Meaning",
+        "model_without_target_extension": [],
+        "model_with_target_extension": [
+          "candidate"
+        ],
+        "classification_differs": true
+      }
+    }
+  ],
+  "consistency_rules": [
+    {
+      "claim": "C1",
+      "status": "retained_governance",
+      "reason": "Dependency closure governs admissible definitions; it is not an object-level classification rule."
+    },
+    {
+      "claim": "C2",
+      "status": "retained_governance",
+      "reason": "One-term-one-meaning governs the registry; it is not an object-level classification rule."
+    },
+    {
+      "claim": "C3",
+      "status": "candidate_clause_derived"
+    },
+    {
+      "claim": "C4",
+      "status": "candidate_clause_derived"
+    },
+    {
+      "claim": "C5",
+      "status": "candidate_clause_derived"
+    },
+    {
+      "claim": "C6",
+      "status": "candidate_clause_derived"
+    },
+    {
+      "claim": "C7",
+      "status": "candidate_clause_derived"
+    },
+    {
+      "claim": "C8",
+      "status": "positive_schema_missing",
+      "reason": "No complete Interior, Exposure, privacy, and consciousness circuit is encoded."
+    },
+    {
+      "claim": "C9",
+      "status": "candidate_clause_derived"
+    },
+    {
+      "claim": "C10",
+      "status": "candidate_clause_derived"
+    },
+    {
+      "claim": "C11",
+      "status": "candidate_clause_derived"
+    },
+    {
+      "claim": "C12",
+      "status": "positive_schema_missing",
+      "reason": "No complete World, AccessPath, Sense, Perception, and causal-availability circuit is encoded."
+    },
+    {
+      "claim": "C13",
+      "status": "positive_schema_missing",
+      "reason": "No complete carrier-content realization and paired Persistence circuit for Substrate is encoded."
+    },
+    {
+      "claim": "C14",
+      "status": "candidate_clause_derived"
+    },
+    {
+      "claim": "C15",
+      "status": "positive_schema_missing",
+      "reason": "No complete Trust circuit joins exposure to another Agent's undetermined contribution under bounded Control."
+    },
+    {
+      "claim": "C16",
+      "status": "positive_schema_missing",
+      "reason": "No complete Alignment circuit compares profiles under shared Specification and Scope."
+    },
+    {
+      "claim": "C17",
+      "status": "positive_schema_missing",
+      "reason": "No complete Intelligence circuit joins adaptive Model and Interpretation revision to Actions and Consequences."
+    },
+    {
+      "claim": "C18",
+      "status": "positive_schema_missing",
+      "reason": "No complete Operative Knowledge configuration circuit is encoded."
+    },
+    {
+      "claim": "C19",
+      "status": "positive_schema_missing",
+      "reason": "No complete Knowledge Transmission reconstruction circuit is encoded."
+    },
+    {
+      "claim": "C20",
+      "status": "positive_schema_missing",
+      "reason": "No complete Factive or Warranted Knowledge refinement circuit is encoded."
+    },
+    {
+      "claim": "C21",
+      "status": "candidate_clause_derived"
+    },
+    {
+      "claim": "C22",
+      "status": "candidate_clause_derived"
+    },
+    {
+      "claim": "C23",
+      "status": "candidate_clause_derived"
+    },
+    {
+      "claim": "C24",
+      "status": "candidate_clause_derived"
+    },
+    {
+      "claim": "C25",
+      "status": "candidate_clause_derived"
+    },
+    {
+      "claim": "C26",
+      "status": "candidate_clause_derived"
+    },
+    {
+      "claim": "C27",
+      "status": "candidate_clause_derived"
+    },
+    {
+      "claim": "C28",
+      "status": "candidate_clause_derived"
+    },
+    {
+      "claim": "C29",
+      "status": "candidate_clause_derived"
+    },
+    {
+      "claim": "C30",
+      "status": "candidate_clause_derived"
+    },
+    {
+      "claim": "C31",
+      "status": "candidate_clause_derived"
+    }
+  ],
+  "other_commitments": [
+    {
+      "claim": "A1",
+      "claim_type": "axiom",
+      "disposition": "retained_non_reduction_commitment",
+      "reason": "The candidate algebra does not replace foundation axioms, authorized projections, or hypotheses."
+    },
+    {
+      "claim": "A2",
+      "claim_type": "axiom",
+      "disposition": "retained_non_reduction_commitment",
+      "reason": "The candidate algebra does not replace foundation axioms, authorized projections, or hypotheses."
+    },
+    {
+      "claim": "A3",
+      "claim_type": "axiom",
+      "disposition": "retained_non_reduction_commitment",
+      "reason": "The candidate algebra does not replace foundation axioms, authorized projections, or hypotheses."
+    },
+    {
+      "claim": "A4",
+      "claim_type": "axiom",
+      "disposition": "retained_non_reduction_commitment",
+      "reason": "The candidate algebra does not replace foundation axioms, authorized projections, or hypotheses."
+    },
+    {
+      "claim": "A5",
+      "claim_type": "axiom",
+      "disposition": "retained_non_reduction_commitment",
+      "reason": "The candidate algebra does not replace foundation axioms, authorized projections, or hypotheses."
+    },
+    {
+      "claim": "U1",
+      "claim_type": "axiom",
+      "disposition": "retained_non_reduction_commitment",
+      "reason": "The candidate algebra does not replace foundation axioms, authorized projections, or hypotheses."
+    },
+    {
+      "claim": "Pj1",
+      "claim_type": "authorized_projection",
+      "disposition": "retained_non_reduction_commitment",
+      "reason": "The candidate algebra does not replace foundation axioms, authorized projections, or hypotheses."
+    },
+    {
+      "claim": "Pj2",
+      "claim_type": "authorized_projection",
+      "disposition": "retained_non_reduction_commitment",
+      "reason": "The candidate algebra does not replace foundation axioms, authorized projections, or hypotheses."
+    },
+    {
+      "claim": "Pj3",
+      "claim_type": "authorized_projection",
+      "disposition": "retained_non_reduction_commitment",
+      "reason": "The candidate algebra does not replace foundation axioms, authorized projections, or hypotheses."
+    },
+    {
+      "claim": "Pj4",
+      "claim_type": "authorized_projection",
+      "disposition": "retained_non_reduction_commitment",
+      "reason": "The candidate algebra does not replace foundation axioms, authorized projections, or hypotheses."
+    },
+    {
+      "claim": "H1",
+      "claim_type": "hypothesis",
+      "disposition": "retained_non_reduction_commitment",
+      "reason": "The candidate algebra does not replace foundation axioms, authorized projections, or hypotheses."
+    }
+  ]
+}

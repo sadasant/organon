@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "status": "nonbinding-degenerate-registry-reflection-control",
+  "constructors": [
+    {
+      "id": "G1",
+      "name": "Degenerate definition-reflection wrapper",
+      "statement": "A registered definition introduces its typed result when every declared dependency is present under one assignment and a constructive witness establishes conformity to the complete binding definition schema.",
+      "positive_head": "the registered term named by the binding definition schema",
+      "premises": ["every declared dependency classification"],
+      "witness": "a constructive conformity witness distinct from the target assertion",
+      "constraints": [
+        "the binding definition schema is registered and dependency-closed",
+        "the witness uses the complete binding primary statement",
+        "participants and roles remain typed",
+        "indices are conserved across the assignment",
+        "the witness is not the result classification itself"
+      ]
+    }
+  ],
+  "lower_bound": {
+    "zero_is_insufficient": "The six candidate disciplines have no positive predicate heads and derive no registered definition.",
+    "one_is_sufficient_operationally": "G1 reflects every registered definition when handed its complete term-specific binding schema and an opaque conformity witness.",
+    "semantic_compression": false,
+    "reason": "The 106 binding definition schemas remain irreducible parameters; the calculus compresses their introduction form, not their semantic content."
+  },
+  "anti_vacuity": {
+    "passes": false,
+    "opaque_parameter": "the conformity witness",
+    "finding": "The finite evaluator verifies presence and removal of the witness but cannot derive that witness from the prose definition. It also treats every lexical dependency as a positive fact over one candidate. G1 therefore relocates rather than reduces term semantics and is not a positive constructor calculus.",
+    "eligible_for_promotion": false
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "status": "nonbinding-scoped-connective-audit",
+  "scope": "connective verbs named by the reduction procedure, checked against the training cards and held-out challenges",
+  "required_connectives": ["means", "corresponds", "conditions", "carries", "preserves", "supports", "classifies", "constitutes", "maintains", "propagates", "applies", "counts"],
+  "resolutions": [
+    {"connective": "means", "resolution": "existing_typed_relation", "target": ["organon:Denotation", "organon:Interpretation"], "constraint": "Name expression and target positions; if an Agent acts on the Representation, name Interpretation separately."},
+    {"connective": "corresponds", "resolution": "composition", "target": ["organon:Denotation", "organon:Specification", "organon:Alignment", "organon:Truth"], "constraint": "Name the correspondence Specification, Scope, and conformity witness; do not treat resemblance as correspondence."},
+    {"connective": "conditions", "resolution": "composition", "target": ["organon:Interpretation", "organon:CausalContribution"], "constraint": "Name either the Interpretation-to-Action join or the paired causal comparison producing a Change."},
+    {"connective": "carries", "resolution": "composition", "target": ["organon:Configuration", "organon:Record", "organon:Representation", "organon:Denotation"], "constraint": "Name carrier, carried participant, persistence criterion, and whether the relation is storage, representation, or causal transmission."},
+    {"connective": "preserves", "resolution": "existing_typed_relation", "target": ["organon:Invariant", "organon:Persistence"], "constraint": "Name the Invariant, ordered States, and Transformations across which it persists."},
+    {"connective": "supports", "resolution": "existing_typed_relation", "target": ["organon:EvidentialBearing"], "constraint": "Name Evidence, Claim, evaluation Rule, Order, Scope, and recorded disposition."},
+    {"connective": "classifies", "resolution": "composition", "target": ["organon:Rule", "organon:Specification", "organon:CountsAs"], "constraint": "Separate material classification from an Order's institutional CountsAs status; neither automatically constitutes its target."},
+    {"connective": "constitutes", "resolution": "composition", "target": ["organon:CountsAs", "organon:Persistence", "organon:Invariant"], "constraint": "CountsAs may constitute institutional status; material constitution requires the term-specific identity or realization join."},
+    {"connective": "maintains", "resolution": "composition", "target": ["organon:Persistence", "organon:CausalContribution"], "constraint": "Name what persists or which continuing causal contribution sustains the relation."},
+    {"connective": "propagates", "resolution": "composition", "target": ["organon:CausalContribution", "organon:Change", "organon:Consequence"], "constraint": "Propagation derives a new participant-indexed relation; it is not literal copying or numerical identity."},
+    {"connective": "applies", "resolution": "composition", "target": ["organon:Rule", "organon:Scope", "organon:Order"], "constraint": "Name the Rule, governed participant, Scope, and Order when institutional."},
+    {"connective": "counts", "resolution": "existing_typed_relation", "target": ["organon:CountsAs"], "constraint": "Name Order, Rule, represented item, institutional status, and Scope."}
+  ]
+}

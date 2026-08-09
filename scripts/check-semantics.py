@@ -202,6 +202,36 @@ def main() -> int:
     if prompt_check.returncode != 0:
         errors.append(prompt_check.stderr.strip() or prompt_check.stdout.strip())
 
+    algebra_check = subprocess.run(
+        [sys.executable, str(ROOT / "scripts" / "build-algebra.py"), "--check"],
+        cwd=ROOT,
+        capture_output=True,
+        text=True,
+    )
+    if algebra_check.returncode != 0:
+        errors.append(algebra_check.stderr.strip() or algebra_check.stdout.strip())
+
+    reduction_check = subprocess.run(
+        [sys.executable, str(ROOT / "scripts" / "build-reduction-audit.py"), "--check"],
+        cwd=ROOT,
+        capture_output=True,
+        text=True,
+    )
+    if reduction_check.returncode != 0:
+        errors.append(reduction_check.stderr.strip() or reduction_check.stdout.strip())
+
+    positive_calculus_check = subprocess.run(
+        [sys.executable, str(ROOT / "scripts" / "build-positive-calculus.py"), "--check"],
+        cwd=ROOT,
+        capture_output=True,
+        text=True,
+    )
+    if positive_calculus_check.returncode != 0:
+        errors.append(
+            positive_calculus_check.stderr.strip()
+            or positive_calculus_check.stdout.strip()
+        )
+
     if errors:
         print("Semantic check failed:")
         for error in errors:

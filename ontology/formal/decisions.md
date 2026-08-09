@@ -7,7 +7,7 @@ prose_ontology: "../ontology.md"
 ---
 # Formalization Decisions
 
-These decisions belong to the Lean spike. They expose choices priced by formalization. They do not independently revise [Daniel's Ontology v0.17](../ontology.md); accepted findings flow into the binding, single-file Markdown ontology through its changelog.
+These decisions belong to the Lean spike. They expose choices priced by formalization. They do not independently revise [Daniel's Ontology v0.18](../ontology.md); accepted findings flow into the binding, single-file Markdown ontology through its changelog.
 
 ## Flow absorbs recurrence; Ritual and Meaning retain distinct burdens
 

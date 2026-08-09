@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "status": "nonbinding-candidate-discipline-taxonomy",
+  "derived_from_cards": [
+    "NF-ENTITY", "NF-DENOTATION", "NF-CAUSAL-CONTRIBUTION", "NF-CAPABILITY",
+    "NF-STANDING", "NF-EXERCISABILITY", "NF-EVIDENCE", "NF-EVIDENTIAL-BEARING", "NF-TRUTH"
+  ],
+  "held_out_domains": ["consciousness-and-moral-status", "sovereignty-and-valuation", "ritual-and-meaning"],
+  "laws": [
+    {
+      "id": "L1",
+      "name": "Participant and role distinction",
+      "statement": "A Relation joins typed participants in ordered roles without thereby identifying them or licensing reversal of those roles.",
+      "blocks_shapes": ["participant_identification", "role_reversal"],
+      "isolating_case": "CM-RELATION-NOT-IDENTITY",
+      "candidate_claim_coverage": ["C3", "C9", "C11", "C27"]
+    },
+    {
+      "id": "L2",
+      "name": "Typed non-coercion",
+      "statement": "A predicate, Relation, profile, or classification cannot substitute for another typed one without a registered bridge or composition.",
+      "blocks_shapes": ["typed_substitution"],
+      "isolating_case": "CM-CAPABILITY-NOT-AUTHORITY",
+      "candidate_claim_coverage": ["C5", "C6", "C7", "C10", "C21", "C22", "C23", "C28"]
+    },
+    {
+      "id": "L3",
+      "name": "Index conservation",
+      "statement": "Scope, Order, State, Agent, claimant, time, Rule, and participant indices must remain matched across a licensed join unless an explicit Relation changes them.",
+      "blocks_shapes": ["index_change", "index_erasure"],
+      "isolating_case": "CM-STANDING-ORDER-DRIFT",
+      "candidate_claim_coverage": ["C10", "C14", "C21", "C22", "C24", "C27", "C29"]
+    },
+    {
+      "id": "L4",
+      "name": "Witnessed promotion",
+      "statement": "A stronger classification requires every registered premise and existential witness in one load-bearing join unless another Rule independently licenses it.",
+      "blocks_shapes": ["premise_omission", "witness_omission", "stronger_classification"],
+      "isolating_case": "CM-OBSERVATION-NOT-EVIDENCE",
+      "candidate_claim_coverage": ["C6", "C7", "C9", "C10", "C14", "C21", "C24", "C25", "C26", "C29", "C30", "C31"]
+    },
+    {
+      "id": "L5",
+      "name": "Projection asymmetry",
+      "statement": "A Map, Record, Claim, Model, classifier, carrier, or Designation may select or preserve structure but cannot be inverted into its target or former content without a reconstruction or correspondence witness.",
+      "blocks_shapes": ["projection_inversion", "carrier_content_collapse"],
+      "isolating_case": "CM-MAP-NOT-REALITY",
+      "candidate_claim_coverage": ["C5", "C6", "C10", "C11", "C14", "C21", "C23", "C26", "C27", "C28", "C29", "C30"]
+    },
+    {
+      "id": "L6",
+      "name": "Underdetermination by default",
+      "statement": "Failure to derive a bridge or classification licenses unmapped or underdetermined, not the opposite classification or its negation.",
+      "blocks_shapes": ["missingness_to_negation", "missing_bridge_to_opposite"],
+      "isolating_case": "CM-NONDESIGNATION-NOT-NEGATION",
+      "candidate_claim_coverage": ["C4", "C10", "C14", "C21", "C24", "C26", "C29"]
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "status": "nonbinding-clause-level-candidate-derivations",
+  "entries": [
+    {"claim": "C3", "clause": "Descriptions or projections do not multiply or identify Entities.", "laws": ["L1"], "evidence": ["CM-RELATION-NOT-IDENTITY"]},
+    {"claim": "C4", "clause": "Failure, omission, and Missingness do not cross into Absence or negation.", "laws": ["L6"], "evidence": ["CM-NONDESIGNATION-NOT-NEGATION"]},
+    {"claim": "C5", "clause": "A Map does not identify with Reality.", "laws": ["L2", "L5"], "evidence": ["CM-MAP-NOT-REALITY"]},
+    {"claim": "C6", "clause": "A Claim or Observation does not become Evidence without the complete admitted independence join.", "laws": ["L2", "L4", "L5"], "evidence": ["CM-OBSERVATION-NOT-EVIDENCE", "NF-EVIDENCE"]},
+    {"claim": "C7", "clause": "Capability and Authority do not substitute; Capability and Permission compose only through matching Exercisability indices.", "laws": ["L2", "L4"], "evidence": ["CM-CAPABILITY-NOT-AUTHORITY", "CM-AUTHORITY-NOT-CAPABILITY", "CIRCUIT-INSTITUTIONAL-ACTION"]},
+    {"claim": "C9", "clause": "Resemblance cannot replace an identity or causal witness.", "laws": ["L1", "L4"], "evidence": ["M-ENTITY-substitute-persistence-witness-resemblance"]},
+    {"claim": "C10", "clause": "Attribution and Designation do not establish the material condition, downstream status, or negation on failure.", "laws": ["L2", "L3", "L4", "L5", "L6"], "evidence": ["H-CONSCIOUSNESS-ATTRIBUTION", "H-CONSCIOUSNESS-NONDESIGNATION"]},
+    {"claim": "C11", "clause": "Denotation and represented participation do not invert into identity, fidelity, causal efficacy, or Evidence.", "laws": ["L1", "L5"], "evidence": ["NF-DENOTATION", "NF-CAUSAL-CONTRIBUTION", "CM-MAP-NOT-REALITY"]},
+    {"claim": "C14", "clause": "Evidence, Admission, access, and validator Claims do not substitute for the scoped material-adequacy Truth join.", "laws": ["L3", "L4", "L5", "L6"], "evidence": ["NF-TRUTH", "CM-EVIDENCE-NOT-TRUTH", "CM-TRUTH-NOT-EVIDENCE", "CIRCUIT-EPISTEMIC-STATUS"]},
+    {"claim": "C21", "clause": "Moral designation does not establish its candidate condition or silently produce downstream institutional effects.", "laws": ["L2", "L3", "L4", "L5", "L6"], "evidence": ["H-MORAL-DESIGNATION"]},
+    {"claim": "C22", "clause": "Distinct sovereignty profiles do not coerce into one another or erase their Rules and Scopes.", "laws": ["L2", "L3"], "evidence": ["H-SOVEREIGNTY-PROFILE"]},
+    {"claim": "C23", "clause": "Utility Measure and Preference do not substitute or invert without a correspondence witness.", "laws": ["L2", "L5"], "evidence": ["H-UTILITY-PREFERENCE"]},
+    {"claim": "C24", "clause": "Every hidden bridge requires its typed participants, conserved indices, and complete witness packet.", "laws": ["L3", "L4", "L6"], "evidence": ["NF-ENTITY", "NF-DENOTATION", "NF-CAUSAL-CONTRIBUTION", "NF-CAPABILITY", "NF-STANDING", "NF-EVIDENTIAL-BEARING"]},
+    {"claim": "C25", "clause": "Recurrence or Flow alone does not promote to Ritual without the interpretive and sustaining witnesses.", "laws": ["L4"], "evidence": ["H-RECURRENCE-RITUAL"]},
+    {"claim": "C26", "clause": "A ritual-derived Record does not store Meaning independently of its sustaining join.", "laws": ["L4", "L5", "L6"], "evidence": ["H-RECORD-MEANING"]},
+    {"claim": "C27", "clause": "Propagation derives a participant-indexed Meaning relation rather than copying numerical identity.", "laws": ["L1", "L3", "L5"], "evidence": ["H-MEANING-PROPAGATION"]},
+    {"claim": "C28", "clause": "Meaning and valuation or status profiles do not substitute or silently constitute one another.", "laws": ["L2", "L5"], "evidence": ["H-UTILITY-PREFERENCE", "H-RECORD-MEANING"]},
+    {"claim": "C29", "clause": "Target continuity requires conserved identity indices and witnessed Persistence rather than naming or resemblance.", "laws": ["L3", "L4", "L5", "L6"], "evidence": ["NF-ENTITY", "H-MEANING-PROPAGATION"]},
+    {"claim": "C30", "clause": "A classifier does not constitute Flow without the term-specific recurrence and Persistence join.", "laws": ["L4", "L5"], "evidence": ["H-FLOW-CLASSIFIER"]},
+    {"claim": "C31", "clause": "Recurrence, compulsion, distress, or diagnosis alone does not promote to Ritual or Meaning.", "laws": ["L4"], "evidence": ["H-RECURRENCE-RITUAL"]}
+  ]
+}

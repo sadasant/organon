@@ -1,0 +1,96 @@
+{
+  "schema_version": 1,
+  "status": "nonbinding-unchanged-taxonomy-holdouts",
+  "basis_frozen_before_holdouts": true,
+  "freeze_kind": "procedural-attestation-with-current-digest",
+  "candidate_laws_sha256": "8d739e8c928f527ee8f66b28c4e3a8b696d0539333627bf26243d72073212550",
+  "cases": [
+    {
+      "id": "H-CONSCIOUSNESS-ATTRIBUTION", "domain": "consciousness-and-moral-status",
+      "inference": "Consciousness Attribution entails candidate condition",
+      "failure_shapes": ["typed_substitution", "stronger_classification"], "expect": "blocked",
+      "facts": [{"predicate": "ConsciousnessAttribution", "args": ["Attribution:a", "Configuration:e", "State:s"]}],
+      "source": {"predicate": "ConsciousnessAttribution", "args": ["Attribution:a", "Configuration:e", "State:s"]},
+      "target": {"predicate": "CandidateConditionObtains", "args": ["Condition:c", "Configuration:e", "State:s"]}
+    },
+    {
+      "id": "H-CONSCIOUSNESS-NONDESIGNATION", "domain": "consciousness-and-moral-status",
+      "inference": "Failure to designate entails negation",
+      "failure_shapes": ["missingness_to_negation"], "expect": "blocked",
+      "facts": [{"predicate": "NotDerived", "args": ["ConsciousnessDesignation:d"]}],
+      "source": {"predicate": "NotDerived", "args": ["ConsciousnessDesignation:d"]},
+      "target": {"predicate": "Negated", "args": ["CandidateCondition:c"]}
+    },
+    {
+      "id": "H-MORAL-DESIGNATION", "domain": "consciousness-and-moral-status",
+      "inference": "Moral Personhood Designation entails candidate moral condition",
+      "failure_shapes": ["typed_substitution", "stronger_classification"], "expect": "blocked",
+      "facts": [{"predicate": "MoralPersonhoodDesignation", "args": ["Designation:d", "Configuration:e", "State:s"]}],
+      "source": {"predicate": "MoralPersonhoodDesignation", "args": ["Designation:d", "Configuration:e", "State:s"]},
+      "target": {"predicate": "MoralCandidateConditionObtains", "args": ["Condition:c", "Configuration:e", "State:s"]}
+    },
+    {
+      "id": "H-COUNTS-AS-INSTITUTIONAL", "domain": "consciousness-and-moral-status",
+      "inference": "A complete CountsAs join constitutes its indexed institutional status",
+      "failure_shapes": [], "expect": "licensed",
+      "facts": [
+        {"predicate": "CompleteCountsAsJoin", "args": ["Order:o", "Rule:r", "Presence:p", "InstitutionalStatus:s", "Scope:q"]},
+        {"predicate": "CountsAsInstitutionalStatus", "args": ["Order:o", "Presence:p", "InstitutionalStatus:s", "Scope:q"]}
+      ],
+      "source": {"predicate": "CompleteCountsAsJoin", "args": ["Order:o", "Rule:r", "Presence:p", "InstitutionalStatus:s", "Scope:q"]},
+      "target": {"predicate": "CountsAsInstitutionalStatus", "args": ["Order:o", "Presence:p", "InstitutionalStatus:s", "Scope:q"]}
+    },
+    {
+      "id": "H-UTILITY-PREFERENCE", "domain": "sovereignty-and-valuation",
+      "inference": "Utility Measure entails Preference",
+      "failure_shapes": ["typed_substitution", "projection_inversion"], "expect": "blocked",
+      "facts": [{"predicate": "UtilityMeasure", "args": ["Measure:m", "Agent:a", "Scope:s"]}],
+      "source": {"predicate": "UtilityMeasure", "args": ["Measure:m", "Agent:a", "Scope:s"]},
+      "target": {"predicate": "Preference", "args": ["Agent:a", "Option:x", "Option:y", "Scope:s"]}
+    },
+    {
+      "id": "H-SOVEREIGNTY-PROFILE", "domain": "sovereignty-and-valuation",
+      "inference": "One sovereignty profile entails another or generic Sovereignty",
+      "failure_shapes": ["typed_substitution", "index_erasure"], "expect": "blocked",
+      "facts": [{"predicate": "ConstitutedSovereignty", "args": ["Configuration:e", "Order:o", "Rule:r", "Scope:s"]}],
+      "source": {"predicate": "ConstitutedSovereignty", "args": ["Configuration:e", "Order:o", "Rule:r", "Scope:s"]},
+      "target": {"predicate": "BoundarySovereignty", "args": ["Configuration:e", "Order:o", "Scope:s"]}
+    },
+    {
+      "id": "H-FLOW-CLASSIFIER", "domain": "ritual-and-meaning",
+      "inference": "A Flow classifier constitutes Flow",
+      "failure_shapes": ["projection_inversion", "stronger_classification"], "expect": "blocked",
+      "facts": [{"predicate": "FlowClassifier", "args": ["Rule:r", "Specification:p", "Scope:s"]}],
+      "source": {"predicate": "FlowClassifier", "args": ["Rule:r", "Specification:p", "Scope:s"]},
+      "target": {"predicate": "Flow", "args": ["Flow:f", "Scope:s"]}
+    },
+    {
+      "id": "H-RECURRENCE-RITUAL", "domain": "ritual-and-meaning",
+      "inference": "Recurrence alone entails Ritual",
+      "failure_shapes": ["witness_omission", "stronger_classification"], "expect": "blocked",
+      "facts": [{"predicate": "Recurrence", "args": ["Relation:r", "Flow:f", "Scope:s"]}],
+      "source": {"predicate": "Recurrence", "args": ["Relation:r", "Flow:f", "Scope:s"]},
+      "target": {"predicate": "Ritual", "args": ["Ritual:x", "Configuration:e", "Scope:s"]}
+    },
+    {
+      "id": "H-RECORD-MEANING", "domain": "ritual-and-meaning",
+      "inference": "A ritual-derived Record stores Meaning independently",
+      "failure_shapes": ["carrier_content_collapse", "stronger_classification"], "expect": "blocked",
+      "facts": [{"predicate": "RitualDerivedRecord", "args": ["Record:r", "Ritual:x", "Scope:s"]}],
+      "source": {"predicate": "RitualDerivedRecord", "args": ["Record:r", "Ritual:x", "Scope:s"]},
+      "target": {"predicate": "Meaning", "args": ["Meaning:m", "Configuration:e", "Scope:s"]}
+    },
+    {
+      "id": "H-MEANING-PROPAGATION", "domain": "ritual-and-meaning",
+      "inference": "Propagation preserves numerical identity across participants",
+      "failure_shapes": ["participant_identification", "index_erasure"], "expect": "blocked",
+      "facts": [
+        {"predicate": "Meaning", "args": ["Meaning:m1", "Configuration:e1", "Scope:s"]},
+        {"predicate": "PropagatesTo", "args": ["Meaning:m1", "Configuration:e2", "Meaning:m2", "Scope:s"]},
+        {"predicate": "Distinct", "args": ["Meaning:m1", "Meaning:m2"]}
+      ],
+      "source": {"predicate": "PropagatesTo", "args": ["Meaning:m1", "Configuration:e2", "Meaning:m2", "Scope:s"]},
+      "target": {"predicate": "Identity", "args": ["Meaning:m1", "Meaning:m2"]}
+    }
+  ]
+}

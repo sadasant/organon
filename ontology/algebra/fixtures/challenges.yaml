@@ -1,0 +1,79 @@
+{
+  "schema_version": 1,
+  "status": "nonbinding-typed-labeled-inference-fixtures",
+  "cases": [
+    {
+      "id": "CM-RELATION-NOT-IDENTITY", "logical_kind": "non_identity", "failure_shapes": ["participant_identification"],
+      "facts": [
+        {"predicate": "Relation", "args": ["Presence:left", "Presence:right"]},
+        {"predicate": "Distinct", "args": ["Presence:left", "Presence:right"]}
+      ],
+      "source": {"predicate": "Relation", "args": ["Presence:left", "Presence:right"]},
+      "target": {"predicate": "Identity", "args": ["Presence:left", "Presence:right"]},
+      "expect": "source_without_target"
+    },
+    {
+      "id": "CM-CAPABILITY-NOT-AUTHORITY", "logical_kind": "one_way_anti_entailment", "failure_shapes": ["typed_substitution"],
+      "facts": [{"predicate": "Capability", "args": ["Specification:capability", "Agent:a", "Action:x", "ConstraintSet:c"]}],
+      "source": {"predicate": "Capability", "args": ["Specification:capability", "Agent:a", "Action:x", "ConstraintSet:c"]},
+      "target": {"predicate": "Authority", "args": ["Order:o", "Agent:a", "Principal:p", "Scope:s"]},
+      "expect": "source_without_target"
+    },
+    {
+      "id": "CM-AUTHORITY-NOT-CAPABILITY", "logical_kind": "one_way_anti_entailment", "failure_shapes": ["typed_substitution"],
+      "facts": [{"predicate": "Authority", "args": ["Order:o", "Agent:a", "Principal:p", "Scope:s"]}],
+      "source": {"predicate": "Authority", "args": ["Order:o", "Agent:a", "Principal:p", "Scope:s"]},
+      "target": {"predicate": "Capability", "args": ["Specification:capability", "Agent:a", "Action:x", "ConstraintSet:c"]},
+      "expect": "source_without_target"
+    },
+    {
+      "id": "CM-STANDING-ORDER-DRIFT", "logical_kind": "index_sensitivity", "failure_shapes": ["index_change"],
+      "facts": [{"predicate": "Standing", "args": ["Order:o1", "Rule:r", "Configuration:e", "InstitutionalStatus:s", "Scope:q"]}],
+      "source": {"predicate": "Standing", "args": ["Order:o1", "Rule:r", "Configuration:e", "InstitutionalStatus:s", "Scope:q"]},
+      "target": {"predicate": "Standing", "args": ["Order:o2", "Rule:r", "Configuration:e", "InstitutionalStatus:s", "Scope:q"]},
+      "expect": "source_without_target"
+    },
+    {
+      "id": "CM-EVIDENCE-CLAIMANT-DRIFT", "logical_kind": "index_sensitivity", "failure_shapes": ["index_change"],
+      "facts": [{"predicate": "Evidence", "args": ["Observation:o", "Claim:c", "Agent:a1", "Order:r", "Scope:s"]}],
+      "source": {"predicate": "Evidence", "args": ["Observation:o", "Claim:c", "Agent:a1", "Order:r", "Scope:s"]},
+      "target": {"predicate": "Evidence", "args": ["Observation:o", "Claim:c", "Agent:a2", "Order:r", "Scope:s"]},
+      "expect": "source_without_target"
+    },
+    {
+      "id": "CM-OBSERVATION-NOT-EVIDENCE", "logical_kind": "insufficiency", "failure_shapes": ["stronger_classification"],
+      "facts": [{"predicate": "Observation", "args": ["Observation:o"]}],
+      "source": {"predicate": "Observation", "args": ["Observation:o"]},
+      "target": {"predicate": "Evidence", "args": ["Observation:o", "Claim:c", "Agent:a", "Order:r", "Scope:s"]},
+      "expect": "source_without_target"
+    },
+    {
+      "id": "CM-EVIDENCE-NOT-TRUTH", "logical_kind": "one_way_anti_entailment", "failure_shapes": ["typed_substitution", "projection_inversion"],
+      "facts": [{"predicate": "Evidence", "args": ["Observation:o", "Claim:c", "Agent:a", "Order:r", "Scope:s"]}],
+      "source": {"predicate": "Evidence", "args": ["Observation:o", "Claim:c", "Agent:a", "Order:r", "Scope:s"]},
+      "target": {"predicate": "Truth", "args": ["Claim:c", "Presence:p", "Scope:s"]},
+      "expect": "source_without_target"
+    },
+    {
+      "id": "CM-TRUTH-NOT-EVIDENCE", "logical_kind": "one_way_anti_entailment", "failure_shapes": ["typed_substitution"],
+      "facts": [{"predicate": "Truth", "args": ["Claim:c", "Presence:p", "Scope:s"]}],
+      "source": {"predicate": "Truth", "args": ["Claim:c", "Presence:p", "Scope:s"]},
+      "target": {"predicate": "Evidence", "args": ["Observation:o", "Claim:c", "Agent:a", "Order:r", "Scope:s"]},
+      "expect": "source_without_target"
+    },
+    {
+      "id": "CM-MAP-NOT-REALITY", "logical_kind": "one_way_anti_entailment", "failure_shapes": ["projection_inversion"],
+      "facts": [{"predicate": "Map", "args": ["Map:m", "Reality:r"]}],
+      "source": {"predicate": "Map", "args": ["Map:m", "Reality:r"]},
+      "target": {"predicate": "Identity", "args": ["Map:m", "Reality:r"]},
+      "expect": "source_without_target"
+    },
+    {
+      "id": "CM-NONDESIGNATION-NOT-NEGATION", "logical_kind": "missingness_without_negation", "failure_shapes": ["missingness_to_negation"],
+      "facts": [{"predicate": "NotDerived", "args": ["ConsciousnessDesignation:d"]}],
+      "source": {"predicate": "NotDerived", "args": ["ConsciousnessDesignation:d"]},
+      "target": {"predicate": "Negated", "args": ["CandidateCondition:c"]},
+      "expect": "source_without_target"
+    }
+  ]
+}

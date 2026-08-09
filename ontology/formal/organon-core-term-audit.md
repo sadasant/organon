@@ -3,7 +3,7 @@ type: formal-experiment-audit
 status: draft
 canonicality: noncanonical
 created: 2026-08-03
-ontology_version: "0.17.0"
+ontology_version: "0.18.0"
 generated_by: scripts/check-organon-core-audit.py
 ---
 # OrganonCore term audit

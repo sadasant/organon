@@ -44,7 +44,7 @@ scripts/        repository, semantic, and adoption checks
 
 [Contributing to Organon](./CONTRIBUTING.md) defines the review burden for binding changes. In particular, a new term must survive a termhood challenge, dependency and collapse audits, comparison with its closest intellectual shadows, and proportionate formal testing before it can be called promotion-ready.
 
-The binding artifact is [Daniel's Ontology v0.17](./ontology/ontology.md). It remains readable as one Markdown document; the machine-readable registry and formal artifacts check and challenge it without replacing it. Its [term registry](./ontology/terms.yaml) assigns stable `organon:*` identifiers, typed claims, and explicit dependencies. The generated [prompt projection](./ontology/prompt.md) carries every primary term statement and registered commitment in a smaller, explicitly lossy form; its [manifest](./ontology/prompt-manifest.json) records exact source hashes, coverage, and omissions. The [hidden-bridge audit](./ontology/hidden-bridge-audit.md) records why three notions became terms while three were reduced to metalanguage or existing Relations. The [Ritual and Meaning dossier](./proposals/ritual-and-meaning.md) records why Flow absorbed recurrence, Ritual and Meaning survived termhood, and Ritual Residue did not. The [changelog](./ontology/changelog.md) keeps earlier arguments and rejected formulations out of the active system.
+The binding artifact is [Daniel's Ontology v0.18](./ontology/ontology.md). It remains readable as one Markdown document; the machine-readable registry and formal artifacts check and challenge it without replacing it. Its [term registry](./ontology/terms.yaml) assigns stable `organon:*` identifiers, typed claims, and explicit dependencies. The generated [prompt projection](./ontology/prompt.md) carries every primary term statement and registered commitment in a smaller, explicitly lossy form; its [manifest](./ontology/prompt-manifest.json) records exact source hashes, coverage, and omissions. The [hidden-bridge audit](./ontology/hidden-bridge-audit.md) records why three notions became terms while three were reduced to metalanguage or existing Relations. The [Ritual and Meaning dossier](./proposals/ritual-and-meaning.md) records why Flow absorbed recurrence, Ritual and Meaning survived termhood, and Ritual Residue did not. The [changelog](./ontology/changelog.md) keeps earlier arguments and rejected formulations out of the active system.
 
 For focused context hydration, the same generator accepts one or more terms and
 emits only their transitive dependency closure plus applicable commitments:
@@ -77,6 +77,15 @@ The [Lean formalization](./ontology/formal/README.md) prices decisions that pros
 
 The formal directory also contains an [Absence-free OrganonCore reduct](./ontology/formal/organon-core-reduct-report.md) and [complete registry audit](./ontology/formal/organon-core-term-audit.md). The current downstream Lean classifiers and finite witnesses compile against that reduct without importing the Absence/Presence extension. A falsification-first seam preserves challenge classifiers for Presence, Missingness, Persistence, and Entity; Reality has one pending representation decision, and 103 binding terms remain explicitly unknown rather than inheriting a proof from similar vocabulary.
 
+The nonbinding [candidate algebra experiment](./ontology/algebra/README.md)
+applies the same falsification-first posture one level above individual terms.
+It translates nine load-bearing definitions into typed witness normal forms,
+generates one-step structural mutations and extensional query countermodels,
+checks six candidate-discipline annotations, and tests the unchanged taxonomy
+on held-out consciousness, valuation, sovereignty, Ritual, and Meaning cases.
+The taxonomy is an experimental review instrument, not an executable law
+engine or a replacement for the binding ontology or Lean shadow.
+
 Lean is not canonical. Compilation proves that the declarations elaborate under the pinned compiler. It does not prove that the encoding exhausted the prose, that the prose exhausted Reality, or that the compiler has become a metaphysician. The [formalization decisions](./ontology/formal/decisions.md) and [build receipt](./ontology/formal/build-receipt.md) preserve that boundary.
 
 ## Adoption and review
@@ -97,6 +106,9 @@ From the repository root:
 python3 scripts/check-links.py
 python3 scripts/check-semantics.py
 python3 scripts/build-ontology-prompt.py --check
+python3 scripts/build-algebra.py --check
+python3 scripts/build-reduction-audit.py --check
+python3 scripts/build-positive-calculus.py --check
 python3 scripts/check-proposals.py
 python3 scripts/check-formal-receipt.py
 python3 scripts/check-adoption.py examples/organon-adoption.json --repo-root .
@@ -107,4 +119,4 @@ The link check keeps public Markdown inside the portable Obsidian/GitHub interse
 
 ## Status
 
-Organon v0.17 is provisional and binding only where explicitly adopted. The ontology is not complete, universally true, or immune to revision. It is a versioned promise that named distinctions will not quietly change halfway through an argument.
+Organon v0.18 is provisional and binding only where explicitly adopted. The ontology is not complete, universally true, or immune to revision. It is a versioned promise that named distinctions will not quietly change halfway through an argument.
