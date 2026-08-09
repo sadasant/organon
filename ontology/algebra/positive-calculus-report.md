@@ -1,6 +1,6 @@
 # Positive constructor calculus
 
-> Generated from the complete v0.17 registry. This is a nonbinding operational reduction, not a replacement for the binding definitions.
+> Generated from the complete v0.18 registry. This is a nonbinding operational reduction, not a replacement for the binding definitions.
 
 ## Result
 

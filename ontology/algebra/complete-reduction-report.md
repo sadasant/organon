@@ -1,6 +1,6 @@
 # Complete reduction audit
 
-> Generated from the complete v0.17 registry. This is a result about the candidate algebra, not a binding ontology revision.
+> Generated from the complete v0.18 registry. This audits the candidate algebra after v0.18 promoted definition admission into C1.
 
 ## Result
 

@@ -2,12 +2,12 @@
   "schema_version": 1,
   "status": "generated-nonbinding-complete-reduction-audit",
   "source_sha256": {
-    "ontology/terms.yaml": "10fb5fbb880bf4cb1982640f16699c8ebe3ce5c740f3af0c37ac54be813a4314",
+    "ontology/terms.yaml": "c1d3573aafb8f31535eac88c164b2b4e32f0fbf5c635fbf46b2aff4357c66339",
     "ontology/algebra/normal-forms.yaml": "e8072fa9503d07ebb2f480b72b673fe1628b94cad0a31e28423d07e441f606d2",
     "ontology/algebra/candidate-laws.yaml": "fd631fac2a31c06d0e4da9648ffbeb215f086c4aecd0c7ad82583a208f08488f",
     "ontology/algebra/claim-coverage.yaml": "17c549d7193e680b126fd112eaa36053105eb00a9c5b4b72655444d16594637a",
     "ontology/algebra/consistency-dispositions.yaml": "7cff3e1464144c33c15319ac24a7ea8880b57ba797ce571d4592c3a14f04c4aa",
-    "scripts/build-reduction-audit.py": "17185ac6a088e3b0ddd39a869e42a13fa1c0c188a5b7cc1fb046a9c67998880f"
+    "scripts/build-reduction-audit.py": "04492674d1698efb431cea77d01008796442cf11600e70b83a8be3cfde3d49a5"
   },
   "question": "Do the retained foundation, nine positive normal forms, and six candidate laws preserve every registered Organon classification?",
   "answer": "no",

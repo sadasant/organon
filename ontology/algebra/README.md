@@ -1,7 +1,7 @@
 ---
 type: ontology-algebra-experiment
 status: nonbinding
-ontology_version: "0.17.0"
+ontology_version: "0.18.0"
 source_lock: source-lock.json
 ---
 # Candidate algebra experiment
@@ -11,9 +11,11 @@ in consistency rules. This experiment asks a second-order question: do several
 of those local definitions and fences instantiate a smaller calculus over typed
 participants, conserved indices, and explicit witnesses?
 
-It does not shorten or amend the binding ontology. Version 0.17 is frozen by
-commit and source digest in [source-lock.json](./source-lock.json). The
-experiment is falsification-first: a candidate law matters only when removing
+It does not shorten the binding term definitions. Version 0.18 is frozen by
+commit and source digest in [source-lock.json](./source-lock.json); v0.18
+promotes only the definition-admission invariant discovered here, while the
+candidate laws and constructor remain nonbinding. The experiment is
+falsification-first: a candidate law matters only when removing
 it changes a finite classification, and a weakened definition matters only
 when an explicit near-miss model satisfies the weakening while failing the
 original join.
