@@ -1,11 +1,11 @@
 {
   "schema_version": 1,
   "project": "Engram",
-  "commit": "645c76c624cbb6e21f9d4187b3fc093f36b6cf38",
+  "commit": "1b56983ac658f10bfbd76c44bfc99c20b1355ebe",
   "files": {
     "README.md": {
-      "sha256": "9afbd67bc4c676718147c0901dbb668fe1216932d84233a196e33c7039d73154",
-      "line_count": 1255,
+      "sha256": "3911c5a9e6d50dd0adffb4a51ad0dd81511bdaac73e181c64fe0696612e45583",
+      "line_count": 1325,
       "cited_ranges": [
         [
           11,
@@ -32,8 +32,8 @@
       ]
     },
     "docs/design-principles.md": {
-      "sha256": "0c3e84f310e3d4d4fa78c59d7da5fdf008c9f240cf3bd6a5ecf0708cb0d256ea",
-      "line_count": 319,
+      "sha256": "4a9b6ce772e142c14e1987e24955b0de0cd18bea5d89d464916939d8b2faf4c5",
+      "line_count": 320,
       "cited_ranges": [
         [
           39,
@@ -112,8 +112,8 @@
       ]
     },
     "internal/app/app.go": {
-      "sha256": "1bda2d83feb060001e05f811de8d45d11852845efb310b985f62f97ca788b33d",
-      "line_count": 1171,
+      "sha256": "36c867b64fcf3e2592b0c07dc741a29cc9d5410796a9863a9a415fd7a8748494",
+      "line_count": 1227,
       "cited_ranges": [
         [
           436,
@@ -200,8 +200,8 @@
       ]
     },
     "internal/app/refresh.go": {
-      "sha256": "b030922e3b6dbcfbc3a9d896199870f0106cc24a555f8b8af9bf81a614dfdd6b",
-      "line_count": 803,
+      "sha256": "f32add8d2b6745449d0a2ce73506268cc855bf6f2163725a172bf7dbde6abbf3",
+      "line_count": 810,
       "cited_ranges": [
         [
           238,
@@ -260,8 +260,8 @@
       ]
     },
     "internal/state/state.go": {
-      "sha256": "a330924d8824ba99136cc82f089e8f9aabb45b9285362228fc102ab0903088fe",
-      "line_count": 1999,
+      "sha256": "8bc1ae07df1ff498fe0e54853423a9280665431b456abe47bcaaf2c2006066cb",
+      "line_count": 2059,
       "cited_ranges": [
         [
           36,
@@ -292,8 +292,8 @@
       ]
     },
     "internal/tmux/tmux.go": {
-      "sha256": "3025b29d058871d15a5663eeba2cbda769fa4ede0643c3e3b4fa5f1fedc3134f",
-      "line_count": 1338,
+      "sha256": "349da1caa5ec20455795624b62611717985189cc134ba70c4e042a23b6c4e4ca",
+      "line_count": 1346,
       "cited_ranges": [
         [
           92,
@@ -332,7 +332,7 @@
       ]
     },
     "requirements/INDEX.md": {
-      "sha256": "f30110978bbb57972e7b7deacc594124b01ecb2da98bc47ad5569c287bc12c38",
+      "sha256": "00546c2903e79689acfdd56ae5acebb9d757c676a726c2d4179d0e8224e15420",
       "line_count": 27,
       "cited_ranges": [
         [
@@ -348,8 +348,8 @@
       ]
     },
     "requirements/security.md": {
-      "sha256": "b7155a8b21ae58401923bc9d61eac6c77cb10271d2c2b6761b3fbc65a8b23802",
-      "line_count": 425,
+      "sha256": "582c8acc68713594d92cc9e331730da71cb32387a743e1229830a2b3788e2c9c",
+      "line_count": 460,
       "cited_ranges": [
         [
           7,
@@ -372,8 +372,8 @@
       ]
     },
     "requirements/tmux.md": {
-      "sha256": "7d597d5f59b9e92e9c86b32e7e7c762399871dd26e483676950e1d77746d9180",
-      "line_count": 293,
+      "sha256": "4c5f7da20a8f204207ef39a390600dc64038e796583d15f354f67968fe752f79",
+      "line_count": 307,
       "cited_ranges": [
         [
           29,
