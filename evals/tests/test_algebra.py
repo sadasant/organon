@@ -66,3 +66,29 @@ def test_joined_circuits_derive_their_declared_results_in_order():
         for item in circuits
     )
     assert [len(item["derived_results"]) for item in circuits] == [1, 2, 3]
+
+
+def test_complete_reduction_audit_accounts_for_registry_and_refutes_completeness():
+    script = ROOT / "scripts" / "build-reduction-audit.py"
+    subprocess.run([sys.executable, str(script), "--check"], cwd=ROOT, check=True)
+    ledger = json.loads((ALGEBRA / "reduction-ledger.yaml").read_text())
+    assert ledger["answer"] == "no"
+    assert len(ledger["terms"]) == ledger["counts"]["registered_terms"] == 109
+    assert len(ledger["consistency_rules"]) == 31
+    assert len(ledger["other_commitments"]) == 11
+    assert ledger["counts"]["constructively_encoded"] == 9
+    assert ledger["counts"]["positively_underdetermined"] == 97
+    pairs = [
+        item["paired_underdetermination_model"]
+        for item in ledger["terms"]
+        if item["disposition"] == "positively_underdetermined"
+    ]
+    assert len(pairs) == 97
+    assert all(pair["classification_differs"] for pair in pairs)
+    assert all(pair["all_declared_dependencies_present"] for pair in pairs)
+    assert all(
+        item["paired_underdetermination_model"]["shared_dependency_extensions"]
+        == item["depends_on"]
+        for item in ledger["terms"]
+        if item["disposition"] == "positively_underdetermined"
+    )

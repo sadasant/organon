@@ -1,7 +1,8 @@
 # Residuals and promotion gates
 
-This experiment found a compact candidate basis on its declared surface. It did
-not prove that Organon has been reduced to six laws.
+This experiment found a compact candidate basis on its declared surface. The
+complete-registry audit now establishes why Organon has **not** been reduced to
+six laws: they constrain admissibility but do not construct positive terms.
 
 ## Uncovered consistency rules
 
@@ -50,6 +51,11 @@ does not prove that the entire consciousness paragraph follows from that law.
   binding prose.
 - No model finder has searched for non-isomorphic global models of the complete
   candidate calculus.
+
+The exhaustive [reduction ledger](./reduction-ledger.yaml) closes the accounting
+gap without pretending to close the semantic gap: all 109 terms and 42
+commitments have a disposition, but 97 definitions admit paired
+interpretations that the present algebra cannot distinguish.
 
 ## Promotion gate
 

@@ -211,6 +211,15 @@ def main() -> int:
     if algebra_check.returncode != 0:
         errors.append(algebra_check.stderr.strip() or algebra_check.stdout.strip())
 
+    reduction_check = subprocess.run(
+        [sys.executable, str(ROOT / "scripts" / "build-reduction-audit.py"), "--check"],
+        cwd=ROOT,
+        capture_output=True,
+        text=True,
+    )
+    if reduction_check.returncode != 0:
+        errors.append(reduction_check.stderr.strip() or reduction_check.stdout.strip())
+
     if errors:
         print("Semantic check failed:")
         for error in errors:

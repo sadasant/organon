@@ -41,8 +41,11 @@ ontology/algebra/
 ├── connective-audit.yaml
 ├── candidate-laws.yaml
 ├── claim-coverage.yaml
+├── consistency-dispositions.yaml
 ├── mutations.yaml
 ├── coverage.md
+├── reduction-ledger.yaml
+├── complete-reduction-report.md
 ├── residuals.md
 └── fixtures/
     ├── challenges.yaml
@@ -127,11 +130,30 @@ afterward.
 [Coverage](./coverage.md) records the generated matrix. [Residuals](./residuals.md)
 states what this experiment has not established.
 
+## Complete-registry result
+
+The [complete reduction audit](./complete-reduction-report.md) extends the
+experiment from its training surface to an exhaustive disposition of all 109
+registered terms and all 42 commitments. It answers the reduction question in
+the negative: the six laws form an admissibility algebra, not a generative
+algebra. Nine definitions have positive normal forms, while 97 remain
+positively underdetermined by the current basis. Twenty consistency clauses
+receive candidate derivations, two remain governance constraints, and nine
+require unencoded positive circuits.
+
+This negative result is constructive. The generated
+[reduction ledger](./reduction-ledger.yaml) supplies a paired interpretation
+for every underdetermined definition and records every commitment exactly
+once. A future complete reduction must eliminate those pairs by adding a small
+positive constructor calculus; adding further prohibitions cannot suffice.
+
 ## Run
 
 ```sh
 python3 scripts/build-algebra.py
 python3 scripts/build-algebra.py --check
+python3 scripts/build-reduction-audit.py
+python3 scripts/build-reduction-audit.py --check
 ```
 
 The first command regenerates witnesses, mutations, countermodels, and coverage.
