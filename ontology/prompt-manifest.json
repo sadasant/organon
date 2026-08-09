@@ -15,9 +15,9 @@
     "editorial/long-form.md": "fb8f21b7dc03e2e44737fef723d94abdbb62a044ead89a6a7579d07d23b55d68",
     "editorial/short-form.md": "7ac9254f6f8964a1776f2eeacbfe36fdaad591701174116c0527c1f2c1b472be"
   },
-  "generator_sha256": "a3a1227df4513535f69b7e0bd1bb0d002a5a9d6d03d484fee3a4b1379dbaa13f",
-  "prompt_sha256": "857dddd983b63052384ca8083e1b5ebe3939f4e2bb36340a83fc282f8c652006",
-  "prompt_bytes": 69291,
+  "generator_sha256": "9ac9939e7d1004236fdb882ad9b71c897ccfe2c7e62f8299304038f2d8ff1726",
+  "prompt_sha256": "cd3058c7278a426ad0adc96a3e2a34b022be74e97e6f55d3519d9a22f51709eb",
+  "prompt_bytes": 69557,
   "extraction": "exact primary statement after each registered term or claim marker",
   "omissions": [
     "extended explanations and examples",
