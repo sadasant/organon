@@ -12,3 +12,5 @@ The canonical [Short Form](../editorial/short-form.md) emerged from generated sa
 The public Short Form is the adopted result. These private artifacts establish process provenance but carry no binding authority over the adopted text. If they are later published, they should enter under stable repository-relative paths without changing the canonical status of Short Form.
 
 Authorship remains governed by [Who is Daniel?](../DANIEL.md): generated language is a proposal until Daniel adopts it, and adoption does not erase the contribution of tools or reviewers.
+
+The proposed [Essay-Answer Form](../editorial/essay-answer-form.md) began as a finding from the essay-question evaluation: answers could remain strictly true while becoming disproportionate to the question and its implied reader. Its first calibration and generated artifacts remain evaluation evidence. The form is noncanonical until Daniel reviews and adopts it.

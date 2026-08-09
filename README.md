@@ -31,7 +31,9 @@ This matters because an ontology can be internally consistent and still reflect 
 
 ```text
 ontology/       binding prose, stable term registry, profiles, and Lean experiment
-editorial/      long-form grammar and canonical short-form delivery language
+editorial/      long-form, short-form, and relational answer instruments
+evals/          one source-pinned lifecycle for generation, judgment, improvement, and review
+project-ontologies/ source-pinned candidate mappings for downstream projects
 provenance/     essay, editorial, and term-level evidence lineage
 proposals/      nonbinding promotion dossiers for quarantined vocabulary
 reviews/        reusable review method and completed project audits
@@ -42,7 +44,18 @@ scripts/        repository, semantic, and adoption checks
 
 [Contributing to Organon](./CONTRIBUTING.md) defines the review burden for binding changes. In particular, a new term must survive a termhood challenge, dependency and collapse audits, comparison with its closest intellectual shadows, and proportionate formal testing before it can be called promotion-ready.
 
-The binding artifact is [Daniel's Ontology v0.17](./ontology/ontology.md). It remains readable as one Markdown document; the machine-readable registry and formal artifacts check and challenge it without replacing it. Its [term registry](./ontology/terms.yaml) assigns stable `organon:*` identifiers, typed claims, and explicit dependencies. The [hidden-bridge audit](./ontology/hidden-bridge-audit.md) records why three notions became terms while three were reduced to metalanguage or existing Relations. The [Ritual and Meaning dossier](./proposals/ritual-and-meaning.md) records why Flow absorbed recurrence, Ritual and Meaning survived termhood, and Ritual Residue did not. The [changelog](./ontology/changelog.md) keeps earlier arguments and rejected formulations out of the active system.
+The binding artifact is [Daniel's Ontology v0.17](./ontology/ontology.md). It remains readable as one Markdown document; the machine-readable registry and formal artifacts check and challenge it without replacing it. Its [term registry](./ontology/terms.yaml) assigns stable `organon:*` identifiers, typed claims, and explicit dependencies. The generated [prompt projection](./ontology/prompt.md) carries every primary term statement and registered commitment in a smaller, explicitly lossy form; its [manifest](./ontology/prompt-manifest.json) records exact source hashes, coverage, and omissions. The [hidden-bridge audit](./ontology/hidden-bridge-audit.md) records why three notions became terms while three were reduced to metalanguage or existing Relations. The [Ritual and Meaning dossier](./proposals/ritual-and-meaning.md) records why Flow absorbed recurrence, Ritual and Meaning survived termhood, and Ritual Residue did not. The [changelog](./ontology/changelog.md) keeps earlier arguments and rejected formulations out of the active system.
+
+For focused context hydration, the same generator accepts one or more terms and
+emits only their transitive dependency closure plus applicable commitments:
+
+```sh
+python3 scripts/build-ontology-prompt.py \
+  --term organon:Intelligence \
+  --term organon:OperativeKnowledge \
+  --output /tmp/organon-knowledge-prompt.md \
+  --manifest /tmp/organon-knowledge-prompt-manifest.json
+```
 
 Terms under quarantine are developed through [proposal pull requests](./proposals/README.md). A proposal may preserve candidate definitions, hypotheses, evidence requirements, and reasons for refusal without changing the binding ontology merely by existing.
 
@@ -50,7 +63,11 @@ Capitalization is not adoption. A downstream repository adopts Organon by naming
 
 ## Editorial instruments
 
-The [Long-Form Editorial Grammar](./editorial/long-form.md) describes how a reader comes to need, receive, and carry a difficult idea. The canonical [Short Form](./editorial/short-form.md) governs sentence-scale delivery once that idea has been earned. Neither may silently redefine what the ontology says exists.
+The [Long-Form Editorial Grammar](./editorial/long-form.md) describes how a reader comes to need, receive, and carry a difficult idea. The canonical [Short Form](./editorial/short-form.md) governs sentence-scale delivery once that idea has been earned. The proposed [Essay-Answer Form](./editorial/essay-answer-form.md) governs a different relation: answering a particular question through a restrained, evidenced hypothesis about its reader. None may silently redefine what the ontology says exists.
+
+The [evaluation methodology](./evals/methodology/README.md) governs every retained DSPy experiment: pin the source, preflight deterministic facts, generate when appropriate, judge in non-overlapping layers, turn failures into bounded improvement work, compare exact candidates, and leave promotion to a human maintainer. The [essay-question suite](./evals/essay-questions/README.md) applies it to reader answers without treating generated interlocutor hypotheses as facts about actual readers.
+
+The [project ontologies](./project-ontologies/README.md) apply the same discipline to Engram and Kenogram. Their [two-stage suite](./evals/project-ontologies/README.md) checks Organon dependency closure before open-source documentation quality and emits explicit promotion gates. The [editorial-artifact suite](./evals/editorial-artifacts/README.md) carries the same lifecycle into README and long-form candidates. None of these outputs becomes an adoption claim by passing an automated gate.
 
 The ontology's essay evidence is indexed through the public [Essay Corpus](./provenance/essays.md). Private drafts and review artifacts are declared through [Editorial Provenance](./provenance/editorial.md). [Term Provenance](./provenance/terms.md) records the lineage claimed for every stable term without presenting lineage as proof of truth.
 
@@ -79,6 +96,7 @@ From the repository root:
 ```sh
 python3 scripts/check-links.py
 python3 scripts/check-semantics.py
+python3 scripts/build-ontology-prompt.py --check
 python3 scripts/check-proposals.py
 python3 scripts/check-formal-receipt.py
 python3 scripts/check-adoption.py examples/organon-adoption.json --repo-root .

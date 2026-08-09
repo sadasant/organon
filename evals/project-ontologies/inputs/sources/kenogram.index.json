@@ -1,0 +1,375 @@
+{
+  "schema_version": 1,
+  "project": "Kenogram",
+  "commit": "8c00104bb4b666d844715bf9840634cf92e571e2",
+  "files": {
+    "README.md": {
+      "sha256": "ffbe7bbc86fe8c73f53fdf752726b34f75e89f58294ef264909e7985a8591d28",
+      "line_count": 199,
+      "cited_ranges": [
+        [
+          7,
+          25
+        ],
+        [
+          27,
+          47
+        ],
+        [
+          55,
+          70
+        ],
+        [
+          118,
+          133
+        ],
+        [
+          188,
+          199
+        ]
+      ],
+      "covered_ranges": [
+        [
+          5,
+          49
+        ],
+        [
+          53,
+          72
+        ],
+        [
+          116,
+          135
+        ],
+        [
+          186,
+          199
+        ]
+      ]
+    },
+    "docs/design.md": {
+      "sha256": "daee07332b7c6f6f72a10780b7895dbf281d61d38abeaac810fe89ded89a7f32",
+      "line_count": 45,
+      "cited_ranges": [
+        [
+          3,
+          26
+        ],
+        [
+          28,
+          41
+        ]
+      ],
+      "covered_ranges": [
+        [
+          1,
+          43
+        ]
+      ]
+    },
+    "docs/kenogrammatics.md": {
+      "sha256": "8ec1b5cb335e32132e3d34ca63ee48b74020d7919ddd2b608a495dac97951489",
+      "line_count": 99,
+      "cited_ranges": [
+        [
+          44,
+          84
+        ]
+      ],
+      "covered_ranges": [
+        [
+          42,
+          86
+        ]
+      ]
+    },
+    "internal/app/app.go": {
+      "sha256": "5194ca6322a8c693924d61cac804589c31f0ddd3c34c5f332539451505431e78",
+      "line_count": 2364,
+      "cited_ranges": [
+        [
+          155,
+          188
+        ],
+        [
+          207,
+          232
+        ],
+        [
+          239,
+          289
+        ]
+      ],
+      "covered_ranges": [
+        [
+          153,
+          190
+        ],
+        [
+          205,
+          234
+        ],
+        [
+          237,
+          291
+        ]
+      ]
+    },
+    "internal/backend/backend.go": {
+      "sha256": "ec9d16719bd4bff04d6cc040338f79487bb6488102044080f26c37b655a26ed2",
+      "line_count": 869,
+      "cited_ranges": [
+        [
+          158,
+          160
+        ],
+        [
+          413,
+          453
+        ]
+      ],
+      "covered_ranges": [
+        [
+          156,
+          162
+        ],
+        [
+          411,
+          455
+        ]
+      ]
+    },
+    "internal/decl/types.go": {
+      "sha256": "65a9f3c49d28c3aed4dc8e89f27c7a63902cc04e38f2a3e298b14c4ddab3ff31",
+      "line_count": 69,
+      "cited_ranges": [
+        [
+          3,
+          69
+        ]
+      ],
+      "covered_ranges": [
+        [
+          1,
+          69
+        ]
+      ]
+    },
+    "internal/history/history.go": {
+      "sha256": "12c0595b569c961f3024e9a1c3041075a3ad8e2cb91413eaf7e0ad4efd0b3865",
+      "line_count": 216,
+      "cited_ranges": [
+        [
+          1,
+          40
+        ],
+        [
+          42,
+          93
+        ]
+      ],
+      "covered_ranges": [
+        [
+          1,
+          95
+        ]
+      ]
+    },
+    "internal/jobcontract/types.go": {
+      "sha256": "0d663541b28c92226e7f8be2b9000c5ef443365cba6ceb2b546e5e5c5f75711e",
+      "line_count": 251,
+      "cited_ranges": [
+        [
+          23,
+          62
+        ],
+        [
+          64,
+          122
+        ],
+        [
+          124,
+          139
+        ],
+        [
+          153,
+          190
+        ]
+      ],
+      "covered_ranges": [
+        [
+          21,
+          141
+        ],
+        [
+          151,
+          192
+        ]
+      ]
+    },
+    "internal/plan/plan.go": {
+      "sha256": "cd05830095292b9fe3aadb8693f234a4fb652db4031ae7f84d6992b9aa6693b8",
+      "line_count": 396,
+      "cited_ranges": [
+        [
+          21,
+          83
+        ],
+        [
+          97,
+          189
+        ]
+      ],
+      "covered_ranges": [
+        [
+          19,
+          85
+        ],
+        [
+          95,
+          191
+        ]
+      ]
+    },
+    "requirements/declaration.md": {
+      "sha256": "9a0114b8dfdb469f1e6d8f5d24c27cb45e08dd933ba8bdf7f3f409e7f286e369",
+      "line_count": 50,
+      "cited_ranges": [
+        [
+          5,
+          25
+        ]
+      ],
+      "covered_ranges": [
+        [
+          3,
+          27
+        ]
+      ]
+    },
+    "requirements/jobs.md": {
+      "sha256": "852a5f99e3d4660a1de358ee6cdd1d66c36dbf3ef52834453e661b4cae8c566f",
+      "line_count": 429,
+      "cited_ranges": [
+        [
+          1,
+          30
+        ],
+        [
+          140,
+          214
+        ],
+        [
+          239,
+          278
+        ]
+      ],
+      "covered_ranges": [
+        [
+          1,
+          32
+        ],
+        [
+          138,
+          216
+        ],
+        [
+          237,
+          280
+        ]
+      ]
+    },
+    "requirements/lifecycle.md": {
+      "sha256": "752519c52db7190add1b89ad1672e0f2c9b455aa8e2e6b43393bc2f58df554b9",
+      "line_count": 68,
+      "cited_ranges": [
+        [
+          7,
+          32
+        ],
+        [
+          34,
+          46
+        ]
+      ],
+      "covered_ranges": [
+        [
+          5,
+          48
+        ]
+      ]
+    },
+    "requirements/network.md": {
+      "sha256": "a119e96a11e853ece98effde9948c41c457fd92ac009431f1c396f95f84ab681",
+      "line_count": 66,
+      "cited_ranges": [
+        [
+          9,
+          33
+        ],
+        [
+          62,
+          66
+        ]
+      ],
+      "covered_ranges": [
+        [
+          7,
+          35
+        ],
+        [
+          60,
+          66
+        ]
+      ]
+    },
+    "requirements/provenance.md": {
+      "sha256": "7aec6f748955145eb4d435ce50c449378087720cb46ddc8e0b3a442bce6a918e",
+      "line_count": 42,
+      "cited_ranges": [
+        [
+          9,
+          37
+        ]
+      ],
+      "covered_ranges": [
+        [
+          7,
+          39
+        ]
+      ]
+    },
+    "requirements/security.md": {
+      "sha256": "6f05cf206438d5efd1f11ac0e02efefec47f198525f4f486d7f7b920633030bc",
+      "line_count": 124,
+      "cited_ranges": [
+        [
+          5,
+          10
+        ],
+        [
+          64,
+          80
+        ],
+        [
+          111,
+          117
+        ]
+      ],
+      "covered_ranges": [
+        [
+          3,
+          12
+        ],
+        [
+          62,
+          82
+        ],
+        [
+          109,
+          119
+        ]
+      ]
+    }
+  }
+}
