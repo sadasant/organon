@@ -33,6 +33,7 @@ inputs/
 results/<run>/
 ├── candidate.json
 ├── candidate.md
+├── historical-baseline-v0.17.json # optional retained control
 ├── evaluation.json
 ├── evaluation.md
 ├── improvement-plan.json
@@ -62,11 +63,13 @@ selects the ten-question calibration surface.
 
 ## Retained finding
 
-The [v0.2 experiment](results/2026-08-05-answer-form-v0.2/evaluation.md)
-is the canonical retained run. Its 35–90 word contract reduced visible answer
-length from 2,965 to 2,641 words; a fresh judgment under methodology v1.0 passed
-38 of 40 answers. DP-4 overstated an incomplete mathematical analogy, while
-AP-1 collapsed Organon's distinct Institution and Person terms. The bounded
-[improvement plan](results/2026-08-05-answer-form-v0.2/improvement-plan.md)
-preserves both failures as calibration evidence rather than weakening the
-ontology or the gate.
+The [v0.18 final evaluation](results/2026-08-09-answer-form-v0.2-v0.18-final/evaluation.md)
+passes all 40 answers after two selective refinement rounds. The first pass
+identified 10 failures, the second reused 30 byte-identical judgments and left
+one answer failing, and the final pass reused 39 judgments while rejudging only
+that answer. The exact candidate contains 2,609 visible answer words.
+
+The [comparison](results/2026-08-09-answer-form-v0.2-v0.18-final/comparison.md)
+retains the 2,965-word v0.17 short-form baseline as historical control. It is
+explicitly a cross-version contrast, not a causal test of editorial form alone,
+because the baseline and candidate carry different ontology hashes.

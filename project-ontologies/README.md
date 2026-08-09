@@ -12,7 +12,7 @@ or convert repository self-description into Truth or Evidence. Each remains a
 Current dossiers:
 
 - [Engram](./engram.md), pinned to public `main` commit
-  `645c76c624cbb6e21f9d4187b3fc093f36b6cf38`;
+  `1b56983ac658f10bfbd76c44bfc99c20b1355ebe`;
 - [Kenogram](./kenogram.md), pinned to public `main` commit
   `8c00104bb4b666d844715bf9840634cf92e571e2`.
 
