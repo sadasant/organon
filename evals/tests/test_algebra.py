@@ -4,6 +4,8 @@ import subprocess
 import sys
 from pathlib import Path
 
+import pytest
+
 
 ROOT = Path(__file__).resolve().parents[2]
 SCRIPT = ROOT / "scripts" / "build-algebra.py"
@@ -22,20 +24,43 @@ def test_generated_algebra_is_current_and_falsification_complete():
     subprocess.run([sys.executable, str(SCRIPT), "--check"], cwd=ROOT, check=True)
     mutations = json.loads((ALGEBRA / "mutations.yaml").read_text())
     countermodels = json.loads((ALGEBRA / "fixtures" / "countermodels.yaml").read_text())
-    assert mutations["mutation_count"] == 136
-    assert len(countermodels["semantic_mutations"]) == mutations["mutation_count"]
-    assert all(item["mutated_derives"] and not item["original_derives"] for item in countermodels["semantic_mutations"])
+    assert mutations["mutation_count"] == 138
+    assert len(countermodels["structural_mutations"]) == mutations["mutation_count"]
+    assert all(item["mutated_derives"] and not item["original_derives"] for item in countermodels["structural_mutations"])
 
 
-def test_every_candidate_law_is_ablation_essential():
+def test_every_candidate_discipline_has_one_unique_labeled_fixture():
     builder = load_builder()
     laws = builder.load(builder.LAWS)["laws"]
     challenges = builder.validate_challenges(builder.load(builder.CHALLENGES), laws)
-    ablation = builder.validate_ablation(laws, challenges)
-    assert len(laws) == len(ablation) == 6
+    unique_fixtures = builder.validate_unique_fixtures(laws, challenges)
+    assert len(laws) == len(unique_fixtures) == 6
 
 
-def test_unchanged_basis_blocks_holdouts_without_blocking_counts_as():
+def test_predicate_signatures_reject_malformed_truth_denotation():
+    builder = load_builder()
+    signatures = builder.validate_signatures(builder.load(builder.PREDICATE_SIGNATURES))
+    variables = {
+        "claim": "Claim",
+        "representation": "Representation",
+        "presence": "Presence",
+        "rule": "Rule",
+        "scope": "Scope",
+    }
+    malformed = {
+        "predicate": "Denotation",
+        "args": ["claim", "representation", "presence", "rule", "scope"],
+    }
+    with pytest.raises(builder.AlgebraError, match="predicate signature mismatch"):
+        builder.validate_atom(
+            malformed,
+            variables,
+            signatures,
+            label="malformed-truth-denotation",
+        )
+
+
+def test_unchanged_taxonomy_covers_holdouts_without_covering_counts_as():
     builder = load_builder()
     laws_data = builder.load(builder.LAWS)
     laws = laws_data["laws"]
@@ -79,7 +104,7 @@ def test_complete_reduction_audit_accounts_for_registry_and_refutes_completeness
     assert ledger["counts"]["constructively_encoded"] == 9
     assert ledger["counts"]["positively_underdetermined"] == 97
     pairs = [
-        item["paired_underdetermination_model"]
+        item["paired_target_extension_sketch"]
         for item in ledger["terms"]
         if item["disposition"] == "positively_underdetermined"
     ]
@@ -87,28 +112,28 @@ def test_complete_reduction_audit_accounts_for_registry_and_refutes_completeness
     assert all(pair["classification_differs"] for pair in pairs)
     assert all(pair["all_declared_dependencies_present"] for pair in pairs)
     assert all(
-        item["paired_underdetermination_model"]["shared_dependency_extensions"]
+        item["paired_target_extension_sketch"]["shared_dependency_extensions"]
         == item["depends_on"]
         for item in ledger["terms"]
         if item["disposition"] == "positively_underdetermined"
     )
 
 
-def test_one_positive_constructor_is_cardinality_minimal_but_not_semantic_reduction():
+def test_degenerate_reflection_control_is_not_a_semantic_reduction():
     script = ROOT / "scripts" / "build-positive-calculus.py"
     subprocess.run([sys.executable, str(script), "--check"], cwd=ROOT, check=True)
     ledger = json.loads((ALGEBRA / "constructor-ledger.yaml").read_text())
     assert ledger["counts"] == {
         "registered_terms": 109,
         "retained_foundation": 3,
-        "definitions_constructed": 106,
+        "definitions_reflected": 106,
         "constructors": 1,
-        "one_step_mutations": 825,
-        "unconstructed_definitions": 0,
+        "dependency_removal_fixtures": 825,
+        "unreflected_definitions": 0,
     }
-    assert ledger["cardinality_minimality"]["cardinality_minimal"] is True
-    assert ledger["cardinality_minimality"]["zero_constructors_definitions_derived"] == 0
-    assert ledger["cardinality_minimality"]["one_constructor_definitions_derived"] == 106
+    assert ledger["degenerate_control_comparison"]["constructor_minimum_proved"] is False
+    assert ledger["degenerate_control_comparison"]["zero_constructors_definitions_derived"] == 0
+    assert ledger["degenerate_control_comparison"]["one_constructor_definitions_derived"] == 106
     assert ledger["semantic_minimality"]["proved"] is False
     assert ledger["semantic_minimality"]["binding_definition_schemas_retained"] == 106
     assert ledger["semantic_minimality"]["anti_vacuity_passes"] is False

@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "status": "nonbinding-candidate-basis",
+  "status": "nonbinding-candidate-discipline-taxonomy",
   "derived_from_cards": [
     "NF-ENTITY", "NF-DENOTATION", "NF-CAUSAL-CONTRIBUTION", "NF-CAPABILITY",
     "NF-STANDING", "NF-EXERCISABILITY", "NF-EVIDENCE", "NF-EVIDENTIAL-BEARING", "NF-TRUTH"

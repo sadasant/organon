@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "status": "generated-nonbinding-semantic-mutations",
-  "source_normal_forms_sha256": "e8072fa9503d07ebb2f480b72b673fe1628b94cad0a31e28423d07e441f606d2",
-  "generator_sha256": "804a34c8f57083bdf29cd3c6a980ae039c873696b3fd11bbb35e846de37c2f44",
-  "mutation_count": 136,
+  "status": "generated-nonbinding-syntactic-constructor-mutations",
+  "source_normal_forms_sha256": "1890a06a03595d1b4514a30ddd7a657d58f8b43926f75156f6d9d23da59d9e38",
+  "generator_sha256": "e46941b5e9b7437b0bba5545760b1fb1777f3b330e640f3ffe72c090c8a21a64",
+  "mutation_count": 138,
   "mutations": [
     {
       "id": "M-ENTITY-remove-configuration",
@@ -446,6 +446,7 @@
         {
           "predicate": "OrderedAssociation",
           "args": [
+            "denotation",
             "expression",
             "target"
           ]
@@ -472,6 +473,7 @@
         {
           "predicate": "OrderedAssociation",
           "args": [
+            "denotation",
             "expression",
             "target"
           ]
@@ -529,6 +531,7 @@
         {
           "predicate": "OrderedAssociation",
           "args": [
+            "denotation",
             "expression__split",
             "target"
           ]
@@ -561,6 +564,7 @@
         {
           "predicate": "OrderedAssociation",
           "args": [
+            "denotation",
             "expression",
             "target__split"
           ]
@@ -594,7 +598,8 @@
           "predicate": "ReverseOfOrderedAssociation",
           "args": [
             "target",
-            "expression"
+            "expression",
+            "denotation"
           ]
         }
       ],
@@ -625,6 +630,7 @@
         {
           "predicate": "Resembles",
           "args": [
+            "denotation",
             "expression",
             "target"
           ]
@@ -657,6 +663,7 @@
         {
           "predicate": "CoOccurs",
           "args": [
+            "denotation",
             "expression",
             "target"
           ]
@@ -6665,7 +6672,7 @@
       "outcome": "countermodel",
       "mutated_atoms": [
         {
-          "predicate": "Claim",
+          "predicate": "ClaimInScope",
           "args": [
             "claim",
             "scope"
@@ -6796,7 +6803,7 @@
           ]
         },
         {
-          "predicate": "Claim",
+          "predicate": "ClaimInScope",
           "args": [
             "claim",
             "scope"
@@ -6858,7 +6865,7 @@
           ]
         },
         {
-          "predicate": "Claim",
+          "predicate": "ClaimInScope",
           "args": [
             "claim",
             "scope"
@@ -6917,7 +6924,7 @@
           ]
         },
         {
-          "predicate": "Claim",
+          "predicate": "ClaimInScope",
           "args": [
             "claim",
             "scope"
@@ -6976,7 +6983,7 @@
           ]
         },
         {
-          "predicate": "Claim",
+          "predicate": "ClaimInScope",
           "args": [
             "claim",
             "scope"
@@ -7033,7 +7040,7 @@
           ]
         },
         {
-          "predicate": "Claim",
+          "predicate": "ClaimInScope",
           "args": [
             "claim",
             "scope"
@@ -7102,7 +7109,7 @@
           ]
         },
         {
-          "predicate": "Claim",
+          "predicate": "ClaimInScope",
           "args": [
             "claim",
             "scope"
@@ -7171,7 +7178,7 @@
           ]
         },
         {
-          "predicate": "Claim",
+          "predicate": "ClaimInScope",
           "args": [
             "claim",
             "scope"
@@ -7240,7 +7247,7 @@
           ]
         },
         {
-          "predicate": "Claim",
+          "predicate": "ClaimInScope",
           "args": [
             "claim",
             "scope"
@@ -7309,7 +7316,7 @@
           ]
         },
         {
-          "predicate": "Claim",
+          "predicate": "ClaimInScope",
           "args": [
             "claim",
             "scope"
@@ -7378,7 +7385,7 @@
           ]
         },
         {
-          "predicate": "Claim",
+          "predicate": "ClaimInScope",
           "args": [
             "claim",
             "scope"
@@ -7447,7 +7454,7 @@
           ]
         },
         {
-          "predicate": "Claim",
+          "predicate": "ClaimInScope",
           "args": [
             "claim",
             "scope"
@@ -7516,7 +7523,7 @@
           ]
         },
         {
-          "predicate": "Claim",
+          "predicate": "ClaimInScope",
           "args": [
             "claim",
             "scope"
@@ -7604,7 +7611,14 @@
         {
           "predicate": "Denotation",
           "args": [
+            "denotation",
             "representation",
+            "presence"
+          ]
+        },
+        {
+          "predicate": "AppliesUnder",
+          "args": [
             "specification",
             "presence",
             "rule",
@@ -7623,9 +7637,8 @@
           "args": [
             "adequacy",
             "claim",
-            "representation",
+            "denotation",
             "specification",
-            "presence",
             "rule",
             "scope"
           ]
@@ -7644,7 +7657,7 @@
       "outcome": "countermodel",
       "mutated_atoms": [
         {
-          "predicate": "Claim",
+          "predicate": "RepresentedClaim",
           "args": [
             "claim",
             "representation",
@@ -7675,7 +7688,14 @@
         {
           "predicate": "Denotation",
           "args": [
+            "denotation",
             "representation",
+            "presence"
+          ]
+        },
+        {
+          "predicate": "AppliesUnder",
+          "args": [
             "specification",
             "presence",
             "rule",
@@ -7694,9 +7714,8 @@
           "args": [
             "adequacy",
             "claim",
-            "representation",
+            "denotation",
             "specification",
-            "presence",
             "rule",
             "scope"
           ]
@@ -7715,7 +7734,7 @@
       "outcome": "countermodel",
       "mutated_atoms": [
         {
-          "predicate": "Claim",
+          "predicate": "RepresentedClaim",
           "args": [
             "claim",
             "representation",
@@ -7744,7 +7763,14 @@
         {
           "predicate": "Denotation",
           "args": [
+            "denotation",
             "representation",
+            "presence"
+          ]
+        },
+        {
+          "predicate": "AppliesUnder",
+          "args": [
             "specification",
             "presence",
             "rule",
@@ -7763,9 +7789,8 @@
           "args": [
             "adequacy",
             "claim",
-            "representation",
+            "denotation",
             "specification",
-            "presence",
             "rule",
             "scope"
           ]
@@ -7784,7 +7809,7 @@
       "outcome": "countermodel",
       "mutated_atoms": [
         {
-          "predicate": "Claim",
+          "predicate": "RepresentedClaim",
           "args": [
             "claim",
             "representation",
@@ -7815,7 +7840,14 @@
         {
           "predicate": "Denotation",
           "args": [
+            "denotation",
             "representation",
+            "presence"
+          ]
+        },
+        {
+          "predicate": "AppliesUnder",
+          "args": [
             "specification",
             "presence",
             "rule",
@@ -7834,9 +7866,8 @@
           "args": [
             "adequacy",
             "claim",
-            "representation",
+            "denotation",
             "specification",
-            "presence",
             "rule",
             "scope"
           ]
@@ -7855,7 +7886,7 @@
       "outcome": "countermodel",
       "mutated_atoms": [
         {
-          "predicate": "Claim",
+          "predicate": "RepresentedClaim",
           "args": [
             "claim",
             "representation",
@@ -7885,7 +7916,14 @@
         {
           "predicate": "Denotation",
           "args": [
+            "denotation",
             "representation",
+            "presence"
+          ]
+        },
+        {
+          "predicate": "AppliesUnder",
+          "args": [
             "specification",
             "presence",
             "rule",
@@ -7904,9 +7942,8 @@
           "args": [
             "adequacy",
             "claim",
-            "representation",
+            "denotation",
             "specification",
-            "presence",
             "rule",
             "scope"
           ]
@@ -7925,7 +7962,7 @@
       "outcome": "countermodel",
       "mutated_atoms": [
         {
-          "predicate": "Claim",
+          "predicate": "RepresentedClaim",
           "args": [
             "claim",
             "representation",
@@ -7960,6 +7997,15 @@
           ]
         },
         {
+          "predicate": "AppliesUnder",
+          "args": [
+            "specification",
+            "presence",
+            "rule",
+            "scope"
+          ]
+        },
+        {
           "predicate": "Conforms",
           "args": [
             "presence",
@@ -7971,9 +8017,82 @@
           "args": [
             "adequacy",
             "claim",
-            "representation",
+            "denotation",
             "specification",
+            "rule",
+            "scope"
+          ]
+        }
+      ],
+      "mutated_derives": true,
+      "original_derives": false
+    },
+    {
+      "id": "M-TRUTH-remove-applies-under",
+      "card": "NF-TRUTH",
+      "operator": "remove_premise",
+      "failure_shapes": [
+        "premise_omission"
+      ],
+      "outcome": "countermodel",
+      "mutated_atoms": [
+        {
+          "predicate": "RepresentedClaim",
+          "args": [
+            "claim",
+            "representation",
+            "scope"
+          ]
+        },
+        {
+          "predicate": "Representation",
+          "args": [
+            "representation"
+          ]
+        },
+        {
+          "predicate": "TruthSpecification",
+          "args": [
+            "specification",
+            "claim",
+            "scope"
+          ]
+        },
+        {
+          "predicate": "Presence",
+          "args": [
+            "presence"
+          ]
+        },
+        {
+          "predicate": "InScope",
+          "args": [
             "presence",
+            "scope"
+          ]
+        },
+        {
+          "predicate": "Denotation",
+          "args": [
+            "denotation",
+            "representation",
+            "presence"
+          ]
+        },
+        {
+          "predicate": "Conforms",
+          "args": [
+            "presence",
+            "specification"
+          ]
+        },
+        {
+          "predicate": "MaterialAdequacy",
+          "args": [
+            "adequacy",
+            "claim",
+            "denotation",
+            "specification",
             "rule",
             "scope"
           ]
@@ -7992,7 +8111,7 @@
       "outcome": "countermodel",
       "mutated_atoms": [
         {
-          "predicate": "Claim",
+          "predicate": "RepresentedClaim",
           "args": [
             "claim",
             "representation",
@@ -8029,7 +8148,14 @@
         {
           "predicate": "Denotation",
           "args": [
+            "denotation",
             "representation",
+            "presence"
+          ]
+        },
+        {
+          "predicate": "AppliesUnder",
+          "args": [
             "specification",
             "presence",
             "rule",
@@ -8041,9 +8167,8 @@
           "args": [
             "adequacy",
             "claim",
-            "representation",
+            "denotation",
             "specification",
-            "presence",
             "rule",
             "scope"
           ]
@@ -8062,7 +8187,7 @@
       "outcome": "countermodel",
       "mutated_atoms": [
         {
-          "predicate": "Claim",
+          "predicate": "RepresentedClaim",
           "args": [
             "claim",
             "representation",
@@ -8099,7 +8224,14 @@
         {
           "predicate": "Denotation",
           "args": [
+            "denotation",
             "representation",
+            "presence"
+          ]
+        },
+        {
+          "predicate": "AppliesUnder",
+          "args": [
             "specification",
             "presence",
             "rule",
@@ -8127,7 +8259,7 @@
       "outcome": "countermodel",
       "mutated_atoms": [
         {
-          "predicate": "Claim",
+          "predicate": "RepresentedClaim",
           "args": [
             "claim",
             "representation",
@@ -8164,7 +8296,14 @@
         {
           "predicate": "Denotation",
           "args": [
+            "denotation",
             "representation",
+            "presence"
+          ]
+        },
+        {
+          "predicate": "AppliesUnder",
+          "args": [
             "specification",
             "presence",
             "rule",
@@ -8183,9 +8322,8 @@
           "args": [
             "adequacy",
             "claim__split",
-            "representation",
+            "denotation",
             "specification",
-            "presence",
             "rule",
             "scope"
           ]
@@ -8204,7 +8342,7 @@
       "outcome": "countermodel",
       "mutated_atoms": [
         {
-          "predicate": "Claim",
+          "predicate": "RepresentedClaim",
           "args": [
             "claim",
             "representation",
@@ -8241,7 +8379,14 @@
         {
           "predicate": "Denotation",
           "args": [
-            "representation",
+            "denotation",
+            "representation__split",
+            "presence"
+          ]
+        },
+        {
+          "predicate": "AppliesUnder",
+          "args": [
             "specification",
             "presence",
             "rule",
@@ -8260,9 +8405,91 @@
           "args": [
             "adequacy",
             "claim",
-            "representation__split",
+            "denotation",
+            "specification",
+            "rule",
+            "scope"
+          ]
+        }
+      ],
+      "mutated_derives": true,
+      "original_derives": false
+    },
+    {
+      "id": "M-TRUTH-split-denotation",
+      "card": "NF-TRUTH",
+      "operator": "change_shared_variable",
+      "failure_shapes": [
+        "index_change"
+      ],
+      "outcome": "countermodel",
+      "mutated_atoms": [
+        {
+          "predicate": "RepresentedClaim",
+          "args": [
+            "claim",
+            "representation",
+            "scope"
+          ]
+        },
+        {
+          "predicate": "Representation",
+          "args": [
+            "representation"
+          ]
+        },
+        {
+          "predicate": "TruthSpecification",
+          "args": [
+            "specification",
+            "claim",
+            "scope"
+          ]
+        },
+        {
+          "predicate": "Presence",
+          "args": [
+            "presence"
+          ]
+        },
+        {
+          "predicate": "InScope",
+          "args": [
+            "presence",
+            "scope"
+          ]
+        },
+        {
+          "predicate": "Denotation",
+          "args": [
+            "denotation",
+            "representation",
+            "presence"
+          ]
+        },
+        {
+          "predicate": "AppliesUnder",
+          "args": [
             "specification",
             "presence",
+            "rule",
+            "scope"
+          ]
+        },
+        {
+          "predicate": "Conforms",
+          "args": [
+            "presence",
+            "specification"
+          ]
+        },
+        {
+          "predicate": "MaterialAdequacy",
+          "args": [
+            "adequacy",
+            "claim",
+            "denotation__split",
+            "specification",
             "rule",
             "scope"
           ]
@@ -8281,7 +8508,7 @@
       "outcome": "countermodel",
       "mutated_atoms": [
         {
-          "predicate": "Claim",
+          "predicate": "RepresentedClaim",
           "args": [
             "claim",
             "representation",
@@ -8318,7 +8545,14 @@
         {
           "predicate": "Denotation",
           "args": [
+            "denotation",
             "representation",
+            "presence"
+          ]
+        },
+        {
+          "predicate": "AppliesUnder",
+          "args": [
             "specification",
             "presence",
             "rule",
@@ -8337,9 +8571,8 @@
           "args": [
             "adequacy",
             "claim",
-            "representation",
+            "denotation",
             "specification__split",
-            "presence",
             "rule",
             "scope"
           ]
@@ -8358,7 +8591,7 @@
       "outcome": "countermodel",
       "mutated_atoms": [
         {
-          "predicate": "Claim",
+          "predicate": "RepresentedClaim",
           "args": [
             "claim",
             "representation",
@@ -8395,7 +8628,14 @@
         {
           "predicate": "Denotation",
           "args": [
+            "denotation",
             "representation",
+            "presence"
+          ]
+        },
+        {
+          "predicate": "AppliesUnder",
+          "args": [
             "specification",
             "presence",
             "rule",
@@ -8405,7 +8645,7 @@
         {
           "predicate": "Conforms",
           "args": [
-            "presence",
+            "presence__split",
             "specification"
           ]
         },
@@ -8414,9 +8654,8 @@
           "args": [
             "adequacy",
             "claim",
-            "representation",
+            "denotation",
             "specification",
-            "presence__split",
             "rule",
             "scope"
           ]
@@ -8435,7 +8674,7 @@
       "outcome": "countermodel",
       "mutated_atoms": [
         {
-          "predicate": "Claim",
+          "predicate": "RepresentedClaim",
           "args": [
             "claim",
             "representation",
@@ -8472,7 +8711,14 @@
         {
           "predicate": "Denotation",
           "args": [
+            "denotation",
             "representation",
+            "presence"
+          ]
+        },
+        {
+          "predicate": "AppliesUnder",
+          "args": [
             "specification",
             "presence",
             "rule",
@@ -8491,9 +8737,8 @@
           "args": [
             "adequacy",
             "claim",
-            "representation",
+            "denotation",
             "specification",
-            "presence",
             "rule__split",
             "scope"
           ]
@@ -8512,7 +8757,7 @@
       "outcome": "countermodel",
       "mutated_atoms": [
         {
-          "predicate": "Claim",
+          "predicate": "RepresentedClaim",
           "args": [
             "claim",
             "representation",
@@ -8549,7 +8794,14 @@
         {
           "predicate": "Denotation",
           "args": [
+            "denotation",
             "representation",
+            "presence"
+          ]
+        },
+        {
+          "predicate": "AppliesUnder",
+          "args": [
             "specification",
             "presence",
             "rule",
@@ -8568,9 +8820,8 @@
           "args": [
             "adequacy",
             "claim",
-            "representation",
+            "denotation",
             "specification",
-            "presence",
             "rule",
             "scope__split"
           ]
@@ -8589,7 +8840,7 @@
       "outcome": "countermodel",
       "mutated_atoms": [
         {
-          "predicate": "Claim",
+          "predicate": "RepresentedClaim",
           "args": [
             "claim",
             "representation",
@@ -8626,11 +8877,18 @@
         {
           "predicate": "ReverseOfDenotation",
           "args": [
-            "scope",
-            "rule",
             "presence",
+            "representation",
+            "denotation"
+          ]
+        },
+        {
+          "predicate": "AppliesUnder",
+          "args": [
             "specification",
-            "representation"
+            "presence",
+            "rule",
+            "scope"
           ]
         },
         {
@@ -8645,9 +8903,8 @@
           "args": [
             "adequacy",
             "claim",
-            "representation",
+            "denotation",
             "specification",
-            "presence",
             "rule",
             "scope"
           ]
@@ -8666,7 +8923,7 @@
       "outcome": "countermodel",
       "mutated_atoms": [
         {
-          "predicate": "Claim",
+          "predicate": "RepresentedClaim",
           "args": [
             "claim",
             "representation",
@@ -8703,7 +8960,14 @@
         {
           "predicate": "Resembles",
           "args": [
+            "denotation",
             "representation",
+            "presence"
+          ]
+        },
+        {
+          "predicate": "AppliesUnder",
+          "args": [
             "specification",
             "presence",
             "rule",
@@ -8722,9 +8986,8 @@
           "args": [
             "adequacy",
             "claim",
-            "representation",
+            "denotation",
             "specification",
-            "presence",
             "rule",
             "scope"
           ]
@@ -8743,7 +9006,7 @@
       "outcome": "countermodel",
       "mutated_atoms": [
         {
-          "predicate": "Claim",
+          "predicate": "RepresentedClaim",
           "args": [
             "claim",
             "representation",
@@ -8780,7 +9043,14 @@
         {
           "predicate": "RefersInformally",
           "args": [
+            "denotation",
             "representation",
+            "presence"
+          ]
+        },
+        {
+          "predicate": "AppliesUnder",
+          "args": [
             "specification",
             "presence",
             "rule",
@@ -8799,9 +9069,8 @@
           "args": [
             "adequacy",
             "claim",
-            "representation",
+            "denotation",
             "specification",
-            "presence",
             "rule",
             "scope"
           ]
@@ -8820,7 +9089,7 @@
       "outcome": "countermodel",
       "mutated_atoms": [
         {
-          "predicate": "Claim",
+          "predicate": "RepresentedClaim",
           "args": [
             "claim",
             "representation",
@@ -8857,7 +9126,14 @@
         {
           "predicate": "Denotation",
           "args": [
+            "denotation",
             "representation",
+            "presence"
+          ]
+        },
+        {
+          "predicate": "AppliesUnder",
+          "args": [
             "specification",
             "presence",
             "rule",
@@ -8876,9 +9152,8 @@
           "args": [
             "adequacy",
             "claim",
-            "representation",
+            "denotation",
             "specification",
-            "presence",
             "rule",
             "scope"
           ]

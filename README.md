@@ -80,11 +80,11 @@ The formal directory also contains an [Absence-free OrganonCore reduct](./ontolo
 The nonbinding [candidate algebra experiment](./ontology/algebra/README.md)
 applies the same falsification-first posture one level above individual terms.
 It translates nine load-bearing definitions into typed witness normal forms,
-generates one-step semantic mutations and finite countermodels, ablates six
-candidate inference laws, and tests the unchanged basis on held-out
-consciousness, valuation, sovereignty, Ritual, and Meaning cases. Its compact
-basis is an experimental review instrument, not a replacement for the binding
-ontology or Lean shadow.
+generates one-step structural mutations and extensional query countermodels,
+checks six candidate-discipline annotations, and tests the unchanged taxonomy
+on held-out consciousness, valuation, sovereignty, Ritual, and Meaning cases.
+The taxonomy is an experimental review instrument, not an executable law
+engine or a replacement for the binding ontology or Lean shadow.
 
 Lean is not canonical. Compilation proves that the declarations elaborate under the pinned compiler. It does not prove that the encoding exhausted the prose, that the prose exhausted Reality, or that the compiler has become a metaphysician. The [formalization decisions](./ontology/formal/decisions.md) and [build receipt](./ontology/formal/build-receipt.md) preserve that boundary.
 

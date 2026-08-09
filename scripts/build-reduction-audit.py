@@ -76,7 +76,7 @@ def audit(*, check: bool) -> dict[str, int]:
             pair = None
         elif term["id"] in card_by_term:
             disposition = "constructively_encoded"
-            reason = f"The positive constructor is encoded by {card_by_term[term['id']]} and has a finite witness."
+            reason = f"A typed normal-form query is encoded by {card_by_term[term['id']]} and has a finite witness."
             pair = None
         else:
             disposition = "positively_underdetermined"
@@ -97,7 +97,7 @@ def audit(*, check: bool) -> dict[str, int]:
                 "depends_on": term["depends_on"],
                 "disposition": disposition,
                 "reason": reason,
-                **({"paired_underdetermination_model": pair} if pair else {}),
+                **({"paired_target_extension_sketch": pair} if pair else {}),
             }
         )
 
@@ -142,7 +142,7 @@ def audit(*, check: bool) -> dict[str, int]:
             "ontology/algebra/consistency-dispositions.yaml": digest(CONSISTENCY),
             "scripts/build-reduction-audit.py": digest(Path(__file__).resolve()),
         },
-        "question": "Do the retained foundation, nine positive normal forms, and six candidate laws preserve every registered Organon classification?",
+        "question": "Do the retained foundation, nine positive normal forms, and six candidate disciplines preserve every registered Organon classification?",
         "answer": "yes" if complete else "no",
         "reason": "Complete reduction requires positive construction as well as prohibition of invalid collapses.",
         "counts": {
@@ -167,17 +167,17 @@ def audit(*, check: bool) -> dict[str, int]:
         "",
         "## Result",
         "",
-        "**The six-law candidate algebra is not a complete reduction of Organon.**",
+        "**The six-discipline candidate taxonomy is not a complete reduction of Organon.**",
         "",
-        "It is a compact algebra of admissibility: it explains why many proposed joins fail and why several indices and witnesses must be conserved. It is not a generative algebra. Its laws have no positive predicate heads, so they cannot reconstruct a classification merely by rejecting malformed alternatives.",
+        "It is a compact annotation taxonomy for admissibility failures: it organizes why many proposed joins fail and why several indices and witnesses must be conserved. It is not an executable law engine or a generative algebra. Its disciplines have no positive predicate heads, so they cannot reconstruct a classification merely by rejecting malformed alternatives.",
         "",
-        f"The exhaustive ledger accounts for all **{len(terms)} terms** and **{len(commitments)} commitments**. It retains {term_counts['retained_foundation']} foundational terms, constructively encodes {term_counts['constructively_encoded']} definitions, and exhibits paired underdetermination models for the remaining {term_counts['positively_underdetermined']} definitions. It accounts for all 31 consistency rules: {consistency_counts['candidate_clause_derived']} have candidate clause-level derivations, {consistency_counts['retained_governance']} remain governance constraints, and {consistency_counts['positive_schema_missing']} still require positive domain circuits.",
+        f"The exhaustive ledger accounts for all **{len(terms)} terms** and **{len(commitments)} commitments**. It retains {term_counts['retained_foundation']} foundational terms, encodes typed normal-form queries for {term_counts['constructively_encoded']} definitions, and exhibits paired target-extension sketches for the remaining {term_counts['positively_underdetermined']} definitions. It accounts for all 31 consistency rules: {consistency_counts['candidate_clause_derived']} have candidate clause-level annotations, {consistency_counts['retained_governance']} remain governance constraints, and {consistency_counts['positive_schema_missing']} still require positive domain circuits.",
         "",
         "## Why dependency closure is insufficient",
         "",
         "`depends_on` says which earlier vocabulary a definition may use. It does not say that the presence of those dependencies entails the defined term. Treating the dependency graph as a constructor would make every listed prerequisite decorative and would recreate the exact collapse problem this experiment is meant to prevent.",
         "",
-        "For every unencoded definition, the ledger therefore supplies a pair of finite interpretations that agree on the current candidate basis while differing only in that term's extension. The laws classify both interpretations identically. The target classification does not survive reduction.",
+        "For every unencoded definition, the ledger supplies a paired target-extension sketch: the declared dependency extensions are held fixed while the target extension is varied. These are registry-level underdetermination sketches, not finite models evaluated by the six disciplines. They show that the dependency registry alone does not construct the target; they do not prove model-theoretic independence from the complete binding ontology.",
         "",
         "## Missing positive circuits",
         "",
@@ -189,27 +189,27 @@ def audit(*, check: bool) -> dict[str, int]:
             "",
             "## What did reduce",
             "",
-            "The experiment still found a real compression. Six laws organize the tested anti-collapses, every law is ablation-essential on the finite suite, and the unchanged basis generalizes to the held-out domains without blocking complete institutional constitution. What reduces is a substantial part of Organon's **admissibility discipline**, not its complete positive vocabulary.",
+            "The experiment still found a useful organization. Six candidate disciplines annotate the tested anti-collapses, each discipline is uniquely represented by an isolating labeled fixture, and the unchanged taxonomy covers the held-out examples without blocking complete institutional constitution. This is evidence for a reusable **admissibility vocabulary**, not proof that the six form a minimal logical basis.",
             "",
             "## Next reduction question",
             "",
             "The next candidate is a two-part architecture:",
             "",
             "1. a small generative calculus of positive constructors for persistence, representation, causation, agency, institution, epistemic status, situated world, adaptive knowledge, and ritual meaning; and",
-            "2. the six-law admissibility algebra governing how those constructors may compose.",
+            "2. an executable admissibility semantics governing how those constructors may compose.",
             "",
-            "A future completeness claim must reconstruct all 106 definitions from that combined basis and eliminate every paired underdetermination model. Adding more prohibitions alone cannot do it.",
+            "A future completeness claim must reconstruct all 106 definitions from that combined system and eliminate every paired target-extension sketch with genuine models or proofs. Adding more prohibitions alone cannot do it.",
             "",
             "## Follow-on constructor result",
             "",
-            "The [positive constructor calculus](./positive-calculus-report.md) closes the registry-level operational gap with one generic witnessed-introduction rule. It reconstructs all 106 definitions from their complete binding definition schemas and declared dependencies, but fails the semantic anti-vacuity gate because the conformity witness is opaque to the evaluator. It eliminates the paired underdetermination models only after that term-specific witness is supplied; it does not semantically eliminate any definition schema.",
+            "The [degenerate registry-reflection control](./positive-calculus-report.md) tests one generic witnessed-introduction wrapper. It reflects all 106 definitions only after receiving each complete binding definition schema, every lexical dependency as a positive fact over one candidate, and an opaque conformity witness. It therefore fails the semantic anti-vacuity gate and does not semantically eliminate any definition schema or close the positive-constructor question.",
             "",
             "## Complete disposition",
             "",
             "| Disposition | Count |",
             "|---|---:|",
             f"| Retained primitive or axiom | {term_counts['retained_foundation']} |",
-            f"| Constructively encoded definition | {term_counts['constructively_encoded']} |",
+            f"| Definition with typed normal-form query | {term_counts['constructively_encoded']} |",
             f"| Positively underdetermined definition | {term_counts['positively_underdetermined']} |",
             f"| Candidate-derived consistency clause | {consistency_counts['candidate_clause_derived']} |",
             f"| Retained governance constraint | {consistency_counts['retained_governance']} |",
@@ -243,7 +243,7 @@ def main() -> int:
     action = "verified" if args.check else "generated"
     print(
         f"Complete reduction audit {action}: {result['terms']} terms, "
-        f"{result['commitments']} commitments, {result['encoded']} positive constructors, "
+        f"{result['commitments']} commitments, {result['encoded']} typed normal forms, "
         f"{result['underdetermined']} underdetermined definitions, "
         f"{result['missing_rules']} missing positive circuits."
     )

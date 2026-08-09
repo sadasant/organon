@@ -1,25 +1,26 @@
 {
   "schema_version": 1,
-  "status": "generated-nonbinding-complete-positive-constructor-ledger",
+  "status": "generated-nonbinding-degenerate-registry-reflection-ledger",
   "source_sha256": {
     "ontology/terms.yaml": "c1d3573aafb8f31535eac88c164b2b4e32f0fbf5c635fbf46b2aff4357c66339",
-    "ontology/algebra/positive-calculus.yaml": "1b63bd79c0add66cf2896fe1cecbff8f40f71ed30c41e2ace5e87ded8d632911",
-    "scripts/build-positive-calculus.py": "6ef10cc82dd81ed38b5d349c88052d865ae1f243c44d74c3df9914a791002f50"
+    "ontology/algebra/positive-calculus.yaml": "ae105da13641adbcd0d86b5e67207e02710202bc9afa03ba5c2ffc7678d5357a",
+    "scripts/build-positive-calculus.py": "69ed91480129a5ec9e5ce6b1dc33b9dca843b136cee7a94768c3bbffd65751a6"
   },
   "counts": {
     "registered_terms": 109,
     "retained_foundation": 3,
-    "definitions_constructed": 106,
+    "definitions_reflected": 106,
     "constructors": 1,
-    "one_step_mutations": 825,
-    "unconstructed_definitions": 0
+    "dependency_removal_fixtures": 825,
+    "unreflected_definitions": 0
   },
-  "cardinality_minimality": {
+  "degenerate_control_comparison": {
     "zero_constructors_positive_heads": 0,
     "zero_constructors_definitions_derived": 0,
     "one_constructor_definitions_derived": 106,
     "ablate_G1_definitions_derived": 0,
-    "cardinality_minimal": true
+    "constructor_minimum_proved": false,
+    "explanation": "The comparison covers only G0 and the hand-authored G1 wrapper; it is not an exhaustive search over nondegenerate constructor families."
   },
   "semantic_minimality": {
     "proved": false,

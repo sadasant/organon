@@ -3,13 +3,13 @@
   "status": "generated-nonbinding-complete-reduction-audit",
   "source_sha256": {
     "ontology/terms.yaml": "c1d3573aafb8f31535eac88c164b2b4e32f0fbf5c635fbf46b2aff4357c66339",
-    "ontology/algebra/normal-forms.yaml": "e8072fa9503d07ebb2f480b72b673fe1628b94cad0a31e28423d07e441f606d2",
-    "ontology/algebra/candidate-laws.yaml": "fd631fac2a31c06d0e4da9648ffbeb215f086c4aecd0c7ad82583a208f08488f",
+    "ontology/algebra/normal-forms.yaml": "1890a06a03595d1b4514a30ddd7a657d58f8b43926f75156f6d9d23da59d9e38",
+    "ontology/algebra/candidate-laws.yaml": "8d739e8c928f527ee8f66b28c4e3a8b696d0539333627bf26243d72073212550",
     "ontology/algebra/claim-coverage.yaml": "17c549d7193e680b126fd112eaa36053105eb00a9c5b4b72655444d16594637a",
     "ontology/algebra/consistency-dispositions.yaml": "7cff3e1464144c33c15319ac24a7ea8880b57ba797ce571d4592c3a14f04c4aa",
-    "scripts/build-reduction-audit.py": "04492674d1698efb431cea77d01008796442cf11600e70b83a8be3cfde3d49a5"
+    "scripts/build-reduction-audit.py": "829c676ca1fbfa183d8db1bd84f3686900e26ddca74c4991e4290d451652758a"
   },
-  "question": "Do the retained foundation, nine positive normal forms, and six candidate laws preserve every registered Organon classification?",
+  "question": "Do the retained foundation, nine positive normal forms, and six candidate disciplines preserve every registered Organon classification?",
   "answer": "no",
   "reason": "Complete reduction requires positive construction as well as prohibition of invalid collapses.",
   "counts": {
@@ -62,7 +62,7 @@
       ],
       "disposition": "positively_underdetermined",
       "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
-      "paired_underdetermination_model": {
+      "paired_target_extension_sketch": {
         "all_declared_dependencies_present": true,
         "shared_dependency_extensions": [
           "organon:Presence"
@@ -85,7 +85,7 @@
       ],
       "disposition": "positively_underdetermined",
       "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
-      "paired_underdetermination_model": {
+      "paired_target_extension_sketch": {
         "all_declared_dependencies_present": true,
         "shared_dependency_extensions": [
           "organon:Presence",
@@ -108,7 +108,7 @@
       ],
       "disposition": "positively_underdetermined",
       "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
-      "paired_underdetermination_model": {
+      "paired_target_extension_sketch": {
         "all_declared_dependencies_present": true,
         "shared_dependency_extensions": [
           "organon:Presence"
@@ -130,7 +130,7 @@
         "organon:Relation"
       ],
       "disposition": "constructively_encoded",
-      "reason": "The positive constructor is encoded by NF-DENOTATION and has a finite witness."
+      "reason": "A typed normal-form query is encoded by NF-DENOTATION and has a finite witness."
     },
     {
       "term": "organon:Configuration",
@@ -142,7 +142,7 @@
       ],
       "disposition": "positively_underdetermined",
       "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
-      "paired_underdetermination_model": {
+      "paired_target_extension_sketch": {
         "all_declared_dependencies_present": true,
         "shared_dependency_extensions": [
           "organon:Presence",
@@ -165,7 +165,7 @@
       ],
       "disposition": "positively_underdetermined",
       "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
-      "paired_underdetermination_model": {
+      "paired_target_extension_sketch": {
         "all_declared_dependencies_present": true,
         "shared_dependency_extensions": [
           "organon:Configuration"
@@ -188,7 +188,7 @@
       ],
       "disposition": "positively_underdetermined",
       "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
-      "paired_underdetermination_model": {
+      "paired_target_extension_sketch": {
         "all_declared_dependencies_present": true,
         "shared_dependency_extensions": [
           "organon:Relation",
@@ -213,7 +213,7 @@
       ],
       "disposition": "positively_underdetermined",
       "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
-      "paired_underdetermination_model": {
+      "paired_target_extension_sketch": {
         "all_declared_dependencies_present": true,
         "shared_dependency_extensions": [
           "organon:Relation",
@@ -239,7 +239,7 @@
       ],
       "disposition": "positively_underdetermined",
       "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
-      "paired_underdetermination_model": {
+      "paired_target_extension_sketch": {
         "all_declared_dependencies_present": true,
         "shared_dependency_extensions": [
           "organon:Difference",
@@ -264,7 +264,7 @@
       ],
       "disposition": "positively_underdetermined",
       "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
-      "paired_underdetermination_model": {
+      "paired_target_extension_sketch": {
         "all_declared_dependencies_present": true,
         "shared_dependency_extensions": [
           "organon:Relation",
@@ -290,7 +290,7 @@
       ],
       "disposition": "positively_underdetermined",
       "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
-      "paired_underdetermination_model": {
+      "paired_target_extension_sketch": {
         "all_declared_dependencies_present": true,
         "shared_dependency_extensions": [
           "organon:Transformation",
@@ -320,7 +320,7 @@
         "organon:CausalPath"
       ],
       "disposition": "constructively_encoded",
-      "reason": "The positive constructor is encoded by NF-CAUSAL-CONTRIBUTION and has a finite witness."
+      "reason": "A typed normal-form query is encoded by NF-CAUSAL-CONTRIBUTION and has a finite witness."
     },
     {
       "term": "organon:Invariant",
@@ -333,7 +333,7 @@
       ],
       "disposition": "positively_underdetermined",
       "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
-      "paired_underdetermination_model": {
+      "paired_target_extension_sketch": {
         "all_declared_dependencies_present": true,
         "shared_dependency_extensions": [
           "organon:Relation",
@@ -358,7 +358,7 @@
       ],
       "disposition": "positively_underdetermined",
       "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
-      "paired_underdetermination_model": {
+      "paired_target_extension_sketch": {
         "all_declared_dependencies_present": true,
         "shared_dependency_extensions": [
           "organon:Invariant",
@@ -383,7 +383,7 @@
       ],
       "disposition": "positively_underdetermined",
       "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
-      "paired_underdetermination_model": {
+      "paired_target_extension_sketch": {
         "all_declared_dependencies_present": true,
         "shared_dependency_extensions": [
           "organon:Persistence",
@@ -408,7 +408,7 @@
         "organon:Invariant"
       ],
       "disposition": "constructively_encoded",
-      "reason": "The positive constructor is encoded by NF-ENTITY and has a finite witness."
+      "reason": "A typed normal-form query is encoded by NF-ENTITY and has a finite witness."
     },
     {
       "term": "organon:Boundary",
@@ -423,7 +423,7 @@
       ],
       "disposition": "positively_underdetermined",
       "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
-      "paired_underdetermination_model": {
+      "paired_target_extension_sketch": {
         "all_declared_dependencies_present": true,
         "shared_dependency_extensions": [
           "organon:Configuration",
@@ -451,7 +451,7 @@
       ],
       "disposition": "positively_underdetermined",
       "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
-      "paired_underdetermination_model": {
+      "paired_target_extension_sketch": {
         "all_declared_dependencies_present": true,
         "shared_dependency_extensions": [
           "organon:Presence",
@@ -478,7 +478,7 @@
       ],
       "disposition": "positively_underdetermined",
       "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
-      "paired_underdetermination_model": {
+      "paired_target_extension_sketch": {
         "all_declared_dependencies_present": true,
         "shared_dependency_extensions": [
           "organon:Presence",
@@ -508,7 +508,7 @@
       ],
       "disposition": "positively_underdetermined",
       "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
-      "paired_underdetermination_model": {
+      "paired_target_extension_sketch": {
         "all_declared_dependencies_present": true,
         "shared_dependency_extensions": [
           "organon:Presence",
@@ -536,7 +536,7 @@
       ],
       "disposition": "positively_underdetermined",
       "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
-      "paired_underdetermination_model": {
+      "paired_target_extension_sketch": {
         "all_declared_dependencies_present": true,
         "shared_dependency_extensions": [
           "organon:Representation",
@@ -561,7 +561,7 @@
       ],
       "disposition": "positively_underdetermined",
       "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
-      "paired_underdetermination_model": {
+      "paired_target_extension_sketch": {
         "all_declared_dependencies_present": true,
         "shared_dependency_extensions": [
           "organon:Specification",
@@ -591,7 +591,7 @@
       ],
       "disposition": "positively_underdetermined",
       "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
-      "paired_underdetermination_model": {
+      "paired_target_extension_sketch": {
         "all_declared_dependencies_present": true,
         "shared_dependency_extensions": [
           "organon:Representation",
@@ -624,7 +624,7 @@
       ],
       "disposition": "positively_underdetermined",
       "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
-      "paired_underdetermination_model": {
+      "paired_target_extension_sketch": {
         "all_declared_dependencies_present": true,
         "shared_dependency_extensions": [
           "organon:Representation",
@@ -654,7 +654,7 @@
       ],
       "disposition": "positively_underdetermined",
       "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
-      "paired_underdetermination_model": {
+      "paired_target_extension_sketch": {
         "all_declared_dependencies_present": true,
         "shared_dependency_extensions": [
           "organon:Persistence",
@@ -680,7 +680,7 @@
       ],
       "disposition": "positively_underdetermined",
       "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
-      "paired_underdetermination_model": {
+      "paired_target_extension_sketch": {
         "all_declared_dependencies_present": true,
         "shared_dependency_extensions": [
           "organon:Representation",
@@ -706,7 +706,7 @@
       ],
       "disposition": "positively_underdetermined",
       "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
-      "paired_underdetermination_model": {
+      "paired_target_extension_sketch": {
         "all_declared_dependencies_present": true,
         "shared_dependency_extensions": [
           "organon:Map",
@@ -736,7 +736,7 @@
       ],
       "disposition": "positively_underdetermined",
       "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
-      "paired_underdetermination_model": {
+      "paired_target_extension_sketch": {
         "all_declared_dependencies_present": true,
         "shared_dependency_extensions": [
           "organon:Constraint",
@@ -764,7 +764,7 @@
       ],
       "disposition": "positively_underdetermined",
       "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
-      "paired_underdetermination_model": {
+      "paired_target_extension_sketch": {
         "all_declared_dependencies_present": true,
         "shared_dependency_extensions": [
           "organon:State",
@@ -791,7 +791,7 @@
       ],
       "disposition": "positively_underdetermined",
       "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
-      "paired_underdetermination_model": {
+      "paired_target_extension_sketch": {
         "all_declared_dependencies_present": true,
         "shared_dependency_extensions": [
           "organon:Persistence",
@@ -822,7 +822,7 @@
       ],
       "disposition": "positively_underdetermined",
       "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
-      "paired_underdetermination_model": {
+      "paired_target_extension_sketch": {
         "all_declared_dependencies_present": true,
         "shared_dependency_extensions": [
           "organon:Record",
@@ -852,7 +852,7 @@
       ],
       "disposition": "positively_underdetermined",
       "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
-      "paired_underdetermination_model": {
+      "paired_target_extension_sketch": {
         "all_declared_dependencies_present": true,
         "shared_dependency_extensions": [
           "organon:Record",
@@ -883,7 +883,7 @@
       ],
       "disposition": "positively_underdetermined",
       "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
-      "paired_underdetermination_model": {
+      "paired_target_extension_sketch": {
         "all_declared_dependencies_present": true,
         "shared_dependency_extensions": [
           "organon:Configuration",
@@ -915,7 +915,7 @@
       ],
       "disposition": "positively_underdetermined",
       "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
-      "paired_underdetermination_model": {
+      "paired_target_extension_sketch": {
         "all_declared_dependencies_present": true,
         "shared_dependency_extensions": [
           "organon:Transformation",
@@ -943,7 +943,7 @@
       ],
       "disposition": "positively_underdetermined",
       "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
-      "paired_underdetermination_model": {
+      "paired_target_extension_sketch": {
         "all_declared_dependencies_present": true,
         "shared_dependency_extensions": [
           "organon:Change",
@@ -972,7 +972,7 @@
       ],
       "disposition": "positively_underdetermined",
       "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
-      "paired_underdetermination_model": {
+      "paired_target_extension_sketch": {
         "all_declared_dependencies_present": true,
         "shared_dependency_extensions": [
           "organon:Transformation",
@@ -1001,7 +1001,7 @@
       ],
       "disposition": "positively_underdetermined",
       "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
-      "paired_underdetermination_model": {
+      "paired_target_extension_sketch": {
         "all_declared_dependencies_present": true,
         "shared_dependency_extensions": [
           "organon:Entity",
@@ -1028,7 +1028,7 @@
       ],
       "disposition": "positively_underdetermined",
       "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
-      "paired_underdetermination_model": {
+      "paired_target_extension_sketch": {
         "all_declared_dependencies_present": true,
         "shared_dependency_extensions": [
           "organon:Relation",
@@ -1056,7 +1056,7 @@
       ],
       "disposition": "positively_underdetermined",
       "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
-      "paired_underdetermination_model": {
+      "paired_target_extension_sketch": {
         "all_declared_dependencies_present": true,
         "shared_dependency_extensions": [
           "organon:Entity",
@@ -1087,7 +1087,7 @@
         "organon:Boundary"
       ],
       "disposition": "constructively_encoded",
-      "reason": "The positive constructor is encoded by NF-CAPABILITY and has a finite witness."
+      "reason": "A typed normal-form query is encoded by NF-CAPABILITY and has a finite witness."
     },
     {
       "term": "organon:Interior",
@@ -1102,7 +1102,7 @@
       ],
       "disposition": "positively_underdetermined",
       "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
-      "paired_underdetermination_model": {
+      "paired_target_extension_sketch": {
         "all_declared_dependencies_present": true,
         "shared_dependency_extensions": [
           "organon:Entity",
@@ -1131,7 +1131,7 @@
       ],
       "disposition": "positively_underdetermined",
       "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
-      "paired_underdetermination_model": {
+      "paired_target_extension_sketch": {
         "all_declared_dependencies_present": true,
         "shared_dependency_extensions": [
           "organon:Transformation",
@@ -1164,7 +1164,7 @@
       ],
       "disposition": "positively_underdetermined",
       "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
-      "paired_underdetermination_model": {
+      "paired_target_extension_sketch": {
         "all_declared_dependencies_present": true,
         "shared_dependency_extensions": [
           "organon:Configuration",
@@ -1197,7 +1197,7 @@
       ],
       "disposition": "positively_underdetermined",
       "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
-      "paired_underdetermination_model": {
+      "paired_target_extension_sketch": {
         "all_declared_dependencies_present": true,
         "shared_dependency_extensions": [
           "organon:Boundary",
@@ -1228,7 +1228,7 @@
       ],
       "disposition": "positively_underdetermined",
       "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
-      "paired_underdetermination_model": {
+      "paired_target_extension_sketch": {
         "all_declared_dependencies_present": true,
         "shared_dependency_extensions": [
           "organon:Representation",
@@ -1259,7 +1259,7 @@
       ],
       "disposition": "positively_underdetermined",
       "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
-      "paired_underdetermination_model": {
+      "paired_target_extension_sketch": {
         "all_declared_dependencies_present": true,
         "shared_dependency_extensions": [
           "organon:Entity",
@@ -1291,7 +1291,7 @@
       ],
       "disposition": "positively_underdetermined",
       "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
-      "paired_underdetermination_model": {
+      "paired_target_extension_sketch": {
         "all_declared_dependencies_present": true,
         "shared_dependency_extensions": [
           "organon:Relation",
@@ -1327,7 +1327,7 @@
       ],
       "disposition": "positively_underdetermined",
       "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
-      "paired_underdetermination_model": {
+      "paired_target_extension_sketch": {
         "all_declared_dependencies_present": true,
         "shared_dependency_extensions": [
           "organon:Configuration",
@@ -1360,7 +1360,7 @@
         "organon:Scope"
       ],
       "disposition": "constructively_encoded",
-      "reason": "The positive constructor is encoded by NF-STANDING and has a finite witness."
+      "reason": "A typed normal-form query is encoded by NF-STANDING and has a finite witness."
     },
     {
       "term": "organon:Recognition",
@@ -1376,7 +1376,7 @@
       ],
       "disposition": "positively_underdetermined",
       "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
-      "paired_underdetermination_model": {
+      "paired_target_extension_sketch": {
         "all_declared_dependencies_present": true,
         "shared_dependency_extensions": [
           "organon:Relation",
@@ -1406,7 +1406,7 @@
       ],
       "disposition": "positively_underdetermined",
       "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
-      "paired_underdetermination_model": {
+      "paired_target_extension_sketch": {
         "all_declared_dependencies_present": true,
         "shared_dependency_extensions": [
           "organon:Entity",
@@ -1436,7 +1436,7 @@
       ],
       "disposition": "positively_underdetermined",
       "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
-      "paired_underdetermination_model": {
+      "paired_target_extension_sketch": {
         "all_declared_dependencies_present": true,
         "shared_dependency_extensions": [
           "organon:Relation",
@@ -1470,7 +1470,7 @@
       ],
       "disposition": "positively_underdetermined",
       "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
-      "paired_underdetermination_model": {
+      "paired_target_extension_sketch": {
         "all_declared_dependencies_present": true,
         "shared_dependency_extensions": [
           "organon:Relation",
@@ -1505,7 +1505,7 @@
       ],
       "disposition": "positively_underdetermined",
       "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
-      "paired_underdetermination_model": {
+      "paired_target_extension_sketch": {
         "all_declared_dependencies_present": true,
         "shared_dependency_extensions": [
           "organon:Relation",
@@ -1538,7 +1538,7 @@
       ],
       "disposition": "positively_underdetermined",
       "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
-      "paired_underdetermination_model": {
+      "paired_target_extension_sketch": {
         "all_declared_dependencies_present": true,
         "shared_dependency_extensions": [
           "organon:Claim",
@@ -1571,7 +1571,7 @@
       ],
       "disposition": "positively_underdetermined",
       "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
-      "paired_underdetermination_model": {
+      "paired_target_extension_sketch": {
         "all_declared_dependencies_present": true,
         "shared_dependency_extensions": [
           "organon:Action",
@@ -1605,7 +1605,7 @@
       ],
       "disposition": "positively_underdetermined",
       "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
-      "paired_underdetermination_model": {
+      "paired_target_extension_sketch": {
         "all_declared_dependencies_present": true,
         "shared_dependency_extensions": [
           "organon:Declaration",
@@ -1638,7 +1638,7 @@
       ],
       "disposition": "positively_underdetermined",
       "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
-      "paired_underdetermination_model": {
+      "paired_target_extension_sketch": {
         "all_declared_dependencies_present": true,
         "shared_dependency_extensions": [
           "organon:CountsAs",
@@ -1672,7 +1672,7 @@
       ],
       "disposition": "positively_underdetermined",
       "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
-      "paired_underdetermination_model": {
+      "paired_target_extension_sketch": {
         "all_declared_dependencies_present": true,
         "shared_dependency_extensions": [
           "organon:Record",
@@ -1705,7 +1705,7 @@
       ],
       "disposition": "positively_underdetermined",
       "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
-      "paired_underdetermination_model": {
+      "paired_target_extension_sketch": {
         "all_declared_dependencies_present": true,
         "shared_dependency_extensions": [
           "organon:Declaration",
@@ -1736,7 +1736,7 @@
       ],
       "disposition": "positively_underdetermined",
       "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
-      "paired_underdetermination_model": {
+      "paired_target_extension_sketch": {
         "all_declared_dependencies_present": true,
         "shared_dependency_extensions": [
           "organon:Action",
@@ -1770,7 +1770,7 @@
         "organon:Capability"
       ],
       "disposition": "constructively_encoded",
-      "reason": "The positive constructor is encoded by NF-EXERCISABILITY and has a finite witness."
+      "reason": "A typed normal-form query is encoded by NF-EXERCISABILITY and has a finite witness."
     },
     {
       "term": "organon:FullyExercisablePermission",
@@ -1784,7 +1784,7 @@
       ],
       "disposition": "positively_underdetermined",
       "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
-      "paired_underdetermination_model": {
+      "paired_target_extension_sketch": {
         "all_declared_dependencies_present": true,
         "shared_dependency_extensions": [
           "organon:Permission",
@@ -1814,7 +1814,7 @@
       ],
       "disposition": "positively_underdetermined",
       "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
-      "paired_underdetermination_model": {
+      "paired_target_extension_sketch": {
         "all_declared_dependencies_present": true,
         "shared_dependency_extensions": [
           "organon:Relation",
@@ -1848,7 +1848,7 @@
       ],
       "disposition": "positively_underdetermined",
       "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
-      "paired_underdetermination_model": {
+      "paired_target_extension_sketch": {
         "all_declared_dependencies_present": true,
         "shared_dependency_extensions": [
           "organon:Configuration",
@@ -1882,7 +1882,7 @@
       ],
       "disposition": "positively_underdetermined",
       "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
-      "paired_underdetermination_model": {
+      "paired_target_extension_sketch": {
         "all_declared_dependencies_present": true,
         "shared_dependency_extensions": [
           "organon:Rule",
@@ -1920,7 +1920,7 @@
       ],
       "disposition": "positively_underdetermined",
       "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
-      "paired_underdetermination_model": {
+      "paired_target_extension_sketch": {
         "all_declared_dependencies_present": true,
         "shared_dependency_extensions": [
           "organon:Relation",
@@ -1960,7 +1960,7 @@
         "organon:Admission"
       ],
       "disposition": "constructively_encoded",
-      "reason": "The positive constructor is encoded by NF-EVIDENCE and has a finite witness."
+      "reason": "A typed normal-form query is encoded by NF-EVIDENCE and has a finite witness."
     },
     {
       "term": "organon:EvidentialBearing",
@@ -1976,7 +1976,7 @@
         "organon:Record"
       ],
       "disposition": "constructively_encoded",
-      "reason": "The positive constructor is encoded by NF-EVIDENTIAL-BEARING and has a finite witness."
+      "reason": "A typed normal-form query is encoded by NF-EVIDENTIAL-BEARING and has a finite witness."
     },
     {
       "term": "organon:Attestation",
@@ -1994,7 +1994,7 @@
       ],
       "disposition": "positively_underdetermined",
       "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
-      "paired_underdetermination_model": {
+      "paired_target_extension_sketch": {
         "all_declared_dependencies_present": true,
         "shared_dependency_extensions": [
           "organon:Claim",
@@ -2029,7 +2029,7 @@
       ],
       "disposition": "positively_underdetermined",
       "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
-      "paired_underdetermination_model": {
+      "paired_target_extension_sketch": {
         "all_declared_dependencies_present": true,
         "shared_dependency_extensions": [
           "organon:Order",
@@ -2060,7 +2060,7 @@
       ],
       "disposition": "positively_underdetermined",
       "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
-      "paired_underdetermination_model": {
+      "paired_target_extension_sketch": {
         "all_declared_dependencies_present": true,
         "shared_dependency_extensions": [
           "organon:Entity",
@@ -2089,7 +2089,7 @@
       ],
       "disposition": "positively_underdetermined",
       "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
-      "paired_underdetermination_model": {
+      "paired_target_extension_sketch": {
         "all_declared_dependencies_present": true,
         "shared_dependency_extensions": [
           "organon:Persistence",
@@ -2120,7 +2120,7 @@
       ],
       "disposition": "positively_underdetermined",
       "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
-      "paired_underdetermination_model": {
+      "paired_target_extension_sketch": {
         "all_declared_dependencies_present": true,
         "shared_dependency_extensions": [
           "organon:Map",
@@ -2152,7 +2152,7 @@
       ],
       "disposition": "positively_underdetermined",
       "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
-      "paired_underdetermination_model": {
+      "paired_target_extension_sketch": {
         "all_declared_dependencies_present": true,
         "shared_dependency_extensions": [
           "organon:Persistence",
@@ -2183,7 +2183,7 @@
       ],
       "disposition": "positively_underdetermined",
       "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
-      "paired_underdetermination_model": {
+      "paired_target_extension_sketch": {
         "all_declared_dependencies_present": true,
         "shared_dependency_extensions": [
           "organon:Entity",
@@ -2215,7 +2215,7 @@
       ],
       "disposition": "positively_underdetermined",
       "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
-      "paired_underdetermination_model": {
+      "paired_target_extension_sketch": {
         "all_declared_dependencies_present": true,
         "shared_dependency_extensions": [
           "organon:Record",
@@ -2250,7 +2250,7 @@
       ],
       "disposition": "positively_underdetermined",
       "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
-      "paired_underdetermination_model": {
+      "paired_target_extension_sketch": {
         "all_declared_dependencies_present": true,
         "shared_dependency_extensions": [
           "organon:Record",
@@ -2282,7 +2282,7 @@
       ],
       "disposition": "positively_underdetermined",
       "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
-      "paired_underdetermination_model": {
+      "paired_target_extension_sketch": {
         "all_declared_dependencies_present": true,
         "shared_dependency_extensions": [
           "organon:Agent",
@@ -2308,7 +2308,7 @@
       ],
       "disposition": "positively_underdetermined",
       "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
-      "paired_underdetermination_model": {
+      "paired_target_extension_sketch": {
         "all_declared_dependencies_present": true,
         "shared_dependency_extensions": [
           "organon:Authority",
@@ -2338,7 +2338,7 @@
       ],
       "disposition": "positively_underdetermined",
       "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
-      "paired_underdetermination_model": {
+      "paired_target_extension_sketch": {
         "all_declared_dependencies_present": true,
         "shared_dependency_extensions": [
           "organon:Agency",
@@ -2370,7 +2370,7 @@
       ],
       "disposition": "positively_underdetermined",
       "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
-      "paired_underdetermination_model": {
+      "paired_target_extension_sketch": {
         "all_declared_dependencies_present": true,
         "shared_dependency_extensions": [
           "organon:Persistence",
@@ -2405,7 +2405,7 @@
       ],
       "disposition": "positively_underdetermined",
       "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
-      "paired_underdetermination_model": {
+      "paired_target_extension_sketch": {
         "all_declared_dependencies_present": true,
         "shared_dependency_extensions": [
           "organon:Agent",
@@ -2445,7 +2445,7 @@
       ],
       "disposition": "positively_underdetermined",
       "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
-      "paired_underdetermination_model": {
+      "paired_target_extension_sketch": {
         "all_declared_dependencies_present": true,
         "shared_dependency_extensions": [
           "organon:Relation",
@@ -2492,7 +2492,7 @@
       ],
       "disposition": "positively_underdetermined",
       "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
-      "paired_underdetermination_model": {
+      "paired_target_extension_sketch": {
         "all_declared_dependencies_present": true,
         "shared_dependency_extensions": [
           "organon:Representation",
@@ -2554,7 +2554,7 @@
       ],
       "disposition": "positively_underdetermined",
       "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
-      "paired_underdetermination_model": {
+      "paired_target_extension_sketch": {
         "all_declared_dependencies_present": true,
         "shared_dependency_extensions": [
           "organon:Configuration",
@@ -2611,7 +2611,7 @@
       ],
       "disposition": "positively_underdetermined",
       "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
-      "paired_underdetermination_model": {
+      "paired_target_extension_sketch": {
         "all_declared_dependencies_present": true,
         "shared_dependency_extensions": [
           "organon:Configuration",
@@ -2656,7 +2656,7 @@
         "organon:Admission"
       ],
       "disposition": "constructively_encoded",
-      "reason": "The positive constructor is encoded by NF-TRUTH and has a finite witness."
+      "reason": "A typed normal-form query is encoded by NF-TRUTH and has a finite witness."
     },
     {
       "term": "organon:Trust",
@@ -2683,7 +2683,7 @@
       ],
       "disposition": "positively_underdetermined",
       "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
-      "paired_underdetermination_model": {
+      "paired_target_extension_sketch": {
         "all_declared_dependencies_present": true,
         "shared_dependency_extensions": [
           "organon:Relation",
@@ -2734,7 +2734,7 @@
       ],
       "disposition": "positively_underdetermined",
       "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
-      "paired_underdetermination_model": {
+      "paired_target_extension_sketch": {
         "all_declared_dependencies_present": true,
         "shared_dependency_extensions": [
           "organon:Relation",
@@ -2787,7 +2787,7 @@
       ],
       "disposition": "positively_underdetermined",
       "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
-      "paired_underdetermination_model": {
+      "paired_target_extension_sketch": {
         "all_declared_dependencies_present": true,
         "shared_dependency_extensions": [
           "organon:Capability",
@@ -2845,7 +2845,7 @@
       ],
       "disposition": "positively_underdetermined",
       "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
-      "paired_underdetermination_model": {
+      "paired_target_extension_sketch": {
         "all_declared_dependencies_present": true,
         "shared_dependency_extensions": [
           "organon:Configuration",
@@ -2897,7 +2897,7 @@
       ],
       "disposition": "positively_underdetermined",
       "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
-      "paired_underdetermination_model": {
+      "paired_target_extension_sketch": {
         "all_declared_dependencies_present": true,
         "shared_dependency_extensions": [
           "organon:Relation",
@@ -2938,7 +2938,7 @@
       ],
       "disposition": "positively_underdetermined",
       "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
-      "paired_underdetermination_model": {
+      "paired_target_extension_sketch": {
         "all_declared_dependencies_present": true,
         "shared_dependency_extensions": [
           "organon:OperativeKnowledge",
@@ -2978,7 +2978,7 @@
       ],
       "disposition": "positively_underdetermined",
       "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
-      "paired_underdetermination_model": {
+      "paired_target_extension_sketch": {
         "all_declared_dependencies_present": true,
         "shared_dependency_extensions": [
           "organon:FactiveOperativeKnowledge",
@@ -3021,7 +3021,7 @@
       ],
       "disposition": "positively_underdetermined",
       "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
-      "paired_underdetermination_model": {
+      "paired_target_extension_sketch": {
         "all_declared_dependencies_present": true,
         "shared_dependency_extensions": [
           "organon:Claim",
@@ -3061,7 +3061,7 @@
       ],
       "disposition": "positively_underdetermined",
       "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
-      "paired_underdetermination_model": {
+      "paired_target_extension_sketch": {
         "all_declared_dependencies_present": true,
         "shared_dependency_extensions": [
           "organon:Relation",
@@ -3098,7 +3098,7 @@
       ],
       "disposition": "positively_underdetermined",
       "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
-      "paired_underdetermination_model": {
+      "paired_target_extension_sketch": {
         "all_declared_dependencies_present": true,
         "shared_dependency_extensions": [
           "organon:Configuration",
@@ -3134,7 +3134,7 @@
       ],
       "disposition": "positively_underdetermined",
       "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
-      "paired_underdetermination_model": {
+      "paired_target_extension_sketch": {
         "all_declared_dependencies_present": true,
         "shared_dependency_extensions": [
           "organon:Order",
@@ -3175,7 +3175,7 @@
       ],
       "disposition": "positively_underdetermined",
       "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
-      "paired_underdetermination_model": {
+      "paired_target_extension_sketch": {
         "all_declared_dependencies_present": true,
         "shared_dependency_extensions": [
           "organon:Configuration",
@@ -3219,7 +3219,7 @@
       ],
       "disposition": "positively_underdetermined",
       "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
-      "paired_underdetermination_model": {
+      "paired_target_extension_sketch": {
         "all_declared_dependencies_present": true,
         "shared_dependency_extensions": [
           "organon:Relation",
@@ -3256,7 +3256,7 @@
       ],
       "disposition": "positively_underdetermined",
       "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
-      "paired_underdetermination_model": {
+      "paired_target_extension_sketch": {
         "all_declared_dependencies_present": true,
         "shared_dependency_extensions": [
           "organon:Relation",
@@ -3288,7 +3288,7 @@
       ],
       "disposition": "positively_underdetermined",
       "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
-      "paired_underdetermination_model": {
+      "paired_target_extension_sketch": {
         "all_declared_dependencies_present": true,
         "shared_dependency_extensions": [
           "organon:Map",
@@ -3325,7 +3325,7 @@
       ],
       "disposition": "positively_underdetermined",
       "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
-      "paired_underdetermination_model": {
+      "paired_target_extension_sketch": {
         "all_declared_dependencies_present": true,
         "shared_dependency_extensions": [
           "organon:Relation",
@@ -3374,7 +3374,7 @@
       ],
       "disposition": "positively_underdetermined",
       "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
-      "paired_underdetermination_model": {
+      "paired_target_extension_sketch": {
         "all_declared_dependencies_present": true,
         "shared_dependency_extensions": [
           "organon:Flow",
@@ -3424,7 +3424,7 @@
       ],
       "disposition": "positively_underdetermined",
       "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
-      "paired_underdetermination_model": {
+      "paired_target_extension_sketch": {
         "all_declared_dependencies_present": true,
         "shared_dependency_extensions": [
           "organon:Ritual",

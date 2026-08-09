@@ -1,7 +1,9 @@
 {
   "schema_version": 1,
-  "status": "nonbinding-unchanged-basis-holdouts",
+  "status": "nonbinding-unchanged-taxonomy-holdouts",
   "basis_frozen_before_holdouts": true,
+  "freeze_kind": "procedural-attestation-with-current-digest",
+  "candidate_laws_sha256": "8d739e8c928f527ee8f66b28c4e3a8b696d0539333627bf26243d72073212550",
   "cases": [
     {
       "id": "H-CONSCIOUSNESS-ATTRIBUTION", "domain": "consciousness-and-moral-status",

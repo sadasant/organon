@@ -17,6 +17,7 @@ from typing import Any
 ROOT = Path(__file__).resolve().parents[1]
 ALGEBRA = ROOT / "ontology" / "algebra"
 NORMAL_FORMS = ALGEBRA / "normal-forms.yaml"
+PREDICATE_SIGNATURES = ALGEBRA / "predicate-signatures.yaml"
 LAWS = ALGEBRA / "candidate-laws.yaml"
 CONNECTIVES = ALGEBRA / "connective-audit.yaml"
 CLAIM_COVERAGE = ALGEBRA / "claim-coverage.yaml"
@@ -57,7 +58,13 @@ def atom_key(atom: dict[str, Any]) -> tuple[str, tuple[str, ...]]:
     return atom["predicate"], tuple(atom["args"])
 
 
-def validate_atom(atom: dict[str, Any], variables: dict[str, str], *, label: str) -> None:
+def validate_atom(
+    atom: dict[str, Any],
+    variables: dict[str, str],
+    signatures: dict[str, list[list[str]]],
+    *,
+    label: str,
+) -> None:
     if set(atom) - {"id", "predicate", "args"}:
         raise AlgebraError(f"{label}: unknown atom field")
     if not isinstance(atom.get("predicate"), str) or not atom["predicate"]:
@@ -67,6 +74,40 @@ def validate_atom(atom: dict[str, Any], variables: dict[str, str], *, label: str
     unknown = [arg for arg in atom["args"] if arg not in variables]
     if unknown:
         raise AlgebraError(f"{label}: undeclared variables {unknown}")
+    actual = [variables[arg] for arg in atom["args"]]
+    allowed = signatures.get(atom["predicate"])
+    if allowed is None or actual not in allowed:
+        raise AlgebraError(
+            f"{label}: predicate signature mismatch for {atom['predicate']}: "
+            f"actual={actual}, allowed={allowed}"
+        )
+
+
+def validate_signatures(data: dict[str, Any]) -> dict[str, list[list[str]]]:
+    signatures = data.get("signatures")
+    if not isinstance(signatures, dict) or not signatures:
+        raise AlgebraError("predicate signatures must be a nonempty object")
+    for predicate, variants in signatures.items():
+        if not isinstance(predicate, str) or not isinstance(variants, list) or not variants:
+            raise AlgebraError("invalid predicate signature declaration")
+        if any(not isinstance(variant, list) or not variant for variant in variants):
+            raise AlgebraError(f"{predicate}: invalid signature variant")
+    return signatures
+
+
+def validate_ground_fact(
+    fact: dict[str, Any],
+    signatures: dict[str, list[list[str]]],
+    *,
+    label: str,
+) -> None:
+    kinds = [value.split(":", 1)[0] for value in fact.get("args", [])]
+    allowed = signatures.get(fact.get("predicate"))
+    if allowed is None or kinds not in allowed:
+        raise AlgebraError(
+            f"{label}: ground predicate signature mismatch for "
+            f"{fact.get('predicate')}: actual={kinds}, allowed={allowed}"
+        )
 
 
 def unify_atom(
@@ -151,7 +192,11 @@ def validate_source_lock(lock: dict[str, Any]) -> None:
             raise AlgebraError(f"source lock mismatch at {commit[:8]}: {relative}")
 
 
-def validate_cards(data: dict[str, Any], registry: dict[str, Any]) -> list[dict[str, Any]]:
+def validate_cards(
+    data: dict[str, Any],
+    registry: dict[str, Any],
+    signatures: dict[str, list[list[str]]],
+) -> list[dict[str, Any]]:
     cards = data.get("cards")
     if not isinstance(cards, list) or not cards:
         raise AlgebraError("normal forms require cards")
@@ -169,7 +214,7 @@ def validate_cards(data: dict[str, Any], registry: dict[str, Any]) -> list[dict[
         variables = card.get("variables", {})
         if not variables or not all(isinstance(name, str) and isinstance(kind, str) for name, kind in variables.items()):
             raise AlgebraError(f"{label}: typed variables are required")
-        validate_atom(card["result"], variables, label=f"{label}.result")
+        validate_atom(card["result"], variables, signatures, label=f"{label}.result")
         participants = card.get("participants", [])
         participant_roles = card.get("participant_roles", {})
         if set(participants) != set(participant_roles) or not all(participant_roles.values()):
@@ -185,7 +230,7 @@ def validate_cards(data: dict[str, Any], registry: dict[str, Any]) -> list[dict[
                 if not isinstance(atom.get("id"), str):
                     raise AlgebraError(f"{label}.{role}: atom id is required")
                 atom_ids.append(atom["id"])
-                validate_atom(atom, variables, label=f"{label}.{atom['id']}")
+                validate_atom(atom, variables, signatures, label=f"{label}.{atom['id']}")
         if len(atom_ids) != len(set(atom_ids)):
             raise AlgebraError(f"{label}: duplicate atom ID")
         if not card.get("positive_entailments") or not card.get("anti_entailments"):
@@ -215,6 +260,13 @@ def validate_cards(data: dict[str, Any], registry: dict[str, Any]) -> list[dict[
             for alternative in alternatives:
                 if not alternative.get("predicate") or not alternative.get("shape"):
                     raise AlgebraError(f"{label}: incomplete substitution for {atom_id}")
+                original = next(atom for atom in card["premises"] + card["witnesses"] if atom["id"] == atom_id)
+                validate_atom(
+                    {"predicate": alternative["predicate"], "args": original["args"]},
+                    variables,
+                    signatures,
+                    label=f"{label}.{atom_id}.{alternative['predicate']}",
+                )
     return cards
 
 
@@ -298,13 +350,13 @@ def generate_mutations(cards: list[dict[str, Any]]) -> list[dict[str, Any]]:
 def validate_laws(data: dict[str, Any], cards: list[dict[str, Any]], registry: dict[str, Any]) -> list[dict[str, Any]]:
     laws = data.get("laws")
     if not isinstance(laws, list) or not laws or len(laws) > 6:
-        raise AlgebraError("candidate basis must contain one to six laws")
+        raise AlgebraError("candidate discipline set must contain one to six entries")
     law_ids = [law.get("id") for law in laws]
     if len(law_ids) != len(set(law_ids)):
         raise AlgebraError("duplicate candidate law ID")
     card_ids = {card["id"] for card in cards}
     if set(data.get("derived_from_cards", [])) != card_ids:
-        raise AlgebraError("candidate basis training-card list must match normal forms")
+        raise AlgebraError("candidate discipline training-card list must match normal forms")
     known_claims = {item["id"] for item in registry["commitments"]}
     for law in laws:
         if not law.get("blocks_shapes") or not law.get("isolating_case"):
@@ -374,10 +426,10 @@ def validate_challenges(data: dict[str, Any], laws: list[dict[str, Any]]) -> lis
     for case in cases:
         fact_keys = {atom_key(fact) for fact in case["facts"]}
         if atom_key(case["source"]) not in fact_keys or atom_key(case["target"]) in fact_keys:
-            raise AlgebraError(f"{case['id']}: not a source-without-target finite countermodel")
+            raise AlgebraError(f"{case['id']}: not a source-without-target labeled fixture")
         case_blockers = blockers(case["failure_shapes"], laws)
         if not case_blockers:
-            raise AlgebraError(f"{case['id']}: candidate basis does not reject inference")
+            raise AlgebraError(f"{case['id']}: no candidate discipline covers its assigned shape")
         case["blocked_by"] = case_blockers
     return cases
 
@@ -385,6 +437,10 @@ def validate_challenges(data: dict[str, Any], laws: list[dict[str, Any]]) -> lis
 def validate_holdouts(data: dict[str, Any], laws: list[dict[str, Any]], expected_domains: list[str]) -> list[dict[str, Any]]:
     if data.get("basis_frozen_before_holdouts") is not True:
         raise AlgebraError("holdout fixture must attest basis_frozen_before_holdouts")
+    if data.get("freeze_kind") != "procedural-attestation-with-current-digest":
+        raise AlgebraError("holdout freeze must state its procedural evidence boundary")
+    if data.get("candidate_laws_sha256") != sha256_path(LAWS):
+        raise AlgebraError("holdout fixture candidate-law digest is stale")
     cases = data.get("cases", [])
     if {case["domain"] for case in cases} != set(expected_domains):
         raise AlgebraError("holdout domains do not match candidate-law declaration")
@@ -401,14 +457,18 @@ def validate_holdouts(data: dict[str, Any], laws: list[dict[str, Any]], expected
         if expected == "blocked" and target_present:
             raise AlgebraError(f"{case['id']}: blocked holdout already contains target")
         if expected == "licensed" and case_blockers:
-            raise AlgebraError(f"{case['id']}: candidate basis overreaches licensed holdout")
+            raise AlgebraError(f"{case['id']}: candidate discipline annotations cover a licensed holdout")
         if expected == "licensed" and not target_present:
             raise AlgebraError(f"{case['id']}: licensed holdout lacks target witness")
         case["blocked_by"] = case_blockers
     return cases
 
 
-def validate_circuits(data: dict[str, Any], cards: list[dict[str, Any]]) -> list[dict[str, Any]]:
+def validate_circuits(
+    data: dict[str, Any],
+    cards: list[dict[str, Any]],
+    signatures: dict[str, list[list[str]]],
+) -> list[dict[str, Any]]:
     circuits = data.get("circuits", [])
     by_id = {card["id"]: card for card in cards}
     ids = [circuit.get("id") for circuit in circuits]
@@ -416,6 +476,14 @@ def validate_circuits(data: dict[str, Any], cards: list[dict[str, Any]]) -> list
         raise AlgebraError("exactly three unique joined circuit witnesses are required")
     for circuit in circuits:
         facts = copy.deepcopy(circuit.get("facts", []))
+        for index, fact in enumerate(facts):
+            validate_ground_fact(
+                fact, signatures, label=f"{circuit['id']}.facts[{index}]"
+            )
+        for index, result in enumerate(circuit.get("expected_results", [])):
+            validate_ground_fact(
+                result, signatures, label=f"{circuit['id']}.expected[{index}]"
+            )
         produced: list[dict[str, Any]] = []
         for step in circuit.get("steps", []):
             card = by_id.get(step)
@@ -430,13 +498,16 @@ def validate_circuits(data: dict[str, Any], cards: list[dict[str, Any]]) -> list
                     produced.append(result)
         expected = {atom_key(item) for item in circuit.get("expected_results", [])}
         actual = {atom_key(item) for item in produced}
-        if not expected <= actual:
-            raise AlgebraError(f"{circuit['id']}: missing expected results {sorted(expected - actual)}")
+        if expected != actual:
+            raise AlgebraError(
+                f"{circuit['id']}: circuit results differ; "
+                f"missing={sorted(expected - actual)}, extra={sorted(actual - expected)}"
+            )
         circuit["derived_results"] = produced
     return circuits
 
 
-def validate_ablation(laws: list[dict[str, Any]], cases: list[dict[str, Any]]) -> dict[str, str]:
+def validate_unique_fixtures(laws: list[dict[str, Any]], cases: list[dict[str, Any]]) -> dict[str, str]:
     by_id = {case["id"]: case for case in cases}
     results: dict[str, str] = {}
     for law in laws:
@@ -447,8 +518,8 @@ def validate_ablation(laws: list[dict[str, Any]], cases: list[dict[str, Any]]) -
             raise AlgebraError(f"{law['id']}: isolating case is also blocked by {case['blocked_by']}")
         remaining = [candidate for candidate in laws if candidate["id"] != law["id"]]
         if blockers(case["failure_shapes"], remaining):
-            raise AlgebraError(f"{law['id']}: ablation did not change classification")
-        results[law["id"]] = f"{case['id']} changes from blocked to admitted"
+            raise AlgebraError(f"{law['id']}: fixture is still covered after discipline deletion")
+        results[law["id"]] = f"{case['id']} is uniquely annotated by {law['id']}"
     return results
 
 
@@ -460,20 +531,20 @@ def render_coverage(
     holdouts: list[dict[str, Any]],
     circuits: list[dict[str, Any]],
     claim_coverage: list[dict[str, Any]],
-    ablation: dict[str, str],
+    unique_fixtures: dict[str, str],
 ) -> str:
     by_card = Counter(item["card"] for item in mutations)
     by_shape = Counter(shape for item in mutations for shape in item["failure_shapes"])
     lines = [
         "# Candidate algebra coverage",
         "",
-        "> Generated by `scripts/build-algebra.py`. This is nonbinding experimental evidence, not promotion of the candidate laws.",
+        "> Generated by `scripts/build-algebra.py`. This is nonbinding experimental evidence, not promotion of the candidate disciplines.",
         "",
         "## Frozen training surface",
         "",
         f"- Witness normal forms: {len(cards)}",
         f"- Generated one-step mutations: {len(mutations)}",
-        f"- Explicit inference countermodels: {len(challenges)}",
+        f"- Explicit labeled inference fixtures: {len(challenges)}",
         f"- Held-out challenges: {len(holdouts)}",
         f"- Joined positive circuits: {len(circuits)}",
         "",
@@ -488,32 +559,32 @@ def render_coverage(
     lines.extend(["", "## Joined positive circuits", "", "| Circuit | Ordered cards |", "|---|---|"])
     for circuit in circuits:
         lines.append(f"| `{circuit['id']}` | {' → '.join(f'`{step}`' for step in circuit['steps'])} |")
-    lines.extend(["", "## Candidate law basis and ablation", "", "| Law | Structural shapes | Candidate consistency-rule coverage | Ablation witness |", "|---|---|---|---|"])
+    lines.extend(["", "## Candidate discipline taxonomy and deletion test", "", "| Discipline | Labeled shapes | Candidate consistency-rule coverage | Unique fixture |", "|---|---|---|---|"])
     for law in laws:
         lines.append(
             f"| `{law['id']}` {law['name']} | "
             f"{', '.join(f'`{shape}`' for shape in law['blocks_shapes'])} | "
             f"{', '.join(f'`{claim}`' for claim in law['candidate_claim_coverage'])} | "
-            f"{ablation[law['id']]} |"
+            f"{unique_fixtures[law['id']]} |"
         )
-    lines.extend(["", "## Clause-level candidate derivations", "", "| Claim | Candidate clause | Laws | Evidence |", "|---|---|---|---|"])
+    lines.extend(["", "## Clause-level candidate annotations", "", "| Claim | Candidate clause | Disciplines | Fixtures |", "|---|---|---|---|"])
     for entry in claim_coverage:
         lines.append(
             f"| `{entry['claim']}` | {entry['clause']} | "
             f"{', '.join(f'`{item}`' for item in entry['laws'])} | "
             f"{', '.join(f'`{item}`' for item in entry['evidence'])} |"
         )
-    lines.extend(["", "Coverage is clause-level and candidate, not a proof that each entire consistency paragraph follows from one law.", "", "## Training countermodels", "", "| Case | Logical kind | Blocked by |", "|---|---|---|"])
+    lines.extend(["", "Coverage is clause-level and annotation-based, not a proof that each consistency paragraph follows from an executable law.", "", "## Labeled inference fixtures", "", "| Case | Logical kind | Annotation maps to |", "|---|---|---|"])
     for case in challenges:
         lines.append(f"| `{case['id']}` | `{case['logical_kind']}` | {', '.join(f'`{item}`' for item in case['blocked_by'])} |")
-    lines.extend(["", "## Unchanged-basis holdouts", "", "| Case | Domain | Expected | Result |", "|---|---|---|---|"])
+    lines.extend(["", "## Unchanged-taxonomy holdouts", "", "| Case | Domain | Expected | Result |", "|---|---|---|---|"])
     for case in holdouts:
-        result = "licensed" if not case["blocked_by"] else "blocked by " + ", ".join(case["blocked_by"])
+        result = "uncovered by taxonomy" if not case["blocked_by"] else "annotation maps to " + ", ".join(case["blocked_by"])
         lines.append(f"| `{case['id']}` | {case['domain']} | {case['expect']} | {result} |")
     lines.extend(
         [
             "",
-            "The complete CountsAs holdout remains licensed because the candidate basis distinguishes constitution of an indexed institutional status from constitution of a material candidate condition.",
+            "The complete CountsAs holdout remains uncovered by the failure-shape taxonomy, while prohibited holdouts map to candidate disciplines without changing that taxonomy. This is annotation coverage, not independent inference execution.",
             "",
         ]
     )
@@ -533,14 +604,15 @@ def run(*, check: bool) -> dict[str, int]:
     registry = load(REGISTRY)
     lock = load(LOCK)
     validate_source_lock(lock)
-    cards = validate_cards(load(NORMAL_FORMS), registry)
+    signatures = validate_signatures(load(PREDICATE_SIGNATURES))
+    cards = validate_cards(load(NORMAL_FORMS), registry, signatures)
     laws_data = load(LAWS)
     laws = validate_laws(laws_data, cards, registry)
     validate_connectives(load(CONNECTIVES), registry)
     mutations = generate_mutations(cards)
     challenges = validate_challenges(load(CHALLENGES), laws)
     holdouts = validate_holdouts(load(HOLDOUTS), laws, laws_data["held_out_domains"])
-    circuits = validate_circuits(load(CIRCUITS), cards)
+    circuits = validate_circuits(load(CIRCUITS), cards, signatures)
     evidence_ids = (
         {card["id"] for card in cards}
         | {item["id"] for item in mutations}
@@ -551,7 +623,7 @@ def run(*, check: bool) -> dict[str, int]:
     claim_coverage = validate_claim_coverage(
         load(CLAIM_COVERAGE), laws, registry, evidence_ids
     )
-    ablation = validate_ablation(laws, challenges)
+    unique_fixtures = validate_unique_fixtures(laws, challenges)
 
     witness_models = []
     for card in cards:
@@ -573,7 +645,7 @@ def run(*, check: bool) -> dict[str, int]:
 
     mutation_output = {
         "schema_version": 1,
-        "status": "generated-nonbinding-semantic-mutations",
+        "status": "generated-nonbinding-syntactic-constructor-mutations",
         "source_normal_forms_sha256": sha256_path(NORMAL_FORMS),
         "generator_sha256": sha256_path(Path(__file__).resolve()),
         "mutation_count": len(mutations),
@@ -593,15 +665,15 @@ def run(*, check: bool) -> dict[str, int]:
     }
     countermodel_output = {
         "schema_version": 1,
-        "status": "generated-nonbinding-countermodels",
+        "status": "generated-nonbinding-structural-near-miss-models",
         "source_normal_forms_sha256": sha256_path(NORMAL_FORMS),
         "source_challenges_sha256": sha256_path(CHALLENGES),
         "generator_sha256": sha256_path(Path(__file__).resolve()),
-        "semantic_mutations": mutations,
-        "inference_countermodels": challenges,
+        "structural_mutations": mutations,
+        "labeled_inference_fixtures": challenges,
     }
     coverage = render_coverage(
-        cards, mutations, laws, challenges, holdouts, circuits, claim_coverage, ablation
+        cards, mutations, laws, challenges, holdouts, circuits, claim_coverage, unique_fixtures
     )
     write_or_check(MUTATIONS, json.dumps(mutation_output, indent=2) + "\n", check=check)
     write_or_check(WITNESSES, json.dumps(witness_output, indent=2) + "\n", check=check)
@@ -630,9 +702,9 @@ def main() -> int:
     mode = "verified" if args.check else "generated"
     print(
         f"Algebra experiment {mode}: {counts['cards']} cards, {counts['mutations']} mutations, "
-        f"{counts['witnesses']} witnesses, {counts['countermodels']} countermodels, "
+        f"{counts['witnesses']} witnesses, {counts['countermodels']} structural fixtures, "
         f"{counts['holdouts']} holdouts, {counts['circuits']} joined circuits, "
-        f"{counts['laws']} ablation-essential laws."
+        f"{counts['laws']} candidate disciplines uniquely represented in the labeled suite."
     )
     return 0
 

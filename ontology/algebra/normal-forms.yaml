@@ -42,15 +42,15 @@
       "id": "NF-DENOTATION",
       "term_id": "organon:Denotation",
       "result_kind": "bridge_relation",
-      "result": {"predicate": "Denotation", "args": ["expression", "target"]},
-      "variables": {"expression": "Expression", "target": "Presence"},
-      "participants": ["expression", "target"],
-      "participant_roles": {"expression": "first expression position", "target": "later denoted target position"},
+      "result": {"predicate": "Denotation", "args": ["denotation", "expression", "target"]},
+      "variables": {"denotation": "Denotation", "expression": "Expression", "target": "Presence"},
+      "participants": ["denotation", "expression", "target"],
+      "participant_roles": {"denotation": "ordered Relation being classified", "expression": "first expression position", "target": "later denoted target position"},
       "indices": [],
       "premises": [
         {"id": "expression-position", "predicate": "ExpressionPosition", "args": ["expression"]},
         {"id": "target-position", "predicate": "TargetPosition", "args": ["target"]},
-        {"id": "ordered-association", "predicate": "OrderedAssociation", "args": ["expression", "target"]}
+        {"id": "ordered-association", "predicate": "OrderedAssociation", "args": ["denotation", "expression", "target"]}
       ],
       "witnesses": [],
       "shared_variables": ["expression", "target"],
@@ -289,7 +289,7 @@
       "result_kind": "epistemic_relation",
       "result": {"predicate": "EvidentialBearing", "args": ["evidence", "claim", "disposition", "order", "scope"]},
       "variables": {
-        "evidence": "Evidence", "claim": "Claim", "disposition": "Disposition", "order": "Order",
+        "evidence": "Observation", "claim": "Claim", "disposition": "Disposition", "order": "Order",
         "scope": "Scope", "rule": "EvaluationRule", "record": "Record", "claimant": "Agent"
       },
       "participants": ["evidence", "claim", "disposition"],
@@ -297,7 +297,7 @@
       "indices": ["order", "rule", "scope"],
       "premises": [
         {"id": "evidence", "predicate": "Evidence", "args": ["evidence", "claim", "claimant", "order", "scope"]},
-        {"id": "claim", "predicate": "Claim", "args": ["claim", "scope"]},
+        {"id": "claim", "predicate": "ClaimInScope", "args": ["claim", "scope"]},
         {"id": "evaluation-rule", "predicate": "EvaluationRule", "args": ["rule", "order"]},
         {"id": "rule-result", "predicate": "RuleResult", "args": ["rule", "evidence", "claim", "scope", "disposition"]}
       ],
@@ -330,31 +330,33 @@
       "result_kind": "semantic_relation",
       "result": {"predicate": "Truth", "args": ["claim", "presence", "scope"]},
       "variables": {
-        "claim": "Claim", "representation": "Representation", "specification": "Specification",
-        "presence": "Presence", "rule": "Rule", "scope": "Scope", "adequacy": "MaterialAdequacyWitness"
+        "claim": "Claim", "representation": "Representation", "denotation": "Denotation",
+        "specification": "Specification", "presence": "Presence", "rule": "Rule",
+        "scope": "Scope", "adequacy": "MaterialAdequacyWitness"
       },
-      "participants": ["claim", "representation", "specification", "presence"],
-      "participant_roles": {"claim": "truth-bearing Claim", "representation": "Claim expression", "specification": "declared truth condition", "presence": "material target in Reality"},
+      "participants": ["claim", "representation", "denotation", "specification", "presence"],
+      "participant_roles": {"claim": "truth-bearing Claim", "representation": "Claim expression", "denotation": "ordered expression-target Relation", "specification": "declared truth condition", "presence": "material target in Reality"},
       "indices": ["claim", "rule", "scope"],
       "premises": [
-        {"id": "claim", "predicate": "Claim", "args": ["claim", "representation", "scope"]},
+        {"id": "claim", "predicate": "RepresentedClaim", "args": ["claim", "representation", "scope"]},
         {"id": "representation", "predicate": "Representation", "args": ["representation"]},
         {"id": "truth-specification", "predicate": "TruthSpecification", "args": ["specification", "claim", "scope"]},
         {"id": "presence", "predicate": "Presence", "args": ["presence"]},
         {"id": "presence-scope", "predicate": "InScope", "args": ["presence", "scope"]},
-        {"id": "denotation", "predicate": "Denotation", "args": ["representation", "specification", "presence", "rule", "scope"]},
+        {"id": "denotation", "predicate": "Denotation", "args": ["denotation", "representation", "presence"]},
+        {"id": "applies-under", "predicate": "AppliesUnder", "args": ["specification", "presence", "rule", "scope"]},
         {"id": "conformity", "predicate": "Conforms", "args": ["presence", "specification"]}
       ],
       "witnesses": [
-        {"id": "material-adequacy", "predicate": "MaterialAdequacy", "args": ["adequacy", "claim", "representation", "specification", "presence", "rule", "scope"]}
+        {"id": "material-adequacy", "predicate": "MaterialAdequacy", "args": ["adequacy", "claim", "denotation", "specification", "rule", "scope"]}
       ],
-      "shared_variables": ["claim", "representation", "specification", "presence", "rule", "scope"],
+      "shared_variables": ["claim", "representation", "denotation", "specification", "presence", "rule", "scope"],
       "positive_entailments": ["this exact Claim is true under this scoped semantic join and conformity condition"],
       "anti_entailments": [
         {"kind": "bidirectional_independence", "statement": "Truth neither entails nor is entailed by Evidence, proof, consensus, Admission, access, or standing."}
       ],
       "mutation_policy": {
-        "split_variables": ["claim", "representation", "specification", "presence", "rule", "scope"],
+        "split_variables": ["claim", "representation", "denotation", "specification", "presence", "rule", "scope"],
         "reverse_atoms": ["denotation"],
         "substitute_atoms": {
           "denotation": [
