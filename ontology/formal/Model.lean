@@ -568,4 +568,4 @@ theorem exerciseModelIsInhabited :
 end DanielOntology.Model
 
 def main : IO Unit :=
-  IO.println "OrganonCore v0.17 reduct: hidden bridge relations, private ritual, ritual-dependent meaning, downstream shadows, four preserved challenge classifiers, and one pending Reality representation elaborated"
+  IO.println "OrganonCore v0.18-compatible reduct: hidden bridge relations, private ritual, ritual-dependent meaning, downstream shadows, four preserved challenge classifiers, one pending Reality representation elaboration, and metalinguistic definition admission"
