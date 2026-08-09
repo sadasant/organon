@@ -1,263 +1,233 @@
 ---
-title: Kenogram Project Ontology
+type: project-ontology
+status: generated-candidate
 project: Kenogram
 repository: https://github.com/idolum-ai/kenogram
 branch: main
 commit: 8c00104bb4b666d844715bf9840634cf92e571e2
-review_date: "2026-08-06"
-organon_version: "0.17.0"
-status: generated-candidate
-sensitivity: public
+organon_version: 0.18.0
 ---
 
 # Kenogram Project Ontology
 
-This is a candidate application of Organon v0.17 to Kenogram at the exact source revision above. It describes what the public repository currently represents and implements. It does not amend Organon, certify Kenogram, establish production adoption, or convert repository self-description into independent Evidence.
-
 ## Scope and nonclaims
 
-The review covers Kenogram's public source, binding requirements, design documents, and executable contracts at `8c00104bb4b666d844715bf9840634cf92e571e2`. The repository describes Kenogram as evaluation software and explicitly disclaims production stability, multi-tenant hardening, compliance, and certification ([README.md:55-70](https://github.com/idolum-ai/kenogram/blob/8c00104bb4b666d844715bf9840634cf92e571e2/README.md#L55-L70), [README.md:118-133](https://github.com/idolum-ai/kenogram/blob/8c00104bb4b666d844715bf9840634cf92e571e2/README.md#L118-L133)). Those limits bind this candidate ontology.
+This candidate describes Kenogram at repository `https://github.com/idolum-ai/kenogram`, branch `main`, commit `8c00104bb4b666d844715bf9840634cf92e571e2`. It covers the declaration, planning, materialization, replacement, network, governed-job, history, and verification mechanisms visible in the pinned dossier. It is not a feature inventory.
 
-This document therefore distinguishes four epistemic levels:
+The repository describes Kenogram as an execution boundary for untrusted agent processes and distinguishes that boundary from a prompt filter (`README.md:27-31`). Those descriptions remain project Claims for this review. This document does not turn them into proof of security, effectiveness, adoption, completion, Truth, independent Evidence, or institutional Authority.
 
-1. **Declared**: the repository states a contract or intended relation.
-2. **Implemented**: source contains a mechanism realizing part of that contract.
-3. **Observed**: a record is produced from a runtime inspection or execution.
-4. **Organon Evidence**: an Observation is produced by an IndependentFor Witness and admitted by an Order under an Admissibility Rule.
+In particular:
 
-The first three do not automatically become the fourth. Kenogram's local use of “evidence” is preserved as project vocabulary but mapped carefully below.
+- Kenogram is evaluation software and makes no production-stability claim (`README.md:55-62`).
+- It does not claim to prevent prompt injection, protect admitted writable mounts or secrets from world processes, prevent exfiltration to admitted destinations, secure `kenogram connect` traffic, harden a hostile multi-tenant host, or independently prevent kernel or runtime escape (`README.md:41-47`).
+- Mandatory tests are replayable project observations, not endorsements, universal compatibility, certification, or a production-stability claim (`README.md:116-133`).
+- The project says it does not implement Kaehr's formalism or claim equivalence beyond finite observation contracts (`docs/design.md:28-41`; `docs/kenogrammatics.md:78-85`).
+- Nothing in the dossier is an Organon adoption manifest. Every mapping below is a review candidate scoped to this commit.
 
 ## Project purpose
 
-Kenogram materializes rootless Linux execution environments for AI agents from host-authored declarations. It aims to give an inhabitant a useful bounded computer without inheriting ambient host authority. The declaration selects the image and explicitly admits files, mounts, secrets, resources, network destinations, and loopback interfaces; requests made from inside the world do not alter durable authority ([README.md:7-25](https://github.com/idolum-ai/kenogram/blob/8c00104bb4b666d844715bf9840634cf92e571e2/README.md#L7-L25)).
+Kenogram gives an AI agent or other process a small rootless Linux environment without giving it the operator's ambient computer. A host-authored declaration selects the image and explicitly admits files, mounts, secrets, resource limits, TCP destinations, loopback interfaces, and services (`README.md:7-25`).
 
-The principal design move is structural restriction rather than prompt interpretation. Undeclared capabilities are meant not to occur in the world's observable structure, and runtime observations are checked before declared services start ([README.md:27-47](https://github.com/idolum-ai/kenogram/blob/8c00104bb4b666d844715bf9840634cf92e571e2/README.md#L27-L47), [docs/design.md:6-26](https://github.com/idolum-ai/kenogram/blob/8c00104bb4b666d844715bf9840634cf92e571e2/docs/design.md#L6-L26)). Replacement, rather than in-place mutation, is the universal world-change mechanism; a successor is inspected before it becomes the recorded applied generation ([docs/design.md:11-25](https://github.com/idolum-ai/kenogram/blob/8c00104bb4b666d844715bf9840634cf92e571e2/docs/design.md#L11-L25), [requirements/lifecycle.md:7-23](https://github.com/idolum-ai/kenogram/blob/8c00104bb4b666d844715bf9840634cf92e571e2/requirements/lifecycle.md#L7-L23)).
+The operational sequence is to read and validate one declaration, resolve it into a canonical plan, materialize a generation, inspect the runtime, and only then record the generation as applied. Later configuration changes occur through replacement rather than mutation of the existing generation (`docs/design.md:6-25`; `internal/app/app.go:207-232`). Network reachability is introduced through host-held exact-destination proxies rather than an exterior route inside the world (`docs/design.md:16-21`).
 
-Kenogram also implements a governed-job mode: one noninteractive bounded target execution in a fresh generation, with host-authored request authority, bounded output and artifact capture, create-only publication, offline verification, and explicit separation among target outcome, finalization, and cleanup ([requirements/jobs.md:1-30](https://github.com/idolum-ai/kenogram/blob/8c00104bb4b666d844715bf9840634cf92e571e2/requirements/jobs.md#L1-L30), [requirements/jobs.md:140-178](https://github.com/idolum-ai/kenogram/blob/8c00104bb4b666d844715bf9840634cf92e571e2/requirements/jobs.md#L140-L178)).
+Kenogram also supports governed jobs: one noninteractive bounded execution in a fresh generation, with request authority kept separate from target outcomes and retained observations (`requirements/jobs.md:10-30`).
 
 ## Local vocabulary
 
-| Local term | Project meaning | Source evidence |
-|---|---|---|
-| declaration | One host-authored, versioned TOML input selecting a world configuration and admitted capabilities; the Go structure includes world, resources, workspace, copies, mounts, network, interfaces, and services. | [requirements/declaration.md:5-25](https://github.com/idolum-ai/kenogram/blob/8c00104bb4b666d844715bf9840634cf92e571e2/requirements/declaration.md#L5-L25); [internal/decl/types.go:3-69](https://github.com/idolum-ai/kenogram/blob/8c00104bb4b666d844715bf9840634cf92e571e2/internal/decl/types.go#L3-L69) |
-| plan | The fully resolved canonical provisioning intent, carrying plan, evidence, and declaration digests. | [internal/plan/plan.go:21-83](https://github.com/idolum-ai/kenogram/blob/8c00104bb4b666d844715bf9840634cf92e571e2/internal/plan/plan.go#L21-L83) |
-| world | A rootless Linux environment materialized from one declaration; the inhabitant owns what is visible inside it, while undeclared host presences are intended to be absent from it. | [docs/design.md:3-14](https://github.com/idolum-ai/kenogram/blob/8c00104bb4b666d844715bf9840634cf92e571e2/docs/design.md#L3-L14) |
-| world-pattern | The finite observable contract specified by a declaration; implementations may vary while required observations remain conformant. | [docs/design.md:28-41](https://github.com/idolum-ai/kenogram/blob/8c00104bb4b666d844715bf9840634cf92e571e2/docs/design.md#L28-L41); [docs/kenogrammatics.md:44-63](https://github.com/idolum-ai/kenogram/blob/8c00104bb4b666d844715bf9840634cf92e571e2/docs/kenogrammatics.md#L44-L63) |
-| generation | One material runtime inscription of a declared world-pattern, addressed as `kenogram-<world>-g<N>`. | [requirements/lifecycle.md:7-10](https://github.com/idolum-ai/kenogram/blob/8c00104bb4b666d844715bf9840634cf92e571e2/requirements/lifecycle.md#L7-L10); [requirements/lifecycle.md:43-46](https://github.com/idolum-ai/kenogram/blob/8c00104bb4b666d844715bf9840634cf92e571e2/requirements/lifecycle.md#L43-L46); [internal/backend/backend.go:158-160](https://github.com/idolum-ai/kenogram/blob/8c00104bb4b666d844715bf9840634cf92e571e2/internal/backend/backend.go#L158-L160) |
-| authoritative generation | The generation the durable transition phase designates as current for status and repair; this remains distinct from the displaced or staged candidate. | [requirements/lifecycle.md:17-32](https://github.com/idolum-ai/kenogram/blob/8c00104bb4b666d844715bf9840634cf92e571e2/requirements/lifecycle.md#L17-L32); [internal/app/app.go:174-188](https://github.com/idolum-ai/kenogram/blob/8c00104bb4b666d844715bf9840634cf92e571e2/internal/app/app.go#L174-L188) |
-| replacement | A transition that stages and inspects a successor, transfers explicit workspace state, records authority, and removes or restores generations according to outcome. | [requirements/lifecycle.md:7-23](https://github.com/idolum-ai/kenogram/blob/8c00104bb4b666d844715bf9840634cf92e571e2/requirements/lifecycle.md#L7-L23) |
-| invariant | A finite required observation defining conformance, especially the ten network observations whose repetition must remain indistinguishable under reapplication. | [requirements/network.md:9-33](https://github.com/idolum-ai/kenogram/blob/8c00104bb4b666d844715bf9840634cf92e571e2/requirements/network.md#L9-L33) |
-| interface | A named operator-facing byte stream to one declared loopback service; it publishes no host port and creates no general host-to-world addressing primitive. | [internal/decl/types.go:57-62](https://github.com/idolum-ai/kenogram/blob/8c00104bb4b666d844715bf9840634cf92e571e2/internal/decl/types.go#L57-L62); [requirements/network.md:62-66](https://github.com/idolum-ai/kenogram/blob/8c00104bb4b666d844715bf9840634cf92e571e2/requirements/network.md#L62-L66) |
-| allow / network allowance | An exact host-and-port destination admitted durably by the declaration or temporarily by an explicit time-bounded operator action. | [README.md:16-21](https://github.com/idolum-ai/kenogram/blob/8c00104bb4b666d844715bf9840634cf92e571e2/README.md#L16-L21); [requirements/network.md:15-27](https://github.com/idolum-ai/kenogram/blob/8c00104bb4b666d844715bf9840634cf92e571e2/requirements/network.md#L15-L27) |
-| runtime observation | A closed provider-specific record of public declared identity and observed enforcement facts before or after a governed job. | [internal/jobcontract/types.go:153-190](https://github.com/idolum-ai/kenogram/blob/8c00104bb4b666d844715bf9840634cf92e571e2/internal/jobcontract/types.go#L153-L190) |
-| job request | Host-authored input binding declaration identity, command, environment, bounds, and optional artifact inventory. | [requirements/jobs.md:16-30](https://github.com/idolum-ai/kenogram/blob/8c00104bb4b666d844715bf9840634cf92e571e2/requirements/jobs.md#L16-L30); [internal/jobcontract/types.go:23-62](https://github.com/idolum-ai/kenogram/blob/8c00104bb4b666d844715bf9840634cf92e571e2/internal/jobcontract/types.go#L23-L62) |
-| result | A typed record separating target outcome, streams, finalization, cleanup, identity, and reasons. | [internal/jobcontract/types.go:64-122](https://github.com/idolum-ai/kenogram/blob/8c00104bb4b666d844715bf9840634cf92e571e2/internal/jobcontract/types.go#L64-L122) |
-| evidence manifest | The final create-only seal over an ordered inventory of retained job artifacts and their digests. | [requirements/jobs.md:172-214](https://github.com/idolum-ai/kenogram/blob/8c00104bb4b666d844715bf9840634cf92e571e2/requirements/jobs.md#L172-L214); [internal/jobcontract/types.go:124-139](https://github.com/idolum-ai/kenogram/blob/8c00104bb4b666d844715bf9840634cf92e571e2/internal/jobcontract/types.go#L124-L139) |
-| provenance | A bounded report relating an exact executable digest to build kind, version, commit, date, toolchain, and platform. It is not a signature or self-qualification. | [requirements/provenance.md:9-37](https://github.com/idolum-ai/kenogram/blob/8c00104bb4b666d844715bf9840634cf92e571e2/requirements/provenance.md#L9-L37) |
-| history | An fsynced, hash-chained, per-world series of operation records with idempotent immediate-repeat suppression. | [internal/history/history.go:1-29](https://github.com/idolum-ai/kenogram/blob/8c00104bb4b666d844715bf9840634cf92e571e2/internal/history/history.go#L1-L29); [internal/history/history.go:42-93](https://github.com/idolum-ai/kenogram/blob/8c00104bb4b666d844715bf9840634cf92e571e2/internal/history/history.go#L42-L93) |
+The following meanings are local to Kenogram and precede any Organon mapping.
+
+| Local term | Kenogram meaning | Source |
+| --- | --- | --- |
+| **world** | A rootless Linux environment materialized from one host-authored declaration. The inhabitant can use what the image and declaration make visible. | `docs/design.md:6-9`; `README.md:10-14` |
+| **declaration** | The single host-authored configuration input. Version 1 names the world, image, resources, workspace, copies, mounts, network destinations, interfaces, and services. Unknown or malformed constructs fail validation. | `internal/decl/types.go:3-16`; `requirements/declaration.md:5-21` |
+| **plan** | The fully resolved canonical provisioning intent, carrying resolved resources and admissions together with plan, declaration, and evidence digests. | `internal/plan/plan.go:21-83` |
+| **generation** | A numbered material realization named `kenogram-<world>-g<N>`. During replacement and recovery, a generation can be authoritative, candidate, or displaced. | `internal/backend/backend.go:158-159`; `requirements/lifecycle.md:25-32` |
+| **replacement** | The universal configuration-change mechanism. It stages a successor, carries and digests workspace data, regenerates configuration, verifies the successor, and records a recovery direction. | `docs/design.md:11-14`; `requirements/lifecycle.md:7-23` |
+| **world-pattern** | The required observable properties specified by a declaration and its contracts. Different mechanisms or generations may satisfy the same finite pattern without byte or structural identity. | `docs/kenogrammatics.md:50-56`; `docs/kenogrammatics.md:67-76` |
+| **runtime invariant** | A normative acceptance condition evaluated at the real runtime boundary. The network set covers absence, visibility, reachability, exact admission, failure, expiry, and reapplication behavior. | `requirements/network.md:9-31` |
+| **authority** | Kenogram's term for configuration or transition input that controls admitted facilities and which generation operations treat as current. It includes declaration-backed authority and authoritative-generation state. | `docs/design.md:11-14`; `requirements/lifecycle.md:25-32` |
+| **absence** | Operational nonavailability in a declared or inspected field, such as no route, resolver, undeclared mount, runtime socket, or capability. | `README.md:33-39`; `requirements/network.md:9-23` |
+| **allow / revoke** | Live operations that add or remove time-bounded TCP egress. Reapplication restores declaration-backed allowances and clears ephemeral grants. | `README.md:16-21`; `requirements/network.md:25-27` |
+| **operator interface** | A named operator-facing byte stream to one declared loopback service. Descriptor transfer exposes that service without publishing a host port or general host-to-world address. | `internal/decl/types.go:57-62`; `requirements/network.md:62-66` |
+| **runtime evidence / observation** | Structured inspection fields concerning container, image, namespace, capability, seccomp, device, mount, and resource facts. Missing-runtime status remains explicit. | `internal/backend/backend.go:413-453`; `internal/app/app.go:174-187` |
+| **governed job** | One bounded noninteractive execution whose request, result, runtime observations, streams, cleanup, provenance, and sealed inventory remain separately typed. | `requirements/jobs.md:10-30`; `internal/jobcontract/types.go:23-139` |
+| **history record** | A timestamped, hash-chained JSON record of an operation, its digests, outcome, detail, and previous hash, appended and fsynced to per-world history. | `internal/history/history.go:18-29`; `internal/history/history.go:42-70` |
 
 ## Participants and worlds
 
-### Entities
+The **host operator** authors or edits declarations and invokes Kenogram. Terminal prose from inside a world does not alter declaration authority (`docs/design.md:11-14`). This local participant description is not yet an `organon:Agent` or `organon:Authority` claim.
 
-- **A materialized generation** is the strongest candidate `organon:Entity`. Its generation name, container identity, plan digest, declaration digest, image identity, mount identity, and runtime observations provide an explicit identity criterion across ordered lifecycle States. The repository distinguishes recorded authority from runtime observation ([internal/app/app.go:174-188](https://github.com/idolum-ai/kenogram/blob/8c00104bb4b666d844715bf9840634cf92e571e2/internal/app/app.go#L174-L188)) and inspects a concrete runtime Configuration with stable identity and boundary fields ([internal/backend/backend.go:413-453](https://github.com/idolum-ai/kenogram/blob/8c00104bb4b666d844715bf9840634cf92e571e2/internal/backend/backend.go#L413-L453)). This is a refinement only: an Organon Entity claim still needs the named Invariant and Persistence witness for the intended sequence.
-- **The Kenogram software project or executable** can be treated as an Entity only in a declared Scope that names its identity criterion—such as source/release lineage plus executable provenance. A binary digest alone is a Record of one inscription, not proof of project identity.
-- **A host operator** and a qualifying AI inhabitant are Entities. A container process is not promoted to Agent merely because the project calls it an agent.
+The **Kenogram provisioner** parses declarations, builds plans, acquires the world mutation lock, revalidates reviewed predecessor material, performs recovery, and applies replacement (`internal/app/app.go:239-289`). The dossier does not establish Kenogram itself as a persistent Organon Entity or Agent.
 
-### Agents
+The **world inhabitant or world process** can use whatever the image and declaration make visible while remaining untrusted relative to the host (`README.md:10-14`; `requirements/security.md:111-117`). Process execution does not establish Interpretation, Agency, consciousness, or institutional Standing.
 
-- **Host operator** is the strongest positive Agent: the operator interprets a plan comparison and chooses whether to invoke `up`, `allow`, `revoke`, or destruction. `UpReviewed` revalidates the reviewed predecessor snapshot under the mutation lock before application, preserving the causal connection between interpretation and Action ([internal/app/app.go:155-188](https://github.com/idolum-ai/kenogram/blob/8c00104bb4b666d844715bf9840634cf92e571e2/internal/app/app.go#L155-L188), [internal/app/app.go:239-289](https://github.com/idolum-ai/kenogram/blob/8c00104bb4b666d844715bf9840634cf92e571e2/internal/app/app.go#L239-L289)).
-- **World inhabitant** is an Agent only if its Interpretation conditions Actions. The term “AI agent” in project prose is not enough by itself; no isolated model response, PID, or successful job establishes Organon Agency.
-- **Parser, planner, proxy, verifier, and Podman** are not Agents merely because they transform inputs. In the evidenced project Configuration they are Tools or Organs unless an additional Agent-level identity and Interpretation path is shown.
+The **Linux kernel and rootless Podman** are external runtime dependencies. Kenogram observes aspects of their isolation but does not independently establish it (`requirements/security.md:111-117`). Exact TCP destinations and operator-facing loopback services participate in particular network paths.
 
-### Tools
-
-- **Kenogram executable** is a Tool used by the host operator in the causal path from declaration to bounded runtime.
-- **Rootless Podman, `nsenter`, and Linux kernel mechanisms** are Tools incorporated by Kenogram and ultimately by the operator. The project explicitly names them as dependencies whose isolation it observes but does not independently establish ([requirements/security.md:111-117](https://github.com/idolum-ai/kenogram/blob/8c00104bb4b666d844715bf9840634cf92e571e2/requirements/security.md#L111-L117)).
-- **Offline `verify-job`** is a Tool that applies closed validation Rules to retained Records; it is not by itself an IndependentFor Witness.
-
-### Organs
-
-The declaration parser, semantic planner, rootless backend, network proxy, transition recovery mechanism, governed-job publisher, and offline verifier are candidate `organon:Organ` instances relative to the larger Kenogram Entity or a deploying Institution. Each is a persistent specialized Configuration performing recurring Transformations. The planner, for example, resolves a parsed declaration into a canonical plan and three provenance digests ([internal/plan/plan.go:97-189](https://github.com/idolum-ai/kenogram/blob/8c00104bb4b666d844715bf9840634cf92e571e2/internal/plan/plan.go#L97-L189)); the backend inspects runtime state into a structured record ([internal/backend/backend.go:413-453](https://github.com/idolum-ai/kenogram/blob/8c00104bb4b666d844715bf9840634cf92e571e2/internal/backend/backend.go#L413-L453)). They remain Tools relative to the operator and Organs only relative to the named larger whole.
-
-### Institutions and Orders
-
-The repository does not prove a production Institution. Two candidate Orders are nonetheless legible:
-
-1. **Runtime governance Order**: host operator, qualifying inhabitant Agents, declarations, validation Rules, interfaces, runtime Records, and recurring application/replacement Relations coordinate Action. It becomes an Organon Order only when a plurality of actual Agents and their coordination are identified.
-2. **Project governance Order**: contributors, repository rules, binding requirements, CI observations, release procedures, and publication Records may coordinate software change. It becomes an Institution only if it is shown to persist through Roles, Records, Interfaces, and Flows despite participant turnover.
-
-“The declaration is the sole authority input” is therefore a local security invariant, not yet an `organon:Authority` theorem. Organon Authority is an Order-indexed Relation through which an Agent's Action may count as binding on a Principal or within an Order and Scope. The repository names trusted inputs and enforcement mechanics, but deployment-specific Standing, Principal, ActsFor, and Admission relations remain to be supplied.
-
-### World, Environment, and Substrate
-
-- **Live inhabited Kenogram world** is a refinement candidate for `organon:World` when its Scope names participating Entities, selected host Presence, available Perception/Interpretation/Action paths, Constraints, and at least one persistent common Invariant. The project's world-pattern and network invariants supply much of this structure. A TOML declaration, stopped empty container, or filesystem tree alone is not an Organon World.
-- **Host environment** is the Presence related to but excluded from the generation's identity and Boundary: host filesystem, processes, devices, credentials, routes, and names. Selected mounts, copies, secrets, and proxy doors cross that Boundary by explicit declaration ([docs/design.md:6-21](https://github.com/idolum-ai/kenogram/blob/8c00104bb4b666d844715bf9840634cf92e571e2/docs/design.md#L6-L21)). Because Environment is Entity-relative, “the host” is not one universal Environment for every participant.
-- **Linux kernel and rootless Podman configuration** are candidate Substrates for namespace and container Transformations. **Base image plus admitted sources** are candidate Substrates for generation materialization. The same base image can instead be a represented target, Record, Tool input, or output under another Scope; Substrate is not its intrinsic kind.
-- A Kenogram World is not identical to the container generation, declaration, plan, host Environment, or Reality. The project itself says a generation is one inscription and that hashes are provenance rather than an ontology of sameness ([docs/kenogrammatics.md:65-84](https://github.com/idolum-ai/kenogram/blob/8c00104bb4b666d844715bf9840634cf92e571e2/docs/kenogrammatics.md#L65-L84)).
+A local world includes a materialized generation and its visible filesystem, processes, devices, credentials, routes, names, and services. Kenogram distinguishes the world-pattern from any one generation and says names and digests record addressing and provenance rather than an ontology of sameness (`docs/design.md:30-41`). Neither the local world nor its inhabitant is therefore promoted to an Organon Entity or World in this candidate.
 
 ## Load-bearing relations
 
-| Relation | Organon reading | Kenogram realization and limit |
-|---|---|---|
-| declaration specifies plan | `denotes`, `specifies`, then `operationalizes` | TOML bytes are parsed and validated into a canonical Plan. The selected runtime Transformation occurs only through application; planning alone is not operationalization. ([internal/app/app.go:207-232](https://github.com/idolum-ai/kenogram/blob/8c00104bb4b666d844715bf9840634cf92e571e2/internal/app/app.go#L207-L232)) |
-| plan constrains generation | `constrains`, `feeds`, `servesAsSubstrate` | Plan fields feed container creation and constrain mounts, resources, network, interfaces, and services. The plan is not the generation or World. ([internal/plan/plan.go:21-83](https://github.com/idolum-ai/kenogram/blob/8c00104bb4b666d844715bf9840634cf92e571e2/internal/plan/plan.go#L21-L83)) |
-| generation realizes world-pattern | `alignsUnder` a finite Specification | Conformance means matching declared observations, not byte identity or universal behavioral equivalence. ([docs/kenogrammatics.md:44-63](https://github.com/idolum-ai/kenogram/blob/8c00104bb4b666d844715bf9840634cf92e571e2/docs/kenogrammatics.md#L44-L63)) |
-| replacement carries workspace | `transforms`, `feeds`, `persists` | Workspace state is explicitly captured and handed off; configuration is regenerated. Persistence of a world-pattern does not imply identity of generations. ([requirements/lifecycle.md:7-23](https://github.com/idolum-ai/kenogram/blob/8c00104bb4b666d844715bf9840634cf92e571e2/requirements/lifecycle.md#L7-L23), [requirements/lifecycle.md:34-46](https://github.com/idolum-ai/kenogram/blob/8c00104bb4b666d844715bf9840634cf92e571e2/requirements/lifecycle.md#L34-L46)) |
-| operator admits egress | candidate `declares`, `grants`, `permits`, `enforces` chain | The declaration creates durable allowance and `allow` creates time-bounded access. A complete Organon Permission requires deployment-specific Order, Principal, Authority, Grant, and Admission records not proven by the repository. ([README.md:16-21](https://github.com/idolum-ai/kenogram/blob/8c00104bb4b666d844715bf9840634cf92e571e2/README.md#L16-L21)) |
-| runtime inspection records state | `senses`, `observes`, `records` | Podman inspection produces structured runtime observations. Calling the struct `Evidence` does not itself satisfy Organon's Witness independence and institutional Admission requirements. ([internal/backend/backend.go:413-453](https://github.com/idolum-ai/kenogram/blob/8c00104bb4b666d844715bf9840634cf92e571e2/internal/backend/backend.go#L413-L453)) |
-| manifest seals observations | `records`; candidate `attests` | The create-only manifest binds retained artifacts, but cryptographic integrity does not make producer-owned records independent Evidence. ([requirements/jobs.md:172-214](https://github.com/idolum-ai/kenogram/blob/8c00104bb4b666d844715bf9840634cf92e571e2/requirements/jobs.md#L172-L214)) |
-| offline verifier checks bundle | `interprets`, applies `Rule`, produces `Claim` or `Observation` | `verify-job` recomputes and cross-checks retained bytes without contacting a provider, and does not upgrade runtime-reported fields to host-observed facts. ([requirements/jobs.md:239-264](https://github.com/idolum-ai/kenogram/blob/8c00104bb4b666d844715bf9840634cf92e571e2/requirements/jobs.md#L239-L264)) |
+### Declaration and application path
 
-### Load-bearing causal path
+1. The operator supplies one declaration.
+2. Kenogram parses and validates it, rejecting malformed input and unknown schema elements (`requirements/declaration.md:5-21`; `internal/app/app.go:207-232`).
+3. Planning resolves paths, copies, mounts, network allowances, interfaces, and services, then computes canonical plan, declaration, and evidence digests (`internal/plan/plan.go:97-189`).
+4. Before reviewed application, Kenogram acquires the world lock and recomputes the predecessor comparison. A changed snapshot, workspace, recovery state, or change list forces review again (`internal/app/app.go:239-289`).
+5. Runtime preflight and inspection precede recording a generation as applied (`internal/app/app.go:248-266`; `docs/design.md:23-26`).
 
-The following is one joined path; removing any named join breaks the intended result:
+This is Kenogram's technical authority path. It does not establish an Organon Order, Principal, Standing relation, or institutional Authority.
 
-```text
-host operator's internal State
-  -> edits declaration bytes (Action)
-  -> declaration parser (Tool/Organ; fail-closed Rule)
-  -> validated declaration Configuration
-  -> semantic planner (Tool/Organ)
-  -> canonical plan + declaration/plan/evidence digest Records
-  -> operator reviews comparison and invokes up (Interpretation -> Action)
-  -> rootless backend stages generation from base-image/source Substrates
-  -> kernel/Podman namespace and resource Constraints delimit its Boundary
-  -> backend inspects the candidate runtime (Sense -> Observation)
-  -> inspection is compared with the declared Specification
-  -> successor is recorded as applied
-  -> declared services begin
-```
+### Replacement and recovery path
 
-The code makes the early joins concrete: parsing and plan building occur in `PrepareBytesContext` ([internal/app/app.go:218-232](https://github.com/idolum-ai/kenogram/blob/8c00104bb4b666d844715bf9840634cf92e571e2/internal/app/app.go#L218-L232)); reviewed application revalidates the predecessor snapshot before mutation ([internal/app/app.go:239-289](https://github.com/idolum-ai/kenogram/blob/8c00104bb4b666d844715bf9840634cf92e571e2/internal/app/app.go#L239-L289)); the lifecycle contract forbids calling the successor applied until runtime evidence is inspected ([requirements/lifecycle.md:7-23](https://github.com/idolum-ai/kenogram/blob/8c00104bb4b666d844715bf9840634cf92e571e2/requirements/lifecycle.md#L7-L23)). A plan digest, an existing container, or a successful service command alone cannot substitute for this path.
+A successor is staged before its predecessor stops, but the two do not run concurrently over one workspace. The predecessor remains workspace authority while staging; after it stops, Kenogram captures and fsyncs the handoff tree before starting the successor. Failure restores the predecessor (`requirements/lifecycle.md:7-15`).
 
-For governed jobs the path continues through target admission, terminal observation, bounded stream capture, finalization, proof of cleanup absence, create-only artifact publication, final manifest seal, and independent offline replay ([requirements/jobs.md:140-178](https://github.com/idolum-ai/kenogram/blob/8c00104bb4b666d844715bf9840634cf92e571e2/requirements/jobs.md#L140-L178), [requirements/jobs.md:239-278](https://github.com/idolum-ai/kenogram/blob/8c00104bb4b666d844715bf9840634cf92e571e2/requirements/jobs.md#L239-L278)).
+A durable transition record identifies rollback or commit direction. Recovery completes that direction idempotently before another generation is planned. During recovery, status preserves separate authoritative and candidate roles (`requirements/lifecycle.md:17-32`).
 
-### Authority and evidence paths
+### Network path
 
-#### Candidate authority path
+A base world has loopback only, no resolver, no exterior route, and no direct UDP or exterior TCP path. Declared destinations create a host-held proxy door reachable on world loopback; the proxy resolves and dials only exact declared host-and-port pairs. Direct dialing remains unroutable, and proxy death or grant expiry restores closure (`requirements/network.md:9-27`).
 
-```text
-deployment Order
-  -> records operator Standing and Principal scope
-  -> operator has Authority for world policy
-  -> operator Action submits declaration + Specification
-  -> Order admits it as a valid Grant / durable Permission record
-  -> Kenogram validation and runtime Constraints enforce the admitted scope
-  -> inhabitant Action exercises only technically available paths
-```
+The operator interface uses descriptor transfer in the opposite direction: it dials one exact declared loopback address in the authoritative generation without creating a host listener or general address primitive (`requirements/network.md:62-66`).
 
-Kenogram supplies the last two mechanical stages and a host-authored declaration format. The public repository does **not** supply the deployment Order's Standing, Principal, ActsFor, Authority, or Admission records. Accordingly, “request authority” and “authoritative generation” in the code are local terms: they prevent claimant-controlled runtime output from changing technical policy, but do not independently establish Organon Authority.
+### Observation and verification path
 
-#### Candidate evidence path
+Runtime inspection produces structured local observations. A governed-job result keeps target outcome, finalization, cleanup, stream retention, and reasons distinct (`internal/jobcontract/types.go:64-121`). The evidence directory is create-only, is never mounted into the target, and receives `manifest.json` last; failure before publication leaves no complete seal (`requirements/jobs.md:172-201`).
 
-```text
-runtime Environment
-  -> Podman/kernel inspection Interface
-  -> runtime Observation Record
-  -> sealed job bundle and provenance Records
-  -> verifier distinct from producer reopens exact bytes
-  -> verifier applies declared validation Rule
-  -> verifier produces an Observation bearing on producer Claim
-  -> governing Order checks IndependentFor and admits it
-  -> evaluation Rule records supporting / defeating / underdetermining bearing
-```
-
-Kenogram implements the record production, sealing, and offline verification surfaces. It explicitly says self-reported provenance is not self-qualification ([requirements/provenance.md:27-37](https://github.com/idolum-ai/kenogram/blob/8c00104bb4b666d844715bf9840634cf92e571e2/requirements/provenance.md#L27-L37)) and that consumers must independently parse and verify retained bytes ([requirements/jobs.md:276-278](https://github.com/idolum-ai/kenogram/blob/8c00104bb4b666d844715bf9840634cf92e571e2/requirements/jobs.md#L276-L278)). The last two institutional joins are external promotion gates. Before them, the bundle is a strong Observation/Attestation candidate, not Organon Evidence.
+The offline verifier reopens descriptor-owned files, recomputes digests, validates typed documents, and cross-checks identities and runtime phases. It neither executes the target nor upgrades runtime-reported fields to host-observed facts (`requirements/jobs.md:239-269`). This is a strong local verification path, but the dossier does not identify the IndependentFor Witness, governing Order, Admissibility Rule, Admission, and Evidential Bearing required by Organon Evidence.
 
 ## Invariants and prohibited collapses
 
-### Invariants
+The load-bearing local invariants are:
 
-1. **Declaration exclusivity:** durable world authority changes only through a host-authored declaration; in-world terminal prose does not alter it ([docs/design.md:11-14](https://github.com/idolum-ai/kenogram/blob/8c00104bb4b666d844715bf9840634cf92e571e2/docs/design.md#L11-L14)).
-2. **Fail-closed admission:** malformed, unknown, duplicate, unbounded, unsafe, or unsupported declaration fields are rejected rather than widened ([requirements/declaration.md:5-21](https://github.com/idolum-ai/kenogram/blob/8c00104bb4b666d844715bf9840634cf92e571e2/requirements/declaration.md#L5-L21)).
-3. **No ambient host access:** only explicitly admitted host presences cross the intended world Boundary ([README.md:7-21](https://github.com/idolum-ai/kenogram/blob/8c00104bb4b666d844715bf9840634cf92e571e2/README.md#L7-L21)).
-4. **Network base absence:** loopback is the only base interface; resolver and exterior routes do not obtain; exact destinations require an admitted proxy path ([requirements/network.md:9-23](https://github.com/idolum-ai/kenogram/blob/8c00104bb4b666d844715bf9840634cf92e571e2/requirements/network.md#L9-L23)). “Absence” here is Kenogram's name for scoped nonavailability under runtime Constraints, not metaphysical `organon:Absence`. It becomes `organon:Missingness` only relative to a field that represents or expects the capability and does not contain it.
-5. **Inscription independence:** generation identity may change while the finite world-pattern observations persist; conformance is not equivalence beyond that contract ([requirements/network.md:23-33](https://github.com/idolum-ai/kenogram/blob/8c00104bb4b666d844715bf9840634cf92e571e2/requirements/network.md#L23-L33)).
-6. **Candidate-before-authority:** a successor is staged and inspected before durable state records it as applied ([requirements/lifecycle.md:7-23](https://github.com/idolum-ai/kenogram/blob/8c00104bb4b666d844715bf9840634cf92e571e2/requirements/lifecycle.md#L7-L23)).
-7. **Claim/observation separation:** target output and runtime-reported fields remain observations and never become authority because the producer labels them successful ([requirements/jobs.md:10-14](https://github.com/idolum-ai/kenogram/blob/8c00104bb4b666d844715bf9840634cf92e571e2/requirements/jobs.md#L10-L14)).
-8. **Outcome/finalization/cleanup separation:** target success, artifact finalization, and cleanup absence are distinct Records and conditions ([requirements/jobs.md:140-169](https://github.com/idolum-ai/kenogram/blob/8c00104bb4b666d844715bf9840634cf92e571e2/requirements/jobs.md#L140-L169)).
-9. **Secret nonprojection:** secret bytes and their digests do not enter plan output, logs, history, or generated public projections ([requirements/security.md:5-10](https://github.com/idolum-ai/kenogram/blob/8c00104bb4b666d844715bf9840634cf92e571e2/requirements/security.md#L5-L10)).
-10. **Provenance modesty:** hashes establish exact-byte provenance and conservative sameness, not semantic identity, signature, truth, or independent qualification ([docs/kenogrammatics.md:65-76](https://github.com/idolum-ai/kenogram/blob/8c00104bb4b666d844715bf9840634cf92e571e2/docs/kenogrammatics.md#L65-L76), [requirements/provenance.md:27-32](https://github.com/idolum-ai/kenogram/blob/8c00104bb4b666d844715bf9840634cf92e571e2/requirements/provenance.md#L27-L32)).
+- undeclared host access is rejected, and the runtime mount set and source identity are inspected (`README.md:33-39`);
+- base networking has no exterior route or resolver, and admitted egress remains exact-destination proxying (`requirements/network.md:9-23`);
+- a successor is inspected before becoming applied, with durable recovery direction across interruption (`requirements/lifecycle.md:7-23`);
+- repeated application of one declaration must be observationally indistinguishable under the network invariant set (`requirements/network.md:23-31`);
+- complete governed-job publication requires the final manifest seal and required runtime identities (`requirements/jobs.md:172-201`; `requirements/jobs.md:239-269`).
 
-### Prohibited collapses
+This ontology prohibits the following collapses:
 
-- Declaration, Plan, Map, and World are distinct. A host-authored Representation does not become the runtime Configuration it governs (`C5`, `C11`, `C12`).
-- A Kenogram generation is not automatically an Organon World; a World requires participating Entities, included causal access paths, Scope, Constraints, and a common persistent Invariant (`C12`).
-- Local “absence” of an undeclared capability is not `organon:Absence`. It is a scoped negative runtime observation or Missingness relative to the declared world field (`C4`).
-- A target's ability to act does not create Permission or Authority, and a declaration's institutional validity would not guarantee technical Capability (`C7`).
-- Local `Evidence` structs, manifests, test results, and self-provenance do not become Organon Evidence without the IndependentFor, Admission, Order, and evaluation-Rule joins (`C6`).
-- `authoritative generation` does not denote `organon:Authority`; it is a canonical operational status recorded during a lifecycle transition.
-- A digest is a Record and comparison input, not an Entity's entire identity criterion, Truth, or ontological sameness.
-- Rootless containment, seccomp, a successful job, or a sealed bundle does not entail production fitness, compliance, certification, or kernel/runtime escape resistance beyond the stated scope.
-- Kenogram, Podman, parser, model, and proxy do not become Agents merely because they perform Transformations.
-- Tool and Organ are contextual projections: a component may be a Tool in an operator's Action path and an Organ relative to Kenogram without becoming two Entities (`C3`).
+1. **Operational absence is not Organon Absence.** A missing route, socket, mount, resolver, or capability is a represented condition inside a runtime field.
+2. **A declaration is not institutional Authority.** It controls Kenogram's technical path but does not establish an Order, Principal, Standing, or CountsAs relation.
+3. **`allow` is not Organon Permission.** Technical egress admission lacks the required institutional Grant and Admission chain.
+4. **Runtime evidence is not automatically Organon Evidence.** Inspection, replay, hashing, and producer separation do not establish IndependentFor, institutional Admission, or Evidential Bearing by themselves.
+5. **A generation is not the world as persistent substance.** The project treats it as one inscription and disclaims ontological identity from names or digests (`requirements/lifecycle.md:43-46`).
+6. **Hash equality is not Truth or Entity identity.** Kenogram limits hash comparisons to provenance and conservative operational sameness (`docs/kenogrammatics.md:65-76`).
+7. **A complete result is not successful, safe, true, or authorized by its producer.** Target lifecycle, finalization, cleanup, and observation completeness remain separate (`requirements/jobs.md:140-170`).
+8. **The security contract is not proof of universal security.** Declared writable mounts and secrets cross the boundary intentionally, and kernel/runtime isolation remains a dependency (`requirements/security.md:62-80`; `requirements/security.md:111-117`).
 
 ## Organon mappings
 
-`exact` means the public definition supplies every load-bearing Organon condition in the stated Scope. `refinement` means it plausibly supplies a domain profile but still needs named witnesses or context. `conflict` marks a local word whose ordinary project use must not be imported as the same Organon term. `unmapped` retains local vocabulary without promotion.
+`exact` would assert coextensive local and Organon meanings. `refinement` identifies a narrower local construction that satisfies the complete Organon constructor. `conflict` records incompatible load-bearing meanings. `unmapped` records a plausible target whose required packet is incomplete. Plausible analogy alone is not refinement. No exact mapping is promoted in this candidate.
 
-| Local term | Organon ID | Class | Rationale |
-|---|---|---|---|
-| materialized generation | `organon:Entity` | refinement | Explicit operational identity and ordered lifecycle States exist; the Organon identity Invariant and Persistence witness must still be stated. |
-| host presence outside generation | `organon:Environment` | refinement | It is Entity-relative Presence excluded by the generation Boundary; admitted mounts and proxies selectively cross it. |
-| declaration | `organon:Specification` | refinement | It represents a Scope and is accepted by a constructive validator; its Go parser is authoritative about schema and defaults. |
-| declaration | `organon:Declaration` | conflict | A local TOML artifact lacks, by itself, the Agent, Authority, Claim, Order, and institutional counting required by Organon. |
-| semantic planner / validator | `organon:Rule` | refinement | It maps conforming declaration inputs to canonical plan or rejection. |
-| plan | `organon:Representation` | refinement | It denotes resolved provisioning intent but is not its runtime target. |
-| plan / declaration digest | `organon:Record` | refinement | Persistent representations of exact prior bytes/configuration; they do not prove semantic identity. |
-| world-pattern | `organon:Specification` | refinement | A finite constructive observation contract decides realization conformance within a Scope. |
-| live inhabited declared world | `organon:World` | refinement | Requires explicit participants, causal availability paths, and common persistent Invariant to close the Organon definition. |
-| Kenogram `world` declaration block | `organon:World` | conflict | A configuration subsection containing hostname/base/workdir/user is not by itself an Organon World. |
-| generation | `organon:Configuration` | refinement | One material runtime inscription with related namespaces, resources, mounts, services, and records. |
-| replacement | `organon:Transformation` | refinement | Ordered cutover changes runtime Configuration and authority Records. |
-| network invariant set | `organon:Invariant` | refinement | It names observations intended to persist under reapplication; a particular run needs the ordered-State witness. |
-| namespace/container boundary | `organon:Boundary` | refinement | Constraints determine which host-to-world and world-to-host Transformations preserve generation identity. |
-| named loopback interface | `organon:Interface` | refinement | Permitted byte-stream Transformations are explicitly represented for operator/world coordination. |
-| Kenogram executable | `organon:Tool` | refinement | Operator incorporates it into the causal path of world creation without making it part of operator identity. |
-| parser / planner / proxy / verifier | `organon:Organ` | refinement | Persistent specialized Configurations recurring for Kenogram; relative to operator they remain Tools. |
-| Linux kernel / Podman / base image | `organon:Substrate` | refinement | They supply persistent input States and Constraints for named namespace, container, and materialization Transformations. |
-| host operator | `organon:Agent` | refinement | Interpretation-to-Action path is legible; particular Agent identity remains deployment-specific. |
-| AI inhabitant | `organon:Agent` | refinement | Qualifies only if Interpretation conditions Action; process/model labels alone are insufficient. |
-| project governance | `organon:Institution` | refinement | Requires proof of plural-Agent persistence through Roles, Records, Interfaces, and recurring Flows. |
-| runtime governance configuration | `organon:Order` | refinement | Requires actual plural Agents and named institutional coordination, not only mechanical enforcement. |
-| `allow` operation | `organon:Grant` | refinement | Can instantiate a time-bounded Grant only in a deployment Order with operator Authority and an admitted Permission Claim. |
-| network allowance | `organon:Permission` | refinement | Mechanically enforced scope resembles Permission, but the complete Order/Principal/Grant/Admission chain is external. |
-| “authoritative generation” | `organon:Authority` | conflict | It names lifecycle canonicality, not an Agent's Order-indexed capacity to bind a Principal. |
-| backend `Evidence` / runtime observation | `organon:Observation` | refinement | Structured record of an inspected runtime path; the exact Sense/path Specification must be named. |
-| backend `Evidence` / sealed manifest | `organon:Evidence` | conflict | Producer records and integrity seals lack automatic IndependentFor and Admission relations. |
-| offline verifier result | `organon:Attestation` | refinement | When asserted by a distinct Witness under identity and Scope it can be an Attestation; running code alone is not a Witness. |
-| per-world history | `organon:Ledger` | refinement | Ordered typed Records with provenance are present, but it does not preserve every Organon institutional distinction. |
-| applied plan/history | `organon:CanonicalSystem` | refinement | The runtime lifecycle recognizes them as its official operational account, not Reality. |
-| world-pattern inscription | — | unmapped | Useful local analogy; no stable `organon:*` term is needed beyond Configuration, Representation, Specification, and Alignment. |
+| ID | Local term | Organon target | Classification | Disposition |
+| --- | --- | --- | --- | --- |
+| K1 | operational absence | `organon:Missingness` | refinement | promoted |
+| K2 | version-1 declaration contract | `organon:Specification` | refinement | promoted |
+| K3 | generation as an indexed runtime configuration | `organon:State` | refinement | promoted |
+| K4 | successful replacement | `organon:Transformation` | refinement | promoted |
+| K5 | required-observation world-pattern | `organon:Invariant` | refinement | promoted |
+| K6 | hash-chained history record | `organon:Record` | refinement | promoted |
+| K7 | local authority | `organon:Authority` | conflict | gated |
+| K8 | `allow` / `revoke` | `organon:Permission` | conflict | gated |
+| K9 | runtime evidence and tests | `organon:Evidence` | conflict | gated |
+| K10 | world | `organon:World` | unmapped | gated |
+| K11 | execution or security boundary | `organon:Boundary` | unmapped | gated |
+| K12 | operator interface | `organon:Interface` | unmapped | gated |
+| K13 | AI agent or world process | `organon:Agent` | unmapped | gated |
+
+### K1 — operational absence refines Missingness
+
+**Target claim:** A5. **Complete registry dependency:** `organon:Presence`.
+
+- **Local bearer and scope:** a named declaration, network contract, or runtime observation field.
+- **Expected or represented Presence:** a route, resolver, mount, socket, device, credential, capability, or destination path represented by that field.
+- **Noncontainment witness:** declaration validation or runtime inspection records that the named item is not contained in the scoped configuration (`README.md:33-39`; `requirements/network.md:9-23`).
+- **Dependency witness:** the declaration, observation, field, and recorded noncontainment are all present structures, satisfying the `organon:Presence` dependency.
+- **Exclusion:** the mapping never applies to `organon:Absence`; it applies only to relational missingness in a named field.
+
+### K2 — the version-1 declaration contract refines Specification
+
+**Target claim:** D019. **Complete registry dependencies:** `organon:Representation`, `organon:Scope`.
+
+- **Representation:** the version-1 grammar and schema restrictions represented by the declaration contract.
+- **Denoted target:** conformity criteria for candidate Kenogram declaration bytes.
+- **Scope:** exactly one UTF-8 version-1 declaration accepted by the documented TOML subset.
+- **Constructive decision procedure:** parse, reject unknown or malformed constructs, validate schema and path constraints, and either return a prepared resolved plan or an error (`requirements/declaration.md:5-21`; `internal/app/app.go:207-232`).
+- **Exclusion:** an individual declaration is not promoted merely because it was supplied; this mapping concerns the contract and its decision procedure.
+
+### K3 — a generation as an indexed runtime configuration refines State
+
+**Target claim:** D005. **Complete registry dependency:** `organon:Configuration`.
+
+- **Configuration:** the material runtime realization with its image, namespaces, mounts, resources, services, and observed runtime fields (`internal/backend/backend.go:413-440`).
+- **Ordering index:** the integer `g<N>` in `kenogram-<world>-g<N>` (`internal/backend/backend.go:158-159`).
+- **Distinct-position witness:** predecessor, successor, authoritative, and candidate generations occupy distinct lifecycle positions (`requirements/lifecycle.md:25-32`).
+- **Exclusion:** this does not establish an Organon Entity, persistence of a world identity, or equality between generations.
+
+### K4 — successful replacement refines Transformation
+
+**Target claim:** D007. **Complete registry dependencies:** `organon:Relation`, `organon:State`, `organon:Direction`.
+
+- **Input State:** the predecessor generation configuration under K3.
+- **Output State:** the verified successor generation configuration under K3.
+- **Relation:** the replacement operation joins predecessor and successor through staged materialization, workspace handoff, verification, and durable recording.
+- **Direction:** the successful cutover orders predecessor before successor; rollback is a different recovery path and is not silently treated as the same direction.
+- **Witness:** the successor is staged and verified before being recorded as applied, while transition state names rollback or commit direction (`requirements/lifecycle.md:7-23`).
+- **Exclusion:** failed staging, unresolved recovery, or rollback alone is not an instance of this promoted successful-replacement mapping.
+
+### K5 — the required-observation world-pattern refines Invariant
+
+**Target claim:** D011. **Complete registry dependencies:** `organon:Relation`, `organon:Configuration`, `organon:Transformation`.
+
+- **Preserved Configuration:** the finite required-observation contract, including the named runtime acceptance relations rather than implementation bytes or structure.
+- **Named Transformations:** successful replacement under K4 and repeated application of one declaration.
+- **Preservation witness:** replacement may change the material inscription while preserving required observations, and reapplication must remain indistinguishable under the network invariant set (`docs/kenogrammatics.md:50-56`; `requirements/network.md:23-31`).
+- **Exclusion:** this mapping is limited to the declared finite observation contract. It does not establish formal morphic bisimulation, complete behavioral equivalence, or Entity identity.
+
+### K6 — a hash-chained history record refines Record
+
+**Target claim:** D028. **Complete registry dependencies:** `organon:Persistence`, `organon:Representation`, `organon:State`, `organon:Relation`, `organon:Change`.
+
+- **Representation:** one JSON history entry containing timestamp, action, declaration and plan digests, workspace digest, outcome, detail, previous hash, and current hash.
+- **Denoted target:** the completed operation or transition Change and its associated operational State.
+- **Relation witness:** `PreviousHash` joins the entry to the immediately preceding verified history entry.
+- **Persistence witness:** the entry is appended, the file is fsynced, and subsequent entries retain the preceding hash (`internal/history/history.go:18-29`; `internal/history/history.go:42-70`).
+- **Exclusion:** the record supplies provenance and retained history, not Truth, independent Evidence, a Ledger, or institutional Admission.
+
+### Gated conflicts and unmapped correspondences
+
+- **K7 — conflict:** Kenogram's declaration and transition authority controls technical application and current-generation selection. Organon Authority is an Order-indexed relation involving an Agent, Actions, CountsAs, a Principal, and Scope. The local meaning deliberately lacks that institutional constructor (`docs/design.md:11-14`; `requirements/lifecycle.md:25-32`).
+- **K8 — conflict:** local `allow` and `revoke` change live egress policy. Organon Permission requires a Permission Claim, valid Grant, Admission, governing Order, Principal, Agent, Scope, and interval. The local operations cannot be renamed into that chain (`README.md:16-21`; `requirements/network.md:25-27`).
+- **K9 — conflict:** Kenogram uses evidence for structured observations, tests, and sealed replay material. Organon Evidence additionally requires an Observation produced by an IndependentFor Witness and admitted by an Order under an Admissibility Rule; supportive or defeating use requires Evidential Bearing. The repository also warns that self-reported provenance is not self-qualification (`README.md:120-133`; `requirements/provenance.md:29-32`).
+- **K10 — unmapped:** the local world is a rootless Linux environment, but an Organon World requires established Entities, participant-available causal paths, named Constraints, and a common Invariant across access paths. K5 supplies only a finite replacement invariant, not the whole packet (`docs/design.md:6-9`; `docs/design.md:30-41`).
+- **K11 — unmapped:** the execution boundary has documented constraints and observations, but Organon Boundary must be indexed to an Entity identity Invariant and its preserving or identity-crossing Transformations. No such Entity packet is promoted (`README.md:27-47`; `requirements/security.md:111-117`).
+- **K12 — unmapped:** the operator interface explicitly represents one permitted descriptor-transfer path, but Organon Interface is a Boundary coordinated between established Entities. The endpoint mechanism is documented; the Entity and Boundary dependencies remain open (`internal/decl/types.go:57-62`; `requirements/network.md:62-66`).
+- **K13 — unmapped:** the repository's AI agent and world process labels establish process roles, not an Organon Agent. Entity identity, Interpretation, and evidence that Interpretation conditions Action are absent (`README.md:7-25`; `requirements/security.md:111-117`).
 
 ## Boundary cases
 
-| Term | Strongest positive | Strongest negative | Difficult boundary case and decision |
-|---|---|---|---|
-| Entity | One identified generation across staged, running, stopped, and recorded States with a named generation identity and invariant. | “No exterior route,” which is a Constraint/condition rather than a Configuration retaining identity. | The “world” across replacement generations: classify as Entity only after naming a world-level identity Invariant and Persistence witness; the repository explicitly refuses to make hashes its ontology of sameness. |
-| Agent | Host operator who reviews a comparison and invokes application. | TOML parser deterministically rejecting an unknown key. | An LLM-backed contained process: classify only if one joined path shows Perception/Memory/Model/Interpretation selecting its Action; model output alone is insufficient. |
-| Tool | Kenogram executable in the operator's world-application path. | Host operator, whose Interpretation selects Action. | Podman: Tool relative to Kenogram/operator; not Agent merely because it schedules processes. |
-| Organ | Planner or verifier recurring as a specialized component of Kenogram. | One immutable `manifest.json`, which is a Record. | Kenogram executable itself: Tool relative to operator; Organ only relative to a larger persistent platform or Institution for which it performs recurring execution-boundary work. |
-| Institution | A demonstrated project governance Order persisting through contributor turnover, release Roles, Records, Interfaces, and CI/release Flows. | One operator and one local run. | Public GitHub repository: documents make an Order candidate visible, but this snapshot alone does not prove plural-Agent persistence through turnover. |
-| World | An inhabited live generation whose declared Scope includes an agent, selected host Presence, actual access paths, and a persistent world-pattern Invariant. | The `[world]` TOML table or a plan JSON. | A stopped but retained generation: it may remain an Entity/Configuration, but without available Perception/Interpretation/Action paths it does not presently satisfy World. |
-| Environment | Host files, devices, processes, names, and routes outside one generation Boundary. | The generation's declared internal filesystem and processes insofar as included in its identity. | A mounted host directory: host Environment at source, admitted Interior/Interface-related Presence relative to the generation target; classification changes with Entity and Scope. |
-| Substrate | Base image and kernel/runtime Configuration supplying States and Constraints for generation materialization. | Plan digest, which records input rather than supplying material input States. | A writable workspace: Substrate for successor materialization, Interior of the current generation, and Environment relative to another Entity; no intrinsic classification. |
+- A failed direct TCP connection can witness local network nonavailability and K1 Missingness. It does not witness absolute Absence, universal isolation, or security against kernel escape.
+- A successor container that starts but has not passed inspection is a candidate generation, not an applied successor. It can instantiate K3 as an indexed configuration without completing K4.
+- A rollback after failed replacement is a recorded recovery path. It is not the successful predecessor-to-successor Direction used by K4.
+- Two generations can satisfy K5 while differing in image structure, runtime identifiers, or bytes. Conversely, equal names or digests do not establish K5 without the required observations.
+- A declaration digest records which bytes were read, and a plan digest fingerprints resolved intent. Neither digest creates Truth, Entity identity, or institutional Authority (`docs/kenogrammatics.md:65-76`).
+- A governed-job manifest can be locally complete and replayable while remaining a producer artifact rather than Organon Evidence. Completeness does not supply an IndependentFor Witness or admitting Order.
+- A target result marked `unknown` preserves missing outcome information rather than inventing success or failure; a missing seal cannot be upgraded to a complete job (`requirements/jobs.md:151-178`).
+- A named loopback operator interface exposes one declared byte stream. It does not supply a general host-to-world network relation or, without K11 and participant Entity packets, an Organon Interface.
 
 ## Uncertainties and promotion gates
 
-1. **World identity:** state the exact world-level Invariant and ordered Persistence witness across replacement. Current documents deliberately distinguish world-pattern conformance from ontological sameness.
-2. **Agent boundary:** identify which contained systems satisfy the full Interpretation-to-Action definition rather than merely executing commands.
-3. **Order and Institution:** identify actual Agents, Roles, Standing, Interfaces, and persistence across participant turnover. Repository structure alone is insufficient.
-4. **Authority:** supply deployment-specific Principal, ActsFor, Standing, Authority, Declaration, Grant, Admission, and Permission records. Local “authority input” is currently a technical policy term.
-5. **Evidence:** define the Witness running offline verification, prove `IndependentFor` relative to the producer/claim/order, name the Admissibility Rule, and record evaluation Rule output. Until then use Observation, Record, or Attestation candidate.
-6. **Observation causal path:** bind each runtime field to the exact inspection mechanism, environmental target, and immutable process/container identity. The source contains strong pieces, but this ontology has not reconstructed every field-level path.
-7. **World availability:** show actual Causal paths from Environment through Sense/Perception or from internal State through Action for each declared participant. Files being mounted is not enough.
-8. **Substrate persistence:** specify the ordered input States and family of Transformations for kernel, runtime, base image, and workspace profiles independently.
-9. **Permission semantics:** decide whether Kenogram should adopt Organon's institutional vocabulary or retain “authority/allow” as deliberately local mechanical terms with explicit non-equivalence.
-10. **External claims:** no claim of production adoption, universal security, independent certification, or real-service behavior should be promoted from CI or project prose.
+The following gates must be resolved from a later pinned snapshot before promotion:
 
-### Machine-consumable mapping manifest
+1. **Institutional packet:** K7 or K8 would require a named Order, Rule, Scope, Principal, Agent, Standing or CountsAs path, authorized Grant, and Admission. Technical configuration control is insufficient.
+2. **Evidence packet:** K9 would require a claimant and Claim, a distinct Witness, the relevant Observation path, mechanical and institutional independence, an Admissibility Rule, governing Order, Admission, and any claimed Evidential Bearing disposition.
+3. **Entity and World packet:** K10, K11, and K12 require explicit identity Invariants, ordered States, Persistence witnesses, Entity-indexed Constraints, participating Entities, and scoped causal access paths.
+4. **Agent packet:** K13 requires a persistent Entity whose Interpretation demonstrably conditions which Action occurs. Process naming or successful command execution is insufficient.
+5. **Security scope:** broader security claims require evidence beyond the repository's stated rootless Podman and Linux assumptions and must preserve the explicit exclusions for declared secrets, writable mounts, admitted destinations, hostile hosts, and runtime escape.
+6. **Apple runtime:** the repository says the experimental launcher is not macOS runtime support and leaves lifecycle and network evidence open (`README.md:64-67`). No cross-platform boundary mapping is promoted.
+
+Review this ontology again if the repository changes the declaration schema, replacement authority model, network invariant set, runtime provider assumptions, governed-job evidence contract, verifier independence model, or meaning of world, generation, authority, evidence, or interface. A branch move without the pinned commit does not update this candidate.
 
 <!-- organon:mapping-manifest -->
 ```yaml
@@ -265,106 +235,222 @@ schema_version: 1
 project: Kenogram
 commit: 8c00104bb4b666d844715bf9840634cf92e571e2
 mappings:
-  - local_term: materialized_generation
-    organon_id: organon:Entity
+  - mapping_id: K1
+    local_term: 'operational absence'
+    organon_id: 'organon:Missingness'
+    target_claim: A5
     classification: refinement
-    evidence: ["requirements/lifecycle.md:7-23", "internal/app/app.go:174-188"]
-  - local_term: host_environment
-    organon_id: organon:Environment
+    status: promoted
+    dependencies:
+      - 'organon:Presence'
+    packet:
+      scope: 'A named declaration, contract, or inspected runtime field.'
+      witness: 'The field represents or expects a named route, resolver, mount, socket, device, credential, or capability and records that it is not contained.'
+      exclusion: 'Never licenses organon:Absence.'
+    evidence:
+      - 'README.md:33-39'
+      - 'requirements/network.md:9-23'
+  - mapping_id: K2
+    local_term: 'version-1 declaration contract'
+    organon_id: 'organon:Specification'
+    target_claim: D019
     classification: refinement
-    evidence: ["docs/design.md:6-21", "requirements/security.md:111-117"]
-  - local_term: declaration
-    organon_id: organon:Specification
+    status: promoted
+    dependencies:
+      - 'organon:Representation'
+      - 'organon:Scope'
+    packet:
+      representation: 'The represented version-1 grammar and schema restrictions.'
+      scope: 'Candidate bytes for exactly one UTF-8 Kenogram version-1 declaration.'
+      decision_procedure: 'Parse, reject unsupported or malformed structures, validate constraints, and return a prepared plan or error.'
+      exclusion: 'Supplying an individual declaration does not itself establish this mapping.'
+    evidence:
+      - 'requirements/declaration.md:5-21'
+      - 'internal/app/app.go:207-232'
+  - mapping_id: K3
+    local_term: 'generation as an indexed runtime configuration'
+    organon_id: 'organon:State'
+    target_claim: D005
     classification: refinement
-    evidence: ["requirements/declaration.md:5-25", "internal/decl/types.go:3-69"]
-  - local_term: declaration
-    organon_id: organon:Declaration
+    status: promoted
+    dependencies:
+      - 'organon:Configuration'
+    packet:
+      configuration: 'The material runtime realization and its observed image, namespace, mount, resource, and service fields.'
+      index: 'The integer N in kenogram-<world>-g<N>.'
+      exclusion: 'Does not establish Entity identity or persistence of a world.'
+    evidence:
+      - 'internal/backend/backend.go:158-159'
+      - 'internal/backend/backend.go:413-440'
+      - 'requirements/lifecycle.md:25-32'
+  - mapping_id: K4
+    local_term: 'successful replacement'
+    organon_id: 'organon:Transformation'
+    target_claim: D007
+    classification: refinement
+    status: promoted
+    dependencies:
+      - 'organon:Relation'
+      - 'organon:State'
+      - 'organon:Direction'
+    packet:
+      input_state: 'The predecessor generation configuration under K3.'
+      output_state: 'The verified successor generation configuration under K3.'
+      direction: 'Successful cutover from predecessor to successor; rollback is a distinct recovery path.'
+      exclusion: 'Failed staging and unresolved recovery are outside this promoted mapping.'
+    evidence:
+      - 'docs/design.md:11-14'
+      - 'requirements/lifecycle.md:7-23'
+  - mapping_id: K5
+    local_term: 'required-observation world-pattern'
+    organon_id: 'organon:Invariant'
+    target_claim: D011
+    classification: refinement
+    status: promoted
+    dependencies:
+      - 'organon:Relation'
+      - 'organon:Configuration'
+      - 'organon:Transformation'
+    packet:
+      preserved_configuration: 'The finite required-observation contract and its named acceptance relations.'
+      transformations: 'Successful replacement and repeated application of one declaration.'
+      exclusion: 'No formal morphic bisimulation, complete behavioral equivalence, or Entity identity follows.'
+    evidence:
+      - 'docs/kenogrammatics.md:50-56'
+      - 'requirements/network.md:23-31'
+  - mapping_id: K6
+    local_term: 'hash-chained history record'
+    organon_id: 'organon:Record'
+    target_claim: D028
+    classification: refinement
+    status: promoted
+    dependencies:
+      - 'organon:Persistence'
+      - 'organon:Representation'
+      - 'organon:State'
+      - 'organon:Relation'
+      - 'organon:Change'
+    packet:
+      representation: 'A JSON entry carrying operation, digest, outcome, detail, previous-hash, and current-hash fields.'
+      target: 'The completed operation or transition Change and associated operational State.'
+      persistence: 'Append, fsync, and retention through the next entry previous-hash relation.'
+      exclusion: 'Does not establish Truth, independent Evidence, Ledger, or Admission.'
+    evidence:
+      - 'internal/history/history.go:18-29'
+      - 'internal/history/history.go:42-70'
+  - mapping_id: K7
+    local_term: 'local authority'
+    organon_id: 'organon:Authority'
+    target_claim: D052
     classification: conflict
-    evidence: ["docs/design.md:11-14"]
-  - local_term: semantic_validator
-    organon_id: organon:Rule
-    classification: refinement
-    evidence: ["internal/app/app.go:218-232"]
-  - local_term: plan
-    organon_id: organon:Representation
-    classification: refinement
-    evidence: ["internal/plan/plan.go:21-83"]
-  - local_term: world_pattern
-    organon_id: organon:Specification
-    classification: refinement
-    evidence: ["docs/kenogrammatics.md:44-63"]
-  - local_term: live_inhabited_declared_world
-    organon_id: organon:World
-    classification: refinement
-    evidence: ["README.md:7-25", "requirements/network.md:9-33"]
-  - local_term: world_declaration_block
-    organon_id: organon:World
+    status: gated
+    missing_dependencies:
+      - 'organon:Order'
+      - 'organon:Agent'
+      - 'organon:Action'
+      - 'organon:CountsAs'
+      - 'organon:Principal'
+      - 'organon:Scope'
+    rationale: 'Kenogram authority is technical configuration and transition control, not an Order-indexed institutional relation.'
+    evidence:
+      - 'docs/design.md:11-14'
+      - 'requirements/lifecycle.md:25-32'
+  - mapping_id: K8
+    local_term: 'allow / revoke'
+    organon_id: 'organon:Permission'
+    target_claim: D057
     classification: conflict
-    evidence: ["internal/decl/types.go:18-23"]
-  - local_term: namespace_container_boundary
-    organon_id: organon:Boundary
-    classification: refinement
-    evidence: ["README.md:27-47", "requirements/security.md:64-80"]
-  - local_term: named_loopback_interface
-    organon_id: organon:Interface
-    classification: refinement
-    evidence: ["internal/decl/types.go:57-62", "requirements/network.md:62-66"]
-  - local_term: kenogram_executable
-    organon_id: organon:Tool
-    classification: refinement
-    evidence: ["README.md:7-25"]
-  - local_term: planner_proxy_verifier
-    organon_id: organon:Organ
-    classification: refinement
-    evidence: ["internal/plan/plan.go:97-189", "requirements/jobs.md:239-278"]
-  - local_term: kernel_podman_base_image
-    organon_id: organon:Substrate
-    classification: refinement
-    evidence: ["README.md:55-70", "requirements/security.md:111-117"]
-  - local_term: host_operator
-    organon_id: organon:Agent
-    classification: refinement
-    evidence: ["internal/app/app.go:155-188", "internal/app/app.go:239-289"]
-  - local_term: runtime_governance
-    organon_id: organon:Order
-    classification: refinement
-    evidence: ["README.md:16-21", "requirements/security.md:111-117"]
-  - local_term: project_governance
-    organon_id: organon:Institution
-    classification: refinement
-    evidence: ["README.md:118-133", "README.md:188-199"]
-  - local_term: allow_operation
-    organon_id: organon:Grant
-    classification: refinement
-    evidence: ["README.md:16-21", "requirements/network.md:22-27"]
-  - local_term: authoritative_generation
-    organon_id: organon:Authority
+    status: gated
+    missing_dependencies:
+      - 'organon:Order'
+      - 'organon:PermissionClaim'
+      - 'organon:Grant'
+      - 'organon:Admission'
+      - 'organon:Principal'
+      - 'organon:Agent'
+      - 'organon:Scope'
+    rationale: 'The commands alter live TCP policy without an institutional Grant and Admission chain.'
+    evidence:
+      - 'README.md:16-21'
+      - 'requirements/network.md:25-27'
+  - mapping_id: K9
+    local_term: 'runtime evidence and tests'
+    organon_id: 'organon:Evidence'
+    target_claim: D066
     classification: conflict
-    evidence: ["requirements/lifecycle.md:25-32", "internal/app/app.go:182-188"]
-  - local_term: runtime_observation
-    organon_id: organon:Observation
-    classification: refinement
-    evidence: ["internal/jobcontract/types.go:153-190"]
-  - local_term: backend_evidence_or_manifest
-    organon_id: organon:Evidence
-    classification: conflict
-    evidence: ["internal/backend/backend.go:413-453", "requirements/jobs.md:172-214"]
-  - local_term: verifier_assertion
-    organon_id: organon:Attestation
-    classification: refinement
-    evidence: ["requirements/jobs.md:239-278"]
-  - local_term: per_world_history
-    organon_id: organon:Ledger
-    classification: refinement
-    evidence: ["internal/history/history.go:18-40", "internal/history/history.go:42-93"]
-  - local_term: world_pattern_inscription
-    organon_id: null
+    status: gated
+    missing_dependencies:
+      - 'organon:Observation'
+      - 'organon:Witness'
+      - 'organon:IndependentFor'
+      - 'organon:Claim'
+      - 'organon:Order'
+      - 'organon:AdmissibilityRule'
+      - 'organon:Admission'
+    rationale: 'Local inspection and replay artifacts do not supply the complete independent and institutional Evidence constructor.'
+    evidence:
+      - 'README.md:120-133'
+      - 'requirements/jobs.md:239-258'
+      - 'requirements/provenance.md:29-32'
+  - mapping_id: K10
+    local_term: 'world'
+    organon_id: 'organon:World'
+    target_claim: D083
     classification: unmapped
-    evidence: ["docs/kenogrammatics.md:44-84"]
+    status: gated
+    missing_dependencies:
+      - 'organon:Entity'
+      - 'organon:CausalPath'
+      - 'organon:Constraint'
+      - 'organon:Invariant'
+      - 'organon:Persistence'
+      - 'organon:Scope'
+    rationale: 'The local Linux environment does not yet carry the required participant Entity and common-access-path packet.'
+    evidence:
+      - 'docs/design.md:6-9'
+      - 'docs/design.md:30-41'
+  - mapping_id: K11
+    local_term: 'execution or security boundary'
+    organon_id: 'organon:Boundary'
+    target_claim: D015
+    classification: unmapped
+    status: gated
+    missing_dependencies:
+      - 'organon:Entity'
+      - 'organon:Invariant'
+      - 'organon:Persistence'
+      - 'organon:Constraint'
+    rationale: 'Documented isolation constraints are not indexed to a promoted Entity identity Invariant.'
+    evidence:
+      - 'README.md:27-47'
+      - 'requirements/security.md:111-117'
+  - mapping_id: K12
+    local_term: 'operator interface'
+    organon_id: 'organon:Interface'
+    target_claim: D042
+    classification: unmapped
+    status: gated
+    missing_dependencies:
+      - 'organon:Boundary'
+      - 'organon:Entity'
+      - 'organon:Transformation'
+      - 'organon:Representation'
+    rationale: 'The explicit descriptor-transfer mechanism is documented, but participating Entities and an Entity-indexed Boundary are not established.'
+    evidence:
+      - 'internal/decl/types.go:57-62'
+      - 'requirements/network.md:62-66'
+  - mapping_id: K13
+    local_term: 'AI agent or world process'
+    organon_id: 'organon:Agent'
+    target_claim: D035
+    classification: unmapped
+    status: gated
+    missing_dependencies:
+      - 'organon:Entity'
+      - 'organon:Interpretation'
+      - 'organon:Action'
+    rationale: 'Process execution and project labeling do not show a persistent Entity whose Interpretation conditions Action.'
+    evidence:
+      - 'README.md:7-25'
+      - 'requirements/security.md:111-117'
 ```
-
-### Candidate conclusion
-
-Kenogram's strongest Organon contribution is not the word “world,” but a disciplined separation among represented intent, materialized Configuration, runtime Observation, and institutional authority. Its source repeatedly refuses several dangerous collapses: request output into authority, digest into identity, conformance into universal equivalence, producer report into independent proof, and capability into ambient permission.
-
-The principal semantic hazards are correspondingly local-name collisions. Kenogram `declaration`, `world`, `authority`, and `evidence` are narrower engineering terms than `organon:Declaration`, `organon:World`, `organon:Authority`, and `organon:Evidence`. Treating them as exact would overstate the public artifact. Treating them as explicit refinements—with deployment-specific gates for Agent, Order, Authority, and Evidence—produces a coherent, useful project ontology without inflating the repository's claims.
