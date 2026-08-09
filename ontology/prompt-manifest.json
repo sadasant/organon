@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "artifact": "ontology-prompt-projection",
+  "canonical": false,
+  "ontology_version": "0.17.0",
+  "projection_mode": "full",
+  "requested_terms": [],
+  "term_count": 109,
+  "registry_term_count": 109,
+  "commitment_count": 42,
+  "registry_commitment_count": 42,
+  "sources_sha256": {
+    "ontology/ontology.md": "81c03318a3bc2b07cc3a7a9949c3da54dd885320b2f3ec246f4c5498d5cbcde1",
+    "ontology/terms.yaml": "10fb5fbb880bf4cb1982640f16699c8ebe3ce5c740f3af0c37ac54be813a4314",
+    "editorial/long-form.md": "fb8f21b7dc03e2e44737fef723d94abdbb62a044ead89a6a7579d07d23b55d68",
+    "editorial/short-form.md": "7ac9254f6f8964a1776f2eeacbfe36fdaad591701174116c0527c1f2c1b472be"
+  },
+  "generator_sha256": "a3a1227df4513535f69b7e0bd1bb0d002a5a9d6d03d484fee3a4b1379dbaa13f",
+  "prompt_sha256": "eda2e67535e087e73f852b704cb47177777be50fc503210ab2ddfd44198c7063",
+  "prompt_bytes": 68656,
+  "extraction": "exact primary statement after each registered term or claim marker",
+  "omissions": [
+    "extended explanations and examples",
+    "boundary cases and philosophical shadows",
+    "provenance arguments and proposal dossiers",
+    "Lean proofs, witnesses, and countermodels",
+    "editorial instruments"
+  ]
+}

@@ -44,7 +44,18 @@ scripts/        repository, semantic, and adoption checks
 
 [Contributing to Organon](./CONTRIBUTING.md) defines the review burden for binding changes. In particular, a new term must survive a termhood challenge, dependency and collapse audits, comparison with its closest intellectual shadows, and proportionate formal testing before it can be called promotion-ready.
 
-The binding artifact is [Daniel's Ontology v0.17](./ontology/ontology.md). It remains readable as one Markdown document; the machine-readable registry and formal artifacts check and challenge it without replacing it. Its [term registry](./ontology/terms.yaml) assigns stable `organon:*` identifiers, typed claims, and explicit dependencies. The [hidden-bridge audit](./ontology/hidden-bridge-audit.md) records why three notions became terms while three were reduced to metalanguage or existing Relations. The [Ritual and Meaning dossier](./proposals/ritual-and-meaning.md) records why Flow absorbed recurrence, Ritual and Meaning survived termhood, and Ritual Residue did not. The [changelog](./ontology/changelog.md) keeps earlier arguments and rejected formulations out of the active system.
+The binding artifact is [Daniel's Ontology v0.17](./ontology/ontology.md). It remains readable as one Markdown document; the machine-readable registry and formal artifacts check and challenge it without replacing it. Its [term registry](./ontology/terms.yaml) assigns stable `organon:*` identifiers, typed claims, and explicit dependencies. The generated [prompt projection](./ontology/prompt.md) carries every primary term statement and registered commitment in a smaller, explicitly lossy form; its [manifest](./ontology/prompt-manifest.json) records exact source hashes, coverage, and omissions. The [hidden-bridge audit](./ontology/hidden-bridge-audit.md) records why three notions became terms while three were reduced to metalanguage or existing Relations. The [Ritual and Meaning dossier](./proposals/ritual-and-meaning.md) records why Flow absorbed recurrence, Ritual and Meaning survived termhood, and Ritual Residue did not. The [changelog](./ontology/changelog.md) keeps earlier arguments and rejected formulations out of the active system.
+
+For focused context hydration, the same generator accepts one or more terms and
+emits only their transitive dependency closure plus applicable commitments:
+
+```sh
+python3 scripts/build-ontology-prompt.py \
+  --term organon:Intelligence \
+  --term organon:OperativeKnowledge \
+  --output /tmp/organon-knowledge-prompt.md \
+  --manifest /tmp/organon-knowledge-prompt-manifest.json
+```
 
 Terms under quarantine are developed through [proposal pull requests](./proposals/README.md). A proposal may preserve candidate definitions, hypotheses, evidence requirements, and reasons for refusal without changing the binding ontology merely by existing.
 
@@ -85,6 +96,7 @@ From the repository root:
 ```sh
 python3 scripts/check-links.py
 python3 scripts/check-semantics.py
+python3 scripts/build-ontology-prompt.py --check
 python3 scripts/check-proposals.py
 python3 scripts/check-formal-receipt.py
 python3 scripts/check-adoption.py examples/organon-adoption.json --repo-root .

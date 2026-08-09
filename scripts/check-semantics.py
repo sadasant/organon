@@ -193,6 +193,15 @@ def main() -> int:
     if bridge_check.returncode != 0:
         errors.append(bridge_check.stderr.strip() or bridge_check.stdout.strip())
 
+    prompt_check = subprocess.run(
+        [sys.executable, str(ROOT / "scripts" / "build-ontology-prompt.py"), "--check"],
+        cwd=ROOT,
+        capture_output=True,
+        text=True,
+    )
+    if prompt_check.returncode != 0:
+        errors.append(prompt_check.stderr.strip() or prompt_check.stdout.strip())
+
     if errors:
         print("Semantic check failed:")
         for error in errors:
