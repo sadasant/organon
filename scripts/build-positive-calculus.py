@@ -128,7 +128,6 @@ def run(*, check: bool) -> dict[str, int]:
                 "constructor": "G1",
                 "declared_dependencies": dependencies,
                 "conformity_witness": witness,
-                "canonical_facts": complete,
                 "result": {"predicate": "Classified", "args": [term["id"], "candidate"]},
                 "derives": True,
                 "one_step_mutations": [mutation["id"] for mutation in mutations],

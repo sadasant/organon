@@ -4,7 +4,7 @@
   "source_sha256": {
     "ontology/terms.yaml": "10fb5fbb880bf4cb1982640f16699c8ebe3ce5c740f3af0c37ac54be813a4314",
     "ontology/algebra/positive-calculus.yaml": "1b63bd79c0add66cf2896fe1cecbff8f40f71ed30c41e2ace5e87ded8d632911",
-    "scripts/build-positive-calculus.py": "0070299be63a3f2004b0eba61c517aaadefb6f2856189b84677f9f2fd0e215cf"
+    "scripts/build-positive-calculus.py": "6d9d0e2c04069f6e35797eea1aeccea59f3407590c853e6652bdcde80a3afd8e"
   },
   "counts": {
     "registered_terms": 109,
@@ -44,22 +44,6 @@
           "candidate"
         ]
       },
-      "canonical_facts": [
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Presence",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Conforms",
-          "args": [
-            "D001",
-            "candidate"
-          ]
-        }
-      ],
       "result": {
         "predicate": "Classified",
         "args": [
@@ -88,29 +72,6 @@
           "candidate"
         ]
       },
-      "canonical_facts": [
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Presence",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Reality",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Conforms",
-          "args": [
-            "D002",
-            "candidate"
-          ]
-        }
-      ],
       "result": {
         "predicate": "Classified",
         "args": [
@@ -139,22 +100,6 @@
           "candidate"
         ]
       },
-      "canonical_facts": [
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Presence",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Conforms",
-          "args": [
-            "D003",
-            "candidate"
-          ]
-        }
-      ],
       "result": {
         "predicate": "Classified",
         "args": [
@@ -183,29 +128,6 @@
           "candidate"
         ]
       },
-      "canonical_facts": [
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Presence",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Relation",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Conforms",
-          "args": [
-            "D102",
-            "candidate"
-          ]
-        }
-      ],
       "result": {
         "predicate": "Classified",
         "args": [
@@ -235,29 +157,6 @@
           "candidate"
         ]
       },
-      "canonical_facts": [
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Presence",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Relation",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Conforms",
-          "args": [
-            "D004",
-            "candidate"
-          ]
-        }
-      ],
       "result": {
         "predicate": "Classified",
         "args": [
@@ -286,22 +185,6 @@
           "candidate"
         ]
       },
-      "canonical_facts": [
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Configuration",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Conforms",
-          "args": [
-            "D005",
-            "candidate"
-          ]
-        }
-      ],
       "result": {
         "predicate": "Classified",
         "args": [
@@ -330,29 +213,6 @@
           "candidate"
         ]
       },
-      "canonical_facts": [
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Relation",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:State",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Conforms",
-          "args": [
-            "D006",
-            "candidate"
-          ]
-        }
-      ],
       "result": {
         "predicate": "Classified",
         "args": [
@@ -383,36 +243,6 @@
           "candidate"
         ]
       },
-      "canonical_facts": [
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Direction",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Relation",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:State",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Conforms",
-          "args": [
-            "D007",
-            "candidate"
-          ]
-        }
-      ],
       "result": {
         "predicate": "Classified",
         "args": [
@@ -444,36 +274,6 @@
           "candidate"
         ]
       },
-      "canonical_facts": [
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Difference",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:State",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Transformation",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Conforms",
-          "args": [
-            "D008",
-            "candidate"
-          ]
-        }
-      ],
       "result": {
         "predicate": "Classified",
         "args": [
@@ -504,29 +304,6 @@
           "candidate"
         ]
       },
-      "canonical_facts": [
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Relation",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:State",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Conforms",
-          "args": [
-            "D009",
-            "candidate"
-          ]
-        }
-      ],
       "result": {
         "predicate": "Classified",
         "args": [
@@ -558,43 +335,6 @@
           "candidate"
         ]
       },
-      "canonical_facts": [
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Direction",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Feeds",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:State",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Transformation",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Conforms",
-          "args": [
-            "D010",
-            "candidate"
-          ]
-        }
-      ],
       "result": {
         "predicate": "Classified",
         "args": [
@@ -631,64 +371,6 @@
           "candidate"
         ]
       },
-      "canonical_facts": [
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:CausalPath",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Change",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Difference",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Direction",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Relation",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:State",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Transformation",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Conforms",
-          "args": [
-            "D103",
-            "candidate"
-          ]
-        }
-      ],
       "result": {
         "predicate": "Classified",
         "args": [
@@ -724,36 +406,6 @@
           "candidate"
         ]
       },
-      "canonical_facts": [
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Configuration",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Relation",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Transformation",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Conforms",
-          "args": [
-            "D011",
-            "candidate"
-          ]
-        }
-      ],
       "result": {
         "predicate": "Classified",
         "args": [
@@ -784,29 +436,6 @@
           "candidate"
         ]
       },
-      "canonical_facts": [
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Invariant",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:State",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Conforms",
-          "args": [
-            "D012",
-            "candidate"
-          ]
-        }
-      ],
       "result": {
         "predicate": "Classified",
         "args": [
@@ -837,36 +466,6 @@
           "candidate"
         ]
       },
-      "canonical_facts": [
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Persistence",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Relation",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Transformation",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Conforms",
-          "args": [
-            "D013",
-            "candidate"
-          ]
-        }
-      ],
       "result": {
         "predicate": "Classified",
         "args": [
@@ -898,36 +497,6 @@
           "candidate"
         ]
       },
-      "canonical_facts": [
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Configuration",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Invariant",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Persistence",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Conforms",
-          "args": [
-            "D014",
-            "candidate"
-          ]
-        }
-      ],
       "result": {
         "predicate": "Classified",
         "args": [
@@ -961,50 +530,6 @@
           "candidate"
         ]
       },
-      "canonical_facts": [
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Configuration",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Constraint",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Entity",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Invariant",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Persistence",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Conforms",
-          "args": [
-            "D015",
-            "candidate"
-          ]
-        }
-      ],
       "result": {
         "predicate": "Classified",
         "args": [
@@ -1038,36 +563,6 @@
           "candidate"
         ]
       },
-      "canonical_facts": [
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Boundary",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Entity",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Presence",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Conforms",
-          "args": [
-            "D016",
-            "candidate"
-          ]
-        }
-      ],
       "result": {
         "predicate": "Classified",
         "args": [
@@ -1100,43 +595,6 @@
           "candidate"
         ]
       },
-      "canonical_facts": [
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Configuration",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Denotation",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Presence",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Relation",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Conforms",
-          "args": [
-            "D017",
-            "candidate"
-          ]
-        }
-      ],
       "result": {
         "predicate": "Classified",
         "args": [
@@ -1172,57 +630,6 @@
           "candidate"
         ]
       },
-      "canonical_facts": [
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Constraint",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Presence",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Relation",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Representation",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:State",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Transformation",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Conforms",
-          "args": [
-            "D018",
-            "candidate"
-          ]
-        }
-      ],
       "result": {
         "predicate": "Classified",
         "args": [
@@ -1256,29 +663,6 @@
           "candidate"
         ]
       },
-      "canonical_facts": [
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Representation",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Scope",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Conforms",
-          "args": [
-            "D019",
-            "candidate"
-          ]
-        }
-      ],
       "result": {
         "predicate": "Classified",
         "args": [
@@ -1309,36 +693,6 @@
           "candidate"
         ]
       },
-      "canonical_facts": [
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Constraint",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Specification",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Transformation",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Conforms",
-          "args": [
-            "D020",
-            "candidate"
-          ]
-        }
-      ],
       "result": {
         "predicate": "Classified",
         "args": [
@@ -1374,64 +728,6 @@
           "candidate"
         ]
       },
-      "canonical_facts": [
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:CausalPath",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Change",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Denotation",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Presence",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Relation",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Representation",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:State",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Conforms",
-          "args": [
-            "D021",
-            "candidate"
-          ]
-        }
-      ],
       "result": {
         "predicate": "Classified",
         "args": [
@@ -1470,57 +766,6 @@
           "candidate"
         ]
       },
-      "canonical_facts": [
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Denotation",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Persistence",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Representation",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Rule",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:State",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Transformation",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Conforms",
-          "args": [
-            "D022",
-            "candidate"
-          ]
-        }
-      ],
       "result": {
         "predicate": "Classified",
         "args": [
@@ -1556,43 +801,6 @@
           "candidate"
         ]
       },
-      "canonical_facts": [
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Persistence",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Rule",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:State",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Symbol",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Conforms",
-          "args": [
-            "D023",
-            "candidate"
-          ]
-        }
-      ],
       "result": {
         "predicate": "Classified",
         "args": [
@@ -1624,29 +832,6 @@
           "candidate"
         ]
       },
-      "canonical_facts": [
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Reality",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Representation",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Conforms",
-          "args": [
-            "D024",
-            "candidate"
-          ]
-        }
-      ],
       "result": {
         "predicate": "Classified",
         "args": [
@@ -1678,43 +863,6 @@
           "candidate"
         ]
       },
-      "canonical_facts": [
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Constraint",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Map",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Scope",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Specification",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Conforms",
-          "args": [
-            "D025",
-            "candidate"
-          ]
-        }
-      ],
       "result": {
         "predicate": "Classified",
         "args": [
@@ -1750,57 +898,6 @@
           "candidate"
         ]
       },
-      "canonical_facts": [
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Boundary",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:CausalPath",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Constraint",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Difference",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Entity",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Environment",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Conforms",
-          "args": [
-            "D026",
-            "candidate"
-          ]
-        }
-      ],
       "result": {
         "predicate": "Classified",
         "args": [
@@ -1834,29 +931,6 @@
           "candidate"
         ]
       },
-      "canonical_facts": [
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Sense",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:State",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Conforms",
-          "args": [
-            "D027",
-            "candidate"
-          ]
-        }
-      ],
       "result": {
         "predicate": "Classified",
         "args": [
@@ -1889,50 +963,6 @@
           "candidate"
         ]
       },
-      "canonical_facts": [
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Change",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Persistence",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Relation",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Representation",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:State",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Conforms",
-          "args": [
-            "D028",
-            "candidate"
-          ]
-        }
-      ],
       "result": {
         "predicate": "Classified",
         "args": [
@@ -1969,57 +999,6 @@
           "candidate"
         ]
       },
-      "canonical_facts": [
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:CausalPath",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Environment",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Reality",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Record",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Sense",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Specification",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Conforms",
-          "args": [
-            "D029",
-            "candidate"
-          ]
-        }
-      ],
       "result": {
         "predicate": "Classified",
         "args": [
@@ -2055,43 +1034,6 @@
           "candidate"
         ]
       },
-      "canonical_facts": [
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Entity",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Persistence",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Record",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:State",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Conforms",
-          "args": [
-            "D030",
-            "candidate"
-          ]
-        }
-      ],
       "result": {
         "predicate": "Classified",
         "args": [
@@ -2128,64 +1070,6 @@
           "candidate"
         ]
       },
-      "canonical_facts": [
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Configuration",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Constraint",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Memory",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Perception",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Representation",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:State",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Transformation",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Conforms",
-          "args": [
-            "D031",
-            "candidate"
-          ]
-        }
-      ],
       "result": {
         "predicate": "Classified",
         "args": [
@@ -2223,50 +1107,6 @@
           "candidate"
         ]
       },
-      "canonical_facts": [
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Boundary",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:CausalPath",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Entity",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:State",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Transformation",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Conforms",
-          "args": [
-            "D032",
-            "candidate"
-          ]
-        }
-      ],
       "result": {
         "predicate": "Classified",
         "args": [
@@ -2300,36 +1140,6 @@
           "candidate"
         ]
       },
-      "canonical_facts": [
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Action",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:CausalPath",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Change",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Conforms",
-          "args": [
-            "D033",
-            "candidate"
-          ]
-        }
-      ],
       "result": {
         "predicate": "Classified",
         "args": [
@@ -2364,57 +1174,6 @@
           "candidate"
         ]
       },
-      "canonical_facts": [
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Action",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Entity",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Memory",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Model",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Perception",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Transformation",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Conforms",
-          "args": [
-            "D034",
-            "candidate"
-          ]
-        }
-      ],
       "result": {
         "predicate": "Classified",
         "args": [
@@ -2449,36 +1208,6 @@
           "candidate"
         ]
       },
-      "canonical_facts": [
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Action",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Entity",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Interpretation",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Conforms",
-          "args": [
-            "D035",
-            "candidate"
-          ]
-        }
-      ],
       "result": {
         "predicate": "Classified",
         "args": [
@@ -2511,43 +1240,6 @@
           "candidate"
         ]
       },
-      "canonical_facts": [
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Action",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Agent",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Interpretation",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Relation",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Conforms",
-          "args": [
-            "D036",
-            "candidate"
-          ]
-        }
-      ],
       "result": {
         "predicate": "Classified",
         "args": [
@@ -2581,43 +1273,6 @@
           "candidate"
         ]
       },
-      "canonical_facts": [
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Action",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Agent",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:CausalPath",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Entity",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Conforms",
-          "args": [
-            "D037",
-            "candidate"
-          ]
-        }
-      ],
       "result": {
         "predicate": "Classified",
         "args": [
@@ -2655,71 +1310,6 @@
           "candidate"
         ]
       },
-      "canonical_facts": [
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Action",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Agent",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Boundary",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:CausalPath",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Configuration",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Constraint",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Specification",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:State",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Conforms",
-          "args": [
-            "D038",
-            "candidate"
-          ]
-        }
-      ],
       "result": {
         "predicate": "Classified",
         "args": [
@@ -2758,50 +1348,6 @@
           "candidate"
         ]
       },
-      "canonical_facts": [
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Boundary",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Entity",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Specification",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:State",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Transformation",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Conforms",
-          "args": [
-            "D039",
-            "candidate"
-          ]
-        }
-      ],
       "result": {
         "predicate": "Classified",
         "args": [
@@ -2836,43 +1382,6 @@
           "candidate"
         ]
       },
-      "canonical_facts": [
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Boundary",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Interior",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:State",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Transformation",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Conforms",
-          "args": [
-            "D040",
-            "candidate"
-          ]
-        }
-      ],
       "result": {
         "predicate": "Classified",
         "args": [
@@ -2911,78 +1420,6 @@
           "candidate"
         ]
       },
-      "canonical_facts": [
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Configuration",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Difference",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Direction",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Invariant",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Persistence",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Relation",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Scope",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:State",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Transformation",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Conforms",
-          "args": [
-            "D041",
-            "candidate"
-          ]
-        }
-      ],
       "result": {
         "predicate": "Classified",
         "args": [
@@ -3021,43 +1458,6 @@
           "candidate"
         ]
       },
-      "canonical_facts": [
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Boundary",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Entity",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Representation",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Transformation",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Conforms",
-          "args": [
-            "D042",
-            "candidate"
-          ]
-        }
-      ],
       "result": {
         "predicate": "Classified",
         "args": [
@@ -3094,64 +1494,6 @@
           "candidate"
         ]
       },
-      "canonical_facts": [
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Agent",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Configuration",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Presence",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Record",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Relation",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Representation",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Scope",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Conforms",
-          "args": [
-            "D043",
-            "candidate"
-          ]
-        }
-      ],
       "result": {
         "predicate": "Classified",
         "args": [
@@ -3188,43 +1530,6 @@
           "candidate"
         ]
       },
-      "canonical_facts": [
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Agent",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Claim",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Entity",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Observation",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Conforms",
-          "args": [
-            "D044",
-            "candidate"
-          ]
-        }
-      ],
       "result": {
         "predicate": "Classified",
         "args": [
@@ -3262,71 +1567,6 @@
           "candidate"
         ]
       },
-      "canonical_facts": [
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Action",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Agent",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:CausalPath",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Constraint",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Interface",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Observation",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Relation",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Rule",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Conforms",
-          "args": [
-            "D045",
-            "candidate"
-          ]
-        }
-      ],
       "result": {
         "predicate": "Classified",
         "args": [
@@ -3368,71 +1608,6 @@
           "candidate"
         ]
       },
-      "canonical_facts": [
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Action",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Agent",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Configuration",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Constraint",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Interface",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Record",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Relation",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Rule",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Conforms",
-          "args": [
-            "D046",
-            "candidate"
-          ]
-        }
-      ],
       "result": {
         "predicate": "Classified",
         "args": [
@@ -3472,57 +1647,6 @@
           "candidate"
         ]
       },
-      "canonical_facts": [
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Entity",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Order",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Record",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Relation",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Rule",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Scope",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Conforms",
-          "args": [
-            "D047",
-            "candidate"
-          ]
-        }
-      ],
       "result": {
         "predicate": "Classified",
         "args": [
@@ -3560,57 +1684,6 @@
           "candidate"
         ]
       },
-      "canonical_facts": [
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Entity",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Order",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Relation",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Rule",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Scope",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Standing",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Conforms",
-          "args": [
-            "D048",
-            "candidate"
-          ]
-        }
-      ],
       "result": {
         "predicate": "Classified",
         "args": [
@@ -3646,43 +1719,6 @@
           "candidate"
         ]
       },
-      "canonical_facts": [
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Action",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Entity",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Order",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Standing",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Conforms",
-          "args": [
-            "D049",
-            "candidate"
-          ]
-        }
-      ],
       "result": {
         "predicate": "Classified",
         "args": [
@@ -3718,57 +1754,6 @@
           "candidate"
         ]
       },
-      "canonical_facts": [
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Agent",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Order",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Principal",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Recognition",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Relation",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Scope",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Conforms",
-          "args": [
-            "D050",
-            "candidate"
-          ]
-        }
-      ],
       "result": {
         "predicate": "Classified",
         "args": [
@@ -3808,71 +1793,6 @@
           "candidate"
         ]
       },
-      "canonical_facts": [
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Action",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Claim",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Order",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Presence",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Record",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Relation",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Rule",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Scope",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Conforms",
-          "args": [
-            "D051",
-            "candidate"
-          ]
-        }
-      ],
       "result": {
         "predicate": "Classified",
         "args": [
@@ -3913,64 +1833,6 @@
           "candidate"
         ]
       },
-      "canonical_facts": [
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Action",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Agent",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:CountsAs",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Order",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Principal",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Relation",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Scope",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Conforms",
-          "args": [
-            "D052",
-            "candidate"
-          ]
-        }
-      ],
       "result": {
         "predicate": "Classified",
         "args": [
@@ -4009,57 +1871,6 @@
           "candidate"
         ]
       },
-      "canonical_facts": [
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Action",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Agent",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Claim",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Order",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Principal",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Scope",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Conforms",
-          "args": [
-            "D053",
-            "candidate"
-          ]
-        }
-      ],
       "result": {
         "predicate": "Classified",
         "args": [
@@ -4098,64 +1909,6 @@
           "candidate"
         ]
       },
-      "canonical_facts": [
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Action",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Agent",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Authority",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Claim",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Order",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Scope",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Specification",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Conforms",
-          "args": [
-            "D054",
-            "candidate"
-          ]
-        }
-      ],
       "result": {
         "predicate": "Classified",
         "args": [
@@ -4195,64 +1948,6 @@
           "candidate"
         ]
       },
-      "canonical_facts": [
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Agent",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Authority",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Claim",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Declaration",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:PermissionClaim",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Principal",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Scope",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Conforms",
-          "args": [
-            "D055",
-            "candidate"
-          ]
-        }
-      ],
       "result": {
         "predicate": "Classified",
         "args": [
@@ -4291,57 +1986,6 @@
           "candidate"
         ]
       },
-      "canonical_facts": [
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Claim",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:CountsAs",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Observation",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Order",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Record",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Rule",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Conforms",
-          "args": [
-            "D056",
-            "candidate"
-          ]
-        }
-      ],
       "result": {
         "predicate": "Classified",
         "args": [
@@ -4381,71 +2025,6 @@
           "candidate"
         ]
       },
-      "canonical_facts": [
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Admission",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Agent",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Grant",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Order",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:PermissionClaim",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Principal",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Record",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Scope",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Conforms",
-          "args": [
-            "D057",
-            "candidate"
-          ]
-        }
-      ],
       "result": {
         "predicate": "Classified",
         "args": [
@@ -4484,50 +2063,6 @@
           "candidate"
         ]
       },
-      "canonical_facts": [
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Authority",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Declaration",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Order",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Permission",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:State",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Conforms",
-          "args": [
-            "D058",
-            "candidate"
-          ]
-        }
-      ],
       "result": {
         "predicate": "Classified",
         "args": [
@@ -4564,57 +2099,6 @@
           "candidate"
         ]
       },
-      "canonical_facts": [
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Action",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Agent",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Order",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Permission",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Revocation",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Scope",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Conforms",
-          "args": [
-            "D059",
-            "candidate"
-          ]
-        }
-      ],
       "result": {
         "predicate": "Classified",
         "args": [
@@ -4655,78 +2139,6 @@
           "candidate"
         ]
       },
-      "canonical_facts": [
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Action",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Agent",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Capability",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Configuration",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Constraint",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Order",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Permission",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Relation",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Scope",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Conforms",
-          "args": [
-            "D060",
-            "candidate"
-          ]
-        }
-      ],
       "result": {
         "predicate": "Classified",
         "args": [
@@ -4765,43 +2177,6 @@
           "candidate"
         ]
       },
-      "canonical_facts": [
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Action",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Exercisability",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Permission",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Scope",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Conforms",
-          "args": [
-            "D061",
-            "candidate"
-          ]
-        }
-      ],
       "result": {
         "predicate": "Classified",
         "args": [
@@ -4837,57 +2212,6 @@
           "candidate"
         ]
       },
-      "canonical_facts": [
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Consequence",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Constraint",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Order",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Record",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Relation",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Rule",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Conforms",
-          "args": [
-            "D062",
-            "candidate"
-          ]
-        }
-      ],
       "result": {
         "predicate": "Classified",
         "args": [
@@ -4927,71 +2251,6 @@
           "candidate"
         ]
       },
-      "canonical_facts": [
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Action",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Agent",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Authority",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Configuration",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Consequence",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Order",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Permission",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Standing",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Conforms",
-          "args": [
-            "D063",
-            "candidate"
-          ]
-        }
-      ],
       "result": {
         "predicate": "Classified",
         "args": [
@@ -5031,57 +2290,6 @@
           "candidate"
         ]
       },
-      "canonical_facts": [
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Admission",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:CountsAs",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Declaration",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Order",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Rule",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Specification",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Conforms",
-          "args": [
-            "D064",
-            "candidate"
-          ]
-        }
-      ],
       "result": {
         "predicate": "Classified",
         "args": [
@@ -5125,99 +2333,6 @@
           "candidate"
         ]
       },
-      "canonical_facts": [
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:AdmissibilityRule",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Agent",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Authority",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:CausalPath",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Claim",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Constraint",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Control",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Observation",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Order",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Relation",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Scope",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Witness",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Conforms",
-          "args": [
-            "D065",
-            "candidate"
-          ]
-        }
-      ],
       "result": {
         "predicate": "Classified",
         "args": [
@@ -5264,78 +2379,6 @@
           "candidate"
         ]
       },
-      "canonical_facts": [
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:AdmissibilityRule",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Admission",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Agent",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Claim",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:IndependentFor",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Observation",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Order",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Scope",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Witness",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Conforms",
-          "args": [
-            "D066",
-            "candidate"
-          ]
-        }
-      ],
       "result": {
         "predicate": "Classified",
         "args": [
@@ -5377,64 +2420,6 @@
           "candidate"
         ]
       },
-      "canonical_facts": [
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Claim",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Evidence",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Order",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Record",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Relation",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Rule",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Scope",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Conforms",
-          "args": [
-            "D104",
-            "candidate"
-          ]
-        }
-      ],
       "result": {
         "predicate": "Classified",
         "args": [
@@ -5475,71 +2460,6 @@
           "candidate"
         ]
       },
-      "canonical_facts": [
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Claim",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Evidence",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:IndependentFor",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Observation",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Order",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Scope",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Specification",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Witness",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Conforms",
-          "args": [
-            "D067",
-            "candidate"
-          ]
-        }
-      ],
       "result": {
         "predicate": "Classified",
         "args": [
@@ -5580,64 +2500,6 @@
           "candidate"
         ]
       },
-      "canonical_facts": [
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Agent",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Flow",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Interface",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Order",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Persistence",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Record",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Role",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Conforms",
-          "args": [
-            "D068",
-            "candidate"
-          ]
-        }
-      ],
       "result": {
         "predicate": "Classified",
         "args": [
@@ -5674,43 +2536,6 @@
           "candidate"
         ]
       },
-      "canonical_facts": [
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Constraint",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Entity",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Flow",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Institution",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Conforms",
-          "args": [
-            "D069",
-            "candidate"
-          ]
-        }
-      ],
       "result": {
         "predicate": "Classified",
         "args": [
@@ -5745,50 +2570,6 @@
           "candidate"
         ]
       },
-      "canonical_facts": [
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Configuration",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Entity",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Institution",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Persistence",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Transformation",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Conforms",
-          "args": [
-            "D070",
-            "candidate"
-          ]
-        }
-      ],
       "result": {
         "predicate": "Classified",
         "args": [
@@ -5825,57 +2606,6 @@
           "candidate"
         ]
       },
-      "canonical_facts": [
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Action",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Institution",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Map",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Recognition",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Relation",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:State",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Conforms",
-          "args": [
-            "D071",
-            "candidate"
-          ]
-        }
-      ],
       "result": {
         "predicate": "Classified",
         "args": [
@@ -5913,57 +2643,6 @@
           "candidate"
         ]
       },
-      "canonical_facts": [
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Action",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:CanonicalSystem",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Configuration",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Persistence",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Record",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Relation",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Conforms",
-          "args": [
-            "D072",
-            "candidate"
-          ]
-        }
-      ],
       "result": {
         "predicate": "Classified",
         "args": [
@@ -6000,50 +2679,6 @@
           "candidate"
         ]
       },
-      "canonical_facts": [
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Consequence",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Entity",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Order",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Principal",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Standing",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Conforms",
-          "args": [
-            "D073",
-            "candidate"
-          ]
-        }
-      ],
       "result": {
         "predicate": "Classified",
         "args": [
@@ -6081,64 +2716,6 @@
           "candidate"
         ]
       },
-      "canonical_facts": [
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Action",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Agent",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Authority",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Consequence",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Permission",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Record",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Scope",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Conforms",
-          "args": [
-            "D074",
-            "candidate"
-          ]
-        }
-      ],
       "result": {
         "predicate": "Classified",
         "args": [
@@ -6179,71 +2756,6 @@
           "candidate"
         ]
       },
-      "canonical_facts": [
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Attestation",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Claim",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Evidence",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Observation",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Permission",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Receipt",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Record",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Standing",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Conforms",
-          "args": [
-            "D075",
-            "candidate"
-          ]
-        }
-      ],
       "result": {
         "predicate": "Classified",
         "args": [
@@ -6281,43 +2793,6 @@
           "candidate"
         ]
       },
-      "canonical_facts": [
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Action",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Agent",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Institution",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Order",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Conforms",
-          "args": [
-            "D076",
-            "candidate"
-          ]
-        }
-      ],
       "result": {
         "predicate": "Classified",
         "args": [
@@ -6349,29 +2824,6 @@
           "candidate"
         ]
       },
-      "canonical_facts": [
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Authority",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Order",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Conforms",
-          "args": [
-            "D077",
-            "candidate"
-          ]
-        }
-      ],
       "result": {
         "predicate": "Classified",
         "args": [
@@ -6407,71 +2859,6 @@
           "candidate"
         ]
       },
-      "canonical_facts": [
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Action",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Agency",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Authority",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Boundary",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Claim",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Order",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Person",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Role",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Conforms",
-          "args": [
-            "D078",
-            "candidate"
-          ]
-        }
-      ],
       "result": {
         "predicate": "Classified",
         "args": [
@@ -6509,43 +2896,6 @@
           "candidate"
         ]
       },
-      "canonical_facts": [
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Capability",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:ConstituentExercise",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Persistence",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Polity",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Conforms",
-          "args": [
-            "D079",
-            "candidate"
-          ]
-        }
-      ],
       "result": {
         "predicate": "Classified",
         "args": [
@@ -6586,92 +2936,6 @@
           "candidate"
         ]
       },
-      "canonical_facts": [
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Agent",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Claim",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Configuration",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Entity",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Language",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Map",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Representation",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Rule",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Scope",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Specification",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:State",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Conforms",
-          "args": [
-            "D080",
-            "candidate"
-          ]
-        }
-      ],
       "result": {
         "predicate": "Classified",
         "args": [
@@ -6717,78 +2981,6 @@
           "candidate"
         ]
       },
-      "canonical_facts": [
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Admission",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:ConsciousnessAttribution",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:CountsAs",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Entity",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Order",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Relation",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Rule",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Scope",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:State",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Conforms",
-          "args": [
-            "D081",
-            "candidate"
-          ]
-        }
-      ],
       "result": {
         "predicate": "Classified",
         "args": [
@@ -6841,141 +3033,6 @@
           "candidate"
         ]
       },
-      "canonical_facts": [
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Action",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Agent",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:CausalContribution",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:CausalPath",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Configuration",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Consequence",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Denotation",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Difference",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Evidence",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:EvidentialBearing",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Interface",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Interpretation",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Map",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Representation",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Rule",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Scope",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:State",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Transformation",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Conforms",
-          "args": [
-            "D082",
-            "candidate"
-          ]
-        }
-      ],
       "result": {
         "predicate": "Classified",
         "args": [
@@ -7043,183 +3100,6 @@
           "candidate"
         ]
       },
-      "canonical_facts": [
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Action",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Boundary",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:CausalPath",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Claim",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Configuration",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Constraint",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Entity",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Environment",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Evidence",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:EvidentialBearing",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Interpretation",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Invariant",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Map",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Order",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Perception",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Persistence",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Presence",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Reality",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Reference",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Relation",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Rule",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Scope",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Sense",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:State",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Conforms",
-          "args": [
-            "D083",
-            "candidate"
-          ]
-        }
-      ],
       "result": {
         "predicate": "Classified",
         "args": [
@@ -7282,106 +3162,6 @@
           "candidate"
         ]
       },
-      "canonical_facts": [
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Configuration",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Constraint",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Difference",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Entity",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Environment",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Feeds",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Invariant",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Persistence",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Representation",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Scope",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:State",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Tool",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Transformation",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Conforms",
-          "args": [
-            "D084",
-            "candidate"
-          ]
-        }
-      ],
       "result": {
         "predicate": "Classified",
         "args": [
@@ -7433,106 +3213,6 @@
           "candidate"
         ]
       },
-      "canonical_facts": [
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Admission",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Claim",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Denotation",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Entity",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Evidence",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:EvidentialBearing",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Presence",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Reality",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Relation",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Representation",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Rule",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Scope",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Specification",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Conforms",
-          "args": [
-            "D085",
-            "candidate"
-          ]
-        }
-      ],
       "result": {
         "predicate": "Classified",
         "args": [
@@ -7588,134 +3268,6 @@
           "candidate"
         ]
       },
-      "canonical_facts": [
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Action",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Authority",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Boundary",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:CausalContribution",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:CausalPath",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Claim",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Consequence",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Constraint",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Control",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Entity",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Evidence",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Exposure",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Interior",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Permission",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Relation",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Scope",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:State",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Conforms",
-          "args": [
-            "D086",
-            "candidate"
-          ]
-        }
-      ],
       "result": {
         "predicate": "Classified",
         "args": [
@@ -7772,113 +3324,6 @@
           "candidate"
         ]
       },
-      "canonical_facts": [
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Agency",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Authority",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Configuration",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Difference",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Permission",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Persistence",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Presence",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Relation",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Scope",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Specification",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:State",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Transformation",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Trust",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Truth",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Conforms",
-          "args": [
-            "D087",
-            "candidate"
-          ]
-        }
-      ],
       "result": {
         "predicate": "Classified",
         "args": [
@@ -7937,148 +3382,6 @@
           "candidate"
         ]
       },
-      "canonical_facts": [
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Action",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Agent",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Capability",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:CausalContribution",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:CausalPath",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Consequence",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Difference",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Interpretation",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Memory",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Model",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Perception",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Record",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Representation",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Rule",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Scope",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Specification",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:State",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Substrate",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Tool",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Conforms",
-          "args": [
-            "D088",
-            "candidate"
-          ]
-        }
-      ],
       "result": {
         "predicate": "Classified",
         "args": [
@@ -8142,148 +3445,6 @@
           "candidate"
         ]
       },
-      "canonical_facts": [
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Action",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Agent",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Capability",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:CausalContribution",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:CausalPath",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Configuration",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Consequence",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Constraint",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Difference",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Evidence",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Interpretation",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Model",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Record",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Rule",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Scope",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Specification",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:State",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Transformation",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Truth",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Conforms",
-          "args": [
-            "D089",
-            "candidate"
-          ]
-        }
-      ],
       "result": {
         "predicate": "Classified",
         "args": [
@@ -8341,106 +3502,6 @@
           "candidate"
         ]
       },
-      "canonical_facts": [
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Agent",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:CausalContribution",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:CausalPath",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Configuration",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Interpretation",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Model",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:OperativeKnowledge",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Record",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Relation",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Representation",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Scope",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Specification",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:State",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Conforms",
-          "args": [
-            "D090",
-            "candidate"
-          ]
-        }
-      ],
       "result": {
         "predicate": "Classified",
         "args": [
@@ -8487,71 +3548,6 @@
           "candidate"
         ]
       },
-      "canonical_facts": [
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Claim",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:OperativeKnowledge",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Presence",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Record",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Rule",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Scope",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Specification",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Truth",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Conforms",
-          "args": [
-            "D091",
-            "candidate"
-          ]
-        }
-      ],
       "result": {
         "predicate": "Classified",
         "args": [
@@ -8597,99 +3593,6 @@
           "candidate"
         ]
       },
-      "canonical_facts": [
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:AdmissibilityRule",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Admission",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Claim",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Evidence",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:EvidentialBearing",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:FactiveOperativeKnowledge",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:IndependentFor",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Observation",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Order",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Rule",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Scope",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Witness",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Conforms",
-          "args": [
-            "D092",
-            "candidate"
-          ]
-        }
-      ],
       "result": {
         "predicate": "Classified",
         "args": [
@@ -8738,92 +3641,6 @@
           "candidate"
         ]
       },
-      "canonical_facts": [
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Agent",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Claim",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Configuration",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Entity",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Language",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Map",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Representation",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Rule",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Scope",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Specification",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:State",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Conforms",
-          "args": [
-            "D093",
-            "candidate"
-          ]
-        }
-      ],
       "result": {
         "predicate": "Classified",
         "args": [
@@ -8869,78 +3686,6 @@
           "candidate"
         ]
       },
-      "canonical_facts": [
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Admission",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:CountsAs",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Entity",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:MoralStatusAttribution",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Order",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Relation",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Rule",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Scope",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:State",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Conforms",
-          "args": [
-            "D094",
-            "candidate"
-          ]
-        }
-      ],
       "result": {
         "predicate": "Classified",
         "args": [
@@ -8983,71 +3728,6 @@
           "candidate"
         ]
       },
-      "canonical_facts": [
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Boundary",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Configuration",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:ConstituentExercise",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:ConstituentPower",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Order",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Polity",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Rule",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Scope",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Conforms",
-          "args": [
-            "D095",
-            "candidate"
-          ]
-        }
-      ],
       "result": {
         "predicate": "Classified",
         "args": [
@@ -9089,71 +3769,6 @@
           "candidate"
         ]
       },
-      "canonical_facts": [
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Action",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Authority",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Entity",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Order",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Recognition",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Rule",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Scope",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Standing",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Conforms",
-          "args": [
-            "D096",
-            "candidate"
-          ]
-        }
-      ],
       "result": {
         "predicate": "Classified",
         "args": [
@@ -9200,106 +3815,6 @@
           "candidate"
         ]
       },
-      "canonical_facts": [
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Boundary",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Configuration",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Consequence",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Constraint",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Control",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Difference",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Enforcement",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Entity",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Order",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Polity",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Scope",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:State",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Transformation",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Conforms",
-          "args": [
-            "D097",
-            "candidate"
-          ]
-        }
-      ],
       "result": {
         "predicate": "Classified",
         "args": [
@@ -9349,92 +3864,6 @@
           "candidate"
         ]
       },
-      "canonical_facts": [
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Action",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:ActsFor",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Entity",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Order",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Polity",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Principal",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Recognition",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Relation",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Rule",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Scope",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Standing",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Conforms",
-          "args": [
-            "D098",
-            "candidate"
-          ]
-        }
-      ],
       "result": {
         "predicate": "Classified",
         "args": [
@@ -9477,57 +3906,6 @@
           "candidate"
         ]
       },
-      "canonical_facts": [
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Agent",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Consequence",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Relation",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Rule",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Scope",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:State",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Conforms",
-          "args": [
-            "D099",
-            "candidate"
-          ]
-        }
-      ],
       "result": {
         "predicate": "Classified",
         "args": [
@@ -9565,57 +3943,6 @@
           "candidate"
         ]
       },
-      "canonical_facts": [
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Map",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Preference",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Relation",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Rule",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Scope",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Specification",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Conforms",
-          "args": [
-            "D100",
-            "candidate"
-          ]
-        }
-      ],
       "result": {
         "predicate": "Classified",
         "args": [
@@ -9658,92 +3985,6 @@
           "candidate"
         ]
       },
-      "canonical_facts": [
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Admission",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:CountsAs",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Ledger",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Order",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Presence",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Record",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Relation",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Representation",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Rule",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Scope",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:State",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Conforms",
-          "args": [
-            "D101",
-            "candidate"
-          ]
-        }
-      ],
       "result": {
         "predicate": "Classified",
         "args": [
@@ -9798,141 +4039,6 @@
           "candidate"
         ]
       },
-      "canonical_facts": [
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Action",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:CausalContribution",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:CausalPath",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Configuration",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Denotation",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Entity",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Flow",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Interpretation",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Invariant",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Memory",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Perception",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Persistence",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Relation",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Representation",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Rule",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Scope",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Specification",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:State",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Conforms",
-          "args": [
-            "D105",
-            "candidate"
-          ]
-        }
-      ],
       "result": {
         "predicate": "Classified",
         "args": [
@@ -9988,99 +4094,6 @@
           "candidate"
         ]
       },
-      "canonical_facts": [
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:CausalContribution",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Change",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Consequence",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Entity",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Environment",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Memory",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Presence",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Record",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Relation",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Ritual",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:Scope",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Classified",
-          "args": [
-            "organon:State",
-            "candidate"
-          ]
-        },
-        {
-          "predicate": "Conforms",
-          "args": [
-            "D106",
-            "candidate"
-          ]
-        }
-      ],
       "result": {
         "predicate": "Classified",
         "args": [
