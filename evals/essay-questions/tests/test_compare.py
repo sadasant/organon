@@ -46,3 +46,58 @@ def test_evaluation_must_bind_exact_candidate_name_and_bytes(tmp_path):
     evaluation["run"]["source_result_sha256"] = "0" * 64
     with pytest.raises(ValueError, match="digest"):
         MODULE.validate_evaluation_candidate(evaluation, candidate)
+
+
+def test_comparison_records_cross_version_scope(tmp_path):
+    baseline_path = tmp_path / "baseline.json"
+    candidate_path = tmp_path / "candidate.json"
+    evaluation_path = tmp_path / "evaluation.json"
+    answer = {
+        "question_id": "AA-1",
+        "question": "Question?",
+        "answer": "Answer.",
+        "interlocutor": {
+            "confidence": "low",
+            "probable_background": "Reader.",
+            "likely_purpose": "Test.",
+            "question_evidence": ["Question"],
+            "stopping_condition": "Answer.",
+        },
+    }
+    baseline = {
+        "run": {"ontology_sha256": "a" * 64},
+        "essays": [{"title": "Essay", "essay_file": "essay.md", "answers": [answer]}],
+    }
+    candidate = {
+        "run": {"ontology_sha256": "b" * 64},
+        "essays": [{"title": "Essay", "essay_file": "essay.md", "answers": [answer]}],
+    }
+    baseline_path.write_text("{}\n")
+    candidate_path.write_text("{}\n")
+    evaluation = {
+        "run": {
+            "source_result": candidate_path.name,
+            "source_result_sha256": MODULE.sha256_path(candidate_path),
+        },
+        "essays": [{
+            "judgments": [{
+                "question_id": "AA-1",
+                "passed": True,
+                "ontology": {"term_fidelity": 4, "critical_violations": [], "evidence": "", "revision": ""},
+                "editorial": {"responsiveness": 4, "critical_violations": [], "evidence": "", "revision": ""},
+            }],
+        }],
+    }
+    evaluation_path.write_text("{}\n")
+    result = MODULE.build_comparison(
+        baseline,
+        candidate,
+        evaluation,
+        Namespace(
+            baseline=baseline_path,
+            candidate=candidate_path,
+            evaluation=evaluation_path,
+        ),
+    )
+    assert result["run"]["same_ontology"] is False
+    assert "cross-version historical contrast" in MODULE.render(result)

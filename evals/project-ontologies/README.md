@@ -40,8 +40,11 @@ only cited ranges, retaining upstream line coordinates and file digests.
 
 `generate.py` creates a fresh candidate or, when given both an existing
 candidate and its `improvement-plan.json`, performs one evidence-bounded
-revision. It runs the deterministic manifest and citation gate before writing.
-The generated candidate is not silently inserted into `project-ontologies/`.
+revision. It exposes every deterministic requirement in the prompt and permits
+at most three correction attempts driven by exact preflight failures. A run is
+written only after its manifest, headings, provenance, registered IDs, and
+covered citations all pass. The generated candidate is not silently inserted
+into `project-ontologies/`.
 
 ## Run
 
@@ -53,7 +56,7 @@ python evals/project-ontologies/generate.py \
 
 OPENAI_API_KEY='injected-by-your-secret-manager' \
 python evals/project-ontologies/run.py \
-  --run-dir evals/project-ontologies/results/YYYY-MM-DD-organon-v0.17
+  --run-dir evals/project-ontologies/results/YYYY-MM-DD-organon-v0.18
 ```
 
 The Organon judge runs before the documentation judge. Same-model agreement is
@@ -61,10 +64,10 @@ useful generated pressure, not independent certification or project adoption.
 
 ## Retained finding
 
-The [canonical run](results/2026-08-06-organon-v0.17/report.md) holds both
-project ontologies at `revise`. Their local vocabularies, public citations, and
-anti-collapse boundaries are strong; their positive mappings still promote
-several incomplete dependency packets. The generated
-[improvement plan](results/2026-08-06-organon-v0.17/improvement-plan.md) names
-the exact missing causal, institutional, identity, and maintenance joins. That
-is a successful evaluation result, not a reason to relax the mapping contract.
+The [canonical v0.18 run](results/2026-08-09-organon-v0.18-final/report.md)
+passes both project ontologies after preserving two earlier `revise` runs as
+their correction lineage. Engram narrows its Invariant promotion to the exact
+styled-capture interval with before-and-after identity witnesses. Kenogram
+demotes unsupported Missingness, Invariant, Record, and Evidence mappings while
+retaining its complete Specification, State, and successful-Transformation
+packets. Both remain generated candidates rather than project adoption.

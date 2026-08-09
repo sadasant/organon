@@ -149,18 +149,20 @@ Confirm that each command ends with `status: ok`, that `tmux` is not reported as
 
 ### 5. Start Engram
 
-On Linux, install the binary and systemd user service:
+On Linux, install the binary and systemd user service (which preserves its
+existing start-on-install behavior):
 
 ```sh
 make install-service PREFIX="$HOME/.local"
-systemctl --user --no-pager --full status engram.service
+make service-status PREFIX="$HOME/.local"
 ```
 
-On macOS, install and run it in a terminal instead:
+On macOS, install the binary and LaunchAgent, then activate it explicitly:
 
 ```sh
-make install PREFIX="$HOME/.local"
-"$HOME/.local/bin/engram" run --env "$HOME/.engram/.env"
+make install-service PREFIX="$HOME/.local"
+make service-start PREFIX="$HOME/.local"
+make service-status PREFIX="$HOME/.local"
 ```
 
 Only one Engram process may poll a configured bot/user/chat tuple, and only one
@@ -214,6 +216,26 @@ message is redacted before its per-message byte ceiling is applied, so a secret
 spanning that boundary is not partially exposed. Engram does not persist
 transcript text.
 
+Claude Code has the same separately gated path. Set
+`ENGRAM_CLAUDE_CONTEXT_TURNS` to `1` through `8` and install the documented
+Claude `SessionStart` hook. Claude supplies the exact session UUID and
+transcript path; Engram still proves the live pane process and precise process
+incarnation before and after each bounded read. The versioned parser admits
+only non-meta, non-sidechain human string prompts and assistant `text` blocks.
+Thinking, tool use and results, attachments, system records, sidechains, and
+subagent transcripts are excluded. Claude documents its JSONL record shape as
+internal, so an unfamiliar recognized message shape fails closed until it has
+fixture-backed support.
+
+Codex and Claude Code compatibility is tracked across four independent axes:
+process identity, pane-local hook binding, visible screen grammar, and
+historical transcript parser. The compact session card's `ℹ️` control shows
+their status plus structured model provenance, effort, interaction mode,
+activity, duration, and bounded active-agent counts without exposing terminal
+text, paths, UUIDs, task text, or agent names. Diagnose one pane locally with
+`engram doctor agent [--provider codex|claude] [--pane %N]`. See
+[Agent compatibility](docs/agent-compatibility.md).
+
 ## Configuration
 
 `.env.example` is the complete configuration surface. The env file is a simple
@@ -228,6 +250,7 @@ transcript text.
 | `TELEGRAM_POLL_TIMEOUT_SECONDS` | `50` | no | Positive Telegram long-poll timeout in seconds. |
 | `ENGRAM_ANCHOR_MODE` | `guide` | no | Startup presentation and fallback: conversational `guide` or Chromium `snapshot`. A valid runtime `/mode` choice is persisted in state v9. |
 | `ENGRAM_CODEX_CONTEXT_TURNS` | `0` | no | Privacy opt-in (`0` disables; maximum `8`) for recent user turns and their visible assistant messages from an exactly identified active Codex session. This text is redacted and bounded before it is added as historical—not current-state—guide context. |
+| `ENGRAM_CLAUDE_CONTEXT_TURNS` | `0` | no | Separate privacy opt-in (`0` disables; maximum `8`) for bounded visible messages from an exactly hook-bound active Claude Code transcript. Thinking, tools, metadata, sidechains, and subagents are excluded. |
 | `LLM_PROVIDER` | `anthropic` | when enabling a guide | `anthropic` for Haiku 4.5 or `openai` for Luna. Only the selected provider is used. Changing it requires a restart. |
 | `ANTHROPIC_API_KEY` | none | when selecting Anthropic, secret | Credential for one-pass Haiku rendering. |
 | `ANTHROPIC_MODEL` | `claude-haiku-4-5-20251001` | no | Haiku model ID; the `claude-haiku-4-5` alias is also accepted. |
@@ -238,6 +261,7 @@ transcript text.
 | `ENGRAM_HOME` | `~/.engram` | no | State, remembered input templates, audit log, and process-lock directory. |
 | `ENGRAM_WORKDIR` | `~` | no | Starting directory for new tmux sessions and windows. |
 | `ENGRAM_TMUX_SESSION` | first existing session, otherwise `engram-<chat-id>` | no | Forces one exact tmux session name and creates it when absent. `:` and `.` are unsupported because tmux canonicalizes them. |
+| `ENGRAM_TMUX_SIZE` | `100x48` | no | Stable `COLUMNSxROWS` geometry for newly created Engram windows. Each dimension must be between 1 and 400. Existing windows and explicitly attached panes are not resized. |
 | `ENGRAM_SNAPSHOT_BROWSER` | auto-detected headless shell, with Linux browser fallbacks | when enabling snapshots | Executable name or absolute path used for live or on-demand terminal images. macOS auto-detection accepts dedicated headless executables only; an explicit value may opt into a desktop browser. |
 | `ENGRAM_SNAPSHOT_THEME` | `terminal` | no | Live and on-demand snapshot colors: faithful `terminal`, accessible `contrast-dark`, or accessible `contrast-light`. |
 | `ENGRAM_SNAPSHOT_STATUS_COMMAND` | none | no | Trusted local shell command whose sanitized one-line stdout occupies a bounded snapshot-footer slot. It runs only while an image is already being rendered, from the pane directory when available. |
@@ -538,10 +562,10 @@ the bot channel and must be revoked immediately.
   In Chromium mode, every changed anchor frame is an exact, unredacted terminal
   image sent automatically to Telegram at most once every ten seconds.
 - **tmux and local processes:** Authorized messages can create windows and send
-  literal shell input or key presses. Engram-created windows use tmux's global
-  `default-size`, matching detached tmux operation even when the selected session
-  has a much larger attached client; explicitly attached panes retain their
-  existing geometry. tmux owns terminal history and continues running when
+  literal shell input or key presses. Engram-created windows use the stable
+  `ENGRAM_TMUX_SIZE` geometry, including while detached or while the selected
+  session has a differently sized attached client. Existing windows and
+  explicitly attached panes retain their geometry. tmux owns terminal history and continues running when
   Engram stops unless a window is explicitly closed. A process in
   a nested environment may emit a visible upstream record; the outer Engram
   observes it through the same bounded capture and may notify the Telegram DM.
@@ -586,25 +610,26 @@ the bot channel and must be revoked immediately.
   snapshot frame or the complete unwrapped selected guide rows as a bounded plain UTF-8 text attachment for
   screen readers or exact inspection. It does not recapture a newer terminal
   state on click.
-  With Codex context enabled, a conservative box/arrow detector may append one
+  With Codex or Claude context enabled, a conservative box/arrow detector may append one
   bounded diagram copied from those same visible session messages. The diagram
-  is always a visually separate inset labeled `Codex context`; it is labeled as
+  is always a visually separate provider-labeled inset; it is labeled as
   reconstructed only when its exact text maps uniquely to current semantic tmux
   evidence, otherwise it explicitly says it is a prior message and not the
   current terminal. Detection is local, Unicode-width aware, phone-bounded, and
   does not ask the guide model to select or repair pixels. Sensitive, oversized,
   ambiguous, code-like, or weak candidates are omitted. Ordinary snapshot and
   raw paths never include this inset.
-- **Conversational guide:** Guide anchors start from the same frame as Chromium
-  and send its joined logical text, capped at 64 rows, in one non-streaming request.
+- **Conversational guide:** Guide anchors capture joined logical text from the
+  bottom 96 physical terminal rows in one non-streaming request. Chromium views
+  remain capped at the bottom 64 rows from their own atomic capture.
   Recognized upstream records, the trailing model-status footer, and a small
   allowlist of paired Codex placeholder prompts are omitted from model evidence
   but remain in screenshots and raw captures. Every request contains the
   complete current semantic evidence;
   aligned requests may also carry prior prose and deterministic changed,
-  removed, and neighboring lines as attention hints. When the explicit Codex
+  removed, and neighboring lines as attention hints. When an explicit provider
   context opt-in is nonzero, the same request can also carry bounded, redacted
-  prior visible messages from the exactly identified active Codex session.
+  prior visible messages from the exactly identified active Codex or Claude session.
   They are historical topic context, never current evidence. There is no model
   API history, no second request, and no prior Telegram input supplied as model context. A
   private evidence trailer is removed before delivery and can only select a
@@ -638,6 +663,15 @@ the bot channel and must be revoked immediately.
   when admitted, is sent to Telegram with the guide-evidence card. Engram does
   not persist transcript text, but the provider and Telegram receive these
   opt-in disclosures under their normal data-retention policies.
+- **Local Claude session store:** When `ENGRAM_CLAUDE_CONTEXT_TURNS` is nonzero,
+  Engram reads only the exact UUID-named JSONL path published by Claude's
+  lifecycle hook. The hook path is not sufficient by itself: an owned regular
+  file, matching filename and record session IDs, a current process
+  incarnation, and an unchanged tmux/provider binding are required. Large
+  transcripts use a bounded identity prefix and fixed tail ending at the size
+  observed when opened. The selected provider receives only the bounded,
+  redacted visible-message subset; an admitted diagram may also reach Telegram.
+  Transcript text is never persisted or audited by Engram.
 - **Local state and logs:** `ENGRAM_HOME` contains `state.json`,
   `templates.json`, `audit.jsonl`, one rotated `audit.jsonl.1`, and lock files.
   `templates.json` stores exact user-authored input bodies in plaintext with
@@ -676,7 +710,7 @@ attachments, existing Telegram history, or captures sent to the selected provide
 Treat all terminal transcripts and diagnostic artifacts as sensitive and review
 them before sharing.
 
-## Linux Lifecycle
+## Linux and macOS Lifecycle
 
 Install or replace the binary from a source checkout:
 
@@ -698,43 +732,47 @@ bash /tmp/engram-install-release.sh "${version}"
 ```
 
 Release installation does not modify `~/.engram`, create a service, or restart
-one. A source checkout is still required for the initial `.env` and systemd
-setup. Install the unit without rebuilding over the reviewed release binary:
+one. A source checkout is still required for the initial `.env` and native user
+service setup. Install the definition without rebuilding over the reviewed
+release binary:
 
 ```sh
 make install-service-unit PREFIX="$HOME/.local"
 ```
 
-Existing service operators choose the interruption point explicitly. Because
-the unit uses `Restart=on-failure`, a crash after binary replacement can activate
-the new binary before a planned restart; stop the service first when that gap is
-unacceptable:
+Existing service operators choose the interruption point explicitly. Installing
+or replacing a binary never restarts a running service. Because automatic
+failure recovery can activate a replaced binary before a planned restart, stop
+the service first when that gap is unacceptable:
 
 ```sh
-systemctl --user stop engram.service # optional strict activation boundary
+make service-stop PREFIX="$HOME/.local" # optional strict activation boundary
 "$HOME/.local/bin/engram" version
-systemctl --user restart engram.service
-systemctl --user is-active engram.service
+make service-restart PREFIX="$HOME/.local"
+make service-status PREFIX="$HOME/.local"
 ```
 
 After restart, `/version` or `/status` in the bot DM verifies the running
 process rather than only the binary on disk.
 
-Install and start the systemd user service. This seeds `~/.engram/.env` with
-mode `0600` only when it does not already exist:
+Install the systemd user unit on Linux or LaunchAgent on macOS. This seeds
+`~/.engram/.env` with mode `0600` only when it does not already exist. Linux
+preserves `enable --now`; macOS leaves activation explicit:
 
 ```sh
 make install-service PREFIX="$HOME/.local"
+# macOS only:
+make service-start PREFIX="$HOME/.local"
 ```
 
 Operate and inspect the service:
 
 ```sh
-systemctl --user status engram.service
-systemctl --user stop engram.service
-systemctl --user start engram.service
-systemctl --user restart engram.service
-journalctl --user -u engram.service
+make service-status PREFIX="$HOME/.local"
+make service-stop PREFIX="$HOME/.local"
+make service-start PREFIX="$HOME/.local"
+make service-restart PREFIX="$HOME/.local"
+make service-logs PREFIX="$HOME/.local" # bounded to 200 lines by default
 ```
 
 To keep the user service running after logout, enable lingering if that matches
@@ -750,7 +788,7 @@ Update from a source checkout:
 git pull --ff-only
 make check
 make install PREFIX="$HOME/.local"
-systemctl --user restart engram.service
+make service-restart PREFIX="$HOME/.local"
 ```
 
 When upgrading from a build that predates tmux server-incarnation binding,
@@ -813,6 +851,36 @@ binding before accepting it, then stores the mapping in its protected state.
 See the [Codex session context guide](docs/codex-session-context.md) for the
 one-time migration, verification, troubleshooting, and disclosure boundaries.
 
+Claude Code uses its official settings hook. Add this entry to the `hooks`
+object in `~/.claude/settings.json`, merging it with existing settings:
+
+```json
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "startup|resume|clear|compact|fork",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "$HOME/.local/bin/engram claude-hook",
+            "timeout": 10
+          }
+        ]
+      }
+    ]
+  }
+}
+```
+
+Claude supplies `session_id`, the exact `transcript_path`, `cwd`, and lifecycle
+source on stdin. The hook prints no context and publishes only bounded binding
+metadata to the inherited tmux pane. Verify it with Claude's `/hooks` browser.
+An already-running session can attempt the argument-free `engram claude-bind`;
+that migration path accepts only a uniquely proven active PID registry and
+UUID transcript and otherwise asks for a restart with the official hook.
+See the [Claude Code session context guide](docs/claude-code-session-context.md).
+
 After a host reboot—or whenever Engram starts and discovers that its running
 state no longer matches tmux—the bot sends a deterministic recovery plan with
 one `♻️ Go` button per exact provider session. `/recovery` shows the same plan
@@ -834,28 +902,27 @@ and attachments are no longer needed.
 
 ## macOS Lifecycle
 
-Build, install, preflight, and foreground execution are supported:
+The tagged-release installer supports Darwin on `amd64` and `arm64`; it
+replaces only the binary. From a source checkout, install the official
+LaunchAgent definition and activate it explicitly:
 
 ```sh
-make install PREFIX="$HOME/.local"
 "$HOME/.local/bin/engram" preflight --env "$HOME/.engram/.env"
-"$HOME/.local/bin/engram" run --env "$HOME/.engram/.env"
+make install-service-unit PREFIX="$HOME/.local"
+make service-start PREFIX="$HOME/.local"
+make service-status PREFIX="$HOME/.local"
 ```
 
-The tagged-release installer shown in the Linux lifecycle also supports Darwin
-on `amd64` and `arm64`. It replaces only the binary and never creates or starts
-a LaunchAgent.
+The label is `ai.idolum.engram` and the validated definition lives at
+`~/Library/LaunchAgents/ai.idolum.engram.plist`. `AbandonProcessGroup` preserves
+tmux descendants across Engram stops and upgrades. `make service-status`
+reports the live launchd PID and embedded build identity without reading
+credentials. `make service-logs` reads at most 200 lines by default;
+`ENGRAM_LOG_LINES=500 make service-logs` may raise the bound to 1000.
 
-Stop the foreground process with `Ctrl+C`; tmux sessions remain. Engram does not
-ship launchd integration, and `make install-service` and
-`make uninstall-service` require Linux `systemctl`. A user-authored LaunchAgent
-is outside the supported service lifecycle. Update by stopping Engram, updating
-the checkout, running `make check` and `make install`, then starting it again.
-Remove only the binary with:
-
-```sh
-make uninstall PREFIX="$HOME/.local"
-```
+For rollback, install the previously reviewed binary, explicitly run
+`make service-restart`, then verify both `make service-status` and `/version`.
+Uninstalling the service does not delete tmux sessions or `~/.engram`.
 
 ## Commands
 
@@ -1098,9 +1165,12 @@ links for particular services.
 Engram-created windows and attached tmux panes have different close semantics.
 `/close <id>` kills a window created by Engram, but only untracks an attached or
 legacy session and leaves its tmux window running. Inline close buttons always
-ask for confirmation. `/raw` returns the complete bounded plain-text frame used
-by `🖼️ View`; `/dump` streams the pane's full retained tmux history as readable
-plain text with soft wraps joined. Cloud Bot API
+ask for confirmation. `/raw` recaptures the complete bounded plain-text frame
+for the active presentation: 96 physical rows in guide mode or 64 in snapshot
+mode. `🖼️ View` always makes a fresh 64-row image capture, while inline `📄 Raw`
+returns the process-local companion for its current canonical media anchor
+without recapturing. `/dump` streams the pane's full retained tmux history as
+readable plain text with soft wraps joined. Cloud Bot API
 downloads are hard-limited to 20 MiB and `/download` uploads to 50 MiB.
 Generated captures and upload snapshots are also capped at 50 MiB, and Engram
 accepts at most eight queued file transfers with two running concurrently.

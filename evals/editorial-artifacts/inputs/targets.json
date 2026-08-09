@@ -35,7 +35,7 @@
         "ontology/formal/organon-core-reduct-report.md"
       ],
       "source_digests": {
-        "ontology/changelog.md": "2f751bb4a374bbd36a66d9bfa20009d74637c949704af9637d5c0e258ec6ba84",
+        "ontology/changelog.md": "196047570d290710d506deba50b826afbb8564053267c0cc775e58e33c62e859",
         "ontology/formal/README.md": "f97ea89405cd79d22925c8bd234889a4418389342d4b4deebadce7f173c493da",
         "ontology/formal/decisions.md": "c73162d64cce7671c26c626e7a51f046559b6816c02110c9919dc89c370e765c",
         "ontology/formal/organon-core-reduct-report.md": "884cabfa51eae7cced4a7032776b08005b8b5ed1eeafd52ffa7fe688c8de7673"
@@ -53,12 +53,12 @@
         "evals/editorial-artifacts/inputs/sources/engram-main-README.md"
       ],
       "source_digests": {
-        "evals/editorial-artifacts/inputs/sources/engram-main-README.md": "9afbd67bc4c676718147c0901dbb668fe1216932d84233a196e33c7039d73154"
+        "evals/editorial-artifacts/inputs/sources/engram-main-README.md": "3911c5a9e6d50dd0adffb4a51ad0dd81511bdaac73e181c64fe0696612e45583"
       },
       "source_provenance": {
         "repository": "https://github.com/idolum-ai/engram",
         "ref": "main",
-        "commit": "645c76c624cbb6e21f9d4187b3fc093f36b6cf38",
+        "commit": "1b56983ac658f10bfbd76c44bfc99c20b1355ebe",
         "path": "README.md"
       }
     },

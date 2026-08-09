@@ -28,6 +28,7 @@ def test_generation_defaults_to_sol_and_shared_target_manifest(monkeypatch):
     args = MODULE.parse_args()
     assert args.model == "gpt-5.6-sol"
     assert args.reasoning_effort == "high"
+    assert args.max_deterministic_attempts == 3
     assert args.targets == ROOT / "inputs" / "targets.json"
 
 
@@ -36,3 +37,50 @@ def test_target_selection_is_exact():
         ROOT / "inputs" / "targets.json", "kenogram-project-ontology"
     )
     assert target["project"] == "Kenogram"
+
+
+def test_generator_prompt_exposes_deterministic_literals():
+    contract = MODULE.GenerateProjectOntology.__doc__
+    assert "status: generated-candidate" in contract
+    assert all(heading in contract for heading in MODULE.JUDGE.REQUIRED_HEADINGS)
+    assert "<!-- organon:mapping-manifest -->" in contract
+
+
+def test_deterministic_failure_is_fed_to_a_bounded_retry(monkeypatch):
+    calls = []
+
+    class Draft:
+        def __init__(self, markdown):
+            self.draft = {"markdown": markdown}
+
+    def program(**kwargs):
+        calls.append(kwargs)
+        return Draft("missing manifest" if len(calls) == 1 else "valid candidate")
+
+    monkeypatch.setattr(
+        MODULE.JUDGE,
+        "deterministic_checks",
+        lambda _target, markdown, *_args: (
+            {"passed": True, "checks": {"manifest": True}}
+            if markdown == "valid candidate"
+            else (_ for _ in ()).throw(ValueError("missing mapping manifest"))
+        ),
+    )
+    draft, deterministic, attempts = MODULE.generate_valid_draft(
+        program,
+        target={"id": "example"},
+        ontology="ontology",
+        registry_json="{}",
+        documentation_rubric="rubric",
+        source_dossier="dossier",
+        current_candidate="",
+        improvement_plan_json="{}",
+        known_ids=set(),
+        line_counts={},
+        covered_ranges={},
+        max_attempts=2,
+    )
+    assert draft["markdown"] == "valid candidate"
+    assert deterministic["passed"] is True
+    assert attempts == 2
+    assert "missing mapping manifest" in calls[1]["target_json"]

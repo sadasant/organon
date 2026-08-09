@@ -1,0 +1,230 @@
+{
+  "schema_version": 2,
+  "run": {
+    "evaluation": "project-ontologies",
+    "methodology_version": "1.0",
+    "stages": [
+      "snapshot",
+      "deterministic-preflight",
+      "ordered-judges",
+      "improvement-plan",
+      "human-promotion"
+    ],
+    "generated_at": "2026-08-09T17:03:11+00:00",
+    "judge_model": "gpt-5.6-sol",
+    "judge_reasoning_effort": "high",
+    "judge_order": [
+      "organon-ontology",
+      "open-source-documentation"
+    ],
+    "dspy_version": "3.3.0",
+    "litellm_version": "1.91.4",
+    "python_version": "3.12.9",
+    "organon_commit": "a85a8f3e912d88cc56d1cd9987a304c94f2cacb3",
+    "committed_inputs_sha256": {
+      "editorial/long-form.md": "fb8f21b7dc03e2e44737fef723d94abdbb62a044ead89a6a7579d07d23b55d68",
+      "editorial/short-form.md": "7ac9254f6f8964a1776f2eeacbfe36fdaad591701174116c0527c1f2c1b472be",
+      "evals/core/__init__.py": "fbc7e74e3088297f2658cfd630a7cd5101ea64ab7e6249f138b9ba6d3b1efce8",
+      "evals/core/contracts.py": "0c4a42bbea92fa7e4c2805e7dd0c79a9b4cb95f6aba4616d2b886115689078ce",
+      "evals/core/improvement.py": "b1f832fc39c5f0a8e0a50765d89c180a80e7cc30f35a055331b3abe94b7ff8ef",
+      "evals/core/judging.py": "006434277ef6cd8c1a0e66e073e5f886a83bbe15df2d1a4f528bac6c282924c5",
+      "evals/core/result.py": "75aee2de405bdbe822a3cad8a93f5aa8cead784a69a874eecb82ddde0ba75f09",
+      "evals/core/workspace.py": "0d9d81ab99a37b35897482bdd992c840795bf40d5a172d3d530955a89302e9c2",
+      "evals/methodology/README.md": "fb406bdd61a9f4362bbac3435abea8decb295ee111107eb53d05ed296a13ff09",
+      "evals/methodology/evaluation-result.schema.json": "d6e2bee36b28cfb91dd7a05984d1aa32ffff7e696fc9169aa5d65b8db5bdfa12",
+      "evals/methodology/lessons.md": "b124cadfc30a1088d22c352a941182a6509ad9d5da3ca0deba272dfa0075cb16",
+      "evals/methodology/profiles.json": "ebeca6a8b666986e09ad7e159feecaa7dc799e295008127ee1082170b2535757",
+      "evals/project-ontologies/build-source-dossier.py": "889dfd2a5561ed30537bf9d1bdb61f925b48c584a03f1c03700c15419534567e",
+      "evals/project-ontologies/inputs/documentation-rubric.md": "3ca1eeb33767711dc466e3d987b6aa9ebdaac4dd2604ab7652ac10a47667b452",
+      "evals/project-ontologies/inputs/sources/engram.index.json": "18166295e51b2670395002abb02760d5f0faa47442a086e8ee212152b6bace09",
+      "evals/project-ontologies/inputs/sources/engram.md": "195c2da5b94ebc8fa8dfc4135e86977a8e2fcf6bfe4e24e6321a517d83b02137",
+      "evals/project-ontologies/inputs/sources/kenogram.index.json": "8ff5a4fb90e11f0c56cd8c9a2efb5be5d65cdc65711dd6d776ca29e8c092aadd",
+      "evals/project-ontologies/inputs/sources/kenogram.md": "5f39794dc42d3857ff5dabe2d775616bd02cf13ad67d3602a601c260e341ec46",
+      "evals/project-ontologies/inputs/targets.json": "d47bc9c282ed2b03cc45100ab513e785ec5fc36154fe3bd7706951c41609eca0",
+      "evals/project-ontologies/run.py": "2c2a32acdee65341be438b105ffb1d11c13f669495684435d53b6148ce8d079b",
+      "evals/requirements.txt": "3ae3114472086ded7ac30484c90295a678bd5907b6f2abf662c8f3744b76dcfc",
+      "ontology/ontology.md": "b187ea9298909b8b36cbc36bc8f05d980e8bab376eba036588f01f60737a9ec9",
+      "ontology/terms.yaml": "c1d3573aafb8f31535eac88c164b2b4e32f0fbf5c635fbf46b2aff4357c66339",
+      "project-ontologies/engram.md": "ffd957624f8703dc62ac522e62090f06ec89648bf166a9aeb0c254ace2f4145a",
+      "project-ontologies/kenogram.md": "cf352607f08601b231065d4da7c368b202ab66981e399b4c9a151a90b1457735"
+    },
+    "ontology_sha256": "b187ea9298909b8b36cbc36bc8f05d980e8bab376eba036588f01f60737a9ec9",
+    "registry_sha256": "c1d3573aafb8f31535eac88c164b2b4e32f0fbf5c635fbf46b2aff4357c66339",
+    "short_form_sha256": "7ac9254f6f8964a1776f2eeacbfe36fdaad591701174116c0527c1f2c1b472be",
+    "long_form_sha256": "fb8f21b7dc03e2e44737fef723d94abdbb62a044ead89a6a7579d07d23b55d68",
+    "documentation_rubric_sha256": "3ca1eeb33767711dc466e3d987b6aa9ebdaac4dd2604ab7652ac10a47667b452",
+    "targets_sha256": "d47bc9c282ed2b03cc45100ab513e785ec5fc36154fe3bd7706951c41609eca0",
+    "model_guidance_url": "https://developers.openai.com/api/docs/guides/latest-model?model=gpt-5.6",
+    "prompt_guidance_url": "https://developers.openai.com/api/docs/guides/prompt-guidance-gpt-5p6.md",
+    "prompt_contract_version": "gpt-5.6-project-ontology-v1",
+    "target_count": 2,
+    "passed_count": 0,
+    "revision_count": 2,
+    "complete": true,
+    "passed": false
+  },
+  "assessments": [
+    {
+      "target_id": "engram-project-ontology",
+      "project": "Engram",
+      "repository": "https://github.com/idolum-ai/engram",
+      "commit": "1b56983ac658f10bfbd76c44bfc99c20b1355ebe",
+      "ontology_file": "project-ontologies/engram.md",
+      "ontology_sha256": "ffd957624f8703dc62ac522e62090f06ec89648bf166a9aeb0c254ace2f4145a",
+      "source_digests": {
+        "evals/project-ontologies/inputs/sources/engram.md": "195c2da5b94ebc8fa8dfc4135e86977a8e2fcf6bfe4e24e6321a517d83b02137"
+      },
+      "deterministic": {
+        "passed": true,
+        "checks": {
+          "frontmatter_project": true,
+          "frontmatter_repository": true,
+          "frontmatter_branch": true,
+          "frontmatter_commit": true,
+          "frontmatter_organon_version": true,
+          "frontmatter_status": true,
+          "required_headings": true,
+          "no_private_path": true,
+          "mapping_schema_version": true,
+          "mapping_project_matches": true,
+          "mapping_snapshot_matches": true,
+          "mapping_has_mappings": true,
+          "mapping_unique_mapping_pairs": true,
+          "mapping_known_mapping_classes": true,
+          "mapping_registered_ids": true,
+          "mapping_evidence_present": true,
+          "mapping_evidence_valid": true
+        },
+        "mapping_count": 15
+      },
+      "ontology": {
+        "term_fidelity": 2,
+        "dependency_order": 4,
+        "anti_collapse_discipline": 4,
+        "load_bearing_paths": 2,
+        "epistemic_and_institutional_boundary": 4,
+        "critical_violations": [
+          "The promoted `validated terminal binding` → `organon:Invariant` mapping does not establish preservation across its named transformation family. The cited requirements establish effect-time identity validation, not before-and-after preservation; most input operations are not bracketed by a post-effect identity witness, and destructive close necessarily terminates rather than preserves the pane binding. Only the styled-capture excerpt supplies an explicit before/after identity comparison."
+        ],
+        "evidence": "The candidate is otherwise unusually disciplined. Its Frame→State, Watch→Record, Current view→Representation, and route-validity→Constraint packets follow the dependency order and name appropriate expression, target, state, persistence, and exclusion witnesses. The guarded reply-input CausalPath explicitly joins the incoming reply, prepared text, expected watch, terminal binding, validation stages, and tmux operation through named Feeds, rather than attaching a causal label to an unrelated example. Conflicts around local “source of truth” and GitHub “grant” are reported honestly instead of being forced into Organon Truth or Grant. Audit material, guide output, authorization checks, approvals, tokens, and leases remain unmapped where Evidence, Authority, Permission, or Capability constructors are incomplete. The scope and nonclaims also consistently prevent repository requirements or self-description from becoming security, completion, adoption, Truth, Evidence, or successful execution. The sole material promoted defect is the Invariant packet: `requirements/tmux.md:27-46` requires validation immediately before operations, while `internal/tmux/tmux.go:677-776` brackets only styled capture with before/after checks, and destructive close cannot preserve the named triple.",
+        "revision": "Replace the broad Invariant promotion with an unmapped result, or narrow it to the exact styled-capture interval and name the pre-capture State, post-capture State, capture Transformation, equality Invariant, and before/after witness from `CaptureStyled`. Do not include destructive close, and do not treat a precondition check as preservation. If the broader input family is retained, map its binding-equality mechanism only after selecting an Organon term whose complete definition matches a conditional guard, or add source-backed post-operation States proving preservation for every named transformation. Keep the existing conflict and unmapped institutional/evidentiary results unchanged."
+      },
+      "documentation": {
+        "source_traceability": 4,
+        "coverage_and_proportion": 4,
+        "documentation_cadence": 4,
+        "local_language_preservation": 4,
+        "maintenance_readiness": 4,
+        "sentence_delivery": 4,
+        "critical_violations": [],
+        "evidence": "The ontology pins the repository, branch, commit, and Organon version, then supports material definitions, paths, invariants, boundary cases, and every mapping-manifest entry with exact file and line ranges. It explicitly distinguishes code mechanisms, binding requirements, design language, and repository self-description, and repeatedly refuses unsupported claims about security, adoption, Truth, Evidence, Authority, or successful operation. Coverage includes actors, operational boundaries, persisted and transient states, capture and input transformations, authority and evidence gaps, prohibited collapses, failure seams, and nonclaims without becoming a general feature inventory. Reader progression follows purpose and scope, local vocabulary, participants and boundaries, load-bearing paths, mappings, boundary cases, and promotion gates. Project terms such as watch, frame, current view, route, shelf, approval, grant, and lease are defined locally before mapping; refinement, conflict, and unmapped outcomes remain distinct. Maintenance support is unusually strong: the exact snapshot is named, source-visible terminology conflicts are preserved, uncertainties are explicit, and concrete drift triggers and promotion gates tell a later reviewer when to reopen classifications. Sentences generally preserve actors, mechanisms, scope, and qualifications despite the technical density, and the document ends with the mapping manifest rather than a promotional recap.",
+        "revision": "No blocking revision is required. For marginal usability improvement, add a short navigation list before the mapping manifest and optionally include the source-index digest from the release metadata in the front matter; neither change is necessary for review readiness."
+      },
+      "passed": false
+    },
+    {
+      "target_id": "kenogram-project-ontology",
+      "project": "Kenogram",
+      "repository": "https://github.com/idolum-ai/kenogram",
+      "commit": "8c00104bb4b666d844715bf9840634cf92e571e2",
+      "ontology_file": "project-ontologies/kenogram.md",
+      "ontology_sha256": "cf352607f08601b231065d4da7c368b202ab66981e399b4c9a151a90b1457735",
+      "source_digests": {
+        "evals/project-ontologies/inputs/sources/kenogram.md": "5f39794dc42d3857ff5dabe2d775616bd02cf13ad67d3602a601c260e341ec46"
+      },
+      "deterministic": {
+        "passed": true,
+        "checks": {
+          "frontmatter_project": true,
+          "frontmatter_repository": true,
+          "frontmatter_branch": true,
+          "frontmatter_commit": true,
+          "frontmatter_organon_version": true,
+          "frontmatter_status": true,
+          "required_headings": true,
+          "no_private_path": true,
+          "mapping_schema_version": true,
+          "mapping_project_matches": true,
+          "mapping_snapshot_matches": true,
+          "mapping_has_mappings": true,
+          "mapping_unique_mapping_pairs": true,
+          "mapping_known_mapping_classes": true,
+          "mapping_registered_ids": true,
+          "mapping_evidence_present": true,
+          "mapping_evidence_valid": true
+        },
+        "mapping_count": 13
+      },
+      "ontology": {
+        "term_fidelity": 2,
+        "dependency_order": 2,
+        "anti_collapse_discipline": 2,
+        "load_bearing_paths": 2,
+        "epistemic_and_institutional_boundary": 4,
+        "critical_violations": [
+          "K5 promotes the required-observation world-pattern as an Organon Invariant, but its preserved bearer is described as a finite contract rather than an unambiguously identified runtime part, Relation, or Configuration. The named Transformation set also includes successful replacement generally, although replacement can change the declaration and therefore the required pattern. Normative conformance language and project claims that observations are preserved do not by themselves witness preservation in each mapped instance.",
+          "K2 and K6 rely on incomplete hidden bridges. K2 identifies a Representation and a loosely described denoted target but does not name an ordered Denotation with explicit expression and target positions as required for Representation and Specification. K6 likewise does not provide an instance-level Denotation, and its Persistence account does not name the preserved Invariant, ordered States, and Transformations constituting the required persistence witness."
+        ],
+        "evidence": "The candidate is notably faithful to the pinned source and correctly gates Kenogram's local authority, allow/revoke, runtime evidence, world, boundary, interface, and agent vocabulary rather than forcing Organon classifications. K7–K9 preserve the capability/authority and claim/evidence boundaries, consistent with README.md:116-133, requirements/jobs.md:239-258, and requirements/provenance.md:29-32. K1, K3, and K4 are substantially well scoped: operational absence remains relational Missingness; generations are indexed runtime Configurations; and successful replacement joins named predecessor and successor States under a forward cutover Direction. The blocking defects are concentrated in K5's contract-to-Invariant promotion and the missing Denotation and Persistence constructors in K2 and K6. These violate Organon C1 and C24 despite the candidate's otherwise strong anti-collapse language.",
+        "revision": "Retain K1, K3, and K4, and retain K7–K13 as gated. Revise K5 to map only an actual runtime Relation or Configuration observed in both endpoint States of a specifically identified pattern-preserving replacement or same-declaration reapplication. Restrict the Transformation set accordingly, name the exact preserved bearer, and require pre/post observation witnesses; otherwise classify world-pattern as an unmapped local specification rather than an Invariant. For K2, explicitly declare the ordered Denotation: expression participant = the version-1 contract/schema Representation; target participant = the version-1 declaration-conformity Configuration within the stated Scope. For K6, require each promoted history entry to name its exact earlier State, Relation, or Change through an ordered Denotation and supply a Persistence witness naming the preserved entry/hash Invariant, ordered post-append States, and relevant subsequent transformations or verification steps. Until those packets are supplied, gate K2, K5, and K6 rather than promoting them."
+      },
+      "documentation": {
+        "source_traceability": 4,
+        "coverage_and_proportion": 4,
+        "documentation_cadence": 4,
+        "local_language_preservation": 4,
+        "maintenance_readiness": 4,
+        "sentence_delivery": 3,
+        "critical_violations": [],
+        "evidence": "The ontology pins the repository, branch, commit, and Organon version, and material claims and mappings cite exact files and line ranges from that snapshot. It clearly treats repository self-description as Claim rather than proof. Coverage includes participants, trust boundaries, lifecycle states, transformations, authority and verification paths, invariants, nonclaims, boundary cases, and unresolved dependencies without becoming a feature inventory. Progression follows scope and purpose, local vocabulary, participants, load-bearing paths, mappings, boundary cases, and promotion gates. Local terms are defined before mapping, and refinement, conflict, and unmapped outcomes remain distinct. Maintenance information is unusually strong: explicit exclusions, mapping packets, machine-readable evidence references, uncertainty gates, and concrete drift triggers allow later reconstruction. Sentence-level delivery is review-ready but not exemplary throughout because some mapping and gate sentences stack several specialist dependencies and exclusions before reaching the concrete mechanism.",
+        "revision": "Review-ready. For a final polish, split the densest mapping and promotion-gate sentences so each first names the local actor or mechanism and then states the missing Organon dependency. Preserve the current citations, ordering, nonclaims, mapping distinctions, manifest, and drift triggers."
+      },
+      "passed": false
+    }
+  ],
+  "improvement_plans": [
+    {
+      "target_id": "engram-project-ontology",
+      "artifact_kind": "project-ontology",
+      "disposition": "revise",
+      "preserve": [
+        "project-local vocabulary before Organon mapping",
+        "exact public source citations and nonclaims",
+        "every conflict, uncertainty, and anti-collapse distinction already established"
+      ],
+      "actions": [
+        {
+          "layer": "Organon ontology",
+          "critical_violations": [
+            "The promoted `validated terminal binding` → `organon:Invariant` mapping does not establish preservation across its named transformation family. The cited requirements establish effect-time identity validation, not before-and-after preservation; most input operations are not bracketed by a post-effect identity witness, and destructive close necessarily terminates rather than preserves the pane binding. Only the styled-capture excerpt supplies an explicit before/after identity comparison."
+          ],
+          "revision": "Replace the broad Invariant promotion with an unmapped result, or narrow it to the exact styled-capture interval and name the pre-capture State, post-capture State, capture Transformation, equality Invariant, and before/after witness from `CaptureStyled`. Do not include destructive close, and do not treat a precondition check as preservation. If the broader input family is retained, map its binding-equality mechanism only after selecting an Organon term whose complete definition matches a conditional guard, or add source-backed post-operation States proving preservation for every named transformation. Keep the existing conflict and unmapped institutional/evidentiary results unchanged.",
+          "evidence": "The candidate is otherwise unusually disciplined. Its Frame→State, Watch→Record, Current view→Representation, and route-validity→Constraint packets follow the dependency order and name appropriate expression, target, state, persistence, and exclusion witnesses. The guarded reply-input CausalPath explicitly joins the incoming reply, prepared text, expected watch, terminal binding, validation stages, and tmux operation through named Feeds, rather than attaching a causal label to an unrelated example. Conflicts around local “source of truth” and GitHub “grant” are reported honestly instead of being forced into Organon Truth or Grant. Audit material, guide output, authorization checks, approvals, tokens, and leases remain unmapped where Evidence, Authority, Permission, or Capability constructors are incomplete. The scope and nonclaims also consistently prevent repository requirements or self-description from becoming security, completion, adoption, Truth, Evidence, or successful execution. The sole material promoted defect is the Invariant packet: `requirements/tmux.md:27-46` requires validation immediately before operations, while `internal/tmux/tmux.go:677-776` brackets only styled capture with before/after checks, and destructive close cannot preserve the named triple."
+        }
+      ],
+      "promotion_rule": "Human review is required after every failed layer is repaired and the exact revised bytes pass a fresh evaluation."
+    },
+    {
+      "target_id": "kenogram-project-ontology",
+      "artifact_kind": "project-ontology",
+      "disposition": "revise",
+      "preserve": [
+        "project-local vocabulary before Organon mapping",
+        "exact public source citations and nonclaims",
+        "every conflict, uncertainty, and anti-collapse distinction already established"
+      ],
+      "actions": [
+        {
+          "layer": "Organon ontology",
+          "critical_violations": [
+            "K5 promotes the required-observation world-pattern as an Organon Invariant, but its preserved bearer is described as a finite contract rather than an unambiguously identified runtime part, Relation, or Configuration. The named Transformation set also includes successful replacement generally, although replacement can change the declaration and therefore the required pattern. Normative conformance language and project claims that observations are preserved do not by themselves witness preservation in each mapped instance.",
+            "K2 and K6 rely on incomplete hidden bridges. K2 identifies a Representation and a loosely described denoted target but does not name an ordered Denotation with explicit expression and target positions as required for Representation and Specification. K6 likewise does not provide an instance-level Denotation, and its Persistence account does not name the preserved Invariant, ordered States, and Transformations constituting the required persistence witness."
+          ],
+          "revision": "Retain K1, K3, and K4, and retain K7–K13 as gated. Revise K5 to map only an actual runtime Relation or Configuration observed in both endpoint States of a specifically identified pattern-preserving replacement or same-declaration reapplication. Restrict the Transformation set accordingly, name the exact preserved bearer, and require pre/post observation witnesses; otherwise classify world-pattern as an unmapped local specification rather than an Invariant. For K2, explicitly declare the ordered Denotation: expression participant = the version-1 contract/schema Representation; target participant = the version-1 declaration-conformity Configuration within the stated Scope. For K6, require each promoted history entry to name its exact earlier State, Relation, or Change through an ordered Denotation and supply a Persistence witness naming the preserved entry/hash Invariant, ordered post-append States, and relevant subsequent transformations or verification steps. Until those packets are supplied, gate K2, K5, and K6 rather than promoting them.",
+          "evidence": "The candidate is notably faithful to the pinned source and correctly gates Kenogram's local authority, allow/revoke, runtime evidence, world, boundary, interface, and agent vocabulary rather than forcing Organon classifications. K7–K9 preserve the capability/authority and claim/evidence boundaries, consistent with README.md:116-133, requirements/jobs.md:239-258, and requirements/provenance.md:29-32. K1, K3, and K4 are substantially well scoped: operational absence remains relational Missingness; generations are indexed runtime Configurations; and successful replacement joins named predecessor and successor States under a forward cutover Direction. The blocking defects are concentrated in K5's contract-to-Invariant promotion and the missing Denotation and Persistence constructors in K2 and K6. These violate Organon C1 and C24 despite the candidate's otherwise strong anti-collapse language."
+        }
+      ],
+      "promotion_rule": "Human review is required after every failed layer is repaired and the exact revised bytes pass a fresh evaluation."
+    }
+  ]
+}

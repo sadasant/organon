@@ -24,6 +24,15 @@ def test_full_projection_covers_registry_and_is_current():
     assert manifest["commitment_count"] == len(registry["commitments"]) == 42
     assert "`organon:Absence`" in prompt
     assert "`C31`" in prompt
+    assert "Do not infer a term when any named dependency" not in prompt
+    assert (
+        "Treat every named dependency as lexical vocabulary required to state the complete definition; "
+        "do not assume that it obtains in every instance."
+    ) in prompt
+    assert (
+        "Infer a term only when one type- and index-consistent interpretation satisfies its complete "
+        "logical form"
+    ) in prompt
     subprocess.run([sys.executable, str(SCRIPT), "--check"], cwd=ROOT, check=True)
 
 

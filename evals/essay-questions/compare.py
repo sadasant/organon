@@ -94,6 +94,12 @@ def build_comparison(baseline: dict, candidate: dict, evaluation: dict, args) ->
             "candidate_sha256": sha256_path(args.candidate),
             "evaluation_result": args.evaluation.name,
             "evaluation_sha256": sha256_path(args.evaluation),
+            "baseline_ontology_sha256": baseline.get("run", {}).get("ontology_sha256"),
+            "candidate_ontology_sha256": candidate.get("run", {}).get("ontology_sha256"),
+            "same_ontology": (
+                baseline.get("run", {}).get("ontology_sha256")
+                == candidate.get("run", {}).get("ontology_sha256")
+            ),
             "question_count": len(rows),
             "passed_count": sum(int(row["passed"]) for row in rows),
         },
@@ -105,6 +111,15 @@ def render(result: dict, obsidian_links: bool = False) -> str:
     run = result["run"]
     old_total = sum(row["baseline_word_count"] for row in result["comparisons"])
     new_total = sum(row["candidate_word_count"] for row in result["comparisons"])
+    comparison_scope = (
+        "The baseline and candidate share one ontology snapshot."
+        if run["same_ontology"]
+        else (
+            "This is a cross-version historical contrast: the baseline and candidate "
+            "use different ontology snapshots, so differences cannot be attributed to "
+            "editorial form alone."
+        )
+    )
     lines = [
         "---",
         "type: organon-evaluation",
@@ -116,7 +131,17 @@ def render(result: dict, obsidian_links: bool = False) -> str:
         "# Essay-Answer Form calibration comparison",
         "",
         "> [!summary]",
-        f"> Compared {run['question_count']} baseline answers governed by short-form delivery with candidates governed by the proposed Essay-Answer Form. {run['passed_count']} candidates passed the deterministic, ontology, and Essay-Answer Form gate. Total visible answer length changed from {old_total} to {new_total} words. Interlocutor hypotheses are generated and defeasible, not facts about actual readers.",
+        f"> Compared {run['question_count']} historical baseline answers governed by short-form delivery with candidates governed by the Essay-Answer Form. {run['passed_count']} candidates passed the deterministic, ontology, and Essay-Answer Form gate. Total visible answer length changed from {old_total} to {new_total} words. {comparison_scope} Interlocutor hypotheses are generated and defeasible, not facts about actual readers.",
+        "",
+        "## Comparison scope",
+        "",
+        "| Field | Value |",
+        "|---|---|",
+        f"| Baseline ontology SHA-256 | `{run['baseline_ontology_sha256'] or 'unrecorded'}` |",
+        f"| Candidate ontology SHA-256 | `{run['candidate_ontology_sha256'] or 'unrecorded'}` |",
+        f"| Same ontology snapshot | `{str(run['same_ontology']).lower()}` |",
+        "",
+        comparison_scope,
         "",
     ]
     for row in result["comparisons"]:

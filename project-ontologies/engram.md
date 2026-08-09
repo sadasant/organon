@@ -1,397 +1,600 @@
 ---
-type: project-ontology
 project: Engram
 repository: https://github.com/idolum-ai/engram
 branch: main
-commit: 645c76c624cbb6e21f9d4187b3fc093f36b6cf38
-reviewed_at: "2026-08-06"
-organon_version: "0.17.0"
+commit: 1b56983ac658f10bfbd76c44bfc99c20b1355ebe
+organon_version: 0.18.0
 status: generated-candidate
-sensitivity: public
-evidence_basis: public-repository-source-and-documentation
 ---
-
-# Engram Project Ontology
+# Engram project ontology
 
 ## Scope and nonclaims
 
-This candidate describes Engram as represented by the public repository at the exact revision named above. The inspected evidence includes the binding requirements, design documents, runtime state and routing structures, tmux mechanics, and GitHub capability broker.
+This candidate describes Engram at repository `https://github.com/idolum-ai/engram`, branch `main`, commit `1b56983ac658f10bfbd76c44bfc99c20b1355ebe`. It covers the single-user Telegram-to-tmux control surface, its local state and presentation mechanisms, its guarded input path, and the included GitHub credential broker.
 
-This document does **not** claim:
+The source snapshot contains project descriptions, design rules, requirements, and implementation excerpts. They do not all carry the same force. Code excerpts show mechanisms present in the pinned tree. Requirements describe intended runtime contracts and call themselves binding for implementation (`requirements/INDEX.md:1-27`); that is a repository-governance claim, not proof that every contract is satisfied. Design claims such as safe, trusted, durable, or source of truth are preserved as local language and are not promoted into Organon security, Trust, Truth, Evidence, adoption, completion, or institutional Authority.
 
-- deployment, adoption, production use, reliability, security, or user outcomes beyond what the repository demonstrates;
-- that a requirement is implemented merely because it is written;
-- that a test or audit entry is independent Evidence in Organon's binding sense;
-- that Engram's ordinary-language uses of “truth,” “evidence,” “authority,” “permission,” “agent,” or “session” adopt the corresponding `organon:*` term;
-- that every process visible through Engram is an Agent;
-- that the repository, application binary, running process, installation, watch, pane, and Telegram anchor are one Entity.
+This document does not claim:
 
-The repository declares its requirements “draft but binding for implementation” and identifies them as the source of truth (`requirements/INDEX.md:1-7`). This is evidence of the project's own governing Reference, not evidence that those requirements are True, satisfied, or independently warranted under Organon.
+- that Engram adopts Organon merely because this external candidate maps some terms;
+- that the repository is secure, private, correct, complete, deployed, or widely used;
+- that tests or checks passed at the pinned commit;
+- that tmux or any stored record is Reality or semantic Truth;
+- that a frame, audit entry, model response, requirement, or source excerpt is independent Evidence;
+- that Telegram authorization or a GitHub approval establishes Organon Permission or Authority;
+- that a model summary faithfully represents terminal state; or
+- that a successful send, capture, approval, or token request occurred outside the cited source mechanisms.
 
 ## Project purpose
 
-Engram is a single-user Telegram control surface for local tmux sessions. It creates or attaches to tmux windows, routes messages into panes, and maintains one pinned Telegram anchor per watched pane (`README.md:11-18`). Its narrower protocol posture is to provide a handle for a pane, one bounded observation, one stable current view that routes replies, and conservative recovery (`docs/protocol-posture.md:17-29`).
+Engram describes itself as a single-user Telegram control surface for local tmux sessions. It creates or attaches to tmux windows, routes Telegram messages into panes, and presents each pane through a stable pinned Telegram anchor (`README.md:9-31`). The project treats tmux, rather than Engram, as the durable workspace. Engram's stated contribution is a handle for a watched pane, a bounded capture, a stable current view able to route a reply, and conservative recovery when intermediate work fails (`docs/protocol-posture.md:15-66`).
 
-Its defining architectural commitment is that tmux remains the workspace and the source of current terminal facts. Engram captures and acts through tmux rather than emulating terminal state (`docs/design-principles.md:39-51`). Conversational guide prose and Chromium snapshots are alternative presentations of the same bounded frame (`README.md:20-29`); model output is presentation and is never automatically executed (`docs/design-principles.md:215-234`).
+Two presentation choices are described. Guide mode sends bounded terminal text to a configured model and returns compact prose; the project explicitly warns that the model can misunderstand the pane. Snapshot mode renders a bounded terminal frame locally with Chromium and uploads the resulting image to Telegram. The snapshot remains accompanied by literal raw text (`README.md:9-31`, `docs/design-principles.md:67-103`). These are presentation paths over the same tmux workspace, not alternate sources of terminal state.
 
-The intended function is therefore:
-
-> Preserve a small, inspectable, identity-bound path between one admitted remote human action and one local terminal effect, while making the resulting bounded terminal state quickly legible without allowing presentation to become authority.
+The principal operational objective is orientation and a safe next input across multiple panes. Ordinary input is intended to remain independent of delays or failures in model, browser, or presentation work (`docs/design-principles.md:67-103`).
 
 ## Local vocabulary
 
-The project supplies a particularly useful local vocabulary in `docs/protocol-posture.md:31-48`.
+The following terms retain Engram's own meanings before any Organon correspondence is considered.
 
-| Local term | Repository meaning | Source | Ontological reading |
-| --- | --- | --- | --- |
-| Pane identity | Immutable tmux server-lifetime `%pane_id` and `@window_id` pair; the implementation also carries a server incarnation | `docs/protocol-posture.md:31-35`; `internal/tmux/tmux.go:92-103`; `internal/state/state.go:110-120` | An object-language identity criterion for a pane during one tmux server incarnation; necessary but not alone a complete Persistence witness. |
-| Watch | Local Record binding a user-facing ID to pane identity, provenance, lifecycle, and observation state | `docs/protocol-posture.md:33-37`; `internal/state/state.go:110-163` | A persistent governance Map about a pane, not the pane itself. |
-| Frame | One bounded physical ANSI and joined logical capture over shared coordinates | `docs/protocol-posture.md:36-38`; `internal/tmux/tmux.go:105-122` | A causally produced Sign representing pane State. It is not automatically an Organon Observation because the capture value need not persist as a Record. |
-| Current view | The single canonical presentation for a watch in the selected frontend | `docs/protocol-posture.md:39-40` | An Interface state whose permitted reply Transformation is represented. |
-| Route | A current view or latest alternate allowed to request input for the same watch; superseded routes are stale | `docs/protocol-posture.md:41-42` | A project-local routing eligibility. It is not by itself an Organon Permission or Authority. |
-| Input action | Command plus Enter, literal text without Enter, or validated keys | `docs/protocol-posture.md:43-44` | A typed refinement of Action at the Engram-to-tmux boundary. |
-| Attention record | Bounded terminal-authored request to look, with deduplication ID but no sender identity | `docs/protocol-posture.md:44-45` | A causally produced Sign. Without an identified asserting Agent it is not a Claim. |
-| Canonical anchor | One current pinned Telegram representation for an expanded watch | `docs/design-principles.md:53-60` | A persistent Interface/Representation, distinct from the watched pane and captured frame. |
-| Collapsed shelf | One inert shared representation of multiple watches, without per-pane input routes | `docs/design-principles.md:69-83` | A Map and Interface whose Constraints deliberately exclude terminal Action. |
-| Requirements | Runtime contracts expected to be executable | `requirements/INDEX.md:3-7` | Specifications and Rules when they provide constructive decision procedures; prose aspiration alone is only a Claim. |
-| Audit event | A local typed account of a runtime transition or failure | `internal/app/input.go:112-161` | A Record. It is not a Receipt unless Agent, Authority, Permission, Scope, and observed Consequence are joined; it is not Evidence without an independent Witness and Admission. |
-| GitHub capability request | Pane-bound request naming App, repositories, permissions, command or bounded grant purpose | `internal/githubauth/types.go:28-47`; `internal/githubauth/types.go:92-171` | A scoped Claim candidate within Engram's authorization Order. It remains short of Permission Claim because named Agent, Principal, Order, and—in exact-command form—interval are not carried explicitly. |
-| Lease / renewable grant | Process-local record of a scoped GitHub token or approved renewable authority envelope | `internal/githubauth/types.go:49-68`; `internal/app/github_grant.go:69-96` | A scoped Record of local capability. It is not an Organon Grant or Permission until Principal, Agent, Authority, Permission Claim, Admission, Order, Scope, and interval are joined explicitly. |
+| Local term | Engram-local meaning | Source |
+| --- | --- | --- |
+| tmux workspace | The terminal workspace Engram attaches to, captures, and sends input into. Engram says it should not emulate terminal state. | `docs/design-principles.md:37-62` |
+| pane identity | In the protocol prose, the immutable `%pane_id` and `@window_id` pair validated at effect time. | `docs/protocol-posture.md:15-66` |
+| validated terminal binding | The implementation-level server incarnation, window ID, and pane ID checked before pane-bound operations. This is deliberately narrower and stronger than relying on a mutable index. | `requirements/tmux.md:27-46`, `internal/tmux/tmux.go:507-563` |
+| watch | A local record binding an Engram session ID to pane identity, provenance, lifecycle, and observation state. It is explicitly not a tmux session. | `docs/protocol-posture.md:15-66` |
+| frame | One bounded physical ANSI capture and joined logical capture over shared coordinates. | `docs/protocol-posture.md:15-66`, `internal/tmux/tmux.go:677-776` |
+| current view | The one canonical presentation for a watch in the selected frontend. | `docs/protocol-posture.md:15-66` |
+| anchor | The editable and normally pinned Telegram message that identifies a session, presents its pane, and exposes controls. An expanded session is intended to have one canonical anchor. | `docs/design-principles.md:37-62` |
+| route | A current view or latest alternate that may request input for its watch. A superseded route is stale and must not route input. | `docs/protocol-posture.md:15-66` |
+| shelf | A shared pinned presentation for collapsed sessions. Its status lines are cached, and it is not an input route. | `docs/design-principles.md:67-103` |
+| input action | Command plus Enter, literal text without Enter, or validated keys. These kinds remain distinct. | `docs/protocol-posture.md:15-66` |
+| attention record | A bounded, terminal-authored request to look, carrying a random deduplication ID but no sender identity. It is one-way, best effort, and untrusted. | `docs/protocol-posture.md:15-66`, `docs/protocol-posture.md:75-87` |
+| guide presentation | Model-produced prose derived from bounded terminal text. It is presentation, may misunderstand the pane, and is not executed automatically. | `README.md:9-31`, `docs/design-principles.md:213-236` |
+| snapshot presentation | A locally rendered image of the bounded terminal frame, with literal raw text available separately. | `README.md:9-31`, `docs/design-principles.md:67-103` |
+| GitHub approval | A pending broker interaction presented through Telegram and resolved, denied, canceled, expired, or invalidated before token minting or grant creation. | `internal/app/github_auth.go:63-212`, `internal/app/github_auth.go:271-390` |
+| GitHub grant | A stored renewable local mechanism containing a binding, enrolled application information, repository and permission scopes, purpose, creation time, and expiry. | `internal/app/github_grant.go:67-98`, `internal/githubauth/types.go:26-70` |
+| lease | A bounded token result associated with an application, installation, repository set, permission set, expiry, and optionally a local grant ID. | `internal/githubauth/types.go:26-70` |
+
+The pane terminology contains a source-visible seam. The protocol's irreducible noun names a pane/window pair, while requirements and implementation guard effects with a server/window/pane triple. This candidate does not silently rewrite the protocol noun. It promotes equality of the triple only for the exact styled-capture interval that supplies before-and-after identity witnesses; the broader guarded-operation family remains unmapped to `organon:Invariant`.
 
 ## Participants and worlds
 
-Classification is relational and scoped. The same Presence can occupy different profiles under different Scopes without those terms collapsing.
+The operational participants are:
 
-| Presence | Organon profile | Basis and limit |
-| --- | --- | --- |
-| Authorized human operator | `organon:Agent` | The operator interprets presented States and selects Telegram Actions. The project admits exactly one user and chat (`requirements/security.md:7-14`); authorization does not imply Truth, expertise, or unrestricted Authority. |
-| Running Engram installation | `organon:Agent` candidate; `organon:Entity` candidate | It transforms Telegram and tmux Perceptions through Rules into selected Actions. Persistence across process restart is carried by bounded state (`docs/design-principles.md:271-276`), but the repository does not declare one complete identity Invariant across binary, configuration, home, and service incarnations. Promotion therefore remains gated. |
-| Watched tmux pane | `organon:Entity` refinement | Immutable pane/window/server identifiers are validated before effects (`requirements/tmux.md:29-44`). A pane is not identical to its Watch, anchor, process, or content. |
-| tmux | `organon:Substrate` refinement and `organon:Tool` refinement | It persistently supplies terminal States to capture/input Transformations under its own constraints (`docs/design-principles.md:39-51`). Relative to the operator, it is also incorporated into Action without becoming the operator. These are scoped profiles, not synonymy. |
-| Telegram Bot API | External `organon:Entity`; part of Engram's `organon:Environment` | It carries remote messages and anchors across Engram's boundary. The public API is not an internal Organ of Engram. |
-| Telegram anchor | `organon:Interface` refinement | It explicitly represents allowed Transformations for coordination; only the current route may cause input (`docs/protocol-posture.md:50-64`). |
-| Guide model/provider | `organon:Tool` candidate | Engram incorporates the configured provider service only into presentation. Terminal text is untrusted data, and guide prose never executes (`requirements/security.md:102-123`). An isolated model is not an Agent under Organon; promotion also requires the provider Entity's identity criterion. |
-| Chromium renderer | `organon:Tool` refinement | It renders a literal bounded frame and does not select terminal Actions (`README.md:22-29`). |
-| State store | `organon:Organ` candidate of an Engram installation | It persistently maintains watches, anchors, attachments, update position, and recovery data (`internal/state/state.go:36-57`, `internal/state/state.go:370-396`). This assumes the larger installation is accepted as an Entity. |
-| Terminal-mechanics subsystem | `organon:Organ` candidate | It performs recurring identity-guarded tmux Transformations for Engram (`requirements/tmux.md:38-40`; `internal/tmux/tmux.go:509-561`). It is not the external tmux Entity. |
-| GitHub capability broker | `organon:Organ` candidate | It performs a specialized recurring authorization path for Engram (`internal/app/github_auth.go:65-103`). Its Unix socket is an Interface, not the Authority itself. |
-| Engram authorization regime | `organon:Order` candidate | Configured identity, binding checks, approval records, Rules, and interfaces coordinate the human operator, Engram, tmux, and GitHub. The public evidence does not establish persistence through changing participants sufficient to call it an Institution. |
-| GitHub | External `organon:Institution` candidate | GitHub supplies the external App installation, repositories, permissions, and token-issuing Order. This ontology does not attempt to model GitHub's complete institution. |
-| One watch's bounded actionable terminal domain | `organon:World` refinement | The frame, selected references, current route, and reachable Actions form a scoped Configuration available to operator Perception and Action. It is not the entire host and never Reality. |
-| Local files, terminal processes, network services, provider APIs | `organon:Environment` relative to Engram | They are related to but not included in a narrowly drawn Engram installation identity. Individual components may become Tools when deliberately incorporated into a Causal path. |
-| Local filesystem | `organon:Substrate` candidate for persistence paths | It supplies input States to state, attachment, audit, and credential-vault transformations. That classification is Scope-specific and does not make every file part of Engram. |
+- the configured Telegram user and configured Telegram chat;
+- Telegram as the external message and delivery service;
+- the Engram process, its configuration, scheduler, local state, and audit output;
+- the tmux server, windows, panes, foreground processes, and terminal content;
+- optional guide providers receiving bounded text;
+- optional local Chromium used for snapshot rendering;
+- the local GitHub broker client and Engram broker endpoint;
+- enrolled GitHub Apps and the GitHub token API; and
+- child commands that may receive a validated installation token.
 
-### Institution finding
+The main local boundaries are concrete mechanism boundaries rather than assumed institutional ones:
 
-No Engram-internal Institution is established by the inspected revision. Engram is explicitly single-user, and its stable runtime Order is evident, but the stronger requirement—persistence through Roles, Records, Interfaces, and recurring Flows despite changes in participating Agents—is not demonstrated. Calling the application itself an Institution would overstate the evidence.
+1. **Telegram admission boundary.** A message must match both configured chat ID and configured user ID before ordinary handling (`internal/app/app.go:434-457`, `internal/app/app.go:551-562`).
+2. **Current-route boundary.** A reply must resolve to a current target. A known stale target produces a stale response rather than pane input (`internal/app/app.go:498-522`).
+3. **Terminal-mechanics boundary.** Pane-bound effects are routed through mechanics that validate the terminal binding immediately before the tmux operation (`requirements/tmux.md:27-46`).
+4. **Presentation boundary.** Bounded pane content may be rendered literally or sent to a guide provider. Presentation output is kept off the ordinary input critical path (`docs/design-principles.md:67-103`).
+5. **Persistence boundary.** Local state under `~/.engram` is intended to recover sessions, anchors, shelf membership, selected mode, attachments, poll position, and recent errors after restart (`docs/design-principles.md:269-278`).
+6. **GitHub broker boundary.** A broker request carries a terminal binding and explicit application, installation, repository, permission, command or grant fields. Binding, enrollment, approval continuation, expiry, and token scope are checked at different stages (`internal/githubauth/types.go:26-70`, `internal/app/github_auth.go:63-212`).
+
+These participants and boundaries do not yet form a promoted `organon:World`. The dossier does not provide one complete packet naming participating Entities, their identity witnesses, selected Environments, available causal paths, common Invariant, Constraints, and Scope.
 
 ## Load-bearing relations
 
-### Technical relations
+### Message admission and deduplication
 
-1. A Watch **denotes and maps** one currently bound tmux pane but is not identical with it. The state carries separate watch ID, tmux session name, window ID, pane ID, server ID, lifecycle, and anchor data (`internal/state/state.go:110-163`).
-2. A Frame **is produced from** one tmux capture interval. Physical ANSI and joined text are captured in one tmux command batch, with metadata sampled before and after; changed identity or boundary rejects the frame (`internal/tmux/tmux.go:701-774`).
-3. A current anchor **represents and permits routing through** one Watch. Two actionable representations of one pane are a product error (`docs/design-principles.md:53-60`). “Permits” here is ordinary project language; the relation is an Interface constraint unless an Organon Permission chain is supplied.
-4. An input Transformation **crosses** the Engram/tmux boundary only after current-route and immutable-binding checks. A stale reply fails before the terminal operation (`internal/app/input.go:56-70`), and tmux performs the effect behind the same server/window/pane condition (`internal/tmux/tmux.go:509-561`).
-5. A guide rendering **represents** a Frame but does not establish current terminal State. Engram rechecks the current session and conversation boundary before and after model work (`internal/app/refresh.go:238-300`).
-6. Persisted State **supports recovery** across service restarts, while raw terminal captures remain process-local or bounded in specific fields. The state schema distinguishes identity, provenance, lifecycle, presentation, anchors, and recovery (`internal/state/state.go:36-57`, `internal/state/state.go:110-163`).
+`handleUpdate` distinguishes callback updates, missing messages, unauthorized messages, and already processed messages before later routing (`internal/app/app.go:434-457`). Authorization compares the incoming chat and sender IDs with configured values (`internal/app/app.go:551-562`). This is a local admission predicate. It is not, without an institutional packet, Organon Standing, Recognition, Permission, or Authority.
 
-### Institutional relations
+### Capture and presentation
 
-1. Configured Telegram user and chat identity define admission to Engram's command Order. Unauthorized messages are rejected before duplicate registration or routing (`internal/app/app.go:436-455`, `internal/app/app.go:553-560`).
-2. A current anchor establishes routing eligibility only while its chat/message and terminal binding remain current (`internal/app/input.go:56-70`). This is narrower than general Authority over the pane.
-3. A GitHub broker request names the App, installation, repositories, permissions, command or grant duration, purpose, and exact tmux binding (`internal/githubauth/types.go:28-47`). Validation rejects implicit repositories or permissions and bounds renewable authority (`internal/githubauth/types.go:92-171`).
-4. Human approval is recorded through a current Telegram approval message; the requesting pane and enrollment are revalidated before the credential is unlocked and token minted (`internal/app/github_auth.go:149-185`).
-5. GitHub's returned installation token is checked for exact repository and permission scope; unrequested authority fails (`internal/githubauth/client.go:189-216`). Thus capability is downstream of the admitted scope rather than substituted for it.
+A styled capture reads metadata, captures physical ANSI and joined logical buffers, reads metadata again, and rejects identity or boundary changes observed across the operation. The returned frame carries physical text, joined text, hyperlinks, and pane metadata (`internal/tmux/tmux.go:677-776`). Guide generation later checks that the session and context remain current before and, for contextual paths, after model work; returned prose is redacted (`internal/app/refresh.go:236-302`).
 
-### Load-bearing paths
+The frame is the local basis for presentation. A guide summary is a transformation of bounded text, while a snapshot is a literal rendering path. Neither presentation is silently promoted to terminal fact, Truth, or Evidence.
 
-### Causal path: remote input to terminal consequence
+Only the styled-capture operation in the supplied dossier explicitly compares the terminal identity before and after its capture Transformation. Other pane-bound operations validate identity as an effect-time condition, but the cited excerpts do not establish preservation through a post-operation State. Destructive close is intentionally terminating and therefore cannot witness preservation of the pane binding.
 
-The load-bearing path is:
+### Current and stale routing
 
-1. Telegram delivers a message from Engram's Environment.
-2. The configured user/chat Rule admits or rejects it (`internal/app/app.go:436-447`, `internal/app/app.go:553-560`).
-3. For a reply, the Store resolves the Telegram message to the current Watch route (`internal/app/app.go:500-520`).
-4. `sendReplyInput` rechecks current-route identity and serializes session/anchor access (`internal/app/input.go:56-70`).
-5. `sendInputExpectedLocked` rechecks lifecycle, collapsed state, recovery state, and expected terminal binding before selecting command or text Action (`internal/app/input.go:85-111`).
-6. Terminal mechanics place the text or keys behind a tmux-side server/window/pane identity condition (`internal/tmux/tmux.go:509-561`).
-7. A successful tmux Transformation is recorded, session activity is updated, and refresh is scheduled (`internal/app/input.go:130-180`).
-8. A later capture samples one bounded tmux interval and rejects identity/boundary drift (`internal/tmux/tmux.go:701-774`).
-9. The accepted frame feeds either guide or snapshot presentation while remaining subordinate to the terminal capture.
+A current view or latest eligible alternate may route input. Older alternates are stale. The store lookup in the reply path distinguishes current and stale targets, and the input function repeats current-target and terminal-binding checks while holding session and anchor locks (`internal/app/app.go:498-522`, `internal/app/input.go:54-182`). The repeated check matters because a message that was once current may become stale before the effect.
 
-Removing the immutable-binding checks breaks the relation between admitted remote intent and the intended terminal Entity. Removing current-route checks permits stale Representations to cause Action. Removing post-model/current-context checks permits an old Perception to replace a newer view. These joins are load-bearing, not decorative parameters.
+### Guarded input
 
-### Authority path: pane-bound GitHub capability
+For a reply to a current anchor, Engram prepares typed input and calls the reply-input path. That path reacquires the current target, compares the terminal binding, rejects closed, collapsed, recovering, or changed sessions, and invokes terminal mechanics. The tmux layer uses a binding-conditioned command before text or keys are applied (`internal/app/input.go:54-182`, `internal/tmux/tmux.go:507-563`).
 
-The strongest institutional path is:
+A successful tmux effect can precede a failed local state update. The code reports that condition rather than proving rollback (`internal/app/input.go:54-182`). Consequently, a returned failure status does not always establish that no terminal effect occurred.
 
-1. A local requesting Agent constructs a broker request with an exact tmux binding, repositories, permissions, and command or bounded purpose (`internal/githubauth/types.go:28-47`).
-2. Request validation rejects missing binding, implicit repository/permission scope, malformed command, or excessive renewable duration (`internal/githubauth/types.go:92-171`).
-3. Engram joins the request to one active watched pane and validates its live tmux identity (`internal/app/github_auth.go:273-305`).
-4. Engram presents the exact scope to the authorized human through Telegram and records the pending approval (`internal/app/github_auth.go:329-388`).
-5. After approval, Engram revalidates the pane and App enrollment before unlocking the encrypted key and minting (`internal/app/github_auth.go:149-210`).
-6. GitHub returns a token; Engram verifies exact repository and permission equality and rejects additional authority (`internal/githubauth/client.go:189-216`).
-7. Engram records a bounded lease or grant and exposes it only to the child process; expiration, revocation, binding loss, or enrollment change removes its standing in the local Order.
+### Anchor replacement and collapse
 
-This is a credible project-local authorization path, but it is not yet a refinement of Organon's complete Claim → Declaration/Grant → Admission/Permission → Exercise chain. Agent, Principal, Authority, Admission, and—in the exact-command form—interval are not carried through one typed join; an executed GitHub operation's observed Consequence is also not joined into a portable Receipt. Therefore this candidate does not claim `organon:PermissionClaim`, `organon:Grant`, `organon:Permission`, `organon:PermissionExercise`, or `organon:Receipt` conformance for these local structures.
+Anchor migration records and exposes a successor before retiring a predecessor where the external medium permits. During collapse, the individual anchor remains canonical until the shared shelf is rendered and pinned. During restoration, prospective anchors become durable and pinned while inert before controls are granted; failure returns the member to the shelf (`docs/design-principles.md:67-103`). These are ordered handoff rules intended to avoid two actionable representations or no recoverable representation.
 
-### Evidence path and its limit
+### GitHub approval, grants, and token scope
 
-Requirements feed tests; runtime transitions feed audit Records. The requirements say contracts should be tested directly or checked by `make check` (`requirements/INDEX.md:3-24`). Those outputs may support project Claims in ordinary engineering practice. Under Organon, however, repository-owned tests and audit machinery remain within the claimant project's Control. No `IndependentFor` witness or Order-indexed Admission is established. They are Records and Observations candidates, not binding `organon:Evidence` merely because Engram uses the word “evidence.”
+A broker request first validates its terminal binding against an active watched session. It then reloads enrolled application information, checks local-unlock requirements, creates a bounded pending approval, sends that approval through Telegram, and waits for approval, cancellation, expiry, or denial. Before unlocking and minting, Engram revalidates the terminal continuation and enrollment (`internal/app/github_auth.go:63-212`, `internal/app/github_auth.go:271-390`).
+
+Renewable local grants store repository, permission, purpose, and interval fields and trigger revocation of replaced leases (`internal/app/github_grant.go:67-98`). Token responses are compared with requested repositories and permissions, with only GitHub's metadata-read addition tolerated (`internal/githubauth/client.go:187-218`). This is a scoped technical credential path. The dossier does not establish the institutional joins required by Organon Grant, Permission, or Authority.
+
+### Local evidence paths
+
+The repository uses words such as observation, evidence, audit evidence, trusted, and source of truth. Locally, these distinguish captures, model-returned supporting material, audit records, deterministic local values, and normative requirements. None is promoted to `organon:Evidence` in this candidate. That promotion would require an Observation, a distinct Witness, scoped independence from the claimant, a governing Order, an Admissibility Rule, and Admission. The source snapshot supplies no complete instance of that chain.
 
 ## Invariants and prohibited collapses
 
-### Invariants
+The project states or implements the following load-bearing invariants:
 
-1. **One current actionable representation.** Each expanded Watch has at most one canonical actionable anchor; known stale routes fail closed (`docs/protocol-posture.md:50-64`).
-2. **Immutable target at effect time.** Pane-bound input, capture, and destructive close validate server/window/pane identity immediately before effect (`requirements/tmux.md:29-44`).
-3. **One frame, two presentations.** Physical and logical presentations derive from one bounded frame (`docs/protocol-posture.md:50-56`).
-4. **Presentation is off the critical authority path.** Model or Chromium delay/failure must not block ordinary guarded input (`docs/design-principles.md:85-101`).
-5. **Current tmux capture outranks historical or generated prose.** Historical context cannot establish current files, effects, completion, hashes, or references (`README.md:192-215`).
-6. **Uncertain shell effects are not replayed.** A failed or interrupted effect does not license automatic repetition (`docs/protocol-posture.md:50-64`).
-7. **Failure does not overstate identity loss.** Generic tmux failure is distinct from proved loss (`requirements/tmux.md:29-44`; `internal/app/input.go:112-128`).
-8. **Attention is not command.** Attention records are bounded, deduplicated, untrusted, and never authentication or input authority (`docs/protocol-posture.md:50-64`).
-9. **Explicit scope precedes GitHub capability.** Every request names repository and permissions, and the returned token must match them exactly (`internal/githubauth/types.go:112-170`; `internal/githubauth/client.go:189-216`).
-10. **State and pane remain distinct.** Persisted identity and observation Records do not become the live terminal Entity.
+1. Pane-bound effects validate the stored server, window, and pane identifiers; generic failure alone does not prove identity loss (`requirements/tmux.md:27-46`). This is a local guarded-effect rule, not a general promoted Organon Invariant across every operation.
+2. Styled capture compares pane identity and capture boundaries before and after capture and rejects a changed interval (`internal/tmux/tmux.go:677-776`).
+3. Input kinds remain distinct, and presentation work does not block their critical path (`docs/protocol-posture.md:15-66`).
+4. Physical and logical presentations derive from one bounded frame (`docs/protocol-posture.md:15-66`).
+5. A watch has at most one actionable current view per selected frontend (`docs/protocol-posture.md:15-66`).
+6. Only the latest route of each alternate kind may act; known stale routes fail closed (`docs/protocol-posture.md:15-66`).
+7. Replacement records a successor before retiring its predecessor where the external medium permits (`docs/protocol-posture.md:15-66`).
+8. Attention records remain bounded, deduplicated, terminal-authored, best effort, and untrusted; they do not become commands or authentication (`docs/protocol-posture.md:15-66`).
+9. Uncertain shell effects are not replayed after restart, and presentation failure does not establish pane loss (`docs/protocol-posture.md:15-66`).
 
-### Prohibited collapses
+The corresponding prohibited collapses are:
 
-- **tmux “source of truth” ≠ `organon:Truth`.** It is the canonical operational Reference for current terminal facts within Engram's Scope. It does not prove correspondence with Reality.
-- **Frame ≠ Reality.** A bounded capture is selected Presence; it may omit scrollback, transient state, external processes, and hidden effects.
-- **Frame ≠ Observation automatically.** Without Persistence as a Record and a declared Causal-path Specification, the runtime capture is only a Perception-like State.
-- **Guide output ≠ Evidence, Truth, or Authority.** It is a model-produced Representation used for presentation and is never executed automatically.
-- **Watch ≠ pane.** The Watch maps and governs a pane identity; it can become stale or lost while the pane or other tmux Presence remains.
-- **Anchor ≠ Watch ≠ Frame.** The anchor is an Interface, the Watch is a persistent Map/Record, and the Frame is a bounded captured State.
-- **Route ≠ Permission.** Being the latest actionable Telegram message does not itself provide Organon's Principal, Grant, Admission, Order, Scope, and interval chain.
-- **Technical capability ≠ institutional authority.** Possessing a token or reaching a socket does not substitute for scoped approval; the broker deliberately joins both.
-- **Audit Record ≠ Receipt.** A complete Receipt must relate Action, Agent, Authority, Permission, Scope, and observed Consequence.
-- **Repository test ≠ independent Evidence.** Claimant-controlled validation lacks the required independent Witness and institutional Admission.
-- **Tool ≠ Agent.** A guide model or Chromium renderer participates in Engram's Action path without thereby becoming the Entity whose Interpretation selects the terminal Action.
-- **Order ≠ Institution.** The local authorization regime can coordinate Agents without evidence that it persists through changing participants and Roles.
-- **Substrate ≠ Reality.** tmux and the filesystem provide scoped input States; neither is the totality of Presence.
-- **Public self-description ≠ adoption or production.** Repository prose establishes intended purpose and declared contracts only.
+- a pre-effect identity check is not a before-and-after preservation witness;
+- destructive close cannot be treated as preserving the pane binding it terminates;
+- a mutable pane index is not the validated terminal binding;
+- a watch is not its tmux session or pane;
+- a current view is not the frame or pane it presents;
+- a cached shelf line is not a current observation and cannot route input;
+- guide prose is not literal terminal state and model output is not executable authority;
+- terminal-authored content is data, not authorization for Engram (`docs/design-principles.md:213-236`);
+- an authorization predicate is not Organon Authority;
+- GitHub approval is not automatically an Organon Admission or Grant;
+- a token is not proof of the requesting Agent's Capability in every environment;
+- an audit record, test, requirement, or model-returned evidence item is not independent Evidence;
+- local source-of-truth wording is not Organon Truth; and
+- repository self-description is not adoption, effectiveness, completion, or security certification.
 
 ## Organon mappings
 
-| Engram term or mechanism | Organon candidate | Relation | Reason |
+No exact correspondence is promoted. The six promoted mappings are refinements: each local mechanism satisfies a narrower, source-backed instance of an Organon term and adds project-specific restrictions. Other correspondences are conflicts or remain unmapped.
+
+| Local term or mechanism | Organon target | Classification | Reason |
 | --- | --- | --- | --- |
-| tmux pane under server/window/pane binding | `organon:Entity` | refinement | Names an identity criterion and revalidates it across ordered operations; a complete Persistence witness remains partly implicit. |
-| pane identity tuple | `organon:Invariant` | refinement | The named tuple is preserved across operations and rejects a Transformation when it changes. |
-| Watch | `organon:Map` | refinement | Persistent representation organized for navigation and governance of one pane; it is not its target. |
-| Frame / `StyledCapture` | `organon:Sign` | refinement | A Representation causally produced from the target pane State through the tmux capture path. |
-| Frame called an “observation” | `organon:Observation` | conflict | Runtime `StyledCapture` is not necessarily a persistent Record and the full causal Specification is not carried in the value. |
-| current Telegram anchor | `organon:Interface` | refinement | Explicitly represents permitted coordination Transformations between user and watched pane. |
-| route | — | unmapped | Project-local currentness/eligibility predicate; mapping it to Permission would omit the institutional chain. |
-| input action | `organon:Action` | refinement | Boundary-crossing Transformation selected through operator/Engram Interpretation. |
-| attention record | `organon:Sign` | refinement | Representation causally produced through the PTY; lack of identified claimant blocks Claim. |
-| terminal “source of truth” | `organon:Reference` | refinement | Canonical scoped comparison surface for current terminal facts, with bounded omissions. |
-| terminal “source of truth” | `organon:Truth` | conflict | Operational precedence does not establish correspondence between a Claim and Reality. |
-| requirements contract | `organon:Specification` | refinement | Binding when it supplies executable conformity criteria. |
-| validation/routing logic | `organon:Rule` | refinement | Maps conforming inputs to admitted/rejected outputs and guarded effects. |
-| capture bounds, identity checks, redaction, limits | `organon:Constraint` | refinement | Persistently exclude unsafe or ambiguous Transformations while allowing specified ones. |
-| state entry / audit event | `organon:Record` | refinement | Persistent representation of earlier State, Relation, or Change. |
-| audit event as “receipt” | `organon:Receipt` | conflict | Required Permission, Authority, Scope, and observed Consequence joins are not all present. |
-| repository-owned test result | `organon:Evidence` | conflict | No independent Witness or Order-indexed Admission is established. |
-| authorized human | `organon:Agent` | exact | Entity whose Interpretation selects Telegram Actions. |
-| Engram runtime | `organon:Agent` | unmapped | Its Rules select effects, but no complete installation-level Entity identity and Persistence witness is declared yet. |
-| guide model | `organon:Tool` | unmapped | It is incorporated into presentation, but the configured provider/model Entity identity criterion is not carried by the project. |
-| tmux | `organon:Substrate` | refinement | Persistent scoped source of input States for capture and terminal-effect Transformations. |
-| one Watch's accessible terminal domain | `organon:World` | refinement | Scoped Configuration of States, Relations, causal paths, Perceptions, and Actions available through named Constraints. |
-| GitHub broker request | `organon:Claim` | refinement | A requesting Agent asserts a scoped request about prospective Actions; the local request is structurally explicit and inspectable. |
-| GitHub broker request as Permission Claim | `organon:PermissionClaim` | conflict | The exact-command form does not carry a stated interval, and neither form explicitly carries named Agent, Principal, or Order. |
-| approved renewable GitHub envelope as Grant | `organon:Grant` | conflict | The approval Action does not formally carry the declarant's Authority over the represented Principal, Agent, Scope, and interval. |
-| GitHub lease or grant record as Permission | `organon:Permission` | conflict | It does not carry the complete Order, Principal, Agent, Grant, and Admission chain required by Organon. |
-| Engram authorization regime | `organon:Order` | refinement | Persistent Constraints, Records, Interfaces, and Rules coordinate multiple Agents' actions. |
-| Engram application as institution | `organon:Institution` | unmapped | Participant-replacement persistence is not demonstrated. |
-| terminal mechanics, state store, GitHub broker | `organon:Organ` | unmapped | They are specialized recurring Configurations, but Organ requires a demonstrated larger Entity or Institution and Persistence for each subsystem. |
+| styled-capture binding equality | `organon:Invariant` | refinement | During one `CaptureStyled` interval, the server/window/pane identity sampled before capture must equal the identity sampled after capture; a mismatch rejects the frame. |
+| watch | `organon:Record` | refinement | A persisted watch represents earlier sampled binding, lifecycle, and terminal-session state. |
+| frame | `organon:State` | refinement | It is a bounded configuration indexed to one capture occurrence and shared coordinates. |
+| current view | `organon:Representation` | refinement | The Telegram presentation occupies an expression position directed at a watch and bounded frame. |
+| current-route validity relation | `organon:Constraint` | refinement | It persists while a route is current, permits current-route input transformations, and excludes known stale ones. |
+| guarded reply-input chain | `organon:CausalPath` | refinement | Ordered handling, target validation, and tmux-send transformations feed one another toward a pane-bound effect. |
+| broader validated terminal binding | `organon:Invariant` | unmapped | Pre-effect validation does not prove preservation across input, lookup, scrollback, or close, and destructive close cannot preserve the pane binding. |
+| tmux workspace | `organon:Substrate` | unmapped | Durable-workspace language does not itself supply the required Feeds and transformation-family packet. |
+| terminal truth and requirements source of truth | `organon:Truth` | conflict | The local phrases mean operational or normative primacy, not scoped semantic material adequacy. |
+| frame described as observation | `organon:Observation` | unmapped | The complete Entity, Sense, causal-production Specification, and Record packet is absent. |
+| audit or guide evidence | `organon:Evidence` | unmapped | Independence, Order, Admissibility Rule, and Admission are not established. |
+| configured authorization and approval | `organon:Authority` | unmapped | A configuration check or user confirmation does not supply an Order-indexed Authority relation. |
+| GitHub grant | `organon:Grant` | conflict | The local object is a renewable credential mechanism, not the defined authorized Declaration. |
+| GitHub lease or token | `organon:Capability` | unmapped | Scope validation does not by itself construct an Agent-level action-producing witness. |
+| attention record | `organon:Claim` | unmapped | It intentionally lacks sender identity and is not authenticated as an Agent's assertion. |
+| current view as coordination surface | `organon:Interface` | unmapped | The required Entity identities, Boundary, and represented permitted transformations are incomplete. |
+
+### Promoted dependency packets
+
+The mapping manifest is authoritative for dependency closure. In summary:
+
+- The styled-capture packet names the pre-capture State, capture Transformation, post-capture State, exact server/window/pane equality Invariant, and explicit before-and-after comparison. It does not generalize to input or destructive close.
+- The watch packet distinguishes the serialized representation from its pane and sampled-state targets and names update, save, reload, and recovery transformations.
+- The frame packet treats one capture occurrence as its ordering index; it does not turn the frame into an Observation.
+- The current-view packet names the Telegram anchor content as expression and the watch plus bounded frame as target; Denotation supplies neither fidelity nor Truth.
+- The route-constraint packet names current and stale route states and the excluded stale-input transformation.
+- The guarded-input packet names ordered states, the values feeding each next state, and the shared direction toward an attempted pane-bound effect.
 
 ## Boundary cases
 
-| Neighbor | Strongest positive example | Strongest negative example | Hard boundary case |
-| --- | --- | --- | --- |
-| Entity | A tmux pane tracked by immutable server/window/pane identity across validated operations | A single ephemeral frame | A Watch: it persists, but as a Map/Record *about* the pane rather than the pane itself. |
-| Agent | The authorized human selecting a reply; the Engram runtime selecting guarded effects | Chromium rendering deterministic pixels | An interactive shell process: it is an Agent only if an Interpretation in that Entity conditions Action, not merely because it executes commands. |
-| Tool | Guide provider used for presentation; Chromium used for rendering | The operator | tmux: Tool relative to operator Action, Substrate relative to Engram's capture/input transformations. |
-| Organ | Runtime terminal-mechanics subsystem performing repeated guarded operations for Engram | External tmux server | GitHub broker: an Organ if the enclosing installation is an Entity; otherwise only a specialized Configuration. |
-| Institution | No Engram-internal positive case is established | One running single-user Engram process | The authorization regime is clearly an Order, but participant-change persistence needed for Institution is not demonstrated. |
-| World | One Watch's bounded frame, references, current route, and reachable terminal Actions | Reality as a whole | The whole local host: much of it is unavailable to Engram Perception or Action and therefore lies outside that World. |
-| Environment | tmux, filesystem, Telegram, and providers outside a narrowly drawn Engram runtime boundary | Engram's in-process State structures | A model provider is Environment generally and Tool only while incorporated into a particular presentation path. |
-| Substrate | tmux as persistent source of terminal States for capture and input | Guide prose | Filesystem: substrate for persistent state and attachments, but not for the terminal frame unless a named path feeds it. |
-| Interface | Current Telegram anchor with represented controls | An inert historical message | Collapsed shelf: Interface for restoration but deliberately not for terminal input. |
-| Record | Persisted Watch identity and lifecycle state | Live unpersisted frame | Audit JSON that records an attempted action but cannot establish its consequence. |
-| Permission | A fully joined, approved, scoped GitHub grant would qualify | A token-shaped string | Current implementation strongly approximates Permission but leaves Principal and Admission implicit in separate code paths. |
-| Evidence | Independently admitted observation—none established here | Claimant-owned passing unit test alone | Hosted CI may be mechanically separate, but independence, governing Order, Admission Rule, and scope must be declared before it qualifies. |
+- **Protocol pair versus guarded triple.** The protocol calls pane/window IDs pane identity, while implementation requirements add server incarnation. The promoted Invariant concerns equality of the validated triple only during the exact styled-capture interval; it does not redefine the protocol noun or cover every guarded operation (`docs/protocol-posture.md:15-66`, `requirements/tmux.md:27-46`, `internal/tmux/tmux.go:677-776`).
+- **Precondition versus preservation.** Input and other pane-bound operations may validate the binding immediately before an effect, but the supplied excerpts do not generally sample a post-operation State proving preservation. Those mechanisms remain local conditional guards rather than promoted Invariants (`requirements/tmux.md:27-46`, `internal/tmux/tmux.go:507-563`).
+- **Destructive close.** A close operation intentionally terminates its target and therefore cannot belong to a transformation family under which the pane-binding equality is preserved (`requirements/tmux.md:27-46`).
+- **Text before Enter.** A restart between text insertion and Enter can leave text unsubmitted, although the binding condition prevents redirecting either effect into a different server (`internal/tmux/tmux.go:507-563`). The command path is guarded but not represented as one indivisible effect.
+- **Effect before state update.** tmux input may succeed before Engram fails to update local state. The resulting status is not proof of no effect (`internal/app/input.go:54-182`).
+- **Collapsed sessions.** Hiding a session stops observation; the shelf therefore labels summaries as cached and cannot accept terminal input (`docs/design-principles.md:67-103`).
+- **Retiring anchors.** A message that still exists but cannot be edited remains owned until its controls and pin are retired. Existence alone does not make it current or actionable (`docs/design-principles.md:67-103`).
+- **Model context.** Historical transcript text may orient a guide but is not accepted as the current terminal state. Missing, changed, ambiguous, or unfamiliar bindings fail closed to terminal-only guidance (`README.md:190-217`).
+- **Attention records.** Their random IDs deduplicate records but do not identify a sender, authenticate a command, or grant routing authority (`docs/protocol-posture.md:75-87`).
+- **GitHub approval invalidation.** Approval can be canceled when the requesting pane identity or enrolled application changes before completion (`internal/app/github_auth.go:63-212`).
+- **Token scope validation.** Matching repository and permission fields supports technical scope checking but does not prove institutional legitimacy, safe command behavior, or successful GitHub action (`internal/githubauth/client.go:187-218`).
+- **Best-effort redaction.** Requirements explicitly say redaction is best effort and does not make an artifact safe to share without review (`requirements/security.md:5-38`).
 
 ## Uncertainties and promotion gates
 
-1. **Engram Entity identity.** Declare the installation's object-language identity Invariant across process, binary version, configuration, `ENGRAM_HOME`, Telegram identity, and restart; identify which changes preserve or replace it.
-2. **Frame typing.** Decide whether a Frame is intentionally ephemeral Perception or should become a persistent Observation. If the latter, carry the capture Causal-path Specification and Persistence witness.
-3. **Watch mapping.** Enumerate the Map's Scope, omissions, and distortions. This would permit promotion from Map candidate toward Reference.
-4. **Order and Principal.** Make explicit which Principal grants GitHub authority: the human operator, GitHub App owner, installation account, or a joined institutional configuration.
-5. **Admission seam.** Identify the exact Rule and Record by which a Telegram approval counts as Admission of the Permission Claim.
-6. **Permission exercise and receipt.** Join the minted lease to the exact child Action and an observed Consequence without treating child exit alone as Truth.
-7. **Independent evidence.** If hosted CI or external review is to count as Evidence, declare Witness independence, Admissibility Rule, Order, Scope, and evaluation disposition.
-8. **Organ classification.** Confirm which runtime subsystem configurations have identity and Persistence, rather than calling Go packages Organs by lexical convenience.
-9. **World boundary.** Name whether the relevant World belongs to the human operator, Engram Agent, or both; their available States and Actions differ.
-10. **Institution boundary.** Do not promote Engram to Institution until it demonstrates persistence through changes of participating Agents and Roles.
-11. **Truth terminology.** Keep “tmux is the source of terminal truth” as project idiom or map it explicitly to scoped Reference/canonical-system authority, never automatically to `organon:Truth`.
-12. **No production inference.** Add deployment or adoption claims only with evidence external to repository self-description.
+A later review should reopen this candidate when any of the following changes:
 
-### Machine-consumable mapping
+- pane identity ceases to use the server/window/pane triple or gains another incarnation identifier;
+- the protocol's pair terminology is reconciled with implementation requirements;
+- pane-bound operations add post-operation States capable of witnessing binding preservation;
+- route eligibility, stale-route handling, or the one-actionable-view rule changes;
+- the order of anchor promotion and predecessor retirement changes;
+- collapsed shelves become input routes or continue observing hidden sessions;
+- the tmux send path changes its identity check, buffering, or Enter sequencing;
+- frame capture no longer brackets content with identity and boundary checks;
+- guide context begins to influence ordinary input or is treated as current terminal fact;
+- local persistence no longer recovers watches and anchors across restart;
+- GitHub approvals, grants, leases, revocation, or token-scope validation change; or
+- requirements or tests are presented as external certification rather than repository controls.
+
+Promotion gates remain explicit:
+
+1. Map the broader validated terminal binding to `organon:Invariant` only after naming a pre-operation State, post-operation State, equality Invariant, and preservation witness for every included Transformation. Do not include destructive close in a preservation family.
+2. Map tmux to `organon:Substrate` only after naming persistent input States, Feeds, contributing Constraints, and the exact family of Transformations.
+3. Map frame to `organon:Observation` only after identifying an observing Entity, identity Invariant, Boundary, Sense, Environment, production Causal path, constructive Specification, and persistent Record.
+4. Map audit or guide material to `organon:Evidence` only after identifying the claimant, distinct Witness, Observation, mechanical and institutional independence, Order, Admissibility Rule, Admission, and Scope.
+5. Map Telegram or GitHub approval to institutional terms only after identifying an Order, Standing, Principal, Authority, Permission Claim, authorized Declaration, Grant, Admission, and resulting Permission Record.
+6. Map a token or lease to `organon:Capability` only after identifying the Agent, Action scope, environmental and technical Constraints, and a constructive satisfying configuration with an action-producing path.
+7. Map the current view to `organon:Interface` only after supplying identity and persistence packets for the coordinating Entities and the Boundary whose permitted transformations are represented.
 
 <!-- organon:mapping-manifest -->
 ```yaml
 schema_version: 1
 project: Engram
-commit: 645c76c624cbb6e21f9d4187b3fc093f36b6cf38
+commit: 1b56983ac658f10bfbd76c44bfc99c20b1355ebe
 mappings:
-  - local_term: tmux-pane
-    organon_id: organon:Entity
-    classification: refinement
-    evidence: ["internal/tmux/tmux.go:92-103", "requirements/tmux.md:29-44"]
-  - local_term: pane-identity
+  - local_term: styled-capture binding equality
     organon_id: organon:Invariant
     classification: refinement
-    evidence: ["internal/state/state.go:110-120", "internal/app/input.go:99-111"]
+    evidence:
+      - internal/tmux/tmux.go:677-776
+    rationale: 'Within one completed CaptureStyled interval, the server, window, and pane identity sampled before capture must equal the identity sampled after capture; a changed identity rejects the result.'
+    dependency_packet:
+      organon_claim: D011
+      scope: 'One invocation of CaptureStyled from its pre-capture metadata sample through its post-capture metadata sample.'
+      dependency_closure:
+        - organon:Presence
+        - organon:Relation
+        - organon:Configuration
+        - organon:State
+        - organon:Direction
+        - organon:Transformation
+      dependency_witnesses:
+        organon:Presence: 'The pre-capture and post-capture server ID, window ID, and pane ID values, together with the capture buffers and metadata.'
+        organon:Relation: 'Exact component-wise equality between the pre-capture and post-capture terminal identity values.'
+        organon:Configuration: 'Each metadata sample considered as a server, window, and pane identity configuration.'
+        organon:State: 'The metadata configuration parsed before capture and the metadata configuration parsed after capture.'
+        organon:Direction: 'The order from the pre-capture metadata State, through capture, to the post-capture metadata State.'
+        organon:Transformation: 'The paired physical and joined capture operation followed by the post-capture metadata read.'
+      target_witness:
+        preserved: 'Exact equality of server ID, window ID, and pane ID between the pre-capture and post-capture States.'
+        across_transformations: 'The physical ANSI and joined logical capture Transformation within one CaptureStyled invocation.'
+        pre_state: 'The `before` metadata parsed before capture.'
+        post_state: 'The `after` metadata parsed after capture.'
+        persistence_witness: '`sameCaptureIdentity(before, after)` must hold; otherwise CaptureStyled returns an IdentityError instead of a frame.'
+      exclusions:
+        - 'The mapping does not cover input, cwd lookup, scrollback, or destructive close.'
+        - 'An effect-time precondition check alone is not a preservation witness.'
+        - 'Capture-boundary equality is checked separately and is not silently identified with terminal identity equality.'
+
   - local_term: watch
-    organon_id: organon:Map
-    classification: refinement
-    evidence: ["docs/protocol-posture.md:33-37", "internal/state/state.go:110-163"]
-  - local_term: frame
-    organon_id: organon:Sign
-    classification: refinement
-    evidence: ["docs/protocol-posture.md:36-38", "internal/tmux/tmux.go:701-774"]
-  - local_term: frame-as-observation
-    organon_id: organon:Observation
-    classification: conflict
-    evidence: ["internal/tmux/tmux.go:105-122", "internal/tmux/tmux.go:701-774"]
-  - local_term: canonical-anchor
-    organon_id: organon:Interface
-    classification: refinement
-    evidence: ["docs/design-principles.md:53-60"]
-  - local_term: route
-    organon_id: null
-    classification: unmapped
-    evidence: ["docs/protocol-posture.md:39-45"]
-  - local_term: input-action
-    organon_id: organon:Action
-    classification: refinement
-    evidence: ["internal/app/input.go:56-70", "internal/tmux/tmux.go:509-561"]
-  - local_term: attention-record
-    organon_id: organon:Sign
-    classification: refinement
-    evidence: ["docs/protocol-posture.md:44-45", "docs/protocol-posture.md:77-85"]
-  - local_term: terminal-source-of-truth
-    organon_id: organon:Reference
-    classification: refinement
-    evidence: ["docs/design-principles.md:39-51"]
-  - local_term: terminal-source-of-truth-as-Truth
-    organon_id: organon:Truth
-    classification: conflict
-    evidence: ["docs/design-principles.md:39-44", "docs/design-principles.md:215-234"]
-  - local_term: requirements-contract
-    organon_id: organon:Specification
-    classification: refinement
-    evidence: ["requirements/INDEX.md:3-24"]
-  - local_term: capture-and-routing-guards
-    organon_id: organon:Constraint
-    classification: refinement
-    evidence: ["requirements/tmux.md:29-44", "internal/tmux/tmux.go:679-698"]
-  - local_term: state-or-audit-entry
     organon_id: organon:Record
     classification: refinement
-    evidence: ["internal/state/state.go:36-57", "internal/app/input.go:112-161"]
-  - local_term: repository-owned-test-as-evidence
-    organon_id: organon:Evidence
-    classification: conflict
-    evidence: ["requirements/INDEX.md:18-27"]
-  - local_term: authorized-human
-    organon_id: organon:Agent
-    classification: exact
-    evidence: ["requirements/security.md:7-14", "internal/app/app.go:553-560"]
-  - local_term: guide-model
-    organon_id: null
+    evidence:
+      - docs/protocol-posture.md:15-66
+      - docs/design-principles.md:269-278
+      - internal/state/state.go:34-59
+      - internal/state/state.go:108-165
+      - internal/state/state.go:368-398
+    rationale: 'A persisted watch is a project-specific Record of previously sampled terminal binding, lifecycle, presentation, and activity state.'
+    dependency_packet:
+      organon_claim: D028
+      scope: 'A serialized TerminalSession watch across local updates, saves, reloads, and restart recovery.'
+      dependency_closure:
+        - organon:Presence
+        - organon:Reality
+        - organon:Difference
+        - organon:Relation
+        - organon:Denotation
+        - organon:Configuration
+        - organon:State
+        - organon:Direction
+        - organon:Transformation
+        - organon:Change
+        - organon:Invariant
+        - organon:Persistence
+        - organon:Representation
+      dependency_witnesses:
+        organon:Presence: 'The serialized watch fields and their stored values.'
+        organon:Reality: 'The actual tmux and Engram configurations sampled within this project scope, without identifying them with Reality as a whole.'
+        organon:Difference: 'Changed lifecycle, activity, capture, presentation, anchor, or recovery fields between stored positions.'
+        organon:Relation: 'The stored association among Engram session ID, terminal binding, lifecycle fields, and presentation fields.'
+        organon:Denotation: 'Watch fields occupy the expression position and target the sampled pane binding and session state they record.'
+        organon:Configuration: 'The TerminalSession fields considered together as one watch record.'
+        organon:State: 'Each saved or loaded watch configuration indexed by its update or persistence position.'
+        organon:Direction: 'The order from an earlier sampled configuration to its later stored or recovered configuration.'
+        organon:Transformation: 'Watch update, state save, state load, pruning, and restart-recovery operations.'
+        organon:Change: 'Differences in stored watch fields joined by those update and persistence transformations.'
+        organon:Invariant: 'The watch identity and validated terminal-binding fields preserved while the watch remains attached to the same pane incarnation.'
+        organon:Persistence: 'Serialization and restart recovery preserve the watch representation across ordered local states.'
+        organon:Representation: 'The watch fields represent the sampled binding, lifecycle, observation, anchor, and presentation state.'
+      target_witness:
+        earlier_target: 'The tmux binding and Engram session condition sampled before the corresponding state was stored.'
+        persistent_representation: 'The serialized TerminalSession entry recoverable from local state.'
+      exclusions:
+        - 'The watch is not the tmux session, pane, or current terminal state itself.'
+        - 'Persistence of the watch does not prove that its represented pane still exists.'
+
+  - local_term: frame
+    organon_id: organon:State
+    classification: refinement
+    evidence:
+      - docs/protocol-posture.md:15-66
+      - internal/tmux/tmux.go:677-776
+    rationale: 'One frame is a bounded configuration of physical ANSI, joined logical text, shared coordinates, and pane metadata indexed to one capture occurrence.'
+    dependency_packet:
+      organon_claim: D005
+      scope: 'One completed bounded styled-capture occurrence.'
+      dependency_closure:
+        - organon:Presence
+        - organon:Relation
+        - organon:Configuration
+      dependency_witnesses:
+        organon:Presence: 'Captured ANSI, physical text, joined text, hyperlinks, and pane metadata.'
+        organon:Relation: 'The association of physical and logical captures with shared coordinates and the same validated pane identity.'
+        organon:Configuration: 'The returned StyledCapture fields considered together.'
+      target_witness:
+        ordering_index: 'The individual capture occurrence bracketed by before and after metadata reads.'
+        indexed_configuration: 'The bounded StyledCapture returned after identity and capture-boundary checks.'
+      exclusions:
+        - 'The frame is not promoted to organon:Observation.'
+        - 'The frame is not the pane or Reality.'
+
+  - local_term: current view
+    organon_id: organon:Representation
+    classification: refinement
+    evidence:
+      - README.md:9-31
+      - docs/design-principles.md:37-62
+      - docs/protocol-posture.md:15-66
+    rationale: 'The current Telegram view is a project-specific expression directed at a watch and its bounded presented frame.'
+    dependency_packet:
+      organon_claim: D017
+      scope: 'The one canonical Telegram presentation for a watch in the selected frontend.'
+      dependency_closure:
+        - organon:Presence
+        - organon:Relation
+        - organon:Denotation
+        - organon:Configuration
+      dependency_witnesses:
+        organon:Presence: 'The Telegram message content, image or guide prose, identifiers, and controls.'
+        organon:Relation: 'The ordered association from the Telegram presentation to the watch and bounded frame it presents.'
+        organon:Denotation: 'The current-view content occupies the expression position; the associated watch and bounded frame occupy the target position.'
+        organon:Configuration: 'The watch and bounded frame considered as the compound represented target.'
+      target_witness:
+        expression: 'The editable canonical Telegram anchor content in guide or snapshot mode.'
+        target: 'The associated watch and the bounded frame selected for presentation.'
+      exclusions:
+        - 'Denotation does not establish fidelity, Truth, currentness outside the route checks, or causal use.'
+        - 'The current view is not the watch, frame, pane, or Reality.'
+
+  - local_term: current-route validity relation
+    organon_id: organon:Constraint
+    classification: refinement
+    evidence:
+      - docs/design-principles.md:37-62
+      - docs/protocol-posture.md:15-66
+      - internal/app/app.go:498-522
+      - internal/app/input.go:54-182
+      - internal/state/state.go:108-165
+    rationale: 'Stored route eligibility persists while a route is current, permits routing from that route, and excludes input from known stale or collapsed routes.'
+    dependency_packet:
+      organon_claim: D013
+      scope: 'Reply routing for one watch while a Telegram message is classified as current, stale, or collapsed.'
+      dependency_closure:
+        - organon:Presence
+        - organon:Relation
+        - organon:Configuration
+        - organon:State
+        - organon:Direction
+        - organon:Transformation
+        - organon:Invariant
+        - organon:Persistence
+      dependency_witnesses:
+        organon:Presence: 'Stored anchor IDs, alternate IDs, stale-route IDs, collapsed status, and lookup results.'
+        organon:Relation: 'The association of a Telegram chat and message ID with one watch and one route-eligibility status.'
+        organon:Configuration: 'The route identifiers, watch binding, and current, stale, or collapsed status considered together.'
+        organon:State: 'Route configurations before lookup, at validation, and at the attempted input position.'
+        organon:Direction: 'The order from stored eligibility through current-target validation toward either routing or rejection.'
+        organon:Transformation: 'Current-route input routing, stale-route rejection, and collapsed-shelf rejection.'
+        organon:Invariant: 'Only the current route or latest eligible alternate remains actionable for the watch.'
+        organon:Persistence: 'The route-eligibility relation remains stored and rechecked until replacement, retirement, or collapse changes it.'
+      target_witness:
+        permitted_transformations:
+          - 'Prepare and route input when the reply target is current and the binding still matches.'
+        excluded_transformations:
+          - 'Route input from a known stale reply target.'
+          - 'Route input from the collapsed shelf.'
+          - 'Route input after the watch binding has changed.'
+      exclusions:
+        - 'A Telegram message that still exists is not thereby current.'
+        - 'Route eligibility is not institutional Permission or Authority.'
+
+  - local_term: guarded reply-input chain
+    organon_id: organon:CausalPath
+    classification: refinement
+    evidence:
+      - internal/app/app.go:498-522
+      - internal/app/input.go:54-182
+      - internal/tmux/tmux.go:507-563
+    rationale: 'For a guarded reply, ordered message handling, current-target validation, session validation, and binding-conditioned tmux send transformations feed one another toward an attempted pane-bound effect.'
+    dependency_packet:
+      organon_claim: D010
+      scope: 'One reply to a current Engram anchor through the attempted tmux input effect.'
+      dependency_closure:
+        - organon:Presence
+        - organon:Relation
+        - organon:Configuration
+        - organon:State
+        - organon:Direction
+        - organon:Transformation
+        - organon:Feeds
+      dependency_witnesses:
+        organon:Presence: 'The Telegram message, reply target, prepared text, watch fields, binding identifiers, and tmux command arguments.'
+        organon:Relation: 'Associations among reply message, current route, watch, terminal binding, and intended pane.'
+        organon:Configuration: 'The values grouped at each handling and validation stage.'
+        organon:State: 'The received-reply state, current-target state, validated-session state, and attempted-effect state.'
+        organon:Direction: 'The forward order from received reply toward the pane-bound tmux effect.'
+        organon:Transformation: 'Reply lookup and input preparation; locked current-target and session validation; binding-conditioned tmux send; local completion handling.'
+        organon:Feeds: 'The current watch, prepared input, and binding values output by one stage supply the corresponding inputs to the next stage.'
+      target_witness:
+        direction: 'Received Telegram reply toward an attempted effect on the validated pane.'
+        sequence:
+          - input_state: 'An incoming reply message referring to a candidate anchor.'
+            transformation: 'Resolve the reply target and prepare typed input.'
+            output_state: 'Prepared input associated with an expected current watch.'
+            feeds_next: 'Prepared text, watch ID, chat ID, message ID, and expected binding.'
+          - input_state: 'Prepared input and expected watch under session and anchor locks.'
+            transformation: 'Recheck current-route status, session lifecycle, collapse and recovery status, and terminal binding.'
+            output_state: 'A current active watch and validated input request, or a rejected branch.'
+            feeds_next: 'Validated text and server, window, and pane identifiers on the continuing branch.'
+          - input_state: 'Validated text and terminal binding.'
+            transformation: 'Perform binding-conditioned text or command send through terminal mechanics.'
+            output_state: 'A tmux result and, on success, sampled pane metadata for local completion handling.'
+            feeds_next: 'Outcome, pane metadata, and expected watch identity.'
+      exclusions:
+        - 'The mapping covers the guarded continuing branch, not every failure branch as one path.'
+        - 'A failure returned after the tmux effect does not prove rollback or absence of an effect.'
+        - 'The text-plus-Enter command sequence is not claimed to be indivisible.'
+
+  - local_term: broader validated terminal binding
+    organon_id: organon:Invariant
     classification: unmapped
-    evidence: ["docs/design-principles.md:229-234"]
-  - local_term: tmux
+    evidence:
+      - requirements/tmux.md:27-46
+      - internal/tmux/tmux.go:507-563
+    rationale: 'The broader mechanism validates identity as a condition immediately before pane-bound effects, but the supplied sources do not provide post-operation States proving preservation for every named operation; destructive close necessarily terminates its target.'
+    promotion_gate:
+      missing:
+        - 'A named pre-operation State and post-operation State for every included Transformation.'
+        - 'A before-and-after equality witness rather than only a precondition check.'
+        - 'A transformation family that excludes destructive close and any other operation that terminates the binding.'
+
+  - local_term: tmux workspace
     organon_id: organon:Substrate
-    classification: refinement
-    evidence: ["README.md:16-18", "docs/design-principles.md:39-51"]
-  - local_term: watch-accessible-domain
-    organon_id: organon:World
-    classification: refinement
-    evidence: ["docs/protocol-posture.md:17-29", "docs/protocol-posture.md:31-48"]
-  - local_term: github-capability-request
-    organon_id: organon:Claim
-    classification: refinement
-    evidence: ["internal/githubauth/types.go:28-47", "internal/githubauth/types.go:92-171"]
-  - local_term: github-capability-request-as-permission-claim
-    organon_id: organon:PermissionClaim
+    classification: unmapped
+    evidence:
+      - README.md:9-31
+      - docs/design-principles.md:37-62
+      - docs/protocol-posture.md:15-66
+    rationale: 'Engram calls tmux a durable workspace or substrate, but that self-description does not instantiate the complete Organon definition.'
+    promotion_gate:
+      missing:
+        - 'A named Scope.'
+        - 'Persistent input States supplied by the tmux Configuration.'
+        - 'Feeds relations from those States into a named family of Transformations.'
+        - 'Constraints showing which Differences are preserved, suppressed, or amplified.'
+
+  - local_term: terminal truth and requirements source of truth
+    organon_id: organon:Truth
     classification: conflict
-    evidence: ["internal/githubauth/types.go:28-47", "internal/githubauth/types.go:92-171"]
-  - local_term: approved-renewable-envelope
+    evidence:
+      - docs/design-principles.md:37-62
+      - README.md:190-217
+      - requirements/INDEX.md:1-27
+    rationale: 'The project phrases mark operational primacy of tmux and normative primacy of requirements; Organon Truth instead requires a Claim, Representation, truth-condition Specification, relevant Presence, Denotation, conformity, Rule, and scoped material-adequacy witness.'
+    conflict_basis:
+      - 'Operational or repository authority is not semantic Truth.'
+      - 'No exact Claim-to-Specification-to-Presence material-adequacy packet is supplied.'
+
+  - local_term: frame described as observation
+    organon_id: organon:Observation
+    classification: unmapped
+    evidence:
+      - docs/protocol-posture.md:15-66
+      - internal/tmux/tmux.go:677-776
+    rationale: 'The frame is source-backed as a bounded capture, but the complete Organon Observation constructor is not documented.'
+    promotion_gate:
+      missing:
+        - 'An observing Entity with identity Invariant and Persistence witness.'
+        - 'A Boundary and Sense through which an environmental Difference enters.'
+        - 'An Environment and complete Causal path.'
+        - 'A constructive Specification of the production path.'
+        - 'A persistent Record of the earlier target State, Relation, or Change.'
+
+  - local_term: audit or guide evidence
+    organon_id: organon:Evidence
+    classification: unmapped
+    evidence:
+      - requirements/INDEX.md:1-27
+      - internal/app/refresh.go:236-302
+    rationale: 'Local evidence labels and audit mechanisms do not establish independent, admitted Organon Evidence.'
+    promotion_gate:
+      missing:
+        - 'The exact claimant and Claim.'
+        - 'An Observation and distinct Witness.'
+        - 'Mechanical and institutional independence under IndependentFor.'
+        - 'A governing Order and Admissibility Rule.'
+        - 'Admission of the Observation for the Claim and Scope.'
+
+  - local_term: configured authorization and approval
+    organon_id: organon:Authority
+    classification: unmapped
+    evidence:
+      - internal/app/app.go:434-457
+      - internal/app/app.go:551-562
+      - internal/app/github_auth.go:63-212
+      - internal/app/github_auth.go:271-390
+    rationale: 'Configured identity checks and a Telegram confirmation path regulate technical actions but do not provide the Order-indexed institutional chain required for Authority.'
+    promotion_gate:
+      missing:
+        - 'A named Order and Scope.'
+        - 'The Agent and Principal.'
+        - 'Standing and the applicable Rule.'
+        - 'A CountsAs relation under which the Agent action may bind the Principal or Order.'
+
+  - local_term: GitHub grant
     organon_id: organon:Grant
     classification: conflict
-    evidence: ["internal/app/github_auth.go:329-388", "internal/app/github_grant.go:69-96"]
-  - local_term: github-lease-or-grant
-    organon_id: organon:Permission
-    classification: conflict
-    evidence: ["internal/githubauth/types.go:49-68", "internal/app/github_auth.go:149-210"]
-  - local_term: authorization-regime
-    organon_id: organon:Order
-    classification: refinement
-    evidence: ["requirements/security.md:7-36", "internal/app/github_auth.go:83-185"]
-  - local_term: engram-as-institution
-    organon_id: null
-    classification: unmapped
-    evidence: ["README.md:11-18", "requirements/security.md:7-14"]
-  - local_term: terminal-mechanics-subsystem
-    organon_id: null
-    classification: unmapped
-    evidence: ["requirements/tmux.md:38-40", "internal/tmux/tmux.go:509-561"]
-causal_paths:
-  - id: remote-input-to-terminal-effect
-    stages:
-      - telegram-update
-      - user-chat-admission
-      - current-route-resolution
-      - immutable-binding-validation
-      - tmux-input-transformation
-      - state-and-audit-record
-      - bounded-recapture
-      - canonical-presentation
     evidence:
-      - "internal/app/app.go:436-455"
-      - "internal/app/input.go:56-180"
-      - "internal/tmux/tmux.go:509-561"
-      - "internal/tmux/tmux.go:701-774"
-authority_paths:
-  - id: pane-bound-github-capability
-    stages:
-      - scoped-request
-      - binding-validation
-      - telegram-approval
-      - binding-and-enrollment-revalidation
-      - token-mint
-      - exact-scope-validation
-      - bounded-lease
+      - internal/app/github_auth.go:63-212
+      - internal/app/github_grant.go:67-98
+      - internal/githubauth/types.go:26-70
+    rationale: 'Engram uses grant for a stored renewable credential mechanism; Organon Grant is an authorized Declaration whose submitted Claim is a Permission Claim and whose Authority covers all indexed participants.'
+    conflict_basis:
+      - 'The local object is stored after a technical approval flow rather than documented as the required institutional Declaration.'
+      - 'Order, Principal, Standing, Authority, Permission Claim, and Admission are not supplied as one complete packet.'
+
+  - local_term: GitHub lease or token
+    organon_id: organon:Capability
+    classification: unmapped
     evidence:
-      - "internal/githubauth/types.go:92-171"
-      - "internal/app/github_auth.go:149-210"
-      - "internal/app/github_auth.go:273-388"
-      - "internal/githubauth/client.go:189-216"
-promotion_gates:
-  - installation-identity-invariant
-  - persistent-frame-observation-or-explicitly-ephemeral-perception
-  - explicit-principal-and-admission
-  - exercise-to-consequence-receipt
-  - independent-evidence-order
-  - participant-persistence-before-institution
+      - internal/app/github_auth.go:63-212
+      - internal/githubauth/client.go:187-218
+      - internal/githubauth/types.go:26-70
+    rationale: 'A token with checked repository and permission scope is a technical input to possible actions, not by itself an Agent-level Capability witness.'
+    promotion_gate:
+      missing:
+        - 'The persistent Agent whose Actions are being specified.'
+        - 'The exact Action set and Scope.'
+        - 'Environmental, technical, and temporal Constraints.'
+        - 'A constructive satisfying Configuration containing an Action-producing Causal path.'
+
+  - local_term: attention record
+    organon_id: organon:Claim
+    classification: unmapped
+    evidence:
+      - docs/protocol-posture.md:15-66
+      - docs/protocol-posture.md:75-87
+    rationale: 'The attention record is a bounded terminal-authored request to look, but it deliberately carries no sender identity and is treated as untrusted.'
+    promotion_gate:
+      missing:
+        - 'An identified Agent asserting the Representation.'
+        - 'A named target Presence, Relation, Configuration, or Record.'
+        - 'A declared Claim Scope.'
+
+  - local_term: current view as coordination surface
+    organon_id: organon:Interface
+    classification: unmapped
+    evidence:
+      - docs/design-principles.md:37-62
+      - docs/design-principles.md:67-103
+      - docs/protocol-posture.md:15-66
+    rationale: 'The current view exposes controls and coordinates a user with a watched pane, but the complete Entity, Boundary, and permitted-Transformation packet is absent.'
+    promotion_gate:
+      missing:
+        - 'Identity Invariants and Persistence witnesses for the coordinating Entities.'
+        - 'The Boundary that the view instantiates.'
+        - 'A complete enumeration or Specification of the permitted Transformations represented at that Boundary.'
 ```
-
-## Consistency result
-
-This candidate is internally consistent with Organon v0.17 under the stated Scopes if its “candidate” qualifications remain binding. Its core classifications do not require `organon:Truth`, `organon:Evidence`, `organon:Permission`, or `organon:Institution` to be inferred from Engram's ordinary vocabulary. The strongest result is the joined causal and authority architecture: representations become actionable only through currentness, identity, scope, and admission checks; generated presentation never substitutes for those relations.
-
-The largest unresolved question is Entity identity for the Engram installation itself. Until an installation-level Invariant and Persistence witness are declared, downstream Organ classifications remain conditional. That uncertainty does not affect the pane, frame, anchor, routing, or GitHub authorization distinctions above.

@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "purpose": "One question per essay spanning answered, partly answered, inferable, and open dispositions in the v0.17 baseline.",
+  "purpose": "One question per essay spanning answered, partly answered, inferable, and open dispositions under the v0.18 ontology.",
   "question_ids": [
     "PL-1",
     "DP-2",

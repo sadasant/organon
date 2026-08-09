@@ -1,7 +1,7 @@
 ---
 type: project-ontology-source-dossier
 project: Engram
-commit: 645c76c624cbb6e21f9d4187b3fc093f36b6cf38
+commit: 1b56983ac658f10bfbd76c44bfc99c20b1355ebe
 generated_from: exact cited line ranges with two lines of context
 ---
 
@@ -42,34 +42,34 @@ Every excerpt is copied from the exact public source commit above. Line numbers 
 ### Lines 190-217
 
 ```text
-00190 | that state as `Codex · gpt-5.6-sol · high · fast · working`.
-00191 |
-00192 | An additional Codex-session context path is available only as an explicit
-00193 | privacy opt-in. Set `ENGRAM_CODEX_CONTEXT_TURNS` to `1` through `8` to let guide
-00194 | requests include that many recent user turns and their user-visible assistant messages from
-00195 | the exact active Codex session. Engram requires a pane-local UUID published by
-00196 | the `SessionStart` hook or explicit `engram codex-bind`, a binding observation
-00197 | no older than the proven Codex process incarnation, an unambiguous rollout
-00198 | filename carrying the same UUID, and matching `session_meta`. It validates the
-00199 | foreground process group and precise kernel process incarnation again after
-00200 | reading, and revalidates both the pane-local session binding and process before
-00201 | publishing derived output. A missing or changed binding, background or
-00202 | replacement process, ambiguous file, or unfamiliar message record fails closed
-00203 | to terminal-only guidance; Engram never selects a transcript because it is
-00204 | newest or shares a working directory.
-00205 |
-00206 | Historical session text can clarify the prior topic but never establishes the
-00207 | current terminal state. Raw tmux capture remains the only authority for current
-00208 | facts, files, references, hashes, and screenshots. Only bounded text from
-00209 | visible `user` and `assistant` messages is admitted; system/developer messages,
-00210 | hidden reasoning, tool calls and results, generated environment metadata, and
-00211 | attachments are excluded. The normal secret redactor and fixed message/byte
-00212 | ceilings run before the selected guide provider sees this context. Each full
-00213 | message is redacted before its per-message byte ceiling is applied, so a secret
-00214 | spanning that boundary is not partially exposed. Engram does not persist
-00215 | transcript text.
-00216 |
-00217 | ## Configuration
+00190 | use the ordinary terminal path unchanged; raw views and snapshots always remain
+00191 | literal. When Codex reports its tested fast mode, the deterministic line retains
+00192 | that state as `Codex · gpt-5.6-sol · high · fast · working`.
+00193 |
+00194 | An additional Codex-session context path is available only as an explicit
+00195 | privacy opt-in. Set `ENGRAM_CODEX_CONTEXT_TURNS` to `1` through `8` to let guide
+00196 | requests include that many recent user turns and their user-visible assistant messages from
+00197 | the exact active Codex session. Engram requires a pane-local UUID published by
+00198 | the `SessionStart` hook or explicit `engram codex-bind`, a binding observation
+00199 | no older than the proven Codex process incarnation, an unambiguous rollout
+00200 | filename carrying the same UUID, and matching `session_meta`. It validates the
+00201 | foreground process group and precise kernel process incarnation again after
+00202 | reading, and revalidates both the pane-local session binding and process before
+00203 | publishing derived output. A missing or changed binding, background or
+00204 | replacement process, ambiguous file, or unfamiliar message record fails closed
+00205 | to terminal-only guidance; Engram never selects a transcript because it is
+00206 | newest or shares a working directory.
+00207 |
+00208 | Historical session text can clarify the prior topic but never establishes the
+00209 | current terminal state. Raw tmux capture remains the only authority for current
+00210 | facts, files, references, hashes, and screenshots. Only bounded text from
+00211 | visible `user` and `assistant` messages is admitted; system/developer messages,
+00212 | hidden reasoning, tool calls and results, generated environment metadata, and
+00213 | attachments are excluded. The normal secret redactor and fixed message/byte
+00214 | ceilings run before the selected guide provider sees this context. Each full
+00215 | message is redacted before its per-message byte ceiling is applied, so a secret
+00216 | spanning that boundary is not partially exposed. Engram does not persist
+00217 | transcript text.
 ```
 
 
@@ -90,106 +90,106 @@ Every excerpt is copied from the exact public source commit above. Line numbers 
 00046 | tmux is a deliberate dependency because its mature, narrow interface has
 00047 | effectively crystallized. Low expected API drift lets Engram stay small and
 00048 | precise instead of continually adapting to a moving workspace substrate.
-00049 | Engram-created windows use tmux's configured default size, so their applications
-00050 | render against real tmux geometry consistently across attached and detached
-00051 | hosts. Engram does not resize windows that the user explicitly attaches.
-00052 |
-00053 | ### Phone-first anchors
-00054 |
-00055 | The editable Telegram anchor is the core product surface. It should identify
-00056 | the session, show what the pane is doing, and make the next useful action easy.
-00057 | Each expanded session has exactly one canonical, pinned anchor. A collapsed
-00058 | session instead has one inert shelf entry and no individual route. Older
-00059 | anchors become inert; two actionable representations of one pane are a product
-00060 | error.
-00061 |
-00062 | A guide anchor uses compact conversational prose. A snapshot anchor uses a
+00049 | Engram-created windows use a stable configured size, defaulting to `100x48`, so
+00050 | their applications render against real tmux geometry consistently across
+00051 | attached and detached hosts. Engram does not resize windows that the user
+00052 | explicitly attaches.
+00053 |
+00054 | ### Phone-first anchors
+00055 |
+00056 | The editable Telegram anchor is the core product surface. It should identify
+00057 | the session, show what the pane is doing, and make the next useful action easy.
+00058 | Each expanded session has exactly one canonical, pinned anchor. A collapsed
+00059 | session instead has one inert shelf entry and no individual route. Older
+00060 | anchors become inert; two actionable representations of one pane are a product
+00061 | error.
+00062 |
 ```
 
 ### Lines 67-103
 
 ```text
-00067 | through a `📄 Raw` attachment; the image is primary, not exclusive.
-00068 |
-00069 | Running anchors may move into one shared pinned shelf when the user needs less
-00070 | visual weight. Each collapsed session contributes one cached status line, but
-00071 | the shelf is deliberately not a terminal input route. Its only control is
-00072 | `➕ Show`, which restores every member as an individual canonical anchor in the
-00073 | selected guide or snapshot mode. Restoration acknowledges immediately, makes
-00074 | each prospective anchor durable and pinned while inert, promotes its reply
-00075 | identity, and only then grants controls. If those controls cannot be exposed,
-00076 | the member returns to the shelf instead of remaining as an inert canonical
-00077 | card. The handoff remains explicitly pending until those controls are durable.
-00078 | Collapse follows the reciprocal rule: the individual anchor remains
-00079 | canonical until the shared shelf is rendered and pinned. The shelf identifies
-00080 | its summaries as cached because hiding a session also stops observation. If
-00081 | both a shelf and its predecessor disappear, Engram creates one fresh shelf
-00082 | instead of oscillating between dead identities. Messages that still exist but
-00083 | cannot be edited remain owned until their controls and pin are retired.
-00084 |
-00085 | ### Fast input path
-00086 |
-00087 | Sending input to tmux must remain fast when a model provider, Chromium, or Telegram
-00088 | delivery is delayed or failing. Replying to an anchor and using `/send`,
-00089 | `/text`, `/key`, or deterministic key buttons should route directly and
-00090 | predictably to the intended pane. A natural-language key description is a
-00091 | separate proposal path: the model receives only that description, its output is
-00092 | reduced to a closed physical-key representation, and the exact target and
-00093 | sequence require an explicit current confirmation. Presentation work and key
-00094 | interpretation must not block ordinary input; an interactive tmux operation may
-00095 | preempt Engram's own background observation and recovery work.
-00096 |
-00097 | Remembered input should remain explicit text, not inferred automation. A user
-00098 | may give exact prose a short name and invoke it with a typed placeholder.
-00099 | Engram expands that placeholder once immediately before the ordinary guarded
-00100 | input path; it does not learn triggers, recurse through template bodies, or run
-00101 | anything merely because terminal output resembles a past situation.
-00102 |
-00103 | ### Many sessions, low dwell
+00067 | Snapshot anchors keep the exact delivered frame's literal text one tap away
+00068 | through a `📄 Raw` attachment; the image is primary, not exclusive.
+00069 |
+00070 | Running anchors may move into one shared pinned shelf when the user needs less
+00071 | visual weight. Each collapsed session contributes one cached status line, but
+00072 | the shelf is deliberately not a terminal input route. Its only control is
+00073 | `➕ Show`, which restores every member as an individual canonical anchor in the
+00074 | selected guide or snapshot mode. Restoration acknowledges immediately, makes
+00075 | each prospective anchor durable and pinned while inert, promotes its reply
+00076 | identity, and only then grants controls. If those controls cannot be exposed,
+00077 | the member returns to the shelf instead of remaining as an inert canonical
+00078 | card. The handoff remains explicitly pending until those controls are durable.
+00079 | Collapse follows the reciprocal rule: the individual anchor remains
+00080 | canonical until the shared shelf is rendered and pinned. The shelf identifies
+00081 | its summaries as cached because hiding a session also stops observation. If
+00082 | both a shelf and its predecessor disappear, Engram creates one fresh shelf
+00083 | instead of oscillating between dead identities. Messages that still exist but
+00084 | cannot be edited remain owned until their controls and pin are retired.
+00085 |
+00086 | ### Fast input path
+00087 |
+00088 | Sending input to tmux must remain fast when a model provider, Chromium, or Telegram
+00089 | delivery is delayed or failing. Replying to an anchor and using `/send`,
+00090 | `/text`, `/key`, or deterministic key buttons should route directly and
+00091 | predictably to the intended pane. A natural-language key description is a
+00092 | separate proposal path: the model receives only that description, its output is
+00093 | reduced to a closed physical-key representation, and the exact target and
+00094 | sequence require an explicit current confirmation. Presentation work and key
+00095 | interpretation must not block ordinary input; an interactive tmux operation may
+00096 | preempt Engram's own background observation and recovery work.
+00097 |
+00098 | Remembered input should remain explicit text, not inferred automation. A user
+00099 | may give exact prose a short name and invoke it with a typed placeholder.
+00100 | Engram expands that placeholder once immediately before the ordinary guarded
+00101 | input path; it does not learn triggers, recurse through template bodies, or run
+00102 | anything merely because terminal output resembles a past situation.
+00103 |
 ```
 
 ### Lines 213-236
 
 ```text
-00213 | older alternate is explicitly stale and cannot route input.
-00214 |
-00215 | ### Deterministic facts beat guesses
-00216 |
-00217 | Engram should compute session IDs, tmux targets, pane IDs, working directories,
-00218 | attachment paths, visible files and URLs, capture hashes, timestamps, and
-00219 | service status locally. Extracted references are untrusted pane content;
-00220 | Engram does not fetch or endorse them.
-00221 |
-00222 | A snapshot footer may include one bounded fact produced by a trusted local
-00223 | shell command from the protected Engram configuration. This is a narrow Unix
-00224 | pipe, not a catalog of operating-system status providers or a plugin protocol:
-00225 | the command receives the pane directory and returns one sanitized line. Engram
-00226 | owns its visual budget, runs it only while a render is already happening, and
-00227 | does not let status-only changes create automatic edits.
-00228 |
-00229 | The selected model interprets only the bounded terminal text. Terminal text is data, not
-00230 | authority; the prompt tells it to ignore instructions addressed to Engram or
-00231 | the reader, while recognizing that model-level injection resistance is best
-00232 | effort. Model output is presentation and is never executed automatically.
-00233 | The guide should not invent history, claim work succeeded, or explain Engram
-00234 | controls unless the terminal itself is about Engram.
-00235 |
-00236 | ### Existing tmux first
+00213 | latest alternate of each kind may act as a reply handle for its session; an
+00214 | older alternate is explicitly stale and cannot route input.
+00215 |
+00216 | ### Deterministic facts beat guesses
+00217 |
+00218 | Engram should compute session IDs, tmux targets, pane IDs, working directories,
+00219 | attachment paths, visible files and URLs, capture hashes, timestamps, and
+00220 | service status locally. Extracted references are untrusted pane content;
+00221 | Engram does not fetch or endorse them.
+00222 |
+00223 | A snapshot footer may include one bounded fact produced by a trusted local
+00224 | shell command from the protected Engram configuration. This is a narrow Unix
+00225 | pipe, not a catalog of operating-system status providers or a plugin protocol:
+00226 | the command receives the pane directory and returns one sanitized line. Engram
+00227 | owns its visual budget, runs it only while a render is already happening, and
+00228 | does not let status-only changes create automatic edits.
+00229 |
+00230 | The selected model interprets only the bounded terminal text. Terminal text is data, not
+00231 | authority; the prompt tells it to ignore instructions addressed to Engram or
+00232 | the reader, while recognizing that model-level injection resistance is best
+00233 | effort. Model output is presentation and is never executed automatically.
+00234 | The guide should not invent history, claim work succeeded, or explain Engram
+00235 | controls unless the terminal itself is about Engram.
+00236 |
 ```
 
 ### Lines 269-278
 
 ```text
-00269 | may redraw an unchanged frame because the user explicitly asked to look now.
-00270 |
-00271 | ### Recoverable local service
-00272 |
-00273 | State under `~/.engram` should recover sessions, canonical anchors, the shared
-00274 | collapsed shelf and its members, selected mode, attachments, poll position, and recent errors after restart. Diagnostics
-00275 | must be available locally and through Telegram without exposing configured
-00276 | credentials.
-00277 |
-00278 | ### Small Go, no third-party dependencies
+00269 | changed. A manual refresh captures and renders immediately; a snapshot refresh
+00270 | may redraw an unchanged frame because the user explicitly asked to look now.
+00271 |
+00272 | ### Recoverable local service
+00273 |
+00274 | State under `~/.engram` should recover sessions, canonical anchors, the shared
+00275 | collapsed shelf and its members, selected mode, attachments, poll position, and recent errors after restart. Diagnostics
+00276 | must be available locally and through Telegram without exposing configured
+00277 | credentials.
+00278 |
 ```
 
 
@@ -276,77 +276,77 @@ Every excerpt is copied from the exact public source commit above. Line numbers 
 ### Lines 434-457
 
 ```text
-00434 | }
-00435 |
-00436 | func (a *App) handleUpdate(ctx context.Context, update telegram.Update) string {
-00437 | 	if update.CallbackQuery != nil {
-00438 | 		return a.handleCallback(ctx, *update.CallbackQuery)
-00439 | 	}
-00440 | 	if update.Message == nil {
-00441 | 		return "skipped_no_message"
-00442 | 	}
-00443 | 	msg := *update.Message
-00444 | 	if !a.authorized(&msg) {
-00445 | 		_ = a.audit("auth.reject", "rejected", map[string]any{"kind": "message"})
-00446 | 		return "rejected_unauthorized"
-00447 | 	}
-00448 | 	key := fmt.Sprintf("%d:%d", msg.Chat.ID, msg.MessageID)
-00449 | 	if a.Store.SeenMessage(key) {
-00450 | 		return "skipped_duplicate_message"
+00434 | 				return a.quitCode
+00435 | 			}
+00436 | 		}
+00437 | 	}
+00438 | }
+00439 |
+00440 | func (a *App) handleUpdate(ctx context.Context, update telegram.Update) string {
+00441 | 	if update.CallbackQuery != nil {
+00442 | 		return a.handleCallback(ctx, *update.CallbackQuery)
+00443 | 	}
+00444 | 	if update.Message == nil {
+00445 | 		return "skipped_no_message"
+00446 | 	}
+00447 | 	msg := *update.Message
+00448 | 	if !a.authorized(&msg) {
+00449 | 		_ = a.audit("auth.reject", "rejected", map[string]any{"kind": "message"})
+00450 | 		return "rejected_unauthorized"
 00451 | 	}
-00452 | 	if err := a.Store.MarkMessage(key); err != nil {
-00453 | 		_ = a.audit("state.message", "failed", map[string]any{"message_id": msg.MessageID, "error": err.Error()})
-00454 | 		return "failed_state_mark_message"
+00452 | 	key := fmt.Sprintf("%d:%d", msg.Chat.ID, msg.MessageID)
+00453 | 	if a.Store.SeenMessage(key) {
+00454 | 		return "skipped_duplicate_message"
 00455 | 	}
-00456 | 	if status, handled := a.handleGitHubUnlockReply(ctx, msg); handled {
-00457 | 		return status
+00456 | 	if err := a.Store.MarkMessage(key); err != nil {
+00457 | 		_ = a.audit("state.message", "failed", map[string]any{"message_id": msg.MessageID, "error": err.Error()})
 ```
 
 ### Lines 498-522
 
 ```text
-00498 | 		return a.handleCommand(ctx, msg, msg.Text)
-00499 | 	}
-00500 | 	if msg.ReplyToMessage != nil {
-00501 | 		if ts, targetState, found := a.Store.FindReplyTarget(msg.Chat.ID, msg.ReplyToMessage.MessageID); found && targetState == state.ReplyTargetCurrent {
-00502 | 			expanded, err := a.prepareTypedInput(msg.Text, "reply", ts.ID)
-00503 | 			if err != nil {
-00504 | 				a.reply(ctx, msg, err.Error())
-00505 | 				return "anchor_reply_template_error"
-00506 | 			}
-00507 | 			result := a.sendReplyInput(ctx, ts, msg.Chat.ID, msg.ReplyToMessage.MessageID, expanded)
-00508 | 			if !result.OK() {
-00509 | 				a.reply(ctx, msg, result.Message)
+00498 | 		a.reply(ctx, msg, "reply to a session anchor to send slash input; for example, //clear sends /clear")
+00499 | 		return "handled_unroutable_slash_input"
+00500 | 	}
+00501 | 	if strings.HasPrefix(routingText, "/") {
+00502 | 		return a.handleCommand(ctx, msg, msg.Text)
+00503 | 	}
+00504 | 	if msg.ReplyToMessage != nil {
+00505 | 		if ts, targetState, found := a.Store.FindReplyTarget(msg.Chat.ID, msg.ReplyToMessage.MessageID); found && targetState == state.ReplyTargetCurrent {
+00506 | 			expanded, err := a.prepareTypedInput(msg.Text, "reply", ts.ID)
+00507 | 			if err != nil {
+00508 | 				a.reply(ctx, msg, err.Error())
+00509 | 				return "anchor_reply_template_error"
 00510 | 			}
-00511 | 			return result.status("anchor_reply")
-00512 | 		} else if found && targetState == state.ReplyTargetStale {
-00513 | 			a.reply(ctx, msg, a.staleReply(ts))
-00514 | 			return "anchor_reply_stale"
-00515 | 		}
-00516 | 		if a.isCollapsedShelfMessage(msg.Chat.ID, msg.ReplyToMessage.MessageID) {
-00517 | 			a.reply(ctx, msg, collapsedShelfReplyMessage)
-00518 | 			return "anchor_reply_user_error"
+00511 | 			result := a.sendReplyInput(ctx, ts, msg.Chat.ID, msg.ReplyToMessage.MessageID, expanded)
+00512 | 			if !result.OK() {
+00513 | 				a.reply(ctx, msg, result.Message)
+00514 | 			}
+00515 | 			return result.status("anchor_reply")
+00516 | 		} else if found && targetState == state.ReplyTargetStale {
+00517 | 			a.reply(ctx, msg, a.staleReply(ts))
+00518 | 			return "anchor_reply_stale"
 00519 | 		}
-00520 | 		a.reply(ctx, msg, "session not found for this reply; use /sessions to find an active anchor")
-00521 | 		return "anchor_reply_user_error"
-00522 | 	}
+00520 | 		if a.isCollapsedShelfMessage(msg.Chat.ID, msg.ReplyToMessage.MessageID) {
+00521 | 			a.reply(ctx, msg, collapsedShelfReplyMessage)
+00522 | 			return "anchor_reply_user_error"
 ```
 
 ### Lines 551-562
 
 ```text
-00551 | }
-00552 |
-00553 | func (a *App) authorized(msg *telegram.Message) bool {
-00554 | 	if msg.Chat.ID != a.Config.TelegramChatID {
-00555 | 		return false
-00556 | 	}
-00557 | 	if msg.From == nil || msg.From.ID != a.Config.TelegramAllowedUserID {
-00558 | 		return false
-00559 | 	}
-00560 | 	return true
-00561 | }
-00562 |
+00551 | 	if !strings.HasPrefix(text[start:], "//") {
+00552 | 		return "", false
+00553 | 	}
+00554 | 	return text[:start] + text[start+1:], true
+00555 | }
+00556 |
+00557 | func (a *App) authorized(msg *telegram.Message) bool {
+00558 | 	if msg.Chat.ID != a.Config.TelegramChatID {
+00559 | 		return false
+00560 | 	}
+00561 | 	if msg.From == nil || msg.From.ID != a.Config.TelegramAllowedUserID {
+00562 | 		return false
 ```
 
 
@@ -815,73 +815,73 @@ Every excerpt is copied from the exact public source commit above. Line numbers 
 ### Lines 236-302
 
 ```text
-00236 | }
-00237 |
-00238 | func (a *App) conversationalSummary(ctx context.Context, session state.TerminalSession, capture tmux.StyledCapture, presentationText string, contexts ...codexContextSnapshot) (string, []string, conversationTurn, error) {
-00239 | 	historical := codexContextSnapshot{}
-00240 | 	if len(contexts) > 0 {
-00241 | 		historical = contexts[0]
-00242 | 	}
-00243 | 	turn := a.prepareConversationTurn(session, capture, conversationEvidence(presentationText), historical)
-00244 | 	turn.input.EvidenceRequested = a.snapshotAvailable()
-00245 | 	if !acquireSlot(ctx, a.guideSlots) {
-00246 | 		return "", nil, turn, ctx.Err()
-00247 | 	}
-00248 | 	defer releaseSlot(a.guideSlots)
-00249 | 	a.presentationMu.RLock()
-00250 | 	defer a.presentationMu.RUnlock()
-00251 | 	identityLock := a.sessionMutex(session.ID)
-00252 | 	identityLock.Lock()
-00253 | 	defer identityLock.Unlock()
-00254 | 	latest, ok := a.Store.FindSession(session.ID)
-00255 | 	if a.snapshotAnchors() || !ok || latest.Collapsed || latest.State != state.TerminalRunning || !latest.WatchEnabled || !sameTerminalBinding(latest, session) || !a.conversationTurnCurrentContext(ctx, session, turn) {
-00256 | 		return "", nil, turn, errConversationTurnSuperseded
-00257 | 	}
-00258 | 	var result guide.Result
-00259 | 	var err error
-00260 | 	if renderer, ok := a.Guide.(guide.EvidenceRenderer); ok && a.snapshotAvailable() {
-00261 | 		result, err = renderer.ConverseWithEvidence(ctx, turn.input)
-00262 | 	} else {
-00263 | 		result.Text, err = a.Guide.Converse(ctx, turn.input)
-00264 | 	}
-00265 | 	if err != nil {
-00266 | 		return "", nil, turn, err
-00267 | 	}
-00268 | 	result.Text = a.redactText(result.Text)
-00269 | 	return result.Text, result.Evidence, turn, nil
-00270 | }
-00271 |
-00272 | func (a *App) snapshotConversationalSummary(ctx context.Context, session state.TerminalSession, anchorMessageID int, presentationText string, contexts ...codexContextSnapshot) (string, error) {
-00273 | 	if !acquireSlot(ctx, a.guideSlots) {
-00274 | 		return "", ctx.Err()
-00275 | 	}
-00276 | 	defer releaseSlot(a.guideSlots)
-00277 | 	a.presentationMu.RLock()
-00278 | 	defer a.presentationMu.RUnlock()
-00279 | 	identityLock := a.sessionMutex(session.ID)
-00280 | 	identityLock.Lock()
-00281 | 	defer identityLock.Unlock()
-00282 | 	latest, ok := a.Store.FindSession(session.ID)
-00283 | 	if !a.snapshotAnchors() || !ok || latest.Collapsed || latest.State != state.TerminalRunning || !latest.WatchEnabled || !sameTerminalBinding(latest, session) || latest.AnchorMessageID != anchorMessageID || latest.AnchorFormat != "snapshot" || latest.RetiringAnchorMessageID != 0 {
-00284 | 		return "", errConversationTurnSuperseded
-00285 | 	}
-00286 | 	historical := codexContextSnapshot{}
-00287 | 	if len(contexts) > 0 {
-00288 | 		historical = contexts[0]
-00289 | 	}
-00290 | 	if !a.codexContextCurrent(ctx, session, historical) {
-00291 | 		return "", errConversationTurnSuperseded
-00292 | 	}
-00293 | 	summary, err := a.Guide.Converse(ctx, guide.Input{SessionID: session.ID, VisibleText: conversationEvidence(presentationText), HistoricalContext: historical.prompt})
-00294 | 	if err != nil {
-00295 | 		return "", err
-00296 | 	}
-00297 | 	if !a.codexContextCurrent(ctx, session, historical) {
-00298 | 		return "", errConversationTurnSuperseded
-00299 | 	}
-00300 | 	return a.redactText(summary), nil
-00301 | }
-00302 |
+00236 |
+00237 | func (a *App) conversationalSummary(ctx context.Context, session state.TerminalSession, capture tmux.StyledCapture, presentationText string, contexts ...sessionContextSnapshot) (string, []string, conversationTurn, error) {
+00238 | 	historical := sessionContextSnapshot{}
+00239 | 	if len(contexts) > 0 {
+00240 | 		historical = contexts[0]
+00241 | 	}
+00242 | 	turn := a.prepareConversationTurn(session, capture, conversationEvidence(presentationText), historical)
+00243 | 	turn.input.EvidenceRequested = a.snapshotAvailable()
+00244 | 	if !acquireSlot(ctx, a.guideSlots) {
+00245 | 		return "", nil, turn, ctx.Err()
+00246 | 	}
+00247 | 	defer releaseSlot(a.guideSlots)
+00248 | 	a.presentationMu.RLock()
+00249 | 	defer a.presentationMu.RUnlock()
+00250 | 	identityLock := a.sessionMutex(session.ID)
+00251 | 	identityLock.Lock()
+00252 | 	defer identityLock.Unlock()
+00253 | 	latest, ok := a.Store.FindSession(session.ID)
+00254 | 	if a.snapshotAnchors() || !ok || latest.Collapsed || latest.State != state.TerminalRunning || !latest.WatchEnabled || !sameTerminalBinding(latest, session) || !a.conversationTurnCurrentContext(ctx, session, turn) {
+00255 | 		return "", nil, turn, errConversationTurnSuperseded
+00256 | 	}
+00257 | 	var result guide.Result
+00258 | 	var err error
+00259 | 	if renderer, ok := a.Guide.(guide.EvidenceRenderer); ok && a.snapshotAvailable() {
+00260 | 		result, err = renderer.ConverseWithEvidence(ctx, turn.input)
+00261 | 	} else {
+00262 | 		result.Text, err = a.Guide.Converse(ctx, turn.input)
+00263 | 	}
+00264 | 	if err != nil {
+00265 | 		return "", nil, turn, err
+00266 | 	}
+00267 | 	result.Text = a.redactText(result.Text)
+00268 | 	return result.Text, result.Evidence, turn, nil
+00269 | }
+00270 |
+00271 | func (a *App) snapshotConversationalSummary(ctx context.Context, session state.TerminalSession, anchorMessageID int, presentationText string, contexts ...sessionContextSnapshot) (string, error) {
+00272 | 	if !acquireSlot(ctx, a.guideSlots) {
+00273 | 		return "", ctx.Err()
+00274 | 	}
+00275 | 	defer releaseSlot(a.guideSlots)
+00276 | 	a.presentationMu.RLock()
+00277 | 	defer a.presentationMu.RUnlock()
+00278 | 	identityLock := a.sessionMutex(session.ID)
+00279 | 	identityLock.Lock()
+00280 | 	defer identityLock.Unlock()
+00281 | 	latest, ok := a.Store.FindSession(session.ID)
+00282 | 	if !a.snapshotAnchors() || !ok || latest.Collapsed || latest.State != state.TerminalRunning || !latest.WatchEnabled || !sameTerminalBinding(latest, session) || latest.AnchorMessageID != anchorMessageID || latest.AnchorFormat != "snapshot" || latest.RetiringAnchorMessageID != 0 {
+00283 | 		return "", errConversationTurnSuperseded
+00284 | 	}
+00285 | 	historical := sessionContextSnapshot{}
+00286 | 	if len(contexts) > 0 {
+00287 | 		historical = contexts[0]
+00288 | 	}
+00289 | 	if !a.codexContextCurrent(ctx, session, historical) {
+00290 | 		return "", errConversationTurnSuperseded
+00291 | 	}
+00292 | 	summary, err := a.Guide.Converse(ctx, guide.Input{SessionID: session.ID, VisibleText: conversationEvidence(presentationText), HistoricalContext: historical.prompt})
+00293 | 	if err != nil {
+00294 | 		return "", err
+00295 | 	}
+00296 | 	if !a.codexContextCurrent(ctx, session, historical) {
+00297 | 		return "", errConversationTurnSuperseded
+00298 | 	}
+00299 | 	return a.redactText(summary), nil
+00300 | }
+00301 |
+00302 | func (a *App) updateAnchorLocal(ctx context.Context, id int, summary string, final bool) bool {
 ```
 
 
@@ -1072,131 +1072,131 @@ Every excerpt is copied from the exact public source commit above. Line numbers 
 ### Lines 34-59
 
 ```text
-00034 | )
-00035 |
-00036 | type State struct {
-00037 | 	Version                     int                `json:"version"`
-00038 | 	AnchorMode                  string             `json:"anchor_mode,omitempty"`
-00039 | 	CollapsedShelf              *CollapsedShelf    `json:"collapsed_shelf,omitempty"`
-00040 | 	PendingMessageCleanups      []MessageCleanup   `json:"pending_message_cleanups,omitempty"`
-00041 | 	NextSessionID               int                `json:"next_session_id"`
-00042 | 	LastUpdateID                int                `json:"last_update_id"`
-00043 | 	LastPollAt                  time.Time          `json:"last_poll_at,omitempty"`
-00044 | 	LastHaikuAt                 time.Time          `json:"last_haiku_at,omitempty"`
-00045 | 	LastHaikuError              string             `json:"last_haiku_error,omitempty"`
-00046 | 	TerminalSessions            []TerminalSession  `json:"terminal_sessions"`
-00047 | 	Attachments                 []Attachment       `json:"attachments"`
-00048 | 	AttachmentBypasses          []AttachmentBypass `json:"attachment_bypasses,omitempty"`
-00049 | 	UpdateJournal               []UpdateEvent      `json:"update_journal,omitempty"`
-00050 | 	ProcessedMessages           map[string]bool    `json:"processed_messages,omitempty"`
-00051 | 	HostBootID                  string             `json:"host_boot_id,omitempty"`
-00052 | 	PendingRecoveryBootID       string             `json:"pending_recovery_boot_id,omitempty"`
-00053 | 	LastRecoveryPlanHash        string             `json:"last_recovery_plan_hash,omitempty"`
-00054 | 	RecoveryPlanMessageIDs      []int              `json:"recovery_plan_message_ids,omitempty"`
-00055 | 	PendingRecoveryPlanHash     string             `json:"pending_recovery_plan_hash,omitempty"`
-00056 | 	PendingRecoveryPlanNextPage int                `json:"pending_recovery_plan_next_page,omitempty"`
-00057 | }
-00058 |
-00059 | type CollapsedShelf struct {
+00034 | 	TerminalOriginAttached TerminalOrigin = "attached"
+00035 | )
+00036 |
+00037 | type State struct {
+00038 | 	Version                     int                `json:"version"`
+00039 | 	AnchorMode                  string             `json:"anchor_mode,omitempty"`
+00040 | 	CollapsedShelf              *CollapsedShelf    `json:"collapsed_shelf,omitempty"`
+00041 | 	PendingMessageCleanups      []MessageCleanup   `json:"pending_message_cleanups,omitempty"`
+00042 | 	NextSessionID               int                `json:"next_session_id"`
+00043 | 	LastUpdateID                int                `json:"last_update_id"`
+00044 | 	LastPollAt                  time.Time          `json:"last_poll_at,omitempty"`
+00045 | 	LastHaikuAt                 time.Time          `json:"last_haiku_at,omitempty"`
+00046 | 	LastHaikuError              string             `json:"last_haiku_error,omitempty"`
+00047 | 	TerminalSessions            []TerminalSession  `json:"terminal_sessions"`
+00048 | 	Attachments                 []Attachment       `json:"attachments"`
+00049 | 	AttachmentBypasses          []AttachmentBypass `json:"attachment_bypasses,omitempty"`
+00050 | 	UpdateJournal               []UpdateEvent      `json:"update_journal,omitempty"`
+00051 | 	ProcessedMessages           map[string]bool    `json:"processed_messages,omitempty"`
+00052 | 	HostBootID                  string             `json:"host_boot_id,omitempty"`
+00053 | 	PendingRecoveryBootID       string             `json:"pending_recovery_boot_id,omitempty"`
+00054 | 	LastRecoveryPlanHash        string             `json:"last_recovery_plan_hash,omitempty"`
+00055 | 	RecoveryPlanMessageIDs      []int              `json:"recovery_plan_message_ids,omitempty"`
+00056 | 	PendingRecoveryPlanHash     string             `json:"pending_recovery_plan_hash,omitempty"`
+00057 | 	PendingRecoveryPlanNextPage int                `json:"pending_recovery_plan_next_page,omitempty"`
+00058 | }
+00059 |
 ```
 
 ### Lines 108-165
 
 ```text
-00108 | }
-00109 |
-00110 | type TerminalSession struct {
-00111 | 	ID                       int             `json:"id"`
-00112 | 	TmuxSessionName          string          `json:"tmux_session_name"`
-00113 | 	TmuxWindowID             string          `json:"tmux_window_id"`
-00114 | 	TmuxPaneID               string          `json:"tmux_pane_id"`
-00115 | 	TmuxServerID             string          `json:"tmux_server_id,omitempty"`
-00116 | 	Origin                   TerminalOrigin  `json:"origin,omitempty"`
-00117 | 	Title                    string          `json:"title"`
-00118 | 	LastKnownCWD             string          `json:"last_known_cwd,omitempty"`
-00119 | 	State                    TerminalState   `json:"state"`
-00120 | 	CreatedAt                time.Time       `json:"created_at"`
-00121 | 	UpdatedAt                time.Time       `json:"updated_at"`
-00122 | 	LastActivityAt           time.Time       `json:"last_activity_at"`
-00123 | 	LastRawCaptureHash       string          `json:"last_raw_capture_hash,omitempty"`
-00124 | 	LastSnapshotCaptureHash  string          `json:"last_snapshot_capture_hash,omitempty"`
-00125 | 	LastSnapshotAttemptAt    time.Time       `json:"last_snapshot_attempt_at,omitempty"`
-00126 | 	LastRenderHash           string          `json:"last_render_hash,omitempty"`
-00127 | 	LastSummary              string          `json:"last_summary,omitempty"`
-00128 | 	PresentationProgram      string          `json:"presentation_program,omitempty"`
-00129 | 	PresentationVersion      string          `json:"presentation_version,omitempty"`
-00130 | 	PresentationRuntimeID    string          `json:"presentation_runtime_id,omitempty"`
-00131 | 	PresentationModel        string          `json:"presentation_model,omitempty"`
-00132 | 	PresentationEffort       string          `json:"presentation_effort,omitempty"`
-00133 | 	PresentationMode         string          `json:"presentation_mode,omitempty"`
-00134 | 	PresentationActivity     string          `json:"presentation_activity,omitempty"`
-00135 | 	PresentationNotice       string          `json:"presentation_notice,omitempty"`
-00136 | 	SummaryMessageID         int             `json:"summary_message_id,omitempty"`
-00137 | 	SnapshotMessageID        int             `json:"snapshot_message_id,omitempty"`
-00138 | 	UpstreamMessageID        int             `json:"upstream_message_id,omitempty"`
-00139 | 	SeenUpstreamSignalIDs    []string        `json:"seen_upstream_signal_ids,omitempty"`
-00140 | 	LastUpstreamSignalAt     time.Time       `json:"last_upstream_signal_at,omitempty"`
-00141 | 	UpstreamRetryAt          time.Time       `json:"upstream_retry_at,omitempty"`
-00142 | 	StaleAlternateMessageIDs []int           `json:"stale_alternate_message_ids,omitempty"`
-00143 | 	AnchorChatID             int64           `json:"anchor_chat_id,omitempty"`
-00144 | 	AnchorMessageID          int             `json:"anchor_message_id,omitempty"`
-00145 | 	AnchorFormat             string          `json:"anchor_format,omitempty"`
-00146 | 	RetiringAnchorMessageID  int             `json:"retiring_anchor_message_id,omitempty"`
-00147 | 	RetiringAnchorFormat     string          `json:"retiring_anchor_format,omitempty"`
-00148 | 	RetiringAnchorRetryAt    time.Time       `json:"retiring_anchor_retry_at,omitempty"`
-00149 | 	AnchorPinned             bool            `json:"anchor_pinned,omitempty"`
-00150 | 	AnchorPinKnown           bool            `json:"anchor_pin_known,omitempty"`
-00151 | 	WatchEnabled             bool            `json:"watch_enabled"`
-00152 | 	Collapsed                bool            `json:"collapsed,omitempty"`
-00153 | 	PendingCollapse          bool            `json:"pending_collapse,omitempty"`
-00154 | 	PendingRestore           *PendingRestore `json:"pending_restore,omitempty"`
-00155 | 	ResumeProgram            string          `json:"resume_program,omitempty"`
-00156 | 	ResumeSessionID          string          `json:"resume_session_id,omitempty"`
-00157 | 	PendingResume            *PendingResume  `json:"pending_resume,omitempty"`
-00158 | 	RecoveryEvents           []RecoveryEvent `json:"recovery_events,omitempty"`
-00159 | 	LastAnchorEditAt         time.Time       `json:"last_anchor_edit_at,omitempty"`
-00160 | 	LastRawCapture           string          `json:"last_raw_capture,omitempty"`
-00161 | 	AnchorFiles              []string        `json:"-"`
-00162 | 	AnchorFileToken          string          `json:"-"`
-00163 | }
-00164 |
-00165 | func (s TerminalSession) HasSeenUpstreamSignal(recordID string) bool {
+00108 | 	RetryAt   time.Time `json:"retry_at,omitempty"`
+00109 | }
+00110 |
+00111 | type TerminalSession struct {
+00112 | 	ID                         int                       `json:"id"`
+00113 | 	TmuxSessionName            string                    `json:"tmux_session_name"`
+00114 | 	TmuxWindowID               string                    `json:"tmux_window_id"`
+00115 | 	TmuxPaneID                 string                    `json:"tmux_pane_id"`
+00116 | 	TmuxServerID               string                    `json:"tmux_server_id,omitempty"`
+00117 | 	Origin                     TerminalOrigin            `json:"origin,omitempty"`
+00118 | 	Title                      string                    `json:"title"`
+00119 | 	LastKnownCWD               string                    `json:"last_known_cwd,omitempty"`
+00120 | 	State                      TerminalState             `json:"state"`
+00121 | 	CreatedAt                  time.Time                 `json:"created_at"`
+00122 | 	UpdatedAt                  time.Time                 `json:"updated_at"`
+00123 | 	LastActivityAt             time.Time                 `json:"last_activity_at"`
+00124 | 	LastRawCaptureHash         string                    `json:"last_raw_capture_hash,omitempty"`
+00125 | 	LastSnapshotCaptureHash    string                    `json:"last_snapshot_capture_hash,omitempty"`
+00126 | 	LastSnapshotAttemptAt      time.Time                 `json:"last_snapshot_attempt_at,omitempty"`
+00127 | 	LastRenderHash             string                    `json:"last_render_hash,omitempty"`
+00128 | 	LastSummary                string                    `json:"last_summary,omitempty"`
+00129 | 	PresentationProgram        string                    `json:"presentation_program,omitempty"`
+00130 | 	PresentationVersion        string                    `json:"presentation_version,omitempty"`
+00131 | 	PresentationRuntimeID      string                    `json:"presentation_runtime_id,omitempty"`
+00132 | 	PresentationModel          string                    `json:"presentation_model,omitempty"`
+00133 | 	PresentationEffort         string                    `json:"presentation_effort,omitempty"`
+00134 | 	PresentationMode           string                    `json:"presentation_mode,omitempty"`
+00135 | 	PresentationActivity       string                    `json:"presentation_activity,omitempty"`
+00136 | 	PresentationNotice         string                    `json:"presentation_notice,omitempty"`
+00137 | 	AgentCompatibility         agentcompat.Compatibility `json:"agent_compatibility,omitempty"`
+00138 | 	AgentPresentation          agentcompat.Presentation  `json:"agent_presentation,omitempty"`
+00139 | 	SemanticViewport           agentcompat.Viewport      `json:"semantic_viewport,omitempty"`
+00140 | 	DeclaredModel              agentcompat.Value         `json:"declared_model,omitempty"`
+00141 | 	DeclaredModelObservedAt    time.Time                 `json:"declared_model_observed_at,omitempty"`
+00142 | 	AgentDetailChatID          int64                     `json:"agent_detail_chat_id,omitempty"`
+00143 | 	AgentDetailMessageID       int                       `json:"agent_detail_message_id,omitempty"`
+00144 | 	AgentDetailAnchorMessageID int                       `json:"agent_detail_anchor_message_id,omitempty"`
+00145 | 	AgentDetailRenderHash      string                    `json:"agent_detail_render_hash,omitempty"`
+00146 | 	SummaryMessageID           int                       `json:"summary_message_id,omitempty"`
+00147 | 	SnapshotMessageID          int                       `json:"snapshot_message_id,omitempty"`
+00148 | 	UpstreamMessageID          int                       `json:"upstream_message_id,omitempty"`
+00149 | 	SeenUpstreamSignalIDs      []string                  `json:"seen_upstream_signal_ids,omitempty"`
+00150 | 	LastUpstreamSignalAt       time.Time                 `json:"last_upstream_signal_at,omitempty"`
+00151 | 	UpstreamRetryAt            time.Time                 `json:"upstream_retry_at,omitempty"`
+00152 | 	StaleAlternateMessageIDs   []int                     `json:"stale_alternate_message_ids,omitempty"`
+00153 | 	AnchorChatID               int64                     `json:"anchor_chat_id,omitempty"`
+00154 | 	AnchorMessageID            int                       `json:"anchor_message_id,omitempty"`
+00155 | 	AnchorFormat               string                    `json:"anchor_format,omitempty"`
+00156 | 	RetiringAnchorMessageID    int                       `json:"retiring_anchor_message_id,omitempty"`
+00157 | 	RetiringAnchorFormat       string                    `json:"retiring_anchor_format,omitempty"`
+00158 | 	RetiringAnchorRetryAt      time.Time                 `json:"retiring_anchor_retry_at,omitempty"`
+00159 | 	AnchorPinned               bool                      `json:"anchor_pinned,omitempty"`
+00160 | 	AnchorPinKnown             bool                      `json:"anchor_pin_known,omitempty"`
+00161 | 	WatchEnabled               bool                      `json:"watch_enabled"`
+00162 | 	Collapsed                  bool                      `json:"collapsed,omitempty"`
+00163 | 	PendingCollapse            bool                      `json:"pending_collapse,omitempty"`
+00164 | 	PendingRestore             *PendingRestore           `json:"pending_restore,omitempty"`
+00165 | 	ResumeProgram              string                    `json:"resume_program,omitempty"`
 ```
 
 ### Lines 368-398
 
 ```text
-00368 | }
-00369 |
-00370 | func (s *Store) Snapshot() State {
-00371 | 	s.mu.Lock()
-00372 | 	defer s.mu.Unlock()
-00373 | 	return cloneState(s.state)
+00368 | 	if s.state.ProcessedMessages == nil {
+00369 | 		s.state.ProcessedMessages = map[string]bool{}
+00370 | 	}
+00371 | 	s.initializeProcessedMessageOrderLocked()
+00372 | 	s.pruneStateLocked(time.Now().UTC())
+00373 | 	return s, nil
 00374 | }
 00375 |
-00376 | func (s *Store) Save() error {
-00377 | 	s.mu.Lock()
-00378 | 	defer s.mu.Unlock()
-00379 | 	return s.saveLocked()
-00380 | }
-00381 |
-00382 | func (s *Store) SetAnchorMode(mode string) error {
-00383 | 	if mode != "guide" && mode != "snapshot" {
-00384 | 		return fmt.Errorf("invalid anchor mode %q", mode)
-00385 | 	}
-00386 | 	s.mu.Lock()
-00387 | 	defer s.mu.Unlock()
-00388 | 	previous := s.state.AnchorMode
-00389 | 	s.state.AnchorMode = mode
-00390 | 	if err := s.saveLocked(); err != nil {
-00391 | 		if !PersistenceReachedReplacement(err) {
-00392 | 			s.state.AnchorMode = previous
-00393 | 		}
-00394 | 		return err
+00376 | func newState() State {
+00377 | 	return State{Version: currentStateVersion, NextSessionID: 1, ProcessedMessages: map[string]bool{}}
+00378 | }
+00379 |
+00380 | func (s *Store) Snapshot() State {
+00381 | 	s.mu.Lock()
+00382 | 	defer s.mu.Unlock()
+00383 | 	return cloneState(s.state)
+00384 | }
+00385 |
+00386 | func (s *Store) Save() error {
+00387 | 	s.mu.Lock()
+00388 | 	defer s.mu.Unlock()
+00389 | 	return s.saveLocked()
+00390 | }
+00391 |
+00392 | func (s *Store) SetAnchorMode(mode string) error {
+00393 | 	if mode != "guide" && mode != "snapshot" {
+00394 | 		return fmt.Errorf("invalid anchor mode %q", mode)
 00395 | 	}
-00396 | 	return nil
-00397 | }
-00398 |
+00396 | 	s.mu.Lock()
+00397 | 	defer s.mu.Unlock()
+00398 | 	previous := s.state.AnchorMode
 ```
 
 
@@ -1220,193 +1220,193 @@ Every excerpt is copied from the exact public source commit above. Line numbers 
 00102 | 	CurrentCmd  string
 00103 | }
 00104 |
-00105 | type StyledCapture struct {
-00106 | 	ANSI        string
-00107 | 	Text        string
-00108 | 	JoinedText  string
-00109 | 	Hyperlinks  []string
-00110 | 	ServerID    string
-00111 | 	WindowID    string
-00112 | 	PaneID      string
-00113 | 	PanePID     int
-00114 | 	CurrentCmd  string
-00115 | 	AlternateOn string
-00116 | 	PaneInMode  string
-00117 | 	Columns     int
-00118 | 	VisibleRows int
-00119 | 	BufferRows  int
-00120 | 	Title       string
-00121 | 	CurrentPath string
-00122 | }
-00123 |
-00124 | const paneRecordFormat = "#{n:session_id}:#{session_id}#{n:window_id}:#{window_id}#{n:pane_id}:#{pane_id}#{n:session_name}:#{session_name}#{n:window_index}:#{window_index}#{n:pane_index}:#{pane_index}#{n:pane_active}:#{pane_active}#{n:pane_current_path}:#{pane_current_path}#{n:pane_current_command}:#{pane_current_command}"
+00105 | // PaneProcess returns only the shell/process anchor needed by an explicit
+00106 | // in-pane migration binder. The published result remains a candidate until the
+00107 | // Engram service validates the immutable watched binding.
+00108 | func (m Manager) PaneProcess(ctx context.Context, paneID string) (int, string, error) {
+00109 | 	if !validImmutableID(paneID, '%') {
+00110 | 		return 0, "", fmt.Errorf("invalid tmux pane id")
+00111 | 	}
+00112 | 	out, err := m.Runner.Run(ctx, "display-message", "-p", "-t", paneID, "#{pane_pid}\x1f#{pane_current_command}")
+00113 | 	if err != nil {
+00114 | 		return 0, "", err
+00115 | 	}
+00116 | 	parts := strings.Split(strings.TrimSuffix(out, "\n"), "\x1f")
+00117 | 	if len(parts) != 2 {
+00118 | 		return 0, "", fmt.Errorf("unexpected tmux pane process metadata")
+00119 | 	}
+00120 | 	pid, err := strconv.Atoi(parts[0])
+00121 | 	if err != nil || pid <= 0 {
+00122 | 		return 0, "", fmt.Errorf("invalid tmux pane process id")
+00123 | 	}
+00124 | 	return pid, strings.TrimSpace(parts[1]), nil
 ```
 
 ### Lines 507-563
 
 ```text
-00507 | }
-00508 |
-00509 | // SendCommandIfBindingMatches keeps each input effect behind a tmux-side
-00510 | // identity condition. A restart between the literal text and Enter can leave
-00511 | // text unsubmitted, but it cannot redirect either effect into a new server.
-00512 | func (m Manager) SendCommandIfBindingMatches(ctx context.Context, paneID, windowID, serverID, text string) error {
-00513 | 	if err := m.SendTextIfBindingMatches(ctx, paneID, windowID, serverID, text); err != nil {
-00514 | 		return err
-00515 | 	}
-00516 | 	if commandSubmitDelay > 0 {
-00517 | 		timer := time.NewTimer(commandSubmitDelay)
-00518 | 		select {
-00519 | 		case <-ctx.Done():
-00520 | 			timer.Stop()
-00521 | 			return ctx.Err()
-00522 | 		case <-timer.C:
-00523 | 		}
-00524 | 	}
-00525 | 	return m.SendKeysIfBindingMatches(ctx, paneID, windowID, serverID, []string{"Enter"})
-00526 | }
-00527 |
-00528 | func (m Manager) SendTextIfBindingMatches(ctx context.Context, paneID, windowID, serverID, text string) error {
-00529 | 	if err := validateBindingIDs(paneID, windowID, serverID); err != nil {
-00530 | 		return err
-00531 | 	}
-00532 | 	nonce, err := captureNonce()
-00533 | 	if err != nil {
-00534 | 		return err
-00535 | 	}
-00536 | 	buffer := "engram-input-" + nonce
-00537 | 	if _, err := m.Runner.Run(ctx, "set-buffer", "-b", buffer, "--", text); err != nil {
-00538 | 		return err
-00539 | 	}
-00540 | 	command := "paste-buffer -p -r -d -b " + buffer + " -t " + paneID
-00541 | 	if err := m.runIfBindingMatches(ctx, paneID, windowID, serverID, command); err != nil {
-00542 | 		cleanupCtx, cancel := context.WithTimeout(context.WithoutCancel(ctx), 2*time.Second)
-00543 | 		_, _ = m.Runner.Run(cleanupCtx, "delete-buffer", "-b", buffer)
-00544 | 		cancel()
-00545 | 		return err
-00546 | 	}
-00547 | 	return nil
-00548 | }
-00549 |
-00550 | func (m Manager) SendKeysIfBindingMatches(ctx context.Context, paneID, windowID, serverID string, keys []string) error {
-00551 | 	if err := validateBindingIDs(paneID, windowID, serverID); err != nil {
-00552 | 		return err
-00553 | 	}
-00554 | 	if err := ValidKeys(keys); err != nil {
-00555 | 		return err
-00556 | 	}
-00557 | 	parts := []string{"send-keys", "-t", paneID}
-00558 | 	for _, key := range keys {
-00559 | 		parts = append(parts, ShellQuote(key))
-00560 | 	}
-00561 | 	return m.runIfBindingMatches(ctx, paneID, windowID, serverID, strings.Join(parts, " "))
-00562 | }
-00563 |
+00507 |
+00508 | func (m Manager) SendKeys(ctx context.Context, paneID string, keys []string) error {
+00509 | 	args := append([]string{"send-keys", "-t", paneID}, keys...)
+00510 | 	_, err := m.Runner.Run(ctx, args...)
+00511 | 	return err
+00512 | }
+00513 |
+00514 | // SendCommandIfBindingMatches keeps each input effect behind a tmux-side
+00515 | // identity condition. A restart between the literal text and Enter can leave
+00516 | // text unsubmitted, but it cannot redirect either effect into a new server.
+00517 | func (m Manager) SendCommandIfBindingMatches(ctx context.Context, paneID, windowID, serverID, text string) error {
+00518 | 	if err := m.SendTextIfBindingMatches(ctx, paneID, windowID, serverID, text); err != nil {
+00519 | 		return err
+00520 | 	}
+00521 | 	if commandSubmitDelay > 0 {
+00522 | 		timer := time.NewTimer(commandSubmitDelay)
+00523 | 		select {
+00524 | 		case <-ctx.Done():
+00525 | 			timer.Stop()
+00526 | 			return ctx.Err()
+00527 | 		case <-timer.C:
+00528 | 		}
+00529 | 	}
+00530 | 	return m.SendKeysIfBindingMatches(ctx, paneID, windowID, serverID, []string{"Enter"})
+00531 | }
+00532 |
+00533 | func (m Manager) SendTextIfBindingMatches(ctx context.Context, paneID, windowID, serverID, text string) error {
+00534 | 	if err := validateBindingIDs(paneID, windowID, serverID); err != nil {
+00535 | 		return err
+00536 | 	}
+00537 | 	nonce, err := captureNonce()
+00538 | 	if err != nil {
+00539 | 		return err
+00540 | 	}
+00541 | 	buffer := "engram-input-" + nonce
+00542 | 	if _, err := m.Runner.Run(ctx, "set-buffer", "-b", buffer, "--", text); err != nil {
+00543 | 		return err
+00544 | 	}
+00545 | 	command := "paste-buffer -p -r -d -b " + buffer + " -t " + paneID
+00546 | 	if err := m.runIfBindingMatches(ctx, paneID, windowID, serverID, command); err != nil {
+00547 | 		cleanupCtx, cancel := context.WithTimeout(context.WithoutCancel(ctx), 2*time.Second)
+00548 | 		_, _ = m.Runner.Run(cleanupCtx, "delete-buffer", "-b", buffer)
+00549 | 		cancel()
+00550 | 		return err
+00551 | 	}
+00552 | 	return nil
+00553 | }
+00554 |
+00555 | func (m Manager) SendKeysIfBindingMatches(ctx context.Context, paneID, windowID, serverID string, keys []string) error {
+00556 | 	if err := validateBindingIDs(paneID, windowID, serverID); err != nil {
+00557 | 		return err
+00558 | 	}
+00559 | 	if err := ValidKeys(keys); err != nil {
+00560 | 		return err
+00561 | 	}
+00562 | 	parts := []string{"send-keys", "-t", paneID}
+00563 | 	for _, key := range keys {
 ```
 
 ### Lines 677-776
 
 ```text
-00677 | }
-00678 |
-00679 | func (m Manager) captureIfBindingMatches(ctx context.Context, paneID, windowID, serverID, command string) (string, error) {
-00680 | 	if err := validateBindingIDs(paneID, windowID, serverID); err != nil {
-00681 | 		return "", err
-00682 | 	}
-00683 | 	nonce, err := captureNonce()
-00684 | 	if err != nil {
-00685 | 		return "", err
-00686 | 	}
-00687 | 	marker := identityMismatchMarker + "-" + nonce
-00688 | 	out, err := m.Runner.Run(ctx, "if-shell", "-F", "-t", paneID, bindingCondition(windowID, serverID), command, "display-message -p "+marker)
-00689 | 	if err != nil {
-00690 | 		if missingTmuxTarget(err) {
-00691 | 			return "", &IdentityError{Reason: "tmux pane identity is gone", Err: err}
-00692 | 		}
+00677 | 	}
+00678 | 	start, end := captureBounds(visibleRows, targetRows)
+00679 | 	command := strings.Join([]string{"capture-pane", "-p", "-N", "-S", strconv.Itoa(start), "-E", strconv.Itoa(end), "-t", paneID}, " ")
+00680 | 	out, err := m.captureIfBindingMatches(ctx, paneID, windowID, serverID, command)
+00681 | 	if err != nil {
+00682 | 		return "", err
+00683 | 	}
+00684 | 	return semanticCapture(out), nil
+00685 | }
+00686 |
+00687 | func (m Manager) captureIfBindingMatches(ctx context.Context, paneID, windowID, serverID, command string) (string, error) {
+00688 | 	if err := validateBindingIDs(paneID, windowID, serverID); err != nil {
+00689 | 		return "", err
+00690 | 	}
+00691 | 	nonce, err := captureNonce()
+00692 | 	if err != nil {
 00693 | 		return "", err
 00694 | 	}
-00695 | 	if strings.TrimSpace(out) == marker {
-00696 | 		return "", &IdentityError{Reason: "tmux binding changed while capturing"}
-00697 | 	}
-00698 | 	return out, nil
-00699 | }
-00700 |
-00701 | func (m Manager) CaptureStyled(ctx context.Context, paneID string, targetRows int) (StyledCapture, error) {
-00702 | 	if targetRows <= 0 || targetRows > 400 {
-00703 | 		return StyledCapture{}, fmt.Errorf("target rows must be between 1 and 400")
-00704 | 	}
-00705 | 	metaFormat := recordFormat(serverIDOption, "window_id", "pane_id", "pane_pid", "pane_width", "pane_height", "pane_title", "pane_current_path", "pane_current_command", "alternate_on", "pane_in_mode")
-00706 | 	meta, err := m.Runner.Run(ctx, "display-message", "-p", "-t", paneID, metaFormat)
-00707 | 	if err != nil {
-00708 | 		return StyledCapture{}, err
-00709 | 	}
-00710 | 	before, err := parseCaptureMetadata(meta)
-00711 | 	if err != nil {
-00712 | 		return StyledCapture{}, err
-00713 | 	}
-00714 | 	columns, visibleRows := before.Columns, before.VisibleRows
-00715 | 	start, end := captureBounds(visibleRows, targetRows)
-00716 | 	nonce, err := captureNonce()
-00717 | 	if err != nil {
-00718 | 		return StyledCapture{}, err
-00719 | 	}
-00720 | 	physicalBuffer := "engram-physical-" + nonce
-00721 | 	joinedBuffer := "engram-joined-" + nonce
-00722 | 	afterText, err := m.Runner.Run(ctx,
-00723 | 		"capture-pane", "-e", "-N", "-S", strconv.Itoa(start), "-E", strconv.Itoa(end), "-t", paneID, "-b", physicalBuffer,
-00724 | 		";", "capture-pane", "-J", "-S", strconv.Itoa(start), "-E", strconv.Itoa(end), "-t", paneID, "-b", joinedBuffer,
-00725 | 		";", "display-message", "-p", "-t", paneID, metaFormat,
-00726 | 	)
-00727 | 	if err != nil {
-00728 | 		m.cleanupCaptureBuffers(ctx, physicalBuffer, joinedBuffer)
-00729 | 		return StyledCapture{}, err
-00730 | 	}
-00731 | 	defer m.cleanupCaptureBuffers(ctx, physicalBuffer, joinedBuffer)
-00732 | 	after, err := parseCaptureMetadata(afterText)
-00733 | 	if err != nil {
-00734 | 		return StyledCapture{}, err
-00735 | 	}
-00736 | 	if !sameCaptureIdentity(before, after) {
-00737 | 		return StyledCapture{}, &IdentityError{Reason: "tmux pane identity changed while capturing"}
+00695 | 	marker := identityMismatchMarker + "-" + nonce
+00696 | 	out, err := m.Runner.Run(ctx, "if-shell", "-F", "-t", paneID, bindingCondition(windowID, serverID), command, "display-message -p "+marker)
+00697 | 	if err != nil {
+00698 | 		if missingTmuxTarget(err) {
+00699 | 			return "", &IdentityError{Reason: "tmux pane identity is gone", Err: err}
+00700 | 		}
+00701 | 		return "", err
+00702 | 	}
+00703 | 	if strings.TrimSpace(out) == marker {
+00704 | 		return "", &IdentityError{Reason: "tmux binding changed while capturing"}
+00705 | 	}
+00706 | 	return out, nil
+00707 | }
+00708 |
+00709 | func (m Manager) CaptureStyled(ctx context.Context, paneID string, targetRows int) (StyledCapture, error) {
+00710 | 	if targetRows <= 0 || targetRows > 400 {
+00711 | 		return StyledCapture{}, fmt.Errorf("target rows must be between 1 and 400")
+00712 | 	}
+00713 | 	metaFormat := recordFormat(serverIDOption, "window_id", "pane_id", "pane_pid", "pane_width", "pane_height", "pane_title", "pane_current_path", "pane_current_command", "alternate_on", "pane_in_mode")
+00714 | 	meta, err := m.Runner.Run(ctx, "display-message", "-p", "-t", paneID, metaFormat)
+00715 | 	if err != nil {
+00716 | 		return StyledCapture{}, err
+00717 | 	}
+00718 | 	before, err := parseCaptureMetadata(meta)
+00719 | 	if err != nil {
+00720 | 		return StyledCapture{}, err
+00721 | 	}
+00722 | 	columns, visibleRows := before.Columns, before.VisibleRows
+00723 | 	start, end := captureBounds(visibleRows, targetRows)
+00724 | 	nonce, err := captureNonce()
+00725 | 	if err != nil {
+00726 | 		return StyledCapture{}, err
+00727 | 	}
+00728 | 	physicalBuffer := "engram-physical-" + nonce
+00729 | 	joinedBuffer := "engram-joined-" + nonce
+00730 | 	afterText, err := m.Runner.Run(ctx,
+00731 | 		"capture-pane", "-e", "-N", "-S", strconv.Itoa(start), "-E", strconv.Itoa(end), "-t", paneID, "-b", physicalBuffer,
+00732 | 		";", "capture-pane", "-J", "-S", strconv.Itoa(start), "-E", strconv.Itoa(end), "-t", paneID, "-b", joinedBuffer,
+00733 | 		";", "display-message", "-p", "-t", paneID, metaFormat,
+00734 | 	)
+00735 | 	if err != nil {
+00736 | 		m.cleanupCaptureBuffers(ctx, physicalBuffer, joinedBuffer)
+00737 | 		return StyledCapture{}, err
 00738 | 	}
-00739 | 	if !sameCaptureBoundary(before, after) {
-00740 | 		return StyledCapture{}, fmt.Errorf("tmux pane changed while capturing")
-00741 | 	}
-00742 | 	ansi, err := m.Runner.Run(ctx, "show-buffer", "-b", physicalBuffer)
-00743 | 	if err != nil {
-00744 | 		return StyledCapture{}, err
-00745 | 	}
-00746 | 	joined, err := m.Runner.Run(ctx, "show-buffer", "-b", joinedBuffer)
-00747 | 	if err != nil {
-00748 | 		return StyledCapture{}, err
+00739 | 	defer m.cleanupCaptureBuffers(ctx, physicalBuffer, joinedBuffer)
+00740 | 	after, err := parseCaptureMetadata(afterText)
+00741 | 	if err != nil {
+00742 | 		return StyledCapture{}, err
+00743 | 	}
+00744 | 	if !sameCaptureIdentity(before, after) {
+00745 | 		return StyledCapture{}, &IdentityError{Reason: "tmux pane identity changed while capturing"}
+00746 | 	}
+00747 | 	if !sameCaptureBoundary(before, after) {
+00748 | 		return StyledCapture{}, fmt.Errorf("tmux pane changed while capturing")
 00749 | 	}
-00750 | 	bufferRows := strings.Count(ansi, "\n")
-00751 | 	if ansi != "" && !strings.HasSuffix(ansi, "\n") {
-00752 | 		bufferRows++
+00750 | 	ansi, err := m.Runner.Run(ctx, "show-buffer", "-b", physicalBuffer)
+00751 | 	if err != nil {
+00752 | 		return StyledCapture{}, err
 00753 | 	}
-00754 | 	if bufferRows == 0 {
-00755 | 		bufferRows = 1
-00756 | 	}
-00757 | 	return StyledCapture{
-00758 | 		ANSI:        ansi,
-00759 | 		Text:        physicalSemanticCapture(ansi),
-00760 | 		JoinedText:  semanticCapture(joined),
-00761 | 		Hyperlinks:  extractOSC8Hyperlinks(ansi, 16),
-00762 | 		ServerID:    after.ServerID,
-00763 | 		WindowID:    after.WindowID,
-00764 | 		PaneID:      after.PaneID,
-00765 | 		PanePID:     after.PanePID,
-00766 | 		CurrentCmd:  after.CurrentCmd,
-00767 | 		AlternateOn: after.AlternateOn,
-00768 | 		PaneInMode:  after.PaneInMode,
-00769 | 		Columns:     columns,
-00770 | 		VisibleRows: visibleRows,
-00771 | 		BufferRows:  bufferRows,
-00772 | 		Title:       after.Title,
-00773 | 		CurrentPath: after.CurrentPath,
-00774 | 	}, nil
-00775 | }
-00776 |
+00754 | 	joined, err := m.Runner.Run(ctx, "show-buffer", "-b", joinedBuffer)
+00755 | 	if err != nil {
+00756 | 		return StyledCapture{}, err
+00757 | 	}
+00758 | 	bufferRows := strings.Count(ansi, "\n")
+00759 | 	if ansi != "" && !strings.HasSuffix(ansi, "\n") {
+00760 | 		bufferRows++
+00761 | 	}
+00762 | 	if bufferRows == 0 {
+00763 | 		bufferRows = 1
+00764 | 	}
+00765 | 	return StyledCapture{
+00766 | 		ANSI:        ansi,
+00767 | 		Text:        physicalSemanticCapture(ansi),
+00768 | 		JoinedText:  semanticCapture(joined),
+00769 | 		Hyperlinks:  extractOSC8Hyperlinks(ansi, 16),
+00770 | 		ServerID:    after.ServerID,
+00771 | 		WindowID:    after.WindowID,
+00772 | 		PaneID:      after.PaneID,
+00773 | 		PanePID:     after.PanePID,
+00774 | 		CurrentCmd:  after.CurrentCmd,
+00775 | 		AlternateOn: after.AlternateOn,
+00776 | 		PaneInMode:  after.PaneInMode,
 ```
 
 
@@ -1429,7 +1429,7 @@ Every excerpt is copied from the exact public source commit above. Line numbers 
 00012 | 2. [`tmux.md`](tmux.md) - tmux target selection, attachment, input, capture, and close behavior.
 00013 | 3. [`reliability.md`](reliability.md) - failure handling, audit evidence, retry/degradation rules.
 00014 | 4. [`security.md`](security.md) - single-user admission, secrets, filesystem, and tmux risk boundaries.
-00015 | 5. [`operations.md`](operations.md) - service lifecycle, systemd, logs, state, and diagnostics.
+00015 | 5. [`operations.md`](operations.md) - systemd/LaunchAgent lifecycle, logs, state, and diagnostics.
 00016 | 6. [`upstream-signals.md`](upstream-signals.md) - terminal-native attention signals from nested environments.
 00017 |
 00018 | ## Executable Checks
@@ -1489,32 +1489,32 @@ Every excerpt is copied from the exact public source commit above. Line numbers 
 ### Lines 100-125
 
 ```text
-00100 |   text. Documentation must disclose that the provider receives admitted text
-00101 |   and Telegram receives any admitted diagram inset.
-00102 | - Historical Codex context is untrusted and never current-state authority. The
-00103 |   current tmux frame remains the only source for effects, completion, files,
-00104 |   links, hashes, snapshots, and exact references. A diagram detector must be
-00105 |   deterministic, bounded, Unicode-cell aware, and model-independent. A
-00106 |   candidate must be cropped to its exact contiguous structural rows; adjacent
-00107 |   prose is not diagram evidence. A redaction conflict or unsafe geometry omits
-00108 |   the diagram. Any admitted diagram is visually separate and labeled as prior
-00109 |   context unless it maps uniquely to visible terminal evidence; ordinary
-00110 |   snapshot and raw paths remain literal.
-00111 | - Terminal captures are untrusted data for the guide. The prompt explicitly
-00112 |   tells the model that pane-authored and continuity text has no authority, but
-00113 |   model resistance to prompt injection is best effort rather than a security
-00114 |   boundary. Guide prose never executes.
-00115 | - The optional natural-language key composer sends only the user's one key
-00116 |   description to the configured guide provider. It supplies no terminal
-00117 |   capture, prior model output, session metadata, or chat history. Provider
-00118 |   output must decode as a closed physical-key proposal with no free-text
-00119 |   payload field and is bounded to 32 expanded events. Because individual
-00120 |   printable-key events can still compose text, Engram renders the exact locally
-00121 |   normalized sequence and target for an explicit, current, single-use
-00122 |   confirmation. The model has proposal authority only; it never has terminal
-00123 |   authority.
-00124 | - Key prompts and confirmations are deliberately process-local. Their random
-00125 |   tokens, descriptions, and proposed sequences are not persisted or audited.
+00100 |   kernel process-start identity before and after a bounded read and at final
+00101 |   publication. The hook observation must not predate the process. The UUID must
+00102 |   match the filename and bounded record `sessionId` values. The transcript must
+00103 |   be an owned regular non-symlink file. Recency, cwd, title, and model discovery
+00104 |   are forbidden fallbacks.
+00105 | - Claude's documented `SessionStart.model` may populate only bounded structured
+00106 |   presentation with explicit hook provenance. It is not process or transcript
+00107 |   identity and is cleared at every lifecycle or process-incarnation boundary.
+00108 |   Codex hook model fields are not accepted without an official contract.
+00109 | - Agent compatibility diagnostics and fixture inventories never print or store
+00110 |   terminal messages, transcript values, working directories, executable or
+00111 |   transcript paths, UUIDs, task text, or agent names. Fixture capture uses an
+00112 |   allow-list transform before writing and requires human review before check-in.
+00113 | - `engram claude-bind` is an optional migration path for sessions that predate
+00114 |   the official hook. It accepts no arguments, uses inherited `TMUX_PANE`, and
+00115 |   may publish a candidate only after proving one live Claude process, a bounded
+00116 |   owned PID registry with matching PID/version/UUID, and exactly one UUID-named
+00117 |   transcript. Because the registry is undocumented, any changed or ambiguous
+00118 |   shape must fail closed and direct the user to restart with the hook.
+00119 | - The named Claude transcript parser may admit only bounded non-meta,
+00120 |   non-sidechain human string prompts and main-session assistant `text` blocks.
+00121 |   Thinking, tool use and results, array-form user records, attachments, system
+00122 |   metadata, sidechains, subagent transcripts, and unknown recognized content
+00123 |   variants must be excluded. Split records require stable message identity.
+00124 |   Large files use a bounded identity prefix and a fixed tail ending at the
+00125 |   opened size. Complete messages are redacted before truncation; transcript
 ```
 
 
