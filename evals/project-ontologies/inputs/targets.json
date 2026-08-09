@@ -6,7 +6,7 @@
       "project": "Engram",
       "organon_version": "0.18.0",
       "ontology_file": "project-ontologies/engram.md",
-      "ontology_sha256": "ffd957624f8703dc62ac522e62090f06ec89648bf166a9aeb0c254ace2f4145a",
+      "ontology_sha256": "f8859433aa7e922cada04b41130ec57e5b93277cc3bbeb319986cec7280508df",
       "source_files": [
         "evals/project-ontologies/inputs/sources/engram.md"
       ],
@@ -26,7 +26,7 @@
       "project": "Kenogram",
       "organon_version": "0.18.0",
       "ontology_file": "project-ontologies/kenogram.md",
-      "ontology_sha256": "cf352607f08601b231065d4da7c368b202ab66981e399b4c9a151a90b1457735",
+      "ontology_sha256": "e5eb93079ad61050807bc2825f805de1abfaf0797ded6ca03c2930a9b5db8b19",
       "source_files": [
         "evals/project-ontologies/inputs/sources/kenogram.md"
       ],

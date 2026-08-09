@@ -56,7 +56,7 @@ The following terms retain Engram's own meanings before any Organon corresponden
 | GitHub grant | A stored renewable local mechanism containing a binding, enrolled application information, repository and permission scopes, purpose, creation time, and expiry. | `internal/app/github_grant.go:67-98`, `internal/githubauth/types.go:26-70` |
 | lease | A bounded token result associated with an application, installation, repository set, permission set, expiry, and optionally a local grant ID. | `internal/githubauth/types.go:26-70` |
 
-The pane terminology contains a source-visible seam. The protocol's irreducible noun names a pane/window pair, while requirements and implementation guard effects with a server/window/pane triple. This candidate maps only the validated triple. It does not silently rewrite the protocol noun.
+The pane terminology contains a source-visible seam. The protocol's irreducible noun names a pane/window pair, while requirements and implementation guard effects with a server/window/pane triple. This candidate does not silently rewrite the protocol noun. It promotes equality of the triple only for the exact styled-capture interval that supplies before-and-after identity witnesses; the broader guarded-operation family remains unmapped to `organon:Invariant`.
 
 ## Participants and worlds
 
@@ -95,6 +95,8 @@ A styled capture reads metadata, captures physical ANSI and joined logical buffe
 
 The frame is the local basis for presentation. A guide summary is a transformation of bounded text, while a snapshot is a literal rendering path. Neither presentation is silently promoted to terminal fact, Truth, or Evidence.
 
+Only the styled-capture operation in the supplied dossier explicitly compares the terminal identity before and after its capture Transformation. Other pane-bound operations validate identity as an effect-time condition, but the cited excerpts do not establish preservation through a post-operation State. Destructive close is intentionally terminating and therefore cannot witness preservation of the pane binding.
+
 ### Current and stale routing
 
 A current view or latest eligible alternate may route input. Older alternates are stale. The store lookup in the reply path distinguishes current and stale targets, and the input function repeats current-target and terminal-binding checks while holding session and anchor locks (`internal/app/app.go:498-522`, `internal/app/input.go:54-182`). The repeated check matters because a message that was once current may become stale before the effect.
@@ -123,17 +125,20 @@ The repository uses words such as observation, evidence, audit evidence, trusted
 
 The project states or implements the following load-bearing invariants:
 
-1. Pane-bound effects validate the stored server, window, and pane identifiers; generic failure alone does not prove identity loss (`requirements/tmux.md:27-46`).
-2. Input kinds remain distinct, and presentation work does not block their critical path (`docs/protocol-posture.md:15-66`).
-3. Physical and logical presentations derive from one bounded frame (`docs/protocol-posture.md:15-66`).
-4. A watch has at most one actionable current view per selected frontend (`docs/protocol-posture.md:15-66`).
-5. Only the latest route of each alternate kind may act; known stale routes fail closed (`docs/protocol-posture.md:15-66`).
-6. Replacement records a successor before retiring its predecessor where the external medium permits (`docs/protocol-posture.md:15-66`).
-7. Attention records remain bounded, deduplicated, terminal-authored, best effort, and untrusted; they do not become commands or authentication (`docs/protocol-posture.md:15-66`).
-8. Uncertain shell effects are not replayed after restart, and presentation failure does not establish pane loss (`docs/protocol-posture.md:15-66`).
+1. Pane-bound effects validate the stored server, window, and pane identifiers; generic failure alone does not prove identity loss (`requirements/tmux.md:27-46`). This is a local guarded-effect rule, not a general promoted Organon Invariant across every operation.
+2. Styled capture compares pane identity and capture boundaries before and after capture and rejects a changed interval (`internal/tmux/tmux.go:677-776`).
+3. Input kinds remain distinct, and presentation work does not block their critical path (`docs/protocol-posture.md:15-66`).
+4. Physical and logical presentations derive from one bounded frame (`docs/protocol-posture.md:15-66`).
+5. A watch has at most one actionable current view per selected frontend (`docs/protocol-posture.md:15-66`).
+6. Only the latest route of each alternate kind may act; known stale routes fail closed (`docs/protocol-posture.md:15-66`).
+7. Replacement records a successor before retiring its predecessor where the external medium permits (`docs/protocol-posture.md:15-66`).
+8. Attention records remain bounded, deduplicated, terminal-authored, best effort, and untrusted; they do not become commands or authentication (`docs/protocol-posture.md:15-66`).
+9. Uncertain shell effects are not replayed after restart, and presentation failure does not establish pane loss (`docs/protocol-posture.md:15-66`).
 
 The corresponding prohibited collapses are:
 
+- a pre-effect identity check is not a before-and-after preservation witness;
+- destructive close cannot be treated as preserving the pane binding it terminates;
 - a mutable pane index is not the validated terminal binding;
 - a watch is not its tmux session or pane;
 - a current view is not the frame or pane it presents;
@@ -153,12 +158,13 @@ No exact correspondence is promoted. The six promoted mappings are refinements: 
 
 | Local term or mechanism | Organon target | Classification | Reason |
 | --- | --- | --- | --- |
-| validated terminal binding | `organon:Invariant` | refinement | The server/window/pane triple is named as preserved and rechecked across pane-bound operations. |
+| styled-capture binding equality | `organon:Invariant` | refinement | During one `CaptureStyled` interval, the server/window/pane identity sampled before capture must equal the identity sampled after capture; a mismatch rejects the frame. |
 | watch | `organon:Record` | refinement | A persisted watch represents earlier sampled binding, lifecycle, and terminal-session state. |
 | frame | `organon:State` | refinement | It is a bounded configuration indexed to one capture occurrence and shared coordinates. |
 | current view | `organon:Representation` | refinement | The Telegram presentation occupies an expression position directed at a watch and bounded frame. |
 | current-route validity relation | `organon:Constraint` | refinement | It persists while a route is current, permits current-route input transformations, and excludes known stale ones. |
 | guarded reply-input chain | `organon:CausalPath` | refinement | Ordered handling, target validation, and tmux-send transformations feed one another toward a pane-bound effect. |
+| broader validated terminal binding | `organon:Invariant` | unmapped | Pre-effect validation does not prove preservation across input, lookup, scrollback, or close, and destructive close cannot preserve the pane binding. |
 | tmux workspace | `organon:Substrate` | unmapped | Durable-workspace language does not itself supply the required Feeds and transformation-family packet. |
 | terminal truth and requirements source of truth | `organon:Truth` | conflict | The local phrases mean operational or normative primacy, not scoped semantic material adequacy. |
 | frame described as observation | `organon:Observation` | unmapped | The complete Entity, Sense, causal-production Specification, and Record packet is absent. |
@@ -173,7 +179,7 @@ No exact correspondence is promoted. The six promoted mappings are refinements: 
 
 The mapping manifest is authoritative for dependency closure. In summary:
 
-- The terminal-binding packet names the preserved triple and the input, capture, lookup, scrollback, and close transformation family.
+- The styled-capture packet names the pre-capture State, capture Transformation, post-capture State, exact server/window/pane equality Invariant, and explicit before-and-after comparison. It does not generalize to input or destructive close.
 - The watch packet distinguishes the serialized representation from its pane and sampled-state targets and names update, save, reload, and recovery transformations.
 - The frame packet treats one capture occurrence as its ordering index; it does not turn the frame into an Observation.
 - The current-view packet names the Telegram anchor content as expression and the watch plus bounded frame as target; Denotation supplies neither fidelity nor Truth.
@@ -182,7 +188,9 @@ The mapping manifest is authoritative for dependency closure. In summary:
 
 ## Boundary cases
 
-- **Protocol pair versus guarded triple.** The protocol calls pane/window IDs pane identity, while implementation requirements add server incarnation. The promoted Invariant is the validated triple, not the narrower phrase (`docs/protocol-posture.md:15-66`, `requirements/tmux.md:27-46`).
+- **Protocol pair versus guarded triple.** The protocol calls pane/window IDs pane identity, while implementation requirements add server incarnation. The promoted Invariant concerns equality of the validated triple only during the exact styled-capture interval; it does not redefine the protocol noun or cover every guarded operation (`docs/protocol-posture.md:15-66`, `requirements/tmux.md:27-46`, `internal/tmux/tmux.go:677-776`).
+- **Precondition versus preservation.** Input and other pane-bound operations may validate the binding immediately before an effect, but the supplied excerpts do not generally sample a post-operation State proving preservation. Those mechanisms remain local conditional guards rather than promoted Invariants (`requirements/tmux.md:27-46`, `internal/tmux/tmux.go:507-563`).
+- **Destructive close.** A close operation intentionally terminates its target and therefore cannot belong to a transformation family under which the pane-binding equality is preserved (`requirements/tmux.md:27-46`).
 - **Text before Enter.** A restart between text insertion and Enter can leave text unsubmitted, although the binding condition prevents redirecting either effect into a different server (`internal/tmux/tmux.go:507-563`). The command path is guarded but not represented as one indivisible effect.
 - **Effect before state update.** tmux input may succeed before Engram fails to update local state. The resulting status is not proof of no effect (`internal/app/input.go:54-182`).
 - **Collapsed sessions.** Hiding a session stops observation; the shelf therefore labels summaries as cached and cannot accept terminal input (`docs/design-principles.md:67-103`).
@@ -199,6 +207,7 @@ A later review should reopen this candidate when any of the following changes:
 
 - pane identity ceases to use the server/window/pane triple or gains another incarnation identifier;
 - the protocol's pair terminology is reconciled with implementation requirements;
+- pane-bound operations add post-operation States capable of witnessing binding preservation;
 - route eligibility, stale-route handling, or the one-actionable-view rule changes;
 - the order of anchor promotion and predecessor retirement changes;
 - collapsed shelves become input routes or continue observing hidden sessions;
@@ -211,12 +220,13 @@ A later review should reopen this candidate when any of the following changes:
 
 Promotion gates remain explicit:
 
-1. Map tmux to `organon:Substrate` only after naming persistent input States, Feeds, contributing Constraints, and the exact family of Transformations.
-2. Map frame to `organon:Observation` only after identifying an observing Entity, identity Invariant, Boundary, Sense, Environment, production Causal path, constructive Specification, and persistent Record.
-3. Map audit or guide material to `organon:Evidence` only after identifying the claimant, distinct Witness, Observation, mechanical and institutional independence, Order, Admissibility Rule, Admission, and Scope.
-4. Map Telegram or GitHub approval to institutional terms only after identifying an Order, Standing, Principal, Authority, Permission Claim, authorized Declaration, Grant, Admission, and resulting Permission Record.
-5. Map a token or lease to `organon:Capability` only after identifying the Agent, Action scope, environmental and technical Constraints, and a constructive satisfying configuration with an action-producing path.
-6. Map the current view to `organon:Interface` only after supplying identity and persistence packets for the coordinating Entities and the Boundary whose permitted transformations are represented.
+1. Map the broader validated terminal binding to `organon:Invariant` only after naming a pre-operation State, post-operation State, equality Invariant, and preservation witness for every included Transformation. Do not include destructive close in a preservation family.
+2. Map tmux to `organon:Substrate` only after naming persistent input States, Feeds, contributing Constraints, and the exact family of Transformations.
+3. Map frame to `organon:Observation` only after identifying an observing Entity, identity Invariant, Boundary, Sense, Environment, production Causal path, constructive Specification, and persistent Record.
+4. Map audit or guide material to `organon:Evidence` only after identifying the claimant, distinct Witness, Observation, mechanical and institutional independence, Order, Admissibility Rule, Admission, and Scope.
+5. Map Telegram or GitHub approval to institutional terms only after identifying an Order, Standing, Principal, Authority, Permission Claim, authorized Declaration, Grant, Admission, and resulting Permission Record.
+6. Map a token or lease to `organon:Capability` only after identifying the Agent, Action scope, environmental and technical Constraints, and a constructive satisfying configuration with an action-producing path.
+7. Map the current view to `organon:Interface` only after supplying identity and persistence packets for the coordinating Entities and the Boundary whose permitted transformations are represented.
 
 <!-- organon:mapping-manifest -->
 ```yaml
@@ -224,17 +234,15 @@ schema_version: 1
 project: Engram
 commit: 1b56983ac658f10bfbd76c44bfc99c20b1355ebe
 mappings:
-  - local_term: validated terminal binding
+  - local_term: styled-capture binding equality
     organon_id: organon:Invariant
     classification: refinement
     evidence:
-      - requirements/tmux.md:27-46
-      - internal/tmux/tmux.go:507-563
       - internal/tmux/tmux.go:677-776
-    rationale: 'The exact server, window, and pane identifiers are named as preserved and are revalidated across a specified family of pane-bound operations.'
+    rationale: 'Within one completed CaptureStyled interval, the server, window, and pane identity sampled before capture must equal the identity sampled after capture; a changed identity rejects the result.'
     dependency_packet:
       organon_claim: D011
-      scope: 'One watched pane binding during input, capture, cwd lookup, scrollback, or destructive close.'
+      scope: 'One invocation of CaptureStyled from its pre-capture metadata sample through its post-capture metadata sample.'
       dependency_closure:
         - organon:Presence
         - organon:Relation
@@ -243,18 +251,22 @@ mappings:
         - organon:Direction
         - organon:Transformation
       dependency_witnesses:
-        organon:Presence: 'The stored server, window, and pane identifier values and effect-time sampled values.'
-        organon:Relation: 'Exact equality between each stored identifier and its effect-time counterpart.'
-        organon:Configuration: 'The server ID, window ID, and pane ID considered together as one terminal binding.'
-        organon:State: 'The stored watch configuration and the effect-time tmux configuration.'
-        organon:Direction: 'The order from pre-effect identity validation toward the attempted pane-bound operation.'
-        organon:Transformation: 'Input, capture, cwd lookup, scrollback, and destructive-close operations guarded by the binding.'
+        organon:Presence: 'The pre-capture and post-capture server ID, window ID, and pane ID values, together with the capture buffers and metadata.'
+        organon:Relation: 'Exact component-wise equality between the pre-capture and post-capture terminal identity values.'
+        organon:Configuration: 'Each metadata sample considered as a server, window, and pane identity configuration.'
+        organon:State: 'The metadata configuration parsed before capture and the metadata configuration parsed after capture.'
+        organon:Direction: 'The order from the pre-capture metadata State, through capture, to the post-capture metadata State.'
+        organon:Transformation: 'The paired physical and joined capture operation followed by the post-capture metadata read.'
       target_witness:
-        preserved: 'Exact server ID, window ID, and pane ID equality.'
-        across_transformations: 'Pane-bound input, capture, cwd lookup, scrollback, and destructive close.'
+        preserved: 'Exact equality of server ID, window ID, and pane ID between the pre-capture and post-capture States.'
+        across_transformations: 'The physical ANSI and joined logical capture Transformation within one CaptureStyled invocation.'
+        pre_state: 'The `before` metadata parsed before capture.'
+        post_state: 'The `after` metadata parsed after capture.'
+        persistence_witness: '`sameCaptureIdentity(before, after)` must hold; otherwise CaptureStyled returns an IdentityError instead of a frame.'
       exclusions:
-        - 'Mutable indexes are not identity witnesses.'
-        - 'Generic command failure does not prove that the preserved binding was lost.'
+        - 'The mapping does not cover input, cwd lookup, scrollback, or destructive close.'
+        - 'An effect-time precondition check alone is not a preservation witness.'
+        - 'Capture-boundary equality is checked separately and is not silently identified with terminal identity equality.'
 
   - local_term: watch
     organon_id: organon:Record
@@ -445,6 +457,19 @@ mappings:
         - 'The mapping covers the guarded continuing branch, not every failure branch as one path.'
         - 'A failure returned after the tmux effect does not prove rollback or absence of an effect.'
         - 'The text-plus-Enter command sequence is not claimed to be indivisible.'
+
+  - local_term: broader validated terminal binding
+    organon_id: organon:Invariant
+    classification: unmapped
+    evidence:
+      - requirements/tmux.md:27-46
+      - internal/tmux/tmux.go:507-563
+    rationale: 'The broader mechanism validates identity as a condition immediately before pane-bound effects, but the supplied sources do not provide post-operation States proving preservation for every named operation; destructive close necessarily terminates its target.'
+    promotion_gate:
+      missing:
+        - 'A named pre-operation State and post-operation State for every included Transformation.'
+        - 'A before-and-after equality witness rather than only a precondition check.'
+        - 'A transformation family that excludes destructive close and any other operation that terminates the binding.'
 
   - local_term: tmux workspace
     organon_id: organon:Substrate

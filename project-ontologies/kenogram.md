@@ -105,6 +105,8 @@ The load-bearing local invariants are:
 - repeated application of one declaration must be observationally indistinguishable under the network invariant set (`requirements/network.md:23-31`);
 - complete governed-job publication requires the final manifest seal and required runtime identities (`requirements/jobs.md:172-201`; `requirements/jobs.md:239-269`).
 
+These are Kenogram's normative and observational invariants. Their local label does not itself promote a contract or world-pattern to `organon:Invariant`; that promotion requires an actual preserved runtime bearer and instance-level preservation witnesses.
+
 This ontology prohibits the following collapses:
 
 1. **Operational absence is not Organon Absence.** A missing route, socket, mount, resolver, or capability is a represented condition inside a runtime field.
@@ -115,6 +117,8 @@ This ontology prohibits the following collapses:
 6. **Hash equality is not Truth or Entity identity.** Kenogram limits hash comparisons to provenance and conservative operational sameness (`docs/kenogrammatics.md:65-76`).
 7. **A complete result is not successful, safe, true, or authorized by its producer.** Target lifecycle, finalization, cleanup, and observation completeness remain separate (`requirements/jobs.md:140-170`).
 8. **The security contract is not proof of universal security.** Declared writable mounts and secrets cross the boundary intentionally, and kernel/runtime isolation remains a dependency (`requirements/security.md:62-80`; `requirements/security.md:111-117`).
+9. **A normative contract is not its preserved runtime bearer.** Stating that observations should persist does not establish that a particular Relation or Configuration was preserved across particular endpoint States.
+10. **A hash-chained entry is not automatically an Organon Record.** Local retention and provenance do not supply an ordered Denotation to an exact earlier State, Relation, or Change or the full Persistence constructor.
 
 ## Organon mappings
 
@@ -126,8 +130,8 @@ This ontology prohibits the following collapses:
 | K2 | version-1 declaration contract | `organon:Specification` | refinement | promoted |
 | K3 | generation as an indexed runtime configuration | `organon:State` | refinement | promoted |
 | K4 | successful replacement | `organon:Transformation` | refinement | promoted |
-| K5 | required-observation world-pattern | `organon:Invariant` | refinement | promoted |
-| K6 | hash-chained history record | `organon:Record` | refinement | promoted |
+| K5 | required-observation world-pattern | `organon:Invariant` | unmapped | gated |
+| K6 | hash-chained history record | `organon:Record` | unmapped | gated |
 | K7 | local authority | `organon:Authority` | conflict | gated |
 | K8 | `allow` / `revoke` | `organon:Permission` | conflict | gated |
 | K9 | runtime evidence and tests | `organon:Evidence` | conflict | gated |
@@ -150,11 +154,13 @@ This ontology prohibits the following collapses:
 
 **Target claim:** D019. **Complete registry dependencies:** `organon:Representation`, `organon:Scope`.
 
-- **Representation:** the version-1 grammar and schema restrictions represented by the declaration contract.
-- **Denoted target:** conformity criteria for candidate Kenogram declaration bytes.
-- **Scope:** exactly one UTF-8 version-1 declaration accepted by the documented TOML subset.
-- **Constructive decision procedure:** parse, reject unknown or malformed constructs, validate schema and path constraints, and either return a prepared resolved plan or an error (`requirements/declaration.md:5-21`; `internal/app/app.go:207-232`).
-- **Exclusion:** an individual declaration is not promoted merely because it was supplied; this mapping concerns the contract and its decision procedure.
+- **Expression participant:** the text of the version-1 declaration contract and schema restrictions. It occupies the first, expression position in the ordered Denotation.
+- **Target participant:** the version-1 declaration-conformity Configuration comprising the allowed declaration structures and the validation Relations among their fields. It occupies the later, target position.
+- **Ordered Denotation:** the contract Representation denotes that conformity Configuration in expression-to-target order. The expression and target are not identical, and this Denotation establishes neither Truth, successful materialization, nor institutional status.
+- **Representation dependency packet:** the contract text is a present expression; the ordered Denotation is the Relation connecting it to the target Configuration; and the target Configuration is the allowed structure considered together with its validation Relations.
+- **Scope:** candidate bytes for exactly one UTF-8 version-1 Kenogram declaration accepted under the documented TOML subset.
+- **Constructive decision procedure:** parse the candidate bytes, reject unknown or malformed constructs, validate schema and path constraints, and either return a prepared resolved plan or an error (`requirements/declaration.md:5-21`; `internal/app/app.go:207-232`).
+- **Exclusion:** an individual declaration is not promoted merely because it was supplied, and acceptance does not establish that a runtime was successfully or securely materialized.
 
 ### K3 — a generation as an indexed runtime configuration refines State
 
@@ -176,31 +182,14 @@ This ontology prohibits the following collapses:
 - **Witness:** the successor is staged and verified before being recorded as applied, while transition state names rollback or commit direction (`requirements/lifecycle.md:7-23`).
 - **Exclusion:** failed staging, unresolved recovery, or rollback alone is not an instance of this promoted successful-replacement mapping.
 
-### K5 — the required-observation world-pattern refines Invariant
+### Gated correspondences
 
-**Target claim:** D011. **Complete registry dependencies:** `organon:Relation`, `organon:Configuration`, `organon:Transformation`.
-
-- **Preserved Configuration:** the finite required-observation contract, including the named runtime acceptance relations rather than implementation bytes or structure.
-- **Named Transformations:** successful replacement under K4 and repeated application of one declaration.
-- **Preservation witness:** replacement may change the material inscription while preserving required observations, and reapplication must remain indistinguishable under the network invariant set (`docs/kenogrammatics.md:50-56`; `requirements/network.md:23-31`).
-- **Exclusion:** this mapping is limited to the declared finite observation contract. It does not establish formal morphic bisimulation, complete behavioral equivalence, or Entity identity.
-
-### K6 — a hash-chained history record refines Record
-
-**Target claim:** D028. **Complete registry dependencies:** `organon:Persistence`, `organon:Representation`, `organon:State`, `organon:Relation`, `organon:Change`.
-
-- **Representation:** one JSON history entry containing timestamp, action, declaration and plan digests, workspace digest, outcome, detail, previous hash, and current hash.
-- **Denoted target:** the completed operation or transition Change and its associated operational State.
-- **Relation witness:** `PreviousHash` joins the entry to the immediately preceding verified history entry.
-- **Persistence witness:** the entry is appended, the file is fsynced, and subsequent entries retain the preceding hash (`internal/history/history.go:18-29`; `internal/history/history.go:42-70`).
-- **Exclusion:** the record supplies provenance and retained history, not Truth, independent Evidence, a Ledger, or institutional Admission.
-
-### Gated conflicts and unmapped correspondences
-
+- **K5 — unmapped:** Kenogram's world-pattern is a finite normative observation contract, not yet an identified runtime part, Relation, or Configuration preserved across a named set of Transformations. A promotable instance must restrict the Transformation to one specifically identified pattern-preserving replacement or same-declaration reapplication, name the exact runtime bearer in both K3 endpoint States, and supply pre/post observations showing preservation. General successful replacement is insufficient because replacement may change the declaration and therefore the required pattern (`docs/kenogrammatics.md:50-56`; `requirements/network.md:23-31`).
+- **K6 — unmapped:** the local history format retains timestamp, action, digests, outcome, detail, and hash linkage, but the dossier does not establish an ordered Denotation from a particular entry to an exact earlier State, Relation, or Change. It also does not name a preserved entry/hash Invariant, ordered post-append States, and the subsequent transformations or verification steps across which that Invariant persists. Append and fsync alone do not complete the Organon Record constructor (`internal/history/history.go:18-29`; `internal/history/history.go:42-70`).
 - **K7 — conflict:** Kenogram's declaration and transition authority controls technical application and current-generation selection. Organon Authority is an Order-indexed relation involving an Agent, Actions, CountsAs, a Principal, and Scope. The local meaning deliberately lacks that institutional constructor (`docs/design.md:11-14`; `requirements/lifecycle.md:25-32`).
 - **K8 — conflict:** local `allow` and `revoke` change live egress policy. Organon Permission requires a Permission Claim, valid Grant, Admission, governing Order, Principal, Agent, Scope, and interval. The local operations cannot be renamed into that chain (`README.md:16-21`; `requirements/network.md:25-27`).
 - **K9 — conflict:** Kenogram uses evidence for structured observations, tests, and sealed replay material. Organon Evidence additionally requires an Observation produced by an IndependentFor Witness and admitted by an Order under an Admissibility Rule; supportive or defeating use requires Evidential Bearing. The repository also warns that self-reported provenance is not self-qualification (`README.md:120-133`; `requirements/provenance.md:29-32`).
-- **K10 — unmapped:** the local world is a rootless Linux environment, but an Organon World requires established Entities, participant-available causal paths, named Constraints, and a common Invariant across access paths. K5 supplies only a finite replacement invariant, not the whole packet (`docs/design.md:6-9`; `docs/design.md:30-41`).
+- **K10 — unmapped:** the local world is a rootless Linux environment, but an Organon World requires established Entities, participant-available causal paths, named Constraints, and a common Invariant across access paths. The local finite observation contract does not supply that whole packet (`docs/design.md:6-9`; `docs/design.md:30-41`).
 - **K11 — unmapped:** the execution boundary has documented constraints and observations, but Organon Boundary must be indexed to an Entity identity Invariant and its preserving or identity-crossing Transformations. No such Entity packet is promoted (`README.md:27-47`; `requirements/security.md:111-117`).
 - **K12 — unmapped:** the operator interface explicitly represents one permitted descriptor-transfer path, but Organon Interface is a Boundary coordinated between established Entities. The endpoint mechanism is documented; the Entity and Boundary dependencies remain open (`internal/decl/types.go:57-62`; `requirements/network.md:62-66`).
 - **K13 — unmapped:** the repository's AI agent and world process labels establish process roles, not an Organon Agent. Entity identity, Interpretation, and evidence that Interpretation conditions Action are absent (`README.md:7-25`; `requirements/security.md:111-117`).
@@ -210,24 +199,28 @@ This ontology prohibits the following collapses:
 - A failed direct TCP connection can witness local network nonavailability and K1 Missingness. It does not witness absolute Absence, universal isolation, or security against kernel escape.
 - A successor container that starts but has not passed inspection is a candidate generation, not an applied successor. It can instantiate K3 as an indexed configuration without completing K4.
 - A rollback after failed replacement is a recorded recovery path. It is not the successful predecessor-to-successor Direction used by K4.
-- Two generations can satisfy K5 while differing in image structure, runtime identifiers, or bytes. Conversely, equal names or digests do not establish K5 without the required observations.
+- Two generations may satisfy the same local finite observation contract while differing in image structure, runtime identifiers, or bytes. That local result does not instantiate K5 unless a specific runtime bearer and its pre/post preservation witnesses are supplied.
 - A declaration digest records which bytes were read, and a plan digest fingerprints resolved intent. Neither digest creates Truth, Entity identity, or institutional Authority (`docs/kenogrammatics.md:65-76`).
+- A hash-chained entry can survive append and fsync while K6 remains gated: durability does not identify the exact denoted earlier State, Relation, or Change or establish Persistence under Organon's constructor.
 - A governed-job manifest can be locally complete and replayable while remaining a producer artifact rather than Organon Evidence. Completeness does not supply an IndependentFor Witness or admitting Order.
 - A target result marked `unknown` preserves missing outcome information rather than inventing success or failure; a missing seal cannot be upgraded to a complete job (`requirements/jobs.md:151-178`).
 - A named loopback operator interface exposes one declared byte stream. It does not supply a general host-to-world network relation or, without K11 and participant Entity packets, an Organon Interface.
 
 ## Uncertainties and promotion gates
 
-The following gates must be resolved from a later pinned snapshot before promotion:
+The following gates must be resolved from a later pinned snapshot or instance-specific packet before promotion:
 
-1. **Institutional packet:** K7 or K8 would require a named Order, Rule, Scope, Principal, Agent, Standing or CountsAs path, authorized Grant, and Admission. Technical configuration control is insufficient.
-2. **Evidence packet:** K9 would require a claimant and Claim, a distinct Witness, the relevant Observation path, mechanical and institutional independence, an Admissibility Rule, governing Order, Admission, and any claimed Evidential Bearing disposition.
-3. **Entity and World packet:** K10, K11, and K12 require explicit identity Invariants, ordered States, Persistence witnesses, Entity-indexed Constraints, participating Entities, and scoped causal access paths.
-4. **Agent packet:** K13 requires a persistent Entity whose Interpretation demonstrably conditions which Action occurs. Process naming or successful command execution is insufficient.
-5. **Security scope:** broader security claims require evidence beyond the repository's stated rootless Podman and Linux assumptions and must preserve the explicit exclusions for declared secrets, writable mounts, admitted destinations, hostile hosts, and runtime escape.
-6. **Apple runtime:** the repository says the experimental launcher is not macOS runtime support and leaves lifecycle and network evidence open (`README.md:64-67`). No cross-platform boundary mapping is promoted.
+1. **Invariant packet:** K5 requires one specifically identified pattern-preserving replacement or same-declaration reapplication, an actual runtime part, Relation, or Configuration present in both endpoint States, the exact preserved respect, and pre/post observation witnesses. A normative contract or general claim of conformance is insufficient.
+2. **Record packet:** K6 requires a particular entry, an ordered Denotation whose expression position is that entry and whose target position is an exact earlier State, Relation, or Change, plus a Persistence witness naming the preserved entry/hash Invariant, ordered post-append States, and relevant subsequent transformations or verification steps.
+3. **Institutional packet:** K7 or K8 would require a named Order, Rule, Scope, Principal, Agent, Standing or CountsAs path, authorized Grant, and Admission. Technical configuration control is insufficient.
+4. **Evidence packet:** K9 would require a claimant and Claim, a distinct Witness, the relevant Observation path, mechanical and institutional independence, an Admissibility Rule, governing Order, Admission, and any claimed Evidential Bearing disposition.
+5. **Entity and World packet:** K10, K11, and K12 require explicit identity Invariants, ordered States, Persistence witnesses, Entity-indexed Constraints, participating Entities, and scoped causal access paths.
+6. **Agent packet:** K13 requires a persistent Entity whose Interpretation demonstrably conditions which Action occurs. Process naming or successful command execution is insufficient.
+7. **Security scope:** broader security claims require evidence beyond the repository's stated rootless Podman and Linux assumptions and must preserve the explicit exclusions for declared secrets, writable mounts, admitted destinations, hostile hosts, and runtime escape.
+8. **Apple runtime:** the repository says the experimental launcher is not macOS runtime support and leaves lifecycle and network evidence open (`README.md:64-67`). No cross-platform boundary mapping is promoted.
+9. **Review gate:** this generated candidate requires human review and fresh evaluation of its exact revised bytes before acceptance.
 
-Review this ontology again if the repository changes the declaration schema, replacement authority model, network invariant set, runtime provider assumptions, governed-job evidence contract, verifier independence model, or meaning of world, generation, authority, evidence, or interface. A branch move without the pinned commit does not update this candidate.
+Review this ontology again if the repository changes the declaration schema, replacement authority model, network invariant set, runtime provider assumptions, governed-job evidence contract, verifier independence model, history semantics, or meaning of world, generation, authority, evidence, invariant, record, or interface. A branch move without the pinned commit does not update this candidate.
 
 <!-- organon:mapping-manifest -->
 ```yaml
@@ -260,10 +253,16 @@ mappings:
       - 'organon:Representation'
       - 'organon:Scope'
     packet:
-      representation: 'The represented version-1 grammar and schema restrictions.'
+      representation:
+        expression_presence: 'The text of the version-1 declaration contract and schema restrictions.'
+        ordered_denotation:
+          expression_position: 'The version-1 contract and schema Representation.'
+          target_position: 'The Configuration of allowed version-1 declaration structures and validation Relations among their fields.'
+          order: 'Expression first; target Configuration later.'
+          nonidentity: 'The contract Representation is not identical with the conformity Configuration it denotes.'
       scope: 'Candidate bytes for exactly one UTF-8 Kenogram version-1 declaration.'
       decision_procedure: 'Parse, reject unsupported or malformed structures, validate constraints, and return a prepared plan or error.'
-      exclusion: 'Supplying an individual declaration does not itself establish this mapping.'
+      exclusion: 'Acceptance does not establish successful materialization, security, Truth, or institutional status.'
     evidence:
       - 'requirements/declaration.md:5-21'
       - 'internal/app/app.go:207-232'
@@ -305,16 +304,17 @@ mappings:
     local_term: 'required-observation world-pattern'
     organon_id: 'organon:Invariant'
     target_claim: D011
-    classification: refinement
-    status: promoted
-    dependencies:
+    classification: unmapped
+    status: gated
+    missing_dependencies:
       - 'organon:Relation'
       - 'organon:Configuration'
       - 'organon:Transformation'
-    packet:
-      preserved_configuration: 'The finite required-observation contract and its named acceptance relations.'
-      transformations: 'Successful replacement and repeated application of one declaration.'
-      exclusion: 'No formal morphic bisimulation, complete behavioral equivalence, or Entity identity follows.'
+    missing_packet:
+      bearer: 'An actual runtime part, Relation, or Configuration identified in both endpoint States.'
+      transformation_scope: 'One specifically identified pattern-preserving replacement or same-declaration reapplication.'
+      witnesses: 'Pre/post runtime observations establishing preservation of the exact bearer in the named respect.'
+    rationale: 'The finite contract is a normative Representation; general replacement may change the declaration and no instance-level preserved runtime bearer is supplied.'
     evidence:
       - 'docs/kenogrammatics.md:50-56'
       - 'requirements/network.md:23-31'
@@ -322,19 +322,21 @@ mappings:
     local_term: 'hash-chained history record'
     organon_id: 'organon:Record'
     target_claim: D028
-    classification: refinement
-    status: promoted
-    dependencies:
+    classification: unmapped
+    status: gated
+    missing_dependencies:
       - 'organon:Persistence'
       - 'organon:Representation'
       - 'organon:State'
       - 'organon:Relation'
       - 'organon:Change'
-    packet:
-      representation: 'A JSON entry carrying operation, digest, outcome, detail, previous-hash, and current-hash fields.'
-      target: 'The completed operation or transition Change and associated operational State.'
-      persistence: 'Append, fsync, and retention through the next entry previous-hash relation.'
-      exclusion: 'Does not establish Truth, independent Evidence, Ledger, or Admission.'
+      - 'organon:Denotation'
+      - 'organon:Invariant'
+      - 'organon:Transformation'
+    missing_packet:
+      ordered_denotation: 'The particular entry as expression participant and one exact earlier State, Relation, or Change as target participant.'
+      persistence: 'The preserved entry/hash Invariant, ordered post-append States, and subsequent transformations or verification steps across which it persists.'
+    rationale: 'The format, append, fsync, and previous-hash linkage establish local provenance retention but not the complete Organon Record constructor.'
     evidence:
       - 'internal/history/history.go:18-29'
       - 'internal/history/history.go:42-70'
