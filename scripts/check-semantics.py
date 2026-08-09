@@ -202,6 +202,15 @@ def main() -> int:
     if prompt_check.returncode != 0:
         errors.append(prompt_check.stderr.strip() or prompt_check.stdout.strip())
 
+    algebra_check = subprocess.run(
+        [sys.executable, str(ROOT / "scripts" / "build-algebra.py"), "--check"],
+        cwd=ROOT,
+        capture_output=True,
+        text=True,
+    )
+    if algebra_check.returncode != 0:
+        errors.append(algebra_check.stderr.strip() or algebra_check.stdout.strip())
+
     if errors:
         print("Semantic check failed:")
         for error in errors:

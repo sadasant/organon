@@ -1,0 +1,68 @@
+import importlib.util
+import json
+import subprocess
+import sys
+from pathlib import Path
+
+
+ROOT = Path(__file__).resolve().parents[2]
+SCRIPT = ROOT / "scripts" / "build-algebra.py"
+ALGEBRA = ROOT / "ontology" / "algebra"
+
+
+def load_builder():
+    spec = importlib.util.spec_from_file_location("build_algebra", SCRIPT)
+    assert spec and spec.loader
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    return module
+
+
+def test_generated_algebra_is_current_and_falsification_complete():
+    subprocess.run([sys.executable, str(SCRIPT), "--check"], cwd=ROOT, check=True)
+    mutations = json.loads((ALGEBRA / "mutations.yaml").read_text())
+    countermodels = json.loads((ALGEBRA / "fixtures" / "countermodels.yaml").read_text())
+    assert mutations["mutation_count"] == 136
+    assert len(countermodels["semantic_mutations"]) == mutations["mutation_count"]
+    assert all(item["mutated_derives"] and not item["original_derives"] for item in countermodels["semantic_mutations"])
+
+
+def test_every_candidate_law_is_ablation_essential():
+    builder = load_builder()
+    laws = builder.load(builder.LAWS)["laws"]
+    challenges = builder.validate_challenges(builder.load(builder.CHALLENGES), laws)
+    ablation = builder.validate_ablation(laws, challenges)
+    assert len(laws) == len(ablation) == 6
+
+
+def test_unchanged_basis_blocks_holdouts_without_blocking_counts_as():
+    builder = load_builder()
+    laws_data = builder.load(builder.LAWS)
+    laws = laws_data["laws"]
+    holdouts = builder.validate_holdouts(
+        builder.load(builder.HOLDOUTS), laws, laws_data["held_out_domains"]
+    )
+    by_id = {item["id"]: item for item in holdouts}
+    assert by_id["H-COUNTS-AS-INSTITUTIONAL"]["blocked_by"] == []
+    assert all(
+        item["blocked_by"]
+        for item in holdouts
+        if item["id"] != "H-COUNTS-AS-INSTITUTIONAL"
+    )
+
+
+def test_joined_circuits_derive_their_declared_results_in_order():
+    witnesses = json.loads(
+        (ALGEBRA / "fixtures" / "witnesses.yaml").read_text()
+    )
+    circuits = witnesses["joined_circuits"]
+    assert [item["id"] for item in circuits] == [
+        "CIRCUIT-IDENTITY",
+        "CIRCUIT-INSTITUTIONAL-ACTION",
+        "CIRCUIT-EPISTEMIC-STATUS",
+    ]
+    assert all(
+        item["derived_results"] == item["expected_results"]
+        for item in circuits
+    )
+    assert [len(item["derived_results"]) for item in circuits] == [1, 2, 3]

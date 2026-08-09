@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "status": "nonbinding-experiment-input",
+  "ontology_version": "0.17.0",
+  "repository_commit": "3d2d305b93c606f1f7151635e0098c75c79c7674",
+  "sources_sha256": {
+    "ontology/ontology.md": "81c03318a3bc2b07cc3a7a9949c3da54dd885320b2f3ec246f4c5498d5cbcde1",
+    "ontology/terms.yaml": "10fb5fbb880bf4cb1982640f16699c8ebe3ce5c740f3af0c37ac54be813a4314",
+    "ontology/hidden-bridge-audit.md": "9325adbe672db00a297a9b70b15fafe98f7be47b8689d2e41fbffd7fa8c20804",
+    "ontology/prompt.md": "eda2e67535e087e73f852b704cb47177777be50fc503210ab2ddfd44198c7063"
+  }
+}

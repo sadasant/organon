@@ -77,6 +77,15 @@ The [Lean formalization](./ontology/formal/README.md) prices decisions that pros
 
 The formal directory also contains an [Absence-free OrganonCore reduct](./ontology/formal/organon-core-reduct-report.md) and [complete registry audit](./ontology/formal/organon-core-term-audit.md). The current downstream Lean classifiers and finite witnesses compile against that reduct without importing the Absence/Presence extension. A falsification-first seam preserves challenge classifiers for Presence, Missingness, Persistence, and Entity; Reality has one pending representation decision, and 103 binding terms remain explicitly unknown rather than inheriting a proof from similar vocabulary.
 
+The nonbinding [candidate algebra experiment](./ontology/algebra/README.md)
+applies the same falsification-first posture one level above individual terms.
+It translates nine load-bearing definitions into typed witness normal forms,
+generates one-step semantic mutations and finite countermodels, ablates six
+candidate inference laws, and tests the unchanged basis on held-out
+consciousness, valuation, sovereignty, Ritual, and Meaning cases. Its compact
+basis is an experimental review instrument, not a replacement for the binding
+ontology or Lean shadow.
+
 Lean is not canonical. Compilation proves that the declarations elaborate under the pinned compiler. It does not prove that the encoding exhausted the prose, that the prose exhausted Reality, or that the compiler has become a metaphysician. The [formalization decisions](./ontology/formal/decisions.md) and [build receipt](./ontology/formal/build-receipt.md) preserve that boundary.
 
 ## Adoption and review
@@ -97,6 +106,7 @@ From the repository root:
 python3 scripts/check-links.py
 python3 scripts/check-semantics.py
 python3 scripts/build-ontology-prompt.py --check
+python3 scripts/build-algebra.py --check
 python3 scripts/check-proposals.py
 python3 scripts/check-formal-receipt.py
 python3 scripts/check-adoption.py examples/organon-adoption.json --repo-root .

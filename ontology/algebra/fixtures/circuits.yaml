@@ -1,0 +1,77 @@
+{
+  "schema_version": 1,
+  "status": "nonbinding-joined-positive-circuits",
+  "circuits": [
+    {
+      "id": "CIRCUIT-IDENTITY",
+      "description": "Configuration, named identity Invariant, ordered States, and Persistence witness compose into Entity.",
+      "steps": ["NF-ENTITY"],
+      "facts": [
+        {"predicate": "Configuration", "args": ["Configuration:entity"]},
+        {"predicate": "IdentityInvariant", "args": ["Invariant:identity", "Configuration:entity"]},
+        {"predicate": "OrderedStates", "args": ["StateSequence:history", "Configuration:entity"]},
+        {"predicate": "PersistenceWitness", "args": ["Configuration:entity", "Invariant:identity", "StateSequence:history"]}
+      ],
+      "expected_results": [
+        {"predicate": "Entity", "args": ["Configuration:entity"]}
+      ]
+    },
+    {
+      "id": "CIRCUIT-INSTITUTIONAL-ACTION",
+      "description": "A constructive Capability result feeds an exact Permission-indexed Exercisability join for one Action.",
+      "steps": ["NF-CAPABILITY", "NF-EXERCISABILITY"],
+      "facts": [
+        {"predicate": "ActionSpecification", "args": ["Specification:capability", "Action:action", "Agent:agent", "ConstraintSet:constraints"]},
+        {"predicate": "Agent", "args": ["Agent:agent"]},
+        {"predicate": "Action", "args": ["Action:action", "Agent:agent"]},
+        {"predicate": "ConstraintInterpretation", "args": ["ConstraintSet:constraints", "Configuration:configuration"]},
+        {"predicate": "ActionProducingPath", "args": ["CausalPath:path", "Agent:agent", "Action:action", "Configuration:configuration"]},
+        {"predicate": "ConstructiveProcedure", "args": ["ConstructiveProcedure:procedure", "Specification:capability", "Action:action"]},
+        {"predicate": "SatisfiesConstraints", "args": ["Configuration:configuration", "ConstraintSet:constraints"]},
+        {"predicate": "Permission", "args": ["Permission:permission", "Order:order", "Principal:principal", "Agent:agent", "Scope:scope", "Interval:interval", "Grant:grant", "Admission:admission"]},
+        {"predicate": "InScope", "args": ["Action:action", "Scope:scope"]},
+        {"predicate": "InInterval", "args": ["Time:time", "Interval:interval"]},
+        {"predicate": "ContinuedAdmission", "args": ["Order:order", "Permission:permission", "Admission:admission", "Time:time"]},
+        {"predicate": "ConstraintConfiguration", "args": ["Configuration:configuration", "ConstraintSet:constraints", "Time:time"]},
+        {"predicate": "PermissionActionMatch", "args": ["Permission:permission", "Action:action", "Agent:agent", "Scope:scope"]}
+      ],
+      "expected_results": [
+        {"predicate": "Capability", "args": ["Specification:capability", "Agent:agent", "Action:action", "ConstraintSet:constraints"]},
+        {"predicate": "Exercisability", "args": ["Permission:permission", "Action:action", "Time:time", "Configuration:configuration"]}
+      ]
+    },
+    {
+      "id": "CIRCUIT-EPISTEMIC-STATUS",
+      "description": "Evidence feeds Evidential Bearing for the same Claim, claimant, Order, and Scope; Truth is separately licensed only by its semantic and conformity witnesses.",
+      "steps": ["NF-EVIDENCE", "NF-EVIDENTIAL-BEARING", "NF-TRUTH"],
+      "facts": [
+        {"predicate": "Observation", "args": ["Observation:observation"]},
+        {"predicate": "Witness", "args": ["Witness:witness"]},
+        {"predicate": "IndependentFor", "args": ["Witness:witness", "Agent:claimant", "Claim:claim", "Observation:observation", "Order:order", "Scope:scope"]},
+        {"predicate": "AdmissibilityRule", "args": ["AdmissibilityRule:admissibility", "Order:order"]},
+        {"predicate": "Admission", "args": ["Order:order", "Observation:observation", "AdmissibilityRule:admissibility", "Scope:scope"]},
+        {"predicate": "InScope", "args": ["Observation:observation", "Scope:scope"]},
+        {"predicate": "InScope", "args": ["Claim:claim", "Scope:scope"]},
+        {"predicate": "ProducedBy", "args": ["Observation:observation", "Witness:witness"]},
+        {"predicate": "Claim", "args": ["Claim:claim", "Scope:scope"]},
+        {"predicate": "EvaluationRule", "args": ["EvaluationRule:evaluation", "Order:order"]},
+        {"predicate": "RuleResult", "args": ["EvaluationRule:evaluation", "Observation:observation", "Claim:claim", "Scope:scope", "Disposition:supporting"]},
+        {"predicate": "ConstructiveEvaluation", "args": ["EvaluationRule:evaluation", "Observation:observation", "Claim:claim", "Scope:scope", "Disposition:supporting"]},
+        {"predicate": "RecordedDisposition", "args": ["Record:record", "Order:order", "Observation:observation", "Claim:claim", "EvaluationRule:evaluation", "Scope:scope", "Disposition:supporting"]},
+        {"predicate": "Claim", "args": ["Claim:claim", "Representation:representation", "Scope:scope"]},
+        {"predicate": "Representation", "args": ["Representation:representation"]},
+        {"predicate": "TruthSpecification", "args": ["Specification:truth-condition", "Claim:claim", "Scope:scope"]},
+        {"predicate": "Presence", "args": ["Presence:target"]},
+        {"predicate": "InScope", "args": ["Presence:target", "Scope:scope"]},
+        {"predicate": "Denotation", "args": ["Representation:representation", "Specification:truth-condition", "Presence:target", "Rule:truth-rule", "Scope:scope"]},
+        {"predicate": "Conforms", "args": ["Presence:target", "Specification:truth-condition"]},
+        {"predicate": "MaterialAdequacy", "args": ["MaterialAdequacyWitness:adequacy", "Claim:claim", "Representation:representation", "Specification:truth-condition", "Presence:target", "Rule:truth-rule", "Scope:scope"]}
+      ],
+      "expected_results": [
+        {"predicate": "Evidence", "args": ["Observation:observation", "Claim:claim", "Agent:claimant", "Order:order", "Scope:scope"]},
+        {"predicate": "EvidentialBearing", "args": ["Observation:observation", "Claim:claim", "Disposition:supporting", "Order:order", "Scope:scope"]},
+        {"predicate": "Truth", "args": ["Claim:claim", "Presence:target", "Scope:scope"]}
+      ]
+    }
+  ]
+}
