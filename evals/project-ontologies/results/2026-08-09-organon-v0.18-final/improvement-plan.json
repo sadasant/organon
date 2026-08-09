@@ -1,0 +1,26 @@
+[
+  {
+    "target_id": "engram-project-ontology",
+    "artifact_kind": "project-ontology",
+    "disposition": "hold",
+    "preserve": [
+      "project-local vocabulary before Organon mapping",
+      "exact public source citations and nonclaims",
+      "every conflict, uncertainty, and anti-collapse distinction already established"
+    ],
+    "actions": [],
+    "promotion_rule": "Human review is required after every failed layer is repaired and the exact revised bytes pass a fresh evaluation."
+  },
+  {
+    "target_id": "kenogram-project-ontology",
+    "artifact_kind": "project-ontology",
+    "disposition": "hold",
+    "preserve": [
+      "project-local vocabulary before Organon mapping",
+      "exact public source citations and nonclaims",
+      "every conflict, uncertainty, and anti-collapse distinction already established"
+    ],
+    "actions": [],
+    "promotion_rule": "Human review is required after every failed layer is repaired and the exact revised bytes pass a fresh evaluation."
+  }
+]
