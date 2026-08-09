@@ -3,13 +3,21 @@ type: ontology-changelog
 status: active
 ontology: "ontology.md"
 created: 2026-08-02
-updated: 2026-08-04
+updated: 2026-08-09
 ---
 # Daniel's Ontology - Changelog
 
 This note records how [Daniel's Ontology](./ontology.md) changed. Historical argument, rejected formulations, maintenance policy, and feedback belong here rather than in the binding ontology.
 
 ## Version history
+
+### v0.18 - Definition admission made binding
+
+- Strengthened C1 so declared dependencies are necessary but not sufficient for classification. One typed, index-consistent assignment must satisfy the complete binding definition, including every named premise and witness.
+- Made explicit that dependency presence, label resemblance, and an asserted result cannot independently introduce a registered term.
+- Derived the revision from the nonbinding algebra experiment: six candidate laws compress the tested admissibility discipline, while a complete 109-term audit shows that prohibitions alone cannot generate positive vocabulary.
+- Tested the cardinality-minimum registry-level constructor. One generic witnessed-definition rule admits all 106 definitions and survives 825 premise-removal countermodels, but fails semantic anti-vacuity because its conformity witness remains opaque to the finite evaluator.
+- Kept the six candidate laws and the generic constructor nonbinding. The revision promotes only the definition-admission invariant, not a claim that Organon's meanings have been reduced or that any registered definition is redundant.
 
 ### v0.17 - Ritual-dependent Meaning
 

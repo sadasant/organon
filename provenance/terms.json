@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "ontology_version": "0.17.0",
+  "ontology_version": "0.18.0",
   "sources": {
     "essay:absence": {"kind": "published-corpus", "reference": "essays.md", "title": "Nothing Else Is So Exact As Absence"},
     "essay:shadow-world": {"kind": "published-corpus", "reference": "essays.md", "title": "The Shadow of the World"},

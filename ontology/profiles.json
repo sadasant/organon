@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "ontology_version": "0.17.0",
+  "ontology_version": "0.18.0",
   "profiles": {
     "agent": {
       "description": "Entities, boundaries, interpretation, action, tools, and contextual capability.",

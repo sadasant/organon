@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "ontology_version": "0.17.0",
+  "ontology_version": "0.18.0",
   "claim_types": ["primitive", "axiom", "definition", "binding_constraint", "derived_consequence", "hypothesis", "authorized_projection", "note", "quarantined"],
   "terms": [
     {"id":"organon:Absence","label":"Absence","claim_id":"P1","claim_type":"primitive","depends_on":[],"anchor":"organon-absence"},

@@ -2,9 +2,9 @@
 type: editorial-ontology
 status: provisional-binding
 binding: true
-version: 0.17
+version: 0.18
 created: 2026-08-01
-updated: 2026-08-04
+updated: 2026-08-09
 evidence_scope: "Daniel's adopted commitments and the recovered essay corpus"
 corpus_audit: "../provenance/essays.md"
 term_registry: "terms.yaml"
@@ -864,7 +864,7 @@ These signatures make the ontology operational. They are schemas, not executable
 
 ## Binding consistency rules
 
-1. <!-- organon:claim C1 --> **Dependency closure:** A binding definition may use only the metalanguage, Absence and its axioms, or terms defined earlier in the dependency order.
+1. <!-- organon:claim C1 --> **Dependency closure and definition admission:** A binding definition may use only the metalanguage, Absence and its axioms, or terms defined earlier in the dependency order. Its declared dependencies are necessary but not sufficient for its result: the result obtains only when one typed, index-consistent assignment satisfies the complete binding definition, including every named premise and witness. Dependency presence, a matching label, or an asserted result does not independently license the classification.
 
 2. <!-- organon:claim C2 --> **One term, one meaning:** A term cannot change meaning between technical, political, and editorial contexts without an explicit new term or projection.
 

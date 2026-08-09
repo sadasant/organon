@@ -1,7 +1,7 @@
 ---
 type: ontology-prompt-projection
 status: generated-noncanonical
-ontology_version: "0.17.0"
+ontology_version: "0.18.0"
 projection_mode: "full"
 binding_source: ontology.md
 ---
@@ -878,7 +878,7 @@ Depends: organon:Flow, organon:Center, organon:Organ, organon:Institution.
 
 ### `C1` · binding_constraint
 
-**Dependency closure:** A binding definition may use only the metalanguage, Absence and its axioms, or terms defined earlier in the dependency order.
+**Dependency closure and definition admission:** A binding definition may use only the metalanguage, Absence and its axioms, or terms defined earlier in the dependency order. Its declared dependencies are necessary but not sufficient for its result: the result obtains only when one typed, index-consistent assignment satisfies the complete binding definition, including every named premise and witness. Dependency presence, a matching label, or an asserted result does not independently license the classification.
 
 Depends: none.
 
