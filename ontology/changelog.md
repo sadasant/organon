@@ -13,11 +13,11 @@ This note records how [Daniel's Ontology](./ontology.md) changed. Historical arg
 
 ### v0.18 - Definition admission made binding
 
-- Strengthened C1 so declared dependencies are necessary but not sufficient for classification. One typed, index-consistent assignment must satisfy the complete binding definition, including every named premise and witness.
-- Made explicit that dependency presence, label resemblance, and an asserted result cannot independently introduce a registered term.
+- Strengthened C1 by separating lexical dependency closure from instance-level definition admission. `depends_on` records earlier vocabulary used anywhere in the complete logical form; it does not declare that every referenced term must obtain in every instance.
+- Required a type- and index-consistent interpretation of the complete logical form, including applicable premises, quantifiers, alternatives, exclusions, and required witnesses. Dependency presence, label resemblance, and an asserted result cannot independently introduce a registered term.
 - Derived the revision from the nonbinding algebra experiment: six candidate laws compress the tested admissibility discipline, while a complete 109-term audit shows that prohibitions alone cannot generate positive vocabulary.
-- Tested the cardinality-minimum registry-level constructor. One generic witnessed-definition rule admits all 106 definitions and survives 825 premise-removal countermodels, but fails semantic anti-vacuity because its conformity witness remains opaque to the finite evaluator.
-- Kept the six candidate laws and the generic constructor nonbinding. The revision promotes only the definition-admission invariant, not a claim that Organon's meanings have been reduced or that any registered definition is redundant.
+- Tested a deliberately degenerate registry-reflection control over all 106 definitions and 825 dependency-removal fixtures. It fails semantic anti-vacuity because it conflates lexical references with positive premises and leaves conformity opaque to the finite evaluator.
+- Kept the six candidate disciplines and registry-reflection control nonbinding. The revision promotes only the separation of lexical dependency from complete definition admission, not a claim that Organon's meanings have been reduced or that any registered definition is redundant.
 
 ### v0.17 - Ritual-dependent Meaning
 

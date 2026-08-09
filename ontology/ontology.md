@@ -864,7 +864,7 @@ These signatures make the ontology operational. They are schemas, not executable
 
 ## Binding consistency rules
 
-1. <!-- organon:claim C1 --> **Dependency closure and definition admission:** A binding definition may use only the metalanguage, Absence and its axioms, or terms defined earlier in the dependency order. Its declared dependencies are necessary but not sufficient for its result: the result obtains only when one typed, index-consistent assignment satisfies the complete binding definition, including every named premise and witness. Dependency presence, a matching label, or an asserted result does not independently license the classification.
+1. <!-- organon:claim C1 --> **Dependency closure and definition admission:** A binding definition may use only the metalanguage, Absence and its axioms, or terms defined earlier in the dependency order. Its declared dependencies identify the earlier vocabulary used in its complete logical form; their declaration or presence does not itself constitute an instance-level constructor. A result obtains only under a type- and index-consistent interpretation satisfying that complete logical form, including all applicable premises, quantifiers, alternatives, exclusions, and required witnesses. A dependency referenced only in a contrast, exclusion, or anti-entailment need not obtain in an instance. Dependency presence, label resemblance, or assertion of the target does not independently license classification.
 
 2. <!-- organon:claim C2 --> **One term, one meaning:** A term cannot change meaning between technical, political, and editorial contexts without an explicit new term or projection.
 
