@@ -57,6 +57,12 @@ gap without pretending to close the semantic gap: all 109 terms and 42
 commitments have a disposition, but 97 definitions admit paired
 interpretations that the present algebra cannot distinguish.
 
+The positive-calculus follow-on reconstructs all 106 definitions through one
+generic introduction rule, but retains all 106 definition schemas as parameters.
+Its registry-level cardinality minimum is proved, but its opaque conformity
+witness fails the semantic anti-vacuity gate. Semantic minimality and
+interdefinability remain open.
+
 ## Promotion gate
 
 Before any candidate law becomes binding, it must survive:

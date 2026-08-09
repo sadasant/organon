@@ -92,3 +92,31 @@ def test_complete_reduction_audit_accounts_for_registry_and_refutes_completeness
         for item in ledger["terms"]
         if item["disposition"] == "positively_underdetermined"
     )
+
+
+def test_one_positive_constructor_is_cardinality_minimal_but_not_semantic_reduction():
+    script = ROOT / "scripts" / "build-positive-calculus.py"
+    subprocess.run([sys.executable, str(script), "--check"], cwd=ROOT, check=True)
+    ledger = json.loads((ALGEBRA / "constructor-ledger.yaml").read_text())
+    assert ledger["counts"] == {
+        "registered_terms": 109,
+        "retained_foundation": 3,
+        "definitions_constructed": 106,
+        "constructors": 1,
+        "one_step_mutations": 825,
+        "unconstructed_definitions": 0,
+    }
+    assert ledger["cardinality_minimality"]["cardinality_minimal"] is True
+    assert ledger["cardinality_minimality"]["zero_constructors_definitions_derived"] == 0
+    assert ledger["cardinality_minimality"]["one_constructor_definitions_derived"] == 106
+    assert ledger["semantic_minimality"]["proved"] is False
+    assert ledger["semantic_minimality"]["binding_definition_schemas_retained"] == 106
+    assert ledger["semantic_minimality"]["anti_vacuity_passes"] is False
+    assert ledger["semantic_minimality"]["eligible_for_promotion"] is False
+    assert all(entry["derives"] for entry in ledger["entries"])
+    assert all(
+        mutation["weakened_derives"]
+        and not mutation["complete_constructor_derives"]
+        for entry in ledger["entries"]
+        for mutation in entry["one_step_mutations"]
+    )

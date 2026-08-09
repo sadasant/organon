@@ -42,10 +42,13 @@ ontology/algebra/
 ├── candidate-laws.yaml
 ├── claim-coverage.yaml
 ├── consistency-dispositions.yaml
+├── positive-calculus.yaml
 ├── mutations.yaml
 ├── coverage.md
 ├── reduction-ledger.yaml
 ├── complete-reduction-report.md
+├── constructor-ledger.yaml
+├── positive-calculus-report.md
 ├── residuals.md
 └── fixtures/
     ├── challenges.yaml
@@ -147,6 +150,20 @@ for every underdetermined definition and records every commitment exactly
 once. A future complete reduction must eliminate those pairs by adding a small
 positive constructor calculus; adding further prohibitions cannot suffice.
 
+The follow-on [positive constructor experiment](./positive-calculus-report.md)
+asks exactly how small that calculus can become. By registry-level rule
+cardinality, the answer is one: witnessed definition introduction derives all 106 registered
+definitions and zero constructors derive none. Its 825 premise-removal tests
+show that every declared dependency and every conformity witness remains
+load-bearing.
+
+That operational minimum fails its semantic anti-vacuity gate. The one
+constructor is parameterized by all 106 binding definition schemas, and its
+conformity witness remains opaque to the finite evaluator. The experiment
+therefore establishes the degenerate lower bound while proving no two
+definitions interchangeable and eliminating no meaning from the binding
+ontology.
+
 ## Run
 
 ```sh
@@ -154,6 +171,8 @@ python3 scripts/build-algebra.py
 python3 scripts/build-algebra.py --check
 python3 scripts/build-reduction-audit.py
 python3 scripts/build-reduction-audit.py --check
+python3 scripts/build-positive-calculus.py
+python3 scripts/build-positive-calculus.py --check
 ```
 
 The first command regenerates witnesses, mutations, countermodels, and coverage.

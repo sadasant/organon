@@ -108,6 +108,7 @@ python3 scripts/check-semantics.py
 python3 scripts/build-ontology-prompt.py --check
 python3 scripts/build-algebra.py --check
 python3 scripts/build-reduction-audit.py --check
+python3 scripts/build-positive-calculus.py --check
 python3 scripts/check-proposals.py
 python3 scripts/check-formal-receipt.py
 python3 scripts/check-adoption.py examples/organon-adoption.json --repo-root .

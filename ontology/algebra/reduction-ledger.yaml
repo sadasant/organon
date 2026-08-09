@@ -7,7 +7,7 @@
     "ontology/algebra/candidate-laws.yaml": "fd631fac2a31c06d0e4da9648ffbeb215f086c4aecd0c7ad82583a208f08488f",
     "ontology/algebra/claim-coverage.yaml": "17c549d7193e680b126fd112eaa36053105eb00a9c5b4b72655444d16594637a",
     "ontology/algebra/consistency-dispositions.yaml": "7cff3e1464144c33c15319ac24a7ea8880b57ba797ce571d4592c3a14f04c4aa",
-    "scripts/build-reduction-audit.py": "26c80215d05c395721a2b3ae0db26a6ef32b220f1d355b5cb9753be15c4fb2eb"
+    "scripts/build-reduction-audit.py": "17185ac6a088e3b0ddd39a869e42a13fa1c0c188a5b7cc1fb046a9c67998880f"
   },
   "question": "Do the retained foundation, nine positive normal forms, and six candidate laws preserve every registered Organon classification?",
   "answer": "no",
