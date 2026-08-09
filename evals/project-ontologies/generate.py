@@ -79,9 +79,15 @@ class GenerateProjectOntology(dspy.Signature):
     Do not turn repository self-description into Truth, independent Evidence,
     adoption, security, completion, or institutional authority.
 
-    The Markdown must contain exactly the required H2 sections named in the
-    target contract and end with one machine-readable manifest in this literal
-    wrapper (replace the ellipsis with the complete mapping object):
+    Frontmatter must carry the exact project, repository, branch, commit, and
+    Organon version from target_json, plus `status: generated-candidate`.
+    The Markdown must contain these exact H2 headings, in a coherent order:
+    `Scope and nonclaims`, `Project purpose`, `Local vocabulary`,
+    `Participants and worlds`, `Load-bearing relations`,
+    `Invariants and prohibited collapses`, `Organon mappings`, `Boundary cases`,
+    and `Uncertainties and promotion gates`. End with one machine-readable
+    manifest in this literal wrapper (replace the ellipsis with the complete
+    mapping object):
 
     <!-- organon:mapping-manifest -->
     ```yaml

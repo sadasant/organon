@@ -39,6 +39,13 @@ def test_target_selection_is_exact():
     assert target["project"] == "Kenogram"
 
 
+def test_generator_prompt_exposes_deterministic_literals():
+    contract = MODULE.GenerateProjectOntology.__doc__
+    assert "status: generated-candidate" in contract
+    assert all(heading in contract for heading in MODULE.JUDGE.REQUIRED_HEADINGS)
+    assert "<!-- organon:mapping-manifest -->" in contract
+
+
 def test_deterministic_failure_is_fed_to_a_bounded_retry(monkeypatch):
     calls = []
 
