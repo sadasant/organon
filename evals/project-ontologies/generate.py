@@ -80,8 +80,19 @@ class GenerateProjectOntology(dspy.Signature):
     adoption, security, completion, or institutional authority.
 
     The Markdown must contain exactly the required H2 sections named in the
-    target contract and one organon:mapping-manifest YAML block. Every manifest
-    evidence item must be a path:start-end range present in the source index.
+    target contract and end with one machine-readable manifest in this literal
+    wrapper (replace the ellipsis with the complete mapping object):
+
+    <!-- organon:mapping-manifest -->
+    ```yaml
+    schema_version: 1
+    project: Project name
+    commit: exact commit from target_json
+    mappings: [...]
+    ```
+
+    Every manifest evidence item must be a path:start-end range present in the
+    source index.
     On revision, change only what the supplied improvement plan requires and
     preserve source-backed distinctions and successful layers. Stop when the
     dossier is reviewable; do not pad it with the complete Organon vocabulary.
@@ -117,14 +128,77 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--model", default="gpt-5.6-sol")
     parser.add_argument("--reasoning-effort", default="high")
     parser.add_argument("--request-timeout", type=float, default=600.0)
+    parser.add_argument("--max-deterministic-attempts", type=int, default=3)
     parser.add_argument("--run-dir", type=Path, required=True)
     return parser.parse_args()
+
+
+def generate_valid_draft(
+    program,
+    *,
+    target: dict,
+    ontology: str,
+    registry_json: str,
+    documentation_rubric: str,
+    source_dossier: str,
+    current_candidate: str,
+    improvement_plan_json: str,
+    known_ids: set[str],
+    line_counts: dict[str, int],
+    covered_ranges: dict[str, list[list[int]]],
+    max_attempts: int,
+) -> tuple[dict, dict, int]:
+    """Return the first draft that passes the deterministic ontology contract."""
+    if max_attempts < 1:
+        raise ValueError("max deterministic attempts must be positive")
+    last_failure = "generation did not run"
+    candidate = current_candidate
+    for attempt in range(1, max_attempts + 1):
+        attempt_target = dict(target)
+        if attempt > 1:
+            attempt_target["_deterministic_retry_instruction"] = (
+                "The previous draft failed deterministic preflight: "
+                f"{last_failure}. Return a complete corrected Markdown artifact. "
+                "Preserve source-backed content, include every required H2 heading, "
+                "and end with exactly one literal <!-- organon:mapping-manifest --> "
+                "YAML block whose citations use only covered source ranges."
+            )
+        draft = call_structured_with_retry(
+            program,
+            output_field="draft",
+            ontology=ontology,
+            registry_json=registry_json,
+            documentation_rubric=documentation_rubric,
+            target_json=json.dumps(attempt_target, ensure_ascii=False),
+            source_dossier=source_dossier,
+            current_candidate=candidate,
+            improvement_plan_json=improvement_plan_json,
+        )
+        candidate = draft["markdown"]
+        try:
+            deterministic = JUDGE.deterministic_checks(
+                target, candidate, known_ids, line_counts, covered_ranges
+            )
+        except ValueError as error:
+            last_failure = str(error)
+            continue
+        if deterministic["passed"]:
+            return draft, deterministic, attempt
+        last_failure = "; ".join(
+            key for key, passed in deterministic["checks"].items() if not passed
+        )
+    raise ValueError(
+        f"no candidate passed deterministic preflight after {max_attempts} attempts: "
+        f"{last_failure}"
+    )
 
 
 def main() -> None:
     args = parse_args()
     if not os.environ.get("OPENAI_API_KEY"):
         raise SystemExit("OPENAI_API_KEY is required and is never written")
+    if args.max_deterministic_attempts < 1:
+        raise SystemExit("--max-deterministic-attempts must be positive")
     if bool(args.candidate) != bool(args.improvement_plan):
         raise SystemExit("revision requires both --candidate and --improvement-plan")
     target = select_target(args.targets, args.target_id)
@@ -161,23 +235,19 @@ def main() -> None:
         cache=True,
     )
     dspy.configure(lm=lm, adapter=dspy.JSONAdapter())
-    draft = call_structured_with_retry(
+    draft, deterministic, deterministic_attempts = generate_valid_draft(
         dspy.Predict(GenerateProjectOntology),
-        output_field="draft",
+        target=target,
         ontology=read_text(args.ontology),
         registry_json=read_text(args.registry),
         documentation_rubric=read_text(args.documentation_rubric),
-        target_json=json.dumps(target, ensure_ascii=False),
         source_dossier=dossier,
         current_candidate=current,
         improvement_plan_json=json.dumps(plan, ensure_ascii=False),
-    )
-    deterministic = JUDGE.deterministic_checks(
-        target,
-        draft["markdown"],
-        JUDGE.registry_ids(args.registry),
-        line_counts,
-        covered_ranges,
+        known_ids=JUDGE.registry_ids(args.registry),
+        line_counts=line_counts,
+        covered_ranges=covered_ranges,
+        max_attempts=args.max_deterministic_attempts,
     )
     result = {
         "schema_version": 1,
@@ -193,6 +263,7 @@ def main() -> None:
             "organon_commit": git_head(ROOT),
             "committed_inputs_sha256": input_manifest,
             "target_id": target["id"],
+            "deterministic_attempts": deterministic_attempts,
             "source_digests": source_digests,
             "candidate_sha256": sha256_text(draft["markdown"]),
             "source_candidate_sha256": sha256_path(args.candidate) if args.candidate else None,
