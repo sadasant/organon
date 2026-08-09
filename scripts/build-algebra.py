@@ -58,6 +58,13 @@ def atom_key(atom: dict[str, Any]) -> tuple[str, tuple[str, ...]]:
     return atom["predicate"], tuple(atom["args"])
 
 
+def constant_kind(value: str) -> str | None:
+    if not isinstance(value, str) or ":" not in value:
+        return None
+    kind, _ = value.split(":", 1)
+    return kind or None
+
+
 def validate_atom(
     atom: dict[str, Any],
     variables: dict[str, str],
@@ -101,7 +108,7 @@ def validate_ground_fact(
     *,
     label: str,
 ) -> None:
-    kinds = [value.split(":", 1)[0] for value in fact.get("args", [])]
+    kinds = [constant_kind(value) for value in fact.get("args", [])]
     allowed = signatures.get(fact.get("predicate"))
     if allowed is None or kinds not in allowed:
         raise AlgebraError(
@@ -114,11 +121,19 @@ def unify_atom(
     atom: dict[str, Any],
     fact: dict[str, Any],
     binding: dict[str, str],
+    variables: dict[str, str],
+    signatures: dict[str, list[list[str]]],
 ) -> dict[str, str] | None:
     if atom["predicate"] != fact["predicate"] or len(atom["args"]) != len(fact["args"]):
         return None
+    allowed = signatures.get(atom["predicate"])
+    actual_fact_kinds = [constant_kind(value) for value in fact["args"]]
+    if allowed is None or actual_fact_kinds not in allowed:
+        return None
     result = dict(binding)
     for variable, value in zip(atom["args"], fact["args"], strict=True):
+        if constant_kind(value) != variables.get(variable):
+            return None
         existing = result.get(variable)
         if existing is not None and existing != value:
             return None
@@ -126,13 +141,18 @@ def unify_atom(
     return result
 
 
-def satisfying_bindings(atoms: list[dict[str, Any]], facts: list[dict[str, Any]]) -> list[dict[str, str]]:
+def satisfying_bindings(
+    atoms: list[dict[str, Any]],
+    facts: list[dict[str, Any]],
+    variables: dict[str, str],
+    signatures: dict[str, list[list[str]]],
+) -> list[dict[str, str]]:
     bindings: list[dict[str, str]] = [{}]
     for atom in atoms:
         candidates: list[dict[str, str]] = []
         for binding in bindings:
             for fact in facts:
-                matched = unify_atom(atom, fact, binding)
+                matched = unify_atom(atom, fact, binding, variables, signatures)
                 if matched is not None:
                     candidates.append(matched)
         bindings = candidates
@@ -141,18 +161,28 @@ def satisfying_bindings(atoms: list[dict[str, Any]], facts: list[dict[str, Any]]
     return bindings
 
 
-def derives(atoms: list[dict[str, Any]], facts: list[dict[str, Any]]) -> bool:
-    return bool(satisfying_bindings(atoms, facts))
+def derives(
+    atoms: list[dict[str, Any]],
+    facts: list[dict[str, Any]],
+    variables: dict[str, str],
+    signatures: dict[str, list[list[str]]],
+) -> bool:
+    return bool(satisfying_bindings(atoms, facts, variables, signatures))
 
 
-def derived_results(card: dict[str, Any], facts: list[dict[str, Any]]) -> list[dict[str, Any]]:
+def derived_results(
+    card: dict[str, Any],
+    facts: list[dict[str, Any]],
+    signatures: dict[str, list[list[str]]],
+) -> list[dict[str, Any]]:
     results: list[dict[str, Any]] = []
-    for binding in satisfying_bindings(card_atoms(card), facts):
+    for binding in satisfying_bindings(card_atoms(card), facts, card["variables"], signatures):
         try:
             args = [binding[variable] for variable in card["result"]["args"]]
         except KeyError as error:
             raise AlgebraError(f"{card['id']}: unsafe result variable {error.args[0]}") from error
         result = {"predicate": card["result"]["predicate"], "args": args}
+        validate_ground_fact(result, signatures, label=f"{card['id']}.derived-result")
         if atom_key(result) not in {atom_key(item) for item in results}:
             results.append(result)
     return results
@@ -251,22 +281,41 @@ def validate_cards(
             if occurrences[variable] < 2:
                 raise AlgebraError(f"{label}: split variable {variable} has fewer than two occurrences")
         known_atoms = set(atom_ids)
-        for atom_id in policy.get("reverse_atoms", []):
+        reverse_atoms = policy.get("reverse_atoms", {})
+        if not isinstance(reverse_atoms, dict):
+            raise AlgebraError(f"{label}: reverse_atoms must map atom IDs to typed inverses")
+        for atom_id, inverse in reverse_atoms.items():
             if atom_id not in known_atoms:
                 raise AlgebraError(f"{label}: unknown reverse atom {atom_id}")
+            if not isinstance(inverse, dict) or not inverse.get("predicate") or not inverse.get("args"):
+                raise AlgebraError(f"{label}: incomplete typed inverse for {atom_id}")
+            inverse_variables = {**variables, **inverse.get("variables", {})}
+            validate_atom(
+                {"predicate": inverse["predicate"], "args": inverse["args"]},
+                inverse_variables,
+                signatures,
+                label=f"{label}.{atom_id}.inverse",
+            )
         for atom_id, alternatives in policy.get("substitute_atoms", {}).items():
             if atom_id not in known_atoms or not alternatives:
                 raise AlgebraError(f"{label}: invalid substitution target {atom_id}")
             for alternative in alternatives:
-                if not alternative.get("predicate") or not alternative.get("shape"):
+                if not alternative.get("predicate") or not alternative.get("shape") or not alternative.get("args"):
                     raise AlgebraError(f"{label}: incomplete substitution for {atom_id}")
-                original = next(atom for atom in card["premises"] + card["witnesses"] if atom["id"] == atom_id)
+                alternative_variables = {**variables, **alternative.get("variables", {})}
                 validate_atom(
-                    {"predicate": alternative["predicate"], "args": original["args"]},
-                    variables,
+                    {"predicate": alternative["predicate"], "args": alternative["args"]},
+                    alternative_variables,
                     signatures,
                     label=f"{label}.{atom_id}.{alternative['predicate']}",
                 )
+                for index, atom in enumerate(alternative.get("additional_atoms", [])):
+                    validate_atom(
+                        atom,
+                        alternative_variables,
+                        signatures,
+                        label=f"{label}.{atom_id}.{alternative['predicate']}.additional[{index}]",
+                    )
     return cards
 
 
@@ -277,12 +326,17 @@ def mutation_record(
     shape: str,
     atoms: list[dict[str, Any]],
     variables: dict[str, str] | None = None,
+    signatures: dict[str, list[list[str]]] | None = None,
 ) -> dict[str, Any]:
     variables = variables or card["variables"]
+    if signatures is None:
+        raise AlgebraError(f"{card['id']}/{mutation_id}: predicate signatures are required")
+    for index, atom in enumerate(atoms):
+        validate_atom(atom, variables, signatures, label=f"{card['id']}/{mutation_id}.atom[{index}]")
     facts = ground_atoms(atoms, variables)
     original_atoms = card_atoms(card)
-    mutated_derives = derives(atoms, facts)
-    original_derives = derives(original_atoms, facts)
+    mutated_derives = derives(atoms, facts, variables, signatures)
+    original_derives = derives(original_atoms, facts, card["variables"], signatures)
     if not mutated_derives or original_derives:
         raise AlgebraError(
             f"{card['id']}/{mutation_id}: fixture must satisfy the mutation and reject the original"
@@ -300,16 +354,19 @@ def mutation_record(
     }
 
 
-def generate_mutations(cards: list[dict[str, Any]]) -> list[dict[str, Any]]:
+def generate_mutations(
+    cards: list[dict[str, Any]],
+    signatures: dict[str, list[list[str]]],
+) -> list[dict[str, Any]]:
     mutations: list[dict[str, Any]] = []
     for card in cards:
         original = card_atoms(card)
         for atom in card["premises"]:
             atoms = [copy.deepcopy(item) for item in original if item["id"] != atom["id"]]
-            mutations.append(mutation_record(card, f"remove-{atom['id']}", "remove_premise", "premise_omission", atoms))
+            mutations.append(mutation_record(card, f"remove-{atom['id']}", "remove_premise", "premise_omission", atoms, signatures=signatures))
         for atom in card["witnesses"]:
             atoms = [copy.deepcopy(item) for item in original if item["id"] != atom["id"]]
-            mutations.append(mutation_record(card, f"remove-{atom['id']}", "remove_witness", "witness_omission", atoms))
+            mutations.append(mutation_record(card, f"remove-{atom['id']}", "remove_witness", "witness_omission", atoms, signatures=signatures))
         for variable in card["mutation_policy"].get("split_variables", []):
             atoms = copy.deepcopy(original)
             occurrences = [
@@ -322,14 +379,15 @@ def generate_mutations(cards: list[dict[str, Any]]) -> list[dict[str, Any]]:
             atom_index, arg_index = occurrences[-1]
             atoms[atom_index]["args"][arg_index] = split_name
             variables = {**card["variables"], split_name: card["variables"][variable]}
-            mutations.append(mutation_record(card, f"split-{variable}", "change_shared_variable", "index_change", atoms, variables))
+            mutations.append(mutation_record(card, f"split-{variable}", "change_shared_variable", "index_change", atoms, variables, signatures))
         by_id = {atom["id"]: atom for atom in original}
-        for atom_id in card["mutation_policy"].get("reverse_atoms", []):
+        for atom_id, inverse in card["mutation_policy"].get("reverse_atoms", {}).items():
             atoms = copy.deepcopy(original)
             target = next(atom for atom in atoms if atom["id"] == atom_id)
-            target["predicate"] = f"ReverseOf{target['predicate']}"
-            target["args"] = list(reversed(target["args"]))
-            mutations.append(mutation_record(card, f"reverse-{atom_id}", "reverse_relation", "role_reversal", atoms))
+            target["predicate"] = inverse["predicate"]
+            target["args"] = inverse["args"]
+            variables = {**card["variables"], **inverse.get("variables", {})}
+            mutations.append(mutation_record(card, f"reverse-{atom_id}", "reverse_relation", "role_reversal", atoms, variables, signatures))
         for atom_id, alternatives in card["mutation_policy"].get("substitute_atoms", {}).items():
             if atom_id not in by_id:
                 raise AlgebraError(f"{card['id']}: substitution references missing atom {atom_id}")
@@ -337,9 +395,12 @@ def generate_mutations(cards: list[dict[str, Any]]) -> list[dict[str, Any]]:
                 atoms = copy.deepcopy(original)
                 target = next(atom for atom in atoms if atom["id"] == atom_id)
                 target["predicate"] = alternative["predicate"]
+                target["args"] = alternative["args"]
+                atoms.extend(copy.deepcopy(alternative.get("additional_atoms", [])))
+                variables = {**card["variables"], **alternative.get("variables", {})}
                 slug = alternative["predicate"].lower().replace("_", "-")
                 mutations.append(
-                    mutation_record(card, f"substitute-{atom_id}-{slug}", "substitute_relation", alternative["shape"], atoms)
+                    mutation_record(card, f"substitute-{atom_id}-{slug}", "substitute_relation", alternative["shape"], atoms, variables, signatures)
                 )
     ids = [item["id"] for item in mutations]
     if len(ids) != len(set(ids)):
@@ -421,9 +482,17 @@ def blockers(shapes: list[str], laws: list[dict[str, Any]]) -> list[str]:
     return [law["id"] for law in laws if shape_set & set(law["blocks_shapes"])]
 
 
-def validate_challenges(data: dict[str, Any], laws: list[dict[str, Any]]) -> list[dict[str, Any]]:
+def validate_challenges(
+    data: dict[str, Any],
+    laws: list[dict[str, Any]],
+    signatures: dict[str, list[list[str]]],
+) -> list[dict[str, Any]]:
     cases = data.get("cases", [])
     for case in cases:
+        for index, fact in enumerate(case.get("facts", [])):
+            validate_ground_fact(fact, signatures, label=f"{case['id']}.facts[{index}]")
+        validate_ground_fact(case["source"], signatures, label=f"{case['id']}.source")
+        validate_ground_fact(case["target"], signatures, label=f"{case['id']}.target")
         fact_keys = {atom_key(fact) for fact in case["facts"]}
         if atom_key(case["source"]) not in fact_keys or atom_key(case["target"]) in fact_keys:
             raise AlgebraError(f"{case['id']}: not a source-without-target labeled fixture")
@@ -434,7 +503,12 @@ def validate_challenges(data: dict[str, Any], laws: list[dict[str, Any]]) -> lis
     return cases
 
 
-def validate_holdouts(data: dict[str, Any], laws: list[dict[str, Any]], expected_domains: list[str]) -> list[dict[str, Any]]:
+def validate_holdouts(
+    data: dict[str, Any],
+    laws: list[dict[str, Any]],
+    expected_domains: list[str],
+    signatures: dict[str, list[list[str]]],
+) -> list[dict[str, Any]]:
     if data.get("basis_frozen_before_holdouts") is not True:
         raise AlgebraError("holdout fixture must attest basis_frozen_before_holdouts")
     if data.get("freeze_kind") != "procedural-attestation-with-current-digest":
@@ -445,6 +519,10 @@ def validate_holdouts(data: dict[str, Any], laws: list[dict[str, Any]], expected
     if {case["domain"] for case in cases} != set(expected_domains):
         raise AlgebraError("holdout domains do not match candidate-law declaration")
     for case in cases:
+        for index, fact in enumerate(case.get("facts", [])):
+            validate_ground_fact(fact, signatures, label=f"{case['id']}.facts[{index}]")
+        validate_ground_fact(case["source"], signatures, label=f"{case['id']}.source")
+        validate_ground_fact(case["target"], signatures, label=f"{case['id']}.target")
         fact_keys = {atom_key(fact) for fact in case.get("facts", [])}
         source_present = atom_key(case["source"]) in fact_keys
         target_present = atom_key(case["target"]) in fact_keys
@@ -489,7 +567,7 @@ def validate_circuits(
             card = by_id.get(step)
             if card is None:
                 raise AlgebraError(f"{circuit['id']}: unknown circuit step {step}")
-            results = derived_results(card, facts)
+            results = derived_results(card, facts, signatures)
             if not results:
                 raise AlgebraError(f"{circuit['id']}: step {step} does not derive")
             for result in results:
@@ -609,9 +687,9 @@ def run(*, check: bool) -> dict[str, int]:
     laws_data = load(LAWS)
     laws = validate_laws(laws_data, cards, registry)
     validate_connectives(load(CONNECTIVES), registry)
-    mutations = generate_mutations(cards)
-    challenges = validate_challenges(load(CHALLENGES), laws)
-    holdouts = validate_holdouts(load(HOLDOUTS), laws, laws_data["held_out_domains"])
+    mutations = generate_mutations(cards, signatures)
+    challenges = validate_challenges(load(CHALLENGES), laws, signatures)
+    holdouts = validate_holdouts(load(HOLDOUTS), laws, laws_data["held_out_domains"], signatures)
     circuits = validate_circuits(load(CIRCUITS), cards, signatures)
     evidence_ids = (
         {card["id"] for card in cards}
@@ -628,7 +706,7 @@ def run(*, check: bool) -> dict[str, int]:
     witness_models = []
     for card in cards:
         facts = ground_atoms(card_atoms(card), card["variables"])
-        if not derives(card_atoms(card), facts):
+        if not derives(card_atoms(card), facts, card["variables"], signatures):
             raise AlgebraError(f"{card['id']}: canonical witness does not derive")
         witness_models.append(
             {

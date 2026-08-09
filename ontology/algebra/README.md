@@ -79,11 +79,17 @@ Each card in [normal-forms.yaml](./normal-forms.yaml) names:
 The evaluator treats each card as a typed conjunctive query. A result is
 licensed only when one variable assignment satisfies every premise and
 witness. [Predicate signatures](./predicate-signatures.yaml) enforce the arity
-and argument kinds of every predicate used by cards, substitutions, and joined
-circuits. Ordered participant roles and conserved indices remain declared on
-the cards. The evaluator therefore cannot join one Entity's Interpretation to
-another Entity's Action merely because both predicates occur somewhere in the
-model.
+and argument kinds of every predicate used by cards, substitutions, labeled
+fixtures, holdouts, and joined circuits. The unifier checks the kind of every
+bound constant against the consuming variable, and each derived result is
+validated before it can become a later circuit fact. Ordered participant roles
+and conserved indices remain declared on the cards.
+
+The experimental object sort is `Configuration`; `Entity(x)` is a refinement
+predicate over that sort. A classified `Configuration:e` may continue through
+downstream cards whose participant variable is also `Configuration`, but it is
+never silently retyped as an `Entity:e` constant. The experiment declares no
+implicit coercions.
 
 ## Structural mutation testing
 
@@ -92,9 +98,11 @@ model.
 1. remove each premise;
 2. remove each witness;
 3. split each repeated participant or index;
-4. reverse each declared ordered relation;
+4. replace each declared ordered relation with a typed inverse whose relation
+   witness remains fixed and whose participant-role permutation is explicit;
 5. substitute every declared causal, institutional, representational, or
-   Persistence near miss.
+   Persistence near miss using that substitute's own argument map and any
+   mutation-specific variables or supporting atoms.
 
 For each mutation, the generator constructs a finite extensional model and
 checks two facts:
@@ -106,6 +114,13 @@ This is an extensional query countermodel to the weakened classifier, not a
 broad semantic countermodel or proof that the prose formalization is complete.
 Mutations that cannot satisfy both conditions must fail generation or become
 explicit open gates; none is silently counted.
+
+Substitution predicates retain their binding meanings. `Authority`, for
+example, keeps its Order-Agent-Principal-Scope signature rather than borrowing
+Capability's arguments, and `PermissionClaim` names its Claim and action-level
+indices without inheriting Permission's Grant or Admission. A typed inverse
+must appear in the signature registry; the generator no longer manufactures
+unchecked `ReverseOf...` predicates.
 
 ## Candidate discipline taxonomy
 

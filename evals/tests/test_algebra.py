@@ -20,7 +20,7 @@ def load_builder():
     return module
 
 
-def test_generated_algebra_is_current_and_falsification_complete():
+def test_all_declared_mutations_have_structural_near_misses():
     subprocess.run([sys.executable, str(SCRIPT), "--check"], cwd=ROOT, check=True)
     mutations = json.loads((ALGEBRA / "mutations.yaml").read_text())
     countermodels = json.loads((ALGEBRA / "fixtures" / "countermodels.yaml").read_text())
@@ -32,7 +32,8 @@ def test_generated_algebra_is_current_and_falsification_complete():
 def test_every_candidate_discipline_has_one_unique_labeled_fixture():
     builder = load_builder()
     laws = builder.load(builder.LAWS)["laws"]
-    challenges = builder.validate_challenges(builder.load(builder.CHALLENGES), laws)
+    signatures = builder.validate_signatures(builder.load(builder.PREDICATE_SIGNATURES))
+    challenges = builder.validate_challenges(builder.load(builder.CHALLENGES), laws, signatures)
     unique_fixtures = builder.validate_unique_fixtures(laws, challenges)
     assert len(laws) == len(unique_fixtures) == 6
 
@@ -60,12 +61,49 @@ def test_predicate_signatures_reject_malformed_truth_denotation():
         )
 
 
+def test_unification_rejects_implicit_entity_kind_promotion():
+    builder = load_builder()
+    signatures = builder.validate_signatures(builder.load(builder.PREDICATE_SIGNATURES))
+    atom = {"predicate": "Entity", "args": ["entity"]}
+    fact = {"predicate": "Entity", "args": ["Configuration:e"]}
+    assert builder.unify_atom(
+        atom,
+        fact,
+        {},
+        {"entity": "Entity"},
+        signatures,
+    ) is None
+    assert signatures["Entity"] == [["Configuration"]]
+
+
+def test_mutations_use_declared_typed_substitutions_and_inverses():
+    builder = load_builder()
+    signatures = builder.validate_signatures(builder.load(builder.PREDICATE_SIGNATURES))
+    countermodels = json.loads((ALGEBRA / "fixtures" / "countermodels.yaml").read_text())
+    mutations = countermodels["structural_mutations"]
+    facts = [fact for mutation in mutations for fact in mutation["facts"]]
+    for index, fact in enumerate(facts):
+        builder.validate_ground_fact(fact, signatures, label=f"generated-fact[{index}]")
+    assert not any(fact["predicate"].startswith("ReverseOf") for fact in facts)
+    authority = next(item for item in mutations if item["id"].endswith("substitute-capability-authority"))
+    authority_fact = next(fact for fact in authority["facts"] if fact["predicate"] == "Authority")
+    assert [part.split(":", 1)[0] for part in authority_fact["args"]] == [
+        "Order", "Agent", "Principal", "Scope"
+    ]
+    permission_claim = next(item for item in mutations if item["id"].endswith("substitute-permission-permissionclaim"))
+    claim_fact = next(fact for fact in permission_claim["facts"] if fact["predicate"] == "PermissionClaim")
+    assert [part.split(":", 1)[0] for part in claim_fact["args"]] == [
+        "Claim", "Order", "Agent", "Action", "Scope", "Principal", "Interval"
+    ]
+
+
 def test_unchanged_taxonomy_covers_holdouts_without_covering_counts_as():
     builder = load_builder()
     laws_data = builder.load(builder.LAWS)
     laws = laws_data["laws"]
+    signatures = builder.validate_signatures(builder.load(builder.PREDICATE_SIGNATURES))
     holdouts = builder.validate_holdouts(
-        builder.load(builder.HOLDOUTS), laws, laws_data["held_out_domains"]
+        builder.load(builder.HOLDOUTS), laws, laws_data["held_out_domains"], signatures
     )
     by_id = {item["id"]: item for item in holdouts}
     assert by_id["H-COUNTS-AS-INSTITUTIONAL"]["blocked_by"] == []

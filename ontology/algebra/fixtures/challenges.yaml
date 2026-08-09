@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "status": "nonbinding-training-countermodels",
+  "status": "nonbinding-typed-labeled-inference-fixtures",
   "cases": [
     {
       "id": "CM-RELATION-NOT-IDENTITY", "logical_kind": "non_identity", "failure_shapes": ["participant_identification"],
@@ -14,23 +14,23 @@
     },
     {
       "id": "CM-CAPABILITY-NOT-AUTHORITY", "logical_kind": "one_way_anti_entailment", "failure_shapes": ["typed_substitution"],
-      "facts": [{"predicate": "Capability", "args": ["Agent:a", "Action:x", "ConstraintSet:c"]}],
-      "source": {"predicate": "Capability", "args": ["Agent:a", "Action:x", "ConstraintSet:c"]},
-      "target": {"predicate": "Authority", "args": ["Agent:a", "Action:x", "Order:o"]},
+      "facts": [{"predicate": "Capability", "args": ["Specification:capability", "Agent:a", "Action:x", "ConstraintSet:c"]}],
+      "source": {"predicate": "Capability", "args": ["Specification:capability", "Agent:a", "Action:x", "ConstraintSet:c"]},
+      "target": {"predicate": "Authority", "args": ["Order:o", "Agent:a", "Principal:p", "Scope:s"]},
       "expect": "source_without_target"
     },
     {
       "id": "CM-AUTHORITY-NOT-CAPABILITY", "logical_kind": "one_way_anti_entailment", "failure_shapes": ["typed_substitution"],
-      "facts": [{"predicate": "Authority", "args": ["Agent:a", "Action:x", "Order:o"]}],
-      "source": {"predicate": "Authority", "args": ["Agent:a", "Action:x", "Order:o"]},
-      "target": {"predicate": "Capability", "args": ["Agent:a", "Action:x", "ConstraintSet:c"]},
+      "facts": [{"predicate": "Authority", "args": ["Order:o", "Agent:a", "Principal:p", "Scope:s"]}],
+      "source": {"predicate": "Authority", "args": ["Order:o", "Agent:a", "Principal:p", "Scope:s"]},
+      "target": {"predicate": "Capability", "args": ["Specification:capability", "Agent:a", "Action:x", "ConstraintSet:c"]},
       "expect": "source_without_target"
     },
     {
       "id": "CM-STANDING-ORDER-DRIFT", "logical_kind": "index_sensitivity", "failure_shapes": ["index_change"],
-      "facts": [{"predicate": "Standing", "args": ["Order:o1", "Rule:r", "Entity:e", "Status:s", "Scope:q"]}],
-      "source": {"predicate": "Standing", "args": ["Order:o1", "Rule:r", "Entity:e", "Status:s", "Scope:q"]},
-      "target": {"predicate": "Standing", "args": ["Order:o2", "Rule:r", "Entity:e", "Status:s", "Scope:q"]},
+      "facts": [{"predicate": "Standing", "args": ["Order:o1", "Rule:r", "Configuration:e", "InstitutionalStatus:s", "Scope:q"]}],
+      "source": {"predicate": "Standing", "args": ["Order:o1", "Rule:r", "Configuration:e", "InstitutionalStatus:s", "Scope:q"]},
+      "target": {"predicate": "Standing", "args": ["Order:o2", "Rule:r", "Configuration:e", "InstitutionalStatus:s", "Scope:q"]},
       "expect": "source_without_target"
     },
     {

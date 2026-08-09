@@ -26,7 +26,7 @@ Try to express the candidate as an existing term, a Configuration of existing te
 
 ### 3. Type and order dependencies
 
-Classify the candidate as an Entity, Relation, Configuration, Specification, Rule, institutional record, or another already-defined kind. List every dependency in definition order. Do not use undeclared object-language vocabulary to explain it.
+Classify the candidate as an Entity, Relation, Configuration, Specification, Rule, institutional record, or another already-defined kind. List every earlier term used anywhere in the complete logical form, including positive premises, participant and index types, alternatives, contrasts, exclusions, and anti-entailments. Record positive premises and witnesses separately. `depends_on` establishes lexical closure and definition order; it is not an instance constructor. Do not use undeclared object-language vocabulary to explain the candidate.
 
 ### 4. Audit collapses in both directions
 

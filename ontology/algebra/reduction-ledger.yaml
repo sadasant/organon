@@ -3,7 +3,7 @@
   "status": "generated-nonbinding-complete-reduction-audit",
   "source_sha256": {
     "ontology/terms.yaml": "c1d3573aafb8f31535eac88c164b2b4e32f0fbf5c635fbf46b2aff4357c66339",
-    "ontology/algebra/normal-forms.yaml": "1890a06a03595d1b4514a30ddd7a657d58f8b43926f75156f6d9d23da59d9e38",
+    "ontology/algebra/normal-forms.yaml": "e801315ee1104ee39aee834214c679a564cd3aac982980dc3b5b3a3a3fd29aa7",
     "ontology/algebra/candidate-laws.yaml": "8d739e8c928f527ee8f66b28c4e3a8b696d0539333627bf26243d72073212550",
     "ontology/algebra/claim-coverage.yaml": "17c549d7193e680b126fd112eaa36053105eb00a9c5b4b72655444d16594637a",
     "ontology/algebra/consistency-dispositions.yaml": "7cff3e1464144c33c15319ac24a7ea8880b57ba797ce571d4592c3a14f04c4aa",

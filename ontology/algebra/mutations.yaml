@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "status": "generated-nonbinding-syntactic-constructor-mutations",
-  "source_normal_forms_sha256": "1890a06a03595d1b4514a30ddd7a657d58f8b43926f75156f6d9d23da59d9e38",
-  "generator_sha256": "e46941b5e9b7437b0bba5545760b1fb1777f3b330e640f3ffe72c090c8a21a64",
+  "source_normal_forms_sha256": "e801315ee1104ee39aee834214c679a564cd3aac982980dc3b5b3a3a3fd29aa7",
+  "generator_sha256": "af2a52203fd554cf9b3098f7d3c30d538392d80d3d81c4a520ae0a79bd9da602",
   "mutation_count": 138,
   "mutations": [
     {
@@ -595,11 +595,11 @@
           ]
         },
         {
-          "predicate": "ReverseOfOrderedAssociation",
+          "predicate": "InverseOrderedAssociation",
           "args": [
+            "denotation",
             "target",
-            "expression",
-            "denotation"
+            "expression"
           ]
         }
       ],
@@ -1823,11 +1823,11 @@
           ]
         },
         {
-          "predicate": "ReverseOfEndpointChange",
+          "predicate": "InverseEndpointChange",
           "args": [
+            "change",
             "endpoint_b",
-            "endpoint_a",
-            "change"
+            "endpoint_a"
           ]
         },
         {
@@ -3819,13 +3819,13 @@
           ]
         },
         {
-          "predicate": "ReverseOfPlacesWithinDomain",
+          "predicate": "InversePlacesWithinDomain",
           "args": [
-            "scope",
-            "rule",
+            "order",
             "status",
             "entity",
-            "order"
+            "rule",
+            "scope"
           ]
         },
         {
@@ -5247,14 +5247,13 @@
         {
           "predicate": "PermissionClaim",
           "args": [
-            "permission",
+            "permission_claim",
             "order",
-            "principal",
             "agent",
+            "action",
             "scope",
-            "interval",
-            "grant",
-            "admission"
+            "principal",
+            "interval"
           ]
         },
         {
@@ -5454,10 +5453,10 @@
         {
           "predicate": "Authority",
           "args": [
-            "capability",
+            "order",
             "agent",
-            "action",
-            "constraints"
+            "principal",
+            "scope"
           ]
         },
         {
@@ -6506,7 +6505,7 @@
           ]
         },
         {
-          "predicate": "ReverseOfProducedBy",
+          "predicate": "Produces",
           "args": [
             "witness",
             "observation"
@@ -8875,11 +8874,11 @@
           ]
         },
         {
-          "predicate": "ReverseOfDenotation",
+          "predicate": "InverseDenotation",
           "args": [
+            "denotation",
             "presence",
-            "representation",
-            "denotation"
+            "representation"
           ]
         },
         {

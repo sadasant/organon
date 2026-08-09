@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
   "status": "generated-nonbinding-positive-witnesses",
-  "source_normal_forms_sha256": "1890a06a03595d1b4514a30ddd7a657d58f8b43926f75156f6d9d23da59d9e38",
+  "source_normal_forms_sha256": "e801315ee1104ee39aee834214c679a564cd3aac982980dc3b5b3a3a3fd29aa7",
   "source_circuits_sha256": "96a0b95fd83e7d364c4f6927ec06e7ace5533dbf0b161274c6f25f7bce89448f",
-  "generator_sha256": "e46941b5e9b7437b0bba5545760b1fb1777f3b330e640f3ffe72c090c8a21a64",
+  "generator_sha256": "af2a52203fd554cf9b3098f7d3c30d538392d80d3d81c4a520ae0a79bd9da602",
   "models": [
     {
       "id": "W-ENTITY",
@@ -251,7 +251,7 @@
         {
           "predicate": "Entity",
           "args": [
-            "Entity:entity-a"
+            "Configuration:entity-a"
           ]
         },
         {
@@ -272,7 +272,7 @@
           "predicate": "PlacesWithinDomain",
           "args": [
             "Order:order-a",
-            "Entity:entity-a",
+            "Configuration:entity-a",
             "InstitutionalStatus:status-a",
             "Rule:rule-a",
             "Scope:scope-a"
@@ -283,7 +283,7 @@
           "args": [
             "Record:record-a",
             "Order:order-a",
-            "Entity:entity-a",
+            "Configuration:entity-a",
             "InstitutionalStatus:status-a",
             "Rule:rule-a",
             "Scope:scope-a"
@@ -295,7 +295,7 @@
         "args": [
           "Order:order-a",
           "Rule:rule-a",
-          "Entity:entity-a",
+          "Configuration:entity-a",
           "InstitutionalStatus:status-a",
           "Scope:scope-a"
         ]

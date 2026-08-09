@@ -24,8 +24,12 @@ does not prove that the entire consciousness paragraph follows from that law.
 
 ## Formal limits
 
-- The finite evaluator implements typed conjunctive queries over explicit facts.
-  It is closer to a small Datalog fragment than to the full Lean shadow.
+- The finite evaluator implements type-preserving conjunctive queries over
+  explicit facts. It checks card declarations, ground fixtures, unifier
+  bindings, mutation argument maps, typed inverses, and derived circuit
+  results. It remains closer to a small Datalog fragment than to the full Lean
+  shadow: roles and indices are card-local, and no implicit coercion is
+  licensed.
 - Closed predicate extensions supply structural query countermodels for anti-entailment.
   They do not prove incompatibility or universal independence.
 - Bidirectional independence is recorded only where both directional

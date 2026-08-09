@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
   "status": "generated-nonbinding-structural-near-miss-models",
-  "source_normal_forms_sha256": "1890a06a03595d1b4514a30ddd7a657d58f8b43926f75156f6d9d23da59d9e38",
-  "source_challenges_sha256": "a051028780f98174d3f421b6747dcf65321be86ef57344af3198ae4c189932dd",
-  "generator_sha256": "e46941b5e9b7437b0bba5545760b1fb1777f3b330e640f3ffe72c090c8a21a64",
+  "source_normal_forms_sha256": "e801315ee1104ee39aee834214c679a564cd3aac982980dc3b5b3a3a3fd29aa7",
+  "source_challenges_sha256": "5c12cd232027303d9a0b48c68c2766afd91f19846f7f7487f37ba9464ba0e6d4",
+  "generator_sha256": "af2a52203fd554cf9b3098f7d3c30d538392d80d3d81c4a520ae0a79bd9da602",
   "structural_mutations": [
     {
       "id": "M-ENTITY-remove-configuration",
@@ -987,11 +987,11 @@
           ]
         },
         {
-          "predicate": "ReverseOfOrderedAssociation",
+          "predicate": "InverseOrderedAssociation",
           "args": [
+            "denotation",
             "target",
-            "expression",
-            "denotation"
+            "expression"
           ]
         }
       ],
@@ -1009,11 +1009,11 @@
           ]
         },
         {
-          "predicate": "ReverseOfOrderedAssociation",
+          "predicate": "InverseOrderedAssociation",
           "args": [
+            "Denotation:denotation-a",
             "Presence:target-a",
-            "Expression:expression-a",
-            "Denotation:denotation-a"
+            "Expression:expression-a"
           ]
         }
       ],
@@ -3221,11 +3221,11 @@
           ]
         },
         {
-          "predicate": "ReverseOfEndpointChange",
+          "predicate": "InverseEndpointChange",
           "args": [
+            "change",
             "endpoint_b",
-            "endpoint_a",
-            "change"
+            "endpoint_a"
           ]
         },
         {
@@ -3288,11 +3288,11 @@
           ]
         },
         {
-          "predicate": "ReverseOfEndpointChange",
+          "predicate": "InverseEndpointChange",
           "args": [
+            "Change:change-a",
             "State:endpoint_b-a",
-            "State:endpoint_a-a",
-            "Change:change-a"
+            "State:endpoint_a-a"
           ]
         },
         {
@@ -5533,7 +5533,7 @@
         {
           "predicate": "Entity",
           "args": [
-            "Entity:entity-a"
+            "Configuration:entity-a"
           ]
         },
         {
@@ -5554,7 +5554,7 @@
           "predicate": "PlacesWithinDomain",
           "args": [
             "Order:order-a",
-            "Entity:entity-a",
+            "Configuration:entity-a",
             "InstitutionalStatus:status-a",
             "Rule:rule-a",
             "Scope:scope-a"
@@ -5565,7 +5565,7 @@
           "args": [
             "Record:record-a",
             "Order:order-a",
-            "Entity:entity-a",
+            "Configuration:entity-a",
             "InstitutionalStatus:status-a",
             "Rule:rule-a",
             "Scope:scope-a"
@@ -5642,7 +5642,7 @@
         {
           "predicate": "Entity",
           "args": [
-            "Entity:entity-a"
+            "Configuration:entity-a"
           ]
         },
         {
@@ -5663,7 +5663,7 @@
           "predicate": "PlacesWithinDomain",
           "args": [
             "Order:order-a",
-            "Entity:entity-a",
+            "Configuration:entity-a",
             "InstitutionalStatus:status-a",
             "Rule:rule-a",
             "Scope:scope-a"
@@ -5674,7 +5674,7 @@
           "args": [
             "Record:record-a",
             "Order:order-a",
-            "Entity:entity-a",
+            "Configuration:entity-a",
             "InstitutionalStatus:status-a",
             "Rule:rule-a",
             "Scope:scope-a"
@@ -5774,7 +5774,7 @@
           "predicate": "PlacesWithinDomain",
           "args": [
             "Order:order-a",
-            "Entity:entity-a",
+            "Configuration:entity-a",
             "InstitutionalStatus:status-a",
             "Rule:rule-a",
             "Scope:scope-a"
@@ -5785,7 +5785,7 @@
           "args": [
             "Record:record-a",
             "Order:order-a",
-            "Entity:entity-a",
+            "Configuration:entity-a",
             "InstitutionalStatus:status-a",
             "Rule:rule-a",
             "Scope:scope-a"
@@ -5869,7 +5869,7 @@
         {
           "predicate": "Entity",
           "args": [
-            "Entity:entity-a"
+            "Configuration:entity-a"
           ]
         },
         {
@@ -5883,7 +5883,7 @@
           "predicate": "PlacesWithinDomain",
           "args": [
             "Order:order-a",
-            "Entity:entity-a",
+            "Configuration:entity-a",
             "InstitutionalStatus:status-a",
             "Rule:rule-a",
             "Scope:scope-a"
@@ -5894,7 +5894,7 @@
           "args": [
             "Record:record-a",
             "Order:order-a",
-            "Entity:entity-a",
+            "Configuration:entity-a",
             "InstitutionalStatus:status-a",
             "Rule:rule-a",
             "Scope:scope-a"
@@ -5978,7 +5978,7 @@
         {
           "predicate": "Entity",
           "args": [
-            "Entity:entity-a"
+            "Configuration:entity-a"
           ]
         },
         {
@@ -5992,7 +5992,7 @@
           "predicate": "PlacesWithinDomain",
           "args": [
             "Order:order-a",
-            "Entity:entity-a",
+            "Configuration:entity-a",
             "InstitutionalStatus:status-a",
             "Rule:rule-a",
             "Scope:scope-a"
@@ -6003,7 +6003,7 @@
           "args": [
             "Record:record-a",
             "Order:order-a",
-            "Entity:entity-a",
+            "Configuration:entity-a",
             "InstitutionalStatus:status-a",
             "Rule:rule-a",
             "Scope:scope-a"
@@ -6084,7 +6084,7 @@
         {
           "predicate": "Entity",
           "args": [
-            "Entity:entity-a"
+            "Configuration:entity-a"
           ]
         },
         {
@@ -6106,7 +6106,7 @@
           "args": [
             "Record:record-a",
             "Order:order-a",
-            "Entity:entity-a",
+            "Configuration:entity-a",
             "InstitutionalStatus:status-a",
             "Rule:rule-a",
             "Scope:scope-a"
@@ -6186,7 +6186,7 @@
         {
           "predicate": "Entity",
           "args": [
-            "Entity:entity-a"
+            "Configuration:entity-a"
           ]
         },
         {
@@ -6207,7 +6207,7 @@
           "predicate": "PlacesWithinDomain",
           "args": [
             "Order:order-a",
-            "Entity:entity-a",
+            "Configuration:entity-a",
             "InstitutionalStatus:status-a",
             "Rule:rule-a",
             "Scope:scope-a"
@@ -6298,7 +6298,7 @@
         {
           "predicate": "Entity",
           "args": [
-            "Entity:entity-a"
+            "Configuration:entity-a"
           ]
         },
         {
@@ -6319,7 +6319,7 @@
           "predicate": "PlacesWithinDomain",
           "args": [
             "Order:order-a",
-            "Entity:entity-a",
+            "Configuration:entity-a",
             "InstitutionalStatus:status-a",
             "Rule:rule-a",
             "Scope:scope-a"
@@ -6330,7 +6330,7 @@
           "args": [
             "Record:record-a",
             "Order:order__split-a",
-            "Entity:entity-a",
+            "Configuration:entity-a",
             "InstitutionalStatus:status-a",
             "Rule:rule-a",
             "Scope:scope-a"
@@ -6421,7 +6421,7 @@
         {
           "predicate": "Entity",
           "args": [
-            "Entity:entity-a"
+            "Configuration:entity-a"
           ]
         },
         {
@@ -6442,7 +6442,7 @@
           "predicate": "PlacesWithinDomain",
           "args": [
             "Order:order-a",
-            "Entity:entity-a",
+            "Configuration:entity-a",
             "InstitutionalStatus:status-a",
             "Rule:rule-a",
             "Scope:scope-a"
@@ -6453,7 +6453,7 @@
           "args": [
             "Record:record-a",
             "Order:order-a",
-            "Entity:entity-a",
+            "Configuration:entity-a",
             "InstitutionalStatus:status-a",
             "Rule:rule__split-a",
             "Scope:scope-a"
@@ -6544,7 +6544,7 @@
         {
           "predicate": "Entity",
           "args": [
-            "Entity:entity-a"
+            "Configuration:entity-a"
           ]
         },
         {
@@ -6565,7 +6565,7 @@
           "predicate": "PlacesWithinDomain",
           "args": [
             "Order:order-a",
-            "Entity:entity-a",
+            "Configuration:entity-a",
             "InstitutionalStatus:status-a",
             "Rule:rule-a",
             "Scope:scope-a"
@@ -6576,7 +6576,7 @@
           "args": [
             "Record:record-a",
             "Order:order-a",
-            "Entity:entity__split-a",
+            "Configuration:entity__split-a",
             "InstitutionalStatus:status-a",
             "Rule:rule-a",
             "Scope:scope-a"
@@ -6667,7 +6667,7 @@
         {
           "predicate": "Entity",
           "args": [
-            "Entity:entity-a"
+            "Configuration:entity-a"
           ]
         },
         {
@@ -6688,7 +6688,7 @@
           "predicate": "PlacesWithinDomain",
           "args": [
             "Order:order-a",
-            "Entity:entity-a",
+            "Configuration:entity-a",
             "InstitutionalStatus:status-a",
             "Rule:rule-a",
             "Scope:scope-a"
@@ -6699,7 +6699,7 @@
           "args": [
             "Record:record-a",
             "Order:order-a",
-            "Entity:entity-a",
+            "Configuration:entity-a",
             "InstitutionalStatus:status__split-a",
             "Rule:rule-a",
             "Scope:scope-a"
@@ -6790,7 +6790,7 @@
         {
           "predicate": "Entity",
           "args": [
-            "Entity:entity-a"
+            "Configuration:entity-a"
           ]
         },
         {
@@ -6811,7 +6811,7 @@
           "predicate": "PlacesWithinDomain",
           "args": [
             "Order:order-a",
-            "Entity:entity-a",
+            "Configuration:entity-a",
             "InstitutionalStatus:status-a",
             "Rule:rule-a",
             "Scope:scope-a"
@@ -6822,7 +6822,7 @@
           "args": [
             "Record:record-a",
             "Order:order-a",
-            "Entity:entity-a",
+            "Configuration:entity-a",
             "InstitutionalStatus:status-a",
             "Rule:rule-a",
             "Scope:scope__split-a"
@@ -6875,13 +6875,13 @@
           ]
         },
         {
-          "predicate": "ReverseOfPlacesWithinDomain",
+          "predicate": "InversePlacesWithinDomain",
           "args": [
-            "scope",
-            "rule",
+            "order",
             "status",
             "entity",
-            "order"
+            "rule",
+            "scope"
           ]
         },
         {
@@ -6913,7 +6913,7 @@
         {
           "predicate": "Entity",
           "args": [
-            "Entity:entity-a"
+            "Configuration:entity-a"
           ]
         },
         {
@@ -6931,13 +6931,13 @@
           ]
         },
         {
-          "predicate": "ReverseOfPlacesWithinDomain",
+          "predicate": "InversePlacesWithinDomain",
           "args": [
-            "Scope:scope-a",
-            "Rule:rule-a",
+            "Order:order-a",
             "InstitutionalStatus:status-a",
-            "Entity:entity-a",
-            "Order:order-a"
+            "Configuration:entity-a",
+            "Rule:rule-a",
+            "Scope:scope-a"
           ]
         },
         {
@@ -6945,7 +6945,7 @@
           "args": [
             "Record:record-a",
             "Order:order-a",
-            "Entity:entity-a",
+            "Configuration:entity-a",
             "InstitutionalStatus:status-a",
             "Rule:rule-a",
             "Scope:scope-a"
@@ -7036,7 +7036,7 @@
         {
           "predicate": "Entity",
           "args": [
-            "Entity:entity-a"
+            "Configuration:entity-a"
           ]
         },
         {
@@ -7057,7 +7057,7 @@
           "predicate": "PlacesWithinDomain",
           "args": [
             "Order:order-a",
-            "Entity:entity-a",
+            "Configuration:entity-a",
             "InstitutionalStatus:status-a",
             "Rule:rule-a",
             "Scope:scope-a"
@@ -7068,7 +7068,7 @@
           "args": [
             "Record:record-a",
             "Order:order-a",
-            "Entity:entity-a",
+            "Configuration:entity-a",
             "InstitutionalStatus:status-a",
             "Rule:rule-a",
             "Scope:scope-a"
@@ -9553,14 +9553,13 @@
         {
           "predicate": "PermissionClaim",
           "args": [
-            "permission",
+            "permission_claim",
             "order",
-            "principal",
             "agent",
+            "action",
             "scope",
-            "interval",
-            "grant",
-            "admission"
+            "principal",
+            "interval"
           ]
         },
         {
@@ -9624,14 +9623,13 @@
         {
           "predicate": "PermissionClaim",
           "args": [
-            "Permission:permission-a",
+            "Claim:permission_claim-a",
             "Order:order-a",
-            "Principal:principal-a",
             "Agent:agent-a",
+            "Action:action-a",
             "Scope:scope-a",
-            "Interval:interval-a",
-            "Grant:grant-a",
-            "Admission:admission-a"
+            "Principal:principal-a",
+            "Interval:interval-a"
           ]
         },
         {
@@ -9902,10 +9900,10 @@
         {
           "predicate": "Authority",
           "args": [
-            "capability",
+            "order",
             "agent",
-            "action",
-            "constraints"
+            "principal",
+            "scope"
           ]
         },
         {
@@ -9973,10 +9971,10 @@
         {
           "predicate": "Authority",
           "args": [
-            "Specification:capability-a",
+            "Order:order-a",
             "Agent:agent-a",
-            "Action:action-a",
-            "ConstraintSet:constraints-a"
+            "Principal:principal-a",
+            "Scope:scope-a"
           ]
         },
         {
@@ -11833,7 +11831,7 @@
           ]
         },
         {
-          "predicate": "ReverseOfProducedBy",
+          "predicate": "Produces",
           "args": [
             "witness",
             "observation"
@@ -11895,7 +11893,7 @@
           ]
         },
         {
-          "predicate": "ReverseOfProducedBy",
+          "predicate": "Produces",
           "args": [
             "Witness:witness-a",
             "Observation:observation-a"
@@ -16226,11 +16224,11 @@
           ]
         },
         {
-          "predicate": "ReverseOfDenotation",
+          "predicate": "InverseDenotation",
           "args": [
+            "denotation",
             "presence",
-            "representation",
-            "denotation"
+            "representation"
           ]
         },
         {
@@ -16298,11 +16296,11 @@
           ]
         },
         {
-          "predicate": "ReverseOfDenotation",
+          "predicate": "InverseDenotation",
           "args": [
+            "Denotation:denotation-a",
             "Presence:presence-a",
-            "Representation:representation-a",
-            "Denotation:denotation-a"
+            "Representation:representation-a"
           ]
         },
         {
@@ -16854,6 +16852,7 @@
         {
           "predicate": "Capability",
           "args": [
+            "Specification:capability",
             "Agent:a",
             "Action:x",
             "ConstraintSet:c"
@@ -16863,6 +16862,7 @@
       "source": {
         "predicate": "Capability",
         "args": [
+          "Specification:capability",
           "Agent:a",
           "Action:x",
           "ConstraintSet:c"
@@ -16871,9 +16871,10 @@
       "target": {
         "predicate": "Authority",
         "args": [
+          "Order:o",
           "Agent:a",
-          "Action:x",
-          "Order:o"
+          "Principal:p",
+          "Scope:s"
         ]
       },
       "expect": "source_without_target",
@@ -16891,23 +16892,26 @@
         {
           "predicate": "Authority",
           "args": [
+            "Order:o",
             "Agent:a",
-            "Action:x",
-            "Order:o"
+            "Principal:p",
+            "Scope:s"
           ]
         }
       ],
       "source": {
         "predicate": "Authority",
         "args": [
+          "Order:o",
           "Agent:a",
-          "Action:x",
-          "Order:o"
+          "Principal:p",
+          "Scope:s"
         ]
       },
       "target": {
         "predicate": "Capability",
         "args": [
+          "Specification:capability",
           "Agent:a",
           "Action:x",
           "ConstraintSet:c"
@@ -16930,8 +16934,8 @@
           "args": [
             "Order:o1",
             "Rule:r",
-            "Entity:e",
-            "Status:s",
+            "Configuration:e",
+            "InstitutionalStatus:s",
             "Scope:q"
           ]
         }
@@ -16941,8 +16945,8 @@
         "args": [
           "Order:o1",
           "Rule:r",
-          "Entity:e",
-          "Status:s",
+          "Configuration:e",
+          "InstitutionalStatus:s",
           "Scope:q"
         ]
       },
@@ -16951,8 +16955,8 @@
         "args": [
           "Order:o2",
           "Rule:r",
-          "Entity:e",
-          "Status:s",
+          "Configuration:e",
+          "InstitutionalStatus:s",
           "Scope:q"
         ]
       },

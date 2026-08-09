@@ -27,13 +27,13 @@
       ],
       "mutation_policy": {
         "split_variables": ["entity", "invariant", "history"],
-        "reverse_atoms": [],
+        "reverse_atoms": {},
         "substitute_atoms": {
           "persistence-witness": [
-            {"predicate": "Resemblance", "shape": "carrier_content_collapse"},
-            {"predicate": "NamingContinuity", "shape": "projection_inversion"},
-            {"predicate": "StorageContinuity", "shape": "carrier_content_collapse"},
-            {"predicate": "UninterruptedOccurrence", "shape": "premise_omission"}
+            {"predicate": "Resemblance", "args": ["entity", "invariant", "history"], "shape": "carrier_content_collapse"},
+            {"predicate": "NamingContinuity", "args": ["entity", "invariant", "history"], "shape": "projection_inversion"},
+            {"predicate": "StorageContinuity", "args": ["entity", "invariant", "history"], "shape": "carrier_content_collapse"},
+            {"predicate": "UninterruptedOccurrence", "args": ["entity", "invariant", "history"], "shape": "premise_omission"}
           ]
         }
       }
@@ -61,11 +61,13 @@
       ],
       "mutation_policy": {
         "split_variables": ["expression", "target"],
-        "reverse_atoms": ["ordered-association"],
+        "reverse_atoms": {
+          "ordered-association": {"predicate": "InverseOrderedAssociation", "args": ["denotation", "target", "expression"]}
+        },
         "substitute_atoms": {
           "ordered-association": [
-            {"predicate": "Resembles", "shape": "typed_substitution"},
-            {"predicate": "CoOccurs", "shape": "typed_substitution"}
+            {"predicate": "Resembles", "args": ["denotation", "expression", "target"], "shape": "typed_substitution"},
+            {"predicate": "CoOccurs", "args": ["denotation", "expression", "target"], "shape": "typed_substitution"}
           ]
         }
       }
@@ -102,12 +104,14 @@
       ],
       "mutation_policy": {
         "split_variables": ["difference", "path_a", "path_b", "direction", "endpoint_a", "endpoint_b"],
-        "reverse_atoms": ["endpoint-change"],
+        "reverse_atoms": {
+          "endpoint-change": {"predicate": "InverseEndpointChange", "args": ["change", "endpoint_b", "endpoint_a"]}
+        },
         "substitute_atoms": {
           "matched-inputs": [
-            {"predicate": "Occurrence", "shape": "typed_substitution"},
-            {"predicate": "Precedence", "shape": "typed_substitution"},
-            {"predicate": "Correlation", "shape": "typed_substitution"}
+            {"predicate": "Occurrence", "args": ["match", "path_a", "path_b", "difference"], "shape": "typed_substitution"},
+            {"predicate": "Precedence", "args": ["match", "path_a", "path_b", "difference"], "shape": "typed_substitution"},
+            {"predicate": "Correlation", "args": ["match", "path_a", "path_b", "difference"], "shape": "typed_substitution"}
           ]
         }
       }
@@ -142,14 +146,14 @@
       ],
       "mutation_policy": {
         "split_variables": ["capability", "agent", "action", "constraints", "configuration"],
-        "reverse_atoms": [],
+        "reverse_atoms": {},
         "substitute_atoms": {
           "action-path": [
-            {"predicate": "ActionOccurrence", "shape": "typed_substitution"},
-            {"predicate": "TemporalPrecedence", "shape": "typed_substitution"}
+            {"predicate": "ActionOccurrence", "args": ["path", "agent", "action", "configuration"], "shape": "typed_substitution"},
+            {"predicate": "TemporalPrecedence", "args": ["path", "agent", "action", "configuration"], "shape": "typed_substitution"}
           ],
           "satisfying-configuration": [
-            {"predicate": "ClaimedPossible", "shape": "projection_inversion"}
+            {"predicate": "ClaimedPossible", "args": ["configuration", "constraints"], "shape": "projection_inversion"}
           ]
         }
       }
@@ -160,7 +164,7 @@
       "result_kind": "institutional_relation",
       "result": {"predicate": "Standing", "args": ["order", "rule", "entity", "status", "scope"]},
       "variables": {
-        "order": "Order", "rule": "Rule", "entity": "Entity", "status": "InstitutionalStatus",
+        "order": "Order", "rule": "Rule", "entity": "Configuration", "status": "InstitutionalStatus",
         "scope": "Scope", "record": "Record"
       },
       "participants": ["order", "entity", "status"],
@@ -185,10 +189,12 @@
       ],
       "mutation_policy": {
         "split_variables": ["order", "rule", "entity", "status", "scope"],
-        "reverse_atoms": ["placement"],
+        "reverse_atoms": {
+          "placement": {"predicate": "InversePlacesWithinDomain", "args": ["order", "status", "entity", "rule", "scope"]}
+        },
         "substitute_atoms": {
           "standing-record": [
-            {"predicate": "StandingClaim", "shape": "projection_inversion"}
+            {"predicate": "StandingClaim", "args": ["record", "order", "entity", "status", "rule", "scope"], "shape": "projection_inversion"}
           ]
         }
       }
@@ -226,16 +232,21 @@
       ],
       "mutation_policy": {
         "split_variables": ["permission", "order", "agent", "scope", "interval", "admission", "action", "time", "constraints"],
-        "reverse_atoms": [],
+        "reverse_atoms": {},
         "substitute_atoms": {
           "permission": [
-            {"predicate": "PermissionClaim", "shape": "projection_inversion"}
+            {
+              "predicate": "PermissionClaim",
+              "args": ["permission_claim", "order", "agent", "action", "scope", "principal", "interval"],
+              "variables": {"permission_claim": "Claim"},
+              "shape": "projection_inversion"
+            }
           ],
           "continued-admission": [
-            {"predicate": "HistoricalAdmission", "shape": "index_erasure"}
+            {"predicate": "HistoricalAdmission", "args": ["order", "permission", "admission", "time"], "shape": "index_erasure"}
           ],
           "capability": [
-            {"predicate": "Authority", "shape": "typed_substitution"}
+            {"predicate": "Authority", "args": ["order", "agent", "principal", "scope"], "shape": "typed_substitution"}
           ]
         }
       }
@@ -272,13 +283,15 @@
       ],
       "mutation_policy": {
         "split_variables": ["observation", "claim", "witness", "order", "scope", "admissibility_rule"],
-        "reverse_atoms": ["produced-by"],
+        "reverse_atoms": {
+          "produced-by": {"predicate": "Produces", "args": ["witness", "observation"]}
+        },
         "substitute_atoms": {
           "independence": [
-            {"predicate": "MerelyDistinct", "shape": "typed_substitution"}
+            {"predicate": "MerelyDistinct", "args": ["witness", "claimant", "claim", "observation", "order", "scope"], "shape": "typed_substitution"}
           ],
           "admission": [
-            {"predicate": "AdmissionClaim", "shape": "projection_inversion"}
+            {"predicate": "AdmissionClaim", "args": ["order", "observation", "admissibility_rule", "scope"], "shape": "projection_inversion"}
           ]
         }
       }
@@ -313,13 +326,13 @@
       ],
       "mutation_policy": {
         "split_variables": ["evidence", "claim", "disposition", "order", "scope", "rule"],
-        "reverse_atoms": [],
+        "reverse_atoms": {},
         "substitute_atoms": {
           "evaluation-rule": [
-            {"predicate": "ClaimantRule", "shape": "projection_inversion"}
+            {"predicate": "ClaimantRule", "args": ["rule", "order"], "shape": "projection_inversion"}
           ],
           "recorded-disposition": [
-            {"predicate": "UnrecordedDisposition", "shape": "premise_omission"}
+            {"predicate": "UnrecordedDisposition", "args": ["record", "order", "evidence", "claim", "rule", "scope", "disposition"], "shape": "premise_omission"}
           ]
         }
       }
@@ -357,14 +370,16 @@
       ],
       "mutation_policy": {
         "split_variables": ["claim", "representation", "denotation", "specification", "presence", "rule", "scope"],
-        "reverse_atoms": ["denotation"],
+        "reverse_atoms": {
+          "denotation": {"predicate": "InverseDenotation", "args": ["denotation", "presence", "representation"]}
+        },
         "substitute_atoms": {
           "denotation": [
-            {"predicate": "Resembles", "shape": "typed_substitution"},
-            {"predicate": "RefersInformally", "shape": "typed_substitution"}
+            {"predicate": "Resembles", "args": ["denotation", "representation", "presence"], "shape": "typed_substitution"},
+            {"predicate": "RefersInformally", "args": ["denotation", "representation", "presence"], "shape": "typed_substitution"}
           ],
           "conformity": [
-            {"predicate": "ValidatorClaim", "shape": "projection_inversion"}
+            {"predicate": "ValidatorClaim", "args": ["presence", "specification"], "shape": "projection_inversion"}
           ]
         }
       }
