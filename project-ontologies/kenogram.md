@@ -109,7 +109,7 @@ These are Kenogram's normative and observational invariants. Their local label d
 
 This ontology prohibits the following collapses:
 
-1. **Operational absence is not Organon Absence.** A missing route, socket, mount, resolver, or capability is a represented condition inside a runtime field.
+1. **Operational absence is not Organon Absence or automatically Missingness.** A missing route, socket, mount, resolver, or capability is a represented runtime condition, but deliberate required nonavailability does not by itself show that a field represents or expects a needed Presence that it lacks.
 2. **A declaration is not institutional Authority.** It controls Kenogram's technical path but does not establish an Order, Principal, Standing, or CountsAs relation.
 3. **`allow` is not Organon Permission.** Technical egress admission lacks the required institutional Grant and Admission chain.
 4. **Runtime evidence is not automatically Organon Evidence.** Inspection, replay, hashing, and producer separation do not establish IndependentFor, institutional Admission, or Evidential Bearing by themselves.
@@ -126,7 +126,7 @@ This ontology prohibits the following collapses:
 
 | ID | Local term | Organon target | Classification | Disposition |
 | --- | --- | --- | --- | --- |
-| K1 | operational absence | `organon:Missingness` | refinement | promoted |
+| K1 | operational absence | `organon:Missingness` | unmapped | gated |
 | K2 | version-1 declaration contract | `organon:Specification` | refinement | promoted |
 | K3 | generation as an indexed runtime configuration | `organon:State` | refinement | promoted |
 | K4 | successful replacement | `organon:Transformation` | refinement | promoted |
@@ -134,21 +134,11 @@ This ontology prohibits the following collapses:
 | K6 | hash-chained history record | `organon:Record` | unmapped | gated |
 | K7 | local authority | `organon:Authority` | conflict | gated |
 | K8 | `allow` / `revoke` | `organon:Permission` | conflict | gated |
-| K9 | runtime evidence and tests | `organon:Evidence` | conflict | gated |
+| K9 | runtime evidence and tests | `organon:Evidence` | unmapped | gated |
 | K10 | world | `organon:World` | unmapped | gated |
 | K11 | execution or security boundary | `organon:Boundary` | unmapped | gated |
 | K12 | operator interface | `organon:Interface` | unmapped | gated |
 | K13 | AI agent or world process | `organon:Agent` | unmapped | gated |
-
-### K1 — operational absence refines Missingness
-
-**Target claim:** A5. **Complete registry dependency:** `organon:Presence`.
-
-- **Local bearer and scope:** a named declaration, network contract, or runtime observation field.
-- **Expected or represented Presence:** a route, resolver, mount, socket, device, credential, capability, or destination path represented by that field.
-- **Noncontainment witness:** declaration validation or runtime inspection records that the named item is not contained in the scoped configuration (`README.md:33-39`; `requirements/network.md:9-23`).
-- **Dependency witness:** the declaration, observation, field, and recorded noncontainment are all present structures, satisfying the `organon:Presence` dependency.
-- **Exclusion:** the mapping never applies to `organon:Absence`; it applies only to relational missingness in a named field.
 
 ### K2 — the version-1 declaration contract refines Specification
 
@@ -184,11 +174,12 @@ This ontology prohibits the following collapses:
 
 ### Gated correspondences
 
+- **K1 — unmapped:** Kenogram's operational absence includes deliberately required nonavailability, such as no exterior route, resolver, undeclared mount, or runtime socket. The cited sources establish noncontainment and required closure, but they do not identify a field that represents or expects a specific needed Presence and then records that Presence missing. A promotable Missingness instance must name that field, the required represented Presence, the source-backed expectation or need, and the observation showing noncontainment (`README.md:33-39`; `requirements/network.md:9-23`).
 - **K5 — unmapped:** Kenogram's world-pattern is a finite normative observation contract, not yet an identified runtime part, Relation, or Configuration preserved across a named set of Transformations. A promotable instance must restrict the Transformation to one specifically identified pattern-preserving replacement or same-declaration reapplication, name the exact runtime bearer in both K3 endpoint States, and supply pre/post observations showing preservation. General successful replacement is insufficient because replacement may change the declaration and therefore the required pattern (`docs/kenogrammatics.md:50-56`; `requirements/network.md:23-31`).
 - **K6 — unmapped:** the local history format retains timestamp, action, digests, outcome, detail, and hash linkage, but the dossier does not establish an ordered Denotation from a particular entry to an exact earlier State, Relation, or Change. It also does not name a preserved entry/hash Invariant, ordered post-append States, and the subsequent transformations or verification steps across which that Invariant persists. Append and fsync alone do not complete the Organon Record constructor (`internal/history/history.go:18-29`; `internal/history/history.go:42-70`).
 - **K7 — conflict:** Kenogram's declaration and transition authority controls technical application and current-generation selection. Organon Authority is an Order-indexed relation involving an Agent, Actions, CountsAs, a Principal, and Scope. The local meaning deliberately lacks that institutional constructor (`docs/design.md:11-14`; `requirements/lifecycle.md:25-32`).
 - **K8 — conflict:** local `allow` and `revoke` change live egress policy. Organon Permission requires a Permission Claim, valid Grant, Admission, governing Order, Principal, Agent, Scope, and interval. The local operations cannot be renamed into that chain (`README.md:16-21`; `requirements/network.md:25-27`).
-- **K9 — conflict:** Kenogram uses evidence for structured observations, tests, and sealed replay material. Organon Evidence additionally requires an Observation produced by an IndependentFor Witness and admitted by an Order under an Admissibility Rule; supportive or defeating use requires Evidential Bearing. The repository also warns that self-reported provenance is not self-qualification (`README.md:120-133`; `requirements/provenance.md:29-32`).
+- **K9 — unmapped:** Kenogram uses evidence for structured observations, tests, sealed replay material, and locally verified compatibility or boundary claims. That local category is broader than Organon Evidence and is not shown to be incompatible with it, but the dossier does not supply the required Observation produced by an IndependentFor Witness and admitted by an Order under an Admissibility Rule. Any supportive or defeating use would additionally require Evidential Bearing. The repository itself warns that self-reported provenance is not self-qualification (`README.md:120-133`; `requirements/jobs.md:239-258`; `requirements/provenance.md:29-32`).
 - **K10 — unmapped:** the local world is a rootless Linux environment, but an Organon World requires established Entities, participant-available causal paths, named Constraints, and a common Invariant across access paths. The local finite observation contract does not supply that whole packet (`docs/design.md:6-9`; `docs/design.md:30-41`).
 - **K11 — unmapped:** the execution boundary has documented constraints and observations, but Organon Boundary must be indexed to an Entity identity Invariant and its preserving or identity-crossing Transformations. No such Entity packet is promoted (`README.md:27-47`; `requirements/security.md:111-117`).
 - **K12 — unmapped:** the operator interface explicitly represents one permitted descriptor-transfer path, but Organon Interface is a Boundary coordinated between established Entities. The endpoint mechanism is documented; the Entity and Boundary dependencies remain open (`internal/decl/types.go:57-62`; `requirements/network.md:62-66`).
@@ -196,13 +187,14 @@ This ontology prohibits the following collapses:
 
 ## Boundary cases
 
-- A failed direct TCP connection can witness local network nonavailability and K1 Missingness. It does not witness absolute Absence, universal isolation, or security against kernel escape.
+- A failed direct TCP connection can witness local required network nonavailability. It does not by itself witness Organon Missingness, absolute Absence, universal isolation, or security against kernel escape.
+- If a named required runtime field were documented as expecting a particular Presence and an observation showed that Presence missing, that instance could be reconsidered for Missingness. The current network-closure citations do not provide that packet.
 - A successor container that starts but has not passed inspection is a candidate generation, not an applied successor. It can instantiate K3 as an indexed configuration without completing K4.
 - A rollback after failed replacement is a recorded recovery path. It is not the successful predecessor-to-successor Direction used by K4.
 - Two generations may satisfy the same local finite observation contract while differing in image structure, runtime identifiers, or bytes. That local result does not instantiate K5 unless a specific runtime bearer and its pre/post preservation witnesses are supplied.
 - A declaration digest records which bytes were read, and a plan digest fingerprints resolved intent. Neither digest creates Truth, Entity identity, or institutional Authority (`docs/kenogrammatics.md:65-76`).
 - A hash-chained entry can survive append and fsync while K6 remains gated: durability does not identify the exact denoted earlier State, Relation, or Change or establish Persistence under Organon's constructor.
-- A governed-job manifest can be locally complete and replayable while remaining a producer artifact rather than Organon Evidence. Completeness does not supply an IndependentFor Witness or admitting Order.
+- A governed-job manifest can be locally complete and replayable while K9 remains gated. Local completeness does not supply an IndependentFor Witness, Admissibility Rule, Admission, governing Order, or Evidential Bearing.
 - A target result marked `unknown` preserves missing outcome information rather than inventing success or failure; a missing seal cannot be upgraded to a complete job (`requirements/jobs.md:151-178`).
 - A named loopback operator interface exposes one declared byte stream. It does not supply a general host-to-world network relation or, without K11 and participant Entity packets, an Organon Interface.
 
@@ -210,17 +202,18 @@ This ontology prohibits the following collapses:
 
 The following gates must be resolved from a later pinned snapshot or instance-specific packet before promotion:
 
-1. **Invariant packet:** K5 requires one specifically identified pattern-preserving replacement or same-declaration reapplication, an actual runtime part, Relation, or Configuration present in both endpoint States, the exact preserved respect, and pre/post observation witnesses. A normative contract or general claim of conformance is insufficient.
-2. **Record packet:** K6 requires a particular entry, an ordered Denotation whose expression position is that entry and whose target position is an exact earlier State, Relation, or Change, plus a Persistence witness naming the preserved entry/hash Invariant, ordered post-append States, and relevant subsequent transformations or verification steps.
-3. **Institutional packet:** K7 or K8 would require a named Order, Rule, Scope, Principal, Agent, Standing or CountsAs path, authorized Grant, and Admission. Technical configuration control is insufficient.
-4. **Evidence packet:** K9 would require a claimant and Claim, a distinct Witness, the relevant Observation path, mechanical and institutional independence, an Admissibility Rule, governing Order, Admission, and any claimed Evidential Bearing disposition.
-5. **Entity and World packet:** K10, K11, and K12 require explicit identity Invariants, ordered States, Persistence witnesses, Entity-indexed Constraints, participating Entities, and scoped causal access paths.
-6. **Agent packet:** K13 requires a persistent Entity whose Interpretation demonstrably conditions which Action occurs. Process naming or successful command execution is insufficient.
-7. **Security scope:** broader security claims require evidence beyond the repository's stated rootless Podman and Linux assumptions and must preserve the explicit exclusions for declared secrets, writable mounts, admitted destinations, hostile hosts, and runtime escape.
-8. **Apple runtime:** the repository says the experimental launcher is not macOS runtime support and leaves lifecycle and network evidence open (`README.md:64-67`). No cross-platform boundary mapping is promoted.
-9. **Review gate:** this generated candidate requires human review and fresh evaluation of its exact revised bytes before acceptance.
+1. **Missingness packet:** K1 requires a named field that represents or expects a specific needed Presence, source-backed evidence of that expectation, and an observation that the field does not contain the Presence. Deliberately required closure or prohibited reachability is insufficient.
+2. **Invariant packet:** K5 requires one specifically identified pattern-preserving replacement or same-declaration reapplication, an actual runtime part, Relation, or Configuration present in both endpoint States, the exact preserved respect, and pre/post observation witnesses. A normative contract or general claim of conformance is insufficient.
+3. **Record packet:** K6 requires a particular entry, an ordered Denotation whose expression position is that entry and whose target position is an exact earlier State, Relation, or Change, plus a Persistence witness naming the preserved entry/hash Invariant, ordered post-append States, and relevant subsequent transformations or verification steps.
+4. **Institutional packet:** K7 or K8 would require a named Order, Rule, Scope, Principal, Agent, Standing or CountsAs path, authorized Grant, and Admission. Technical configuration control is insufficient.
+5. **Evidence packet:** K9 would require a claimant and Claim, a distinct Witness, the relevant Observation path, mechanical and institutional independence, an Admissibility Rule, governing Order, Admission, and any claimed Evidential Bearing disposition.
+6. **Entity and World packet:** K10, K11, and K12 require explicit identity Invariants, ordered States, Persistence witnesses, Entity-indexed Constraints, participating Entities, and scoped causal access paths.
+7. **Agent packet:** K13 requires a persistent Entity whose Interpretation demonstrably conditions which Action occurs. Process naming or successful command execution is insufficient.
+8. **Security scope:** broader security claims require evidence beyond the repository's stated rootless Podman and Linux assumptions and must preserve the explicit exclusions for declared secrets, writable mounts, admitted destinations, hostile hosts, and runtime escape.
+9. **Apple runtime:** the repository says the experimental launcher is not macOS runtime support and leaves lifecycle and network evidence open (`README.md:64-67`). No cross-platform boundary mapping is promoted.
+10. **Review gate:** this generated candidate requires human review, regeneration of the ontology digest for the exact revised bytes, and fresh evaluation before acceptance.
 
-Review this ontology again if the repository changes the declaration schema, replacement authority model, network invariant set, runtime provider assumptions, governed-job evidence contract, verifier independence model, history semantics, or meaning of world, generation, authority, evidence, invariant, record, or interface. A branch move without the pinned commit does not update this candidate.
+Review this ontology again if the repository changes the declaration schema, replacement authority model, network invariant set, runtime provider assumptions, governed-job evidence contract, verifier independence model, history semantics, or meaning of world, generation, authority, evidence, invariant, record, absence, or interface. A branch move without the pinned commit does not update this candidate.
 
 <!-- organon:mapping-manifest -->
 ```yaml
@@ -232,14 +225,15 @@ mappings:
     local_term: 'operational absence'
     organon_id: 'organon:Missingness'
     target_claim: A5
-    classification: refinement
-    status: promoted
-    dependencies:
+    classification: unmapped
+    status: gated
+    missing_dependencies:
       - 'organon:Presence'
-    packet:
-      scope: 'A named declaration, contract, or inspected runtime field.'
-      witness: 'The field represents or expects a named route, resolver, mount, socket, device, credential, or capability and records that it is not contained.'
-      exclusion: 'Never licenses organon:Absence.'
+    missing_packet:
+      field: 'A named field that represents or expects a specific needed Presence.'
+      expectation: 'Source-backed evidence that the Presence is required in that field.'
+      noncontainment: 'An observation that the field does not contain that required Presence.'
+    rationale: 'The cited sources establish deliberately required nonavailability and technical closure, not omission of an expected or needed Presence from a field.'
     evidence:
       - 'README.md:33-39'
       - 'requirements/network.md:9-23'
@@ -295,6 +289,7 @@ mappings:
     packet:
       input_state: 'The predecessor generation configuration under K3.'
       output_state: 'The verified successor generation configuration under K3.'
+      relation: 'Staged materialization, workspace handoff, verification, and durable recording join predecessor and successor.'
       direction: 'Successful cutover from predecessor to successor; rollback is a distinct recovery path.'
       exclusion: 'Failed staging and unresolved recovery are outside this promoted mapping.'
     evidence:
@@ -379,7 +374,7 @@ mappings:
     local_term: 'runtime evidence and tests'
     organon_id: 'organon:Evidence'
     target_claim: D066
-    classification: conflict
+    classification: unmapped
     status: gated
     missing_dependencies:
       - 'organon:Observation'
@@ -389,7 +384,11 @@ mappings:
       - 'organon:Order'
       - 'organon:AdmissibilityRule'
       - 'organon:Admission'
-    rationale: 'Local inspection and replay artifacts do not supply the complete independent and institutional Evidence constructor.'
+    missing_packet:
+      independence: 'A Witness mechanically and institutionally IndependentFor the claimant, Claim, Observation, and Order.'
+      admission: 'A governing Order and Admissibility Rule that admit the Observation for the Claim.'
+      bearing: 'An evaluation Rule and recorded disposition if supportive or defeating Evidential Bearing is asserted.'
+    rationale: 'The local evidence category is broader and lacks the complete independent and institutional Evidence constructor; the dossier does not establish a load-bearing incompatibility.'
     evidence:
       - 'README.md:120-133'
       - 'requirements/jobs.md:239-258'

@@ -26,7 +26,7 @@
       "project": "Kenogram",
       "organon_version": "0.18.0",
       "ontology_file": "project-ontologies/kenogram.md",
-      "ontology_sha256": "e5eb93079ad61050807bc2825f805de1abfaf0797ded6ca03c2930a9b5db8b19",
+      "ontology_sha256": "9dc32c84c3284d6aa822c609a8ea567dabcd590e74589564feb6b66ba5cc3c14",
       "source_files": [
         "evals/project-ontologies/inputs/sources/kenogram.md"
       ],
