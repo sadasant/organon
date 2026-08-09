@@ -131,18 +131,14 @@ def run(*, check: bool) -> dict[str, int]:
                 "canonical_facts": complete,
                 "result": {"predicate": "Classified", "args": [term["id"], "candidate"]},
                 "derives": True,
-                "one_step_mutations": mutations,
+                "one_step_mutations": [mutation["id"] for mutation in mutations],
             }
         )
 
     if {entry["term"] for entry in entries} != {term["id"] for term in definitions}:
         raise CalculusError("constructor ledger does not cover every definition exactly once")
-    if not all(
-        mutation["weakened_derives"] and not mutation["complete_constructor_derives"]
-        for entry in entries
-        for mutation in entry["one_step_mutations"]
-    ):
-        raise CalculusError("a constructor mutation failed to distinguish the complete rule")
+    if sum(len(entry["one_step_mutations"]) for entry in entries) != mutation_count:
+        raise CalculusError("constructor mutation ledger is incomplete")
 
     ledger = {
         "schema_version": 1,

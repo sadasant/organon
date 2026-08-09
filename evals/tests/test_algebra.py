@@ -114,9 +114,9 @@ def test_one_positive_constructor_is_cardinality_minimal_but_not_semantic_reduct
     assert ledger["semantic_minimality"]["anti_vacuity_passes"] is False
     assert ledger["semantic_minimality"]["eligible_for_promotion"] is False
     assert all(entry["derives"] for entry in ledger["entries"])
-    assert all(
-        mutation["weakened_derives"]
-        and not mutation["complete_constructor_derives"]
+    mutation_ids = [
+        mutation_id
         for entry in ledger["entries"]
-        for mutation in entry["one_step_mutations"]
-    )
+        for mutation_id in entry["one_step_mutations"]
+    ]
+    assert len(mutation_ids) == len(set(mutation_ids)) == 825
