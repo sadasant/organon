@@ -79,3 +79,13 @@ python3 scripts/check-adoption.py examples/organon-adoption.json --repo-root .
 ```
 
 Also run `git diff --check` and read the rendered Markdown in both GitHub and Obsidian-compatible form. Review the exact pushed head, not an earlier local commit.
+
+Structural changes must also preserve `organon-structure.json`, every
+`evals/*/current.json` pointer, and `proposals/lifecycle.json`. Run
+`python3 scripts/check-structure.py`; it is also invoked by the repository
+boundary check. Do not infer a current evaluation from a directory name or a
+proposal's lifecycle from its physical retention under `proposals/`.
+
+The Obsidian copy is produced with `scripts/sync-vault.py`; do not treat it as a
+second checkout or commit private vault notes merely because they share a
+directory with the projection. See [Obsidian vault projection](./VAULT-SYNC.md).

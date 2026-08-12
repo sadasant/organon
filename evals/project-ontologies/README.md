@@ -64,7 +64,8 @@ useful generated pressure, not independent certification or project adoption.
 
 ## Retained finding
 
-The [canonical v0.18 run](results/2026-08-09-organon-v0.18-final/report.md)
+The [current pointer](current.json) selects the
+[v0.18 run](results/2026-08-09-organon-v0.18-final/report.md), which
 passes both project ontologies after preserving two earlier `revise` runs as
 their correction lineage. Engram narrows its Invariant promotion to the exact
 styled-capture interval with before-and-after identity witnesses. Kenogram

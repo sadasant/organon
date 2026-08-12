@@ -1,6 +1,10 @@
 # Markdown Policy
 
-Organon has one source tree and two important renderers: Obsidian in the local vault and GitHub in the public repository. Repository-facing documents use the portable intersection of both rather than maintaining separate copies.
+Organon has one canonical source tree and two important renderers: Obsidian in
+the local vault and GitHub in the public repository. Repository-facing
+documents use the portable intersection of both. The vault tree is a
+manifest-governed one-way projection, not an independently editable copy; see
+[Obsidian vault projection](./VAULT-SYNC.md).
 
 ## Public and tracked documents
 
@@ -39,5 +43,9 @@ A repository-facing change is ready when:
 4. The document remains intelligible as raw text without an Obsidian plugin.
 
 Run `python3 scripts/check-links.py` from the repository root to enforce the repository boundary. The checker scans tracked and staged Markdown, exempts immutable material under `ontology/history/`, and rejects active Obsidian wikilinks, private `Contexts/` paths, missing local targets, and links that escape the checkout.
+
+The same command invokes `scripts/check-structure.py`, which rejects
+nonportable and sync-style numbered filenames and validates the declared
+repository, evaluation-current, and proposal-lifecycle boundaries.
 
 The purpose is not renderer purity. It is to prevent the authoring environment from becoming an undeclared dependency of the argument.

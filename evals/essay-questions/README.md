@@ -63,7 +63,8 @@ selects the ten-question calibration surface.
 
 ## Retained finding
 
-The [v0.18 final evaluation](results/2026-08-09-answer-form-v0.2-v0.18-final/evaluation.md)
+The [current pointer](current.json) selects the
+[v0.18 final evaluation](results/2026-08-09-answer-form-v0.2-v0.18-final/evaluation.md),
 passes all 40 answers after two selective refinement rounds. The first pass
 identified 10 failures, the second reused 30 byte-identical judgments and left
 one answer failing, and the final pass reused 39 judgments while rejudging only

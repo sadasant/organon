@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "suite": "editorial-artifacts",
+  "current_run": "results/2026-08-09-v0.18",
+  "predecessor": "results/2026-08-06-readmes",
+  "run_record": "run.json",
+  "primary_artifact": "report.md",
+  "evaluation_status": "passed",
+  "promotion_status": "hold",
+  "ontology_version": "0.18.0",
+  "ontology_sha256": "b187ea9298909b8b36cbc36bc8f05d980e8bab376eba036588f01f60737a9ec9"
+}
