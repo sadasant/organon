@@ -85,7 +85,3 @@ Structural changes must also preserve `organon-structure.json`, every
 `python3 scripts/check-structure.py`; it is also invoked by the repository
 boundary check. Do not infer a current evaluation from a directory name or a
 proposal's lifecycle from its physical retention under `proposals/`.
-
-The Obsidian copy is produced with `scripts/sync-vault.py`; do not treat it as a
-second checkout or commit private vault notes merely because they share a
-directory with the projection. See [Obsidian vault projection](./VAULT-SYNC.md).

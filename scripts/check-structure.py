@@ -127,18 +127,6 @@ def check_root_manifest(paths: list[str]) -> list[str]:
         if "/" in document or not (ROOT / document).is_file():
             errors.append(f"organon-structure.json: missing root document {document}")
 
-    vault = data.get("vault_projection", {})
-    expected = {
-        "direction": "one-way",
-        "source": "one clean Git worktree",
-        "manifest": "organon-sync-manifest.json",
-        "conflict_policy": "fail closed",
-    }
-    for field, value in expected.items():
-        if vault.get(field) != value:
-            errors.append(
-                f"organon-structure.json: vault_projection.{field} must be {value!r}"
-            )
     return errors
 
 

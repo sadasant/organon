@@ -125,11 +125,6 @@ python3 scripts/check-adoption.py examples/organon-adoption.json --repo-root .
 
 The link check keeps public Markdown inside the portable Obsidian/GitHub intersection documented in [Markdown Policy](./MARKDOWN.md). The semantic check verifies stable markers, claim types, dependency order, governed projections, and term-level provenance. The adoption check verifies the contract a downstream repository would make.
 
-The public Git tree can be projected into an Obsidian vault with the
-fail-closed [vault synchronizer](./VAULT-SYNC.md). The vault copy is a one-way
-manifest-governed representation; private feedback and drafts remain in a
-sibling workspace rather than becoming repository content by proximity.
-
 ## Status
 
 Organon v0.18 is provisional and binding only where explicitly adopted. The ontology is not complete, universally true, or immune to revision. It is a versioned promise that named distinctions will not quietly change halfway through an argument.

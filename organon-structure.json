@@ -71,20 +71,11 @@
     "README.md",
     "CONTRIBUTING.md",
     "DANIEL.md",
-    "MARKDOWN.md",
-    "VAULT-SYNC.md"
+    "MARKDOWN.md"
   ],
   "generated_records": {
     "evaluation_history": "evals/*/results/",
     "current_selection": "evals/*/current.json",
     "proposal_lifecycle": "proposals/lifecycle.json"
-  },
-  "vault_projection": {
-    "direction": "one-way",
-    "source": "one clean Git worktree",
-    "destination_role": "Obsidian-readable projection",
-    "private_workspace_role": "sibling context outside the repository projection",
-    "manifest": "organon-sync-manifest.json",
-    "conflict_policy": "fail closed"
   }
 }

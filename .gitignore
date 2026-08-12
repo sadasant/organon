@@ -6,6 +6,7 @@ ontology/formal/.lake/
 __pycache__/
 .pytest_cache/
 .dspy_cache/
+.local/
 
 # Local exploratory runs. Retained runs use one named results/<run>/ directory.
 evals/*/results/gpt-*
