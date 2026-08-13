@@ -63,6 +63,17 @@ def main() -> int:
     errors: list[str] = []
     root = ROOT.resolve()
 
+    structure = subprocess.run(
+        [sys.executable, str(ROOT / "scripts" / "check-structure.py")],
+        cwd=ROOT,
+        capture_output=True,
+        text=True,
+    )
+    if structure.returncode != 0:
+        print(structure.stdout, end="")
+        print(structure.stderr, end="", file=sys.stderr)
+        return structure.returncode
+
     for path in repository_markdown():
         relative = path.relative_to(ROOT).as_posix()
         if relative.startswith(HISTORICAL_PREFIX):
@@ -97,6 +108,7 @@ def main() -> int:
             print(f"- {error}")
         return 1
 
+    print(structure.stdout, end="")
     print("Repository boundary check passed.")
     return 0
 

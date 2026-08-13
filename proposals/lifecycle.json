@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "entries": [
+    {
+      "manifest": "consciousness-claims.json",
+      "dossier": "consciousness.md",
+      "status": "partially-promoted",
+      "binding_release": "0.10.0",
+      "remaining_quarantine": [
+        "underlying consciousness condition"
+      ]
+    },
+    {
+      "manifest": "world-and-substrate-claims.json",
+      "dossier": "world-and-substrate.md",
+      "status": "promoted",
+      "binding_release": "0.12.0",
+      "remaining_quarantine": []
+    },
+    {
+      "manifest": "truth-trust-and-alignment-claims.json",
+      "dossier": "truth-trust-and-alignment.md",
+      "status": "promoted",
+      "binding_release": "0.13.0",
+      "remaining_quarantine": []
+    },
+    {
+      "manifest": "intelligence-operative-knowledge-transmission-claims.json",
+      "dossier": "intelligence-operative-knowledge-transmission.md",
+      "status": "promoted",
+      "binding_release": "0.14.0",
+      "remaining_quarantine": [
+        "bare Knowledge"
+      ]
+    },
+    {
+      "manifest": "remaining-quarantine-profiles-claims.json",
+      "dossier": "remaining-quarantine-profiles.md",
+      "status": "partially-promoted",
+      "binding_release": "0.15.0",
+      "remaining_quarantine": [
+        "underlying moral personhood condition",
+        "generic Sovereignty",
+        "generic Value",
+        "moral worth"
+      ]
+    },
+    {
+      "manifest": "ritual-and-meaning-claims.json",
+      "dossier": "ritual-and-meaning.md",
+      "status": "promoted",
+      "binding_release": "0.17.0",
+      "remaining_quarantine": []
+    }
+  ]
+}

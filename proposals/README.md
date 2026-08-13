@@ -27,6 +27,11 @@ Proposal manifests declare `introduced_terms`. Dependency closure is checked aga
 
 Lifecycle status is historical rather than permanently fixed at `ready-for-review`. Supported states are `draft`, `ready-for-review`, `partially-promoted`, `promoted`, `rejected`, and `superseded`. A promoted dossier remains nonbinding provenance; its status records what happened, while the ontology and registry enact the binding result.
 
+The machine-readable [lifecycle registry](./lifecycle.json) joins every retained
+dossier to its Claims manifest, current lifecycle status, binding release, and
+any condition that remains quarantined. The structure checker requires complete
+coverage and exact agreement with the individual manifests.
+
 ## Current dossiers
 
 - [Consciousness](./consciousness.md): partially promoted Attribution and Designation while the underlying condition remains quarantined.

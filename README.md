@@ -42,6 +42,14 @@ examples/       example adoption manifests
 scripts/        repository, semantic, and adoption checks
 ```
 
+The machine-readable [structure manifest](./organon-structure.json) declares
+the role and focused-hydration rule for every top-level region. Evaluation
+history remains under `evals/*/results/`, while each suite's `current.json`
+selects one current run without pretending that a passing model judgment is
+human adoption. [Proposal lifecycle](./proposals/lifecycle.json) separately
+records whether each retained dossier remains quarantined, was partially
+promoted, or was promoted.
+
 [Contributing to Organon](./CONTRIBUTING.md) defines the review burden for binding changes. In particular, a new term must survive a termhood challenge, dependency and collapse audits, comparison with its closest intellectual shadows, and proportionate formal testing before it can be called promotion-ready.
 
 The binding artifact is [Daniel's Ontology v0.18](./ontology/ontology.md). It remains readable as one Markdown document; the machine-readable registry and formal artifacts check and challenge it without replacing it. Its [term registry](./ontology/terms.yaml) assigns stable `organon:*` identifiers, typed claims, and explicit dependencies. The generated [prompt projection](./ontology/prompt.md) carries every primary term statement and registered commitment in a smaller, explicitly lossy form; its [manifest](./ontology/prompt-manifest.json) records exact source hashes, coverage, and omissions. The [hidden-bridge audit](./ontology/hidden-bridge-audit.md) records why three notions became terms while three were reduced to metalanguage or existing Relations. The [Ritual and Meaning dossier](./proposals/ritual-and-meaning.md) records why Flow absorbed recurrence, Ritual and Meaning survived termhood, and Ritual Residue did not. The [changelog](./ontology/changelog.md) keeps earlier arguments and rejected formulations out of the active system.

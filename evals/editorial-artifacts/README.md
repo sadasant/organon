@@ -53,7 +53,8 @@ recorded in the run.
 
 ## Retained finding
 
-The [canonical v0.18 Sol run](results/2026-08-09-v0.18/report.md) passes all
+The [current pointer](current.json) selects the
+[v0.18 Sol run](results/2026-08-09-v0.18/report.md), which passes all
 four targets through deterministic, Organon, short-form, and long-form gates.
 The Organon project narrative and Kenogram README passed their first attempts;
 the ontology narrative and current Engram README passed after one bounded

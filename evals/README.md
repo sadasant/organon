@@ -46,6 +46,12 @@ The essay suite names its staged files `candidate.*`, `evaluation.*`, and
 `comparison.*` because generation, judgment, revision, and comparison can be
 run independently inside one lineage.
 
+`results/` is retained run history, not a directory that callers should hydrate
+recursively. Each suite has one `current.json` pointer naming the current run,
+its predecessor, exact ontology snapshot, evaluation result, and separate
+human-promotion status. A filename such as `final` has no authority independent
+of that pointer.
+
 ## Suites
 
 | Suite | Target | Owned model work | Ordered gates |

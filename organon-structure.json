@@ -1,0 +1,81 @@
+{
+  "schema_version": 1,
+  "canonical_source": {
+    "repository": "https://github.com/sadasant/organon",
+    "branch": "main",
+    "authority": "tracked Git tree"
+  },
+  "regions": [
+    {
+      "path": "ontology/",
+      "role": "binding ontology, generated projections, and explicitly nonbinding formal and algebraic shadows",
+      "hydration": "select the binding artifact or named shadow required by the task"
+    },
+    {
+      "path": "editorial/",
+      "role": "editorial instruments",
+      "hydration": "select the form governing the active writing task"
+    },
+    {
+      "path": "proposals/",
+      "role": "nonbinding concept dossiers with declared lifecycle",
+      "hydration": "select one dossier and proposals/lifecycle.json"
+    },
+    {
+      "path": "evals/",
+      "role": "evaluation methods, inputs, executable machinery, and retained run records",
+      "hydration": "read the suite current.json before opening retained results"
+    },
+    {
+      "path": "project-ontologies/",
+      "role": "current reviewable project-ontology candidates",
+      "hydration": "select the named target; generation and judgment remain under evals/project-ontologies"
+    },
+    {
+      "path": "provenance/",
+      "role": "source and term lineage claims",
+      "hydration": "select only the provenance needed to evaluate the active claim"
+    },
+    {
+      "path": "releases/",
+      "role": "versioned change records",
+      "hydration": "read the current release and any explicitly named predecessor"
+    },
+    {
+      "path": "reviews/",
+      "role": "review method and retained audits",
+      "hydration": "select the template or named audit"
+    },
+    {
+      "path": "schemas/",
+      "role": "machine-readable external contracts",
+      "hydration": "load only with the artifact it governs"
+    },
+    {
+      "path": "examples/",
+      "role": "nonbinding executable examples",
+      "hydration": "load with the corresponding schema or checker"
+    },
+    {
+      "path": "scripts/",
+      "role": "generation, validation, and projection tools",
+      "hydration": "select the command implementing the active workflow"
+    },
+    {
+      "path": ".github/",
+      "role": "hosted repository process",
+      "hydration": "load only for contribution or CI work"
+    }
+  ],
+  "root_documents": [
+    "README.md",
+    "CONTRIBUTING.md",
+    "DANIEL.md",
+    "MARKDOWN.md"
+  ],
+  "generated_records": {
+    "evaluation_history": "evals/*/results/",
+    "current_selection": "evals/*/current.json",
+    "proposal_lifecycle": "proposals/lifecycle.json"
+  }
+}

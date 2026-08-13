@@ -40,4 +40,8 @@ A repository-facing change is ready when:
 
 Run `python3 scripts/check-links.py` from the repository root to enforce the repository boundary. The checker scans tracked and staged Markdown, exempts immutable material under `ontology/history/`, and rejects active Obsidian wikilinks, private `Contexts/` paths, missing local targets, and links that escape the checkout.
 
+The same command invokes `scripts/check-structure.py`, which validates portable
+paths and the declared repository, evaluation-current, and proposal-lifecycle
+boundaries.
+
 The purpose is not renderer purity. It is to prevent the authoring environment from becoming an undeclared dependency of the argument.
