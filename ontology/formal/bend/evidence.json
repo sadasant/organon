@@ -1,0 +1,123 @@
+{
+  "version": "bend 2.0.25",
+  "inventory": {
+    "baseline_theorems": 99,
+    "bend_candidates": 21,
+    "remaining_theorems": 78
+  },
+  "checks": {
+    "proofs": {
+      "command": [
+        "bend",
+        "ontology/formal/bend/PROOF.bend",
+        "--check-only"
+      ],
+      "exit": 0,
+      "seconds": 0.08322716690599918,
+      "output": "All terms check.\n"
+    },
+    "generic-empty-equivalence": {
+      "command": [
+        "bend",
+        "ontology/formal/bend/probes/EmptyEquiv.bend",
+        "--check-only"
+      ],
+      "exit": 1,
+      "seconds": 0.06814091745764017,
+      "output": "Error:\n- expected : hb\n- observed : hb (consumed more than once)\nContext:\n- A  : Type\n- B  : Type\n- ha : @_:A -> Empty\nLocation: emptyEquiv\n3 | \n4>| def emptyEquiv(-A: Type, -B: Type, ha: A -> Empty, hb: B -> Empty) -> Logic.TypeEquiv<A, B>:\n5 |   Logic.TypeEquiv{\n"
+    },
+    "closed-template-equivalence": {
+      "command": [
+        "bend",
+        "ontology/formal/bend/probes/EmptyEquivTemplate.bend",
+        "--check-only"
+      ],
+      "exit": 0,
+      "seconds": 0.07061762548983097,
+      "output": "All terms check.\n"
+    },
+    "open-classical-law": {
+      "command": [
+        "bend",
+        "ontology/formal/bend/probes/Classical.bend",
+        "--check-only"
+      ],
+      "exit": 1,
+      "seconds": 0.06583479233086109,
+      "output": "Error: 1 TODO found.\nThe code is incomplete, and not a valid proof yet.\n"
+    },
+    "explicit-classical-assumption": {
+      "command": [
+        "bend",
+        "ontology/formal/bend/probes/ClassicalAssumption.bend",
+        "--check-only"
+      ],
+      "exit": 0,
+      "seconds": 0.07393950037658215,
+      "output": "All terms check.\n"
+    },
+    "false-admission": {
+      "command": [
+        "bend",
+        "<mutation:false-admission>/PROOF.bend",
+        "--check-only"
+      ],
+      "exit": 1,
+      "seconds": 0.08608270902186632,
+      "output": "Error:\n- expected : Empty\n- observed : Unit\nContext:\n- e : Unit\nLocation: LAWS.boundaryRejectsBreaking\n61 | def Laws.boundaryRejectsBreaking():\n62>|   e => e\n63 | \n"
+    },
+    "identity-collapse": {
+      "command": [
+        "bend",
+        "<mutation:identity-collapse>/PROOF.bend",
+        "--check-only"
+      ],
+      "exit": 1,
+      "seconds": 0.08593800012022257,
+      "output": "Error:\n- expected : Empty\n- observed : Unit\nContext:\n- state : Core.State<Model.MachineState>\n- holds : Model.identityHolds(state)\n- equal : {state == Core.State{Model.Broken{}} : Core.State<Model.MachineState>}\nLocation: Model.notBrokenEquality\n178 | def notBrokenEquality(-state: Core.State<MachineState>, holds: identityHolds(state), equal: {state == brokenState() : Core.State<MachineState>}) -> Empty:\n179>|   %equal : identityHolds(_)\n180 |   holds\n"
+    },
+    "missing-proof": {
+      "command": [
+        "bend",
+        "<mutation:missing-proof>/PROOF.bend",
+        "--check-only"
+      ],
+      "exit": 1,
+      "seconds": 0.0847050417214632,
+      "output": "Error: 1 TODO found.\nThe code is incomplete, and not a valid proof yet.\n"
+    },
+    "unsafe-proof": {
+      "command": [
+        "bend",
+        "<mutation:unsafe-proof>/PROOF.bend",
+        "--check-only"
+      ],
+      "exit": 0,
+      "seconds": 0.09153562504798174,
+      "output": "All terms check, but 1 def relies on unsafe or foreign code:\n- LAWS.boundaryAdmitsActivation\n"
+    }
+  },
+  "source_sha256": {
+    "ontology/formal/bend/Core.bend": "757603d0d8c3619df9d10230617c52349fc58040a121762bc2417c4c746fde7e",
+    "ontology/formal/bend/LAWS.bend": "b96acf9b50a6e39ad9fe30d024fc817bb041525661220ac065ab605739b256b4",
+    "ontology/formal/bend/Logic.bend": "cad05649046587f44342a247788b726f4a7442071706d725ffc6860be626e08f",
+    "ontology/formal/bend/Model.bend": "5c16e6394d6f7109b758bc77e08156f94a94cd1c2c5b420d4b3dcdf515af5db5",
+    "ontology/formal/bend/PROOF.bend": "743de686af2f6a494159484aa10026141155e87c64139bdaa7459b3c29dec24d",
+    "ontology/formal/bend/Reduct.bend": "4149fbe9571a2b9047bfc83731f9c11dfc1777e409a9b8f3f017fda29ac6caf3",
+    "ontology/formal/bend/comparison/Classical.bend": "035b0342f4ede44f841835208c4901b9fb6808ef033278c5f7b404e09df6e0cf",
+    "ontology/formal/bend/comparison/Contraction.bend": "e41f62d890452dc51e0155d7ea034a58bbb425bd2360444bb6961056484f679c",
+    "ontology/formal/bend/comparison/Equivalent.bend": "bb928917016be1ef5071d5b1a2792d5bfe2ba6f52d34a10259cc9eabb4339d21",
+    "ontology/formal/bend/comparison/False.bend": "33db6a37ff8c7204fe3872a70a3317f71f953c846599906a67290143427df83a",
+    "ontology/formal/bend/comparison/ReusableData.bend": "47d68619faece6439d6466d72828b1e586b481e236fc944d655b3ee1fb98c42a",
+    "ontology/formal/bend/comparison/Unsafe.bend": "e7bfbe8a8b257c8a09dee645fd758f490a652ad2a7d5d65753f9e75e0d158d65",
+    "ontology/formal/bend/coverage.json": "8c45202d009b0e9b64836e44c15761c0531b9a9e4b6c202924ebb31222cd8ed0",
+    "ontology/formal/bend/probes/Classical.bend": "cde4344ab1f2c344e7de7ce702bab239cfed9794f09a9774447b2cb0dacac63a",
+    "ontology/formal/bend/probes/ClassicalAssumption.bend": "d8e1fdac6e1de518e62f5ac2696736bc004c9d8cd9d490ee3cf35a027450c536",
+    "ontology/formal/bend/probes/EmptyEquiv.bend": "71e200270a00c47b9f10ff70165b7032510c835d94f8b3d2a43d85ae75cb3468",
+    "ontology/formal/bend/probes/EmptyEquivTemplate.bend": "75a1a3e078ee42fc7810ea8db83725421beef51f07182bd5214563b1d3690917",
+    "ontology/formal/bend/toolchain.json": "4f5b69f3717287538b74786fda64dff69d13d528dc20529d8de7a698556fae1b",
+    "scripts/check-bend.py": "5df8bd5f343316be522a69bc61a52a935b634f5f43905c945835b890f304f1e3",
+    "scripts/install-bend.py": "16761fece7d0e5de747c80b335285f25246930047cdaffa40e25fceb6a1279f1"
+  },
+  "repository_commit": "572bf58e86852ce1d2c6f811bb910e7e27b28804"
+}
