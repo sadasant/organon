@@ -9,6 +9,34 @@ prose_ontology: "../ontology.md"
 
 These decisions belong to the Lean spike. They expose choices priced by formalization. They do not independently revise [Daniel's Ontology v0.18](../ontology.md); accepted findings flow into the binding, single-file Markdown ontology through its changelog.
 
+## Bend migration: test preservation before replacing the proof gate
+
+The [Bend candidate](./bend/README.md) is an executable translation experiment,
+not a promotion or a completed replacement. The initial speed comparison was
+insufficient grounds to reject migration: arbitrary predicate classifiers and
+the dependent Entity/Persistence proof do check in Bend. The first candidate
+therefore carries those translations, the finite machine Boundary and history
+countermodel, and an inventory of all original declarations. Twenty-one of 99
+Lean theorem statements have checked Bend candidates; checking each language
+separately does not establish cross-language equivalence.
+
+Two decisions remain explicit. Lean's classical exhaustiveness theorem relies
+on its admitted classical axioms. A Bend function taking that premise explicitly
+checks, while an unfilled law fails; this interface change awaits Daniel's
+choice. The generic `emptyEquiv` translation fails affine reuse of its absence
+proofs. A closed-template specialization checks, but cannot accept arbitrary
+locally bound hypotheses as the original function can. The working alternative
+is recorded as a candidate interface, not counted as a preserved declaration.
+
+No binding ontology statement, Lean source, or prior receipt is changed. CI
+continues to check all Lean obligations and additionally checks the Bend laws,
+the expected interface rejections, and deliberately broken proofs. An unsafe
+Bend declaration can exit successfully, so the new gate requires the exact clean
+check-only verdict, not merely exit status zero. Remaining ports are enumerated
+in the [declaration inventory](./bend/coverage.json). The migration may replace
+the Lean gate only after the representation decisions, all remaining
+translations, and semantic review are complete.
+
 ## Flow absorbs recurrence; Ritual and Meaning retain distinct burdens
 
 `Flow` is the ontic recurrence structure. Its occurrence list contains at least two distinct Transformations, every occurrence inhabits one Flow-level Scope, one object-level recurrence predicate holds across the ordered list, and the complete output-State list is definitionally the history of one `PersistenceWitness`. It contains no Rule, Specification, Agent, or Representation. `FlowClassification` is a separate epistemic and operational witness: its typed `FlowRule` owns the exact executable Specification, its Specification Scope must match the Flow Scope pointwise, the classifier joins conformity and the Flow's recurrence predicate across one selected sequence, and an in-Scope non-occurrence must be rejected. This prevents universal conformity while preserving the possibility that Flow obtains before anyone classifies it. An earlier draft made the classifier constitutive of Flow; that was rejected because it silently narrowed stable D041 and made Institution and Center depend on constructive decidability.

@@ -9,6 +9,15 @@ prose_ontology: "../ontology.md"
 
 This directory tests whether selected regions of [Daniel's Ontology v0.18](../ontology.md) can become a proof-checked Lean artifact. It is deliberately **noncanonical**. The single-file Markdown ontology remains the readable binding artifact until Daniel explicitly promotes a formal artifact after term-for-term parity, a complete model, clean builds without `sorry`, and a stable Markdown projection. The v0.18 definition-admission strengthening of C1 is metalinguistic and is tested by the nonbinding algebra experiment rather than encoded as an object-language Lean term.
 
+## Bend migration candidate
+
+The [Bend candidate](./bend/README.md) checks 21 corresponding theorem
+candidates and a finite Entity witness under a pinned Bend release. It retains
+arbitrary type-valued predicates in its generic core. The remaining 78 Lean
+theorems and the existing build receipt stay in force. This is a partial,
+noncanonical migration; two interface decisions and complete statement-level
+review remain prerequisites to replacing Lean.
+
 ## Included in the spike
 
 - An Absence-free [`OrganonCore`](./OrganonCore.lean) module containing relational Missingness and every downstream formal classifier. [`DanielOntology.lean`](./DanielOntology.lean) is a conservative extension that adds the local Absence/Presence shadow without redefining the core. The complete finite witness executable imports only the reduct; [the experiment report](./organon-core-reduct-report.md) and [109-term audit](./organon-core-term-audit.md) state the exact preservation result and its prose-parity limit.

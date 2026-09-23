@@ -49,6 +49,12 @@ jobs:
         working-directory: ontology/formal
         run: lake exe ontology_check
 
+      - name: Install the pinned Bend candidate checker
+        run: python3 scripts/install-bend.py --dest "$RUNNER_TEMP/organon-bend"
+
+      - name: Check Bend candidates and rejected proof mutations
+        run: BEND_BIN="$RUNNER_TEMP/organon-bend/bin/bend" python3 scripts/check-bend.py
+
       - name: Verify the formal build receipt
         run: python3 scripts/check-formal-receipt.py
 
