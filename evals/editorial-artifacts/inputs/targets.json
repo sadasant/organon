@@ -36,8 +36,8 @@
       ],
       "source_digests": {
         "ontology/changelog.md": "196047570d290710d506deba50b826afbb8564053267c0cc775e58e33c62e859",
-        "ontology/formal/README.md": "f97ea89405cd79d22925c8bd234889a4418389342d4b4deebadce7f173c493da",
-        "ontology/formal/decisions.md": "c73162d64cce7671c26c626e7a51f046559b6816c02110c9919dc89c370e765c",
+        "ontology/formal/README.md": "803d092fefe958da63ced676c202f5edcf13144851822dad55cc6ecc20582f51",
+        "ontology/formal/decisions.md": "317fcc9a2e6b8315e480d05a25ba16e4ba09faeb73b20e5c8cc7c6a91dbe000d",
         "ontology/formal/organon-core-reduct-report.md": "884cabfa51eae7cced4a7032776b08005b8b5ed1eeafd52ffa7fe688c8de7673"
       }
     },

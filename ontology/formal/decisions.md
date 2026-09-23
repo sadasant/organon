@@ -2,12 +2,59 @@
 type: formalization-decisions
 status: noncanonical
 created: 2026-08-02
-updated: 2026-08-04
+updated: 2026-09-23
 prose_ontology: "../ontology.md"
 ---
 # Formalization Decisions
 
 These decisions belong to the Lean spike. They expose choices priced by formalization. They do not independently revise [Daniel's Ontology v0.18](../ontology.md); accepted findings flow into the binding, single-file Markdown ontology through its changelog.
+
+## Bend migration: test preservation before replacing the proof gate
+
+The [Bend candidate](./bend/README.md) is an executable translation experiment,
+not a promotion or a completed replacement. The initial speed comparison was
+insufficient grounds to reject migration: arbitrary predicate classifiers and
+the dependent Entity/Persistence proof do check in Bend. The first candidate
+therefore carries those translations, the finite machine Boundary and history
+countermodel, and an inventory of all original declarations. Twenty-one of 99
+Lean theorem statements have checked Bend candidates; checking each language
+separately does not establish cross-language equivalence.
+
+Two decisions remain explicit. Lean's classical exhaustiveness theorem relies
+on its admitted classical axioms. A Bend function taking that premise explicitly
+checks, while an unfilled law fails; this interface change awaits Daniel's
+choice. The generic `emptyEquiv` translation fails affine reuse of its absence
+proofs. A closed-template specialization checks, but cannot accept arbitrary
+locally bound hypotheses as the original function can. The working alternative
+is recorded as a candidate interface, not counted as a preserved declaration.
+
+No binding ontology statement, Lean source, or prior receipt is changed. CI
+continues to check all Lean obligations and additionally checks the Bend laws,
+the expected interface rejections, and deliberately broken proofs. An unsafe
+Bend declaration can exit successfully, so the new gate requires the exact clean
+check-only verdict, not merely exit status zero. Remaining ports are enumerated
+in the [declaration inventory](./bend/coverage.json). The migration may replace
+the Lean gate only after the representation decisions, all remaining
+translations, and semantic review are complete.
+
+That replacement now has a compiler-soundness gate as well. Pinned Bend 2.0.25
+accepts a closed `Empty` and a false equality through an opaque template-name
+capture ([bendlang/bend#994](https://github.com/bendlang/bend/issues/994)). The
+same reproducer remained accepted on upstream immediately before the proposed
+repair in [bendlang/bend#1006](https://github.com/bendlang/bend/pull/1006), which
+reserves opaque names against the complete parsed namespace rather than only
+the declarations visible at their ordered validation step. None of the 21
+counted candidates uses a `~` template binder, so this finding does not identify
+that mechanism in their current proofs. It does invalidate the stronger claim
+that a clean verdict from the pinned compiler is sufficient evidence for a full
+migration. Further migration waits for a merged release, an updated checksum
+pin, and complete revalidation; Lean remains authoritative meanwhile.
+
+The first hosted verification caught stale editorial target digests after the
+formal README and this decision record changed. Only the active editorial
+input pins were refreshed to the reviewed documents. Retained evaluation runs
+keep their original source records; no new model evaluation or promotion is
+claimed by refreshing those inputs.
 
 ## Flow absorbs recurrence; Ritual and Meaning retain distinct burdens
 

@@ -2,12 +2,25 @@
 type: formal-ontology-spike
 status: noncanonical
 created: 2026-08-02
-updated: 2026-08-03
+updated: 2026-09-23
 prose_ontology: "../ontology.md"
 ---
 # Daniel's Ontology - Lean Spike
 
 This directory tests whether selected regions of [Daniel's Ontology v0.18](../ontology.md) can become a proof-checked Lean artifact. It is deliberately **noncanonical**. The single-file Markdown ontology remains the readable binding artifact until Daniel explicitly promotes a formal artifact after term-for-term parity, a complete model, clean builds without `sorry`, and a stable Markdown projection. The v0.18 definition-admission strengthening of C1 is metalinguistic and is tested by the nonbinding algebra experiment rather than encoded as an object-language Lean term.
+
+## Bend migration candidate
+
+The [Bend candidate](./bend/README.md) checks 21 corresponding theorem
+candidates and a finite Entity witness under a pinned Bend release. It retains
+arbitrary type-valued predicates in its generic core. The remaining 78 Lean
+theorems and the existing build receipt stay in force. This is a partial,
+noncanonical migration; two interface decisions and complete statement-level
+review remain prerequisites to replacing Lean. A reproduced Bend 2.0.25
+template-name capture can admit `Empty`; migration is therefore also blocked on
+the upstream repair in
+[bendlang/bend#1006](https://github.com/bendlang/bend/pull/1006), a released
+compiler pin, and complete revalidation.
 
 ## Included in the spike
 

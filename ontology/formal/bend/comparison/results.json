@@ -1,0 +1,218 @@
+{
+  "platform": "macOS-26.5.2-arm64-arm-64bit-Mach-O",
+  "machine": "arm64",
+  "organon_commit": "671cf54462ffa75d8e9ce5b1803eac81570495fb",
+  "bend_version": "bend 2.0.25",
+  "lean_version": "Lean (version 4.30.0, arm64-apple-darwin24.6.0, commit d024af099ca4bf2c86f649261ebf59565dc8c622, Release)",
+  "cases": {
+    "Equivalent": {
+      "bend": {
+        "command": [
+          "bend",
+          "Equivalent.bend",
+          "--check-only"
+        ],
+        "cwd": "comparison/",
+        "exit": 0,
+        "seconds": 0.06880170851945877,
+        "output": "All terms check.\n"
+      },
+      "lean": {
+        "command": [
+          "lean",
+          "Equivalent.lean"
+        ],
+        "cwd": "comparison/",
+        "exit": 0,
+        "seconds": 0.19475870952010155,
+        "output": ""
+      }
+    },
+    "Contraction": {
+      "bend": {
+        "command": [
+          "bend",
+          "Contraction.bend",
+          "--check-only"
+        ],
+        "cwd": "comparison/",
+        "exit": 1,
+        "seconds": 0.06418087519705296,
+        "output": "Error:\n- expected : h\n- observed : h (consumed more than once)\nContext:\n- A : Data\n- B : Type\nLocation: reuse\n2 | # Lean permits reusing arbitrary function-valued proof hypotheses.\n3>| def reuse(-A: Data, -B: Type, h: A -> B, +x: A) -> B & B:\n4 |   (h(x), h(x))\n"
+      },
+      "lean": {
+        "command": [
+          "lean",
+          "Contraction.lean"
+        ],
+        "cwd": "comparison/",
+        "exit": 0,
+        "seconds": 0.1606471249833703,
+        "output": ""
+      }
+    },
+    "Classical": {
+      "bend": {
+        "command": [
+          "bend",
+          "Classical.bend",
+          "--check-only"
+        ],
+        "cwd": "comparison/",
+        "exit": 1,
+        "seconds": 0.08648633304983377,
+        "output": "Error: 1 TODO found.\nThe code is incomplete, and not a valid proof yet.\n"
+      },
+      "lean": {
+        "command": [
+          "lean",
+          "Classical.lean"
+        ],
+        "cwd": "comparison/",
+        "exit": 0,
+        "seconds": 0.16616862453520298,
+        "output": "'absencePresenceExhaustive' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
+      }
+    },
+    "False": {
+      "bend": {
+        "command": [
+          "bend",
+          "False.bend",
+          "--check-only"
+        ],
+        "cwd": "comparison/",
+        "exit": 1,
+        "seconds": 0.07706654071807861,
+        "output": "Error:\n- expected : True{}\n- observed : False{}\nLocation: false_equality\n3 |   {True{} == False{} : Bool}\n4>| def false_equality(): {==}\n5 | \n"
+      },
+      "lean": {
+        "command": [
+          "lean",
+          "False.lean"
+        ],
+        "cwd": "comparison/",
+        "exit": 1,
+        "seconds": 0.15866637509316206,
+        "output": "False.lean:1:0: error: Not a definitional equality: the left-hand side\n  true\nis not definitionally equal to the right-hand side\n  false\nFalse.lean:1:40: error: Type mismatch\n  rfl\nhas type\n  ?m.3 = ?m.3\nbut is expected to have type\n  true = false\n"
+      }
+    },
+    "Unsafe": {
+      "bend": {
+        "command": [
+          "bend",
+          "Unsafe.bend",
+          "--check-only"
+        ],
+        "cwd": "comparison/",
+        "exit": 0,
+        "seconds": 0.07104737497866154,
+        "output": "All terms check, but 1 def relies on unsafe or foreign code:\n- false_proof\n"
+      },
+      "lean": {
+        "command": [
+          "lean",
+          "Unsafe.lean"
+        ],
+        "cwd": "comparison/",
+        "exit": 1,
+        "seconds": 0.1861787922680378,
+        "output": "Unsafe.lean:1:4: error: fail to show termination for\n  falseProof\nwith errors\nfailed to infer structural recursion:\nno parameters suitable for structural recursion\n\nwell-founded recursion cannot be used, `falseProof` does not take any (non-fixed) arguments\n"
+      }
+    },
+    "ReusableData": {
+      "bend": {
+        "command": [
+          "bend",
+          "ReusableData.bend",
+          "--check-only"
+        ],
+        "cwd": "comparison/",
+        "exit": 0,
+        "seconds": 0.07512791641056538,
+        "output": "All terms check.\n"
+      },
+      "lean": {
+        "command": [
+          "lean",
+          "ReusableData.lean"
+        ],
+        "cwd": "comparison/",
+        "exit": 0,
+        "seconds": 0.16394812520593405,
+        "output": ""
+      }
+    }
+  },
+  "timings": {
+    "bend": {
+      "samples_seconds": [
+        0.0796622084453702,
+        0.07824454177170992,
+        0.07475520856678486,
+        0.06376162450760603,
+        0.07054520770907402,
+        0.0832694573327899,
+        0.08722337521612644
+      ],
+      "median_seconds": 0.07824454177170992
+    },
+    "lean": {
+      "samples_seconds": [
+        0.16078087501227856,
+        0.1559871258214116,
+        0.16623108368366957,
+        0.15704566705971956,
+        0.19220558274537325,
+        0.16761699970811605,
+        0.1723107909783721
+      ],
+      "median_seconds": 0.16623108368366957
+    }
+  },
+  "baseline_fresh_artifacts": {
+    "command": [
+      "lake",
+      "build"
+    ],
+    "cwd": "<temporary Lean build directory>",
+    "exit": 0,
+    "seconds": 5.46973520796746,
+    "output": "\u2714 [2/28] Built OrganonCore (636ms)\n\u2714 [3/28] Built OrganonCore:c.o (72ms)\n\u2714 [4/28] Built OrganonCorePreservation (549ms)\n\u2714 [5/28] Built Operationalization (622ms)\n\u2714 [6/28] Built OrganonCorePreservation:c.o (62ms)\n\u2714 [7/28] Built WorldSubstrate (722ms)\n\u2714 [8/28] Built Operationalization:c.o (63ms)\n\u2714 [9/28] Built BridgeRelations (809ms)\n\u2714 [10/28] Built WorldSubstrate:c.o (66ms)\n\u2714 [11/28] Built OrganonCoreChallenge (414ms)\n\u2714 [12/28] Built Consciousness (1.0s)\n\u2714 [13/28] Built OrganonCoreChallenge:c.o (70ms)\n\u2714 [14/28] Built BridgeRelations:c.o (175ms)\n\u2714 [15/28] Built TruthTrustAlignment (1.2s)\n\u2714 [16/28] Built Consciousness:c.o (169ms)\n\u2714 [17/28] Built TruthTrustAlignment:c.o (179ms)\n\u2714 [18/28] Built DanielOntology (401ms)\n\u2714 [20/28] Built RitualMeaning (1.3s)\n\u2714 [21/28] Built RitualMeaning:c.o (143ms)\n\u2714 [22/28] Built IntelligenceKnowledge (1.2s)\n\u2714 [23/28] Built IntelligenceKnowledge:c.o (289ms)\n\u2714 [24/28] Built QuarantineProfiles (1.3s)\n\u2714 [25/28] Built QuarantineProfiles:c.o (208ms)\n\u2714 [26/28] Built Model (634ms)\n\u2714 [27/28] Built Model:c.o (140ms)\n\u2714 [28/28] Built ontology_check:exe (241ms)\nBuild completed successfully (28 jobs).\n"
+  },
+  "baseline_incremental": {
+    "command": [
+      "lake",
+      "build"
+    ],
+    "cwd": "<temporary Lean build directory>",
+    "exit": 0,
+    "seconds": 0.15253645833581686,
+    "output": "Build completed successfully (28 jobs).\n"
+  },
+  "finite_models": {
+    "command": [
+      "lake",
+      "exe",
+      "ontology_check"
+    ],
+    "cwd": "<temporary Lean build directory>",
+    "exit": 0,
+    "seconds": 0.3710452076047659,
+    "output": "OrganonCore v0.18-compatible reduct: hidden bridge relations, private ritual, ritual-dependent meaning, downstream shadows, four preserved challenge classifiers, one pending Reality representation elaboration, and metalinguistic definition admission\n"
+  },
+  "fixture_sha256": {
+    "Classical.bend": "035b0342f4ede44f841835208c4901b9fb6808ef033278c5f7b404e09df6e0cf",
+    "Classical.lean": "06d7c3ffd2ee78fb8467345347f47f1ddbf371dc8f42d529a33324743dc1acef",
+    "Contraction.bend": "e41f62d890452dc51e0155d7ea034a58bbb425bd2360444bb6961056484f679c",
+    "Contraction.lean": "6d0f64e95fd7a6cb14a91c07e8cc617ab0679e60e9fd3fe5b20aabdd7499d77d",
+    "Equivalent.bend": "bb928917016be1ef5071d5b1a2792d5bfe2ba6f52d34a10259cc9eabb4339d21",
+    "Equivalent.lean": "5afdf89c2562aff382b3aef06a9f0ed56368bf9d84798445841be7acee12b706",
+    "False.bend": "33db6a37ff8c7204fe3872a70a3317f71f953c846599906a67290143427df83a",
+    "False.lean": "277592d50dcb822effbe81748b638614626e1d581d62c03f8f5a0974042594c2",
+    "ReusableData.bend": "47d68619faece6439d6466d72828b1e586b481e236fc944d655b3ee1fb98c42a",
+    "ReusableData.lean": "b6803a16bb1ff7477b0abe7f96550337ca8c920bb248d7640608e2a476883449",
+    "Unsafe.bend": "e7bfbe8a8b257c8a09dee645fd758f490a652ad2a7d5d65753f9e75e0d158d65",
+    "Unsafe.lean": "5f6e83d1ee1fc2c0806f4f9c8e39790b6eba99f6fd56b85ee8157d56ef3348df"
+  }
+}
