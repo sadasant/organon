@@ -32,6 +32,18 @@ BEND_NO_TELEMETRY=1 bend PROOF.bend --check-only
 Use the Python gate for CI: Bend can return exit zero when unsafe code is
 present. The gate requires the exact clean verdict and tests that distinction.
 
+That clean verdict is not currently sufficient to promote or extend the
+migration. Bend 2.0.25 accepts a closed inhabitant of `Empty` through an opaque
+template-name capture ([bendlang/bend#994](https://github.com/bendlang/bend/issues/994)).
+The defect was reproduced against current upstream, and the proposed compiler
+repair and regressions are in
+[bendlang/bend#1006](https://github.com/bendlang/bend/pull/1006). The 21 counted
+candidates contain no `~` template binders; the only one in this directory is
+the explicitly non-preserving `EmptyEquivTemplate` probe. That limits exposure
+to the reported mechanism but does not restore trust in the pinned checker's
+clean verdict. A full migration remains blocked until the repair is merged,
+released, pinned here, and the complete candidate is revalidated.
+
 ## What is checked
 
 [LAWS.bend](./LAWS.bend) states the theorem candidates; [PROOF.bend](./PROOF.bend)
@@ -77,7 +89,8 @@ and an unmapped or missing Bend law.
   this directory supplies no evidence about those obligations.
 
 These choices must be settled before propagating a proof representation across
-the remaining modules. Lean remains the full verification gate meanwhile.
+the remaining modules. The checker repair must also be released and pinned
+before further migration. Lean remains the full verification gate meanwhile.
 
 ## Evidence and comparison
 

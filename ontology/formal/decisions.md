@@ -2,7 +2,7 @@
 type: formalization-decisions
 status: noncanonical
 created: 2026-08-02
-updated: 2026-08-04
+updated: 2026-09-23
 prose_ontology: "../ontology.md"
 ---
 # Formalization Decisions
@@ -36,6 +36,19 @@ check-only verdict, not merely exit status zero. Remaining ports are enumerated
 in the [declaration inventory](./bend/coverage.json). The migration may replace
 the Lean gate only after the representation decisions, all remaining
 translations, and semantic review are complete.
+
+That replacement now has a compiler-soundness gate as well. Pinned Bend 2.0.25
+accepts a closed `Empty` and a false equality through an opaque template-name
+capture ([bendlang/bend#994](https://github.com/bendlang/bend/issues/994)). The
+same reproducer remained accepted on upstream immediately before the proposed
+repair in [bendlang/bend#1006](https://github.com/bendlang/bend/pull/1006), which
+reserves opaque names against the complete parsed namespace rather than only
+the declarations visible at their ordered validation step. None of the 21
+counted candidates uses a `~` template binder, so this finding does not identify
+that mechanism in their current proofs. It does invalidate the stronger claim
+that a clean verdict from the pinned compiler is sufficient evidence for a full
+migration. Further migration waits for a merged release, an updated checksum
+pin, and complete revalidation; Lean remains authoritative meanwhile.
 
 The first hosted verification caught stale editorial target digests after the
 formal README and this decision record changed. Only the active editorial

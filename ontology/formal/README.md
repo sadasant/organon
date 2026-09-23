@@ -2,7 +2,7 @@
 type: formal-ontology-spike
 status: noncanonical
 created: 2026-08-02
-updated: 2026-08-03
+updated: 2026-09-23
 prose_ontology: "../ontology.md"
 ---
 # Daniel's Ontology - Lean Spike
@@ -16,7 +16,11 @@ candidates and a finite Entity witness under a pinned Bend release. It retains
 arbitrary type-valued predicates in its generic core. The remaining 78 Lean
 theorems and the existing build receipt stay in force. This is a partial,
 noncanonical migration; two interface decisions and complete statement-level
-review remain prerequisites to replacing Lean.
+review remain prerequisites to replacing Lean. A reproduced Bend 2.0.25
+template-name capture can admit `Empty`; migration is therefore also blocked on
+the upstream repair in
+[bendlang/bend#1006](https://github.com/bendlang/bend/pull/1006), a released
+compiler pin, and complete revalidation.
 
 ## Included in the spike
 
