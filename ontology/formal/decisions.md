@@ -37,6 +37,12 @@ in the [declaration inventory](./bend/coverage.json). The migration may replace
 the Lean gate only after the representation decisions, all remaining
 translations, and semantic review are complete.
 
+The first hosted verification caught stale editorial target digests after the
+formal README and this decision record changed. Only the active editorial
+input pins were refreshed to the reviewed documents. Retained evaluation runs
+keep their original source records; no new model evaluation or promotion is
+claimed by refreshing those inputs.
+
 ## Flow absorbs recurrence; Ritual and Meaning retain distinct burdens
 
 `Flow` is the ontic recurrence structure. Its occurrence list contains at least two distinct Transformations, every occurrence inhabits one Flow-level Scope, one object-level recurrence predicate holds across the ordered list, and the complete output-State list is definitionally the history of one `PersistenceWitness`. It contains no Rule, Specification, Agent, or Representation. `FlowClassification` is a separate epistemic and operational witness: its typed `FlowRule` owns the exact executable Specification, its Specification Scope must match the Flow Scope pointwise, the classifier joins conformity and the Flow's recurrence predicate across one selected sequence, and an in-Scope non-occurrence must be rejected. This prevents universal conformity while preserving the possibility that Flow obtains before anyone classifies it. An earlier draft made the classifier constitutive of Flow; that was rejected because it silently narrowed stable D041 and made Institution and Center depend on constructive decidability.
