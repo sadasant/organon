@@ -3,8 +3,8 @@ type: formal-build-receipt
 status: verified
 canonicality: noncanonical
 created: 2026-08-02
-updated: 2026-08-09
-repository_commit: "8b2cd2458bcf307254f77e843ad5b56fcadb1dca"
+updated: 2026-09-23
+repository_commit: "32e0229de9df9644b30e1ad4b969f4bd6c6b3c45"
 ---
 # Lean Spike Build Receipt
 
@@ -26,15 +26,17 @@ lake build
 lake exe ontology_check
 ```
 
-Result: all 28 build jobs completed successfully. The executable printed:
+Result: all 30 build jobs completed successfully. The executable printed:
 
 ```text
-OrganonCore v0.18-compatible reduct: hidden bridge relations, private ritual, ritual-dependent meaning, downstream shadows, four preserved challenge classifiers, one pending Reality representation elaboration, and metalinguistic definition admission
+OrganonCore v0.18-compatible reduct: hidden bridge relations, private ritual, ritual-dependent meaning, an embodied recurrent consciousness candidate, downstream shadows, four preserved challenge classifiers, one pending Reality representation elaboration, and metalinguistic definition admission
 ```
 
 The Lean sources contain no `sorry`, `admit`, or `axiom` declaration. The existing formal witnesses remain intact: consciousness candidate/Attribution/Designation separation; discriminating Operationalization; participant-bound World access; ordered Substrate Persistence; Truth without modeled Agent access; accepted Trust versus involuntary Dependence; profile-scoped Alignment; joined adaptive Intelligence; useful-false Operative Knowledge; dormant Records; copied Records without recipient knowledge; and inter-agent plus self-transmission. The v0.16 bridge module additionally constructs unequal Denotation; paired-path Causal Contribution with a named Change whose Transformation joins the compared endpoints; constructive Capability realization; fully indexed Standing recorded for an exact Order, Rule, Entity, status, and Scope; and in-Scope supportive Evidential Bearing for a false Claim. `TruthSemantics.isTrue` requires its exact claim-indexed Denotation rather than a parallel free adequacy predicate.
 
 The v0.17 Ritual and Meaning shadow constructs a Flow with two distinct occurrences, a Flow-level Scope containing every occurrence, an object-level recurrence Relation, and an exact output sequence carrying an ordered Persistence witness. Flow carries no Agent, Representation, Rule, or Specification. A separate `FlowClassification` owns one executable Specification, proves pointwise equivalence between its Scope and the Flow Scope, proves that selected occurrences both conform and inhabit the recurrence Relation, and rejects a named in-Scope non-occurrence; named theorems attest both a Flow inhabitant without a constitutive classifier and the classifier's non-universality. Ritual access and uptake carry exact list indices. Every occurrence index has an access witness, every noninitial index has an uptake with a strictly earlier source index, and both indexed values are proved to occur at those positions, preventing future-sourced Memory and duplicate-value witness reuse. Each uptake retains the prior contribution endpoint as Memory, contains the later Interpretation occurrence, and changes constructively under contrastive admissible Memory and Perception. `TargetContinuity` supplies two unequal target States in one ordered Persistence history under one non-universal Invariant and rejects one substitution State. Meaning selects an actual Ritual uptake and proves its sustaining Causal Contribution is either that uptake contribution or begins downstream from its interpreted State; the support endpoint reaches the participant's current State. Meaning Relation uses a stable participant-identity index rather than current participant State. One propagation witness carries explicitly unequal participant indices, and a separate witness proves relational nonidentity for unequal indices even when participant current States are equal. Boolean maintenance cases establish only that an actual derived effect can remain active after visible enactment and that dormant storage alone leaves maintenance false.
+
+The Embodiment and Recurrent Consciousness Candidate shadow constructs one Body with explicit Interior and Environment Scopes, carried Boundary Constraints, an identity-preserving Causal path, and a part inventory that changes across ordered States while Entity identity persists. Two Organs carry recurring Transformations and exact Causal Contributions whose outputs preserve the identity Invariant. Embodied Perspective joins Denotation, Perception, Memory, available internal Transformations, and downstream internal Changes. Recurrent Integration requires two distinct processes, two contrastive Causal Contributions, and a return contribution ordered after the first downstream Change. Internal Activity Selection joins a represented outcome to a discriminating choice whose selected output equals the contribution's downstream output. The resulting proposal-local candidate inhabits the existing `CandidateCondition` protocol. Finite countermodels show that shared enclosure does not entail bodily unity, shared signals do not entail Recurrent Integration, Embodied Perspective does not entail the candidate, and candidate obtainment does not entail verbal self-description, outward Action, or complete Control. The module declares no universal Consciousness predicate.
 
 The build separately compiles `OrganonCore`, which contains the current downstream formal vocabulary without `Absent`, `Present`, `Mark`, or the Absence/Presence theorems, and `DanielOntology`, which restores those declarations as a conservative extension. `OrganonCorePreservation` proves by definitional equality that every classifier expressible over the shared carrier has the same result before and after an arbitrary exclusive and exhaustive Absence/Presence extension. This establishes classification preservation for the present Lean shadow. It does not establish preservation for all 109 binding prose terms, because the formal shadow is not yet term-for-term complete; that larger claim remains `UNKNOWN`.
 
@@ -44,7 +46,7 @@ The shadow additionally constructs one Factive Operative Knowledge instance whos
 
 Proposal-local evidence, sovereignty, own-Principal, observed-choice, exchange, and moral-worth predicates remain formal shadows rather than complete joins to every core Organon structure. Reality, universal Claim semantics, universal moral conditions, Action attribution, complete Evidence parity, Interior-and-Boundary Exposure, Action-to-Change Consequence, complete Sense-to-Perception access, Ritual uptake parity through canonical Perception, Memory, and Interpretation, represented-target Denotation, temporal Meaning decay, fidelity, carrier realization, Alignment-profile composition, completeness and provenance of external Rule encodings, runtime construction, temporal ordering of transmission stages, universal semantic preservation, international-law sufficiency, preference revelation, expected utility, market clearing, Beauty, Play, Love, generic Knowledge, generic Sovereignty, and generic Value remain open formalization gates.
 
-The repository commit attested by this receipt is `8b2cd2458bcf307254f77e843ad5b56fcadb1dca`.
+The repository commit attested by this receipt is `32e0229de9df9644b30e1ad4b969f4bd6c6b3c45`.
 
 ## Source digests
 
@@ -54,12 +56,13 @@ The repository commit attested by this receipt is `8b2cd2458bcf307254f77e843ad5b
 - `DanielOntology.lean`: `f8880dbdd90b198beba9392d3ef8ab18e575715f206ec1e497fe3d31eab69ba1`
 - `BridgeRelations.lean`: `a17cdd4eb893859d3895cc729f5726a9689eb97d6290d7aa40e99dfca010b7cf`
 - `RitualMeaning.lean`: `4154d3d8ec479679ec0faab4f8d4bb4364c8ed670b61528e77fcf996e537a68e`
+- `EmbodiedConsciousness.lean`: `42b6c1b2ade5e1545855649b4d196b789cdb69de3c532fedc1f0bdf95b495a0a`
 - `Consciousness.lean`: `18c9af64b04e3f822c97cf24371d17dd22bd34c89e036d7362207fbba4e9cd86`
 - `Operationalization.lean`: `14e75b936ad86f5a03292b316990b7d3ab7a1ada811cb1865ec2831ac8d1a3ce`
 - `WorldSubstrate.lean`: `d3a9d36f6acfe56318ba35dd1f742d2d2e73136f84d70ed27267eb7228122ec5`
 - `TruthTrustAlignment.lean`: `bdaa0217e7434c9bc1d7cd3a6a2d489c684fbf38ffeb98a87388864d1cd5a733`
 - `IntelligenceKnowledge.lean`: `bc0ad1caa81adb25316f79aecd5011e32cf94cc73e1e046f7e13bcd10779aee8`
 - `QuarantineProfiles.lean`: `245c94b5c1a8096e9fdea457b1cafba3ddf4f7ab9d98b214aaee8be5eebdbce4`
-- `Model.lean`: `2d15571cafb95bd3bb3f99382900a2c236f1d24b28e78dad4938f5b5770298c5`
-- `lakefile.toml`: `61800a79dff8f1ab771ba7589a4f70583812a90414f8c109b491d966890d0fd3`
+- `Model.lean`: `c2551fcf5b159e5331545fa935a9678dd46cf6f3f5d2d4a09149009517653125`
+- `lakefile.toml`: `9f3000c01b4d6e827d9f831a459051a82e21bd43971493e1594820c6f7c38ad0`
 - `lean-toolchain`: `54727eec5cba149c18842e6deb5c41b369d66455c93ce135d7d5347c782b2325`
