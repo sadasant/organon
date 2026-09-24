@@ -1,0 +1,234 @@
+{
+  "schema_version": 1,
+  "proposal_id": "embodied-consciousness",
+  "status": "ready-for-review",
+  "binding": false,
+  "markdown": "embodied-consciousness.md",
+  "formal_shadow": "../ontology/formal/EmbodiedConsciousness.lean",
+  "formal_evidence": [
+    "../ontology/formal/Consciousness.lean",
+    "../ontology/formal/BridgeRelations.lean"
+  ],
+  "introduced_terms": [
+    "organon:Body",
+    "organon:BodilyOrganization",
+    "organon:EmbodiedPerspective",
+    "organon:RecurrentIntegration",
+    "organon:InternalActivitySelection"
+  ],
+  "local_symbols": [
+    "local:CandidateCondition",
+    "local:EmbodiedConsciousnessCandidate",
+    "local:Process",
+    "ordinary:speech"
+  ],
+  "statements": [
+    {
+      "id": "EC-D1",
+      "type": "proposed_definition",
+      "subject": "Body",
+      "depends_on": [
+        "organon:Configuration",
+        "organon:Entity",
+        "organon:Boundary",
+        "organon:Constraint",
+        "organon:Transformation",
+        "organon:CausalPath",
+        "organon:Invariant",
+        "organon:Persistence",
+        "organon:State",
+        "organon:Interior",
+        "organon:Environment"
+      ],
+      "formal_symbol": "Body"
+    },
+    {
+      "id": "EC-D2",
+      "type": "proposed_definition",
+      "subject": "Bodily Organization",
+      "depends_on": [
+        "EC-D1",
+        "organon:Organ",
+        "organon:Relation",
+        "organon:CausalContribution",
+        "organon:Persistence",
+        "organon:Invariant"
+      ],
+      "formal_symbol": "BodilyOrganization"
+    },
+    {
+      "id": "EC-D3",
+      "type": "proposed_definition",
+      "subject": "Embodied Perspective",
+      "depends_on": [
+        "EC-D1",
+        "organon:Model",
+        "organon:Representation",
+        "organon:Denotation",
+        "organon:Perception",
+        "organon:Memory",
+        "organon:State",
+        "organon:Constraint",
+        "organon:Transformation",
+        "organon:CausalContribution",
+        "organon:Interior"
+      ],
+      "formal_symbol": "EmbodiedPerspective"
+    },
+    {
+      "id": "EC-D4",
+      "type": "proposed_definition",
+      "subject": "Recurrent Integration",
+      "depends_on": [
+        "organon:Configuration",
+        "organon:Difference",
+        "organon:Transformation",
+        "organon:Direction",
+        "organon:CausalContribution",
+        "organon:State",
+        "local:Process"
+      ],
+      "formal_symbol": "RecurrentIntegration"
+    },
+    {
+      "id": "EC-D5",
+      "type": "proposed_definition",
+      "subject": "Internal Activity Selection",
+      "depends_on": [
+        "EC-D1",
+        "organon:Configuration",
+        "organon:Representation",
+        "organon:Denotation",
+        "organon:State",
+        "organon:Transformation",
+        "organon:Constraint",
+        "organon:CausalContribution",
+        "organon:Interior",
+        "organon:Action"
+      ],
+      "formal_symbol": "InternalActivitySelection"
+    },
+    {
+      "id": "EC-D6",
+      "type": "proposed_definition",
+      "subject": "Embodied recurrent consciousness candidate",
+      "depends_on": [
+        "EC-D1",
+        "EC-D3",
+        "EC-D4",
+        "EC-D5",
+        "organon:Entity",
+        "local:CandidateCondition",
+        "organon:ConsciousnessAttribution",
+        "organon:ConsciousnessDesignation",
+        "local:EmbodiedConsciousnessCandidate"
+      ],
+      "formal_symbol": "EmbodiedConsciousnessCandidate"
+    },
+    {
+      "id": "EC-C1",
+      "type": "anti_collapse_constraint",
+      "subject": "Bodily Persistence does not entail a fixed inventory of parts",
+      "depends_on": [
+        "EC-D1",
+        "organon:Persistence",
+        "organon:Invariant",
+        "organon:State"
+      ],
+      "formal_symbol": "bodyCanPersistAcrossPartChange"
+    },
+    {
+      "id": "EC-C2",
+      "type": "anti_collapse_constraint",
+      "subject": "Boundary does not entail isolation",
+      "depends_on": [
+        "EC-D1",
+        "organon:Boundary",
+        "organon:Interior",
+        "organon:Environment"
+      ],
+      "formal_symbol": "bodyBoundaryDoesNotRequireIsolation"
+    },
+    {
+      "id": "EC-C3",
+      "type": "anti_collapse_constraint",
+      "subject": "Shared enclosure does not entail Bodily Organization",
+      "depends_on": [
+        "EC-D2",
+        "organon:Configuration",
+        "organon:Organ"
+      ],
+      "formal_symbol": "sharedEnclosureDoesNotEntailBodilyOrganization"
+    },
+    {
+      "id": "EC-C4",
+      "type": "anti_collapse_constraint",
+      "subject": "Shared signals do not entail Recurrent Integration",
+      "depends_on": [
+        "EC-D4",
+        "organon:Difference",
+        "organon:CausalContribution"
+      ],
+      "formal_symbol": "sharedSignalDoesNotEntailRecurrentIntegration"
+    },
+    {
+      "id": "EC-C5",
+      "type": "anti_collapse_constraint",
+      "subject": "Embodied Perspective does not entail the candidate condition",
+      "depends_on": [
+        "EC-D3",
+        "EC-D6",
+        "local:CandidateCondition"
+      ],
+      "formal_symbol": "embodiedPerspectiveDoesNotEntailCandidate"
+    },
+    {
+      "id": "EC-C6",
+      "type": "anti_collapse_constraint",
+      "subject": "Candidate obtainment does not entail speech, outward Action, or complete Control",
+      "depends_on": [
+        "EC-D6",
+        "ordinary:speech",
+        "organon:Action",
+        "organon:Control"
+      ],
+      "formal_symbol": "candidateDoesNotRequireSpeechActionOrCompleteControl"
+    },
+    {
+      "id": "EC-C7",
+      "type": "anti_collapse_constraint",
+      "subject": "Candidate obtainment does not entail Attribution or Designation",
+      "depends_on": [
+        "EC-D6",
+        "organon:ConsciousnessAttribution",
+        "organon:ConsciousnessDesignation"
+      ]
+    },
+    {
+      "id": "EC-G1",
+      "type": "open_formalization_gate",
+      "subject": "Constituent and process identity",
+      "depends_on": [
+        "EC-D1",
+        "EC-D2",
+        "EC-D4",
+        "organon:Configuration",
+        "organon:Entity",
+        "organon:Organ",
+        "organon:State",
+        "local:Process"
+      ]
+    },
+    {
+      "id": "EC-G2",
+      "type": "open_evidence_gate",
+      "subject": "Candidate application",
+      "depends_on": [
+        "EC-D6",
+        "organon:Specification",
+        "organon:Evidence",
+        "organon:Claim"
+      ]
+    }
+  ]
+}

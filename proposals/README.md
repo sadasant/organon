@@ -34,6 +34,7 @@ coverage and exact agreement with the individual manifests.
 
 ## Current dossiers
 
+- [Embodiment and Recurrent Consciousness Candidate](./embodied-consciousness.md): ready for review with five supporting embodiment terms and one proposal-local candidate condition; the underlying consciousness condition remains quarantined.
 - [Consciousness](./consciousness.md): partially promoted Attribution and Designation while the underlying condition remains quarantined.
 - [World and Substrate](./world-and-substrate.md): promoted participant-scoped World and contextual Substrate, with the exact limits of their formal witnesses preserved.
 - [Truth, Trust, and Alignment](./truth-trust-and-alignment.md): promoted as separate correspondence, exposure, and specified-conformity Relations, with complete semantics and profile dynamics gated.
