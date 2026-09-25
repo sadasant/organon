@@ -1,11 +1,11 @@
 ---
 type: quarantine-proposal
-status: ready-for-review
+status: partially-promoted
 binding: false
 concept: embodied-consciousness
 created: 2026-09-23
-updated: 2026-09-23
-recommended_outcome: partial-promotion
+updated: 2026-09-25
+recommended_outcome: partially-promoted-in-v0.19
 statement_manifest: "embodied-consciousness-claims.json"
 formal_shadow: "../ontology/formal/EmbodiedConsciousness.lean"
 ---
@@ -15,14 +15,14 @@ formal_shadow: "../ontology/formal/EmbodiedConsciousness.lean"
 
 The embodiment cluster conforms after five repairs that make its dependencies and anti-collapses explicit. Body can be distinguished from Entity and Boundary by naming the constituent Configuration that carries Boundary Constraints and the recurring Transformations implicated in identity Persistence. Bodily Organization requires coordinated Organs and Causal Contributions to that Persistence. Embodied Perspective requires represented self-condition and operative causal participation. Recurrent Integration requires a returning pair of Causal Contributions, not common storage. Internal Activity Selection is needed because Organon's binding Action is necessarily boundary-crossing, while the proposal also concerns continuing, inhibiting, and revising internal Transformations.
 
-The consciousness sentence conforms only as a **candidate condition** within the existing consciousness protocol. It does not settle what Consciousness universally is, which Entities instantiate it, or what Evidence would decide such a Claim. The proposal therefore recommends partial promotion of the five supporting terms while the underlying consciousness condition remains quarantined.
+The consciousness sentence conforms only as a **candidate condition** within the existing consciousness protocol. It does not settle what Consciousness universally is, which Entities instantiate it, or what Evidence would decide such a Claim. Organon v0.19 therefore partially promotes the five supporting terms while the underlying consciousness condition remains quarantined.
 
 This dossier does not address Attention, Love, Care, Respect, embodied self-governance, or Intention. Those terms require their own anti-collapse and formal review after the embodiment foundation is settled.
 
 ## Proposed definitions
 
 <!-- organon:proposal-statement EC-D1 type=proposed_definition -->
-**EC-D1 — Body:** A Body is a persistent constituent Configuration of an Entity that carries the Constraints of the Entity's Boundary and recurring Transformations whose Causal paths preserve the Entity's identity Invariant across ordered States. Its Boundary distinguishes an Interior from an Environment. Bodily Persistence does not require isolation or an unchanging inventory of parts.
+**EC-D1 — Body:** A Body is a persistent Configuration included in an Entity's Configuration across named States within a Scope, carrying the Constraints of the Entity's Boundary and recurring Transformations whose Causal paths preserve the Entity's identity Invariant. Its Boundary distinguishes an Interior from an Environment. Bodily Persistence does not require isolation or an unchanging inventory of parts.
 
 This definition does not make Body a synonym for Entity. An Entity is identified by an Invariant and Persistence witness. Body names the constituent Configuration in which the relevant Boundary Constraints and recurring identity-preserving Transformations occur. The same Entity could therefore be embodied differently across Scopes, while a Configuration enclosed with it is not thereby part of its Body.
 
@@ -85,7 +85,7 @@ The formal shadow is deliberately stricter than a graph with a recurrent edge: e
 <!-- organon:proposal-statement EC-G1 type=open_formalization_gate -->
 ### EC-G1 — Open formalization gate: constituent and process identity
 
-Promotion must decide how a constituent Configuration is related to its Entity across changing States, how an Organ is identified across replacement of parts, and how a constituent process is individuated across Transformations. The present formal shadow carries explicit witnesses but does not claim a universal mereology or process ontology.
+Organon v0.19 binds Body inclusion only within named States and Scope, and Recurrent Integration individuates each constituent process only as a named family of Transformations. How an Organ is reidentified across replacement of parts and whether a universal mereology or process ontology should exist remain open. The formal shadow carries explicit witnesses without claiming either theory.
 
 <!-- organon:proposal-statement EC-G2 type=open_evidence_gate -->
 ### EC-G2 — Open evidence gate: candidate application
@@ -96,11 +96,11 @@ No observation in this dossier establishes that any biological, artificial, inst
 
 | ID | Type | Statement | Dependencies | Evidence or gate |
 | --- | --- | --- | --- | --- |
-| EC-D1 | Proposed definition | Body | Configuration, Entity, Boundary, Constraint, Transformation, Causal path, Invariant, Persistence, State, Interior, Environment | Inhabited finite Body |
-| EC-D2 | Proposed definition | Bodily Organization | EC-D1, Organ, Relation, Causal Contribution, Persistence, Invariant | Inhabited two-Organ organization |
-| EC-D3 | Proposed definition | Embodied Perspective | EC-D1, Model, Representation, Denotation, Perception, Memory, State, Constraint, Transformation, Causal Contribution, Interior | Inhabited operative perspective |
-| EC-D4 | Proposed definition | Recurrent Integration | Configuration, Difference, Transformation, Direction, Causal Contribution, State | Two ordered reciprocal contributions |
-| EC-D5 | Proposed definition | Internal Activity Selection | EC-D1, Configuration, Representation, Denotation, State, Transformation, Constraint, Causal Contribution, Interior, Action | Discriminating internal revision witness |
+| EC-D1 | Proposed definition | Body | Configuration, Entity, Boundary, Constraint, Transformation, Causal path, Invariant, Persistence, State, Scope, Interior, Environment | Inhabited finite Body |
+| EC-D2 | Proposed definition | Bodily Organization | EC-D1, Organ, Relation, Transformation, Causal Contribution, Change, Entity, Persistence, Invariant | Inhabited two-Organ organization |
+| EC-D3 | Proposed definition | Embodied Perspective | EC-D1, Model, Representation, Denotation, Entity, Perception, Memory, State, Constraint, Transformation, Causal Contribution, Interior, Scope | Inhabited operative perspective |
+| EC-D4 | Proposed definition | Recurrent Integration | Configuration, Difference, Transformation, Direction, Causal Contribution, Change, State | Two ordered reciprocal contributions |
+| EC-D5 | Proposed definition | Internal Activity Selection | EC-D1, Configuration, Representation, Denotation, State, Transformation, Constraint, Causal Contribution, Interior, Action, Agency | Discriminating internal revision witness |
 | EC-D6 | Proposed definition | Embodied recurrent consciousness candidate | EC-D1, EC-D3, EC-D4, EC-D5, Entity, candidate condition, Consciousness Attribution, Consciousness Designation | Inhabited `CandidateCondition` |
 | EC-C1 | Anti-collapse constraint | Bodily Persistence does not entail fixed parts | EC-D1, Persistence, Invariant, State | `bodyCanPersistAcrossPartChange` |
 | EC-C2 | Anti-collapse constraint | Boundary does not entail isolation | EC-D1, Boundary, Interior, Environment | `bodyBoundaryDoesNotRequireIsolation` |
@@ -114,6 +114,6 @@ No observation in this dossier establishes that any biological, artificial, inst
 
 ## Promotion boundary
 
-The smallest defensible promotion is Body, Bodily Organization, Embodied Perspective, Recurrent Integration, and Internal Activity Selection together with EC-C1 through EC-C7. They form one dependency-closed cluster and sharpen existing Entity, Boundary, Organ, Model, and Action terms without changing their meanings.
+Organon v0.19 promotes Body, Bodily Organization, Embodied Perspective, Recurrent Integration, and Internal Activity Selection together with C32 through C38, which preserve the seven anti-entailments tested here. They form one dependency-closed cluster and sharpen existing Entity, Boundary, Organ, Model, and Action terms without changing their meanings.
 
-The underlying consciousness condition remains quarantined. EC-D6 enters only as a proposal-local candidate available to Consciousness Attribution and Consciousness Designation. A later promotion PR would need to add stable identifiers and exact dependencies to the canonical ontology, update its generated projections and evaluations, and either close EC-G1 or state its limits as binding prose.
+The underlying consciousness condition remains quarantined. EC-D6 remains only a proposal-local candidate available to Consciousness Attribution and Consciousness Designation. Its application still requires the evidence gate in EC-G2, while v0.19 records the bounded constituent and process-identity limits from EC-G1 in binding prose.

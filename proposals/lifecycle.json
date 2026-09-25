@@ -4,11 +4,10 @@
     {
       "manifest": "embodied-consciousness-claims.json",
       "dossier": "embodied-consciousness.md",
-      "status": "ready-for-review",
-      "binding_release": null,
+      "status": "partially-promoted",
+      "binding_release": "0.19.0",
       "remaining_quarantine": [
-        "underlying consciousness condition",
-        "Body and supporting embodiment terms pending promotion"
+        "underlying consciousness condition"
       ]
     },
     {

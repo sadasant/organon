@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "proposal_id": "embodied-consciousness",
-  "status": "ready-for-review",
+  "status": "partially-promoted",
   "binding": false,
   "markdown": "embodied-consciousness.md",
   "formal_shadow": "../ontology/formal/EmbodiedConsciousness.lean",
@@ -37,6 +37,7 @@
         "organon:Invariant",
         "organon:Persistence",
         "organon:State",
+        "organon:Scope",
         "organon:Interior",
         "organon:Environment"
       ],
@@ -50,7 +51,10 @@
         "EC-D1",
         "organon:Organ",
         "organon:Relation",
+        "organon:Transformation",
         "organon:CausalContribution",
+        "organon:Change",
+        "organon:Entity",
         "organon:Persistence",
         "organon:Invariant"
       ],
@@ -65,13 +69,15 @@
         "organon:Model",
         "organon:Representation",
         "organon:Denotation",
+        "organon:Entity",
         "organon:Perception",
         "organon:Memory",
         "organon:State",
         "organon:Constraint",
         "organon:Transformation",
         "organon:CausalContribution",
-        "organon:Interior"
+        "organon:Interior",
+        "organon:Scope"
       ],
       "formal_symbol": "EmbodiedPerspective"
     },
@@ -85,8 +91,8 @@
         "organon:Transformation",
         "organon:Direction",
         "organon:CausalContribution",
-        "organon:State",
-        "local:Process"
+        "organon:Change",
+        "organon:State"
       ],
       "formal_symbol": "RecurrentIntegration"
     },
@@ -104,7 +110,8 @@
         "organon:Constraint",
         "organon:CausalContribution",
         "organon:Interior",
-        "organon:Action"
+        "organon:Action",
+        "organon:Agency"
       ],
       "formal_symbol": "InternalActivitySelection"
     },

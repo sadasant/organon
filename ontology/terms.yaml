@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "ontology_version": "0.18.0",
+  "ontology_version": "0.19.0",
   "claim_types": ["primitive", "axiom", "definition", "binding_constraint", "derived_consequence", "hypothesis", "authorized_projection", "note", "quarantined"],
   "terms": [
     {"id":"organon:Absence","label":"Absence","claim_id":"P1","claim_type":"primitive","depends_on":[],"anchor":"organon-absence"},
@@ -111,7 +111,12 @@
     {"id":"organon:UtilityMeasure","label":"Utility Measure","claim_id":"D100","claim_type":"definition","depends_on":["organon:Map","organon:Relation","organon:Rule","organon:Specification","organon:Scope","organon:Preference"],"anchor":"organon-utility-measure"},
     {"id":"organon:Price","label":"Price","claim_id":"D101","claim_type":"definition","depends_on":["organon:Relation","organon:Ledger","organon:Record","organon:Order","organon:Admission","organon:Rule","organon:Representation","organon:CountsAs","organon:Presence","organon:State","organon:Scope"],"anchor":"organon-price"},
     {"id":"organon:Ritual","label":"Ritual","claim_id":"D105","claim_type":"definition","depends_on":["organon:Flow","organon:Configuration","organon:Persistence","organon:Invariant","organon:Entity","organon:CausalPath","organon:CausalContribution","organon:Perception","organon:Memory","organon:Interpretation","organon:Action","organon:State","organon:Relation","organon:Representation","organon:Denotation","organon:Rule","organon:Specification","organon:Scope"],"anchor":"organon-ritual"},
-    {"id":"organon:Meaning","label":"Meaning","claim_id":"D106","claim_type":"definition","depends_on":["organon:Ritual","organon:Relation","organon:Entity","organon:Presence","organon:Scope","organon:State","organon:CausalContribution","organon:Record","organon:Memory","organon:Change","organon:Consequence","organon:Environment"],"anchor":"organon-meaning"}
+    {"id":"organon:Meaning","label":"Meaning","claim_id":"D106","claim_type":"definition","depends_on":["organon:Ritual","organon:Relation","organon:Entity","organon:Presence","organon:Scope","organon:State","organon:CausalContribution","organon:Record","organon:Memory","organon:Change","organon:Consequence","organon:Environment"],"anchor":"organon-meaning"},
+    {"id":"organon:Body","label":"Body","claim_id":"D107","claim_type":"definition","depends_on":["organon:Configuration","organon:Entity","organon:Boundary","organon:Constraint","organon:Transformation","organon:CausalPath","organon:Invariant","organon:Persistence","organon:State","organon:Scope","organon:Interior","organon:Environment"],"anchor":"organon-body"},
+    {"id":"organon:BodilyOrganization","label":"Bodily Organization","claim_id":"D108","claim_type":"definition","depends_on":["organon:Body","organon:Organ","organon:Relation","organon:Transformation","organon:CausalContribution","organon:Change","organon:Entity","organon:Persistence","organon:Invariant"],"anchor":"organon-bodily-organization"},
+    {"id":"organon:EmbodiedPerspective","label":"Embodied Perspective","claim_id":"D109","claim_type":"definition","depends_on":["organon:Body","organon:Model","organon:Representation","organon:Denotation","organon:Entity","organon:Perception","organon:Memory","organon:State","organon:Constraint","organon:Transformation","organon:CausalContribution","organon:Interior","organon:Scope"],"anchor":"organon-embodied-perspective"},
+    {"id":"organon:RecurrentIntegration","label":"Recurrent Integration","claim_id":"D110","claim_type":"definition","depends_on":["organon:Configuration","organon:Difference","organon:Transformation","organon:Direction","organon:CausalContribution","organon:Change","organon:State"],"anchor":"organon-recurrent-integration"},
+    {"id":"organon:InternalActivitySelection","label":"Internal Activity Selection","claim_id":"D111","claim_type":"definition","depends_on":["organon:Body","organon:Configuration","organon:Representation","organon:Denotation","organon:State","organon:Transformation","organon:Constraint","organon:CausalContribution","organon:Interior","organon:Action","organon:Agency"],"anchor":"organon-internal-activity-selection"}
   ],
   "commitments": [
     {"id":"A1","claim_type":"axiom","depends_on":["organon:Absence"]},
@@ -155,6 +160,13 @@
     {"id":"C28","claim_type":"binding_constraint","depends_on":["organon:Ritual","organon:Meaning","organon:Preference","organon:UtilityMeasure","organon:Price","organon:Truth","organon:ConsciousnessAttribution","organon:MoralStatusAttribution","organon:MoralPersonhoodDesignation"]},
     {"id":"C29","claim_type":"binding_constraint","depends_on":["organon:Ritual","organon:Meaning","organon:State","organon:Representation","organon:Denotation","organon:Invariant","organon:Persistence","organon:CausalContribution"]},
     {"id":"C30","claim_type":"binding_constraint","depends_on":["organon:Flow","organon:Transformation","organon:Relation","organon:State","organon:Persistence","organon:Representation","organon:Rule","organon:Specification","organon:Claim"]},
-    {"id":"C31","claim_type":"binding_constraint","depends_on":["organon:Ritual","organon:Meaning","organon:Action","organon:Preference","organon:Perception","organon:Memory","organon:Interpretation","organon:CausalContribution","organon:Relation"]}
+    {"id":"C31","claim_type":"binding_constraint","depends_on":["organon:Ritual","organon:Meaning","organon:Action","organon:Preference","organon:Perception","organon:Memory","organon:Interpretation","organon:CausalContribution","organon:Relation"]},
+    {"id":"C32","claim_type":"binding_constraint","depends_on":["organon:Body","organon:Entity","organon:State","organon:Boundary","organon:CausalPath","organon:Invariant","organon:Persistence"]},
+    {"id":"C33","claim_type":"binding_constraint","depends_on":["organon:Body","organon:Boundary","organon:Interior","organon:Environment","organon:CausalPath","organon:Entity","organon:Invariant"]},
+    {"id":"C34","claim_type":"binding_constraint","depends_on":["organon:BodilyOrganization","organon:Body","organon:Organ","organon:Substrate","organon:Configuration","organon:Transformation","organon:CausalContribution","organon:Invariant"]},
+    {"id":"C35","claim_type":"binding_constraint","depends_on":["organon:RecurrentIntegration","organon:Difference","organon:Transformation","organon:CausalContribution","organon:Change","organon:Direction"]},
+    {"id":"C36","claim_type":"binding_constraint","depends_on":["organon:EmbodiedPerspective","organon:RecurrentIntegration","organon:InternalActivitySelection","organon:Perception","organon:Memory","organon:Model","organon:Representation","organon:Claim"]},
+    {"id":"C37","claim_type":"binding_constraint","depends_on":["organon:Body","organon:EmbodiedPerspective","organon:RecurrentIntegration","organon:InternalActivitySelection","organon:Claim","organon:Action","organon:Control"]},
+    {"id":"C38","claim_type":"binding_constraint","depends_on":["organon:Body","organon:EmbodiedPerspective","organon:RecurrentIntegration","organon:InternalActivitySelection","organon:ConsciousnessAttribution","organon:ConsciousnessDesignation","organon:Standing","organon:Order","organon:Rule","organon:Scope","organon:MoralStatusAttribution","organon:MoralPersonhoodDesignation"]}
   ]
 }
