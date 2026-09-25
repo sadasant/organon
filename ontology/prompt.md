@@ -1,7 +1,7 @@
 ---
 type: ontology-prompt-projection
 status: generated-noncanonical
-ontology_version: "0.18.0"
+ontology_version: "0.19.0"
 projection_mode: "full"
 binding_source: ontology.md
 ---
@@ -27,8 +27,8 @@ binding_source: ontology.md
 
 - Mode: full
 - Requested: all registered terms
-- Terms carried: 109 of 109
-- Commitments carried: 42 of 42
+- Terms carried: 114 of 114
+- Commitments carried: 49 of 49
 
 ## Metalanguage boundary
 
@@ -839,6 +839,41 @@ Depends: organon:Flow, organon:Configuration, organon:Persistence, organon:Invar
 Claim: `D106` (definition).
 Depends: organon:Ritual, organon:Relation, organon:Entity, organon:Presence, organon:Scope, organon:State, organon:CausalContribution, organon:Record, organon:Memory, organon:Change, organon:Consequence, organon:Environment.
 
+### `organon:Body` · Body
+
+**Body** is a persistent Configuration included in an Entity's Configuration across named States within a Scope, carrying the Constraints of that Entity's Boundary and recurring Transformations in Causal paths that preserve the Entity's identity Invariant. The Boundary distinguishes the Body's Interior from its Environment. A Body Claim must name the inclusion, States, Scope, Boundary Constraints, Transformations, Causal paths, and identity-Persistence witness. Bodily Persistence does not require isolation or an unchanging inventory of parts.
+
+Claim: `D107` (definition).
+Depends: organon:Configuration, organon:Entity, organon:Boundary, organon:Constraint, organon:Transformation, organon:CausalPath, organon:Invariant, organon:Persistence, organon:State, organon:Scope, organon:Interior, organon:Environment.
+
+### `organon:BodilyOrganization` · Bodily Organization
+
+**Bodily Organization** is a Relation among at least two distinct Organs of one Body in which their recurring Transformations are coordinated and each has a Causal Contribution to the Persistence of the larger Entity's identity Invariant. Each Organ must be located in that Body, and each contribution's downstream Change must preserve the named identity Invariant. Shared enclosure, dependence, Substrate, or proximity alone does not establish Bodily Organization.
+
+Claim: `D108` (definition).
+Depends: organon:Body, organon:Organ, organon:Relation, organon:Transformation, organon:CausalContribution, organon:Change, organon:Entity, organon:Persistence, organon:Invariant.
+
+### `organon:EmbodiedPerspective` · Embodied Perspective
+
+**Embodied Perspective** is a Model internal to a Body whose Representations denote that Entity's own condition and available internal Transformations, and in which Perception and Memory each make a Causal Contribution to later internal States under stated Constraints. The represented condition and every advertised available Transformation must be inside the Body's Interior within the declared Scope. Verbal self-description is not required.
+
+Claim: `D109` (definition).
+Depends: organon:Body, organon:Model, organon:Representation, organon:Denotation, organon:Entity, organon:Perception, organon:Memory, organon:State, organon:Constraint, organon:Transformation, organon:CausalContribution, organon:Interior, organon:Scope.
+
+### `organon:RecurrentIntegration` · Recurrent Integration
+
+**Recurrent Integration** is an organization of at least two distinct named families of constituent Transformations in which a Difference registered through the first family makes a Causal Contribution to a later Change in the second, and a Difference registered through the second makes a later Causal Contribution to a Change in the first under one Direction. Shared storage, broadcast, duplicated signals, temporal co-occurrence, or correlation alone does not establish Recurrent Integration.
+
+Claim: `D110` (definition).
+Depends: organon:Configuration, organon:Difference, organon:Transformation, organon:Direction, organon:CausalContribution, organon:Change, organon:State.
+
+### `organon:InternalActivitySelection` · Internal Activity Selection
+
+**Internal Activity Selection** is a Configuration in which a Representation of an outcome makes a Causal Contribution to which of at least two available internal Transformations of one Body occurs or continues under stated Constraints. The Representation must denote the selected Transformation's output, the contribution's downstream output must equal that output, and the selected and excluded alternatives must both belong to the Body's Interior. Selection may continue, inhibit, or revise internal activity without crossing the Entity's Boundary and therefore does not by itself constitute Action or Agency.
+
+Claim: `D111` (definition).
+Depends: organon:Body, organon:Configuration, organon:Representation, organon:Denotation, organon:State, organon:Transformation, organon:Constraint, organon:CausalContribution, organon:Interior, organon:Action, organon:Agency.
+
 ## Other binding commitments
 
 ### `U1` · axiom
@@ -1062,6 +1097,48 @@ Depends: organon:Flow, organon:Transformation, organon:Relation, organon:State, 
 **No Ritual-to-benefit collapse:** Ritual and Meaning do not entail voluntary Action, consent, Preference, benefit, health, liberation, or moral endorsement. Addiction and trauma loops may instantiate Ritual and sustain Meaning when every defining causal and interpretive join obtains; recurrence, compulsion, distress, or diagnosis alone does not establish either term.
 
 Depends: organon:Ritual, organon:Meaning, organon:Action, organon:Preference, organon:Perception, organon:Memory, organon:Interpretation, organon:CausalContribution, organon:Relation.
+
+### `C32` · binding_constraint
+
+**No Body-fixed-parts collapse:** Body identity and the Entity's identity may persist while the inventory of constituent parts changes across ordered States. Shared parts or exact inventory equality do not establish bodily identity without the named inclusion, Boundary, Causal paths, Invariant, and Persistence witness.
+
+Depends: organon:Body, organon:Entity, organon:State, organon:Boundary, organon:CausalPath, organon:Invariant, organon:Persistence.
+
+### `C33` · binding_constraint
+
+**No Boundary-isolation collapse:** A Body's Boundary distinguishes Interior from Environment without excluding every environmental Causal path. Interaction across that distinction does not by itself dissolve the Body or its Entity identity.
+
+Depends: organon:Body, organon:Boundary, organon:Interior, organon:Environment, organon:CausalPath, organon:Entity, organon:Invariant.
+
+### `C34` · binding_constraint
+
+**No enclosure-to-organization collapse:** Shared enclosure, dependence, Substrate, proximity, or membership in one Configuration does not entail Bodily Organization without distinct Organs, coordinated recurring Transformations, and identity-preserving Causal Contributions.
+
+Depends: organon:BodilyOrganization, organon:Body, organon:Organ, organon:Substrate, organon:Configuration, organon:Transformation, organon:CausalContribution, organon:Invariant.
+
+### `C35` · binding_constraint
+
+**No signal-integration collapse:** Shared storage, broadcast, duplicated signals, temporal co-occurrence, or correlation does not entail Recurrent Integration. The two distinct Transformation families, contrastive Causal Contributions, affected Changes, and later return path must be named.
+
+Depends: organon:RecurrentIntegration, organon:Difference, organon:Transformation, organon:CausalContribution, organon:Change, organon:Direction.
+
+### `C36` · binding_constraint
+
+**No perspective-consciousness collapse:** Embodied Perspective does not by itself establish Recurrent Integration, Internal Activity Selection, or any candidate condition for consciousness. Perception, Memory, Model, self-reference, or verbal self-description separately remains insufficient.
+
+Depends: organon:EmbodiedPerspective, organon:RecurrentIntegration, organon:InternalActivitySelection, organon:Perception, organon:Memory, organon:Model, organon:Representation, organon:Claim.
+
+### `C37` · binding_constraint
+
+**No candidate-action-control collapse:** The embodied recurrent candidate may obtain without verbal self-description, outward Action, or complete Control. None of those separately establishes Body, Embodied Perspective, Recurrent Integration, Internal Activity Selection, or candidate obtainment.
+
+Depends: organon:Body, organon:EmbodiedPerspective, organon:RecurrentIntegration, organon:InternalActivitySelection, organon:Claim, organon:Action, organon:Control.
+
+### `C38` · binding_constraint
+
+**No candidate-status collapse:** The embodied recurrent candidate, Consciousness Attribution, Consciousness Designation, Standing, protection, and moral status do not entail one another. Every institutional consequence requires its own Rule, Order, and Scope.
+
+Depends: organon:Body, organon:EmbodiedPerspective, organon:RecurrentIntegration, organon:InternalActivitySelection, organon:ConsciousnessAttribution, organon:ConsciousnessDesignation, organon:Standing, organon:Order, organon:Rule, organon:Scope, organon:MoralStatusAttribution, organon:MoralPersonhoodDesignation.
 
 ## Declared omissions
 

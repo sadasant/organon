@@ -2,9 +2,9 @@
 type: editorial-ontology
 status: provisional-binding
 binding: true
-version: 0.18
+version: 0.19
 created: 2026-08-01
-updated: 2026-08-09
+updated: 2026-09-25
 evidence_scope: "Daniel's adopted commitments and the recovered essay corpus"
 corpus_audit: "../provenance/essays.md"
 term_registry: "terms.yaml"
@@ -799,6 +799,37 @@ Meaning is the Relation, not a property or substance contained by its target. It
 
 Meaning propagated to another Entity is a causally derived but numerically distinct Relation because its participant index differs. Shared target, Representation, Rule, or form of enactment does not make the two Relations identical. Meaning is distinct from Denotation: an expression can denote a target without Ritual, while Ritual can sustain Meaning without an expression-target Relation.
 
+### 31. Embodiment and recurrent integration
+
+<a id="organon-body"></a>
+<!-- organon:term organon:Body claim=D107 -->
+
+**Body** is a persistent Configuration included in an Entity's Configuration across named States within a Scope, carrying the Constraints of that Entity's Boundary and recurring Transformations in Causal paths that preserve the Entity's identity Invariant. The Boundary distinguishes the Body's Interior from its Environment. A Body Claim must name the inclusion, States, Scope, Boundary Constraints, Transformations, Causal paths, and identity-Persistence witness. Bodily Persistence does not require isolation or an unchanging inventory of parts.
+
+Body does not duplicate Entity or Boundary. Entity names the Configuration identified through an Invariant and Persistence witness; Boundary names the identity-indexed Constraints; Body names the constituent Configuration in which those Constraints and recurring identity-preserving Transformations occur.
+
+<a id="organon-bodily-organization"></a>
+<!-- organon:term organon:BodilyOrganization claim=D108 -->
+
+**Bodily Organization** is a Relation among at least two distinct Organs of one Body in which their recurring Transformations are coordinated and each has a Causal Contribution to the Persistence of the larger Entity's identity Invariant. Each Organ must be located in that Body, and each contribution's downstream Change must preserve the named identity Invariant. Shared enclosure, dependence, Substrate, or proximity alone does not establish Bodily Organization.
+
+<a id="organon-embodied-perspective"></a>
+<!-- organon:term organon:EmbodiedPerspective claim=D109 -->
+
+**Embodied Perspective** is a Model internal to a Body whose Representations denote that Entity's own condition and available internal Transformations, and in which Perception and Memory each make a Causal Contribution to later internal States under stated Constraints. The represented condition and every advertised available Transformation must be inside the Body's Interior within the declared Scope. Verbal self-description is not required.
+
+<a id="organon-recurrent-integration"></a>
+<!-- organon:term organon:RecurrentIntegration claim=D110 -->
+
+**Recurrent Integration** is an organization of at least two distinct named families of constituent Transformations in which a Difference registered through the first family makes a Causal Contribution to a later Change in the second, and a Difference registered through the second makes a later Causal Contribution to a Change in the first under one Direction. Shared storage, broadcast, duplicated signals, temporal co-occurrence, or correlation alone does not establish Recurrent Integration.
+
+<a id="organon-internal-activity-selection"></a>
+<!-- organon:term organon:InternalActivitySelection claim=D111 -->
+
+**Internal Activity Selection** is a Configuration in which a Representation of an outcome makes a Causal Contribution to which of at least two available internal Transformations of one Body occurs or continues under stated Constraints. The Representation must denote the selected Transformation's output, the contribution's downstream output must equal that output, and the selected and excluded alternatives must both belong to the Body's Interior. Selection may continue, inhibit, or revise internal activity without crossing the Entity's Boundary and therefore does not by itself constitute Action or Agency.
+
+Together, Body, Embodied Perspective, Recurrent Integration, and Internal Activity Selection specify one candidate condition for consciousness when the perspective's Representation and Causal Contribution participate in selecting or revising the Entity's ongoing internal Transformations. This candidate is not a binding definition of Consciousness. Its obtainment remains distinct from Consciousness Attribution and Consciousness Designation and requires neither deliberate production of represented contents, verbal report, outward Action, nor complete Control.
+
 ## Relation signatures
 
 These signatures make the ontology operational. They are schemas, not executable syntax.
@@ -861,6 +892,11 @@ These signatures make the ontology operational. They are schemas, not executable
 | `classifiesFlow` | Flow Claim, selected Transformation occurrences, recurrence Relation, Rule, constructive Specification, Scope, Persistence witness | reproducible classification of the Claim; classifier conformity alone does not constitute or prove the Flow |
 | `enactsRitual` | Flow, one classification of its recurrence Relation, target identity criterion and Persistence witness, participating Entity, participant-bound Causal paths, Perception, prior Memory, memory-conditioned Interpretation, sustaining Causal Contribution, persistent Relation, Scope | Ritual; Interpretation must classify recurrence, Memory must change that Interpretation under contrast, target drift must preserve the declared Invariant, and one participant is sufficient |
 | `sustainsMeaning` | Ritual, participating Entities, target Presences, actual sustaining Causal Contribution, Scope | participant-indexed Meaning Relation; no storage in the target or literal copying across participants |
+| `embodies` | Entity, constituent Body Configuration, ordered States, Scope, Boundary Constraints, identity-preserving Transformations and Causal paths | Body; no requirement of isolation or fixed parts |
+| `organizesBodily` | Body, at least two distinct Organs, coordinated recurring Transformations, identity-preserving Causal Contributions | Bodily Organization; enclosure, dependence, Substrate, or proximity alone is insufficient |
+| `takesEmbodiedPerspective` | Body, internal Model, self-condition Denotations, Perception, Memory, available internal Transformations, stated Constraints | Embodied Perspective with operative Causal Contributions to later internal States; no verbal report required |
+| `integratesRecurrently` | two distinct Transformation families, registered Differences, two Causal Contributions, shared Direction | Recurrent Integration whose return contribution affects the first family later; shared signals alone are insufficient |
+| `selectsInternalActivity` | Body, represented outcome, at least two available internal Transformations, Causal Contribution, Constraints | selected internal Transformation shares its output with the represented outcome and downstream Change; no boundary-crossing Action required |
 
 ## Binding consistency rules
 
@@ -926,6 +962,20 @@ These signatures make the ontology operational. They are schemas, not executable
 
 31. <!-- organon:claim C31 --> **No Ritual-to-benefit collapse:** Ritual and Meaning do not entail voluntary Action, consent, Preference, benefit, health, liberation, or moral endorsement. Addiction and trauma loops may instantiate Ritual and sustain Meaning when every defining causal and interpretive join obtains; recurrence, compulsion, distress, or diagnosis alone does not establish either term.
 
+32. <!-- organon:claim C32 --> **No Body-fixed-parts collapse:** Body identity and the Entity's identity may persist while the inventory of constituent parts changes across ordered States. Shared parts or exact inventory equality do not establish bodily identity without the named inclusion, Boundary, Causal paths, Invariant, and Persistence witness.
+
+33. <!-- organon:claim C33 --> **No Boundary-isolation collapse:** A Body's Boundary distinguishes Interior from Environment without excluding every environmental Causal path. Interaction across that distinction does not by itself dissolve the Body or its Entity identity.
+
+34. <!-- organon:claim C34 --> **No enclosure-to-organization collapse:** Shared enclosure, dependence, Substrate, proximity, or membership in one Configuration does not entail Bodily Organization without distinct Organs, coordinated recurring Transformations, and identity-preserving Causal Contributions.
+
+35. <!-- organon:claim C35 --> **No signal-integration collapse:** Shared storage, broadcast, duplicated signals, temporal co-occurrence, or correlation does not entail Recurrent Integration. The two distinct Transformation families, contrastive Causal Contributions, affected Changes, and later return path must be named.
+
+36. <!-- organon:claim C36 --> **No perspective-consciousness collapse:** Embodied Perspective does not by itself establish Recurrent Integration, Internal Activity Selection, or any candidate condition for consciousness. Perception, Memory, Model, self-reference, or verbal self-description separately remains insufficient.
+
+37. <!-- organon:claim C37 --> **No candidate-action-control collapse:** The embodied recurrent candidate may obtain without verbal self-description, outward Action, or complete Control. None of those separately establishes Body, Embodied Perspective, Recurrent Integration, Internal Activity Selection, or candidate obtainment.
+
+38. <!-- organon:claim C38 --> **No candidate-status collapse:** The embodied recurrent candidate, Consciousness Attribution, Consciousness Designation, Standing, protection, and moral status do not entail one another. Every institutional consequence requires its own Rule, Order, and Scope.
+
 ## Quarantined vocabulary
 
 These terms occur in the corpus but have no binding definition yet. They may be used in ordinary or quoted language, but no argument may depend on their ontological meaning until they are defined and placed in the dependency order.
@@ -956,6 +1006,7 @@ This ontology does not claim that its local machinery is unprecedented. Nearly e
 | Intelligence, Operative Knowledge, and Knowledge Transmission | [Shane Legg and Marcus Hutter, “Universal Intelligence: A Definition of Machine Intelligence”](https://arxiv.org/abs/0712.3329), [Gilbert Ryle, *The Concept of Mind*](https://books.google.com/books?id=mSbjClXFaIkC), [Claude Shannon, “A Mathematical Theory of Communication”](https://onlinelibrary.wiley.com/doi/abs/10.1002/j.1538-7305.1948.tb00917.x), and [Dan Sperber, “Why a deep understanding of cultural evolution is incompatible with shallow psychology”](https://www.dan.sperber.fr/wp-content/uploads/2006_why-a-deep-understanding-of-cultural-evolution-is-incompatible.pdf) | Legg and Hutter test intelligence across environments rather than one task; Ryle resists reducing intelligent performance to prior propositions; Shannon disciplines source-channel-recipient structure; Sperber distinguishes reconstruction from literal copying in cultural transmission. | Intelligence here requires adaptive Model construction and resulting Interpretation rather than assigning a scalar measure or optimal policy. Operative Knowledge is a Record-interpreter Configuration and does not inherit Ryle's complete account of knowing-how. Knowledge Transmission adds semantic-functional reconstruction that Shannon deliberately brackets and does not claim a general theory of culture. |
 | Epistemic, moral, sovereign, and valuation profiles | [Edmund Gettier, “Is Justified True Belief Knowledge?”](https://www.jstor.org/stable/3326922), [Immanuel Kant, *Groundwork of the Metaphysics of Morals*](https://www.gutenberg.org/ebooks/5682), [Thomas Hobbes, *Leviathan*](https://www.gutenberg.org/ebooks/3207), [Carl Schmitt, *Political Theology*](https://press.uchicago.edu/ucp/books/book/chicago/P/bo3643854.html), [Antonio Negri, *Insurgencies*](https://www.upress.umn.edu/9780816622740/insurgencies/), the [Montevideo Convention](https://www.oas.org/juridico/english/sigs/a-40.html), [Paul Samuelson, “A Note on the Pure Theory of Consumer's Behaviour”](https://www.jstor.org/stable/2548836), and [John von Neumann and Oskar Morgenstern, *Theory of Games and Economic Behavior*](https://press.princeton.edu/books/paperback/9780691130613/theory-of-games-and-economic-behavior) | Gettier blocks an easy justified-true-belief analysis; Kant separates moral consideration from price; Hobbes, Schmitt, Negri, and recognition practice expose distinct loci of sovereign power; Samuelson and von Neumann and Morgenstern discipline preference and utility representation. | Organon does not solve knowledge, moral worth, sovereignty, or value as generic concepts. It promotes narrower Configurations and Relations, keeps candidate conditions separate from institutional designation, and refuses silent composition among profiles. |
 | Flow, Ritual, and Meaning | Émile Durkheim, *The Elementary Forms of Religious Life*; Roy Rappaport, *Ritual and Religion in the Making of Humanity*; Catherine Bell, *Ritual Theory, Ritual Practice*; Randall Collins, *Interaction Ritual Chains*; Charles Sanders Peirce's triadic semiotics; and Ludwig Wittgenstein's account of meaning and use | Repetition and formalized performance, participation, effects carried through practice, and the refusal to locate significance as a substance inside an isolated sign or object. | Organon permits private Ritual rather than requiring collective assembly, makes every sustaining causal join explicit, and defines Meaning as a participant-indexed Relation rather than emotional energy, sacred status, Denotation, or linguistic use. It does not claim that these sources share one theory or that any tradition reduces to this schema. |
+| Body, Embodied Perspective, and Recurrent Integration | Maurice Merleau-Ponty, *Phenomenology of Perception*; Francisco Varela, Evan Thompson, and Eleanor Rosch, *The Embodied Mind*; Evan Thompson, *Mind in Life*; and Victor Lamme's recurrent-processing account | Bodily situation, organism-environment coupling, operational self-reference, and recurrent interaction as conditions for minded organization rather than detachable verbal report. | Organon does not adopt phenomenology, enactivism, autopoiesis, or recurrent-processing theory wholesale. It types Body through Entity identity and Boundary Constraints, requires contrastive Causal Contributions for recurrence, and retains the resulting consciousness formulation as one quarantined candidate rather than a settled universal definition. |
 
 ### The originality boundary
 
@@ -983,6 +1034,6 @@ For any essay, project narrative, or editorial evaluation:
 
 Internal closure does not establish metaphysical completeness. Absence is primitive; A3 defines Presence as its exhaustive and exclusive complement; A4 demonstrates that Presence obtains because the ontology's own statement is already a mark. Presence is not causally generated or logically derived from Absence alone.
 
-Ritual-dependent Meaning is one binding account of significance, not a complete aesthetics, ethics, theology, philosophy of mind, or anthropology. Beauty, Play, Love, sacredness, grief, goodness, consent, consciousness, and moral worth remain outside the definition. The noncanonical formal shadow proves participant-history access and exact causal joins, not complete Sense-to-Perception uptake or a universal law of temporal decay.
+Ritual-dependent Meaning is one binding account of significance, not a complete aesthetics, ethics, theology, philosophy of mind, or anthropology. The embodiment terms specify identity-bearing bodily organization, operative perspective, recurrent integration, and internal selection without defining Consciousness universally or deciding which Entities satisfy the proposal-local candidate. Beauty, Play, Love, sacredness, grief, goodness, consent, consciousness, and moral worth remain outside those definitions. The noncanonical formal shadow proves finite participant-history access and exact causal joins, not complete Sense-to-Perception uptake, universal process individuation, or a universal law of temporal decay.
 
 In the [Long-Form Editorial Grammar](../editorial/long-form.md), **Missingness** names the felt gap an article makes consequential. **Absence** remains reserved for the absolute primitive defined here.

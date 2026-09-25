@@ -2,29 +2,29 @@
   "schema_version": 1,
   "status": "generated-nonbinding-degenerate-registry-reflection-ledger",
   "source_sha256": {
-    "ontology/terms.yaml": "c1d3573aafb8f31535eac88c164b2b4e32f0fbf5c635fbf46b2aff4357c66339",
-    "ontology/algebra/positive-calculus.yaml": "ae105da13641adbcd0d86b5e67207e02710202bc9afa03ba5c2ffc7678d5357a",
-    "scripts/build-positive-calculus.py": "69ed91480129a5ec9e5ce6b1dc33b9dca843b136cee7a94768c3bbffd65751a6"
+    "ontology/terms.yaml": "48cb425c59968d82843d82a95d292bb672c4dc886c2e887d6c23a638ea343f20",
+    "ontology/algebra/positive-calculus.yaml": "7f7d80d448071b25288347a8f72269496494fb2d715d7e988fd9c5ae13dbb38d",
+    "scripts/build-positive-calculus.py": "eca4c44367dda7dec73add0c98b5e887ad7d023b41a31cc479580d016c5a3396"
   },
   "counts": {
-    "registered_terms": 109,
+    "registered_terms": 114,
     "retained_foundation": 3,
-    "definitions_reflected": 106,
+    "definitions_reflected": 111,
     "constructors": 1,
-    "dependency_removal_fixtures": 825,
+    "dependency_removal_fixtures": 882,
     "unreflected_definitions": 0
   },
   "degenerate_control_comparison": {
     "zero_constructors_positive_heads": 0,
     "zero_constructors_definitions_derived": 0,
-    "one_constructor_definitions_derived": 106,
+    "one_constructor_definitions_derived": 111,
     "ablate_G1_definitions_derived": 0,
     "constructor_minimum_proved": false,
     "explanation": "The comparison covers only G0 and the hand-authored G1 wrapper; it is not an exhaustive search over nondegenerate constructor families."
   },
   "semantic_minimality": {
     "proved": false,
-    "binding_definition_schemas_retained": 106,
+    "binding_definition_schemas_retained": 111,
     "anti_vacuity_passes": false,
     "opaque_parameter": "Conforms(binding_definition_schema, candidate)",
     "eligible_for_promotion": false,
@@ -4117,6 +4117,235 @@
         "G1-D106-remove-Scope",
         "G1-D106-remove-State",
         "G1-D106-remove-witness"
+      ]
+    },
+    {
+      "term": "organon:Body",
+      "claim": "D107",
+      "constructor": "G1",
+      "declared_dependencies": [
+        "organon:Boundary",
+        "organon:CausalPath",
+        "organon:Configuration",
+        "organon:Constraint",
+        "organon:Entity",
+        "organon:Environment",
+        "organon:Interior",
+        "organon:Invariant",
+        "organon:Persistence",
+        "organon:Scope",
+        "organon:State",
+        "organon:Transformation"
+      ],
+      "conformity_witness": {
+        "predicate": "Conforms",
+        "args": [
+          "D107",
+          "candidate"
+        ]
+      },
+      "result": {
+        "predicate": "Classified",
+        "args": [
+          "organon:Body",
+          "candidate"
+        ]
+      },
+      "derives": true,
+      "one_step_mutations": [
+        "G1-D107-remove-Boundary",
+        "G1-D107-remove-CausalPath",
+        "G1-D107-remove-Configuration",
+        "G1-D107-remove-Constraint",
+        "G1-D107-remove-Entity",
+        "G1-D107-remove-Environment",
+        "G1-D107-remove-Interior",
+        "G1-D107-remove-Invariant",
+        "G1-D107-remove-Persistence",
+        "G1-D107-remove-Scope",
+        "G1-D107-remove-State",
+        "G1-D107-remove-Transformation",
+        "G1-D107-remove-witness"
+      ]
+    },
+    {
+      "term": "organon:BodilyOrganization",
+      "claim": "D108",
+      "constructor": "G1",
+      "declared_dependencies": [
+        "organon:Body",
+        "organon:CausalContribution",
+        "organon:Change",
+        "organon:Entity",
+        "organon:Invariant",
+        "organon:Organ",
+        "organon:Persistence",
+        "organon:Relation",
+        "organon:Transformation"
+      ],
+      "conformity_witness": {
+        "predicate": "Conforms",
+        "args": [
+          "D108",
+          "candidate"
+        ]
+      },
+      "result": {
+        "predicate": "Classified",
+        "args": [
+          "organon:BodilyOrganization",
+          "candidate"
+        ]
+      },
+      "derives": true,
+      "one_step_mutations": [
+        "G1-D108-remove-Body",
+        "G1-D108-remove-CausalContribution",
+        "G1-D108-remove-Change",
+        "G1-D108-remove-Entity",
+        "G1-D108-remove-Invariant",
+        "G1-D108-remove-Organ",
+        "G1-D108-remove-Persistence",
+        "G1-D108-remove-Relation",
+        "G1-D108-remove-Transformation",
+        "G1-D108-remove-witness"
+      ]
+    },
+    {
+      "term": "organon:EmbodiedPerspective",
+      "claim": "D109",
+      "constructor": "G1",
+      "declared_dependencies": [
+        "organon:Body",
+        "organon:CausalContribution",
+        "organon:Constraint",
+        "organon:Denotation",
+        "organon:Entity",
+        "organon:Interior",
+        "organon:Memory",
+        "organon:Model",
+        "organon:Perception",
+        "organon:Representation",
+        "organon:Scope",
+        "organon:State",
+        "organon:Transformation"
+      ],
+      "conformity_witness": {
+        "predicate": "Conforms",
+        "args": [
+          "D109",
+          "candidate"
+        ]
+      },
+      "result": {
+        "predicate": "Classified",
+        "args": [
+          "organon:EmbodiedPerspective",
+          "candidate"
+        ]
+      },
+      "derives": true,
+      "one_step_mutations": [
+        "G1-D109-remove-Body",
+        "G1-D109-remove-CausalContribution",
+        "G1-D109-remove-Constraint",
+        "G1-D109-remove-Denotation",
+        "G1-D109-remove-Entity",
+        "G1-D109-remove-Interior",
+        "G1-D109-remove-Memory",
+        "G1-D109-remove-Model",
+        "G1-D109-remove-Perception",
+        "G1-D109-remove-Representation",
+        "G1-D109-remove-Scope",
+        "G1-D109-remove-State",
+        "G1-D109-remove-Transformation",
+        "G1-D109-remove-witness"
+      ]
+    },
+    {
+      "term": "organon:RecurrentIntegration",
+      "claim": "D110",
+      "constructor": "G1",
+      "declared_dependencies": [
+        "organon:CausalContribution",
+        "organon:Change",
+        "organon:Configuration",
+        "organon:Difference",
+        "organon:Direction",
+        "organon:State",
+        "organon:Transformation"
+      ],
+      "conformity_witness": {
+        "predicate": "Conforms",
+        "args": [
+          "D110",
+          "candidate"
+        ]
+      },
+      "result": {
+        "predicate": "Classified",
+        "args": [
+          "organon:RecurrentIntegration",
+          "candidate"
+        ]
+      },
+      "derives": true,
+      "one_step_mutations": [
+        "G1-D110-remove-CausalContribution",
+        "G1-D110-remove-Change",
+        "G1-D110-remove-Configuration",
+        "G1-D110-remove-Difference",
+        "G1-D110-remove-Direction",
+        "G1-D110-remove-State",
+        "G1-D110-remove-Transformation",
+        "G1-D110-remove-witness"
+      ]
+    },
+    {
+      "term": "organon:InternalActivitySelection",
+      "claim": "D111",
+      "constructor": "G1",
+      "declared_dependencies": [
+        "organon:Action",
+        "organon:Agency",
+        "organon:Body",
+        "organon:CausalContribution",
+        "organon:Configuration",
+        "organon:Constraint",
+        "organon:Denotation",
+        "organon:Interior",
+        "organon:Representation",
+        "organon:State",
+        "organon:Transformation"
+      ],
+      "conformity_witness": {
+        "predicate": "Conforms",
+        "args": [
+          "D111",
+          "candidate"
+        ]
+      },
+      "result": {
+        "predicate": "Classified",
+        "args": [
+          "organon:InternalActivitySelection",
+          "candidate"
+        ]
+      },
+      "derives": true,
+      "one_step_mutations": [
+        "G1-D111-remove-Action",
+        "G1-D111-remove-Agency",
+        "G1-D111-remove-Body",
+        "G1-D111-remove-CausalContribution",
+        "G1-D111-remove-Configuration",
+        "G1-D111-remove-Constraint",
+        "G1-D111-remove-Denotation",
+        "G1-D111-remove-Interior",
+        "G1-D111-remove-Representation",
+        "G1-D111-remove-State",
+        "G1-D111-remove-Transformation",
+        "G1-D111-remove-witness"
       ]
     }
   ]

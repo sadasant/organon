@@ -2,6 +2,15 @@
   "schema_version": 1,
   "entries": [
     {
+      "manifest": "embodied-consciousness-claims.json",
+      "dossier": "embodied-consciousness.md",
+      "status": "partially-promoted",
+      "binding_release": "0.19.0",
+      "remaining_quarantine": [
+        "underlying consciousness condition"
+      ]
+    },
+    {
       "manifest": "consciousness-claims.json",
       "dossier": "consciousness.md",
       "status": "partially-promoted",

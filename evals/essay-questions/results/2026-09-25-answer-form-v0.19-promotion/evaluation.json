@@ -1,0 +1,23 @@
+{
+  "schema_version": 2,
+  "run": {
+    "evaluation": "essay-question-judgments",
+    "methodology_version": "1.0",
+    "stages": [
+      "snapshot",
+      "deterministic-preflight",
+      "credential-check",
+      "human-promotion"
+    ],
+    "generated_at": "2026-09-25",
+    "organon_commit": "20fc3269c4a98505c3d7f41b2a6010a34e9b9608",
+    "committed_inputs_sha256": {
+      "ontology/ontology.md": "eef431433998b99db1213666352f0c01e28d165eb62aac172c5f811f701bf538"
+    },
+    "ontology_sha256": "eef431433998b99db1213666352f0c01e28d165eb62aac172c5f811f701bf538",
+    "complete": true,
+    "passed": false,
+    "incomplete_reason": "Model-judged evaluation was not rerun because no OPENAI_API_KEY or OPENAI_BASE_URL was available in the execution environment."
+  },
+  "improvement_plans": []
+}

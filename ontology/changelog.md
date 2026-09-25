@@ -3,13 +3,22 @@ type: ontology-changelog
 status: active
 ontology: "ontology.md"
 created: 2026-08-02
-updated: 2026-08-09
+updated: 2026-09-25
 ---
 # Daniel's Ontology - Changelog
 
 This note records how [Daniel's Ontology](./ontology.md) changed. Historical argument, rejected formulations, maintenance policy, and feedback belong here rather than in the binding ontology.
 
 ## Version history
+
+### v0.19 - Embodiment and recurrent integration
+
+- Added Body as the persistent constituent Configuration carrying Boundary Constraints and recurring identity-preserving Transformations across named States and Scope, without requiring isolation or a fixed inventory of parts.
+- Added Bodily Organization, Embodied Perspective, Recurrent Integration, and Internal Activity Selection as a dependency-closed cluster with exact causal, representational, spatial, and alternative-selection joins.
+- Added C32-C38 to block fixed-part, isolation, enclosure, shared-signal, passive-perspective, outcome-only, and consciousness-attribution collapses.
+- Preserved one embodied recurrent consciousness condition as a proposal-local candidate. The release does not define universal Consciousness or establish that any Entity satisfies the candidate.
+- Promoted the five supporting terms only after their Lean witness and seven countermodels compiled; the formal shadow remains noncanonical and exact prose parity remains unproved.
+- Refreshed the prompt projection, provenance, adoption metadata, formal registry audit, nonbinding algebra accounting, and evaluation pointers for the 114-term, 49-commitment registry.
 
 ### v0.18 - Definition admission made binding
 

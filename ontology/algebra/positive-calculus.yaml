@@ -22,7 +22,7 @@
     "zero_is_insufficient": "The six candidate disciplines have no positive predicate heads and derive no registered definition.",
     "one_is_sufficient_operationally": "G1 reflects every registered definition when handed its complete term-specific binding schema and an opaque conformity witness.",
     "semantic_compression": false,
-    "reason": "The 106 binding definition schemas remain irreducible parameters; the calculus compresses their introduction form, not their semantic content."
+    "reason": "The 111 binding definition schemas remain irreducible parameters; the calculus compresses their introduction form, not their semantic content."
   },
   "anti_vacuity": {
     "passes": false,
