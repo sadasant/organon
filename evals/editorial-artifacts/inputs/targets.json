@@ -7,7 +7,10 @@
       "audience": "A technically experienced reader who builds AI or developer infrastructure but has not encountered Organon.",
       "purpose": "Explain why Organon exists, what kind of failure it addresses, how ontology, editorial grammar, and formal pressure work together, and how another project can use the instrument without surrendering local judgment.",
       "desired_inheritance": "A shared vocabulary is infrastructure only when its correspondences, authority, and revision conditions remain inspectable.",
-      "word_range": [800, 2200],
+      "word_range": [
+        800,
+        2200
+      ],
       "source_files": [
         "README.md",
         "DANIEL.md",
@@ -27,7 +30,10 @@
       "audience": "A philosophically curious technical reader willing to inspect a formal-ish ontology without accepting its primitive commitments in advance.",
       "purpose": "Present the ontology as one dependency-ordered instrument: its classical Absence and Presence commitments, derived entity and causal machinery, institutional layer, anti-collapse discipline, formal shadow, and explicit limits.",
       "desired_inheritance": "An ontology becomes usable when a reader can locate both the definition doing the work and the commitment that would have to change for the classification to change.",
-      "word_range": [800, 2200],
+      "word_range": [
+        800,
+        2200
+      ],
       "source_files": [
         "ontology/changelog.md",
         "ontology/formal/README.md",
@@ -35,9 +41,9 @@
         "ontology/formal/organon-core-reduct-report.md"
       ],
       "source_digests": {
-        "ontology/changelog.md": "b6a667a95388bc770633cfaa9c2f6ae80a324e4ce37b0bef5390a0608b669b88",
-        "ontology/formal/README.md": "1ec714af9409c8d69f3fd1cb5b489bfe382d509477df25fae2a9f2c036c2abcd",
-        "ontology/formal/decisions.md": "cb4f1f6a3541e302c44453963fa64cc49d81f8fe4a07bd0d066009805c539dff",
+        "ontology/changelog.md": "d41dc1a84c6a6ebfdadc3e94c7576f5e8a7539684ebb75cfec360d05399b82f8",
+        "ontology/formal/README.md": "881220285eebe6ba202ceb48bcb25dd5928d4b5d2391a37f8f7114f2fcb4eb55",
+        "ontology/formal/decisions.md": "e257725c892e3ab9e21201f91a6bb605b7665854f2642dbb0ae74c3399e43c27",
         "ontology/formal/organon-core-reduct-report.md": "ecf189f6bd0e7727377468ce6a6e6b3e93442f595b1a9b29545ae784b5e09600"
       }
     },
@@ -48,7 +54,10 @@
       "audience": "A developer who wants to operate local tmux sessions remotely from a phone and must understand the trust, privacy, installation, and operating boundaries before giving a Telegram bot access.",
       "purpose": "Regenerate Engram's main README as a concise but operationally complete front door. Preserve its product identity, guide-versus-snapshot choice, first-run path, privacy and authority boundaries, authenticated GitHub capability model, supported platforms, verification posture, and links needed to reach deeper documentation. Improve narrative progression without turning evidence into promises or omitting safety-critical setup details.",
       "desired_inheritance": "Engram makes remote terminal work legible without pretending that an interpreted guide is the terminal, or that remote convenience should carry ambient authority.",
-      "word_range": [1800, 3200],
+      "word_range": [
+        1800,
+        3200
+      ],
       "source_files": [
         "evals/editorial-artifacts/inputs/sources/engram-main-README.md"
       ],
@@ -69,7 +78,10 @@
       "audience": "A developer, platform operator, or security reviewer deciding whether a rootless declared Linux world is an appropriate execution boundary for a tool-using AI agent.",
       "purpose": "Regenerate Kenogram's main README as a precise and usable front door. Preserve the declared-world model, security boundary and nonclaims, supported runtime and status, first-world path, evidence posture, composition paths, adjacent-system comparison limits, naming lineage, and links needed for rigorous evaluation. Improve the reader journey without weakening fail-closed language or promoting evaluation evidence into certification.",
       "desired_inheritance": "A useful agent world begins with the authority the host explicitly admits, not with the ambient computer the agent happens to inhabit.",
-      "word_range": [1200, 2600],
+      "word_range": [
+        1200,
+        2600
+      ],
       "source_files": [
         "evals/editorial-artifacts/inputs/sources/kenogram-main-README.md"
       ],

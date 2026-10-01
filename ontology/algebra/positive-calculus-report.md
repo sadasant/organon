@@ -10,7 +10,7 @@ The control compares no introduction rule with one universal wrapper:
 
 With no positive-head wrapper, the annotation taxonomy derives zero definitions. G1 reflects all **111 definitions** because it is parameterized by every original definition. Removing G1 returns the reflected count to zero. This is not a search over constructor space or a sharp semantic lower bound.
 
-The control records **882 dependency-removal fixtures**. Each is an extensional set-subtraction regression: the weakened query succeeds against its own facts while the complete wrapper fails because one exact fact is missing. This checks wrapper sensitivity, not ontological necessity.
+The control records **898 dependency-removal fixtures**. Each is an extensional set-subtraction regression: the weakened query succeeds against its own facts while the complete wrapper fails because one exact fact is missing. This checks wrapper sensitivity, not ontological necessity.
 
 ## Anti-vacuity result
 

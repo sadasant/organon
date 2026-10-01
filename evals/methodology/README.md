@@ -76,6 +76,14 @@ The target maintainer decides whether to adopt, revise, or reject the candidate.
 Applying it to another repository is a separate authorized workflow with that
 repository's tests, contribution rules, and review.
 
+Repository pointers record model evaluation and human disposition separately.
+`evaluation_status` reports whether the declared evaluation completed and
+passed; `promotion_status` reports the maintainer's adoption decision. An
+incomplete evaluation may therefore accompany an adopted release when the
+maintainer deliberately accepts that unresolved evidence boundary. The run
+record and report must state the reason rather than relabeling the evaluation as
+a pass.
+
 ## Target profiles
 
 The machine-readable [profiles](./profiles.json) specialize this lifecycle.

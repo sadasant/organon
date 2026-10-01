@@ -1,0 +1,23 @@
+{
+  "schema_version": 2,
+  "run": {
+    "evaluation": "editorial-artifacts",
+    "methodology_version": "1.0",
+    "stages": [
+      "snapshot",
+      "deterministic-preflight",
+      "human-promotion"
+    ],
+    "generated_at": "2026-09-30",
+    "organon_commit": "73f597ad597471dbdd94a0b63647a26809b781e6",
+    "committed_inputs_sha256": {
+      "ontology/ontology.md": "02b518c93f42b236178b68e6bd911ae4dbea38905c5dd44a7de46654a435d284"
+    },
+    "ontology_sha256": "02b518c93f42b236178b68e6bd911ae4dbea38905c5dd44a7de46654a435d284",
+    "complete": true,
+    "passed": false,
+    "incomplete_reason": "The ontology and formal shadow were repaired after adversarial review; the model-judged suite was not rerun for this correction.",
+    "human_disposition": "adopted"
+  },
+  "improvement_plans": []
+}
