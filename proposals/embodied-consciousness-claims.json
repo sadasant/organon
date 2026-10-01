@@ -18,8 +18,8 @@
   ],
   "local_symbols": [
     "local:CandidateCondition",
-    "local:EmbodiedConsciousnessCandidate",
-    "local:Process",
+    "local:EmbodiedRecurrentStructure",
+    "local:TransformationFamily",
     "ordinary:speech"
   ],
   "statements": [
@@ -28,17 +28,19 @@
       "type": "proposed_definition",
       "subject": "Body",
       "depends_on": [
-        "organon:Configuration",
+        "organon:Relation",
         "organon:Entity",
-        "organon:Boundary",
-        "organon:Constraint",
-        "organon:Transformation",
-        "organon:CausalPath",
-        "organon:Invariant",
-        "organon:Persistence",
+        "organon:Configuration",
         "organon:State",
+        "organon:Persistence",
         "organon:Scope",
         "organon:Interior",
+        "organon:Specification",
+        "organon:Transformation",
+        "organon:Constraint",
+        "organon:Boundary",
+        "organon:CausalPath",
+        "organon:Invariant",
         "organon:Environment"
       ],
       "formal_symbol": "Body"
@@ -48,15 +50,20 @@
       "type": "proposed_definition",
       "subject": "Bodily Organization",
       "depends_on": [
-        "EC-D1",
-        "organon:Organ",
         "organon:Relation",
+        "organon:Organ",
+        "EC-D1",
+        "organon:State",
         "organon:Transformation",
+        "organon:Interior",
         "organon:CausalContribution",
         "organon:Change",
         "organon:Entity",
+        "organon:Invariant",
+        "organon:Direction",
+        "organon:Feeds",
         "organon:Persistence",
-        "organon:Invariant"
+        "organon:Substrate"
       ],
       "formal_symbol": "BodilyOrganization"
     },
@@ -65,19 +72,21 @@
       "type": "proposed_definition",
       "subject": "Embodied Perspective",
       "depends_on": [
-        "EC-D1",
         "organon:Model",
+        "organon:Entity",
+        "organon:Interior",
+        "organon:Scope",
+        "organon:Specification",
+        "EC-D1",
         "organon:Representation",
         "organon:Denotation",
-        "organon:Entity",
+        "organon:Transformation",
+        "organon:Difference",
         "organon:Perception",
         "organon:Memory",
-        "organon:State",
-        "organon:Constraint",
-        "organon:Transformation",
         "organon:CausalContribution",
-        "organon:Interior",
-        "organon:Scope"
+        "organon:State",
+        "organon:Constraint"
       ],
       "formal_symbol": "EmbodiedPerspective"
     },
@@ -87,12 +96,13 @@
       "subject": "Recurrent Integration",
       "depends_on": [
         "organon:Configuration",
-        "organon:Difference",
         "organon:Transformation",
         "organon:Direction",
         "organon:CausalContribution",
+        "organon:CausalPath",
         "organon:Change",
-        "organon:State"
+        "organon:State",
+        "organon:Difference"
       ],
       "formal_symbol": "RecurrentIntegration"
     },
@@ -101,17 +111,23 @@
       "type": "proposed_definition",
       "subject": "Internal Activity Selection",
       "depends_on": [
-        "EC-D1",
         "organon:Configuration",
+        "organon:Difference",
         "organon:Representation",
         "organon:Denotation",
-        "organon:State",
-        "organon:Transformation",
-        "organon:Constraint",
         "organon:CausalContribution",
+        "organon:Transformation",
+        "EC-D1",
+        "organon:Relation",
+        "organon:Entity",
         "organon:Interior",
+        "organon:Scope",
+        "organon:Specification",
+        "organon:Boundary",
         "organon:Action",
-        "organon:Agency"
+        "organon:Agency",
+        "organon:State",
+        "organon:Constraint"
       ],
       "formal_symbol": "InternalActivitySelection"
     },
@@ -128,21 +144,21 @@
         "local:CandidateCondition",
         "organon:ConsciousnessAttribution",
         "organon:ConsciousnessDesignation",
-        "local:EmbodiedConsciousnessCandidate"
+        "local:EmbodiedRecurrentStructure"
       ],
-      "formal_symbol": "EmbodiedConsciousnessCandidate"
+      "formal_symbol": "EmbodiedRecurrentAt"
     },
     {
       "id": "EC-C1",
       "type": "anti_collapse_constraint",
-      "subject": "Bodily Persistence does not entail a fixed inventory of parts",
+      "subject": "A Body Relation does not entail a fixed inventory of parts",
       "depends_on": [
         "EC-D1",
         "organon:Persistence",
         "organon:Invariant",
         "organon:State"
       ],
-      "formal_symbol": "bodyCanPersistAcrossPartChange"
+      "formal_symbol": "oneBodyRelationAllowsConstituentChange"
     },
     {
       "id": "EC-C2",
@@ -152,7 +168,8 @@
         "EC-D1",
         "organon:Boundary",
         "organon:Interior",
-        "organon:Environment"
+        "organon:Environment",
+        "organon:CausalPath"
       ],
       "formal_symbol": "bodyBoundaryDoesNotRequireIsolation"
     },
@@ -192,19 +209,18 @@
     {
       "id": "EC-C6",
       "type": "anti_collapse_constraint",
-      "subject": "Candidate obtainment does not entail speech, outward Action, or complete Control",
+      "subject": "The complete embodied structure does not entail speech, outward Action, or complete Control",
       "depends_on": [
         "EC-D6",
         "ordinary:speech",
         "organon:Action",
         "organon:Control"
-      ],
-      "formal_symbol": "candidateDoesNotRequireSpeechActionOrCompleteControl"
+      ]
     },
     {
       "id": "EC-C7",
       "type": "anti_collapse_constraint",
-      "subject": "Candidate obtainment does not entail Attribution or Designation",
+      "subject": "The complete embodied structure does not entail Attribution or Designation",
       "depends_on": [
         "EC-D6",
         "organon:ConsciousnessAttribution",
@@ -223,7 +239,7 @@
         "organon:Entity",
         "organon:Organ",
         "organon:State",
-        "local:Process"
+        "local:TransformationFamily"
       ]
     },
     {

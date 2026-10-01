@@ -13,11 +13,11 @@ This note records how [Daniel's Ontology](./ontology.md) changed. Historical arg
 
 ### v0.19 - Embodiment and recurrent integration
 
-- Added Body as the persistent constituent Configuration carrying Boundary Constraints and recurring identity-preserving Transformations across named States and Scope, without requiring isolation or a fixed inventory of parts.
+- Added Body as a scoped Relation between an Entity and state-indexed constituent Configurations. Entity supplies persistent identity; Body has no second identity criterion and permits changing constituents without requiring isolation.
 - Added Bodily Organization, Embodied Perspective, Recurrent Integration, and Internal Activity Selection as a dependency-closed cluster with exact causal, representational, spatial, and alternative-selection joins.
 - Added C32-C38 to block fixed-part, isolation, enclosure, shared-signal, passive-perspective, outcome-only, and consciousness-attribution collapses.
-- Preserved one embodied recurrent consciousness condition as a proposal-local candidate. The release does not define universal Consciousness or establish that any Entity satisfies the candidate.
-- Promoted the five supporting terms only after their Lean witness and seven countermodels compiled; the formal shadow remains noncanonical and exact prose parity remains unproved.
+- Preserved one embodied recurrent consciousness condition as a proposal-local candidate defined exactly by the complete same-Body structural conjunction. The release does not define universal Consciousness or establish that any external Entity satisfies the candidate.
+- Repaired the formal shadow after adversarial review: removed free coordination, process-affection, and candidate-obtainment predicates; added exact constituent, transformation-family, representational-Difference, selection, and same-Body joins; and replaced proxy countermodels with five countermodels of the actual target structures. Two further anti-entailments are explicitly outside the present Lean boundary.
 - Refreshed the prompt projection, provenance, adoption metadata, formal registry audit, nonbinding algebra accounting, and evaluation pointers for the 114-term, 49-commitment registry.
 
 ### v0.18 - Definition admission made binding
