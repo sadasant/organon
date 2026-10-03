@@ -3,14 +3,16 @@ type: formal-experiment-report
 status: nonbinding
 binding: false
 created: 2026-10-03
-base_commit: "661a16c9f7110d1b32e91df4ee39f03d31476418"
+base_commit: "34e24ecb7e0b09618067547a2973979cb6af0bb3"
 ---
 
 # Ontological frameworks and completeness
 
 This experiment asks whether Organon can describe an ontology using its own vocabulary and then test precisely stated completeness claims in Lean. The initial results establish a conditional expressivity limit and a concrete limit of what the Body constraints determine. They also refute the inference that selectivity alone makes every framework incomplete. None establishes a universal theorem that every ontology fails to describe all Reality.
 
-The experiment is on `experiment/ontology-completeness`, based on the current Body proposal, [PR 16](https://github.com/sadasant/organon/pull/16), at the commit pinned above. It can be rebased onto main after that proposal merges. Its files are separate from the Body implementation and its exact-source promotion review.
+The experiment is on `experiment/ontology-completeness`, rebased onto main after [PR 16](https://github.com/sadasant/organon/pull/16) merged. The base above identifies that merge. Its files are separate from the Body implementation and its exact-source promotion review.
+
+The [eight-term proposal](../../proposals/ontological-frameworks.md) contains the English definitions, termhood reductions, dependencies, and open gates. Daniel requested this combined review of his developing framework, probability, scarcity, and source-loss proposals. It remains nonbinding; merging this experiment does not update the adopted registry.
 
 ## Candidate definition using Organon
 
@@ -74,3 +76,13 @@ Lean 4.30.0 checks the module without `sorry`, `admit`, new axioms, or warnings.
 Verification completed on 2026-10-03: the inherited 32-job Lake build, `ontology_check`, standalone experiment compilation, repository boundary and link check, semantic check (114 terms and 49 typed commitments), structure check, Body promotion-review check, and formal-receipt check all passed. These checks preserve the inherited Body attestation; they do not extend its proof-parity claim to this experimental definition.
 
 Before promoting a stable term, complete the termhood challenge, choose the intended meaning of completeness, formalize the candidate's remaining Configuration and Rule joins, and supply exact prose parity and the repository's dependency-complete promotion evidence. A universal claim about Reality needs an explicit representation decision in addition to those gates. No blanket completeness or incompleteness claim is promoted by this experiment.
+
+## Extended profiles and exact verification
+
+The module now defines Classification, Ontological Framework, Granularity, Expressivity, Scarcity, a finite projection of Ontological Probability, Differentiation, and the source-relative Novelty criterion. Their English definitions and precise formal limits are in the dossier linked above.
+
+Additional checked results include a finite framework/classification/rewrite witness; a blocked rewrite despite a satisfied rule; equivalence laws for granularity; reflexivity and transitivity of refinement; strict refinement; complete separation without complete predicate expressivity; individually feasible but jointly scarce requests; the same requests feasible under another allocation model; normalized probabilities differing despite equal outcome inventories; and source loss followed by reconnection. Novelty is explicitly the declared differentiation criterion, not independently derived metaphysical creation.
+
+Run `python3 scripts/check-ontology-frameworks.py` from the repository root. It builds the existing shadow, compiles the standalone module, audits every theorem, and rejects placeholders, new axiom/opaque declarations, warnings, or dependencies outside Lean's standard `propext`, `Classical.choice`, and `Quot.sound`. The dedicated workflow runs this checker without altering the Body promotion's pinned Lake file or workflow.
+
+This is a schema-v1 nonbinding dossier with explicit declaration mappings and a theorem/evidence ledger. It does not claim schema-v2 promotion-contract verification or promotion readiness. Full canonical joins, formal contract ledgers, and exact-source adversarial review remain gates before any binding promotion.
