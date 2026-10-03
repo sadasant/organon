@@ -146,7 +146,7 @@ def test_complete_reduction_audit_accounts_for_registry_and_refutes_completeness
         for item in ledger["terms"]
         if item["disposition"] == "positively_underdetermined"
     ]
-    assert len(pairs) == 102
+    assert len(pairs) == 110
     assert all(pair["classification_differs"] for pair in pairs)
     assert all(pair["all_declared_dependencies_present"] for pair in pairs)
     assert all(

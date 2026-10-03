@@ -194,12 +194,12 @@ structure Care
 inductive RespectProtection
     {Carrier : Type u}
     (target : Entity Carrier)
-    (constraint : Constraint Carrier) where
+    (constraint : Constraint Carrier)
+    {direction : Direction Carrier}
+    (action : Transformation direction) where
   | boundary
-      (transformation : Transformation target.persistenceDirection)
-      (admitted : constraint.permits transformation)
-      (inputPreserved : target.identity.holds transformation.input)
-      (outputPreserved : target.identity.holds transformation.output)
+      (inputPreserved : target.identity.holds action.input)
+      (outputPreserved : target.identity.holds action.output)
   | agency
       (options : List (Transformation target.persistenceDirection))
       (nonempty : options ≠ [])
@@ -224,7 +224,7 @@ structure Respect
   constrainedAction : Transformation actor.persistenceDirection
   actionInScope : actionScope.includes constrainedAction
   actionConstrained : constraint.permits constrainedAction
-  protection : RespectProtection target constraint
+  protection : RespectProtection target constraint constrainedAction
 
 /-! ## Finite inhabited witnesses -/
 
@@ -392,8 +392,7 @@ def systemRespect : Respect systemEntity belovedEntity where
   actionInScope := rfl
   actionConstrained := by
     simp [internalOnly, systemIdentity, forwardLowTransform, transform, state]
-  protection := .boundary forwardLowTransform
-    (by simp [internalOnly, systemIdentity, forwardLowTransform, transform, state])
+  protection := .boundary
     (by simp [belovedEntity, systemIdentity, forwardLowTransform, transform, state])
     (by simp [belovedEntity, systemIdentity, forwardLowTransform, transform, state])
 

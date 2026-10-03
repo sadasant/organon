@@ -186,10 +186,10 @@
           "organon:Difference": {
             "status": "represented_by",
             "symbols": [
-              "leftEndpoints",
-              "rightEndpoints"
+              "contrastRepresentation",
+              "targetRepresentation"
             ],
-            "reason": "Unequal target and contrast representations are carried as the exact two upstream causal endpoints."
+            "reason": "The unequal contrast and target representations are the exact upstream Difference of the guiding contribution."
           },
           "organon:CausalContribution": {
             "status": "formalized",

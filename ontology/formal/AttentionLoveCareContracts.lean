@@ -38,6 +38,7 @@ theorem intentionContract
     {Part : Type u} {Feature : Type v} {Context : Type w}
     {entity : Entity (Feature × Context)} {body : Body Part entity}
     (intention : Intention Part body) :
+    intention.contrastRepresentation ≠ intention.targetRepresentation ∧
     intention.targetDenotation.expression = intention.targetRepresentation ∧
     intention.targetDenotation.target = intention.targetOutcome ∧
     intention.contribution.leftEndpoints.first.input.value.1 =
@@ -47,7 +48,8 @@ theorem intentionContract
     intention.guidedActivity ∈ body.recurringTransformations ∧
     intention.contribution.downstreamChange.transformation =
         intention.guidedActivity := by
-  exact ⟨intention.denotationNamesTarget.1,
+  exact ⟨intention.targetDifference,
+    intention.denotationNamesTarget.1,
     intention.denotationNamesTarget.2,
     intention.targetGuidesActivity.1,
     intention.targetGuidesActivity.2,
@@ -156,7 +158,8 @@ theorem respectContract
     target ≠ actor ∧
     respect.actionScope.includes respect.constrainedAction ∧
     respect.constraint.permits respect.constrainedAction ∧
-    Nonempty (RespectProtection target respect.constraint) := by
+    Nonempty (RespectProtection target respect.constraint
+      respect.constrainedAction) := by
   exact ⟨respect.targetIsOther, respect.actionInScope,
     respect.actionConstrained, ⟨respect.protection⟩⟩
 
