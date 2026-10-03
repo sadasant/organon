@@ -44,6 +44,23 @@ Use Lean when dependent structure and proof obligations are central; use a finit
 
 Add at least one finite inhabited witness for a promoted structure. For every claimed anti-entailment, add a countermodel or explain why the claim is outside the current formal boundary. Do not use `sorry`, `admit`, or undeclared axioms as promotion evidence.
 
+Schema-v2 proposal manifests must classify every statement as `proved`,
+`proved_with_boundaries`, `outside_formal_boundary`, or `open_gate`. A proved statement names a marked
+theorem in a checked promotion-contract module and gives every `depends_on`
+entry exactly one dependency disposition: `formalized`, `represented_by`,
+`prose_only`, or `outside_formal_boundary`. Formalized and represented
+dependencies name the symbols that must occur in the exact theorem block;
+`represented_by` also explains the projection, while prose-only and boundary
+dispositions explain the unproved limit. The checker derives its symbol set from
+that complete ledger plus `subject_symbols`; a separately authored
+`required_symbols` whitelist is forbidden. Shared indices must still occur
+across the theorem's premises and conclusion. Declaration existence alone is
+not formal evidence. A theorem with any prose-only or outside-boundary
+dependency must use `proved_with_boundaries`; a fully `proved` contract may use
+only formalized and represented dependencies. Every direct structure field returning `Prop` must also
+appear in the manifest's semantic-field ledger as canonical, derived, or local
+and gated.
+
 ### 8. Preserve the readable ontology
 
 Read the complete ontology as one document after the change. It must define itself without conversation history, obsolete formulations, or references to prior drafts. Changelog and proposal records carry the argument with previous versions.
@@ -65,6 +82,13 @@ Distinguish resolved objections from open promotion gates. Quarantined vocabular
 
 Passing CI establishes local verification, not adversarial review or philosophical truth.
 
+For a schema-v2 promotion, `reviews/promotion/<proposal>.json` makes
+promotion-readiness executable. It pins the reviewed implementation commit,
+tree, and SHA-256 of every governed source, enumerates every proved contract,
+and records each adversarial finding as resolved or outside the formal boundary.
+The review record belongs in a later evidence commit, so it cannot attest
+uncommitted source or silently follow subsequent source changes.
+
 ## Verification
 
 From the repository root:
@@ -73,6 +97,7 @@ From the repository root:
 python3 scripts/check-links.py
 python3 scripts/check-semantics.py
 python3 scripts/check-proposals.py
+python3 scripts/check-promotion-review.py
 python3 scripts/check-formal-receipt.py
 python3 scripts/check-adoption.py examples/organon-adoption.json --repo-root .
 (cd ontology/formal && lake build && lake exe ontology_check)

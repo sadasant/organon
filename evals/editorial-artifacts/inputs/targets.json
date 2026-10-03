@@ -7,7 +7,10 @@
       "audience": "A technically experienced reader who builds AI or developer infrastructure but has not encountered Organon.",
       "purpose": "Explain why Organon exists, what kind of failure it addresses, how ontology, editorial grammar, and formal pressure work together, and how another project can use the instrument without surrendering local judgment.",
       "desired_inheritance": "A shared vocabulary is infrastructure only when its correspondences, authority, and revision conditions remain inspectable.",
-      "word_range": [800, 2200],
+      "word_range": [
+        800,
+        2200
+      ],
       "source_files": [
         "README.md",
         "DANIEL.md",
@@ -15,9 +18,9 @@
         "provenance/editorial.md"
       ],
       "source_digests": {
-        "README.md": "385732b73ef634daad1fdebb8ac3478c5fae6d97ac90fa277eaafa197751d75b",
+        "README.md": "e86c3c569898a13d530fddb167d40a711d82d8613e92d7e69a791837c2fd2bb3",
         "DANIEL.md": "130cdc6cb4b4960ca4d4303a70d5bfdd996d4c08af254827acf6285a4fc91396",
-        "CONTRIBUTING.md": "1b4d9e5a3b4e04fc637208cf03b491a3159c109b8985dc70d8a759d833a46578",
+        "CONTRIBUTING.md": "cc48d52f69d833b979a3173e1d3afca6285371ff09daebefa616aebf5ff2aff5",
         "provenance/editorial.md": "4b7b2bfacffa2d5fdad0be7033fcf4abf1ae31b69b9e54cb2aaa3cba0a3ff350"
       }
     },
@@ -27,7 +30,10 @@
       "audience": "A philosophically curious technical reader willing to inspect a formal-ish ontology without accepting its primitive commitments in advance.",
       "purpose": "Present the ontology as one dependency-ordered instrument: its classical Absence and Presence commitments, derived entity and causal machinery, institutional layer, anti-collapse discipline, formal shadow, and explicit limits.",
       "desired_inheritance": "An ontology becomes usable when a reader can locate both the definition doing the work and the commitment that would have to change for the classification to change.",
-      "word_range": [800, 2200],
+      "word_range": [
+        800,
+        2200
+      ],
       "source_files": [
         "ontology/changelog.md",
         "ontology/formal/README.md",
@@ -35,10 +41,10 @@
         "ontology/formal/organon-core-reduct-report.md"
       ],
       "source_digests": {
-        "ontology/changelog.md": "196047570d290710d506deba50b826afbb8564053267c0cc775e58e33c62e859",
-        "ontology/formal/README.md": "f97ea89405cd79d22925c8bd234889a4418389342d4b4deebadce7f173c493da",
-        "ontology/formal/decisions.md": "c73162d64cce7671c26c626e7a51f046559b6816c02110c9919dc89c370e765c",
-        "ontology/formal/organon-core-reduct-report.md": "884cabfa51eae7cced4a7032776b08005b8b5ed1eeafd52ffa7fe688c8de7673"
+        "ontology/changelog.md": "c020e43b3798fb12b03dd910611b25815167be25c6878f502007a9175ea69ac3",
+        "ontology/formal/README.md": "99803621d3e3b4238acd6616a4ba6cf9408223f9389b336a4b4b6c5c66a0db10",
+        "ontology/formal/decisions.md": "734ca0ff11bc09f5cd432c4f39b12644746c9423e0b913f36b5a007364af1cd4",
+        "ontology/formal/organon-core-reduct-report.md": "ecf189f6bd0e7727377468ce6a6e6b3e93442f595b1a9b29545ae784b5e09600"
       }
     },
     {
@@ -48,7 +54,10 @@
       "audience": "A developer who wants to operate local tmux sessions remotely from a phone and must understand the trust, privacy, installation, and operating boundaries before giving a Telegram bot access.",
       "purpose": "Regenerate Engram's main README as a concise but operationally complete front door. Preserve its product identity, guide-versus-snapshot choice, first-run path, privacy and authority boundaries, authenticated GitHub capability model, supported platforms, verification posture, and links needed to reach deeper documentation. Improve narrative progression without turning evidence into promises or omitting safety-critical setup details.",
       "desired_inheritance": "Engram makes remote terminal work legible without pretending that an interpreted guide is the terminal, or that remote convenience should carry ambient authority.",
-      "word_range": [1800, 3200],
+      "word_range": [
+        1800,
+        3200
+      ],
       "source_files": [
         "evals/editorial-artifacts/inputs/sources/engram-main-README.md"
       ],
@@ -69,7 +78,10 @@
       "audience": "A developer, platform operator, or security reviewer deciding whether a rootless declared Linux world is an appropriate execution boundary for a tool-using AI agent.",
       "purpose": "Regenerate Kenogram's main README as a precise and usable front door. Preserve the declared-world model, security boundary and nonclaims, supported runtime and status, first-world path, evidence posture, composition paths, adjacent-system comparison limits, naming lineage, and links needed for rigorous evaluation. Improve the reader journey without weakening fail-closed language or promoting evaluation evidence into certification.",
       "desired_inheritance": "A useful agent world begins with the authority the host explicitly admits, not with the ambient computer the agent happens to inhabit.",
-      "word_range": [1200, 2600],
+      "word_range": [
+        1200,
+        2600
+      ],
       "source_files": [
         "evals/editorial-artifacts/inputs/sources/kenogram-main-README.md"
       ],

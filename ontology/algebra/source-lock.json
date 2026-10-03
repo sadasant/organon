@@ -1,12 +1,12 @@
 {
   "schema_version": 1,
   "status": "nonbinding-experiment-input",
-  "ontology_version": "0.18.0",
-  "repository_commit": "cb28ccb29583ffb55733cb5e4ecbd3e15b736c54",
+  "ontology_version": "0.19.0",
+  "repository_commit": "73f597ad597471dbdd94a0b63647a26809b781e6",
   "sources_sha256": {
-    "ontology/ontology.md": "b187ea9298909b8b36cbc36bc8f05d980e8bab376eba036588f01f60737a9ec9",
-    "ontology/terms.yaml": "c1d3573aafb8f31535eac88c164b2b4e32f0fbf5c635fbf46b2aff4357c66339",
-    "ontology/hidden-bridge-audit.md": "0ef548c6ed7927667a7e885a02c008f6b62486b27f0a462a5d9dc677e140388d",
-    "ontology/prompt.md": "cd3058c7278a426ad0adc96a3e2a34b022be74e97e6f55d3519d9a22f51709eb"
+    "ontology/ontology.md": "02b518c93f42b236178b68e6bd911ae4dbea38905c5dd44a7de46654a435d284",
+    "ontology/terms.yaml": "bc4c8641089d1f341e91f48d18f45296c18509191782ba74279e4dafbfc3b293",
+    "ontology/hidden-bridge-audit.md": "db3236c194ad9f1c440bb08e7deaf9d27bb9d1f2a270495490e776a5feea7364",
+    "ontology/prompt.md": "f55d447a94d9887a47524914fc65c94f02673cd69ba9e4624eae65a1ffe3cb2a"
   }
 }

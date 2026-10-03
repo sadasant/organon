@@ -2,12 +2,37 @@
 type: formalization-decisions
 status: noncanonical
 created: 2026-08-02
-updated: 2026-08-04
+updated: 2026-10-02
 prose_ontology: "../ontology.md"
 ---
 # Formalization Decisions
 
-These decisions belong to the Lean spike. They expose choices priced by formalization. They do not independently revise [Daniel's Ontology v0.18](../ontology.md); accepted findings flow into the binding, single-file Markdown ontology through its changelog.
+These decisions belong to the Lean spike. They expose choices priced by formalization. They do not independently revise [Daniel's Ontology v0.19](../ontology.md); accepted findings flow into the binding, single-file Markdown ontology through its changelog.
+
+## Embodiment uses typed witnesses without promoting consciousness
+
+`EmbodiedConsciousness.lean` encodes Body as a relation between one Entity and constituent parts over an ordered nonempty subsequence of that Entity's Persistence history. The Entity supplies the only identity Invariant, and separate Body relations may cover different intervals. Bodily Organization proves that every Organ's part occurs in the Body, requires recurring Transformations to be pairwise distinct for all distinct named Organs, and replaces free coordination with an exact feed from one Organ's contribution to another Organ's later recurring Transformation. Embodied Perspective contains explicit `PerspectivePerception`, `PerspectiveMemory`, and `PerspectiveModel` projections: the perceptual State is internal and joined to the condition Difference; the Memory record-State has its own Persistence witness and is joined to the memory Difference; and the Model inventories its Representations, Transformations, later contribution States, and Boundary Constraints. Recurrent Integration uses distinct nonempty Transformation families and exact membership for both comparison-path starts and both downstream Changes. Internal Activity Selection identifies its representational Difference with the selecting contribution's upstream Difference.
+
+`EmbodiedRecurrentAt` is `Nonempty EmbodiedRecurrentStructure`: it has no independent obtainment oracle. Its structure shares one Body, Entity, Direction, feeding Relation, Scope, and Interior Specification; both recurrent families are proved to belong to the Body; and the perspective Representation and Causal Contribution equal the selection's Representation and contribution. `candidateHoldsIffEmbodiedRecurrentAt` proves exact equivalence with the reused `CandidateCondition` protocol.
+
+Five finite cases test the formal boundary: constituent replacement under one Body Relation; a real Environment-to-Interior Causal path; two enclosed constituents in a one-Transformation Body with no possible Bodily Organization; a shared signal under a Direction with no possible Recurrent Integration; and an Embodied Perspective at a named moment in a Body with no possible Internal Activity Selection or embodied recurrent structure. The Action, complete-Control, Attribution, and Designation reverse anti-entailments remain binding prose outside this Lean boundary because the reduct supplies no canonical closed-world negations for them. Inventing always-false local predicates would not test those claims.
+
+`PromotionContracts.lean` is a deliberately redundant interface over this
+formalization. Each schema-v2 statement marked as proved names one theorem whose
+type repeats the advertised joins or the exact countermodel. Every declared
+dependency receives a formalized, represented, prose-only, or outside-boundary
+disposition. The checker derives its symbols from that complete ledger and the
+subject symbols; schema v2 forbids an independent `required_symbols` whitelist.
+Contracts with any prose-only or outside-boundary dependency are explicitly
+`proved_with_boundaries`; only contracts whose dependencies are all formalized
+or represented may use `proved`.
+Those symbols and shared indices are checked against the marked theorem block
+before Lean elaborates the module. This prevents a compiled declaration with
+the right name, or a manifest that silently omits a canonical dependency, from
+satisfying the proposal contract. Direct
+structure fields returning `Prop` are separately inventoried; `Body.partAt`
+remains proposal-local and is tied to the constituent-identity gate rather than
+treated as canonical mereology.
 
 ## Flow absorbs recurrence; Ritual and Meaning retain distinct burdens
 
@@ -37,9 +62,9 @@ Generic “use” does not survive termhood: each load-bearing occurrence resolv
 
 `OrganonCore.lean` contains relational Missingness and all downstream formal classifiers without declaring or importing `Absent`, `Present`, or the performative mark. `DanielOntology.lean` imports that module and adds the local Absence/Presence experiment without redefining core structures. Every classifier module and the complete finite witness executable compile against `OrganonCore` alone.
 
-`OrganonCorePreservation.classificationPreserved` is definitionally true because extension semantics cannot be inspected by a core classifier. This establishes classification preservation for the current formal shadow and refutes the claim that those classifiers require Absence merely because the declarations previously occupied one file. It does not establish preservation for unformalized prose terms. The binding ontology has 109 registered terms; term-for-term formal parity remains necessary before the result can be generalized to the complete ontology.
+`OrganonCorePreservation.classificationPreserved` is definitionally true because extension semantics cannot be inspected by a core classifier. This establishes classification preservation for the current formal shadow and refutes the claim that those classifiers require Absence merely because the declarations previously occupied one file. It does not establish preservation for unformalized prose terms. The binding ontology has 114 registered terms; term-for-term formal parity remains necessary before the result can be generalized to the complete ontology.
 
-The first falsification seam does more than inspect imports. `OrganonCoreChallenge` supplies challenge classifiers for Presence, Missingness, Persistence, and Entity. An adversarial identity-breaking history is rejected while a preserving ordered history is admitted. A local-Reality equivalence is proved but not promoted to preservation: one universe-relative carrier is not the totality of all Presence. Reality may instead remain ambient and metatheoretic or receive a universe-indexed projection; choosing between those representations belongs to the binding canonicalization follow-up. The generated registry audit therefore records four proved challenge classifications, one pending representation decision, one deliberately excluded primitive, and 103 unknowns. Unknown is binding: a compiled shadow without exact prose parity is not counted as a preserved term.
+The first falsification seam does more than inspect imports. `OrganonCoreChallenge` supplies challenge classifiers for Presence, Missingness, Persistence, and Entity. An adversarial identity-breaking history is rejected while a preserving ordered history is admitted. A local-Reality equivalence is proved but not promoted to preservation: one universe-relative carrier is not the totality of all Presence. Reality may instead remain ambient and metatheoretic or receive a universe-indexed projection; choosing between those representations belongs to the binding canonicalization follow-up. The generated registry audit therefore records four proved challenge classifications, one pending representation decision, one deliberately excluded primitive, and 108 unknowns. Unknown is binding: a compiled shadow without exact prose parity is not counted as a preserved term.
 
 ## Presence is type-relative
 

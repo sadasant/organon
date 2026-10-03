@@ -38,6 +38,12 @@ name = "BridgeRelations"
 [[lean_lib]]
 name = "RitualMeaning"
 
+[[lean_lib]]
+name = "EmbodiedConsciousness"
+
+[[lean_lib]]
+name = "PromotionContracts"
+
 [[lean_exe]]
 name = "ontology_check"
 root = "Model"

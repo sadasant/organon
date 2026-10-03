@@ -32,6 +32,13 @@
     {"claim": "C28", "status": "candidate_clause_derived"},
     {"claim": "C29", "status": "candidate_clause_derived"},
     {"claim": "C30", "status": "candidate_clause_derived"},
-    {"claim": "C31", "status": "candidate_clause_derived"}
+    {"claim": "C31", "status": "candidate_clause_derived"},
+    {"claim": "C32", "status": "positive_schema_missing", "reason": "No complete Body inclusion, Boundary, identity-Persistence, and part-change circuit is encoded."},
+    {"claim": "C33", "status": "positive_schema_missing", "reason": "No complete bounded Interior-Environment exchange circuit is encoded."},
+    {"claim": "C34", "status": "positive_schema_missing", "reason": "No complete multi-Organ coordination and causal contribution circuit is encoded."},
+    {"claim": "C35", "status": "positive_schema_missing", "reason": "No complete Perception-Memory embodied perspective circuit is encoded."},
+    {"claim": "C36", "status": "positive_schema_missing", "reason": "No complete reciprocal ordered causal contribution circuit is encoded."},
+    {"claim": "C37", "status": "positive_schema_missing", "reason": "No complete outcome-denoting internal alternative-selection circuit is encoded."},
+    {"claim": "C38", "status": "positive_schema_missing", "reason": "The embodied recurrent candidate remains quarantined and has no complete binding consciousness circuit."}
   ]
 }

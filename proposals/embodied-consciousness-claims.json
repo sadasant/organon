@@ -1,0 +1,1067 @@
+{
+  "schema_version": 2,
+  "proposal_id": "embodied-consciousness",
+  "status": "partially-promoted",
+  "binding": false,
+  "markdown": "embodied-consciousness.md",
+  "formal_shadow": "../ontology/formal/EmbodiedConsciousness.lean",
+  "formal_evidence": [
+    "../ontology/formal/Consciousness.lean",
+    "../ontology/formal/BridgeRelations.lean"
+  ],
+  "introduced_terms": [
+    "organon:Body",
+    "organon:BodilyOrganization",
+    "organon:EmbodiedPerspective",
+    "organon:RecurrentIntegration",
+    "organon:InternalActivitySelection"
+  ],
+  "local_symbols": [
+    "local:CandidateCondition",
+    "local:EmbodiedRecurrentStructure",
+    "local:TransformationFamily",
+    "ordinary:speech"
+  ],
+  "statements": [
+    {
+      "id": "EC-D1",
+      "type": "proposed_definition",
+      "subject": "Body",
+      "depends_on": [
+        "organon:Relation",
+        "organon:Entity",
+        "organon:Configuration",
+        "organon:State",
+        "organon:Persistence",
+        "organon:Scope",
+        "organon:Interior",
+        "organon:Specification",
+        "organon:Transformation",
+        "organon:Constraint",
+        "organon:Boundary",
+        "organon:CausalPath",
+        "organon:Invariant",
+        "organon:Environment"
+      ],
+      "formal_contract": {
+        "status": "proved",
+        "theorem": "bodyContract",
+        "shared_indices": [
+          "entity"
+        ],
+        "subject_symbols": [
+          "Body"
+        ],
+        "dependency_dispositions": {
+          "organon:Relation": {
+            "status": "represented_by",
+            "symbols": [
+              "Body",
+              "partAt"
+            ],
+            "reason": "Body and state-indexed partAt are the formal ordered association for this local projection."
+          },
+          "organon:Entity": {
+            "status": "formalized",
+            "symbols": [
+              "Entity",
+              "entity"
+            ]
+          },
+          "organon:Configuration": {
+            "status": "represented_by",
+            "symbols": [
+              "Part",
+              "partAt"
+            ],
+            "reason": "The constituent carrier Part is explicit while universal Configuration identity remains gate EC-G1."
+          },
+          "organon:State": {
+            "status": "formalized",
+            "symbols": [
+              "state"
+            ]
+          },
+          "organon:Persistence": {
+            "status": "formalized",
+            "symbols": [
+              "persistence",
+              "statesWithinPersistence"
+            ]
+          },
+          "organon:Scope": {
+            "status": "formalized",
+            "symbols": [
+              "scope",
+              "includes"
+            ]
+          },
+          "organon:Interior": {
+            "status": "represented_by",
+            "symbols": [
+              "interior",
+              "conforms"
+            ],
+            "reason": "The executable interior Specification represents the Entity-relative Interior in this reduct."
+          },
+          "organon:Specification": {
+            "status": "formalized",
+            "symbols": [
+              "interior",
+              "scope"
+            ]
+          },
+          "organon:Transformation": {
+            "status": "formalized",
+            "symbols": [
+              "transformation",
+              "recurringTransformations"
+            ]
+          },
+          "organon:Constraint": {
+            "status": "formalized",
+            "symbols": [
+              "constraint",
+              "permits"
+            ]
+          },
+          "organon:Boundary": {
+            "status": "formalized",
+            "symbols": [
+              "boundary",
+              "constraints"
+            ]
+          },
+          "organon:CausalPath": {
+            "status": "formalized",
+            "symbols": [
+              "identityPath",
+              "steps"
+            ]
+          },
+          "organon:Invariant": {
+            "status": "formalized",
+            "symbols": [
+              "identity",
+              "holds"
+            ]
+          },
+          "organon:Environment": {
+            "status": "represented_by",
+            "symbols": [
+              "environment",
+              "includes"
+            ],
+            "reason": "An explicit disjoint environment Scope represents Environment because the reduct has no separate Environment structure."
+          }
+        }
+      }
+    },
+    {
+      "id": "EC-D2",
+      "type": "proposed_definition",
+      "subject": "Bodily Organization",
+      "depends_on": [
+        "organon:Relation",
+        "organon:Organ",
+        "EC-D1",
+        "organon:State",
+        "organon:Transformation",
+        "organon:Interior",
+        "organon:CausalContribution",
+        "organon:Change",
+        "organon:Entity",
+        "organon:Invariant",
+        "organon:Direction",
+        "organon:Feeds",
+        "organon:Persistence",
+        "organon:Substrate"
+      ],
+      "formal_contract": {
+        "status": "proved_with_boundaries",
+        "theorem": "bodilyOrganizationContract",
+        "shared_indices": [
+          "body"
+        ],
+        "subject_symbols": [
+          "BodilyOrganization"
+        ],
+        "dependency_dispositions": {
+          "organon:Relation": {
+            "status": "represented_by",
+            "symbols": [
+              "BodilyOrganization",
+              "organization"
+            ],
+            "reason": "BodilyOrganization is the typed local relation joining Organs, parts, contributions, and feed."
+          },
+          "organon:Organ": {
+            "status": "represented_by",
+            "symbols": [
+              "Organ",
+              "organs",
+              "organPart"
+            ],
+            "reason": "Organ is an explicit carrier indexed by organPart and recurring rather than a canonical core structure."
+          },
+          "EC-D1": {
+            "status": "formalized",
+            "symbols": [
+              "Body",
+              "body"
+            ]
+          },
+          "organon:State": {
+            "status": "formalized",
+            "symbols": [
+              "state"
+            ]
+          },
+          "organon:Transformation": {
+            "status": "formalized",
+            "symbols": [
+              "recurring",
+              "transformation"
+            ]
+          },
+          "organon:Interior": {
+            "status": "represented_by",
+            "symbols": [
+              "recurringTransformations",
+              "body"
+            ],
+            "reason": "Membership in body.recurringTransformations inherits the Body contract internality obligation."
+          },
+          "organon:CausalContribution": {
+            "status": "formalized",
+            "symbols": [
+              "sustainingContribution"
+            ]
+          },
+          "organon:Change": {
+            "status": "formalized",
+            "symbols": [
+              "downstreamChange"
+            ]
+          },
+          "organon:Entity": {
+            "status": "formalized",
+            "symbols": [
+              "Entity",
+              "entity"
+            ]
+          },
+          "organon:Invariant": {
+            "status": "formalized",
+            "symbols": [
+              "identity",
+              "holds"
+            ]
+          },
+          "organon:Direction": {
+            "status": "formalized",
+            "symbols": [
+              "persistenceDirection",
+              "before"
+            ]
+          },
+          "organon:Feeds": {
+            "status": "formalized",
+            "symbols": [
+              "feeding",
+              "feeds"
+            ]
+          },
+          "organon:Persistence": {
+            "status": "formalized",
+            "symbols": [
+              "persistenceDirection"
+            ]
+          },
+          "organon:Substrate": {
+            "status": "outside_formal_boundary",
+            "reason": "The present reduct has no canonical Substrate structure; the binding insufficiency claim remains explicit prose and is not treated as a Lean countermodel."
+          }
+        }
+      }
+    },
+    {
+      "id": "EC-D3",
+      "type": "proposed_definition",
+      "subject": "Embodied Perspective",
+      "depends_on": [
+        "organon:Model",
+        "organon:Entity",
+        "organon:Interior",
+        "organon:Scope",
+        "organon:Specification",
+        "EC-D1",
+        "organon:Representation",
+        "organon:Denotation",
+        "organon:Transformation",
+        "organon:Difference",
+        "organon:Perception",
+        "organon:Memory",
+        "organon:CausalContribution",
+        "organon:State",
+        "organon:Constraint"
+      ],
+      "formal_contract": {
+        "status": "proved",
+        "theorem": "embodiedPerspectiveContract",
+        "shared_indices": [
+          "body"
+        ],
+        "subject_symbols": [
+          "EmbodiedPerspective"
+        ],
+        "dependency_dispositions": {
+          "organon:Model": {
+            "status": "represented_by",
+            "symbols": [
+              "model"
+            ],
+            "reason": "PerspectiveModel explicitly contains representations, transformations, later states, and boundary constraints joined to Perception and Memory."
+          },
+          "organon:Entity": {
+            "status": "formalized",
+            "symbols": [
+              "Entity",
+              "entity"
+            ]
+          },
+          "organon:Interior": {
+            "status": "represented_by",
+            "symbols": [
+              "interior",
+              "conforms"
+            ],
+            "reason": "The Body interior Specification represents Entity-relative Interior in the formal reduct."
+          },
+          "organon:Scope": {
+            "status": "formalized",
+            "symbols": [
+              "scope",
+              "includes"
+            ]
+          },
+          "organon:Specification": {
+            "status": "formalized",
+            "symbols": [
+              "interior",
+              "conformityWithinScope"
+            ]
+          },
+          "EC-D1": {
+            "status": "formalized",
+            "symbols": [
+              "Body",
+              "body"
+            ]
+          },
+          "organon:Representation": {
+            "status": "represented_by",
+            "symbols": [
+              "conditionRepresentation",
+              "availableRepresentation",
+              "representations"
+            ],
+            "reason": "Feature-valued condition, available, and memory representations are enumerated inside PerspectiveModel."
+          },
+          "organon:Denotation": {
+            "status": "formalized",
+            "symbols": [
+              "conditionDenotation",
+              "availableDenotation"
+            ]
+          },
+          "organon:Transformation": {
+            "status": "formalized",
+            "symbols": [
+              "transformation",
+              "transformations"
+            ]
+          },
+          "organon:Difference": {
+            "status": "represented_by",
+            "symbols": [
+              "contrastConditionRepresentation",
+              "differenceIsUpstream"
+            ],
+            "reason": "Contrast values and exact upstream endpoint inequalities represent the two named Differences."
+          },
+          "organon:Perception": {
+            "status": "represented_by",
+            "symbols": [
+              "perception"
+            ],
+            "reason": "PerspectivePerception is an explicit internal State joined to the condition Difference and its Causal Contribution."
+          },
+          "organon:Memory": {
+            "status": "represented_by",
+            "symbols": [
+              "memory",
+              "persistence"
+            ],
+            "reason": "PerspectiveMemory is an explicit persistent internal record-state joined to the memory Difference and contribution result."
+          },
+          "organon:CausalContribution": {
+            "status": "formalized",
+            "symbols": [
+              "contribution"
+            ]
+          },
+          "organon:State": {
+            "status": "formalized",
+            "symbols": [
+              "state",
+              "laterStates"
+            ]
+          },
+          "organon:Constraint": {
+            "status": "formalized",
+            "symbols": [
+              "constraint",
+              "constraints"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "id": "EC-D4",
+      "type": "proposed_definition",
+      "subject": "Recurrent Integration",
+      "depends_on": [
+        "organon:Configuration",
+        "organon:Transformation",
+        "organon:Direction",
+        "organon:CausalContribution",
+        "organon:CausalPath",
+        "organon:Change",
+        "organon:State",
+        "organon:Difference"
+      ],
+      "formal_contract": {
+        "status": "proved",
+        "theorem": "recurrentIntegrationContract",
+        "shared_indices": [
+          "integration"
+        ],
+        "subject_symbols": [
+          "RecurrentIntegration"
+        ],
+        "dependency_dispositions": {
+          "organon:Configuration": {
+            "status": "represented_by",
+            "symbols": [
+              "RecurrentIntegration",
+              "firstFamily",
+              "secondFamily"
+            ],
+            "reason": "RecurrentIntegration and its two TransformationFamily values form the named local organization."
+          },
+          "organon:Transformation": {
+            "status": "formalized",
+            "symbols": [
+              "transformation",
+              "transformations"
+            ]
+          },
+          "organon:Direction": {
+            "status": "formalized",
+            "symbols": [
+              "Direction",
+              "direction",
+              "before"
+            ]
+          },
+          "organon:CausalContribution": {
+            "status": "formalized",
+            "symbols": [
+              "firstToSecond",
+              "secondToFirst"
+            ]
+          },
+          "organon:CausalPath": {
+            "status": "represented_by",
+            "symbols": [
+              "leftEndpoints",
+              "rightEndpoints"
+            ],
+            "reason": "The comparison paths are carried by each contribution and exposed through their exact left and right endpoints."
+          },
+          "organon:Change": {
+            "status": "formalized",
+            "symbols": [
+              "downstreamChange"
+            ]
+          },
+          "organon:State": {
+            "status": "formalized",
+            "symbols": [
+              "output",
+              "input"
+            ]
+          },
+          "organon:Difference": {
+            "status": "represented_by",
+            "symbols": [
+              "familiesDistinct"
+            ],
+            "reason": "familiesDistinct plus the contributions input differences carry the required contrasts."
+          }
+        }
+      }
+    },
+    {
+      "id": "EC-D5",
+      "type": "proposed_definition",
+      "subject": "Internal Activity Selection",
+      "depends_on": [
+        "organon:Configuration",
+        "organon:Difference",
+        "organon:Representation",
+        "organon:Denotation",
+        "organon:CausalContribution",
+        "organon:Transformation",
+        "EC-D1",
+        "organon:Relation",
+        "organon:Entity",
+        "organon:Interior",
+        "organon:Scope",
+        "organon:Specification",
+        "organon:Boundary",
+        "organon:Action",
+        "organon:Agency",
+        "organon:State",
+        "organon:Constraint"
+      ],
+      "formal_contract": {
+        "status": "proved_with_boundaries",
+        "theorem": "internalActivitySelectionContract",
+        "shared_indices": [
+          "selection"
+        ],
+        "subject_symbols": [
+          "InternalActivitySelection"
+        ],
+        "dependency_dispositions": {
+          "organon:Configuration": {
+            "status": "represented_by",
+            "symbols": [
+              "InternalActivitySelection",
+              "selection"
+            ],
+            "reason": "InternalActivitySelection is the typed local configuration collecting the exact selection joins."
+          },
+          "organon:Difference": {
+            "status": "represented_by",
+            "symbols": [
+              "contrastRepresentation",
+              "discriminates"
+            ],
+            "reason": "contrastRepresentation and discriminates expose representational and alternative nonidentity."
+          },
+          "organon:Representation": {
+            "status": "represented_by",
+            "symbols": [
+              "representation",
+              "contrastRepresentation"
+            ],
+            "reason": "Feature-valued representation and contrastRepresentation are the local Representation projection."
+          },
+          "organon:Denotation": {
+            "status": "formalized",
+            "symbols": [
+              "outcomeDenotation"
+            ]
+          },
+          "organon:CausalContribution": {
+            "status": "formalized",
+            "symbols": [
+              "contribution"
+            ]
+          },
+          "organon:Transformation": {
+            "status": "formalized",
+            "symbols": [
+              "selected",
+              "rejected"
+            ]
+          },
+          "EC-D1": {
+            "status": "formalized",
+            "symbols": [
+              "Body",
+              "body"
+            ]
+          },
+          "organon:Relation": {
+            "status": "represented_by",
+            "symbols": [
+              "InternalActivitySelection",
+              "body"
+            ],
+            "reason": "The Body-indexed InternalActivitySelection structure supplies the ordered local relation."
+          },
+          "organon:Entity": {
+            "status": "formalized",
+            "symbols": [
+              "Entity",
+              "entity"
+            ]
+          },
+          "organon:Interior": {
+            "status": "represented_by",
+            "symbols": [
+              "interior",
+              "conforms"
+            ],
+            "reason": "The Body interior Specification represents Entity-relative Interior."
+          },
+          "organon:Scope": {
+            "status": "formalized",
+            "symbols": [
+              "scope",
+              "includes"
+            ]
+          },
+          "organon:Specification": {
+            "status": "formalized",
+            "symbols": [
+              "interior",
+              "conformityWithinScope"
+            ]
+          },
+          "organon:Boundary": {
+            "status": "formalized",
+            "symbols": [
+              "boundary",
+              "constraints"
+            ]
+          },
+          "organon:Action": {
+            "status": "outside_formal_boundary",
+            "reason": "Canonical Action is not represented in this reduct; the contract instead proves both alternatives remain internal, so it does not claim a Lean-level Action negation."
+          },
+          "organon:Agency": {
+            "status": "outside_formal_boundary",
+            "reason": "Canonical Agency is not represented in this reduct; the binding non-collapse remains explicit and is not replaced by a proxy predicate."
+          },
+          "organon:State": {
+            "status": "formalized",
+            "symbols": [
+              "output"
+            ]
+          },
+          "organon:Constraint": {
+            "status": "formalized",
+            "symbols": [
+              "constraint",
+              "permits"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "id": "EC-D6",
+      "type": "proposed_definition",
+      "subject": "Embodied recurrent consciousness candidate",
+      "depends_on": [
+        "EC-D1",
+        "EC-D3",
+        "EC-D4",
+        "EC-D5",
+        "organon:Entity",
+        "local:CandidateCondition",
+        "organon:ConsciousnessAttribution",
+        "organon:ConsciousnessDesignation",
+        "local:EmbodiedRecurrentStructure"
+      ],
+      "formal_contract": {
+        "status": "proved_with_boundaries",
+        "theorem": "embodiedCandidateExactContract",
+        "shared_indices": [
+          "body",
+          "moment"
+        ],
+        "subject_symbols": [
+          "EmbodiedRecurrentStructure",
+          "embodiedCandidateCondition"
+        ],
+        "dependency_dispositions": {
+          "EC-D1": {
+            "status": "represented_by",
+            "symbols": [
+              "EmbodiedRecurrentStructure",
+              "Body",
+              "body"
+            ],
+            "reason": "EmbodiedRecurrentStructure is indexed by the exact Body whose inhabitation defines candidate obtainment."
+          },
+          "EC-D3": {
+            "status": "represented_by",
+            "symbols": [
+              "EmbodiedRecurrentStructure"
+            ],
+            "reason": "The structure type contains its Body-indexed EmbodiedPerspective field; inhabitation cannot omit it."
+          },
+          "EC-D4": {
+            "status": "represented_by",
+            "symbols": [
+              "EmbodiedRecurrentStructure"
+            ],
+            "reason": "The structure type contains its same-Body RecurrentIntegration field and closure proofs."
+          },
+          "EC-D5": {
+            "status": "represented_by",
+            "symbols": [
+              "EmbodiedRecurrentStructure"
+            ],
+            "reason": "The structure type contains its Body-indexed InternalActivitySelection and perspective-selection joins."
+          },
+          "organon:Entity": {
+            "status": "formalized",
+            "symbols": [
+              "Entity",
+              "entity"
+            ]
+          },
+          "local:CandidateCondition": {
+            "status": "formalized",
+            "symbols": [
+              "embodiedCandidateCondition",
+              "holds"
+            ]
+          },
+          "organon:ConsciousnessAttribution": {
+            "status": "outside_formal_boundary",
+            "reason": "Attribution remains outside candidate obtainment and has no role in this exact equivalence theorem."
+          },
+          "organon:ConsciousnessDesignation": {
+            "status": "outside_formal_boundary",
+            "reason": "Designation remains outside candidate obtainment and has no role in this exact equivalence theorem."
+          },
+          "local:EmbodiedRecurrentStructure": {
+            "status": "formalized",
+            "symbols": [
+              "EmbodiedRecurrentStructure",
+              "Nonempty"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "id": "EC-C1",
+      "type": "anti_collapse_constraint",
+      "subject": "A Body Relation does not entail a fixed inventory of parts",
+      "depends_on": [
+        "EC-D1",
+        "organon:Persistence",
+        "organon:Invariant",
+        "organon:State"
+      ],
+      "formal_contract": {
+        "status": "proved",
+        "theorem": "bodyPartChangeCountermodel",
+        "shared_indices": [
+          "systemBody"
+        ],
+        "subject_symbols": [
+          "systemBody",
+          "partAt"
+        ],
+        "dependency_dispositions": {
+          "EC-D1": {
+            "status": "formalized",
+            "symbols": [
+              "systemBody",
+              "partAt"
+            ]
+          },
+          "organon:Persistence": {
+            "status": "formalized",
+            "symbols": [
+              "persistence",
+              "states"
+            ]
+          },
+          "organon:Invariant": {
+            "status": "formalized",
+            "symbols": [
+              "identity",
+              "holds"
+            ]
+          },
+          "organon:State": {
+            "status": "formalized",
+            "symbols": [
+              "state"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "id": "EC-C2",
+      "type": "anti_collapse_constraint",
+      "subject": "Boundary does not entail isolation",
+      "depends_on": [
+        "EC-D1",
+        "organon:Boundary",
+        "organon:Interior",
+        "organon:Environment",
+        "organon:CausalPath"
+      ],
+      "formal_contract": {
+        "status": "proved",
+        "theorem": "boundaryNonIsolationCountermodel",
+        "shared_indices": [
+          "systemBody"
+        ],
+        "subject_symbols": [
+          "environmentToInteriorPath"
+        ],
+        "dependency_dispositions": {
+          "EC-D1": {
+            "status": "formalized",
+            "symbols": [
+              "systemBody"
+            ]
+          },
+          "organon:Boundary": {
+            "status": "represented_by",
+            "symbols": [
+              "systemBody"
+            ],
+            "reason": "The Body interior and environment Scopes are constrained by the Entity Boundary through the Body contract."
+          },
+          "organon:Interior": {
+            "status": "represented_by",
+            "symbols": [
+              "interior"
+            ],
+            "reason": "systemBody.interior is the executable Interior projection."
+          },
+          "organon:Environment": {
+            "status": "represented_by",
+            "symbols": [
+              "environment"
+            ],
+            "reason": "systemBody.environment is the explicit Environment Scope projection."
+          },
+          "organon:CausalPath": {
+            "status": "formalized",
+            "symbols": [
+              "environmentToInteriorPath",
+              "steps"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "id": "EC-C3",
+      "type": "anti_collapse_constraint",
+      "subject": "Shared enclosure does not entail Bodily Organization",
+      "depends_on": [
+        "EC-D2",
+        "organon:Configuration",
+        "organon:Organ"
+      ],
+      "formal_contract": {
+        "status": "proved",
+        "theorem": "sharedEnclosureCountermodel",
+        "shared_indices": [
+          "perspectiveOnlyBody"
+        ],
+        "subject_symbols": [
+          "SharedEnclosure",
+          "BodilyOrganization"
+        ],
+        "dependency_dispositions": {
+          "EC-D2": {
+            "status": "formalized",
+            "symbols": [
+              "BodilyOrganization"
+            ]
+          },
+          "organon:Configuration": {
+            "status": "represented_by",
+            "symbols": [
+              "SharedEnclosure"
+            ],
+            "reason": "SharedEnclosure is the finite shared-configuration projection used by this countermodel."
+          },
+          "organon:Organ": {
+            "status": "represented_by",
+            "symbols": [
+              "ToyOrgan"
+            ],
+            "reason": "ToyOrgan supplies two explicitly distinct Organ values in the finite countermodel."
+          }
+        }
+      }
+    },
+    {
+      "id": "EC-C4",
+      "type": "anti_collapse_constraint",
+      "subject": "Shared signals do not entail Recurrent Integration",
+      "depends_on": [
+        "EC-D4",
+        "organon:Difference",
+        "organon:CausalContribution"
+      ],
+      "formal_contract": {
+        "status": "proved",
+        "theorem": "sharedSignalCountermodel",
+        "shared_indices": [],
+        "subject_symbols": [
+          "SharedSignal",
+          "RecurrentIntegration"
+        ],
+        "dependency_dispositions": {
+          "EC-D4": {
+            "status": "formalized",
+            "symbols": [
+              "RecurrentIntegration"
+            ]
+          },
+          "organon:Difference": {
+            "status": "represented_by",
+            "symbols": [
+              "SharedSignal"
+            ],
+            "reason": "SharedSignal records two distinct processes while withholding recurrent causal organization."
+          },
+          "organon:CausalContribution": {
+            "status": "represented_by",
+            "symbols": [
+              "RecurrentIntegration"
+            ],
+            "reason": "Any RecurrentIntegration inhabitant would have to supply the impossible contributions under noDirection."
+          }
+        }
+      }
+    },
+    {
+      "id": "EC-C5",
+      "type": "anti_collapse_constraint",
+      "subject": "Embodied Perspective does not entail the candidate condition",
+      "depends_on": [
+        "EC-D3",
+        "EC-D6",
+        "local:CandidateCondition"
+      ],
+      "formal_contract": {
+        "status": "proved",
+        "theorem": "perspectiveOnlyCountermodel",
+        "shared_indices": [
+          "perspectiveOnlyBody"
+        ],
+        "subject_symbols": [
+          "EmbodiedPerspective",
+          "EmbodiedRecurrentAt"
+        ],
+        "dependency_dispositions": {
+          "EC-D3": {
+            "status": "formalized",
+            "symbols": [
+              "EmbodiedPerspective",
+              "perspectiveOnly"
+            ]
+          },
+          "EC-D6": {
+            "status": "formalized",
+            "symbols": [
+              "EmbodiedRecurrentAt"
+            ]
+          },
+          "local:CandidateCondition": {
+            "status": "represented_by",
+            "symbols": [
+              "EmbodiedRecurrentAt"
+            ],
+            "reason": "EmbodiedRecurrentAt is exactly the candidate obtainment predicate established by EC-D6."
+          }
+        }
+      }
+    },
+    {
+      "id": "EC-C6",
+      "type": "anti_collapse_constraint",
+      "subject": "The complete embodied structure does not entail speech, outward Action, or complete Control",
+      "depends_on": [
+        "EC-D6",
+        "ordinary:speech",
+        "organon:Action",
+        "organon:Control"
+      ],
+      "formal_contract": {
+        "status": "outside_formal_boundary",
+        "reason": "The current reduct has no canonical closed-world negation for the advertised consequent; inventing a local false predicate would not test the binding claim."
+      }
+    },
+    {
+      "id": "EC-C7",
+      "type": "anti_collapse_constraint",
+      "subject": "The complete embodied structure does not entail Attribution or Designation",
+      "depends_on": [
+        "EC-D6",
+        "organon:ConsciousnessAttribution",
+        "organon:ConsciousnessDesignation"
+      ],
+      "formal_contract": {
+        "status": "outside_formal_boundary",
+        "reason": "The current reduct has no canonical closed-world negation for the advertised consequent; inventing a local false predicate would not test the binding claim."
+      }
+    },
+    {
+      "id": "EC-G1",
+      "type": "open_formalization_gate",
+      "subject": "Constituent and process identity",
+      "depends_on": [
+        "EC-D1",
+        "EC-D2",
+        "EC-D4",
+        "organon:Configuration",
+        "organon:Entity",
+        "organon:Organ",
+        "organon:State",
+        "local:TransformationFamily"
+      ],
+      "formal_contract": {
+        "status": "open_gate",
+        "reason": "This statement records an unresolved formalization or evidence boundary and is not promotion evidence."
+      }
+    },
+    {
+      "id": "EC-G2",
+      "type": "open_evidence_gate",
+      "subject": "Candidate application",
+      "depends_on": [
+        "EC-D6",
+        "organon:Specification",
+        "organon:Evidence",
+        "organon:Claim"
+      ],
+      "formal_contract": {
+        "status": "open_gate",
+        "reason": "This statement records an unresolved formalization or evidence boundary and is not promotion evidence."
+      }
+    }
+  ],
+  "promotion_contracts": "../ontology/formal/PromotionContracts.lean",
+  "promotion_review": "../reviews/promotion/embodied-consciousness.json",
+  "semantic_fields": [
+    {
+      "symbol": "Body.partAt",
+      "status": "local-gated",
+      "gate": "EC-G1",
+      "reason": "Constituent parthood is explicit and state-indexed, but Organon does not promote a universal mereology."
+    }
+  ]
+}

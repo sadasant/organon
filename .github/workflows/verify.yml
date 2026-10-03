@@ -24,6 +24,7 @@ jobs:
           python3 scripts/check-links.py
           python3 scripts/check-semantics.py
           python3 scripts/check-proposals.py
+          python3 scripts/check-promotion-review.py
           python3 scripts/check-adoption.py examples/organon-adoption.json --repo-root .
 
       - name: Install evaluation test dependencies

@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "ontology_version": "0.18.0",
+  "ontology_version": "0.19.0",
   "profiles": {
     "agent": {
       "description": "Entities, boundaries, interpretation, action, tools, and contextual capability.",
@@ -119,6 +119,16 @@
       "roots": [
         "organon:Ritual",
         "organon:Meaning"
+      ]
+    },
+    "embodied-integration": {
+      "description": "Body, bodily organization, embodied perspective, recurrent integration, and internal activity selection without promoting a universal consciousness condition.",
+      "roots": [
+        "organon:Body",
+        "organon:BodilyOrganization",
+        "organon:EmbodiedPerspective",
+        "organon:RecurrentIntegration",
+        "organon:InternalActivitySelection"
       ]
     }
   }

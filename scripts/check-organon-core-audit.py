@@ -50,7 +50,9 @@ FORMAL_SHADOWS = {
     "organon:Preference", "organon:UtilityMeasure", "organon:Price",
     "organon:Denotation", "organon:CausalContribution",
     "organon:EvidentialBearing", "organon:Flow", "organon:Ritual",
-    "organon:Meaning",
+    "organon:Meaning", "organon:Body", "organon:BodilyOrganization",
+    "organon:EmbodiedPerspective", "organon:RecurrentIntegration",
+    "organon:InternalActivitySelection",
 }
 
 

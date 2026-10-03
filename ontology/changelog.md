@@ -3,13 +3,24 @@ type: ontology-changelog
 status: active
 ontology: "ontology.md"
 created: 2026-08-02
-updated: 2026-08-09
+updated: 2026-09-25
 ---
 # Daniel's Ontology - Changelog
 
 This note records how [Daniel's Ontology](./ontology.md) changed. Historical argument, rejected formulations, maintenance policy, and feedback belong here rather than in the binding ontology.
 
 ## Version history
+
+### v0.19 - Embodiment and recurrent integration
+
+- Added Body as a scoped Relation between an Entity and state-indexed constituent Configurations. Entity supplies persistent identity; Body has no second identity criterion and permits changing constituents without requiring isolation.
+- Added Bodily Organization, Embodied Perspective, Recurrent Integration, and Internal Activity Selection as a dependency-closed cluster with exact causal, representational, spatial, and alternative-selection joins.
+- Added C32-C38 to block fixed-part, isolation, enclosure, shared-signal, passive-perspective, outcome-only, and consciousness-attribution collapses.
+- Preserved one embodied recurrent consciousness condition as a proposal-local candidate defined exactly by the complete same-Body structural conjunction. The release does not define universal Consciousness or establish that any external Entity satisfies the candidate.
+- Repaired the formal shadow after adversarial review: removed free coordination, process-affection, and candidate-obtainment predicates; added exact constituent, transformation-family, representational-Difference, selection, and same-Body joins; and replaced proxy countermodels with five countermodels of the actual target structures. Two further anti-entailments are explicitly outside the present Lean boundary.
+- Added schema-v2 promotion contracts and exact-source adversarial review records. Proved statements must account for every declared dependency as formalized, represented, prose-only, or outside the formal boundary; checked symbols are derived from that complete ledger rather than an independent whitelist. A theorem with prose-only or outside-boundary dependencies is labeled `proved_with_boundaries`, while fully proved contracts may contain only formalized and represented dependencies. Direct `Prop` relations require a semantic-field disposition, and promoted source cannot drift from the reviewed implementation commit.
+- Tightened the embodied shadow after a second adversarial pass: Body ranges over an ordered nonempty subsequence of Entity Persistence rather than the whole history; distinct Organs require pairwise distinct recurring Transformations; and Embodied Perspective now contains explicit Perception, persistent Memory, and Model objects joined to their Contributions, later States, Transformations, and Constraints.
+- Refreshed the prompt projection, provenance, adoption metadata, formal registry audit, nonbinding algebra accounting, and evaluation pointers for the 114-term, 49-commitment registry.
 
 ### v0.18 - Definition admission made binding
 

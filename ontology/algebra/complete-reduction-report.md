@@ -1,6 +1,6 @@
 # Complete reduction audit
 
-> Generated from the complete v0.18 registry. This audits the candidate algebra after v0.18 promoted definition admission into C1.
+> Generated from the complete v0.19 registry. This audits the candidate algebra after v0.18 promoted definition admission into C1 and the v0.19 embodiment promotion.
 
 ## Result
 
@@ -8,7 +8,7 @@
 
 It is a compact annotation taxonomy for admissibility failures: it organizes why many proposed joins fail and why several indices and witnesses must be conserved. It is not an executable law engine or a generative algebra. Its disciplines have no positive predicate heads, so they cannot reconstruct a classification merely by rejecting malformed alternatives.
 
-The exhaustive ledger accounts for all **109 terms** and **42 commitments**. It retains 3 foundational terms, encodes typed normal-form queries for 9 definitions, and exhibits paired target-extension sketches for the remaining 97 definitions. It accounts for all 31 consistency rules: 20 have candidate clause-level annotations, 2 remain governance constraints, and 9 still require positive domain circuits.
+The exhaustive ledger accounts for all **114 terms** and **49 commitments**. It retains 3 foundational terms, encodes typed normal-form queries for 9 definitions, and exhibits paired target-extension sketches for the remaining 102 definitions. It accounts for all 38 consistency rules: 20 have candidate clause-level annotations, 2 remain governance constraints, and 16 still require positive domain circuits.
 
 ## Why dependency closure is insufficient
 
@@ -27,6 +27,13 @@ For every unencoded definition, the ledger supplies a paired target-extension sk
 - `C18`: No complete Operative Knowledge configuration circuit is encoded.
 - `C19`: No complete Knowledge Transmission reconstruction circuit is encoded.
 - `C20`: No complete Factive or Warranted Knowledge refinement circuit is encoded.
+- `C32`: No complete Body inclusion, Boundary, identity-Persistence, and part-change circuit is encoded.
+- `C33`: No complete bounded Interior-Environment exchange circuit is encoded.
+- `C34`: No complete multi-Organ coordination and causal contribution circuit is encoded.
+- `C35`: No complete Perception-Memory embodied perspective circuit is encoded.
+- `C36`: No complete reciprocal ordered causal contribution circuit is encoded.
+- `C37`: No complete outcome-denoting internal alternative-selection circuit is encoded.
+- `C38`: The embodied recurrent candidate remains quarantined and has no complete binding consciousness circuit.
 
 ## What did reduce
 
@@ -39,11 +46,11 @@ The next candidate is a two-part architecture:
 1. a small generative calculus of positive constructors for persistence, representation, causation, agency, institution, epistemic status, situated world, adaptive knowledge, and ritual meaning; and
 2. an executable admissibility semantics governing how those constructors may compose.
 
-A future completeness claim must reconstruct all 106 definitions from that combined system and eliminate every paired target-extension sketch with genuine models or proofs. Adding more prohibitions alone cannot do it.
+A future completeness claim must reconstruct all 111 definitions from that combined system and eliminate every paired target-extension sketch with genuine models or proofs. Adding more prohibitions alone cannot do it.
 
 ## Follow-on constructor result
 
-The [degenerate registry-reflection control](./positive-calculus-report.md) tests one generic witnessed-introduction wrapper. It reflects all 106 definitions only after receiving each complete binding definition schema, every lexical dependency as a positive fact over one candidate, and an opaque conformity witness. It therefore fails the semantic anti-vacuity gate and does not semantically eliminate any definition schema or close the positive-constructor question.
+The [degenerate registry-reflection control](./positive-calculus-report.md) tests one generic witnessed-introduction wrapper. It reflects all 111 definitions only after receiving each complete binding definition schema, every lexical dependency as a positive fact over one candidate, and an opaque conformity witness. It therefore fails the semantic anti-vacuity gate and does not semantically eliminate any definition schema or close the positive-constructor question.
 
 ## Complete disposition
 
@@ -51,9 +58,9 @@ The [degenerate registry-reflection control](./positive-calculus-report.md) test
 |---|---:|
 | Retained primitive or axiom | 3 |
 | Definition with typed normal-form query | 9 |
-| Positively underdetermined definition | 97 |
+| Positively underdetermined definition | 102 |
 | Candidate-derived consistency clause | 20 |
 | Retained governance constraint | 2 |
-| Consistency rule missing a positive circuit | 9 |
+| Consistency rule missing a positive circuit | 16 |
 
 The machine-readable term-by-term and commitment-by-commitment record is [reduction-ledger.yaml](./reduction-ledger.yaml).

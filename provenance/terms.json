@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "ontology_version": "0.18.0",
+  "ontology_version": "0.19.0",
   "sources": {
     "essay:absence": {"kind": "published-corpus", "reference": "essays.md", "title": "Nothing Else Is So Exact As Absence"},
     "essay:shadow-world": {"kind": "published-corpus", "reference": "essays.md", "title": "The Shadow of the World"},
@@ -34,7 +34,9 @@
     "review:hidden-bridges": {"kind": "adopted-review", "reference": "../ontology/changelog.md", "title": "Hidden bridge audit"},
     "formal:hidden-bridges": {"kind": "formalization", "reference": "../ontology/formal/decisions.md", "title": "Hidden bridge formalization findings"},
     "proposal:ritual-meaning": {"kind": "adopted-review", "reference": "../proposals/ritual-and-meaning.md", "title": "Ritual and ritual-dependent Meaning promotion dossier"},
-    "formal:ritual-meaning": {"kind": "formalization", "reference": "../ontology/formal/decisions.md", "title": "Ritual and Meaning formalization findings"}
+    "formal:ritual-meaning": {"kind": "formalization", "reference": "../ontology/formal/decisions.md", "title": "Ritual and Meaning formalization findings"},
+    "proposal:embodied-consciousness": {"kind": "adopted-review", "reference": "../proposals/embodied-consciousness.md", "title": "Embodiment and recurrent consciousness partial-promotion dossier"},
+    "formal:embodied-consciousness": {"kind": "formalization", "reference": "../ontology/formal/decisions.md", "title": "Embodiment and recurrent integration formalization findings"}
   },
   "groups": [
     {
@@ -106,6 +108,11 @@
       "basis": "adopted-commitment",
       "sources": ["proposal:ritual-meaning", "formal:ritual-meaning", "review:daniel"],
       "terms": ["organon:Ritual", "organon:Meaning"]
+    },
+    {
+      "basis": "adopted-commitment",
+      "sources": ["proposal:embodied-consciousness", "formal:embodied-consciousness", "review:daniel"],
+      "terms": ["organon:Body", "organon:BodilyOrganization", "organon:EmbodiedPerspective", "organon:RecurrentIntegration", "organon:InternalActivitySelection"]
     }
   ]
 }
