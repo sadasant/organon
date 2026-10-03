@@ -2,7 +2,7 @@
   "schema_version": 1,
   "status": "generated-nonbinding-complete-reduction-audit",
   "source_sha256": {
-    "ontology/terms.yaml": "7c74cf829e9ebdb03268edcd8b952876eb5c6904028b373314846b53b2c9e97f",
+    "ontology/terms.yaml": "c2b7bd9cad8f62ed84b18cb1e029645279644e8522cfd3a77ffed99a0e01d3cf",
     "ontology/algebra/normal-forms.yaml": "e801315ee1104ee39aee834214c679a564cd3aac982980dc3b5b3a3a3fd29aa7",
     "ontology/algebra/candidate-laws.yaml": "8d739e8c928f527ee8f66b28c4e3a8b696d0539333627bf26243d72073212550",
     "ontology/algebra/claim-coverage.yaml": "17c549d7193e680b126fd112eaa36053105eb00a9c5b4b72655444d16594637a",
@@ -3776,7 +3776,9 @@
         "organon:Action",
         "organon:CausalContribution",
         "organon:State",
-        "organon:Direction"
+        "organon:Direction",
+        "organon:Specification",
+        "organon:Scope"
       ],
       "disposition": "positively_underdetermined",
       "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
@@ -3792,7 +3794,9 @@
           "organon:Action",
           "organon:CausalContribution",
           "organon:State",
-          "organon:Direction"
+          "organon:Direction",
+          "organon:Specification",
+          "organon:Scope"
         ],
         "target_predicate": "organon:Attention",
         "model_without_target_extension": [],
@@ -3843,7 +3847,8 @@
       "depends_on": [
         "organon:Attention",
         "organon:Difference",
-        "organon:Action"
+        "organon:Action",
+        "organon:Specification"
       ],
       "disposition": "positively_underdetermined",
       "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
@@ -3852,7 +3857,8 @@
         "shared_dependency_extensions": [
           "organon:Attention",
           "organon:Difference",
-          "organon:Action"
+          "organon:Action",
+          "organon:Specification"
         ],
         "target_predicate": "organon:AbsoluteAttention",
         "model_without_target_extension": [],

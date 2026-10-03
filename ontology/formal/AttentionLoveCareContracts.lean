@@ -63,6 +63,10 @@ theorem attentionContract
     {entity : Entity (Feature × Context)} {body : Body Part entity}
     (attention : Attention Part body) :
     attention.contrastRepresentation ≠ attention.focalRepresentation ∧
+    (∀ channel, channel ∈ attention.available ↔
+      (attention.inventory.availabilityAt attention.moment).conforms channel) ∧
+    (∀ channel, channel ∈ attention.available →
+      (attention.inventory.availabilityAt attention.moment).scope.includes channel) ∧
     attention.available ≠ [] ∧
     attention.available.Nodup ∧ attention.organized.Nodup ∧
     attention.moment ∈ body.states ∧
@@ -71,9 +75,9 @@ theorem attentionContract
     attention.degreeNumerator = attention.organized.length ∧
     attention.degreeDenominator = attention.available.length ∧
     (∀ item, item ∈ attention.available →
-      item.channel = .perception ∨
-      item.channel = .interpretation ∨
-      item.channel = .action) ∧
+      attention.inventory.kind item = .perception ∨
+      attention.inventory.kind item = .interpretation ∨
+      attention.inventory.kind item = .action) ∧
     (∀ item, item ∈ attention.organized →
       item ∈ attention.available ∧
       (attention.organizingContribution item).leftEndpoints.first.input.value.1 =
@@ -81,15 +85,18 @@ theorem attentionContract
       (attention.organizingContribution item).rightEndpoints.first.input.value.1 =
           attention.focalRepresentation ∧
       (attention.organizingContribution item).downstreamChange.transformation.output =
-          item.result ∧
-      (item.result = attention.moment ∨
-        entity.persistenceDirection.before item.result attention.moment)) := by
+          attention.result item ∧
+      (attention.result item = attention.moment ∨
+        entity.persistenceDirection.before (attention.result item) attention.moment)) := by
   have bounds := attentionDegreeBounded attention
-  refine ⟨attention.focalDifference, attention.availableNonempty,
+  refine ⟨attention.focalDifference, attention.availableExact, ?_, attention.availableNonempty,
     attention.availableUnique, bounds.2.2, attention.momentWithinBody, bounds.1, bounds.2.1,
     attention.degreeNumeratorExact, attention.degreeDenominatorExact, ?_, ?_⟩
+  · intro channel member
+    exact (attention.inventory.availabilityAt attention.moment).conformityWithinScope
+      channel ((attention.availableExact channel).mp member)
   · intro item _
-    cases item.channel <;> simp
+    cases attention.inventory.kind item <;> simp
   intro item member
   exact ⟨attention.organizedWithinAvailable item member,
     (attention.organizedByDifference item member).1,
@@ -106,6 +113,7 @@ theorem sustainedAttentionContract
     OrderedBy entity.persistenceDirection.before sustained.states ∧
     (∀ state, state ∈ sustained.states →
       state ∈ body.states ∧
+      (sustained.attentionAt state).inventory = sustained.commonInventory ∧
       (sustained.attentionAt state).moment = state ∧
       (sustained.attentionAt state).organized ≠ [] ∧
       (sustained.attentionAt state).focalRepresentation =
@@ -115,7 +123,7 @@ theorem sustainedAttentionContract
   refine ⟨sustained.hasChangingStates, sustained.statesOrdered, ?_⟩
   intro state member
   exact ⟨sustained.statesWithinBody state member,
-    sustained.indexedAtState state member,
+    sustained.sameInventory state member, sustained.indexedAtState state member,
     sustained.maintained state member,
     (sustained.sameDifference state member).1,
     (sustained.sameDifference state member).2⟩
@@ -127,9 +135,12 @@ theorem absoluteAttentionContract
     (absolute : AbsoluteAttention Part body) :
     (∀ item, item ∈ absolute.attention.available →
       item ∈ absolute.attention.organized) ∧
+    (∀ channel, (absolute.attention.inventory.availabilityAt absolute.attention.moment).conforms channel →
+      channel ∈ absolute.attention.organized) ∧
     (∀ item, ¬ FocusIndependentAction absolute.attention item) := by
-  exact ⟨absolute.allAvailableOrganized,
-    absoluteAttentionInhibitsFocusIndependentAction absolute⟩
+  refine ⟨absolute.allAvailableOrganized, ?_, absoluteAttentionInhibitsFocusIndependentAction absolute⟩
+  intro channel conforming
+  exact absolute.allAvailableOrganized channel ((absolute.attention.availableExact channel).mpr conforming)
 
 /-- organon:promotion-contract AC-D6 -/
 theorem loveContract
@@ -137,13 +148,13 @@ theorem loveContract
     {entity : Entity (Feature × Context)} {body : Body Part entity}
     (love : Love Part body) :
     love.beloved ≠ entity ∧
-    love.beloved.identity ≠ entity.identity ∧
+    love.individuation.participant love.beloved ≠ love.individuation.participant entity ∧
     love.belovedDenotation.expression = love.belovedRepresentation ∧
     love.belovedDenotation.target = love.beloved ∧
     love.attention.commonFocalRepresentation = love.belovedRepresentation ∧
     (∀ state, state ∈ love.attention.states →
       (love.attention.attentionAt state).organized ≠ []) := by
-  exact ⟨love.belovedIsOther, love.belovedIdentityIsOther, love.denotationNamesBeloved.1,
+  exact ⟨love.belovedIsOther, love.belovedParticipantIsOther, love.denotationNamesBeloved.1,
     love.denotationNamesBeloved.2, love.attentionDirectedTowardBeloved,
     love.attention.maintained⟩
 
@@ -153,15 +164,15 @@ theorem careContract
     {entity : Entity (Feature × Context)} {body : Body Part entity}
     (care : Care Part body) :
     care.caredFor ≠ entity ∧
-    care.caredFor.identity ≠ entity.identity ∧
+    care.individuation.participant care.caredFor ≠ care.individuation.participant entity ∧
     care.targetDenotation.expression = care.targetRepresentation ∧
     care.targetDenotation.target = (care.caredFor, care.attendedState) ∧
     care.attendedState ∈ care.caredFor.persistence.states ∧
     care.attention.focalRepresentation = care.targetRepresentation ∧
-    care.actionItem.channel = .action ∧
+    care.attention.inventory.kind care.actionItem = .action ∧
     care.actionItem ∈ care.attention.available ∧
     care.actionItem ∈ care.attention.organized := by
-  exact ⟨care.caredForIsOther, care.caredForIdentityIsOther, care.denotationNamesTargetState.1,
+  exact ⟨care.caredForIsOther, care.caredForParticipantIsOther, care.denotationNamesTargetState.1,
     care.denotationNamesTargetState.2, care.attendedStateInHistory,
     care.attentionTargetsState,
     care.itemIsAction, care.actionAvailable, care.actionOrganizedByAttention⟩
@@ -171,13 +182,13 @@ theorem respectContract
     {Carrier : Type u} {actor target : Entity Carrier}
     (respect : Respect actor target) :
     target ≠ actor ∧
-    target.identity ≠ actor.identity ∧
+    respect.individuation.participant target ≠ respect.individuation.participant actor ∧
     respect.actionScope.includes respect.constrainedAction ∧
     respect.constraint.permits respect.constrainedAction ∧
     target.identity.holds respect.constrainedAction.output ∧
     Nonempty (RespectProtection target respect.constraint
       respect.constrainedAction) := by
-  exact ⟨respect.targetIsOther, respect.targetIdentityIsOther, respect.actionInScope,
+  exact ⟨respect.targetIsOther, respect.targetParticipantIsOther, respect.actionInScope,
     respect.actionConstrained, respectProtectionPreservesIdentity respect.protection,
     ⟨respect.protection⟩⟩
 

@@ -841,27 +841,27 @@ Together, Body, Embodied Perspective, Recurrent Integration, and Internal Activi
 <a id="organon-intention"></a>
 <!-- organon:term organon:Intention claim=D113 -->
 
-**Intention** is a Configuration in which a represented outcome is exactly Denoted as a target and a Difference involving that Representation is the upstream Difference of a Causal Contribution guiding the selection, continuation, inhibition, or revision of an activity within one Body. The guided activity need not produce the represented target outcome. An outcome's occurrence does not establish Intention without the target Representation, Denotation, Difference, and guiding contribution.
+**Intention** is a Configuration in which a represented outcome is exactly Denoted as a target and a Difference involving that Representation is the upstream Difference of a Causal Contribution guiding an activity within one Body. The guided activity need not produce the represented target outcome. An outcome's occurrence does not establish Intention without the target Representation, Denotation, Difference, and guiding contribution.
 
 <a id="organon-attention"></a>
 <!-- organon:term organon:Attention claim=D114 -->
 
-**Attention** is the finite ratio of an Entity's available Perception, Interpretation, and Action channels that are causally organized by one Difference. The available channels form a nonempty finite set, each channel is counted once, and every organized channel is available. Each Attention snapshot is indexed to a State of that Body; its exact Causal Contribution carries the focal representational Difference to the channel's result, which occurs at or before the indexed State under the Entity's Direction. Attention alone makes no Claim about benefit, consent, morality, accuracy, Truth, or purpose.
+**Attention** is the finite ratio of an Entity's Perception, Interpretation, and Action channels causally organized by one Difference, relative to a declared channel inventory and an availability Specification evaluated at a State of one Body. The inventory individuates channels independently of their kind and result. The Specification supplies the availability criterion and its Scope; the nonempty finite available enumeration covers exactly every conforming channel, counts each once, and includes every organized channel. A different inventory or Specification defines a different measurement context, not a different degree within the same context. Each Attention snapshot is indexed to a State of that Body; its exact Causal Contribution carries the focal representational Difference to the channel's result, which occurs at or before the indexed State under the Entity's Direction. Attention alone makes no Claim about benefit, consent, morality, accuracy, Truth, or purpose.
 
 <a id="organon-sustained-attention"></a>
 <!-- organon:term organon:SustainedAttention claim=D115 -->
 
-**Sustained Attention** is Attention organized by the same Difference across at least two ordered changing States of one Body. At every named State, the Attention snapshot is indexed to that exact State and at least one available channel remains organized by that Difference. Repeated encounters qualify only when indexed to such ordered States rather than inferred from resemblance.
+**Sustained Attention** is Attention organized by the same Difference under one declared channel inventory across at least two ordered changing States of one Body. At every named State, the Attention snapshot is indexed to that exact State and at least one available channel remains organized by that Difference. Repeated encounters qualify only when indexed to such ordered States rather than inferred from resemblance.
 
 <a id="organon-absolute-attention"></a>
 <!-- organon:term organon:AbsoluteAttention claim=D116 -->
 
-**Absolute Attention** is the limiting condition in which every available perceptual, interpretive, and action channel is organized by the same Difference. Completeness concerns membership, independent of enumeration order. It leaves no available Action channel independent of that Difference. It does not entail immobility or the absence of Action organized by the focus.
+**Absolute Attention** is the limiting condition, relative to the same declared channel inventory and indexed availability Specification, in which every conforming perceptual, interpretive, and action channel is organized by the same Difference. Completeness concerns membership, independent of enumeration order. It leaves no available Action channel independent of that Difference. It does not entail immobility or the absence of Action organized by the focus.
 
 <a id="organon-love"></a>
 <!-- organon:term organon:Love claim=D117 -->
 
-**Love** is Sustained Attention directed toward another Entity, where the maintained focal Representation exactly Denotes that Entity across the indexed changing States. Different current States of one identity do not alone establish another Entity. Love does not imply reciprocity, understanding, consent, benefit, Care, Respect, possession, or moral approval.
+**Love** is Sustained Attention directed toward another Entity, where the maintained focal Representation exactly Denotes that Entity across the indexed changing States. Different current States of one persistent Entity do not alone establish another Entity; distinct Entities need not have different identity criteria. Love does not imply reciprocity, understanding, consent, benefit, Care, Respect, possession, or moral approval.
 
 <a id="organon-care"></a>
 <!-- organon:term organon:Care claim=D118 -->
@@ -881,10 +881,10 @@ These signatures make the ontology operational. They are schemas, not executable
 | --- | --- | --- |
 | `denotes` | expression Presence, target Presence, Relation, or Configuration | Denotation with ordered expression and target positions; no entailment of fidelity, Truth, Interpretation, status, or causal use |
 | `governsEmbodiment` | Entity, Embodied Perspective, Internal Activity Selection, Body Transformations, Boundary Constraint, Scope | partial or complete Embodied Self-Governance over the named family; no entailment of complete Control |
-| `intends` | Entity, target Representation, Denotation, upstream Difference, Causal Contribution, guided bodily activity, guidance mode | target-directed causal guidance; no entailment that the target outcome occurs |
-| `attends` | Entity, Body, focal Difference, available channels, organized channels, exact Causal Contributions | finite organized-to-available ratio; no normative or epistemic valence |
+| `intends` | Entity, target Representation, Denotation, upstream Difference, Causal Contribution, guided bodily activity | target-directed causal guidance; no entailment that the target outcome occurs |
+| `attends` | Entity, Body State, declared channel inventory, availability Specification and Scope, focal Difference, organized channels, exact Causal Contributions | finite organized-to-conforming ratio relative to that measurement context; no normative or epistemic valence |
 | `sustainsAttention` | Entity, Attention, ordered changing States, common Difference | the same focus organizes at least one available channel at each State |
-| `attendsAbsolutely` | Entity, Attention, all available channels, one Difference | every available channel is organized by the focus; no focus-independent available Action channel |
+| `attendsAbsolutely` | Entity, Attention, same inventory and availability Specification, one Difference | every conforming channel is organized by the focus; no focus-independent available Action channel |
 | `loves` | Entity, another Entity, Sustained Attention, exact Denotation | sustained target-directed Attention without entailment of Care, Respect, reciprocity, or benefit |
 | `caresFor` | Entity, another Entity and State, Attention, organized Action channel | Action organized by Attention to the other's indexed State |
 | `respects` | acting Entity, other Entity, constrained Action, Scope, Constraint, protection witness | the Constraint admits the Action while preserving Boundary, Agency options, or self-determination capacity |

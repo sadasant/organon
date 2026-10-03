@@ -21,9 +21,7 @@
     "organon:Respect"
   ],
   "local_symbols": [
-    "local:ActivityGuidance",
     "local:AttentionChannel",
-    "local:AttentionItem",
     "local:FocusIndependentAction",
     "local:RespectProtection",
     "ordinary:benefit",
@@ -36,7 +34,9 @@
     "ordinary:possession",
     "ordinary:agreement",
     "ordinary:affection",
-    "ordinary:obedience"
+    "ordinary:obedience",
+    "local:ChannelInventory",
+    "local:EntityIndividuation"
   ],
   "semantic_fields": [],
   "statements": [
@@ -240,7 +240,9 @@
         "organon:Action",
         "organon:CausalContribution",
         "organon:State",
-        "organon:Direction"
+        "organon:Direction",
+        "organon:Specification",
+        "organon:Scope"
       ],
       "formal_contract": {
         "status": "proved",
@@ -284,21 +286,24 @@
           "organon:Perception": {
             "status": "represented_by",
             "symbols": [
-              "perception"
+              "perception",
+              "kind"
             ],
             "reason": "The perception channel constructor is the declared local projection of canonical Perception."
           },
           "organon:Interpretation": {
             "status": "represented_by",
             "symbols": [
-              "interpretation"
+              "interpretation",
+              "kind"
             ],
             "reason": "The interpretation channel constructor is the declared local projection of canonical Interpretation."
           },
           "organon:Action": {
             "status": "represented_by",
             "symbols": [
-              "action"
+              "action",
+              "kind"
             ],
             "reason": "The action channel constructor is the declared local projection of canonical Action."
           },
@@ -326,6 +331,23 @@
               "before"
             ],
             "reason": "Every counted organized result is at or before its Body snapshot under the same Entity Direction."
+          },
+          "organon:Specification": {
+            "status": "formalized",
+            "symbols": [
+              "inventory",
+              "availabilityAt",
+              "conforms"
+            ],
+            "reason": "The declared inventory supplies a constructive state-indexed Specification and exact conformity coverage."
+          },
+          "organon:Scope": {
+            "status": "formalized",
+            "symbols": [
+              "scope",
+              "includes"
+            ],
+            "reason": "Every available channel conforms and therefore lies within the indexed Specification Scope."
           }
         }
       }
@@ -352,7 +374,8 @@
           "state"
         ],
         "subject_symbols": [
-          "SustainedAttention"
+          "SustainedAttention",
+          "commonInventory"
         ],
         "dependency_dispositions": {
           "AC-D3": {
@@ -415,7 +438,8 @@
       "depends_on": [
         "AC-D3",
         "organon:Difference",
-        "organon:Action"
+        "organon:Action",
+        "organon:Specification"
       ],
       "formal_contract": {
         "status": "proved",
@@ -450,6 +474,15 @@
               "FocusIndependentAction"
             ],
             "reason": "FocusIndependentAction is the exact local action-channel projection excluded by complete organization."
+          },
+          "organon:Specification": {
+            "status": "formalized",
+            "symbols": [
+              "inventory",
+              "availabilityAt",
+              "conforms"
+            ],
+            "reason": "Absolute coverage includes every channel conforming to the same indexed availability Specification."
           }
         }
       }
@@ -494,12 +527,12 @@
             ]
           },
           "organon:Entity": {
-            "status": "formalized",
+            "status": "represented_by",
             "symbols": [
-              "entity",
-              "beloved",
-              "identity"
-            ]
+              "participant",
+              "individuation"
+            ],
+            "reason": "Entity records are joined to a local participant classifier insensitive to current-State updates. Canonical numerical individuation parity remains AC-G1, rather than requiring unequal identity Invariants."
           },
           "organon:Representation": {
             "status": "formalized",
@@ -567,12 +600,12 @@
             ]
           },
           "organon:Entity": {
-            "status": "formalized",
+            "status": "represented_by",
             "symbols": [
-              "entity",
-              "caredFor",
-              "identity"
-            ]
+              "participant",
+              "individuation"
+            ],
+            "reason": "Entity records are joined to a local participant classifier insensitive to current-State updates. Canonical numerical individuation parity remains AC-G1, rather than requiring unequal identity Invariants."
           },
           "organon:State": {
             "status": "formalized",
@@ -669,12 +702,12 @@
             "reason": "The scoped constrained Transformation is the formal Action projection."
           },
           "organon:Entity": {
-            "status": "formalized",
+            "status": "represented_by",
             "symbols": [
-              "actor",
-              "target",
-              "identity"
-            ]
+              "participant",
+              "individuation"
+            ],
+            "reason": "Entity records are joined to a local participant classifier insensitive to current-State updates. Canonical numerical individuation parity remains AC-G1, rather than requiring unequal identity Invariants."
           },
           "organon:Scope": {
             "status": "formalized",

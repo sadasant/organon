@@ -38,19 +38,11 @@ structure EmbodiedSelfGovernance
   governedAdmitted : ∀ transformation,
     transformation ∈ governedTransformations → constraint.permits transformation
 
-inductive ActivityGuidance where
-  | select
-  | continue
-  | inhibit
-  | revise
-deriving DecidableEq, Repr
-
 structure Intention
     (Part : Type u)
     {Feature : Type v} {Context : Type w}
     {entity : Entity (Feature × Context)}
     (body : Body Part entity) where
-  guidance : ActivityGuidance
   targetRepresentation : Feature
   contrastRepresentation : Feature
   targetDifference : contrastRepresentation ≠ targetRepresentation
@@ -75,12 +67,26 @@ inductive AttentionChannel where
   | action
 deriving DecidableEq, Repr
 
-structure AttentionItem (Carrier : Type u) where
-  channel : AttentionChannel
-  result : State Carrier
+/-- A declared partition of channel identities, with state-indexed availability. -/
+structure ChannelInventory
+    (Part : Type u)
+    {Feature : Type v} {Context : Type w}
+    {entity : Entity (Feature × Context)} (body : Body Part entity) where
+  Channel : Type u
+  kind : Channel → AttentionChannel
+  availabilityAt : State (Feature × Context) → Specification Channel
 
-noncomputable instance : DecidableEq (AttentionItem Carrier) :=
-  Classical.typeDecidableEq _
+/-- Local participant classification, insensitive to a current-state update.
+Its parity with canonical numerical individuation remains gated. -/
+structure EntityIndividuation (Carrier : Type u) where
+  participant : Entity Carrier → Nat
+  ignoresCurrent : ∀ (entity : Entity Carrier) (current : State Carrier)
+    (within : current ∈ entity.persistence.states) (holds : entity.identity.holds current),
+    participant ({ entity with
+      current := current
+      currentInPersistence := within
+      identityHolds := holds }) = participant entity
+
 
 structure Attention
     (Part : Type u)
@@ -89,19 +95,23 @@ structure Attention
     (body : Body Part entity) where
   moment : State (Feature × Context)
   momentWithinBody : moment ∈ body.states
+  inventory : ChannelInventory Part body
+  result : inventory.Channel → State (Feature × Context)
   focalRepresentation : Feature
   contrastRepresentation : Feature
   focalDifference : contrastRepresentation ≠ focalRepresentation
-  available : List (AttentionItem (Feature × Context))
+  available : List inventory.Channel
+  availableExact : ∀ channel, channel ∈ available ↔
+    (inventory.availabilityAt moment).conforms channel
   availableNonempty : available ≠ []
   availableUnique : available.Nodup
-  organized : List (AttentionItem (Feature × Context))
+  organized : List inventory.Channel
   organizedWithinAvailable : ∀ item, item ∈ organized → item ∈ available
   countedOnce : ∃ enumeration,
     enumeration.Perm available ∧ organized.Sublist enumeration
   resultsAtOrBeforeMoment : ∀ item, item ∈ organized →
-    item.result = moment ∨ entity.persistenceDirection.before item.result moment
-  organizingContribution : AttentionItem (Feature × Context) →
+    result item = moment ∨ entity.persistenceDirection.before (result item) moment
+  organizingContribution : inventory.Channel →
     CausalContribution Feature Context entity.persistenceDirection body.feeding
   organizedByDifference : ∀ item, item ∈ organized →
     (organizingContribution item).leftEndpoints.first.input.value.1 =
@@ -110,7 +120,7 @@ structure Attention
         focalRepresentation
   contributionProducesResult : ∀ item, item ∈ organized →
     (organizingContribution item).downstreamChange.transformation.output =
-      item.result
+      result item
   degreeNumerator : Nat
   degreeDenominator : Nat
   degreeNumeratorExact : degreeNumerator = organized.length
@@ -121,11 +131,13 @@ structure SustainedAttention
     {Feature : Type v} {Context : Type w}
     {entity : Entity (Feature × Context)}
     (body : Body Part entity) where
+  commonInventory : ChannelInventory Part body
   states : List (State (Feature × Context))
   hasChangingStates : ∃ first second rest, states = first :: second :: rest
   statesWithinBody : ∀ state, state ∈ states → state ∈ body.states
   statesOrdered : OrderedBy entity.persistenceDirection.before states
   attentionAt : State (Feature × Context) → Attention Part body
+  sameInventory : ∀ state, state ∈ states → (attentionAt state).inventory = commonInventory
   indexedAtState : ∀ state, state ∈ states → (attentionAt state).moment = state
   maintained : ∀ state, state ∈ states →
     (attentionAt state).organized ≠ []
@@ -148,8 +160,8 @@ def FocusIndependentAction
     {Part : Type u} {Feature : Type v} {Context : Type w}
     {entity : Entity (Feature × Context)} {body : Body Part entity}
     (attention : Attention Part body)
-    (item : AttentionItem (Feature × Context)) : Prop :=
-  item.channel = .action ∧ item ∈ attention.available ∧
+    (item : attention.inventory.Channel) : Prop :=
+  attention.inventory.kind item = .action ∧ item ∈ attention.available ∧
     item ∉ attention.organized
 
 theorem absoluteAttentionInhibitsFocusIndependentAction
@@ -169,7 +181,8 @@ structure Love
     (body : Body Part entity) where
   beloved : Entity (Feature × Context)
   belovedIsOther : beloved ≠ entity
-  belovedIdentityIsOther : beloved.identity ≠ entity.identity
+  individuation : EntityIndividuation (Feature × Context)
+  belovedParticipantIsOther : individuation.participant beloved ≠ individuation.participant entity
   attention : SustainedAttention Part body
   belovedRepresentation : Feature
   belovedDenotation : Denotation Feature (Entity (Feature × Context))
@@ -186,7 +199,8 @@ structure Care
     (body : Body Part entity) where
   caredFor : Entity (Feature × Context)
   caredForIsOther : caredFor ≠ entity
-  caredForIdentityIsOther : caredFor.identity ≠ entity.identity
+  individuation : EntityIndividuation (Feature × Context)
+  caredForParticipantIsOther : individuation.participant caredFor ≠ individuation.participant entity
   attendedState : State (Feature × Context)
   attendedStateInHistory : attendedState ∈ caredFor.persistence.states
   targetRepresentation : Feature
@@ -197,8 +211,8 @@ structure Care
     targetDenotation.target = (caredFor, attendedState)
   attention : Attention Part body
   attentionTargetsState : attention.focalRepresentation = targetRepresentation
-  actionItem : AttentionItem (Feature × Context)
-  itemIsAction : actionItem.channel = .action
+  actionItem : attention.inventory.Channel
+  itemIsAction : attention.inventory.kind actionItem = .action
   actionAvailable : actionItem ∈ attention.available
   actionOrganizedByAttention : actionItem ∈ attention.organized
 
@@ -237,7 +251,8 @@ structure Respect
     {Carrier : Type u}
     (actor target : Entity Carrier) where
   targetIsOther : target ≠ actor
-  targetIdentityIsOther : target.identity ≠ actor.identity
+  individuation : EntityIndividuation Carrier
+  targetParticipantIsOther : individuation.participant target ≠ individuation.participant actor
   constraint : Constraint Carrier
   actionScope : Scope (Transformation actor.persistenceDirection)
   constrainedAction : Transformation actor.persistenceDirection
@@ -304,7 +319,6 @@ theorem selfGovernanceCanBePartial :
       transform, state] at inputs
 
 def systemIntention : Intention ToyPart systemBody where
-  guidance := .revise
   targetRepresentation := true
   contrastRepresentation := false
   targetDifference := by decide
@@ -323,30 +337,60 @@ theorem intentionNeedNotAchieveTarget :
   have values := congrArg State.value equal
   simp [systemIntention, forwardChangeTransform, state] at values
 
-def perceptionItem : AttentionItem Carrier :=
-  ⟨.perception, state true .forwardHigh⟩
+inductive ToyChannel where
+  | sensor | secondSensor | interpreter | effector
+deriving DecidableEq, Repr
 
-def interpretationItem : AttentionItem Carrier :=
-  ⟨.interpretation, state true .returnHigh⟩
+def perceptionItem : ToyChannel := .sensor
+def interpretationItem : ToyChannel := .interpreter
+def actionItem : ToyChannel := .effector
 
-def actionItem : AttentionItem Carrier :=
-  ⟨.action, state true .returnHigh⟩
+def toyKind : ToyChannel → AttentionChannel
+  | .sensor | .secondSensor => .perception
+  | .interpreter => .interpretation
+  | .effector => .action
 
-def contributionForItem : AttentionItem Carrier →
+def toyResult : ToyChannel → State Carrier
+  | .sensor | .secondSensor => state true .forwardHigh
+  | .interpreter | .effector => state true .returnHigh
+
+def toyAvailable (moment : State Carrier) (channel : ToyChannel) : Bool :=
+  channel == .sensor ||
+    (moment.value.2 == .returnHigh && (channel == .interpreter || channel == .effector))
+
+def toyAvailability (moment : State Carrier) : Specification ToyChannel where
+  scope := ⟨fun _ => True⟩
+  conforms := fun channel => toyAvailable moment channel = true
+  decideConformity := toyAvailable moment
+  conformityCorrect := by intro channel; rfl
+  conformityWithinScope := by intro channel _; trivial
+
+def systemInventory : ChannelInventory ToyPart systemBody where
+  Channel := ToyChannel
+  kind := toyKind
+  availabilityAt := toyAvailability
+
+def contributionForItem : ToyChannel →
     CausalContribution Bool Stage systemDirection unconstrainedFeed
-  | ⟨.perception, _⟩ => forwardContribution
-  | ⟨.interpretation, _⟩ => returnContribution
-  | ⟨.action, _⟩ => returnContribution
+  | .sensor | .secondSensor => forwardContribution
+  | .interpreter | .effector => returnContribution
 
 def systemAttention : Attention ToyPart systemBody where
   moment := state true .returnHigh
   momentWithinBody := by simp [systemBody, systemPersistence]
+  inventory := systemInventory
+  result := toyResult
   focalRepresentation := true
   contrastRepresentation := false
   focalDifference := by decide
   available := [perceptionItem, interpretationItem, actionItem]
+  availableExact := by
+    intro channel
+    change channel ∈ ([perceptionItem, interpretationItem, actionItem] : List ToyChannel) ↔
+      toyAvailable (state true .returnHigh) channel = true
+    cases channel <;> decide
   availableNonempty := by simp
-  availableUnique := by simp [perceptionItem, interpretationItem, actionItem, AttentionItem.mk.injEq]
+  availableUnique := by simp [perceptionItem, interpretationItem, actionItem]
   organized := [perceptionItem, interpretationItem]
   organizedWithinAvailable := by simp
   countedOnce := ⟨_, List.Perm.refl _,
@@ -374,10 +418,17 @@ def systemAttention : Attention ToyPart systemBody where
 def earlyAttention : Attention ToyPart systemBody where
   moment := state true .forwardHigh
   momentWithinBody := by simp [systemBody, systemPersistence]
+  inventory := systemInventory
+  result := toyResult
   focalRepresentation := true
   contrastRepresentation := false
   focalDifference := by decide
   available := [perceptionItem]
+  availableExact := by
+    intro channel
+    change channel ∈ ([perceptionItem] : List ToyChannel) ↔
+      toyAvailable (state true .forwardHigh) channel = true
+    cases channel <;> decide
   availableNonempty := by simp
   availableUnique := by simp
   organized := [perceptionItem]
@@ -393,6 +444,7 @@ def earlyAttention : Attention ToyPart systemBody where
   degreeDenominatorExact := rfl
 
 def systemSustainedAttention : SustainedAttention ToyPart systemBody where
+  commonInventory := systemInventory
   states := [state true .forwardHigh, state true .returnHigh]
   hasChangingStates := ⟨_, _, [], rfl⟩
   statesWithinBody := by simp [systemBody, systemPersistence]
@@ -400,6 +452,10 @@ def systemSustainedAttention : SustainedAttention ToyPart systemBody where
     simp [OrderedBy, systemEntity, systemDirection, state, Stage.rank]
   attentionAt := fun current =>
     if current.value.2 = .forwardHigh then earlyAttention else systemAttention
+  sameInventory := by
+    intro current member
+    simp at member
+    rcases member with rfl | rfl <;> rfl
   indexedAtState := by
     intro current member
     simp at member
@@ -483,10 +539,15 @@ theorem belovedIsOther : belovedEntity ≠ systemEntity := by
   intro equal
   exact belovedIdentityIsOther (congrArg Entity.identity equal)
 
+def historyIndividuation : EntityIndividuation Carrier where
+  participant := fun entity => entity.persistence.states.length
+  ignoresCurrent := by intro entity current within holds; rfl
+
 def systemLove : Love ToyPart systemBody where
   beloved := belovedEntity
   belovedIsOther := belovedIsOther
-  belovedIdentityIsOther := belovedIdentityIsOther
+  individuation := historyIndividuation
+  belovedParticipantIsOther := by decide
   attention := systemSustainedAttention
   belovedRepresentation := true
   belovedDenotation := ⟨true, belovedEntity⟩
@@ -496,7 +557,8 @@ def systemLove : Love ToyPart systemBody where
 def systemCare : Care ToyPart systemBody where
   caredFor := belovedEntity
   caredForIsOther := belovedIsOther
-  caredForIdentityIsOther := belovedIdentityIsOther
+  individuation := historyIndividuation
+  caredForParticipantIsOther := by decide
   attendedState := belovedEntity.current
   attendedStateInHistory := belovedEntity.currentInPersistence
   targetRepresentation := true
@@ -506,12 +568,17 @@ def systemCare : Care ToyPart systemBody where
   attentionTargetsState := rfl
   actionItem := actionItem
   itemIsAction := rfl
-  actionAvailable := by simp [systemAbsoluteAttention, systemAttention]
-  actionOrganizedByAttention := by simp [systemAbsoluteAttention, systemAttention]
+  actionAvailable := by
+    change (.effector : ToyChannel) ∈ ([.sensor, .interpreter, .effector] : List ToyChannel)
+    decide
+  actionOrganizedByAttention := by
+    change (.effector : ToyChannel) ∈ ([.sensor, .interpreter, .effector] : List ToyChannel)
+    decide
 
 def systemRespect : Respect systemEntity belovedEntity where
   targetIsOther := belovedIsOther
-  targetIdentityIsOther := belovedIdentityIsOther
+  individuation := historyIndividuation
+  targetParticipantIsOther := by decide
   constraint := internalOnly
   actionScope := ⟨fun transformation => transformation = forwardLowTransform⟩
   constrainedAction := forwardLowTransform
@@ -529,7 +596,9 @@ def systemRespect : Respect systemEntity belovedEntity where
 theorem attentionDoesNotRequireAllAvailableItems :
     actionItem ∈ systemAttention.available ∧
     actionItem ∉ systemAttention.organized := by
-  simp [systemAttention, actionItem, perceptionItem, interpretationItem]
+  change (.effector : ToyChannel) ∈ ([.sensor, .interpreter, .effector] : List ToyChannel) ∧
+    (.effector : ToyChannel) ∉ ([.sensor, .interpreter] : List ToyChannel)
+  decide
 
 theorem systemAttentionIsNotAbsolute :
     ¬ ∃ absolute : AbsoluteAttention ToyPart systemBody,
@@ -549,7 +618,7 @@ theorem absoluteAttentionHasNoFocusIndependentAction :
 theorem attentionCannotCountOneItemTwice
     {Part : Type u} {Feature : Type v} {Context : Type w}
     {entity : Entity (Feature × Context)} {body : Body Part entity}
-    (attention : Attention Part body) (item : AttentionItem (Feature × Context)) :
+    (attention : Attention Part body) (item : attention.inventory.Channel) :
     attention.organized ≠ [item, item] := by
   intro duplicate
   have unique := (attentionDegreeBounded attention).2.2
@@ -559,9 +628,9 @@ theorem attentionCannotCountOneItemTwice
 theorem organizedResultCannotBeFuture
     {Part : Type u} {Feature : Type v} {Context : Type w}
     {entity : Entity (Feature × Context)} {body : Body Part entity}
-    (attention : Attention Part body) (item : AttentionItem (Feature × Context))
+    (attention : Attention Part body) (item : attention.inventory.Channel)
     (organized : item ∈ attention.organized) :
-    ¬ entity.persistenceDirection.before attention.moment item.result := by
+    ¬ entity.persistenceDirection.before attention.moment (attention.result item) := by
   intro future
   rcases attention.resultsAtOrBeforeMoment item organized with equal | earlier
   · rw [equal] at future
@@ -572,7 +641,11 @@ def reorderedAbsoluteAttention : AbsoluteAttention ToyPart systemBody where
   attention := {
     systemAbsoluteAttention.attention with
     organized := [actionItem, interpretationItem, perceptionItem]
-    organizedWithinAvailable := by simp [systemAbsoluteAttention, systemAttention]
+    organizedWithinAvailable := by
+      intro item member
+      change item ∈ ([perceptionItem, interpretationItem, actionItem] : List ToyChannel).reverse at member
+      change item ∈ ([perceptionItem, interpretationItem, actionItem] : List ToyChannel)
+      exact (List.reverse_perm _).mem_iff.mp member
     countedOnce := ⟨_, List.reverse_perm _, List.Sublist.refl _⟩
     resultsAtOrBeforeMoment := by
       intro item member
@@ -591,7 +664,12 @@ def reorderedAbsoluteAttention : AbsoluteAttention ToyPart systemBody where
       rcases member with rfl | rfl | rfl <;> rfl
     degreeNumeratorExact := rfl
   }
-  allAvailableOrganized := by simp [systemAbsoluteAttention, systemAttention]
+  allAvailableOrganized := by
+    intro item member
+    change item ∈ ([perceptionItem, interpretationItem, actionItem] : List ToyChannel) at member
+    change item ∈ ([perceptionItem, interpretationItem, actionItem] : List ToyChannel).reverse
+    exact (List.reverse_perm _).mem_iff.mpr member
+
 
 theorem absoluteAttentionDoesNotDependOnEnumerationOrder :
     reorderedAbsoluteAttention.attention.organized ≠
@@ -656,5 +734,178 @@ def systemSelfDeterminationRespect : Respect systemEntity belovedEntity := {
     (by simp [belovedEntity, belovedIdentity, forwardChangeTransform, state])
     (by simp [belovedEntity, belovedIdentity, alternativeForwardChoice, transform, state])
 }
+
+/-! ## Review blockers: scoped availability and numerical individuation -/
+
+def sharedCriterionPersistence : PersistenceWitness systemDirection := {
+  belovedPersistence with
+  invariant := systemIdentity
+  invariantHolds := by
+    intro current member
+    simp [belovedPersistence] at member
+    rcases member with rfl | rfl | rfl <;> simp [systemIdentity, state]
+}
+
+def sharedCriterionEntity : Entity Carrier where
+  identity := systemIdentity
+  boundary := systemBoundary
+  persistenceDirection := systemDirection
+  persistence := sharedCriterionPersistence
+  persistenceNamesIdentity := rfl
+  current := state true .forwardHigh
+  currentInPersistence := by simp [sharedCriterionPersistence, belovedPersistence]
+  identityHolds := by simp [systemIdentity, state]
+
+theorem sharedCriterionIsOther : sharedCriterionEntity ≠ systemEntity := by
+  intro equal
+  have histories := congrArg (fun entity => entity.persistence.states.length) equal
+  change 3 = 6 at histories
+  contradiction
+
+def sharedCriterionLove : Love ToyPart systemBody := {
+  systemLove with
+  beloved := sharedCriterionEntity
+  belovedIsOther := sharedCriterionIsOther
+  belovedParticipantIsOther := by decide
+  belovedDenotation := ⟨true, sharedCriterionEntity⟩
+  denotationNamesBeloved := ⟨rfl, rfl⟩
+}
+
+def sharedCriterionCare : Care ToyPart systemBody := {
+  systemCare with
+  caredFor := sharedCriterionEntity
+  caredForIsOther := sharedCriterionIsOther
+  caredForParticipantIsOther := by decide
+  attendedState := sharedCriterionEntity.current
+  attendedStateInHistory := sharedCriterionEntity.currentInPersistence
+  targetDenotation := ⟨true, (sharedCriterionEntity, sharedCriterionEntity.current)⟩
+  denotationNamesTargetState := ⟨rfl, rfl⟩
+}
+
+def sharedCriterionRespect : Respect systemEntity sharedCriterionEntity where
+  targetIsOther := sharedCriterionIsOther
+  individuation := historyIndividuation
+  targetParticipantIsOther := by decide
+  constraint := internalOnly
+  actionScope := ⟨fun transformation => transformation = forwardLowTransform⟩
+  constrainedAction := forwardLowTransform
+  actionInScope := rfl
+  actionConstrained := by simp [internalOnly, systemIdentity, forwardLowTransform, transform, state]
+  protection := .boundary
+    (by simp [sharedCriterionEntity, systemIdentity, forwardLowTransform, transform, state])
+    (by
+      intro constraint member
+      simp [sharedCriterionEntity, systemBoundary] at member
+      subst constraint
+      simp [internalOnly, systemIdentity, forwardLowTransform, transform, state])
+
+theorem othernessDoesNotRequireDifferentIdentityCriteria :
+    sharedCriterionEntity.identity = systemEntity.identity ∧
+    sharedCriterionLove.beloved = sharedCriterionEntity ∧
+    sharedCriterionCare.caredFor = sharedCriterionEntity ∧
+    Nonempty (Respect systemEntity sharedCriterionEntity) := by
+  exact ⟨rfl, rfl, rfl, ⟨sharedCriterionRespect⟩⟩
+
+theorem currentStateUpdateDoesNotChangeParticipant :
+    historyIndividuation.participant earlierSystemSnapshot =
+      historyIndividuation.participant systemEntity := by rfl
+
+theorem omittedActionCannotSatisfyInventoryCoverage :
+    ¬ (∀ channel : ToyChannel,
+      channel ∈ [perceptionItem, interpretationItem] ↔
+        (systemInventory.availabilityAt (state true .returnHigh)).conforms channel) := by
+  intro coverage
+  have action := (coverage .effector).mpr (by
+    change toyAvailable (state true .returnHigh) .effector = true
+    decide)
+  have omitted : (.effector : ToyChannel) ∉ [perceptionItem, interpretationItem] := by decide
+  exact omitted action
+
+def sensorAvailability : Specification ToyChannel where
+  scope := ⟨fun channel => channel = .sensor ∨ channel = .secondSensor⟩
+  conforms := fun channel => channel = .sensor ∨ channel = .secondSensor
+  decideConformity := fun channel => channel == .sensor || channel == .secondSensor
+  conformityCorrect := by intro channel; cases channel <;> decide
+  conformityWithinScope := by intro channel member; exact member
+
+def twoSensorInventory : ChannelInventory ToyPart systemBody where
+  Channel := ToyChannel
+  kind := toyKind
+  availabilityAt := fun _ => sensorAvailability
+
+def twoSensorAttention : Attention ToyPart systemBody where
+  moment := state true .forwardHigh
+  momentWithinBody := by simp [systemBody, systemPersistence]
+  inventory := twoSensorInventory
+  result := toyResult
+  focalRepresentation := true
+  contrastRepresentation := false
+  focalDifference := by decide
+  available := [.sensor, .secondSensor]
+  availableExact := by
+    intro channel
+    change channel ∈ ([.sensor, .secondSensor] : List ToyChannel) ↔
+      channel = .sensor ∨ channel = .secondSensor
+    exact List.mem_cons.trans (or_congr Iff.rfl List.mem_singleton)
+  availableNonempty := by simp
+  availableUnique := by
+    change ([ToyChannel.sensor, ToyChannel.secondSensor] : List ToyChannel).Nodup
+    decide
+  organized := [.sensor, .secondSensor]
+  organizedWithinAvailable := by intro channel member; exact member
+  countedOnce := ⟨_, List.Perm.refl _, List.Sublist.refl _⟩
+  resultsAtOrBeforeMoment := by
+    intro channel member
+    change channel ∈ ([.sensor, .secondSensor] : List ToyChannel) at member
+    have split : channel = ToyChannel.sensor ∨ channel = ToyChannel.secondSensor :=
+      (List.mem_cons.mp member).elim Or.inl (fun tail => Or.inr (List.mem_singleton.mp tail))
+    rcases split with rfl | rfl <;> exact Or.inl rfl
+  organizingContribution := contributionForItem
+  organizedByDifference := by
+    intro channel member
+    change channel ∈ ([.sensor, .secondSensor] : List ToyChannel) at member
+    have split : channel = ToyChannel.sensor ∨ channel = ToyChannel.secondSensor :=
+      (List.mem_cons.mp member).elim Or.inl (fun tail => Or.inr (List.mem_singleton.mp tail))
+    rcases split with rfl | rfl <;> exact ⟨rfl, rfl⟩
+  contributionProducesResult := by
+    intro channel member
+    change channel ∈ ([.sensor, .secondSensor] : List ToyChannel) at member
+    have split : channel = ToyChannel.sensor ∨ channel = ToyChannel.secondSensor :=
+      (List.mem_cons.mp member).elim Or.inl (fun tail => Or.inr (List.mem_singleton.mp tail))
+    rcases split with rfl | rfl <;> rfl
+  degreeNumerator := 2
+  degreeDenominator := 2
+  degreeNumeratorExact := rfl
+  degreeDenominatorExact := rfl
+
+theorem equalKindAndResultDoNotCollapseDistinctChannels :
+    (ToyChannel.sensor ≠ ToyChannel.secondSensor) ∧
+    toyKind .sensor = toyKind .secondSensor ∧
+    toyResult .sensor = toyResult .secondSensor ∧
+    twoSensorAttention.degreeNumerator = 2 ∧ twoSensorAttention.degreeDenominator = 2 := by
+  exact ⟨by decide, rfl, rfl, rfl, rfl⟩
+
+theorem absoluteAttentionPermitsFocusOrganizedAction :
+    systemAbsoluteAttention.attention.inventory.kind actionItem = .action ∧
+    actionItem ∈ systemAbsoluteAttention.attention.organized := by
+  exact ⟨rfl, systemCare.actionOrganizedByAttention⟩
+
+def changedResultAttention : Attention ToyPart systemBody := {
+  systemAttention with
+  result := fun _ => state true .returnHigh
+  organizingContribution := fun _ => returnContribution
+  organizedByDifference := by intro channel member; exact ⟨rfl, rfl⟩
+  contributionProducesResult := by intro channel member; rfl
+  resultsAtOrBeforeMoment := by intro channel member; exact Or.inl rfl
+}
+
+theorem changingResultDoesNotReindividuateChannel :
+    changedResultAttention.result perceptionItem ≠ systemAttention.result perceptionItem ∧
+    changedResultAttention.available = systemAttention.available ∧
+    changedResultAttention.degreeDenominator = systemAttention.degreeDenominator := by
+  refine ⟨?_, rfl, rfl⟩
+  intro equal
+  have values := congrArg State.value equal
+  simp [changedResultAttention, systemAttention, toyResult, perceptionItem, state] at values
 
 end DanielOntology.AttentionLoveCareProposal

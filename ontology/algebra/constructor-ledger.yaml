@@ -2,7 +2,7 @@
   "schema_version": 1,
   "status": "generated-nonbinding-degenerate-registry-reflection-ledger",
   "source_sha256": {
-    "ontology/terms.yaml": "7c74cf829e9ebdb03268edcd8b952876eb5c6904028b373314846b53b2c9e97f",
+    "ontology/terms.yaml": "c2b7bd9cad8f62ed84b18cb1e029645279644e8522cfd3a77ffed99a0e01d3cf",
     "ontology/algebra/positive-calculus.yaml": "76c83651ae6d9ada317546a862450ec7940b5d1e12fb93b973f8bd6fd1abdd73",
     "scripts/build-positive-calculus.py": "18a7acee2743973676b11d60f3833c2f330874307344b07e0404cc282d4eac50"
   },
@@ -11,7 +11,7 @@
     "retained_foundation": 3,
     "definitions_reflected": 119,
     "constructors": 1,
-    "dependency_removal_fixtures": 970,
+    "dependency_removal_fixtures": 973,
     "unreflected_definitions": 0
   },
   "degenerate_control_comparison": {
@@ -4482,6 +4482,8 @@
         "organon:Interpretation",
         "organon:Perception",
         "organon:Representation",
+        "organon:Scope",
+        "organon:Specification",
         "organon:State"
       ],
       "conformity_witness": {
@@ -4509,6 +4511,8 @@
         "G1-D114-remove-Interpretation",
         "G1-D114-remove-Perception",
         "G1-D114-remove-Representation",
+        "G1-D114-remove-Scope",
+        "G1-D114-remove-Specification",
         "G1-D114-remove-State",
         "G1-D114-remove-witness"
       ]
@@ -4559,7 +4563,8 @@
       "declared_dependencies": [
         "organon:Action",
         "organon:Attention",
-        "organon:Difference"
+        "organon:Difference",
+        "organon:Specification"
       ],
       "conformity_witness": {
         "predicate": "Conforms",
@@ -4580,6 +4585,7 @@
         "G1-D116-remove-Action",
         "G1-D116-remove-Attention",
         "G1-D116-remove-Difference",
+        "G1-D116-remove-Specification",
         "G1-D116-remove-witness"
       ]
     },

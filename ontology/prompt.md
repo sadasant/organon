@@ -883,35 +883,35 @@ Depends: organon:Capability, organon:Entity, organon:EmbodiedPerspective, organo
 
 ### `organon:Intention` · Intention
 
-**Intention** is a Configuration in which a represented outcome is exactly Denoted as a target and a Difference involving that Representation is the upstream Difference of a Causal Contribution guiding the selection, continuation, inhibition, or revision of an activity within one Body. The guided activity need not produce the represented target outcome. An outcome's occurrence does not establish Intention without the target Representation, Denotation, Difference, and guiding contribution.
+**Intention** is a Configuration in which a represented outcome is exactly Denoted as a target and a Difference involving that Representation is the upstream Difference of a Causal Contribution guiding an activity within one Body. The guided activity need not produce the represented target outcome. An outcome's occurrence does not establish Intention without the target Representation, Denotation, Difference, and guiding contribution.
 
 Claim: `D113` (definition).
 Depends: organon:Configuration, organon:Representation, organon:Denotation, organon:Difference, organon:CausalContribution, organon:Transformation, organon:Body, organon:State, organon:Action.
 
 ### `organon:Attention` · Attention
 
-**Attention** is the finite ratio of an Entity's available Perception, Interpretation, and Action channels that are causally organized by one Difference. The available channels form a nonempty finite set, each channel is counted once, and every organized channel is available. Each Attention snapshot is indexed to a State of that Body; its exact Causal Contribution carries the focal representational Difference to the channel's result, which occurs at or before the indexed State under the Entity's Direction. Attention alone makes no Claim about benefit, consent, morality, accuracy, Truth, or purpose.
+**Attention** is the finite ratio of an Entity's Perception, Interpretation, and Action channels causally organized by one Difference, relative to a declared channel inventory and an availability Specification evaluated at a State of one Body. The inventory individuates channels independently of their kind and result. The Specification supplies the availability criterion and its Scope; the nonempty finite available enumeration covers exactly every conforming channel, counts each once, and includes every organized channel. A different inventory or Specification defines a different measurement context, not a different degree within the same context. Each Attention snapshot is indexed to a State of that Body; its exact Causal Contribution carries the focal representational Difference to the channel's result, which occurs at or before the indexed State under the Entity's Direction. Attention alone makes no Claim about benefit, consent, morality, accuracy, Truth, or purpose.
 
 Claim: `D114` (definition).
-Depends: organon:Entity, organon:Body, organon:Difference, organon:Representation, organon:Perception, organon:Interpretation, organon:Action, organon:CausalContribution, organon:State, organon:Direction.
+Depends: organon:Entity, organon:Body, organon:Difference, organon:Representation, organon:Perception, organon:Interpretation, organon:Action, organon:CausalContribution, organon:State, organon:Direction, organon:Specification, organon:Scope.
 
 ### `organon:SustainedAttention` · Sustained Attention
 
-**Sustained Attention** is Attention organized by the same Difference across at least two ordered changing States of one Body. At every named State, the Attention snapshot is indexed to that exact State and at least one available channel remains organized by that Difference. Repeated encounters qualify only when indexed to such ordered States rather than inferred from resemblance.
+**Sustained Attention** is Attention organized by the same Difference under one declared channel inventory across at least two ordered changing States of one Body. At every named State, the Attention snapshot is indexed to that exact State and at least one available channel remains organized by that Difference. Repeated encounters qualify only when indexed to such ordered States rather than inferred from resemblance.
 
 Claim: `D115` (definition).
 Depends: organon:Attention, organon:Entity, organon:Body, organon:State, organon:Direction, organon:Persistence, organon:Difference.
 
 ### `organon:AbsoluteAttention` · Absolute Attention
 
-**Absolute Attention** is the limiting condition in which every available perceptual, interpretive, and action channel is organized by the same Difference. Completeness concerns membership, independent of enumeration order. It leaves no available Action channel independent of that Difference. It does not entail immobility or the absence of Action organized by the focus.
+**Absolute Attention** is the limiting condition, relative to the same declared channel inventory and indexed availability Specification, in which every conforming perceptual, interpretive, and action channel is organized by the same Difference. Completeness concerns membership, independent of enumeration order. It leaves no available Action channel independent of that Difference. It does not entail immobility or the absence of Action organized by the focus.
 
 Claim: `D116` (definition).
-Depends: organon:Attention, organon:Difference, organon:Action.
+Depends: organon:Attention, organon:Difference, organon:Action, organon:Specification.
 
 ### `organon:Love` · Love
 
-**Love** is Sustained Attention directed toward another Entity, where the maintained focal Representation exactly Denotes that Entity across the indexed changing States. Different current States of one identity do not alone establish another Entity. Love does not imply reciprocity, understanding, consent, benefit, Care, Respect, possession, or moral approval.
+**Love** is Sustained Attention directed toward another Entity, where the maintained focal Representation exactly Denotes that Entity across the indexed changing States. Different current States of one persistent Entity do not alone establish another Entity; distinct Entities need not have different identity criteria. Love does not imply reciprocity, understanding, consent, benefit, Care, Respect, possession, or moral approval.
 
 Claim: `D117` (definition).
 Depends: organon:Relation, organon:SustainedAttention, organon:Entity, organon:Representation, organon:Denotation, organon:State.
