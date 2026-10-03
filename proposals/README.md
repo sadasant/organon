@@ -34,6 +34,8 @@ coverage and exact agreement with the individual manifests.
 
 ## Current dossiers
 
+- [Ontological frameworks, distinctions, and source-relative novelty](./ontological-frameworks.md): ready for proposal review; eight nonbinding candidate profiles with Lean witnesses and explicit world-correspondence gates.
+
 - [Embodiment and Recurrent Consciousness Candidate](./embodied-consciousness.md): partially promoted in v0.19; five supporting terms are binding while the consciousness condition remains quarantined.
 - [Consciousness](./consciousness.md): partially promoted Attribution and Designation while the underlying condition remains quarantined.
 - [World and Substrate](./world-and-substrate.md): promoted participant-scoped World and contextual Substrate, with the exact limits of their formal witnesses preserved.
