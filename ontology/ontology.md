@@ -836,7 +836,7 @@ Together, Body, Embodied Perspective, Recurrent Integration, and Internal Activi
 <a id="organon-embodied-self-governance"></a>
 <!-- organon:term organon:EmbodiedSelfGovernance claim=D112 -->
 
-**Embodied Self-Governance** is the scoped Capability through which an Entity's Embodied Perspective is exactly joined to Internal Activity Selection that selects, inhibits, continues, or revises Transformations of its Body under Constraints of its Boundary. The governed family is nonempty, occurs within that Body, and is admitted by the named Constraint. Embodied Self-Governance may be partial and limited to particular functions or Transformations; it does not entail complete Control.
+**Embodied Self-Governance** is the scoped Capability through which an Entity's Embodied Perspective is exactly joined to Internal Activity Selection that selects, inhibits, continues, or revises Transformations of its Body under Constraints of its Boundary. The governed family is nonempty, includes the selected Transformation, occurs within that Body, and is admitted by the named Constraint. Embodied Self-Governance may be partial and limited to particular functions or Transformations; it does not entail complete Control.
 
 <a id="organon-intention"></a>
 <!-- organon:term organon:Intention claim=D113 -->
@@ -846,22 +846,22 @@ Together, Body, Embodied Perspective, Recurrent Integration, and Internal Activi
 <a id="organon-attention"></a>
 <!-- organon:term organon:Attention claim=D114 -->
 
-**Attention** is the finite ratio of an Entity's available Perception, Interpretation, and Action channels that are causally organized by one Difference. Every counted organized channel is an available channel, and an exact Causal Contribution carries the focal representational Difference to that channel's result. Attention alone makes no Claim about benefit, consent, morality, accuracy, Truth, or purpose.
+**Attention** is the finite ratio of an Entity's available Perception, Interpretation, and Action channels that are causally organized by one Difference. The available channels form a nonempty finite set, each channel is counted once, and every organized channel is available. Each Attention snapshot is indexed to a State of that Body; its exact Causal Contribution carries the focal representational Difference to the channel's result, which occurs at or before the indexed State under the Entity's Direction. Attention alone makes no Claim about benefit, consent, morality, accuracy, Truth, or purpose.
 
 <a id="organon-sustained-attention"></a>
 <!-- organon:term organon:SustainedAttention claim=D115 -->
 
-**Sustained Attention** is Attention organized by the same Difference across at least two ordered changing States of one Body. At every named State, at least one available channel remains organized by that Difference. Repeated encounters qualify only when indexed to such ordered States rather than inferred from resemblance.
+**Sustained Attention** is Attention organized by the same Difference across at least two ordered changing States of one Body. At every named State, the Attention snapshot is indexed to that exact State and at least one available channel remains organized by that Difference. Repeated encounters qualify only when indexed to such ordered States rather than inferred from resemblance.
 
 <a id="organon-absolute-attention"></a>
 <!-- organon:term organon:AbsoluteAttention claim=D116 -->
 
-**Absolute Attention** is the limiting condition in which every available perceptual, interpretive, and action channel is organized by the same Difference. It leaves no available Action channel independent of that Difference. It does not entail immobility or the absence of Action organized by the focus.
+**Absolute Attention** is the limiting condition in which every available perceptual, interpretive, and action channel is organized by the same Difference. Completeness concerns membership, independent of enumeration order. It leaves no available Action channel independent of that Difference. It does not entail immobility or the absence of Action organized by the focus.
 
 <a id="organon-love"></a>
 <!-- organon:term organon:Love claim=D117 -->
 
-**Love** is Sustained Attention directed toward another Entity, where the maintained focal Representation exactly Denotes that Entity across the indexed changing States. Love does not imply reciprocity, understanding, consent, benefit, Care, Respect, possession, or moral approval.
+**Love** is Sustained Attention directed toward another Entity, where the maintained focal Representation exactly Denotes that Entity across the indexed changing States. Different current States of one identity do not alone establish another Entity. Love does not imply reciprocity, understanding, consent, benefit, Care, Respect, possession, or moral approval.
 
 <a id="organon-care"></a>
 <!-- organon:term organon:Care claim=D118 -->
@@ -871,7 +871,7 @@ Together, Body, Embodied Perspective, Recurrent Integration, and Internal Activi
 <a id="organon-respect"></a>
 <!-- organon:term organon:Respect claim=D119 -->
 
-**Respect** is a scoped Constraint upon an Entity's Action toward another Entity, where the Constraint admits the constrained Action and carries a typed witness preserving the other's Boundary, retaining identity-preserving Agency options, or retaining at least two identity-preserving options for self-determination. Respect does not require agreement, affection, obedience, or Love.
+**Respect** is a scoped Constraint upon an Entity's Action toward another Entity, where the Constraint admits the constrained Action and carries a typed witness that the Action is admitted by the other's Boundary, or that identity-preserving Agency options or at least two identity-preserving options for self-determination remain available from the Action's output. The protection concerns this exact Action rather than unrelated options. Respect does not require agreement, affection, obedience, or Love.
 
 ## Relation signatures
 

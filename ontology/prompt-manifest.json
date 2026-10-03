@@ -10,14 +10,14 @@
   "commitment_count": 57,
   "registry_commitment_count": 57,
   "sources_sha256": {
-    "ontology/ontology.md": "a31dcbea85cbc432f7316f52f120386f0927810dba8421168a0f9583699ce3c5",
-    "ontology/terms.yaml": "c2059b1d7cd73c7ff129de1fb0172530603056a8c9a84ec737d0310db5c047f7",
+    "ontology/ontology.md": "28f96ab5ee7b48fd5d87cac3153c967ccab47c7f81c61b886479d6a90576d390",
+    "ontology/terms.yaml": "7c74cf829e9ebdb03268edcd8b952876eb5c6904028b373314846b53b2c9e97f",
     "editorial/long-form.md": "fb8f21b7dc03e2e44737fef723d94abdbb62a044ead89a6a7579d07d23b55d68",
     "editorial/short-form.md": "7ac9254f6f8964a1776f2eeacbfe36fdaad591701174116c0527c1f2c1b472be"
   },
   "generator_sha256": "9ac9939e7d1004236fdb882ad9b71c897ccfe2c7e62f8299304038f2d8ff1726",
-  "prompt_sha256": "51b0d3829ecbfd89d1a790b452fcf592de76652875a0abdce0a420b4895a490d",
-  "prompt_bytes": 87144,
+  "prompt_sha256": "929f7b61b03b3db392a5635bb4b540881621d6593a4d1bc85287a683fac91003",
+  "prompt_bytes": 87725,
   "extraction": "exact primary statement after each registered term or claim marker",
   "omissions": [
     "extended explanations and examples",

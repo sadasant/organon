@@ -2,7 +2,7 @@
   "schema_version": 1,
   "status": "generated-nonbinding-degenerate-registry-reflection-ledger",
   "source_sha256": {
-    "ontology/terms.yaml": "c2059b1d7cd73c7ff129de1fb0172530603056a8c9a84ec737d0310db5c047f7",
+    "ontology/terms.yaml": "7c74cf829e9ebdb03268edcd8b952876eb5c6904028b373314846b53b2c9e97f",
     "ontology/algebra/positive-calculus.yaml": "76c83651ae6d9ada317546a862450ec7940b5d1e12fb93b973f8bd6fd1abdd73",
     "scripts/build-positive-calculus.py": "18a7acee2743973676b11d60f3833c2f330874307344b07e0404cc282d4eac50"
   },
@@ -11,7 +11,7 @@
     "retained_foundation": 3,
     "definitions_reflected": 119,
     "constructors": 1,
-    "dependency_removal_fixtures": 969,
+    "dependency_removal_fixtures": 970,
     "unreflected_definitions": 0
   },
   "degenerate_control_comparison": {
@@ -4477,6 +4477,7 @@
         "organon:Body",
         "organon:CausalContribution",
         "organon:Difference",
+        "organon:Direction",
         "organon:Entity",
         "organon:Interpretation",
         "organon:Perception",
@@ -4503,6 +4504,7 @@
         "G1-D114-remove-Body",
         "G1-D114-remove-CausalContribution",
         "G1-D114-remove-Difference",
+        "G1-D114-remove-Direction",
         "G1-D114-remove-Entity",
         "G1-D114-remove-Interpretation",
         "G1-D114-remove-Perception",
