@@ -4,7 +4,7 @@ status: verified
 canonicality: noncanonical
 created: 2026-08-02
 updated: 2026-10-03
-repository_commit: "69718a1a71493b627e2f89ce33c591a3666b11a1"
+repository_commit: "8ffcd04bc7b6ffe5436287703d88b6abe19ac2e3"
 ---
 # Lean Spike Build Receipt
 
@@ -15,7 +15,7 @@ This receipt records external Evidence for the noncanonical Lean spike. It does 
 - Lean: `4.30.0`, arm64 macOS
 - Commit: `d024af099ca4bf2c86f649261ebf59565dc8c622`
 - Project pin: `leanprover/lean4:v4.30.0`
-- Local Elan override: `organon-lean-4.30.0`
+- Active toolchain: the project pin `leanprover/lean4:v4.30.0`
 
 ## Verification
 
@@ -50,7 +50,9 @@ Proposal-local evidence, sovereignty, own-Principal, observed-choice, exchange, 
 
 `PromotionContracts.lean` and `AttentionLoveCareContracts.lean` restate every formally proved promoted proposal claim as a marked theorem contract. The schema-v2 claim manifest gives every declared dependency an exact disposition, derives checked symbols from that complete ledger and the subject symbols, requires shared indices inside each exact contract block, inventories every direct proposition-valued semantic field, and distinguishes fully proved contracts from theorem projections with formal boundaries. A separately committed exact-source adversarial review pins the implementation commit, tree, governed source hashes, verified contract set, and resolution of each reported finding.
 
-The repository commit attested by this receipt is `69718a1a71493b627e2f89ce33c591a3666b11a1`.
+The repository commit attested by this receipt is `8ffcd04bc7b6ffe5436287703d88b6abe19ac2e3`.
+
+The PR #18 takeover adds proof-checked counting bounds, positive denominator, organized uniqueness, no future organized result, order-independent absolute coverage, and same-identity/different-current-State separation. Respect's three protection branches are inhabited; its exact Action output retains identity, and an identity-destroying Action cannot obtain a protection witness even when the actor's own Constraint admits it. The new theorem axiom audit uses only standard `propext`, `Classical.choice`, and `Quot.sound`, or no axioms. The separately checked framework experiment retains all 30 theorems without placeholders or nonstandard axiom dependencies.
 
 ## Source digests
 
@@ -68,8 +70,8 @@ The repository commit attested by this receipt is `69718a1a71493b627e2f89ce33c59
 - `TruthTrustAlignment.lean`: `bdaa0217e7434c9bc1d7cd3a6a2d489c684fbf38ffeb98a87388864d1cd5a733`
 - `IntelligenceKnowledge.lean`: `bc0ad1caa81adb25316f79aecd5011e32cf94cc73e1e046f7e13bcd10779aee8`
 - `QuarantineProfiles.lean`: `245c94b5c1a8096e9fdea457b1cafba3ddf4f7ab9d98b214aaee8be5eebdbce4`
-- `AttentionLoveCare.lean`: `540865c0329f1bb844e126ce35cf1eb56d5d35c6dca9321c607e13e9abb2dee6`
-- `AttentionLoveCareContracts.lean`: `ca081be763a26388cea40566d9b47dfa155aa443de6b57a2bba93edec738c89e`
+- `AttentionLoveCare.lean`: `4051282ae0a6c0b54b8a655bd903325147e2f1c518d0189eb559a43fc379c726`
+- `AttentionLoveCareContracts.lean`: `f30857dd58a15297cd262310ac584a14f00927d25a27412497609bf7978e7e41`
 - `Model.lean`: `6195c4e7d3aab7de036abc9b0ee6c63d39c1d83f74b5a40142bf5014e249d568`
 - `lakefile.toml`: `274d02a064289c4c3d014643b9ca25cd1bf7ed344ae96a79cf5375d48a7837a9`
 - `lean-toolchain`: `54727eec5cba149c18842e6deb5c41b369d66455c93ce135d7d5347c782b2325`
