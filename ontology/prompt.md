@@ -1,7 +1,7 @@
 ---
 type: ontology-prompt-projection
 status: generated-noncanonical
-ontology_version: "0.19.0"
+ontology_version: "0.20.0"
 projection_mode: "full"
 binding_source: ontology.md
 ---
@@ -27,8 +27,8 @@ binding_source: ontology.md
 
 - Mode: full
 - Requested: all registered terms
-- Terms carried: 114 of 114
-- Commitments carried: 49 of 49
+- Terms carried: 122 of 122
+- Commitments carried: 57 of 57
 
 ## Metalanguage boundary
 
@@ -874,6 +874,62 @@ Depends: organon:Configuration, organon:Transformation, organon:Direction, organ
 Claim: `D111` (definition).
 Depends: organon:Configuration, organon:Difference, organon:Representation, organon:Denotation, organon:CausalContribution, organon:Transformation, organon:Body, organon:Relation, organon:Entity, organon:Interior, organon:Scope, organon:Specification, organon:Boundary, organon:Action, organon:Agency, organon:State, organon:Constraint.
 
+### `organon:EmbodiedSelfGovernance` · Embodied Self-Governance
+
+**Embodied Self-Governance** is the scoped Capability through which an Entity's Embodied Perspective is exactly joined to Internal Activity Selection that selects, inhibits, continues, or revises Transformations of its Body under Constraints of its Boundary. The governed family is nonempty, occurs within that Body, and is admitted by the named Constraint. Embodied Self-Governance may be partial and limited to particular functions or Transformations; it does not entail complete Control.
+
+Claim: `D112` (definition).
+Depends: organon:Capability, organon:Entity, organon:EmbodiedPerspective, organon:InternalActivitySelection, organon:Body, organon:Transformation, organon:Scope, organon:Constraint, organon:Boundary, organon:Agency.
+
+### `organon:Intention` · Intention
+
+**Intention** is a Configuration in which a represented outcome is exactly Denoted as a target and a Difference involving that Representation is the upstream Difference of a Causal Contribution guiding the selection, continuation, inhibition, or revision of an activity within one Body. The guided activity need not produce the represented target outcome. An outcome's occurrence does not establish Intention without the target Representation, Denotation, Difference, and guiding contribution.
+
+Claim: `D113` (definition).
+Depends: organon:Configuration, organon:Representation, organon:Denotation, organon:Difference, organon:CausalContribution, organon:Transformation, organon:Body, organon:State, organon:Action.
+
+### `organon:Attention` · Attention
+
+**Attention** is the finite ratio of an Entity's available Perception, Interpretation, and Action channels that are causally organized by one Difference. Every counted organized channel is an available channel, and an exact Causal Contribution carries the focal representational Difference to that channel's result. Attention alone makes no Claim about benefit, consent, morality, accuracy, Truth, or purpose.
+
+Claim: `D114` (definition).
+Depends: organon:Entity, organon:Body, organon:Difference, organon:Representation, organon:Perception, organon:Interpretation, organon:Action, organon:CausalContribution, organon:State.
+
+### `organon:SustainedAttention` · Sustained Attention
+
+**Sustained Attention** is Attention organized by the same Difference across at least two ordered changing States of one Body. At every named State, at least one available channel remains organized by that Difference. Repeated encounters qualify only when indexed to such ordered States rather than inferred from resemblance.
+
+Claim: `D115` (definition).
+Depends: organon:Attention, organon:Entity, organon:Body, organon:State, organon:Direction, organon:Persistence, organon:Difference.
+
+### `organon:AbsoluteAttention` · Absolute Attention
+
+**Absolute Attention** is the limiting condition in which every available perceptual, interpretive, and action channel is organized by the same Difference. It leaves no available Action channel independent of that Difference. It does not entail immobility or the absence of Action organized by the focus.
+
+Claim: `D116` (definition).
+Depends: organon:Attention, organon:Difference, organon:Action.
+
+### `organon:Love` · Love
+
+**Love** is Sustained Attention directed toward another Entity, where the maintained focal Representation exactly Denotes that Entity across the indexed changing States. Love does not imply reciprocity, understanding, consent, benefit, Care, Respect, possession, or moral approval.
+
+Claim: `D117` (definition).
+Depends: organon:Relation, organon:SustainedAttention, organon:Entity, organon:Representation, organon:Denotation, organon:State.
+
+### `organon:Care` · Care
+
+**Care** is Action causally organized by Attention to another Entity's named State. The focal Representation exactly Denotes that Entity-State pair, the State belongs to the other Entity's Persistence history, and at least one available Action channel is organized by that Attention. Care may be competent or incompetent, wanted or unwanted, beneficial or harmful. Care does not imply Love.
+
+Claim: `D118` (definition).
+Depends: organon:Relation, organon:Attention, organon:Entity, organon:State, organon:Representation, organon:Denotation, organon:Action, organon:CausalContribution, organon:Persistence.
+
+### `organon:Respect` · Respect
+
+**Respect** is a scoped Constraint upon an Entity's Action toward another Entity, where the Constraint admits the constrained Action and carries a typed witness preserving the other's Boundary, retaining identity-preserving Agency options, or retaining at least two identity-preserving options for self-determination. Respect does not require agreement, affection, obedience, or Love.
+
+Claim: `D119` (definition).
+Depends: organon:Relation, organon:Constraint, organon:Action, organon:Entity, organon:Scope, organon:Boundary, organon:Agency, organon:Capability, organon:Transformation, organon:Invariant.
+
 ## Other binding commitments
 
 ### `U1` · axiom
@@ -1139,6 +1195,54 @@ Depends: organon:Body, organon:EmbodiedPerspective, organon:RecurrentIntegration
 **No embodied-structure-to-status collapse:** The complete embodied structural conjunction, Consciousness Attribution, Consciousness Designation, Standing, protection, and moral status do not entail one another. Every institutional consequence requires its own Rule, Order, and Scope; this rule does not promote or define Consciousness.
 
 Depends: organon:Body, organon:EmbodiedPerspective, organon:RecurrentIntegration, organon:InternalActivitySelection, organon:ConsciousnessAttribution, organon:ConsciousnessDesignation, organon:Standing, organon:Order, organon:Rule, organon:Scope, organon:MoralStatusAttribution, organon:MoralPersonhoodDesignation.
+
+### `C39` · binding_constraint
+
+**No self-governance-total-control collapse:** Embodied Self-Governance may govern a nonempty proper subset of a Body's Transformations. It does not entail complete Control, and Control alone does not establish the Embodied Perspective-to-selection join.
+
+Depends: organon:EmbodiedSelfGovernance, organon:Body, organon:Transformation, organon:Control, organon:EmbodiedPerspective, organon:InternalActivitySelection.
+
+### `C40` · binding_constraint
+
+**No intention-achievement collapse:** Intention does not entail that its target outcome occurs. An occurring outcome does not establish Intention without the target Representation, exact Denotation, upstream Difference, and guiding Causal Contribution.
+
+Depends: organon:Intention, organon:State, organon:Representation, organon:Denotation, organon:Difference, organon:CausalContribution.
+
+### `C41` · binding_constraint
+
+**No attention-absolute-attention collapse:** Attention may organize only some available channels. Perception, Interpretation, Action, Difference, salience, exposure, or repeated occurrence alone does not establish Attention without the exact causal organization and finite availability denominator.
+
+Depends: organon:Attention, organon:AbsoluteAttention, organon:Perception, organon:Interpretation, organon:Action, organon:Difference, organon:CausalContribution.
+
+### `C42` · binding_constraint
+
+**Absolute Attention excludes focus-independent available Action:** When every available channel is organized by the same Difference, no available Action channel remains independent of that Difference. Absolute Attention does not prohibit Action organized by the focus and does not entail benefit, consent, morality, accuracy, or purpose.
+
+Depends: organon:AbsoluteAttention, organon:Attention, organon:Action, organon:Difference.
+
+### `C43` · binding_constraint
+
+**Attention is normatively and epistemically neutral:** Attention does not entail benefit, consent, morality, accuracy, Truth, purpose, or favorable Consequence, and none of those separately establishes Attention.
+
+Depends: organon:Attention, organon:Claim, organon:Truth, organon:Consequence.
+
+### `C44` · binding_constraint
+
+**No love-care-respect collapse:** Love does not entail reciprocity, understanding, consent, benefit, Care, Respect, possession, or moral approval. Care or Respect does not itself establish Love without Sustained Attention exactly directed toward the other Entity.
+
+Depends: organon:Love, organon:Care, organon:Respect, organon:SustainedAttention, organon:Entity.
+
+### `C45` · binding_constraint
+
+**No care-benefit-love collapse:** Care may be competent or incompetent, wanted or unwanted, beneficial or harmful. Favorable Consequence does not establish Care without Attention to the other Entity's State organizing an Action, and Care does not entail Love.
+
+Depends: organon:Care, organon:Love, organon:Attention, organon:Action, organon:Consequence, organon:State.
+
+### `C46` · binding_constraint
+
+**No respect-affection-agreement collapse:** Respect does not entail agreement, affection, obedience, Love, favorable Consequence, or complete noninterference. None establishes Respect without a scoped Constraint upon Action and a typed Boundary, Agency-option, or self-determination protection witness.
+
+Depends: organon:Respect, organon:Love, organon:Constraint, organon:Action, organon:Boundary, organon:Agency, organon:Capability, organon:Consequence.
 
 ## Declared omissions
 

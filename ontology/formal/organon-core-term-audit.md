@@ -3,14 +3,14 @@ type: formal-experiment-audit
 status: draft
 canonicality: noncanonical
 created: 2026-08-03
-ontology_version: "0.19.0"
+ontology_version: "0.20.0"
 generated_by: scripts/check-organon-core-audit.py
 ---
 # OrganonCore term audit
 
 This table accounts for every registered term. `proved` means only that the declared challenge classifier is preserved in Lean. It is not automatically a complete encoding of the binding prose. `compiled shadow` means a named Lean shadow builds without the Absence extension; it does not mean that the shadow is extensionally identical to the binding prose definition.
 
-Result totals: **4 proved translations**, **1 pending representation decision**, **1 intentionally excluded**, and **108 unknown**.
+Result totals: **4 proved translations**, **1 pending representation decision**, **1 intentionally excluded**, and **116 unknown**.
 
 | Claim | Term | Reduct disposition | Experiment result | Reason |
 |---|---|---|---|---|
@@ -128,3 +128,11 @@ Result totals: **4 proved translations**, **1 pending representation decision**,
 | D109 | `organon:EmbodiedPerspective` | compiled shadow | unknown | The Lean shadow is extension-invariant; exact prose parity is not established. |
 | D110 | `organon:RecurrentIntegration` | compiled shadow | unknown | The Lean shadow is extension-invariant; exact prose parity is not established. |
 | D111 | `organon:InternalActivitySelection` | compiled shadow | unknown | The Lean shadow is extension-invariant; exact prose parity is not established. |
+| D112 | `organon:EmbodiedSelfGovernance` | downstream translation gate | unknown | No exact paired classifier yet; dependency closure alone cannot prove preservation. |
+| D113 | `organon:Intention` | downstream translation gate | unknown | No exact paired classifier yet; dependency closure alone cannot prove preservation. |
+| D114 | `organon:Attention` | downstream translation gate | unknown | No exact paired classifier yet; dependency closure alone cannot prove preservation. |
+| D115 | `organon:SustainedAttention` | downstream translation gate | unknown | No exact paired classifier yet; dependency closure alone cannot prove preservation. |
+| D116 | `organon:AbsoluteAttention` | downstream translation gate | unknown | No exact paired classifier yet; dependency closure alone cannot prove preservation. |
+| D117 | `organon:Love` | downstream translation gate | unknown | No exact paired classifier yet; dependency closure alone cannot prove preservation. |
+| D118 | `organon:Care` | downstream translation gate | unknown | No exact paired classifier yet; dependency closure alone cannot prove preservation. |
+| D119 | `organon:Respect` | downstream translation gate | unknown | No exact paired classifier yet; dependency closure alone cannot prove preservation. |

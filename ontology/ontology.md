@@ -2,9 +2,9 @@
 type: editorial-ontology
 status: provisional-binding
 binding: true
-version: 0.19
+version: 0.20
 created: 2026-08-01
-updated: 2026-09-25
+updated: 2026-10-03
 evidence_scope: "Daniel's adopted commitments and the recovered essay corpus"
 corpus_audit: "../provenance/essays.md"
 term_registry: "terms.yaml"
@@ -830,6 +830,49 @@ Body does not duplicate Entity, Boundary, or Persistence and has no separate ide
 
 Together, Body, Embodied Perspective, Recurrent Integration, and Internal Activity Selection specify one proposal-local candidate condition for consciousness only when they share the same Entity, Body Relation, Scope, Interior Specification, Direction, and Causal-path interpretation; every Transformation and Change in the recurrent families belongs to that Body Relation; and the perspective's condition Representation and exact Causal Contribution are the Representation and contribution that perform the selection or revision. This structural conjunction is the candidate's complete obtainment condition rather than evidence for a separately stipulated predicate. It is not a binding definition of Consciousness and remains distinct from Consciousness Attribution and Consciousness Designation.
 
+
+### 32. Self-governance, intention, attention, love, care, and respect
+
+<a id="organon-embodied-self-governance"></a>
+<!-- organon:term organon:EmbodiedSelfGovernance claim=D112 -->
+
+**Embodied Self-Governance** is the scoped Capability through which an Entity's Embodied Perspective is exactly joined to Internal Activity Selection that selects, inhibits, continues, or revises Transformations of its Body under Constraints of its Boundary. The governed family is nonempty, occurs within that Body, and is admitted by the named Constraint. Embodied Self-Governance may be partial and limited to particular functions or Transformations; it does not entail complete Control.
+
+<a id="organon-intention"></a>
+<!-- organon:term organon:Intention claim=D113 -->
+
+**Intention** is a Configuration in which a represented outcome is exactly Denoted as a target and a Difference involving that Representation is the upstream Difference of a Causal Contribution guiding the selection, continuation, inhibition, or revision of an activity within one Body. The guided activity need not produce the represented target outcome. An outcome's occurrence does not establish Intention without the target Representation, Denotation, Difference, and guiding contribution.
+
+<a id="organon-attention"></a>
+<!-- organon:term organon:Attention claim=D114 -->
+
+**Attention** is the finite ratio of an Entity's available Perception, Interpretation, and Action channels that are causally organized by one Difference. Every counted organized channel is an available channel, and an exact Causal Contribution carries the focal representational Difference to that channel's result. Attention alone makes no Claim about benefit, consent, morality, accuracy, Truth, or purpose.
+
+<a id="organon-sustained-attention"></a>
+<!-- organon:term organon:SustainedAttention claim=D115 -->
+
+**Sustained Attention** is Attention organized by the same Difference across at least two ordered changing States of one Body. At every named State, at least one available channel remains organized by that Difference. Repeated encounters qualify only when indexed to such ordered States rather than inferred from resemblance.
+
+<a id="organon-absolute-attention"></a>
+<!-- organon:term organon:AbsoluteAttention claim=D116 -->
+
+**Absolute Attention** is the limiting condition in which every available perceptual, interpretive, and action channel is organized by the same Difference. It leaves no available Action channel independent of that Difference. It does not entail immobility or the absence of Action organized by the focus.
+
+<a id="organon-love"></a>
+<!-- organon:term organon:Love claim=D117 -->
+
+**Love** is Sustained Attention directed toward another Entity, where the maintained focal Representation exactly Denotes that Entity across the indexed changing States. Love does not imply reciprocity, understanding, consent, benefit, Care, Respect, possession, or moral approval.
+
+<a id="organon-care"></a>
+<!-- organon:term organon:Care claim=D118 -->
+
+**Care** is Action causally organized by Attention to another Entity's named State. The focal Representation exactly Denotes that Entity-State pair, the State belongs to the other Entity's Persistence history, and at least one available Action channel is organized by that Attention. Care may be competent or incompetent, wanted or unwanted, beneficial or harmful. Care does not imply Love.
+
+<a id="organon-respect"></a>
+<!-- organon:term organon:Respect claim=D119 -->
+
+**Respect** is a scoped Constraint upon an Entity's Action toward another Entity, where the Constraint admits the constrained Action and carries a typed witness preserving the other's Boundary, retaining identity-preserving Agency options, or retaining at least two identity-preserving options for self-determination. Respect does not require agreement, affection, obedience, or Love.
+
 ## Relation signatures
 
 These signatures make the ontology operational. They are schemas, not executable syntax.
@@ -837,6 +880,14 @@ These signatures make the ontology operational. They are schemas, not executable
 | Relation | Inputs | Result or constraint |
 | --- | --- | --- |
 | `denotes` | expression Presence, target Presence, Relation, or Configuration | Denotation with ordered expression and target positions; no entailment of fidelity, Truth, Interpretation, status, or causal use |
+| `governsEmbodiment` | Entity, Embodied Perspective, Internal Activity Selection, Body Transformations, Boundary Constraint, Scope | partial or complete Embodied Self-Governance over the named family; no entailment of complete Control |
+| `intends` | Entity, target Representation, Denotation, upstream Difference, Causal Contribution, guided bodily activity, guidance mode | target-directed causal guidance; no entailment that the target outcome occurs |
+| `attends` | Entity, Body, focal Difference, available channels, organized channels, exact Causal Contributions | finite organized-to-available ratio; no normative or epistemic valence |
+| `sustainsAttention` | Entity, Attention, ordered changing States, common Difference | the same focus organizes at least one available channel at each State |
+| `attendsAbsolutely` | Entity, Attention, all available channels, one Difference | every available channel is organized by the focus; no focus-independent available Action channel |
+| `loves` | Entity, another Entity, Sustained Attention, exact Denotation | sustained target-directed Attention without entailment of Care, Respect, reciprocity, or benefit |
+| `caresFor` | Entity, another Entity and State, Attention, organized Action channel | Action organized by Attention to the other's indexed State |
+| `respects` | acting Entity, other Entity, constrained Action, Scope, Constraint, protection witness | the Constraint admits the Action while preserving Boundary, Agency options, or self-determination capacity |
 | `directs` | Relation, input State, output State | forward ordering excludes reverse ordering under the same Relation |
 | `feeds` | output State, input State, Specification of contribution | part of one State supplies part of the other without requiring equality |
 | `contributesTo` | named input Difference, two matched nonempty Causal paths, named endpoint Change | contrastive Causal Contribution; occurrence, precedence, or correlation alone is insufficient |
@@ -976,6 +1027,23 @@ These signatures make the ontology operational. They are schemas, not executable
 
 38. <!-- organon:claim C38 --> **No embodied-structure-to-status collapse:** The complete embodied structural conjunction, Consciousness Attribution, Consciousness Designation, Standing, protection, and moral status do not entail one another. Every institutional consequence requires its own Rule, Order, and Scope; this rule does not promote or define Consciousness.
 
+
+39. <!-- organon:claim C39 --> **No self-governance-total-control collapse:** Embodied Self-Governance may govern a nonempty proper subset of a Body's Transformations. It does not entail complete Control, and Control alone does not establish the Embodied Perspective-to-selection join.
+
+40. <!-- organon:claim C40 --> **No intention-achievement collapse:** Intention does not entail that its target outcome occurs. An occurring outcome does not establish Intention without the target Representation, exact Denotation, upstream Difference, and guiding Causal Contribution.
+
+41. <!-- organon:claim C41 --> **No attention-absolute-attention collapse:** Attention may organize only some available channels. Perception, Interpretation, Action, Difference, salience, exposure, or repeated occurrence alone does not establish Attention without the exact causal organization and finite availability denominator.
+
+42. <!-- organon:claim C42 --> **Absolute Attention excludes focus-independent available Action:** When every available channel is organized by the same Difference, no available Action channel remains independent of that Difference. Absolute Attention does not prohibit Action organized by the focus and does not entail benefit, consent, morality, accuracy, or purpose.
+
+43. <!-- organon:claim C43 --> **Attention is normatively and epistemically neutral:** Attention does not entail benefit, consent, morality, accuracy, Truth, purpose, or favorable Consequence, and none of those separately establishes Attention.
+
+44. <!-- organon:claim C44 --> **No love-care-respect collapse:** Love does not entail reciprocity, understanding, consent, benefit, Care, Respect, possession, or moral approval. Care or Respect does not itself establish Love without Sustained Attention exactly directed toward the other Entity.
+
+45. <!-- organon:claim C45 --> **No care-benefit-love collapse:** Care may be competent or incompetent, wanted or unwanted, beneficial or harmful. Favorable Consequence does not establish Care without Attention to the other Entity's State organizing an Action, and Care does not entail Love.
+
+46. <!-- organon:claim C46 --> **No respect-affection-agreement collapse:** Respect does not entail agreement, affection, obedience, Love, favorable Consequence, or complete noninterference. None establishes Respect without a scoped Constraint upon Action and a typed Boundary, Agency-option, or self-determination protection witness.
+
 ## Quarantined vocabulary
 
 These terms occur in the corpus but have no binding definition yet. They may be used in ordinary or quoted language, but no argument may depend on their ontological meaning until they are defined and placed in the dependency order.
@@ -985,7 +1053,7 @@ These terms occur in the corpus but have no binding definition yet. They may be 
 - **Moral personhood:** the underlying candidate condition and moral worth remain undefined. Moral Status Attribution and Moral Personhood Designation govern Claims and institutional status without deciding that condition or collapsing it into institutional Person.
 - **Sovereignty:** generic Sovereignty has no binding definition. Use Constituent, Constituted, Boundary, or External Sovereignty for the promoted profiles, or declare a Configuration joining them without treating that join as automatic.
 - **Value:** generic Value and moral worth remain undefined. Preference, Utility Measure, Price, and the institutional-valuation projection are distinct and may not substitute for one another.
-- **Beauty, Play, and Love:** these words have no binding genus here. They may be expressed, stabilized, or transformed through Ritual, but Meaning does not define them and their occurrence cannot be inferred from Meaning alone.
+- **Beauty and Play:** these words have no binding genus here. They may be expressed, stabilized, or transformed through Ritual, but Meaning does not define them and their occurrence cannot be inferred from Meaning alone.
 
 ## Intellectual shadows and contribution
 
@@ -1007,6 +1075,7 @@ This ontology does not claim that its local machinery is unprecedented. Nearly e
 | Epistemic, moral, sovereign, and valuation profiles | [Edmund Gettier, “Is Justified True Belief Knowledge?”](https://www.jstor.org/stable/3326922), [Immanuel Kant, *Groundwork of the Metaphysics of Morals*](https://www.gutenberg.org/ebooks/5682), [Thomas Hobbes, *Leviathan*](https://www.gutenberg.org/ebooks/3207), [Carl Schmitt, *Political Theology*](https://press.uchicago.edu/ucp/books/book/chicago/P/bo3643854.html), [Antonio Negri, *Insurgencies*](https://www.upress.umn.edu/9780816622740/insurgencies/), the [Montevideo Convention](https://www.oas.org/juridico/english/sigs/a-40.html), [Paul Samuelson, “A Note on the Pure Theory of Consumer's Behaviour”](https://www.jstor.org/stable/2548836), and [John von Neumann and Oskar Morgenstern, *Theory of Games and Economic Behavior*](https://press.princeton.edu/books/paperback/9780691130613/theory-of-games-and-economic-behavior) | Gettier blocks an easy justified-true-belief analysis; Kant separates moral consideration from price; Hobbes, Schmitt, Negri, and recognition practice expose distinct loci of sovereign power; Samuelson and von Neumann and Morgenstern discipline preference and utility representation. | Organon does not solve knowledge, moral worth, sovereignty, or value as generic concepts. It promotes narrower Configurations and Relations, keeps candidate conditions separate from institutional designation, and refuses silent composition among profiles. |
 | Flow, Ritual, and Meaning | Émile Durkheim, *The Elementary Forms of Religious Life*; Roy Rappaport, *Ritual and Religion in the Making of Humanity*; Catherine Bell, *Ritual Theory, Ritual Practice*; Randall Collins, *Interaction Ritual Chains*; Charles Sanders Peirce's triadic semiotics; and Ludwig Wittgenstein's account of meaning and use | Repetition and formalized performance, participation, effects carried through practice, and the refusal to locate significance as a substance inside an isolated sign or object. | Organon permits private Ritual rather than requiring collective assembly, makes every sustaining causal join explicit, and defines Meaning as a participant-indexed Relation rather than emotional energy, sacred status, Denotation, or linguistic use. It does not claim that these sources share one theory or that any tradition reduces to this schema. |
 | Body, Embodied Perspective, and Recurrent Integration | Maurice Merleau-Ponty, *Phenomenology of Perception*; Francisco Varela, Evan Thompson, and Eleanor Rosch, *The Embodied Mind*; Evan Thompson, *Mind in Life*; and Victor Lamme's recurrent-processing account | Bodily situation, organism-environment coupling, operational self-reference, and recurrent interaction as conditions for minded organization rather than detachable verbal report. | Organon does not adopt phenomenology, enactivism, autopoiesis, or recurrent-processing theory wholesale. It types Body through Entity identity and Boundary Constraints, requires contrastive Causal Contributions for recurrence, and retains the resulting consciousness formulation as one quarantined candidate rather than a settled universal definition. |
+| Attention, Love, Care, and Respect | Simone Weil, *Waiting for God*; Iris Murdoch, *The Sovereignty of Good*; Harry Frankfurt, *The Reasons of Love*; and care-ethics traditions associated with Carol Gilligan and Joan Tronto | Attention as sustained orientation, love as a mode of attending beyond possession, care as practice responsive to another, and respect as a limit on action. | Organon does not inherit Weil's theology, Murdoch's moral psychology, Frankfurt's volitional account, or a complete ethics of care. It types Attention causally, separates Love from Care and Respect, and leaves benefit, consent, morality, and goodness outside these definitions. |
 
 ### The originality boundary
 
@@ -1034,6 +1103,6 @@ For any essay, project narrative, or editorial evaluation:
 
 Internal closure does not establish metaphysical completeness. Absence is primitive; A3 defines Presence as its exhaustive and exclusive complement; A4 demonstrates that Presence obtains because the ontology's own statement is already a mark. Presence is not causally generated or logically derived from Absence alone.
 
-Ritual-dependent Meaning is one binding account of significance, not a complete aesthetics, ethics, theology, philosophy of mind, or anthropology. The embodiment terms specify identity-bearing bodily organization, operative perspective, recurrent integration, and internal selection without defining Consciousness universally or deciding which Entities satisfy the proposal-local candidate. Beauty, Play, Love, sacredness, grief, goodness, consent, consciousness, and moral worth remain outside those definitions. The noncanonical formal shadow proves finite participant-history access and exact causal joins, not complete Sense-to-Perception uptake, universal process individuation, or a universal law of temporal decay.
+Ritual-dependent Meaning is one binding account of significance, not a complete aesthetics, ethics, theology, philosophy of mind, or anthropology. The embodiment terms specify identity-bearing bodily organization, operative perspective, recurrent integration, and internal selection without defining Consciousness universally or deciding which Entities satisfy the proposal-local candidate. Beauty, Play, sacredness, grief, goodness, consent, consciousness, and moral worth remain outside those definitions. Love is binding only in the exact Sustained-Attention sense defined above. The noncanonical formal shadow proves finite participant-history access and exact causal joins, not complete Sense-to-Perception uptake, universal process individuation, or a universal law of temporal decay.
 
 In the [Long-Form Editorial Grammar](../editorial/long-form.md), **Missingness** names the felt gap an article makes consequential. **Absence** remains reserved for the absolute primitive defined here.

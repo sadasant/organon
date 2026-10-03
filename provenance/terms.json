@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "ontology_version": "0.19.0",
+  "ontology_version": "0.20.0",
   "sources": {
     "essay:absence": {"kind": "published-corpus", "reference": "essays.md", "title": "Nothing Else Is So Exact As Absence"},
     "essay:shadow-world": {"kind": "published-corpus", "reference": "essays.md", "title": "The Shadow of the World"},
@@ -36,7 +36,9 @@
     "proposal:ritual-meaning": {"kind": "adopted-review", "reference": "../proposals/ritual-and-meaning.md", "title": "Ritual and ritual-dependent Meaning promotion dossier"},
     "formal:ritual-meaning": {"kind": "formalization", "reference": "../ontology/formal/decisions.md", "title": "Ritual and Meaning formalization findings"},
     "proposal:embodied-consciousness": {"kind": "adopted-review", "reference": "../proposals/embodied-consciousness.md", "title": "Embodiment and recurrent consciousness partial-promotion dossier"},
-    "formal:embodied-consciousness": {"kind": "formalization", "reference": "../ontology/formal/decisions.md", "title": "Embodiment and recurrent integration formalization findings"}
+    "formal:embodied-consciousness": {"kind": "formalization", "reference": "../ontology/formal/decisions.md", "title": "Embodiment and recurrent integration formalization findings"},
+    "proposal:attention-love-care": {"kind": "adopted-review", "reference": "../proposals/attention-love-care.md", "title": "Attention Love Care and Respect promotion dossier"},
+    "formal:attention-love-care": {"kind": "formalization", "reference": "../ontology/formal/decisions.md", "title": "Attention Love Care and Respect formalization findings"}
   },
   "groups": [
     {
@@ -113,6 +115,7 @@
       "basis": "adopted-commitment",
       "sources": ["proposal:embodied-consciousness", "formal:embodied-consciousness", "review:daniel"],
       "terms": ["organon:Body", "organon:BodilyOrganization", "organon:EmbodiedPerspective", "organon:RecurrentIntegration", "organon:InternalActivitySelection"]
-    }
+    },
+    {"basis": "adopted-commitment", "sources": ["proposal:attention-love-care", "formal:attention-love-care", "review:daniel"], "terms": ["organon:EmbodiedSelfGovernance", "organon:Intention", "organon:Attention", "organon:SustainedAttention", "organon:AbsoluteAttention", "organon:Love", "organon:Care", "organon:Respect"]}
   ]
 }

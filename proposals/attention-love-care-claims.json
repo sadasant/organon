@@ -1,0 +1,982 @@
+{
+  "schema_version": 2,
+  "proposal_id": "attention-love-care",
+  "status": "promoted",
+  "binding": false,
+  "markdown": "attention-love-care.md",
+  "formal_shadow": "../ontology/formal/AttentionLoveCare.lean",
+  "formal_evidence": [
+    "../ontology/formal/EmbodiedConsciousness.lean"
+  ],
+  "promotion_contracts": "../ontology/formal/AttentionLoveCareContracts.lean",
+  "promotion_review": "../reviews/promotion/attention-love-care.json",
+  "introduced_terms": [
+    "organon:EmbodiedSelfGovernance",
+    "organon:Intention",
+    "organon:Attention",
+    "organon:SustainedAttention",
+    "organon:AbsoluteAttention",
+    "organon:Love",
+    "organon:Care",
+    "organon:Respect"
+  ],
+  "local_symbols": [
+    "local:ActivityGuidance",
+    "local:AttentionChannel",
+    "local:AttentionItem",
+    "local:FocusIndependentAction",
+    "local:RespectProtection",
+    "ordinary:benefit",
+    "ordinary:consent",
+    "ordinary:morality",
+    "ordinary:accuracy",
+    "ordinary:purpose",
+    "ordinary:reciprocity",
+    "ordinary:understanding",
+    "ordinary:possession",
+    "ordinary:agreement",
+    "ordinary:affection",
+    "ordinary:obedience"
+  ],
+  "semantic_fields": [],
+  "statements": [
+    {
+      "id": "AC-D1",
+      "type": "proposed_definition",
+      "subject": "Embodied Self-Governance",
+      "depends_on": [
+        "organon:Capability",
+        "organon:Entity",
+        "organon:EmbodiedPerspective",
+        "organon:InternalActivitySelection",
+        "organon:Body",
+        "organon:Transformation",
+        "organon:Scope",
+        "organon:Constraint",
+        "organon:Boundary",
+        "organon:Agency"
+      ],
+      "formal_contract": {
+        "status": "proved",
+        "theorem": "embodiedSelfGovernanceContract",
+        "shared_indices": [
+          "entity",
+          "body"
+        ],
+        "subject_symbols": [
+          "EmbodiedSelfGovernance"
+        ],
+        "dependency_dispositions": {
+          "organon:Capability": {
+            "status": "represented_by",
+            "symbols": [
+              "governedTransformations",
+              "permits"
+            ],
+            "reason": "The nonempty admitted governed family is the constructive capability projection in this Body-indexed reduct."
+          },
+          "organon:Entity": {
+            "status": "formalized",
+            "symbols": [
+              "entity"
+            ]
+          },
+          "organon:EmbodiedPerspective": {
+            "status": "formalized",
+            "symbols": [
+              "perspective"
+            ]
+          },
+          "organon:InternalActivitySelection": {
+            "status": "formalized",
+            "symbols": [
+              "selection"
+            ]
+          },
+          "organon:Body": {
+            "status": "formalized",
+            "symbols": [
+              "body"
+            ]
+          },
+          "organon:Transformation": {
+            "status": "formalized",
+            "symbols": [
+              "governedTransformations"
+            ]
+          },
+          "organon:Scope": {
+            "status": "formalized",
+            "symbols": [
+              "scope",
+              "includes"
+            ]
+          },
+          "organon:Constraint": {
+            "status": "formalized",
+            "symbols": [
+              "constraint",
+              "permits"
+            ]
+          },
+          "organon:Boundary": {
+            "status": "formalized",
+            "symbols": [
+              "boundary",
+              "constraints"
+            ]
+          },
+          "organon:Agency": {
+            "status": "represented_by",
+            "symbols": [
+              "selection",
+              "perspectiveGuidesSelection"
+            ],
+            "reason": "The exact perspective-to-selection join represents the scoped exercise of Agency without asserting complete Action parity."
+          }
+        }
+      }
+    },
+    {
+      "id": "AC-D2",
+      "type": "proposed_definition",
+      "subject": "Intention",
+      "depends_on": [
+        "organon:Configuration",
+        "organon:Representation",
+        "organon:Denotation",
+        "organon:Difference",
+        "organon:CausalContribution",
+        "organon:Transformation",
+        "organon:Body",
+        "organon:State",
+        "organon:Action"
+      ],
+      "formal_contract": {
+        "status": "proved_with_boundaries",
+        "theorem": "intentionContract",
+        "shared_indices": [
+          "body",
+          "intention"
+        ],
+        "subject_symbols": [
+          "Intention"
+        ],
+        "dependency_dispositions": {
+          "organon:Configuration": {
+            "status": "represented_by",
+            "symbols": [
+              "Intention"
+            ],
+            "reason": "The Intention structure is the proposal-local configuration collecting the target and causal joins."
+          },
+          "organon:Representation": {
+            "status": "formalized",
+            "symbols": [
+              "targetRepresentation",
+              "contrastRepresentation"
+            ]
+          },
+          "organon:Denotation": {
+            "status": "formalized",
+            "symbols": [
+              "targetDenotation"
+            ]
+          },
+          "organon:Difference": {
+            "status": "represented_by",
+            "symbols": [
+              "leftEndpoints",
+              "rightEndpoints"
+            ],
+            "reason": "Unequal target and contrast representations are carried as the exact two upstream causal endpoints."
+          },
+          "organon:CausalContribution": {
+            "status": "formalized",
+            "symbols": [
+              "contribution",
+              "downstreamChange"
+            ]
+          },
+          "organon:Transformation": {
+            "status": "formalized",
+            "symbols": [
+              "guidedActivity",
+              "transformation"
+            ]
+          },
+          "organon:Body": {
+            "status": "formalized",
+            "symbols": [
+              "body",
+              "recurringTransformations"
+            ]
+          },
+          "organon:State": {
+            "status": "formalized",
+            "symbols": [
+              "targetOutcome"
+            ]
+          },
+          "organon:Action": {
+            "status": "outside_formal_boundary",
+            "symbols": [],
+            "reason": "The formal witness guides an internal bodily Transformation; canonical boundary-crossing Action remains outside this reduct."
+          }
+        }
+      }
+    },
+    {
+      "id": "AC-D3",
+      "type": "proposed_definition",
+      "subject": "Attention",
+      "depends_on": [
+        "organon:Entity",
+        "organon:Body",
+        "organon:Difference",
+        "organon:Representation",
+        "organon:Perception",
+        "organon:Interpretation",
+        "organon:Action",
+        "organon:CausalContribution",
+        "organon:State"
+      ],
+      "formal_contract": {
+        "status": "proved",
+        "theorem": "attentionContract",
+        "shared_indices": [
+          "entity",
+          "body",
+          "attention"
+        ],
+        "subject_symbols": [
+          "Attention"
+        ],
+        "dependency_dispositions": {
+          "organon:Entity": {
+            "status": "formalized",
+            "symbols": [
+              "entity"
+            ]
+          },
+          "organon:Body": {
+            "status": "formalized",
+            "symbols": [
+              "body"
+            ]
+          },
+          "organon:Difference": {
+            "status": "represented_by",
+            "symbols": [
+              "contrastRepresentation",
+              "focalRepresentation"
+            ],
+            "reason": "The unequal contrast and focal representations are the exact upstream difference shared by organized channels."
+          },
+          "organon:Representation": {
+            "status": "formalized",
+            "symbols": [
+              "contrastRepresentation",
+              "focalRepresentation"
+            ]
+          },
+          "organon:Perception": {
+            "status": "represented_by",
+            "symbols": [
+              "perception"
+            ],
+            "reason": "The perception channel constructor is the declared local projection of canonical Perception."
+          },
+          "organon:Interpretation": {
+            "status": "represented_by",
+            "symbols": [
+              "interpretation"
+            ],
+            "reason": "The interpretation channel constructor is the declared local projection of canonical Interpretation."
+          },
+          "organon:Action": {
+            "status": "represented_by",
+            "symbols": [
+              "action"
+            ],
+            "reason": "The action channel constructor is the declared local projection of canonical Action."
+          },
+          "organon:CausalContribution": {
+            "status": "formalized",
+            "symbols": [
+              "organizingContribution",
+              "leftEndpoints",
+              "rightEndpoints",
+              "downstreamChange"
+            ]
+          },
+          "organon:State": {
+            "status": "formalized",
+            "symbols": [
+              "result",
+              "output"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "id": "AC-D4",
+      "type": "proposed_definition",
+      "subject": "Sustained Attention",
+      "depends_on": [
+        "AC-D3",
+        "organon:Entity",
+        "organon:Body",
+        "organon:State",
+        "organon:Direction",
+        "organon:Persistence",
+        "organon:Difference"
+      ],
+      "formal_contract": {
+        "status": "proved",
+        "theorem": "sustainedAttentionContract",
+        "shared_indices": [
+          "entity",
+          "body",
+          "state"
+        ],
+        "subject_symbols": [
+          "SustainedAttention"
+        ],
+        "dependency_dispositions": {
+          "AC-D3": {
+            "status": "formalized",
+            "symbols": [
+              "attentionAt"
+            ]
+          },
+          "organon:Entity": {
+            "status": "formalized",
+            "symbols": [
+              "entity"
+            ]
+          },
+          "organon:Body": {
+            "status": "formalized",
+            "symbols": [
+              "body",
+              "states"
+            ]
+          },
+          "organon:State": {
+            "status": "formalized",
+            "symbols": [
+              "state",
+              "states"
+            ]
+          },
+          "organon:Direction": {
+            "status": "formalized",
+            "symbols": [
+              "persistenceDirection",
+              "OrderedBy"
+            ]
+          },
+          "organon:Persistence": {
+            "status": "represented_by",
+            "symbols": [
+              "persistenceDirection",
+              "statesWithinBody"
+            ],
+            "reason": "Ordered Body states under the Entity persistence direction project the relevant Persistence history."
+          },
+          "organon:Difference": {
+            "status": "represented_by",
+            "symbols": [
+              "commonFocalRepresentation",
+              "commonContrastRepresentation"
+            ],
+            "reason": "The common focal and contrast representations preserve one Difference across the indexed states."
+          }
+        }
+      }
+    },
+    {
+      "id": "AC-D5",
+      "type": "proposed_definition",
+      "subject": "Absolute Attention",
+      "depends_on": [
+        "AC-D3",
+        "organon:Difference",
+        "organon:Action"
+      ],
+      "formal_contract": {
+        "status": "proved",
+        "theorem": "absoluteAttentionContract",
+        "shared_indices": [
+          "absolute",
+          "attention",
+          "item"
+        ],
+        "subject_symbols": [
+          "AbsoluteAttention"
+        ],
+        "dependency_dispositions": {
+          "AC-D3": {
+            "status": "formalized",
+            "symbols": [
+              "attention"
+            ]
+          },
+          "organon:Difference": {
+            "status": "represented_by",
+            "symbols": [
+              "attention",
+              "organized",
+              "available"
+            ],
+            "reason": "Every available item is organized by the one focal Difference already fixed by the underlying Attention."
+          },
+          "organon:Action": {
+            "status": "represented_by",
+            "symbols": [
+              "FocusIndependentAction"
+            ],
+            "reason": "FocusIndependentAction is the exact local action-channel projection excluded by complete organization."
+          }
+        }
+      }
+    },
+    {
+      "id": "AC-D6",
+      "type": "proposed_definition",
+      "subject": "Love",
+      "depends_on": [
+        "organon:Relation",
+        "AC-D4",
+        "organon:Entity",
+        "organon:Representation",
+        "organon:Denotation",
+        "organon:State"
+      ],
+      "formal_contract": {
+        "status": "proved",
+        "theorem": "loveContract",
+        "shared_indices": [
+          "entity",
+          "love",
+          "state"
+        ],
+        "subject_symbols": [
+          "Love"
+        ],
+        "dependency_dispositions": {
+          "organon:Relation": {
+            "status": "represented_by",
+            "symbols": [
+              "belovedDenotation",
+              "attentionDirectedTowardBeloved"
+            ],
+            "reason": "Exact Denotation and the focal equality jointly represent the directed relation to the beloved."
+          },
+          "AC-D4": {
+            "status": "formalized",
+            "symbols": [
+              "attention",
+              "maintained"
+            ]
+          },
+          "organon:Entity": {
+            "status": "formalized",
+            "symbols": [
+              "entity",
+              "beloved"
+            ]
+          },
+          "organon:Representation": {
+            "status": "formalized",
+            "symbols": [
+              "belovedRepresentation",
+              "commonFocalRepresentation"
+            ]
+          },
+          "organon:Denotation": {
+            "status": "formalized",
+            "symbols": [
+              "belovedDenotation",
+              "expression",
+              "target"
+            ]
+          },
+          "organon:State": {
+            "status": "formalized",
+            "symbols": [
+              "state",
+              "states"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "id": "AC-D7",
+      "type": "proposed_definition",
+      "subject": "Care",
+      "depends_on": [
+        "organon:Relation",
+        "AC-D3",
+        "organon:Entity",
+        "organon:State",
+        "organon:Representation",
+        "organon:Denotation",
+        "organon:Action",
+        "organon:CausalContribution",
+        "organon:Persistence"
+      ],
+      "formal_contract": {
+        "status": "proved_with_boundaries",
+        "theorem": "careContract",
+        "shared_indices": [
+          "entity",
+          "care"
+        ],
+        "subject_symbols": [
+          "Care"
+        ],
+        "dependency_dispositions": {
+          "organon:Relation": {
+            "status": "represented_by",
+            "symbols": [
+              "targetDenotation",
+              "attentionTargetsState"
+            ],
+            "reason": "The target Denotation and focal equality represent Care directed to the exact Entity-State pair."
+          },
+          "AC-D3": {
+            "status": "formalized",
+            "symbols": [
+              "attention"
+            ]
+          },
+          "organon:Entity": {
+            "status": "formalized",
+            "symbols": [
+              "entity",
+              "caredFor"
+            ]
+          },
+          "organon:State": {
+            "status": "formalized",
+            "symbols": [
+              "attendedState",
+              "states"
+            ]
+          },
+          "organon:Representation": {
+            "status": "formalized",
+            "symbols": [
+              "targetRepresentation",
+              "focalRepresentation"
+            ]
+          },
+          "organon:Denotation": {
+            "status": "formalized",
+            "symbols": [
+              "targetDenotation",
+              "expression",
+              "target"
+            ]
+          },
+          "organon:Action": {
+            "status": "outside_formal_boundary",
+            "symbols": [],
+            "reason": "The local action channel proves organized action-selection; canonical boundary-crossing Action parity remains open."
+          },
+          "organon:CausalContribution": {
+            "status": "represented_by",
+            "symbols": [
+              "organized"
+            ],
+            "reason": "Membership in organized invokes the exact organizing Causal Contribution required by the underlying Attention contract."
+          },
+          "organon:Persistence": {
+            "status": "formalized",
+            "symbols": [
+              "persistence",
+              "states"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "id": "AC-D8",
+      "type": "proposed_definition",
+      "subject": "Respect",
+      "depends_on": [
+        "organon:Relation",
+        "organon:Constraint",
+        "organon:Action",
+        "organon:Entity",
+        "organon:Scope",
+        "organon:Boundary",
+        "organon:Agency",
+        "organon:Capability",
+        "organon:Transformation",
+        "organon:Invariant"
+      ],
+      "formal_contract": {
+        "status": "proved",
+        "theorem": "respectContract",
+        "shared_indices": [
+          "actor",
+          "target",
+          "respect"
+        ],
+        "subject_symbols": [
+          "Respect"
+        ],
+        "dependency_dispositions": {
+          "organon:Relation": {
+            "status": "represented_by",
+            "symbols": [
+              "targetIsOther",
+              "RespectProtection"
+            ],
+            "reason": "The actor-target inequality and typed protection witness represent the directed Respect relation."
+          },
+          "organon:Constraint": {
+            "status": "formalized",
+            "symbols": [
+              "constraint",
+              "permits"
+            ]
+          },
+          "organon:Action": {
+            "status": "represented_by",
+            "symbols": [
+              "constrainedAction"
+            ],
+            "reason": "The scoped constrained Transformation is the formal Action projection."
+          },
+          "organon:Entity": {
+            "status": "formalized",
+            "symbols": [
+              "actor",
+              "target"
+            ]
+          },
+          "organon:Scope": {
+            "status": "formalized",
+            "symbols": [
+              "actionScope",
+              "includes"
+            ]
+          },
+          "organon:Boundary": {
+            "status": "represented_by",
+            "symbols": [
+              "RespectProtection"
+            ],
+            "reason": "The boundary constructor of RespectProtection carries the exact Boundary-preservation projection."
+          },
+          "organon:Agency": {
+            "status": "represented_by",
+            "symbols": [
+              "RespectProtection"
+            ],
+            "reason": "The agency constructor carries a nonempty admitted family of identity-preserving options."
+          },
+          "organon:Capability": {
+            "status": "represented_by",
+            "symbols": [
+              "RespectProtection"
+            ],
+            "reason": "The self-determination constructor carries two distinct admitted identity-preserving options."
+          },
+          "organon:Transformation": {
+            "status": "formalized",
+            "symbols": [
+              "constrainedAction"
+            ]
+          },
+          "organon:Invariant": {
+            "status": "represented_by",
+            "symbols": [
+              "RespectProtection"
+            ],
+            "reason": "Every protection branch carries target identity preservation obligations for the protected options."
+          }
+        }
+      }
+    },
+    {
+      "id": "AC-C1",
+      "type": "anti_collapse_constraint",
+      "subject": "Self-governance may be partial",
+      "depends_on": [
+        "AC-D1",
+        "organon:Body",
+        "organon:Scope",
+        "organon:Control"
+      ],
+      "formal_contract": {
+        "status": "proved_with_boundaries",
+        "theorem": "partialSelfGovernanceCountermodel",
+        "shared_indices": [
+          "systemSelfGovernance"
+        ],
+        "subject_symbols": [
+          "systemSelfGovernance"
+        ],
+        "dependency_dispositions": {
+          "AC-D1": {
+            "status": "formalized",
+            "symbols": [
+              "systemSelfGovernance"
+            ]
+          },
+          "organon:Body": {
+            "status": "represented_by",
+            "symbols": [
+              "forwardHighTransform",
+              "returnLowTransform"
+            ],
+            "reason": "The two named recurring Transformations belong to the shared finite Body witness."
+          },
+          "organon:Scope": {
+            "status": "formalized",
+            "symbols": [
+              "scope",
+              "includes"
+            ]
+          },
+          "organon:Control": {
+            "status": "outside_formal_boundary",
+            "symbols": [],
+            "reason": "Complete canonical Control has no closed-world negation in the reduct; the proof establishes a proper governed Scope."
+          }
+        }
+      }
+    },
+    {
+      "id": "AC-C2",
+      "type": "anti_collapse_constraint",
+      "subject": "Intention does not entail achievement",
+      "depends_on": [
+        "AC-D2",
+        "organon:State",
+        "organon:CausalContribution"
+      ],
+      "formal_contract": {
+        "status": "proved_with_boundaries",
+        "theorem": "intentionOutcomeCountermodel",
+        "shared_indices": [
+          "systemIntention"
+        ],
+        "subject_symbols": [
+          "systemIntention"
+        ],
+        "dependency_dispositions": {
+          "AC-D2": {
+            "status": "formalized",
+            "symbols": [
+              "systemIntention"
+            ]
+          },
+          "organon:State": {
+            "status": "formalized",
+            "symbols": [
+              "targetOutcome",
+              "output"
+            ]
+          },
+          "organon:CausalContribution": {
+            "status": "prose_only",
+            "symbols": [],
+            "reason": "The proved direction uses the Intention contract causal join; the reverse occurrence-without-Intention claim remains prose-only."
+          }
+        }
+      }
+    },
+    {
+      "id": "AC-C3",
+      "type": "anti_collapse_constraint",
+      "subject": "Attention does not entail Absolute Attention",
+      "depends_on": [
+        "AC-D3",
+        "AC-D5",
+        "organon:Action"
+      ],
+      "formal_contract": {
+        "status": "proved",
+        "theorem": "partialAttentionCountermodel",
+        "shared_indices": [
+          "systemAttention",
+          "absolute"
+        ],
+        "subject_symbols": [
+          "systemAttention",
+          "AbsoluteAttention"
+        ],
+        "dependency_dispositions": {
+          "AC-D3": {
+            "status": "formalized",
+            "symbols": [
+              "systemAttention"
+            ]
+          },
+          "AC-D5": {
+            "status": "formalized",
+            "symbols": [
+              "AbsoluteAttention"
+            ]
+          },
+          "organon:Action": {
+            "status": "represented_by",
+            "symbols": [
+              "actionItem"
+            ],
+            "reason": "The explicit available but unorganized local action channel witnesses failure of total organization."
+          }
+        }
+      }
+    },
+    {
+      "id": "AC-C4",
+      "type": "anti_collapse_constraint",
+      "subject": "Absolute Attention excludes focus-independent Action",
+      "depends_on": [
+        "AC-D5",
+        "organon:Action",
+        "organon:Difference"
+      ],
+      "formal_contract": {
+        "status": "proved",
+        "theorem": "absoluteAttentionActionLimit",
+        "shared_indices": [
+          "item"
+        ],
+        "subject_symbols": [
+          "systemAbsoluteAttention"
+        ],
+        "dependency_dispositions": {
+          "AC-D5": {
+            "status": "formalized",
+            "symbols": [
+              "systemAbsoluteAttention"
+            ]
+          },
+          "organon:Action": {
+            "status": "represented_by",
+            "symbols": [
+              "FocusIndependentAction"
+            ],
+            "reason": "The derived predicate is exactly an available local action channel outside the organized set."
+          },
+          "organon:Difference": {
+            "status": "represented_by",
+            "symbols": [
+              "attention"
+            ],
+            "reason": "The underlying Attention fixes the shared focal Difference for all organized channels."
+          }
+        }
+      }
+    },
+    {
+      "id": "AC-C5",
+      "type": "anti_collapse_constraint",
+      "subject": "Attention is normatively and epistemically neutral",
+      "depends_on": [
+        "AC-D3",
+        "organon:Claim",
+        "organon:Truth",
+        "organon:Consequence"
+      ],
+      "formal_contract": {
+        "status": "outside_formal_boundary",
+        "reason": "Benefit, consent, morality, accuracy, and purpose lack closed-world predicates in the formal reduct."
+      }
+    },
+    {
+      "id": "AC-C6",
+      "type": "anti_collapse_constraint",
+      "subject": "Love does not collapse into Care or Respect",
+      "depends_on": [
+        "AC-D6",
+        "AC-D7",
+        "AC-D8"
+      ],
+      "formal_contract": {
+        "status": "outside_formal_boundary",
+        "reason": "Reciprocity, understanding, consent, possession, and moral approval lack formal negations in the reduct."
+      }
+    },
+    {
+      "id": "AC-C7",
+      "type": "anti_collapse_constraint",
+      "subject": "Care is not benefit or Love",
+      "depends_on": [
+        "AC-D7",
+        "AC-D6",
+        "organon:Consequence"
+      ],
+      "formal_contract": {
+        "status": "outside_formal_boundary",
+        "reason": "Competence, wantedness, benefit, and harm lack formal predicates suitable for nonvacuous countermodels."
+      }
+    },
+    {
+      "id": "AC-C8",
+      "type": "anti_collapse_constraint",
+      "subject": "Respect is not agreement or affection",
+      "depends_on": [
+        "AC-D8",
+        "AC-D6",
+        "organon:Consequence"
+      ],
+      "formal_contract": {
+        "status": "outside_formal_boundary",
+        "reason": "Agreement, affection, obedience, and noninterference remain outside the current formal vocabulary."
+      }
+    },
+    {
+      "id": "AC-G1",
+      "type": "open_formalization_gate",
+      "subject": "Canonical channel parity",
+      "depends_on": [
+        "AC-D1",
+        "AC-D3",
+        "AC-D7",
+        "AC-D8",
+        "organon:Perception",
+        "organon:Interpretation",
+        "organon:Action",
+        "organon:Agency",
+        "organon:Capability"
+      ],
+      "formal_contract": {
+        "status": "open_gate",
+        "reason": "Canonical Body-indexed channel structures and parity theorems remain to be built."
+      }
+    },
+    {
+      "id": "AC-G2",
+      "type": "open_evidence_gate",
+      "subject": "Application",
+      "depends_on": [
+        "AC-D1",
+        "AC-D2",
+        "AC-D3",
+        "AC-D4",
+        "AC-D5",
+        "AC-D6",
+        "AC-D7",
+        "AC-D8",
+        "organon:Specification",
+        "organon:Evidence"
+      ],
+      "formal_contract": {
+        "status": "open_gate",
+        "reason": "No empirical application follows from the finite formal witness without a separate evidence-bearing Specification."
+      }
+    }
+  ]
+}

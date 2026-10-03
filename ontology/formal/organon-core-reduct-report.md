@@ -15,7 +15,7 @@ This report distinguishes three claims that would otherwise be easy to collapse:
 
 1. **Formal-shadow preservation:** every classifier currently encoded downstream of relational Missingness remains the same in an Absence-free module.
 2. **Binding-seam challenge:** the highest-risk Presence → Reality → Missingness → Persistence → Entity path is tested through explicit reduct translations without treating a weaker formal shadow as the binding definition.
-3. **Binding-ontology preservation:** every one of the 114 registered prose terms retains its extension after Absence is removed.
+3. **Binding-ontology preservation:** every one of the 122 registered prose terms retains its extension after Absence is removed.
 
 The experiment proves the first claim and four challenge classifications in the second. Reality leaves one representation decision pending: the local-carrier theorem is preserved, but the binding totality may be treated as ambient and metatheoretic or projected as a universe-indexed family. The third remains unproved because 108 further registered terms still lack exact paired classifiers.
 
@@ -33,7 +33,7 @@ Every formal classifier module imports `OrganonCore` directly or imports another
 
 The adversarial finite model accepts `[idle, active]` as persistent and rejects `[idle, active, broken]` because the last State violates the identity Invariant. This exposed and repaired a fidelity defect in the earlier `Entity` shadow: present identity and a preservation-capable Boundary did not themselves select the ordered history required by the binding prose. The repair is independent of Absence, but necessary before Entity could participate honestly in the reduct test.
 
-[`organon-core-term-audit.md`](./organon-core-term-audit.md) accounts for all 114 registry entries. Its generated status is checked from `terms.yaml`; a named compiled shadow is never reported as binding preservation without a paired translation.
+[`organon-core-term-audit.md`](./organon-core-term-audit.md) accounts for all 122 registry entries. Its generated status is checked from `terms.yaml`; a named compiled shadow is never reported as binding preservation without a paired translation.
 
 `formalAbsenceExtension` proves that the existing `Absent`/`Present` interpretation inhabits the generic extension interface, including exclusivity and classical exhaustiveness. It is therefore one concrete extension covered by the preservation theorem rather than an unrelated parallel encoding.
 
@@ -82,7 +82,7 @@ No paired case in these four classifications changes when the Absence extension 
 
 ### Not proven for the binding ontology
 
-The result does not establish preservation for all 114 registered terms. The audit records 4 proved challenge classifications, 1 pending Reality representation decision, 1 intentionally excluded primitive, and 108 `UNKNOWN` classifications. The formal spike remains intentionally partial. The v0.16 hidden-bridge audit made denotation, causal contribution, evidential bearing, constructive modal capability, cross-State identity criteria, and institutional eligibility explicit; v0.17 added compiled Flow, Ritual, and Meaning shadows; v0.19 adds compiled embodiment and recurrent-integration shadows without claiming exact parity. Exact paired classifiers for the full registry remain absent.
+The result does not establish preservation for all 122 registered terms. The audit records 4 proved challenge classifications, 1 pending Reality representation decision, 1 intentionally excluded primitive, and 116 `UNKNOWN` classifications. The formal spike remains intentionally partial. The v0.16 hidden-bridge audit made denotation, causal contribution, evidential bearing, constructive modal capability, cross-State identity criteria, and institutional eligibility explicit; v0.17 added compiled Flow, Ritual, and Meaning shadows; v0.20 adds compiled embodiment and recurrent-integration shadows without claiming exact parity. Exact paired classifiers for the full registry remain absent.
 
 The result also does not prove that absolute Absence is incoherent, eliminable from Daniel's metaphysics, or equivalent to a nonempty-domain convention. It proves a narrower architectural fact: the encoded applied classifiers do not inspect the Absence extension.
 
@@ -117,4 +117,4 @@ The warranted conclusion is:
 2. Pair the remaining direct Presence users, beginning with Difference, Relation, Configuration, Environment, Representation, Sign, Claim, CountsAs, World, Truth, Alignment, Factive Operative Knowledge, and Price.
 3. Propagate those translations through the registry dependency graph rather than treating transitive reachability as semantic dependence.
 4. Add adversarial fixtures at each neighboring-term boundary and stop on the first divergent classification.
-5. Replace each of the audit's 108 `UNKNOWN` results with a proof, a counterexample, or a narrower formalization gate.
+5. Replace each of the audit's 116 `UNKNOWN` results with a proof, a counterexample, or a narrower formalization gate.

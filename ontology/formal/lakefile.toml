@@ -44,6 +44,12 @@ name = "EmbodiedConsciousness"
 [[lean_lib]]
 name = "PromotionContracts"
 
+[[lean_lib]]
+name = "AttentionLoveCare"
+
+[[lean_lib]]
+name = "AttentionLoveCareContracts"
+
 [[lean_exe]]
 name = "ontology_check"
 root = "Model"
