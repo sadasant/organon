@@ -18,6 +18,7 @@ This note records how [Daniel's Ontology](./ontology.md) changed. Historical arg
 - Added C32-C38 to block fixed-part, isolation, enclosure, shared-signal, passive-perspective, outcome-only, and consciousness-attribution collapses.
 - Preserved one embodied recurrent consciousness condition as a proposal-local candidate defined exactly by the complete same-Body structural conjunction. The release does not define universal Consciousness or establish that any external Entity satisfies the candidate.
 - Repaired the formal shadow after adversarial review: removed free coordination, process-affection, and candidate-obtainment predicates; added exact constituent, transformation-family, representational-Difference, selection, and same-Body joins; and replaced proxy countermodels with five countermodels of the actual target structures. Two further anti-entailments are explicitly outside the present Lean boundary.
+- Added schema-v2 promotion contracts and exact-source adversarial review records. Proved statements must name marked Lean theorems with their load-bearing symbols and shared indices; direct `Prop` relations require a semantic-field disposition; promoted source cannot drift from the reviewed implementation commit.
 - Refreshed the prompt projection, provenance, adoption metadata, formal registry audit, nonbinding algebra accounting, and evaluation pointers for the 114-term, 49-commitment registry.
 
 ### v0.18 - Definition admission made binding

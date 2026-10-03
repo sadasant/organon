@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "proposal_id": "embodied-consciousness",
   "status": "partially-promoted",
   "binding": false,
@@ -43,7 +43,23 @@
         "organon:Invariant",
         "organon:Environment"
       ],
-      "formal_symbol": "Body"
+      "formal_contract": {
+        "status": "proved",
+        "theorem": "bodyContract",
+        "required_symbols": [
+          "Body",
+          "Entity",
+          "persistence",
+          "partAt",
+          "recurringTransformations",
+          "interior",
+          "boundary",
+          "identity"
+        ],
+        "shared_indices": [
+          "entity"
+        ]
+      }
     },
     {
       "id": "EC-D2",
@@ -65,7 +81,22 @@
         "organon:Persistence",
         "organon:Substrate"
       ],
-      "formal_symbol": "BodilyOrganization"
+      "formal_contract": {
+        "status": "proved",
+        "theorem": "bodilyOrganizationContract",
+        "required_symbols": [
+          "BodilyOrganization",
+          "Body",
+          "organPart",
+          "partAt",
+          "sustainingContribution",
+          "feeding",
+          "before"
+        ],
+        "shared_indices": [
+          "body"
+        ]
+      }
     },
     {
       "id": "EC-D3",
@@ -88,7 +119,20 @@
         "organon:State",
         "organon:Constraint"
       ],
-      "formal_symbol": "EmbodiedPerspective"
+      "formal_contract": {
+        "status": "proved",
+        "theorem": "embodiedPerspectiveContract",
+        "required_symbols": [
+          "EmbodiedPerspective",
+          "conditionDenotation",
+          "availableDenotation",
+          "perceptionContribution",
+          "memoryContribution"
+        ],
+        "shared_indices": [
+          "body"
+        ]
+      }
     },
     {
       "id": "EC-D4",
@@ -104,7 +148,21 @@
         "organon:State",
         "organon:Difference"
       ],
-      "formal_symbol": "RecurrentIntegration"
+      "formal_contract": {
+        "status": "proved",
+        "theorem": "recurrentIntegrationContract",
+        "required_symbols": [
+          "RecurrentIntegration",
+          "firstFamily",
+          "secondFamily",
+          "firstToSecond",
+          "secondToFirst",
+          "downstreamChange"
+        ],
+        "shared_indices": [
+          "integration"
+        ]
+      }
     },
     {
       "id": "EC-D5",
@@ -129,7 +187,21 @@
         "organon:State",
         "organon:Constraint"
       ],
-      "formal_symbol": "InternalActivitySelection"
+      "formal_contract": {
+        "status": "proved",
+        "theorem": "internalActivitySelectionContract",
+        "required_symbols": [
+          "InternalActivitySelection",
+          "contrastRepresentation",
+          "representation",
+          "contribution",
+          "selected",
+          "rejected"
+        ],
+        "shared_indices": [
+          "selection"
+        ]
+      }
     },
     {
       "id": "EC-D6",
@@ -146,7 +218,21 @@
         "organon:ConsciousnessDesignation",
         "local:EmbodiedRecurrentStructure"
       ],
-      "formal_symbol": "EmbodiedRecurrentAt"
+      "formal_contract": {
+        "status": "proved",
+        "theorem": "embodiedCandidateExactContract",
+        "required_symbols": [
+          "EmbodiedRecurrentStructure",
+          "embodiedCandidateCondition",
+          "Body",
+          "moment",
+          "holds"
+        ],
+        "shared_indices": [
+          "body",
+          "moment"
+        ]
+      }
     },
     {
       "id": "EC-C1",
@@ -158,7 +244,19 @@
         "organon:Invariant",
         "organon:State"
       ],
-      "formal_symbol": "oneBodyRelationAllowsConstituentChange"
+      "formal_contract": {
+        "status": "proved",
+        "theorem": "bodyPartChangeCountermodel",
+        "required_symbols": [
+          "systemBody",
+          "partAt",
+          "systemEntity",
+          "identity"
+        ],
+        "shared_indices": [
+          "systemBody"
+        ]
+      }
     },
     {
       "id": "EC-C2",
@@ -171,7 +269,19 @@
         "organon:Environment",
         "organon:CausalPath"
       ],
-      "formal_symbol": "bodyBoundaryDoesNotRequireIsolation"
+      "formal_contract": {
+        "status": "proved",
+        "theorem": "boundaryNonIsolationCountermodel",
+        "required_symbols": [
+          "environment",
+          "interior",
+          "environmentToInteriorPath",
+          "environmentalInputTransform"
+        ],
+        "shared_indices": [
+          "systemBody"
+        ]
+      }
     },
     {
       "id": "EC-C3",
@@ -182,7 +292,18 @@
         "organon:Configuration",
         "organon:Organ"
       ],
-      "formal_symbol": "sharedEnclosureDoesNotEntailBodilyOrganization"
+      "formal_contract": {
+        "status": "proved",
+        "theorem": "sharedEnclosureCountermodel",
+        "required_symbols": [
+          "SharedEnclosure",
+          "BodilyOrganization",
+          "perspectiveOnlyBody"
+        ],
+        "shared_indices": [
+          "perspectiveOnlyBody"
+        ]
+      }
     },
     {
       "id": "EC-C4",
@@ -193,7 +314,17 @@
         "organon:Difference",
         "organon:CausalContribution"
       ],
-      "formal_symbol": "sharedSignalDoesNotEntailRecurrentIntegration"
+      "formal_contract": {
+        "status": "proved",
+        "theorem": "sharedSignalCountermodel",
+        "required_symbols": [
+          "SharedSignal",
+          "RecurrentIntegration",
+          "noDirection",
+          "noFeed"
+        ],
+        "shared_indices": []
+      }
     },
     {
       "id": "EC-C5",
@@ -204,7 +335,19 @@
         "EC-D6",
         "local:CandidateCondition"
       ],
-      "formal_symbol": "embodiedPerspectiveDoesNotEntailCandidate"
+      "formal_contract": {
+        "status": "proved",
+        "theorem": "perspectiveOnlyCountermodel",
+        "required_symbols": [
+          "EmbodiedRecurrentAt",
+          "perspectiveOnly",
+          "perspectiveOnlyBody",
+          "EmbodiedPerspective"
+        ],
+        "shared_indices": [
+          "perspectiveOnlyBody"
+        ]
+      }
     },
     {
       "id": "EC-C6",
@@ -215,7 +358,11 @@
         "ordinary:speech",
         "organon:Action",
         "organon:Control"
-      ]
+      ],
+      "formal_contract": {
+        "status": "outside_formal_boundary",
+        "reason": "The current reduct has no canonical closed-world negation for the advertised consequent; inventing a local false predicate would not test the binding claim."
+      }
     },
     {
       "id": "EC-C7",
@@ -225,7 +372,11 @@
         "EC-D6",
         "organon:ConsciousnessAttribution",
         "organon:ConsciousnessDesignation"
-      ]
+      ],
+      "formal_contract": {
+        "status": "outside_formal_boundary",
+        "reason": "The current reduct has no canonical closed-world negation for the advertised consequent; inventing a local false predicate would not test the binding claim."
+      }
     },
     {
       "id": "EC-G1",
@@ -240,7 +391,11 @@
         "organon:Organ",
         "organon:State",
         "local:TransformationFamily"
-      ]
+      ],
+      "formal_contract": {
+        "status": "open_gate",
+        "reason": "This statement records an unresolved formalization or evidence boundary and is not promotion evidence."
+      }
     },
     {
       "id": "EC-G2",
@@ -251,7 +406,21 @@
         "organon:Specification",
         "organon:Evidence",
         "organon:Claim"
-      ]
+      ],
+      "formal_contract": {
+        "status": "open_gate",
+        "reason": "This statement records an unresolved formalization or evidence boundary and is not promotion evidence."
+      }
+    }
+  ],
+  "promotion_contracts": "../ontology/formal/PromotionContracts.lean",
+  "promotion_review": "../reviews/promotion/embodied-consciousness.json",
+  "semantic_fields": [
+    {
+      "symbol": "Body.partAt",
+      "status": "local-gated",
+      "gate": "EC-G1",
+      "reason": "Constituent parthood is explicit and state-indexed, but Organon does not promote a universal mereology."
     }
   ]
 }

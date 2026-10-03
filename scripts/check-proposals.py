@@ -31,6 +31,61 @@ MARKER = re.compile(
     r"<!-- organon:proposal-statement ([A-Z]{2}-[A-Z][0-9]+) "
     r"type=([a-z_]+) -->"
 )
+PROMOTION_CONTRACT_MARKER = re.compile(
+    r"/-- organon:promotion-contract ([A-Z]{2}-[A-Z][0-9]+) -/"
+)
+FORMAL_CONTRACT_STATUSES = {
+    "proved",
+    "outside_formal_boundary",
+    "open_gate",
+}
+
+
+def promotion_contract_block(text: str, statement_id: str) -> str | None:
+    marker = f"/-- organon:promotion-contract {statement_id} -/"
+    if text.count(marker) != 1:
+        return None
+    tail = text.split(marker, 1)[1]
+    next_marker = PROMOTION_CONTRACT_MARKER.search(tail)
+    return tail[: next_marker.start()] if next_marker else tail
+
+
+def direct_prop_fields(text: str) -> set[str]:
+    """Return structure fields whose declared value is directly a relation to Prop."""
+    fields: set[str] = set()
+    structure: str | None = None
+    lines = text.splitlines()
+    index = 0
+    while index < len(lines):
+        line = lines[index]
+        structure_match = re.match(r"^structure\s+([A-Za-z][A-Za-z0-9_]*)\b", line)
+        if structure_match:
+            structure = structure_match.group(1)
+            index += 1
+            continue
+        if structure and re.match(
+            r"^(?:structure|def|theorem|inductive|abbrev|namespace|end)\b", line
+        ):
+            structure = None
+            continue
+        field_match = re.match(r"^  ([A-Za-z][A-Za-z0-9_]*)\s*:\s*(.*)$", line)
+        if structure and field_match:
+            field_name, declaration = field_match.groups()
+            continuation = index + 1
+            while continuation < len(lines):
+                following = lines[continuation]
+                if re.match(r"^  [A-Za-z][A-Za-z0-9_]*\s*:", following):
+                    break
+                if following and not following.startswith(" "):
+                    break
+                declaration += " " + following.strip()
+                continuation += 1
+            if re.search(r"(?:→|->)\s*Prop\b", declaration):
+                fields.add(f"{structure}.{field_name}")
+            index = continuation
+            continue
+        index += 1
+    return fields
 
 
 def check_manifest(
@@ -46,7 +101,8 @@ def check_manifest(
     formal = base / data.get("formal_shadow", "")
     formal_evidence = [base / item for item in data.get("formal_evidence", [])]
 
-    if data.get("schema_version") != 1:
+    schema_version = data.get("schema_version")
+    if schema_version not in {1, 2}:
         errors.append(f"{path.name}: unsupported schema_version")
     if data.get("binding") is not False:
         errors.append(f"{path.name}: proposal manifest must remain nonbinding")
@@ -70,6 +126,38 @@ def check_manifest(
         item.read_text(encoding="utf-8")
         for item in [formal, *formal_evidence]
     )
+    contract_text = ""
+    if schema_version == 2:
+        contract_path = base / data.get("promotion_contracts", "")
+        if not contract_path.is_file():
+            errors.append(
+                f"{path.name}: schema v2 requires an existing promotion_contracts file"
+            )
+        else:
+            contract_text = contract_path.read_text(encoding="utf-8")
+
+        declared_fields = {
+            item.get("symbol")
+            for item in data.get("semantic_fields", [])
+            if isinstance(item, dict)
+        }
+        actual_fields = direct_prop_fields(formal.read_text(encoding="utf-8"))
+        if declared_fields != actual_fields:
+            errors.append(
+                f"{path.name}: semantic field ledger drift; "
+                f"missing {sorted(actual_fields - declared_fields)}, "
+                f"extra {sorted(declared_fields - actual_fields)}"
+            )
+        for field in data.get("semantic_fields", []):
+            if field.get("status") not in {"canonical", "derived", "local-gated"}:
+                errors.append(
+                    f"{path.name}: semantic field {field.get('symbol')} has invalid status"
+                )
+            if field.get("status") == "local-gated" and not field.get("gate"):
+                errors.append(
+                    f"{path.name}: local-gated semantic field "
+                    f"{field.get('symbol')} requires a gate"
+                )
     if "binding: false" not in markdown_text:
         errors.append(f"{markdown.name}: frontmatter must declare binding: false")
     if f"status: {status}" not in markdown_text:
@@ -137,14 +225,78 @@ def check_manifest(
         if markdown_text.count(f"| {statement_id} |") != 1:
             errors.append(f"{statement_id}: expected one statement-registry row")
 
-        formal_symbol = item.get("formal_symbol")
-        if formal_symbol and not re.search(
-            rf"\b(?:structure|def|theorem|inductive)\s+{re.escape(formal_symbol)}\b",
-            formal_text,
-        ):
-            errors.append(
-                f"{statement_id}: formal symbol {formal_symbol} not declared"
-            )
+        if schema_version == 1:
+            formal_symbol = item.get("formal_symbol")
+            if formal_symbol and not re.search(
+                rf"\b(?:structure|def|theorem|inductive)\s+{re.escape(formal_symbol)}\b",
+                formal_text,
+            ):
+                errors.append(
+                    f"{statement_id}: formal symbol {formal_symbol} not declared"
+                )
+        else:
+            if "formal_symbol" in item:
+                errors.append(
+                    f"{statement_id}: schema v2 forbids declaration-only formal_symbol"
+                )
+            contract = item.get("formal_contract")
+            if not isinstance(contract, dict):
+                errors.append(f"{statement_id}: schema v2 requires formal_contract")
+                seen.add(statement_id)
+                continue
+            contract_status = contract.get("status")
+            if contract_status not in FORMAL_CONTRACT_STATUSES:
+                errors.append(
+                    f"{statement_id}: unsupported formal contract status "
+                    f"{contract_status}"
+                )
+            allowed_statuses = {
+                "proposed_definition": {"proved"},
+                "anti_collapse_constraint": {
+                    "proved", "outside_formal_boundary"
+                },
+                "open_formalization_gate": {"open_gate"},
+                "open_evidence_gate": {"open_gate"},
+            }.get(statement_type, set())
+            if contract_status not in allowed_statuses:
+                errors.append(
+                    f"{statement_id}: {statement_type} cannot use "
+                    f"formal status {contract_status}"
+                )
+            if contract_status == "proved":
+                theorem = contract.get("theorem")
+                block = promotion_contract_block(contract_text, statement_id)
+                if block is None:
+                    errors.append(
+                        f"{statement_id}: expected one promotion-contract marker"
+                    )
+                elif not isinstance(theorem, str) or not re.search(
+                    rf"\btheorem\s+{re.escape(theorem)}\b", block
+                ):
+                    errors.append(
+                        f"{statement_id}: contract theorem {theorem} is absent "
+                        f"from its marked block"
+                    )
+                else:
+                    for symbol in contract.get("required_symbols", []):
+                        if not re.search(rf"\b{re.escape(symbol)}\b", block):
+                            errors.append(
+                                f"{statement_id}: contract block lacks required "
+                                f"symbol {symbol}"
+                            )
+                    for shared_index in contract.get("shared_indices", []):
+                        occurrences = len(re.findall(
+                            rf"\b{re.escape(shared_index)}\b", block
+                        ))
+                        if occurrences < 2:
+                            errors.append(
+                                f"{statement_id}: shared index {shared_index} "
+                                f"appears only {occurrences} time(s)"
+                            )
+            elif len(str(contract.get("reason", "")).strip()) < 20:
+                errors.append(
+                    f"{statement_id}: {contract_status} requires a substantive reason"
+                )
         seen.add(statement_id)
 
     if status in {"partially-promoted", "promoted"}:

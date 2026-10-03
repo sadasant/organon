@@ -17,6 +17,16 @@ These decisions belong to the Lean spike. They expose choices priced by formaliz
 
 Five finite cases test the formal boundary: constituent replacement under one Body Relation; a real Environment-to-Interior Causal path; two enclosed constituents in a one-Transformation Body with no possible Bodily Organization; a shared signal under a Direction with no possible Recurrent Integration; and an Embodied Perspective at a named moment in a Body with no possible Internal Activity Selection or embodied recurrent structure. The Action, complete-Control, Attribution, and Designation reverse anti-entailments remain binding prose outside this Lean boundary because the reduct supplies no canonical closed-world negations for them. Inventing always-false local predicates would not test those claims.
 
+`PromotionContracts.lean` is a deliberately redundant interface over this
+formalization. Each schema-v2 statement marked as proved names one theorem whose
+type repeats the advertised joins or the exact countermodel. Required symbols
+and shared indices are checked against the marked theorem block before Lean
+elaborates the module. This prevents a compiled declaration with the right name
+but the wrong conclusion from satisfying the proposal manifest. Direct
+structure fields returning `Prop` are separately inventoried; `Body.partAt`
+remains proposal-local and is tied to the constituent-identity gate rather than
+treated as canonical mereology.
+
 ## Flow absorbs recurrence; Ritual and Meaning retain distinct burdens
 
 `Flow` is the ontic recurrence structure. Its occurrence list contains at least two distinct Transformations, every occurrence inhabits one Flow-level Scope, one object-level recurrence predicate holds across the ordered list, and the complete output-State list is definitionally the history of one `PersistenceWitness`. It contains no Rule, Specification, Agent, or Representation. `FlowClassification` is a separate epistemic and operational witness: its typed `FlowRule` owns the exact executable Specification, its Specification Scope must match the Flow Scope pointwise, the classifier joins conformity and the Flow's recurrence predicate across one selected sequence, and an in-Scope non-occurrence must be rejected. This prevents universal conformity while preserving the possibility that Flow obtains before anyone classifies it. An earlier draft made the classifier constitutive of Flow; that was rejected because it silently narrowed stable D041 and made Institution and Center depend on constructive decidability.

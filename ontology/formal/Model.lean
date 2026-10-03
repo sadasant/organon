@@ -10,6 +10,7 @@ import QuarantineProfiles
 import BridgeRelations
 import RitualMeaning
 import EmbodiedConsciousness
+import PromotionContracts
 
 /-!
 # Daniel's Ontology: finite inhabited model

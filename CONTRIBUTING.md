@@ -44,6 +44,14 @@ Use Lean when dependent structure and proof obligations are central; use a finit
 
 Add at least one finite inhabited witness for a promoted structure. For every claimed anti-entailment, add a countermodel or explain why the claim is outside the current formal boundary. Do not use `sorry`, `admit`, or undeclared axioms as promotion evidence.
 
+Schema-v2 proposal manifests must classify every statement as `proved`,
+`outside_formal_boundary`, or `open_gate`. A proved statement names a marked
+theorem in a checked promotion-contract module, lists the load-bearing symbols
+that must occur in that theorem block, and names any indices that must be shared
+across its premises and conclusion. Declaration existence alone is not formal
+evidence. Every direct structure field returning `Prop` must also appear in the
+manifest's semantic-field ledger as canonical, derived, or local and gated.
+
 ### 8. Preserve the readable ontology
 
 Read the complete ontology as one document after the change. It must define itself without conversation history, obsolete formulations, or references to prior drafts. Changelog and proposal records carry the argument with previous versions.
@@ -65,6 +73,13 @@ Distinguish resolved objections from open promotion gates. Quarantined vocabular
 
 Passing CI establishes local verification, not adversarial review or philosophical truth.
 
+For a schema-v2 promotion, `reviews/promotion/<proposal>.json` makes
+promotion-readiness executable. It pins the reviewed implementation commit,
+tree, and SHA-256 of every governed source, enumerates every proved contract,
+and records each adversarial finding as resolved or outside the formal boundary.
+The review record belongs in a later evidence commit, so it cannot attest
+uncommitted source or silently follow subsequent source changes.
+
 ## Verification
 
 From the repository root:
@@ -73,6 +88,7 @@ From the repository root:
 python3 scripts/check-links.py
 python3 scripts/check-semantics.py
 python3 scripts/check-proposals.py
+python3 scripts/check-promotion-review.py
 python3 scripts/check-formal-receipt.py
 python3 scripts/check-adoption.py examples/organon-adoption.json --repo-root .
 (cd ontology/formal && lake build && lake exe ontology_check)
