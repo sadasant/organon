@@ -4,7 +4,7 @@ status: verified
 canonicality: noncanonical
 created: 2026-08-02
 updated: 2026-10-03
-repository_commit: "8ffcd04bc7b6ffe5436287703d88b6abe19ac2e3"
+repository_commit: "7207011ebdd2f9ec6a3b285906ba3ecf59ae1ced"
 ---
 # Lean Spike Build Receipt
 
@@ -50,7 +50,7 @@ Proposal-local evidence, sovereignty, own-Principal, observed-choice, exchange, 
 
 `PromotionContracts.lean` and `AttentionLoveCareContracts.lean` restate every formally proved promoted proposal claim as a marked theorem contract. The schema-v2 claim manifest gives every declared dependency an exact disposition, derives checked symbols from that complete ledger and the subject symbols, requires shared indices inside each exact contract block, inventories every direct proposition-valued semantic field, and distinguishes fully proved contracts from theorem projections with formal boundaries. A separately committed exact-source adversarial review pins the implementation commit, tree, governed source hashes, verified contract set, and resolution of each reported finding.
 
-The repository commit attested by this receipt is `8ffcd04bc7b6ffe5436287703d88b6abe19ac2e3`.
+The repository commit attested by this receipt is `7207011ebdd2f9ec6a3b285906ba3ecf59ae1ced`.
 
 The PR #18 takeover adds proof-checked counting bounds, positive denominator, organized uniqueness, no future organized result, order-independent absolute coverage, and same-identity/different-current-State separation. Respect's three protection branches are inhabited; its exact Action output retains identity, and an identity-destroying Action cannot obtain a protection witness even when the actor's own Constraint admits it. The new theorem axiom audit uses only standard `propext`, `Classical.choice`, and `Quot.sound`, or no axioms. The separately checked framework experiment retains all 30 theorems without placeholders or nonstandard axiom dependencies.
 
