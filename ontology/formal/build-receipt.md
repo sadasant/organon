@@ -3,8 +3,8 @@ type: formal-build-receipt
 status: verified
 canonicality: noncanonical
 created: 2026-08-02
-updated: 2026-09-30
-repository_commit: "73f597ad597471dbdd94a0b63647a26809b781e6"
+updated: 2026-10-02
+repository_commit: "664f5486218cc650220962aa33cd17ac68ba84c6"
 ---
 # Lean Spike Build Receipt
 
@@ -26,7 +26,7 @@ lake build
 lake exe ontology_check
 ```
 
-Result: all 30 build jobs completed successfully. The executable printed:
+Result: all 32 build jobs completed successfully. The executable printed:
 
 ```text
 OrganonCore v0.19-compatible reduct: hidden bridge relations, private ritual, ritual-dependent meaning, embodied integration, an embodied recurrent consciousness candidate, downstream shadows, four preserved challenge classifiers, one pending Reality representation elaboration, and metalinguistic definition admission
@@ -46,7 +46,9 @@ The shadow additionally constructs one Factive Operative Knowledge instance whos
 
 Proposal-local evidence, sovereignty, own-Principal, observed-choice, exchange, and moral-worth predicates remain formal shadows rather than complete joins to every core Organon structure. Reality, universal Claim semantics, universal moral conditions, Action attribution, complete Evidence parity, Interior-and-Boundary Exposure, Action-to-Change Consequence, complete Sense-to-Perception access, Ritual uptake parity through canonical Perception, Memory, and Interpretation, represented-target Denotation, temporal Meaning decay, fidelity, carrier realization, Alignment-profile composition, completeness and provenance of external Rule encodings, runtime construction, temporal ordering of transmission stages, universal semantic preservation, international-law sufficiency, preference revelation, expected utility, market clearing, Beauty, Play, Love, generic Knowledge, generic Sovereignty, and generic Value remain open formalization gates.
 
-The repository commit attested by this receipt is `73f597ad597471dbdd94a0b63647a26809b781e6`.
+`PromotionContracts.lean` restates every formally proved embodied proposal claim as a marked theorem contract. The schema-v2 claim manifest requires load-bearing symbols and shared indices to occur inside each exact contract block, inventories every direct proposition-valued semantic field, and records explicit dispositions for claims outside the formal boundary. A separately committed exact-source adversarial review pins the implementation commit, tree, governed source hashes, verified contract set, and resolution of each reported finding.
+
+The repository commit attested by this receipt is `664f5486218cc650220962aa33cd17ac68ba84c6`.
 
 ## Source digests
 
@@ -57,12 +59,13 @@ The repository commit attested by this receipt is `73f597ad597471dbdd94a0b63647a
 - `BridgeRelations.lean`: `a17cdd4eb893859d3895cc729f5726a9689eb97d6290d7aa40e99dfca010b7cf`
 - `RitualMeaning.lean`: `4154d3d8ec479679ec0faab4f8d4bb4364c8ed670b61528e77fcf996e537a68e`
 - `EmbodiedConsciousness.lean`: `ec63d84ae7c8ef150ee67105e95eb9ac105bc8dbb05eda69ac58dc9d7b0b5c65`
+- `PromotionContracts.lean`: `7192ee8681098a260a717ffa3368a46e8bd59d923abef44edd8918d944667543`
 - `Consciousness.lean`: `18c9af64b04e3f822c97cf24371d17dd22bd34c89e036d7362207fbba4e9cd86`
 - `Operationalization.lean`: `14e75b936ad86f5a03292b316990b7d3ab7a1ada811cb1865ec2831ac8d1a3ce`
 - `WorldSubstrate.lean`: `d3a9d36f6acfe56318ba35dd1f742d2d2e73136f84d70ed27267eb7228122ec5`
 - `TruthTrustAlignment.lean`: `bdaa0217e7434c9bc1d7cd3a6a2d489c684fbf38ffeb98a87388864d1cd5a733`
 - `IntelligenceKnowledge.lean`: `bc0ad1caa81adb25316f79aecd5011e32cf94cc73e1e046f7e13bcd10779aee8`
 - `QuarantineProfiles.lean`: `245c94b5c1a8096e9fdea457b1cafba3ddf4f7ab9d98b214aaee8be5eebdbce4`
-- `Model.lean`: `fbbfac6578f5a52371d91f65c6c5414ba8e471ead79610fc699909bef95a44ac`
-- `lakefile.toml`: `9f3000c01b4d6e827d9f831a459051a82e21bd43971493e1594820c6f7c38ad0`
+- `Model.lean`: `bf5cbf596d216b0280aa0558d6ba24bc5e695be5231bd815e6d466d2009bf85e`
+- `lakefile.toml`: `fa35d92f0d59ceb5e76edb102834fdd3627eb861baf178c78f66010a7256eecf`
 - `lean-toolchain`: `54727eec5cba149c18842e6deb5c41b369d66455c93ce135d7d5347c782b2325`

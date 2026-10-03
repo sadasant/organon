@@ -1,0 +1,90 @@
+{
+  "schema_version": 1,
+  "proposal_id": "embodied-consciousness",
+  "status": "promotion-ready",
+  "reviewed_commit": "664f5486218cc650220962aa33cd17ac68ba84c6",
+  "reviewed_tree": "94805bb8430fd0965621c778c6aac3b949cb1b8b",
+  "reviewed_at": "2026-10-02",
+  "review_scope": "Adversarial review of the embodied integration definitions, formal joins, countermodels, quarantine boundary, evaluation disposition, and the enforcement machinery added in response.",
+  "source_sha256": {
+    ".github/workflows/verify.yml": "f2a2094f2e680cacbf4860613b1c2c0c87e0ba149c4f01fdea3209052f9144ed",
+    "CONTRIBUTING.md": "daaeb16c7045dd365ef760a16933c70a3be29ccd6d6dcdd8b7fbfdc920511b7a",
+    "ontology/ontology.md": "02b518c93f42b236178b68e6bd911ae4dbea38905c5dd44a7de46654a435d284",
+    "ontology/terms.yaml": "bc4c8641089d1f341e91f48d18f45296c18509191782ba74279e4dafbfc3b293",
+    "ontology/changelog.md": "7673517d029d6e718e7595958b77355dc06e12d48c67a4662d8c8bdad0a582db",
+    "ontology/formal/EmbodiedConsciousness.lean": "ec63d84ae7c8ef150ee67105e95eb9ac105bc8dbb05eda69ac58dc9d7b0b5c65",
+    "ontology/formal/PromotionContracts.lean": "7192ee8681098a260a717ffa3368a46e8bd59d923abef44edd8918d944667543",
+    "ontology/formal/Model.lean": "bf5cbf596d216b0280aa0558d6ba24bc5e695be5231bd815e6d466d2009bf85e",
+    "ontology/formal/README.md": "659356f0ef0782b507cbfa97b5d6c53ad231257a3f7c54f95f2ef469c5577a32",
+    "ontology/formal/decisions.md": "c1eb9a5fece00202545ec3940f4283a0950c8def9ebd8e67aac9267ee2960f7d",
+    "ontology/formal/lakefile.toml": "fa35d92f0d59ceb5e76edb102834fdd3627eb861baf178c78f66010a7256eecf",
+    "proposals/embodied-consciousness.md": "ce61bf38e58e6c56323866f15ddc7fca8aad87bfebbce6cbcd845d473aba094e",
+    "proposals/embodied-consciousness-claims.json": "6ba0eb0ad5b8e21eaf244847386a91b78b757b35b68857a9114ae16bc7f23db2",
+    "scripts/check-proposals.py": "3bfaf688e9128f6e1f7c0644080ed09546bcc051e92a21d070a3ea7cc37a7de9",
+    "scripts/check-promotion-review.py": "237f874d551075fb110749134a101111e791b229c71b4d9072e52135c2bdc3f7",
+    "evals/tests/test_promotion_contracts.py": "fd72567576f8e5af1deb650fdc2ae5fca674c557197c984faa224137eafc26c0"
+  },
+  "verified_contracts": [
+    "EC-D1",
+    "EC-D2",
+    "EC-D3",
+    "EC-D4",
+    "EC-D5",
+    "EC-D6",
+    "EC-C1",
+    "EC-C2",
+    "EC-C3",
+    "EC-C4",
+    "EC-C5"
+  ],
+  "findings": [
+    {
+      "id": "AR-1",
+      "severity": "critical",
+      "disposition": "resolved",
+      "resolution": "Candidate obtainment is definitionally tied to EmbodiedRecurrentStructure and locked by the EC-D6 equivalence theorem."
+    },
+    {
+      "id": "AR-2",
+      "severity": "critical",
+      "disposition": "resolved",
+      "resolution": "Free coordination, registration, affection, and representational-efficacy predicates were replaced by exact membership, endpoint, feed, and equality joins."
+    },
+    {
+      "id": "AR-3",
+      "severity": "critical",
+      "disposition": "resolved",
+      "resolution": "Each formalized anti-entailment now negates the canonical target structure at the declared shared indices; proxy false predicates were removed."
+    },
+    {
+      "id": "AR-4",
+      "severity": "critical",
+      "disposition": "resolved",
+      "resolution": "Body is a state-indexed Relation without a separate identity criterion; Entity supplies Boundary, Interior, Persistence, and identity."
+    },
+    {
+      "id": "AR-5",
+      "severity": "high",
+      "disposition": "resolved",
+      "resolution": "Both recurrent Transformation families and the perspective-selection join are indexed through the same Body, Entity, Direction, and feeding relation."
+    },
+    {
+      "id": "AR-6",
+      "severity": "high",
+      "disposition": "outside-formal-boundary",
+      "resolution": "Action and complete Control plus Attribution and Designation reverse anti-entailments are binding prose explicitly marked outside the current reduct instead of receiving proxy countermodels."
+    },
+    {
+      "id": "AR-7",
+      "severity": "medium",
+      "disposition": "resolved",
+      "resolution": "Evaluation status and human promotion disposition are recorded independently, preserving incomplete model evaluation without treating it as a release veto or pass."
+    },
+    {
+      "id": "AR-8",
+      "severity": "high",
+      "disposition": "resolved",
+      "resolution": "Schema-v2 manifests, exact Lean promotion contracts, a semantic-field ledger, and exact-source review hashes now turn the relevant review obligations into CI failures."
+    }
+  ]
+}
