@@ -13,9 +13,19 @@ Three independent questions are tested: target coverage, predicate expressivity,
 and determination of sentences across admitted interpretations of Body.
 -/
 
-universe u v
+universe u v w
 
 namespace DanielOntology.OntologyCompletenessExperiment
+
+/-! Semantic Interpretation is a scoped assignment, not a practical
+Transformation. Context and meaning carriers are mathematical projections;
+full canonical Rule and Representation realization remains gated. -/
+structure Interpretation (Expression : Type u) (SemanticTarget : Type v) (Context : Type w) where
+  context : Context
+  scope : Scope Expression
+  assignment : Expression → Denotation Expression SemanticTarget
+  namesExpression : ∀ expression, scope.includes expression →
+    (assignment expression).expression = expression
 
 structure OntologyProjection (Expression : Type u) (Target : Type v) where
   scope : Scope Target
@@ -24,10 +34,11 @@ structure OntologyProjection (Expression : Type u) (Target : Type v) where
   classifies : Expression → Target → Prop
   classificationWithinScope : ∀ expression target,
     expression ∈ expressions → classifies expression target → scope.includes target
-  denotation : Expression → Denotation Expression (Target → Prop)
+  interpretation : Interpretation Expression (Target → Prop) Unit
+  activeWithinInterpretation : ∀ expression, expression ∈ expressions →
+    interpretation.scope.includes expression
   denotationExact : ∀ expression, expression ∈ expressions →
-    (denotation expression).expression = expression ∧
-    (denotation expression).target = classifies expression
+    (interpretation.assignment expression).target = classifies expression
 
 def CoversScope {Expression : Type u} {Target : Type v}
     (ontology : OntologyProjection Expression Target) : Prop :=
@@ -59,7 +70,9 @@ def collapsed : OntologyProjection Unit Bool where
   expressionsNonempty := by simp
   classifies := fun _ _ => True
   classificationWithinScope := by simp
-  denotation := fun expression => ⟨expression, fun _ => True⟩
+  interpretation := ⟨(), ⟨fun _ => True⟩,
+    fun expression => ⟨expression, fun _ => True⟩, by simp⟩
+  activeWithinInterpretation := by simp
   denotationExact := by simp
 
 theorem coverageDoesNotEntailSeparation :
@@ -80,7 +93,9 @@ def selective : OntologyProjection Unit Bool where
   expressionsNonempty := by simp
   classifies := fun _ target => target = false
   classificationWithinScope := by simp
-  denotation := fun expression => ⟨expression, fun target => target = false⟩
+  interpretation := ⟨(), ⟨fun _ => True⟩,
+    fun expression => ⟨expression, fun target => target = false⟩, by simp⟩
+  activeWithinInterpretation := by simp
   denotationExact := by simp
 
 theorem selectiveHasAnOmittedTarget :
@@ -106,8 +121,9 @@ def finiteComplete : OntologyProjection (Bool × Bool) Bool where
   classifies := fun expression target =>
     (if target then expression.2 else expression.1) = true
   classificationWithinScope := by simp
-  denotation := fun expression =>
-    ⟨expression, fun target => (if target then expression.2 else expression.1) = true⟩
+  interpretation := ⟨(), ⟨fun _ => True⟩, fun expression =>
+    ⟨expression, fun target => (if target then expression.2 else expression.1) = true⟩, by simp⟩
+  activeWithinInterpretation := by simp
   denotationExact := by simp
 
 theorem finiteOntologyCanBePredicateComplete : PredicateComplete finiteComplete := by
@@ -179,8 +195,8 @@ theorem sameEntityBodiesDisagreeAtNamedState :
   · rfl
   · simp [NamedSensorMembership, systemBody, state]
 
-def Determines {Interpretation : Type u}
-    (holds : Interpretation → Prop) : Prop :=
+def Determines {ModelInstance : Type u}
+    (holds : ModelInstance → Prop) : Prop :=
   (∀ interpretation, holds interpretation) ∨ (∀ interpretation, ¬ holds interpretation)
 
 theorem bodyConstraintsDoNotDetermineNamedMembership :
@@ -222,16 +238,28 @@ theorem soundBodyCalculusCannotDecideMembership
 /-! Nonbinding candidate profiles. Local predicates are explicit metalinguistic
 inputs, not canonical Presence, Rule, Constraint, or CausalPath realization. -/
 
-structure Classification (Target : Type v) where
+structure Classification (Expression : Type u) (Target : Type v) where
   scope : Scope Target
-  condition : Target → Prop
-  withinScope : ∀ target, condition target → scope.includes target
+  expression : Expression
+  interpretation : Interpretation Expression (Target → Prop) Unit
+  expressionInScope : interpretation.scope.includes expression
+  withinScope : ∀ target, (interpretation.assignment expression).target target →
+    scope.includes target
+
+def Classification.condition {E : Type u} {T : Type v}
+    (classification : Classification E T) : T → Prop :=
+  (classification.interpretation.assignment classification.expression).target
 
 def classificationOf {E : Type u} {T : Type v}
-    (p : OntologyProjection E T) (e : E) (active : e ∈ p.expressions) : Classification T where
+    (p : OntologyProjection E T) (e : E) (active : e ∈ p.expressions) : Classification E T where
   scope := p.scope
-  condition := p.classifies e
-  withinScope := fun target holds => p.classificationWithinScope e target active holds
+  expression := e
+  interpretation := p.interpretation
+  expressionInScope := p.activeWithinInterpretation e active
+  withinScope := by
+    intro target holds
+    rw [p.denotationExact e active] at holds
+    exact p.classificationWithinScope e target active holds
 
 structure OntologicalFramework (Expression : Type u) (Target : Type v) where
   projection : OntologyProjection Expression Target
@@ -252,7 +280,7 @@ theorem finiteFrameworkHasClassificationAndRewrite :
     (classificationOf finiteFramework.projection (true, true) (by
       simp [finiteFramework, finiteComplete])).condition false ∧
     AdmissibleRewrite finiteFramework (true, true) (true, true) := by
-  simp [classificationOf, finiteFramework, finiteComplete, AdmissibleRewrite]
+  simp [Classification.condition, classificationOf, finiteFramework, finiteComplete, AdmissibleRewrite]
 
 /-- Granularity is classification-response equivalence, compared within scope. -/
 def Granularity {E : Type u} {T : Type v}
@@ -303,7 +331,9 @@ def singletonCategories : OntologyProjection Bool Bool where
   expressionsNonempty := by simp
   classifies := fun expression target => expression = target
   classificationWithinScope := by simp
-  denotation := fun expression => ⟨expression, fun target => expression = target⟩
+  interpretation := ⟨(), ⟨fun _ => True⟩,
+    fun expression => ⟨expression, fun target => expression = target⟩, by simp⟩
+  activeWithinInterpretation := by simp
   denotationExact := by simp
 
 theorem separationDoesNotEntailPredicateExpressivity :
@@ -477,6 +507,168 @@ theorem scarcityMapCanMisrepresentFeasibility :
   ⟨jointlyScarceDespiteIndividualAccess.1, sameDemandsNeedNotBeScarce⟩
 
 
+/-! Practical Understanding is a witnessed orientation Transformation over an
+Entity's history. Input-kind tags and candidate possibilities are projections,
+not complete canonical Perception/Memory/Model and Action realization. -/
+inductive UnderstandingInput where
+  | perception | memory | model
+  deriving DecidableEq
+
+structure Understanding {Carrier : Type u} (Candidate : Type v)
+    (entity : Entity Carrier) (possibilities : Scope Candidate) where
+  inputKind : UnderstandingInput
+  orientation : Transformation entity.persistenceDirection
+  inputInHistory : orientation.input ∈ entity.persistence.states
+  outputInHistory : orientation.output ∈ entity.persistence.states
+  left : Candidate
+  right : Candidate
+  leftPossible : possibilities.includes left
+  rightPossible : possibilities.includes right
+  candidatesDiffer : left ≠ right
+  differentiate : State Carrier → Candidate → Bool
+  outputDistinguishes : differentiate orientation.output left ≠
+    differentiate orientation.output right
+  orientationChangesPossibility : differentiate orientation.input left ≠
+    differentiate orientation.output left
+
+/-- Assignment use, scoped to expressions; no Entity or Action premise. -/
+def Interprets {E : Type u} {T : Type v} {C : Type w}
+    (semantics : Interpretation E T C) (expression : E) (target : T) : Prop :=
+  semantics.scope.includes expression ∧ (semantics.assignment expression).target = target
+
+def orientationDirection : Direction (Nat × Bool) where
+  before := fun a b => a.value.1 < b.value.1
+  asymmetric := by intro a b before reverse; exact Nat.lt_asymm before reverse
+
+def orientationInvariant : Invariant (Nat × Bool) := ⟨fun _ => True⟩
+
+def orientationBoundary : Boundary (Nat × Bool) orientationInvariant where
+  constraints := []
+  preserves := by simp [orientationInvariant]
+
+def orientationEntity : Entity (Nat × Bool) where
+  identity := orientationInvariant
+  boundary := orientationBoundary
+  persistenceDirection := orientationDirection
+  persistence := {
+    states := [⟨(0, false)⟩, ⟨(1, true)⟩, ⟨(2, false)⟩]
+    hasTransition := ⟨⟨(0, false)⟩, ⟨(1, true)⟩, [⟨(2, false)⟩], rfl⟩
+    invariant := orientationInvariant
+    invariantHolds := by simp [orientationInvariant]
+    ordered := by simp [OrderedBy, orientationDirection] }
+  persistenceNamesIdentity := rfl
+  current := ⟨(2, false)⟩
+  currentInPersistence := by simp
+  identityHolds := trivial
+
+def allPossibilities : Scope Bool := ⟨fun _ => True⟩
+def noPossibilities : Scope Bool := ⟨fun _ => False⟩
+
+def firstUnderstanding : Understanding Bool orientationEntity allPossibilities where
+  inputKind := .memory
+  orientation := ⟨⟨(0, false)⟩, ⟨(1, true)⟩, by change (0 : Nat) < 1; decide⟩
+  inputInHistory := by simp [orientationEntity]
+  outputInHistory := by simp [orientationEntity]
+  left := false
+  right := true
+  leftPossible := trivial
+  rightPossible := trivial
+  candidatesDiffer := by decide
+  differentiate := fun state option => if state.value.2 then option else !option
+  outputDistinguishes := by decide
+  orientationChangesPossibility := by decide
+
+def secondUnderstanding : Understanding Bool orientationEntity allPossibilities where
+  inputKind := .perception
+  orientation := ⟨⟨(1, true)⟩, ⟨(2, false)⟩, by change (1 : Nat) < 2; decide⟩
+  inputInHistory := by simp [orientationEntity]
+  outputInHistory := by simp [orientationEntity]
+  left := false
+  right := true
+  leftPossible := trivial
+  rightPossible := trivial
+  candidatesDiffer := by decide
+  differentiate := fun state option => if state.value.2 then option else !option
+  outputDistinguishes := by decide
+  orientationChangesPossibility := by decide
+
+def alternateInterpretation : Interpretation Bool (Bool → Prop) Unit where
+  context := ()
+  scope := ⟨fun _ => True⟩
+  assignment := fun expression => ⟨expression, fun target => expression ≠ target⟩
+  namesExpression := by simp
+
+def noActiveInterpretation : Interpretation Bool (Bool → Prop) Unit where
+  context := ()
+  scope := ⟨fun _ => False⟩
+  assignment := fun expression => ⟨expression, fun _ => False⟩
+  namesExpression := by simp
+
+theorem semanticAssignmentDoesNotSupplyPracticalUnderstanding :
+    singletonCategories.interpretation.scope.includes false ∧
+    ¬ Nonempty (Understanding Bool orientationEntity noPossibilities) := by
+  refine ⟨trivial, ?_⟩
+  rintro ⟨orientation⟩
+  exact orientation.leftPossible
+
+theorem practicalUnderstandingNeedsNoActiveSemanticAssignment :
+    Nonempty (Understanding Bool orientationEntity allPossibilities) ∧
+    ∀ expression target, ¬ Interprets noActiveInterpretation expression target := by
+  refine ⟨⟨firstUnderstanding⟩, ?_⟩
+  intro expression target assignment
+  exact assignment.1
+
+structure SituatedOrientation where
+  semantics : Interpretation Bool (Bool → Prop) Unit
+  understanding : Understanding Bool orientationEntity allPossibilities
+
+def firstSituatedOrientation : SituatedOrientation :=
+  ⟨singletonCategories.interpretation, firstUnderstanding⟩
+def reorientedSituation : SituatedOrientation :=
+  ⟨singletonCategories.interpretation, secondUnderstanding⟩
+def reinterpretedSituation : SituatedOrientation :=
+  ⟨alternateInterpretation, firstUnderstanding⟩
+
+theorem sameSemanticAssignmentAllowsDifferentOrientations :
+    firstSituatedOrientation.semantics = reorientedSituation.semantics ∧
+    firstSituatedOrientation.understanding.differentiate
+      firstSituatedOrientation.understanding.orientation.output false ≠
+    reorientedSituation.understanding.differentiate
+      reorientedSituation.understanding.orientation.output false := by
+  constructor
+  · rfl
+  · decide
+
+theorem sameOrientationAllowsDifferentSemanticAssignments :
+    firstSituatedOrientation.understanding.orientation =
+      reinterpretedSituation.understanding.orientation ∧
+    (firstSituatedOrientation.semantics.assignment false).target false ∧
+    ¬ (reinterpretedSituation.semantics.assignment false).target false := by
+  refine ⟨rfl, rfl, ?_⟩
+  simp [reinterpretedSituation, alternateInterpretation]
+
+/-- An explicitly empty execution path has no completed endpoint witness.
+This does not assert that no Action occurs anywhere outside this trace. -/
+def emptyExecutionTrace : CausalPath orientationDirection (⟨fun _ _ => True⟩) where
+  steps := []
+  connected := trivial
+
+theorem understandingDoesNotRequireCompletedExecutionTrace :
+    Nonempty (Understanding Bool orientationEntity allPossibilities) ∧
+    ¬ Nonempty (PathEndpoints emptyExecutionTrace) := by
+  refine ⟨⟨firstUnderstanding⟩, ?_⟩
+  rintro ⟨endpoints⟩
+  obtain ⟨rest, starts⟩ := endpoints.startsWith
+  have impossible : ([] : List (Transformation orientationDirection)) = endpoints.first :: rest := starts
+  cases impossible
+
+theorem classificationConditionIsItsInterpretedTarget {E : Type u} {T : Type v}
+    (p : OntologyProjection E T) (e : E) (active : e ∈ p.expressions) :
+    (classificationOf p e active).condition = (p.interpretation.assignment e).target ∧
+    (classificationOf p e active).condition = p.classifies e := by
+  exact ⟨rfl, p.denotationExact e active⟩
+
+
 #print axioms coverageDoesNotEntailSeparation
 #print axioms selectiveHasAnOmittedTarget
 #print axioms finiteOntologyCanBePredicateComplete
@@ -501,5 +693,11 @@ theorem scarcityMapCanMisrepresentFeasibility :
 #print axioms ruleAloneDoesNotAdmitRewrite
 #print axioms finerDoesNotMeanEquivalent
 #print axioms scarcityMapCanMisrepresentFeasibility
+#print axioms semanticAssignmentDoesNotSupplyPracticalUnderstanding
+#print axioms practicalUnderstandingNeedsNoActiveSemanticAssignment
+#print axioms sameSemanticAssignmentAllowsDifferentOrientations
+#print axioms sameOrientationAllowsDifferentSemanticAssignments
+#print axioms understandingDoesNotRequireCompletedExecutionTrace
+#print axioms classificationConditionIsItsInterpretedTarget
 
 end DanielOntology.OntologyCompletenessExperiment

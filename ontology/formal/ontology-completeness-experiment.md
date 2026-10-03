@@ -12,7 +12,7 @@ This experiment asks whether Organon can describe an ontology using its own voca
 
 The experiment is on `experiment/ontology-completeness`, rebased onto main after [PR 16](https://github.com/sadasant/organon/pull/16) merged. The base above identifies that merge. Its files are separate from the Body implementation and its exact-source promotion review.
 
-The [eight-term proposal](../../proposals/ontological-frameworks.md) contains the English definitions, termhood reductions, dependencies, and open gates. Daniel requested this combined review of his developing framework, probability, scarcity, and source-loss proposals. It remains nonbinding; merging this experiment does not update the adopted registry.
+The [proposal and Interpretation/Understanding split](../../proposals/ontological-frameworks.md) contains the English definitions, termhood reductions, dependencies, and open gates. Daniel requested this combined review of his developing framework, probability, scarcity, and source-loss proposals. It remains nonbinding; merging this experiment does not update the adopted registry.
 
 ## Candidate definition using Organon
 
@@ -86,3 +86,13 @@ Additional checked results include a finite framework/classification/rewrite wit
 Run `python3 scripts/check-ontology-frameworks.py` from the repository root. It builds the existing shadow, compiles the standalone module, audits every theorem, and rejects placeholders, new axiom/opaque declarations, warnings, or dependencies outside Lean's standard `propext`, `Classical.choice`, and `Quot.sound`. The dedicated workflow runs this checker without altering the Body promotion's pinned Lake file or workflow.
 
 This is a schema-v1 nonbinding dossier with explicit declaration mappings and a theorem/evidence ledger. It does not claim schema-v2 promotion-contract verification or promotion readiness. Full canonical joins, formal contract ledgers, and exact-source adversarial review remain gates before any binding promotion.
+
+## Semantic Interpretation and practical Understanding
+
+Daniel requested separating contextual semantic assignment from the practical Transformation previously named Interpretation in v0.19. The proposal now gives both definitions and an exact downstream migration ledger. The adopted v0.19 registry remains unchanged during nonbinding review.
+
+`OntologyProjection` now contains an explicit scoped `Interpretation`; every active expression belongs to that assignment's Scope, and the assigned target equals its classifier. `Classification` names an expression and that same Interpretation, deriving its condition from the assigned target. `classificationConditionIsItsInterpretedTarget` proves the exact join.
+
+The `Understanding` projection carries one Entity's ordered orientation Transformation and changed differentiation among declared candidate possibilities. Six new theorems test the semantic/practical distinction and its execution boundary, bringing the audited total to 30. Model-theoretic Body interpretations retain their semantic sense. Cognitive input tags and candidate Action possibilities are explicitly partial projections, not full canonical realization.
+
+The primary-text check supports a two-lineage synthesis: Tarski's semantics/satisfaction and Heidegger's projection onto possibilities. Heidegger's own Auslegung develops Understanding and is not the semantic assignment adopted here. The dossier links the checked passages and preserves that limit.
