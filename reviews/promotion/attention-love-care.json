@@ -2,30 +2,30 @@
   "schema_version": 1,
   "proposal_id": "attention-love-care",
   "status": "promotion-ready",
-  "reviewed_commit": "7207011ebdd2f9ec6a3b285906ba3ecf59ae1ced",
-  "reviewed_tree": "c81ca5c3797cfd4c9edbcc88576c8c5f8f6591b1",
+  "reviewed_commit": "52bb3bf8e7051bbb705e9f1df94e5b9481b39b54",
+  "reviewed_tree": "14f73c6d83e27d7cd32b4ad638aced7e9bc46c55",
   "reviewed_at": "2026-10-03",
-  "review_scope": "Adversarial review of target/outcome separation, finite Attention measurement, exact causal organization, partial versus absolute scope, target Denotation, Care history, Respect constraints, canonical dependency projections, countermodels, and formal boundaries. PR #18 takeover: local adversarial audit of duplicate counting, enumeration order, snapshot causality, identity versus current State, exact-action protection, and governed selection; unchanged embodiment contracts revalidated.",
+  "review_scope": "Adversarial review of target/outcome separation, finite Attention measurement, exact causal organization, partial versus absolute scope, target Denotation, Care history, Respect constraints, canonical dependency projections, countermodels, and formal boundaries. PR #18 takeover: local adversarial audit of duplicate counting, enumeration order, snapshot causality, identity versus current State, exact-action protection, and governed selection; unchanged embodiment contracts revalidated. Reviewer response: scoped channel inventory and exact Specification coverage; current-insensitive participant classification; shared-criterion witnesses; Intention tag removal; explicit entrainment decision.",
   "source_sha256": {
-    "ontology/ontology.md": "28f96ab5ee7b48fd5d87cac3153c967ccab47c7f81c61b886479d6a90576d390",
-    "ontology/terms.yaml": "7c74cf829e9ebdb03268edcd8b952876eb5c6904028b373314846b53b2c9e97f",
-    "ontology/changelog.md": "c741bd40eee18cf7d5a0936d3f4e4a7dcb7d061fd1521ab393c592df3584ac57",
-    "ontology/formal/AttentionLoveCare.lean": "4051282ae0a6c0b54b8a655bd903325147e2f1c518d0189eb559a43fc379c726",
-    "ontology/formal/AttentionLoveCareContracts.lean": "f30857dd58a15297cd262310ac584a14f00927d25a27412497609bf7978e7e41",
+    "ontology/ontology.md": "9d6a5f90429c9b53a2e0b0cff1e1128783d373bf8a8689116e5f91523ce49b66",
+    "ontology/terms.yaml": "c2b7bd9cad8f62ed84b18cb1e029645279644e8522cfd3a77ffed99a0e01d3cf",
+    "ontology/changelog.md": "0a7af92843d7274bdf961fe5fd7a49bd06a1647268285fc231de7fb049c1f3e3",
+    "ontology/formal/AttentionLoveCare.lean": "e1eb0ee0e431fded3793d8670953578d8f166842ae88440d95a3b35e57c41462",
+    "ontology/formal/AttentionLoveCareContracts.lean": "42462f71153fa703379df72d7fb39b1caaf8da4084ec2babf3eb67322b86fae8",
     "ontology/formal/EmbodiedConsciousness.lean": "8f0367384b57f56f0e9e4496acfac781c180b6c126c89d26ef94cf740f83eae5",
     "ontology/formal/Model.lean": "6195c4e7d3aab7de036abc9b0ee6c63d39c1d83f74b5a40142bf5014e249d568",
-    "ontology/formal/README.md": "720b58df0ab285cae612175d0e39418aeed1393d9351c738d4d4bad045c5527d",
-    "ontology/formal/decisions.md": "959f86b19d7831e53dfde3374abe6a42235aa3458e89228f5dd9106de84a215b",
+    "ontology/formal/README.md": "9e2695313f5bb8e795167ebd4ceea30ddbfb34c2026afaf96564a01b44026625",
+    "ontology/formal/decisions.md": "e8e40eecc70413e609933265a9f0e821c0fa56ae1f0bdefc0745b57d9be7b6c8",
     "ontology/formal/lakefile.toml": "274d02a064289c4c3d014643b9ca25cd1bf7ed344ae96a79cf5375d48a7837a9",
-    "proposals/attention-love-care.md": "bb89de8ef9af498db08a430177a6e1b2a9072002c5cfbd8f5a7fe0dedecd3944",
-    "proposals/attention-love-care-claims.json": "b2591b61cb034cad8fd174edb0809a22b83eac882c4d620140279f50dc2f071d",
-    "releases/v0-20-0.md": "0cac8d0bb587429e1ccf1e241ec4c154c15437e11379e0c4d747192d07512a03",
+    "proposals/attention-love-care.md": "1034fa4022563b17ad984e83d2710158e2d4903cf30036084d41192fa5f7a10f",
+    "proposals/attention-love-care-claims.json": "1382f5545d5f28b65865c633c1aae5777d537f3ee181488b264454b5c22049ce",
+    "releases/v0-20-0.md": "4dbb6470cd0fdb2d399222d8610d889a730aff2cc4301beb8580d724a4e827fd",
     "scripts/check-proposals.py": "87f26905ba0450b92a9f38c6ee63a144e5973fd424a971622b42f6a9eb03fb24",
     "scripts/check-promotion-review.py": "511241352a32b1f4b25a6c1b1a66bc088ec4afc71e0f3426c2c6d5074725a3aa",
     "evals/tests/test_promotion_contracts.py": "d6d92e48c527ba3bceaab490ece4f9c74e3a1d9ff11d1807da0d612ef12d0562",
     "scripts/check-organon-core-audit.py": "1b872e2a862c79f0db3b997ed07c6238c709ea20cee19998695e1c83454af2a9",
     "ontology/formal/organon-core-term-audit.md": "3d035fa9a06aca7a573735c485609193de8526e6529f07d8e0656960625f0426",
-    "evals/tests/test_algebra.py": "1d3cf646ab460aed3a776530a84963e399ecfd3c94a3b5a1ed923485f186c9e4"
+    "evals/tests/test_algebra.py": "5cd78cf1d2d430d497f41027324538da3312cb4d72f4a908242b37c74af3a51d"
   },
   "verified_contracts": [
     "AC-D1",
@@ -118,7 +118,7 @@
       "id": "ALC-AR-13",
       "severity": "high",
       "disposition": "resolved",
-      "resolution": "The other Entity differed only in current State. Love, Care, and Respect now carry distinct identity Invariants in this finite reduct, while a regression witness demonstrates different current States with one identity."
+      "resolution": "Removed constitutive inequality of identity Invariants. Local participant classification ignores current-State updates; numerical Entity inequality is retained. Shared-criterion finite witnesses inhabit Love, Care, and Respect, while canonical individuation parity remains explicitly gated."
     },
     {
       "id": "ALC-AR-14",
@@ -142,7 +142,31 @@
       "id": "ALC-AR-17",
       "severity": "medium",
       "disposition": "outside-formal-boundary",
-      "resolution": "The dossier explicitly bounds local kind/result channel individuation, distinct-Invariant other-Entity sufficiency, sampled rather than uninterrupted attention, and canonical Agency/Action parity. The merged Interpretation/Understanding proposal remains nonbinding and is not silently migrated."
+      "resolution": "The relative denominator is now closed by exact Specification coverage over independent inventory channel identities. Universal channel exhaustiveness, canonical channel/Agency parity, sampled attention continuity, and canonical numerical Entity individuation remain explicit gates. The merged Interpretation/Understanding proposal remains nonbinding."
+    },
+    {
+      "id": "ALC-AR-18",
+      "severity": "high",
+      "disposition": "resolved",
+      "resolution": "Removed all three unequal-Invariant requirements; EntityIndividuation.participant is explicitly local and snapshot-stable. The same-criterion positive witnesses inhabit all three relations, and the current-State update leaves participant classification unchanged."
+    },
+    {
+      "id": "ALC-AR-19",
+      "severity": "critical",
+      "disposition": "resolved",
+      "resolution": "ChannelInventory declares channel identities independently of kind/result and supplies a constructive availability Specification for each Body State. Available lists have exact coverage and no duplicates; sustained snapshots share the inventory. Omitted conforming Action is rejected, same-kind/result sensors remain two channels, and a changed result leaves the inventory and denominator unchanged."
+    },
+    {
+      "id": "ALC-AR-20",
+      "severity": "medium",
+      "disposition": "resolved",
+      "resolution": "Removed the inert ActivityGuidance enum and narrowed the Intention definition to witnessed causal guidance of an activity. Select/continue/inhibit/revise semantics are no longer claimed by an unproved tag."
+    },
+    {
+      "id": "ALC-AR-21",
+      "severity": "medium",
+      "disposition": "resolved",
+      "resolution": "The dossier explicitly chooses entrainment rather than universal paralysis: absolute coverage excludes independent available Action but permits focus-organized Action. An inhabited action-channel proof preserves that choice within the declared availability context."
     }
   ],
   "reviewer": "Codex local source audit; not an independent external review"

@@ -4,7 +4,7 @@ status: verified
 canonicality: noncanonical
 created: 2026-08-02
 updated: 2026-10-03
-repository_commit: "7207011ebdd2f9ec6a3b285906ba3ecf59ae1ced"
+repository_commit: "52bb3bf8e7051bbb705e9f1df94e5b9481b39b54"
 ---
 # Lean Spike Build Receipt
 
@@ -50,9 +50,11 @@ Proposal-local evidence, sovereignty, own-Principal, observed-choice, exchange, 
 
 `PromotionContracts.lean` and `AttentionLoveCareContracts.lean` restate every formally proved promoted proposal claim as a marked theorem contract. The schema-v2 claim manifest gives every declared dependency an exact disposition, derives checked symbols from that complete ledger and the subject symbols, requires shared indices inside each exact contract block, inventories every direct proposition-valued semantic field, and distinguishes fully proved contracts from theorem projections with formal boundaries. A separately committed exact-source adversarial review pins the implementation commit, tree, governed source hashes, verified contract set, and resolution of each reported finding.
 
-The repository commit attested by this receipt is `7207011ebdd2f9ec6a3b285906ba3ecf59ae1ced`.
+The repository commit attested by this receipt is `52bb3bf8e7051bbb705e9f1df94e5b9481b39b54`.
 
 The PR #18 takeover adds proof-checked counting bounds, positive denominator, organized uniqueness, no future organized result, order-independent absolute coverage, and same-identity/different-current-State separation. Respect's three protection branches are inhabited; its exact Action output retains identity, and an identity-destroying Action cannot obtain a protection witness even when the actor's own Constraint admits it. The new theorem axiom audit uses only standard `propext`, `Classical.choice`, and `Quot.sound`, or no axioms. The separately checked framework experiment retains all 30 theorems without placeholders or nonstandard axiom dependencies.
+
+The subsequent reviewer response closes Attention's relative denominator through an explicit inventory of channel identities and constructive state-indexed Specification with exact finite coverage. Kind/result equality does not collapse channels, changing a result does not alter the denominator, and an omitted conforming Action cannot satisfy coverage. Unequal identity Invariants are no longer constitutive: snapshot-stable local participant classification supports Love, Care, and Respect with the same identity criterion. Its canonical individuation parity remains gated. The inert Intention mode tag is removed, and Absolute Attention's scoped entrainment choice is explicit. These regression theorems compile with only standard Lean axiom dependencies.
 
 ## Source digests
 
@@ -70,8 +72,8 @@ The PR #18 takeover adds proof-checked counting bounds, positive denominator, or
 - `TruthTrustAlignment.lean`: `bdaa0217e7434c9bc1d7cd3a6a2d489c684fbf38ffeb98a87388864d1cd5a733`
 - `IntelligenceKnowledge.lean`: `bc0ad1caa81adb25316f79aecd5011e32cf94cc73e1e046f7e13bcd10779aee8`
 - `QuarantineProfiles.lean`: `245c94b5c1a8096e9fdea457b1cafba3ddf4f7ab9d98b214aaee8be5eebdbce4`
-- `AttentionLoveCare.lean`: `4051282ae0a6c0b54b8a655bd903325147e2f1c518d0189eb559a43fc379c726`
-- `AttentionLoveCareContracts.lean`: `f30857dd58a15297cd262310ac584a14f00927d25a27412497609bf7978e7e41`
+- `AttentionLoveCare.lean`: `e1eb0ee0e431fded3793d8670953578d8f166842ae88440d95a3b35e57c41462`
+- `AttentionLoveCareContracts.lean`: `42462f71153fa703379df72d7fb39b1caaf8da4084ec2babf3eb67322b86fae8`
 - `Model.lean`: `6195c4e7d3aab7de036abc9b0ee6c63d39c1d83f74b5a40142bf5014e249d568`
 - `lakefile.toml`: `274d02a064289c4c3d014643b9ca25cd1bf7ed344ae96a79cf5375d48a7837a9`
 - `lean-toolchain`: `54727eec5cba149c18842e6deb5c41b369d66455c93ce135d7d5347c782b2325`

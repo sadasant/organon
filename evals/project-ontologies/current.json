@@ -8,6 +8,6 @@
   "evaluation_status": "incomplete",
   "promotion_status": "adopted",
   "ontology_version": "0.20.0",
-  "ontology_sha256": "28f96ab5ee7b48fd5d87cac3153c967ccab47c7f81c61b886479d6a90576d390",
+  "ontology_sha256": "9d6a5f90429c9b53a2e0b0cff1e1128783d373bf8a8689116e5f91523ce49b66",
   "promotion_basis": "human-maintainer-disposition"
 }

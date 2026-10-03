@@ -9,14 +9,14 @@
       "human-promotion"
     ],
     "generated_at": "2026-10-03",
-    "organon_commit": "7207011ebdd2f9ec6a3b285906ba3ecf59ae1ced",
+    "organon_commit": "52bb3bf8e7051bbb705e9f1df94e5b9481b39b54",
     "committed_inputs_sha256": {
-      "ontology/ontology.md": "28f96ab5ee7b48fd5d87cac3153c967ccab47c7f81c61b886479d6a90576d390"
+      "ontology/ontology.md": "9d6a5f90429c9b53a2e0b0cff1e1128783d373bf8a8689116e5f91523ce49b66"
     },
-    "ontology_sha256": "28f96ab5ee7b48fd5d87cac3153c967ccab47c7f81c61b886479d6a90576d390",
+    "ontology_sha256": "9d6a5f90429c9b53a2e0b0cff1e1128783d373bf8a8689116e5f91523ce49b66",
     "complete": true,
     "passed": false,
-    "incomplete_reason": "The v0.20 deterministic snapshot includes the PR #18 takeover repairs; the model-judged suite was not rerun. This is not a model-quality pass.",
+    "incomplete_reason": "The v0.20 deterministic snapshot includes scoped availability and participant-individuation review repairs; model-judged evaluation was not rerun. This is not a model-quality pass.",
     "human_disposition": "adopted"
   },
   "improvement_plans": []
