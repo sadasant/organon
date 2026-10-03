@@ -125,7 +125,9 @@ def check_review(manifest_path: Path) -> list[str]:
     proved_contracts = {
         statement["id"]
         for statement in manifest.get("statements", [])
-        if statement.get("formal_contract", {}).get("status") == "proved"
+        if statement.get("formal_contract", {}).get("status") in {
+            "proved", "proved_with_boundaries"
+        }
     }
     recorded_contracts = set(review.get("verified_contracts", []))
     if recorded_contracts != proved_contracts:

@@ -2,7 +2,7 @@
 type: formalization-decisions
 status: noncanonical
 created: 2026-08-02
-updated: 2026-09-25
+updated: 2026-10-02
 prose_ontology: "../ontology.md"
 ---
 # Formalization Decisions
@@ -11,7 +11,7 @@ These decisions belong to the Lean spike. They expose choices priced by formaliz
 
 ## Embodiment uses typed witnesses without promoting consciousness
 
-`EmbodiedConsciousness.lean` encodes Body as a relation between one Entity and constituent parts at the ordered States in that Entity's Persistence history. The Entity supplies the only identity Invariant. Bodily Organization proves that every Organ's part occurs in the Body and replaces free coordination with an exact feed from one Organ's contribution to another Organ's later recurring Transformation. Embodied Perspective gives the condition and every available Transformation exact Denotations, then identifies the Perception and Memory representational Differences with the upstream Differences of their Causal Contributions. Recurrent Integration uses distinct nonempty Transformation families and exact membership for both comparison-path starts and both downstream Changes. Internal Activity Selection identifies its representational Difference with the selecting contribution's upstream Difference.
+`EmbodiedConsciousness.lean` encodes Body as a relation between one Entity and constituent parts over an ordered nonempty subsequence of that Entity's Persistence history. The Entity supplies the only identity Invariant, and separate Body relations may cover different intervals. Bodily Organization proves that every Organ's part occurs in the Body, requires recurring Transformations to be pairwise distinct for all distinct named Organs, and replaces free coordination with an exact feed from one Organ's contribution to another Organ's later recurring Transformation. Embodied Perspective contains explicit `PerspectivePerception`, `PerspectiveMemory`, and `PerspectiveModel` projections: the perceptual State is internal and joined to the condition Difference; the Memory record-State has its own Persistence witness and is joined to the memory Difference; and the Model inventories its Representations, Transformations, later contribution States, and Boundary Constraints. Recurrent Integration uses distinct nonempty Transformation families and exact membership for both comparison-path starts and both downstream Changes. Internal Activity Selection identifies its representational Difference with the selecting contribution's upstream Difference.
 
 `EmbodiedRecurrentAt` is `Nonempty EmbodiedRecurrentStructure`: it has no independent obtainment oracle. Its structure shares one Body, Entity, Direction, feeding Relation, Scope, and Interior Specification; both recurrent families are proved to belong to the Body; and the perspective Representation and Causal Contribution equal the selection's Representation and contribution. `candidateHoldsIffEmbodiedRecurrentAt` proves exact equivalence with the reused `CandidateCondition` protocol.
 
@@ -19,10 +19,17 @@ Five finite cases test the formal boundary: constituent replacement under one Bo
 
 `PromotionContracts.lean` is a deliberately redundant interface over this
 formalization. Each schema-v2 statement marked as proved names one theorem whose
-type repeats the advertised joins or the exact countermodel. Required symbols
-and shared indices are checked against the marked theorem block before Lean
-elaborates the module. This prevents a compiled declaration with the right name
-but the wrong conclusion from satisfying the proposal manifest. Direct
+type repeats the advertised joins or the exact countermodel. Every declared
+dependency receives a formalized, represented, prose-only, or outside-boundary
+disposition. The checker derives its symbols from that complete ledger and the
+subject symbols; schema v2 forbids an independent `required_symbols` whitelist.
+Contracts with any prose-only or outside-boundary dependency are explicitly
+`proved_with_boundaries`; only contracts whose dependencies are all formalized
+or represented may use `proved`.
+Those symbols and shared indices are checked against the marked theorem block
+before Lean elaborates the module. This prevents a compiled declaration with
+the right name, or a manifest that silently omits a canonical dependency, from
+satisfying the proposal contract. Direct
 structure fields returning `Prop` are separately inventoried; `Body.partAt`
 remains proposal-local and is tied to the constituent-identity gate rather than
 treated as canonical mereology.

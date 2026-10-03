@@ -45,6 +45,68 @@ def test_semantic_field_scanner_detects_multiline_prop_relations() -> None:
     assert PROPOSALS.direct_prop_fields(source) == {"Example.hiddenBridge"}
 
 
+def test_proved_contract_rejects_an_unaccounted_dependency() -> None:
+    errors = PROPOSALS.check_dependency_dispositions(
+        "EX-D1",
+        ["organon:Model", "organon:Memory"],
+        {
+            "subject_symbols": ["Example"],
+            "dependency_dispositions": {
+                "organon:Model": {
+                    "status": "formalized",
+                    "symbols": ["model"],
+                }
+            },
+        },
+        "theorem Example (model : Nat) : True := by trivial",
+        "proved",
+    )
+    assert any("missing ['organon:Memory']" in error for error in errors)
+
+
+def test_proved_contract_derives_symbols_from_dependency_dispositions() -> None:
+    errors = PROPOSALS.check_dependency_dispositions(
+        "EX-D2",
+        ["organon:Perception"],
+        {
+            "subject_symbols": ["Example"],
+            "dependency_dispositions": {
+                "organon:Perception": {
+                    "status": "represented_by",
+                    "symbols": ["perception"],
+                    "reason": "The local projection names the exact joined object.",
+                }
+            },
+        },
+        "theorem Example : True := by trivial",
+        "proved",
+    )
+    assert errors == [
+        "EX-D2: contract block lacks disposition-derived symbol perception"
+    ]
+
+
+def test_unformalized_dependency_forces_boundary_qualified_status() -> None:
+    contract = {
+        "subject_symbols": ["Example"],
+        "dependency_dispositions": {
+            "organon:Action": {
+                "status": "outside_formal_boundary",
+                "reason": "The reduct has no canonical Action negation for this claim.",
+            }
+        },
+    }
+    block = "theorem Example : True := by trivial"
+    errors = PROPOSALS.check_dependency_dispositions(
+        "EX-D3", ["organon:Action"], contract, block, "proved"
+    )
+    assert any("use proved_with_boundaries" in error for error in errors)
+    assert PROPOSALS.check_dependency_dispositions(
+        "EX-D3", ["organon:Action"], contract, block,
+        "proved_with_boundaries",
+    ) == []
+
+
 def test_promoted_schema_v2_manifest_has_exact_source_review() -> None:
     manifest = ROOT / "proposals" / "embodied-consciousness-claims.json"
     assert REVIEWS.check_review(manifest) == []

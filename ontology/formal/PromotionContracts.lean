@@ -20,10 +20,16 @@ open EmbodiedConsciousnessProposal
 theorem bodyContract
     {Part : Type u} {Feature : Type v} {Context : Type w}
     {entity : Entity (Feature × Context)} (body : Body Part entity) :
-    body.states = entity.persistence.states ∧
+    body.states ≠ [] ∧
+    (∀ state, state ∈ body.states → state ∈ entity.persistence.states) ∧
+    OrderedBy entity.persistenceDirection.before body.states ∧
     (∀ state, state ∈ body.states → ∃ part, body.partAt state part) ∧
+    (∀ state, body.interior.scope.includes state →
+      ¬ body.environment.includes state) ∧
+    body.identityPath.steps ≠ [] ∧
     (∀ transformation,
       transformation ∈ body.recurringTransformations →
+        transformation ∈ body.identityPath.steps ∧
         body.interior.conforms transformation.input ∧
         body.interior.conforms transformation.output ∧
         (∀ constraint,
@@ -31,9 +37,12 @@ theorem bodyContract
             constraint.permits transformation) ∧
         entity.identity.holds transformation.input ∧
         entity.identity.holds transformation.output) := by
-  refine ⟨body.statesArePersistence, body.eachStateHasConstituent, ?_⟩
+  refine ⟨body.statesNonempty, body.statesWithinPersistence, body.statesOrdered,
+    body.eachStateHasConstituent, body.interiorEnvironmentDisjoint,
+    body.identityPathNonempty, ?_⟩
   intro transformation member
-  exact ⟨(body.recurringWithinInterior transformation member).1,
+  exact ⟨body.recurringOccursInPath transformation member,
+    (body.recurringWithinInterior transformation member).1,
     (body.recurringWithinInterior transformation member).2,
     body.recurringAdmittedByBoundary transformation member,
     (body.recurringPreservesIdentity transformation member).1,
@@ -50,10 +59,19 @@ theorem bodilyOrganizationContract
     (∀ organ, organ ∈ organization.organs →
       entity.identity.holds
         (organization.sustainingContribution organ).downstreamChange.transformation.output) ∧
+    (∀ organ, organ ∈ organization.organs →
+      organization.recurring organ ∈ body.recurringTransformations) ∧
+    (∀ first, first ∈ organization.organs →
+      ∀ second, second ∈ organization.organs → first ≠ second →
+        organization.recurring first ≠ organization.recurring second) ∧
+    (∀ organ, organ ∈ organization.organs →
+      organization.recurring organ ∈
+          (organization.sustainingContribution organ).leftPath.steps ∨
+      organization.recurring organ ∈
+          (organization.sustainingContribution organ).rightPath.steps) ∧
     ∃ first second,
       first ∈ organization.organs ∧ second ∈ organization.organs ∧
       first ≠ second ∧
-      organization.recurring first ≠ organization.recurring second ∧
       body.feeding.feeds
         (organization.sustainingContribution first).downstreamChange.transformation.output
         (organization.recurring second).input ∧
@@ -61,6 +79,9 @@ theorem bodilyOrganizationContract
         (organization.sustainingContribution first).downstreamChange.transformation.output
         (organization.recurring second).output := by
   exact ⟨organization.organPresent, organization.contributionSustainsIdentity,
+    organization.recurringInBody,
+    organization.recurringPairwiseDistinct,
+    organization.recurringOccursInContribution,
     organization.coordinationWitness⟩
 
 /-- organon:promotion-contract EC-D3 -/
@@ -71,6 +92,41 @@ theorem embodiedPerspectiveContract
     perspective.conditionDenotation.expression =
         perspective.conditionRepresentation ∧
     perspective.conditionDenotation.target = perspective.representedCondition ∧
+    body.interior.scope.includes perspective.representedCondition ∧
+    perspective.perception.state =
+      perspective.perception.contribution.rightEndpoints.first.input ∧
+    body.interior.conforms perspective.perception.state ∧
+    perspective.perception.contribution.leftEndpoints.first.input.value.1 =
+        perspective.contrastConditionRepresentation ∧
+    perspective.perception.contribution.rightEndpoints.first.input.value.1 =
+        perspective.conditionRepresentation ∧
+    perspective.memory.recordedState =
+      perspective.memory.contribution.rightEndpoints.first.input ∧
+    perspective.memory.recordedState ∈ perspective.memory.persistence.states ∧
+    body.interior.conforms perspective.memory.recordedState ∧
+    perspective.memory.contribution.downstreamChange.transformation.output ∈
+      perspective.memory.persistence.states ∧
+    perspective.memory.contribution.leftEndpoints.first.input.value.1 =
+        perspective.contrastMemoryRepresentation ∧
+    perspective.memory.contribution.rightEndpoints.first.input.value.1 =
+        perspective.memoryRepresentation ∧
+    perspective.conditionRepresentation ∈
+      perspective.model.representations ∧
+    perspective.contrastConditionRepresentation ∈
+      perspective.model.representations ∧
+    perspective.memoryRepresentation ∈ perspective.model.representations ∧
+    perspective.contrastMemoryRepresentation ∈
+      perspective.model.representations ∧
+    (∀ transformation,
+      transformation ∈ perspective.model.transformations →
+        transformation ∈ body.recurringTransformations) ∧
+    perspective.perception.contribution.downstreamChange.transformation.output ∈
+      perspective.model.laterStates ∧
+    perspective.memory.contribution.downstreamChange.transformation.output ∈
+      perspective.model.laterStates ∧
+    perspective.model.constraints ≠ [] ∧
+    (∀ constraint, constraint ∈ perspective.model.constraints →
+      constraint ∈ entity.boundary.constraints) ∧
     (∀ transformation,
       transformation ∈ perspective.availableTransformations →
         transformation ∈ body.recurringTransformations ∧
@@ -78,20 +134,35 @@ theorem embodiedPerspectiveContract
           perspective.availableRepresentation transformation ∧
         (perspective.availableDenotation transformation).target =
           transformation.output) ∧
-    perspective.perceptionContribution.leftEndpoints.first.input.value.1 =
-        perspective.contrastConditionRepresentation ∧
-    perspective.perceptionContribution.rightEndpoints.first.input.value.1 =
-        perspective.conditionRepresentation ∧
-    perspective.memoryContribution.leftEndpoints.first.input.value.1 =
-        perspective.contrastMemoryRepresentation ∧
-    perspective.memoryContribution.rightEndpoints.first.input.value.1 =
-        perspective.memoryRepresentation := by
+    body.interior.conforms
+      perspective.perception.contribution.downstreamChange.transformation.output ∧
+    body.interior.conforms
+      perspective.memory.contribution.downstreamChange.transformation.output := by
   refine ⟨perspective.denotationNamesCondition.1,
-    perspective.denotationNamesCondition.2, ?_,
-    perspective.perceptionDifferenceExact.1,
-    perspective.perceptionDifferenceExact.2,
-    perspective.memoryDifferenceExact.1,
-    perspective.memoryDifferenceExact.2⟩
+    perspective.denotationNamesCondition.2,
+    body.interior.conformityWithinScope perspective.representedCondition
+      perspective.representedConditionIsInternal,
+    perspective.perception.stateRegistersCondition,
+    perspective.perception.stateIsInternal,
+    perspective.perception.differenceIsUpstream.1,
+    perspective.perception.differenceIsUpstream.2,
+    perspective.memory.recordedStateSuppliesMemory,
+    perspective.memory.recordedStateInPersistence,
+    perspective.memory.recordedStateIsInternal,
+    perspective.memory.contributionResultInPersistence,
+    perspective.memory.differenceIsUpstream.1,
+    perspective.memory.differenceIsUpstream.2,
+    perspective.model.conditionRepresentationInModel,
+    perspective.model.contrastConditionRepresentationInModel,
+    perspective.model.memoryRepresentationInModel,
+    perspective.model.contrastMemoryRepresentationInModel,
+    perspective.model.transformationsWithinBody,
+    perspective.model.perceptionResultInLaterStates,
+    perspective.model.memoryResultInLaterStates,
+    perspective.model.constraintsNonempty,
+    perspective.model.constraintsFromBoundary, ?_,
+    perspective.perceptionChangesInternal,
+    perspective.memoryChangesInternal⟩
   intro transformation member
   exact ⟨perspective.availableWithinBody transformation member,
     (perspective.availableDenotationExact transformation member).1,
@@ -141,18 +212,40 @@ theorem internalActivitySelectionContract
         selection.contrastRepresentation ∧
     selection.contribution.rightEndpoints.first.input.value.1 =
         selection.representation ∧
+    selection.outcomeDenotation.expression = selection.representation ∧
+    selection.outcomeDenotation.target = selection.representedOutcome ∧
     selection.selected ∈ body.recurringTransformations ∧
     selection.rejected ∈ body.recurringTransformations ∧
     selection.selected ≠ selection.rejected ∧
     selection.representedOutcome = selection.selected.output ∧
     selection.contribution.downstreamChange.transformation.output =
-      selection.selected.output := by
+      selection.selected.output ∧
+    body.interior.conforms selection.selected.output ∧
+    body.interior.conforms selection.rejected.output ∧
+    body.interior.scope.includes selection.selected.output ∧
+    body.interior.scope.includes selection.rejected.output ∧
+    (∀ constraint, constraint ∈ entity.boundary.constraints →
+      constraint.permits selection.selected) ∧
+    (∀ constraint, constraint ∈ entity.boundary.constraints →
+      constraint.permits selection.rejected) := by
   exact ⟨selection.representationalDifferenceIsUpstream.1,
     selection.representationalDifferenceIsUpstream.2,
+    selection.denotationNamesOutcome.1,
+    selection.denotationNamesOutcome.2,
     selection.optionsWithinBody selection.selected selection.selectedInOptions,
     selection.optionsWithinBody selection.rejected selection.rejectedInOptions,
     selection.discriminates, selection.representedOutcomeIsSelectedOutput,
-    selection.contributionSelects⟩
+    selection.contributionSelects,
+    selection.selectedIsInternal,
+    selection.rejectedIsInternal,
+    body.interior.conformityWithinScope selection.selected.output
+      selection.selectedIsInternal,
+    body.interior.conformityWithinScope selection.rejected.output
+      selection.rejectedIsInternal,
+    body.recurringAdmittedByBoundary selection.selected
+      (selection.optionsWithinBody selection.selected selection.selectedInOptions),
+    body.recurringAdmittedByBoundary selection.rejected
+      (selection.optionsWithinBody selection.rejected selection.rejectedInOptions)⟩
 
 /-- organon:promotion-contract EC-D6 -/
 theorem embodiedCandidateExactContract
@@ -167,9 +260,17 @@ theorem embodiedCandidateExactContract
 theorem bodyPartChangeCountermodel :
     systemBody.partAt (state false .forwardInput) .sensor ∧
     ¬ systemBody.partAt (state false .forwardLow) .sensor ∧
+    state false .forwardInput ∈ systemBody.states ∧
+    state false .forwardLow ∈ systemBody.states ∧
+    state false .forwardInput ∈ systemEntity.persistence.states ∧
+    state false .forwardLow ∈ systemEntity.persistence.states ∧
     systemEntity.identity.holds (state false .forwardInput) ∧
     systemEntity.identity.holds (state false .forwardLow) := by
-  exact oneBodyRelationAllowsConstituentChange
+  refine ⟨oneBodyRelationAllowsConstituentChange.1,
+    oneBodyRelationAllowsConstituentChange.2.1, ?_, ?_, ?_, ?_,
+    oneBodyRelationAllowsConstituentChange.2.2.1,
+    oneBodyRelationAllowsConstituentChange.2.2.2⟩ <;>
+    simp [systemBody, systemEntity, systemPersistence]
 
 /-- organon:promotion-contract EC-C2 -/
 theorem boundaryNonIsolationCountermodel :

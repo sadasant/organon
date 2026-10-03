@@ -20,7 +20,7 @@
       "source_digests": {
         "README.md": "e86c3c569898a13d530fddb167d40a711d82d8613e92d7e69a791837c2fd2bb3",
         "DANIEL.md": "130cdc6cb4b4960ca4d4303a70d5bfdd996d4c08af254827acf6285a4fc91396",
-        "CONTRIBUTING.md": "daaeb16c7045dd365ef760a16933c70a3be29ccd6d6dcdd8b7fbfdc920511b7a",
+        "CONTRIBUTING.md": "cc48d52f69d833b979a3173e1d3afca6285371ff09daebefa616aebf5ff2aff5",
         "provenance/editorial.md": "4b7b2bfacffa2d5fdad0be7033fcf4abf1ae31b69b9e54cb2aaa3cba0a3ff350"
       }
     },
@@ -41,9 +41,9 @@
         "ontology/formal/organon-core-reduct-report.md"
       ],
       "source_digests": {
-        "ontology/changelog.md": "7673517d029d6e718e7595958b77355dc06e12d48c67a4662d8c8bdad0a582db",
-        "ontology/formal/README.md": "659356f0ef0782b507cbfa97b5d6c53ad231257a3f7c54f95f2ef469c5577a32",
-        "ontology/formal/decisions.md": "c1eb9a5fece00202545ec3940f4283a0950c8def9ebd8e67aac9267ee2960f7d",
+        "ontology/changelog.md": "c020e43b3798fb12b03dd910611b25815167be25c6878f502007a9175ea69ac3",
+        "ontology/formal/README.md": "99803621d3e3b4238acd6616a4ba6cf9408223f9389b336a4b4b6c5c66a0db10",
+        "ontology/formal/decisions.md": "734ca0ff11bc09f5cd432c4f39b12644746c9423e0b913f36b5a007364af1cd4",
         "ontology/formal/organon-core-reduct-report.md": "ecf189f6bd0e7727377468ce6a6e6b3e93442f595b1a9b29545ae784b5e09600"
       }
     },

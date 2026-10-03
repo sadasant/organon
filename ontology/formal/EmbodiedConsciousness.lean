@@ -21,8 +21,10 @@ structure Body
     {Context : Type w}
     (entity : Entity (Feature × Context)) where
   states : List (State (Feature × Context))
-  statesArePersistence : states = entity.persistence.states
   statesNonempty : states ≠ []
+  statesWithinPersistence : ∀ state, state ∈ states →
+    state ∈ entity.persistence.states
+  statesOrdered : OrderedBy entity.persistenceDirection.before states
   partAt : State (Feature × Context) → Part → Prop
   eachStateHasConstituent : ∀ state, state ∈ states → ∃ part, partAt state part
   interior : Specification (State (Feature × Context))
@@ -59,6 +61,9 @@ structure BodilyOrganization
   recurring : Organ → Transformation entity.persistenceDirection
   recurringInBody : ∀ organ, organ ∈ organs →
     recurring organ ∈ body.recurringTransformations
+  recurringPairwiseDistinct : ∀ first, first ∈ organs →
+    ∀ second, second ∈ organs → first ≠ second →
+      recurring first ≠ recurring second
   sustainingContribution : Organ →
     CausalContribution Feature Context entity.persistenceDirection body.feeding
   recurringOccursInContribution : ∀ organ, organ ∈ organs →
@@ -69,13 +74,85 @@ structure BodilyOrganization
       (sustainingContribution organ).downstreamChange.transformation.output
   coordinationWitness : ∃ first second,
     first ∈ organs ∧ second ∈ organs ∧ first ≠ second ∧
-    recurring first ≠ recurring second ∧
     body.feeding.feeds
       (sustainingContribution first).downstreamChange.transformation.output
       (recurring second).input ∧
     entity.persistenceDirection.before
       (sustainingContribution first).downstreamChange.transformation.output
       (recurring second).output
+
+structure PerspectivePerception
+    (Part : Type u)
+    {Feature : Type v} {Context : Type w}
+    {entity : Entity (Feature × Context)}
+    (body : Body Part entity)
+    (conditionRepresentation contrastConditionRepresentation : Feature) where
+  difference : contrastConditionRepresentation ≠ conditionRepresentation
+  state : State (Feature × Context)
+  stateIsInternal : body.interior.conforms state
+  contribution :
+    CausalContribution Feature Context entity.persistenceDirection body.feeding
+  stateRegistersCondition :
+    state = contribution.rightEndpoints.first.input
+  differenceIsUpstream :
+    contribution.leftEndpoints.first.input.value.1 =
+        contrastConditionRepresentation ∧
+    contribution.rightEndpoints.first.input.value.1 = conditionRepresentation
+
+structure PerspectiveMemory
+    (Part : Type u)
+    {Feature : Type v} {Context : Type w}
+    {entity : Entity (Feature × Context)}
+    (body : Body Part entity)
+    (memoryRepresentation contrastMemoryRepresentation : Feature) where
+  difference : contrastMemoryRepresentation ≠ memoryRepresentation
+  recordedState : State (Feature × Context)
+  persistence : PersistenceWitness entity.persistenceDirection
+  recordedStateInPersistence : recordedState ∈ persistence.states
+  recordedStateIsInternal : body.interior.conforms recordedState
+  contribution :
+    CausalContribution Feature Context entity.persistenceDirection body.feeding
+  recordedStateSuppliesMemory :
+    recordedState = contribution.rightEndpoints.first.input
+  contributionResultInPersistence :
+    contribution.downstreamChange.transformation.output ∈ persistence.states
+  differenceIsUpstream :
+    contribution.leftEndpoints.first.input.value.1 =
+        contrastMemoryRepresentation ∧
+    contribution.rightEndpoints.first.input.value.1 = memoryRepresentation
+
+structure PerspectiveModel
+    (Part : Type u)
+    {Feature : Type v} {Context : Type w}
+    {entity : Entity (Feature × Context)}
+    (body : Body Part entity)
+    {conditionRepresentation contrastConditionRepresentation : Feature}
+    {memoryRepresentation contrastMemoryRepresentation : Feature}
+    (perception : PerspectivePerception Part body
+      conditionRepresentation contrastConditionRepresentation)
+    (memory : PerspectiveMemory Part body
+      memoryRepresentation contrastMemoryRepresentation) where
+  representations : List Feature
+  conditionRepresentationInModel : conditionRepresentation ∈ representations
+  contrastConditionRepresentationInModel :
+    contrastConditionRepresentation ∈ representations
+  memoryRepresentationInModel : memoryRepresentation ∈ representations
+  contrastMemoryRepresentationInModel :
+    contrastMemoryRepresentation ∈ representations
+  transformations : List (Transformation entity.persistenceDirection)
+  transformationsNonempty : transformations ≠ []
+  transformationsWithinBody : ∀ transformation,
+    transformation ∈ transformations →
+      transformation ∈ body.recurringTransformations
+  laterStates : List (State (Feature × Context))
+  perceptionResultInLaterStates :
+    perception.contribution.downstreamChange.transformation.output ∈ laterStates
+  memoryResultInLaterStates :
+    memory.contribution.downstreamChange.transformation.output ∈ laterStates
+  constraints : List (Constraint (Feature × Context))
+  constraintsNonempty : constraints ≠ []
+  constraintsFromBoundary : ∀ constraint, constraint ∈ constraints →
+    constraint ∈ entity.boundary.constraints
 
 structure EmbodiedPerspective
     (Part : Type u)
@@ -84,7 +161,6 @@ structure EmbodiedPerspective
     (body : Body Part entity) where
   conditionRepresentation : Feature
   contrastConditionRepresentation : Feature
-  conditionDifference : contrastConditionRepresentation ≠ conditionRepresentation
   representedCondition : State (Feature × Context)
   conditionDenotation : Denotation Feature (State (Feature × Context))
   denotationNamesCondition :
@@ -104,25 +180,17 @@ structure EmbodiedPerspective
       (availableDenotation transformation).expression =
           availableRepresentation transformation ∧
       (availableDenotation transformation).target = transformation.output
-  perceptionContribution :
-    CausalContribution Feature Context entity.persistenceDirection body.feeding
-  perceptionDifferenceExact :
-    perceptionContribution.leftEndpoints.first.input.value.1 =
-        contrastConditionRepresentation ∧
-    perceptionContribution.rightEndpoints.first.input.value.1 = conditionRepresentation
+  perception : PerspectivePerception Part body
+    conditionRepresentation contrastConditionRepresentation
   memoryRepresentation : Feature
   contrastMemoryRepresentation : Feature
-  memoryDifference : contrastMemoryRepresentation ≠ memoryRepresentation
-  memoryContribution :
-    CausalContribution Feature Context entity.persistenceDirection body.feeding
-  memoryDifferenceExact :
-    memoryContribution.leftEndpoints.first.input.value.1 =
-        contrastMemoryRepresentation ∧
-    memoryContribution.rightEndpoints.first.input.value.1 = memoryRepresentation
+  memory : PerspectiveMemory Part body
+    memoryRepresentation contrastMemoryRepresentation
+  model : PerspectiveModel Part body perception memory
   perceptionChangesInternal : body.interior.conforms
-    perceptionContribution.downstreamChange.transformation.output
+    perception.contribution.downstreamChange.transformation.output
   memoryChangesInternal : body.interior.conforms
-    memoryContribution.downstreamChange.transformation.output
+    memory.contribution.downstreamChange.transformation.output
 
 structure TransformationFamily
     {Carrier : Type u} (direction : Direction Carrier) where
@@ -208,7 +276,7 @@ structure EmbodiedRecurrentStructure
       transformation ∈ body.recurringTransformations
   perspectiveGuidesSelection :
     perspective.conditionRepresentation = selection.representation ∧
-    perspective.perceptionContribution = selection.contribution
+    perspective.perception.contribution = selection.contribution
 
 def EmbodiedRecurrentAt
     {Part : Type u} {Feature : Type v} {Context : Type w}
@@ -374,8 +442,9 @@ def internalSpecification : Specification (State Carrier) where
 
 def systemBody : Body ToyPart systemEntity where
   states := systemPersistence.states
-  statesArePersistence := rfl
   statesNonempty := by simp [systemPersistence]
+  statesWithinPersistence := by intro state member; exact member
+  statesOrdered := systemPersistence.ordered
   partAt := fun current part =>
     (current = state false .forwardInput ∧ part = .sensor) ∨
     (current ≠ state false .forwardInput ∧ part = .regulator)
@@ -460,6 +529,17 @@ def systemOrganization : BodilyOrganization ToyOrgan ToyPart systemBody where
         by simp [systemBody, systemPersistence], by simp [systemBody, state]⟩
   recurring := fun | .sensor => forwardLowTransform | .regulator => returnLowTransform
   recurringInBody := by intro organ _; cases organ <;> simp [systemBody]
+  recurringPairwiseDistinct := by
+    intro first _ second _ distinct
+    cases first <;> cases second
+    · exact False.elim (distinct rfl)
+    · intro equal
+      have outputs := congrArg Transformation.output equal
+      simp [forwardLowTransform, returnLowTransform, transform, state] at outputs
+    · intro equal
+      have outputs := congrArg Transformation.output equal
+      simp [forwardLowTransform, returnLowTransform, transform, state] at outputs
+    · exact False.elim (distinct rfl)
   sustainingContribution := fun
     | .sensor => forwardContribution
     | .regulator => returnContribution
@@ -478,12 +558,9 @@ def systemOrganization : BodilyOrganization ToyOrgan ToyPart systemBody where
       simp [systemEntity, systemIdentity, forwardContribution,
         returnContribution, forwardChangeTransform, returnChangeTransform, state]
   coordinationWitness := by
-    refine ⟨.sensor, .regulator, by simp, by simp, by decide, ?_, trivial, ?_⟩
-    · intro equal
-      have outputs := congrArg Transformation.output equal
-      simp [forwardLowTransform, returnLowTransform, transform, state] at outputs
-    · change Stage.forwardHigh.rank < Stage.returnLow.rank
-      decide
+    refine ⟨.sensor, .regulator, by simp, by simp, by decide, trivial, ?_⟩
+    change Stage.forwardHigh.rank < Stage.returnLow.rank
+    decide
 
 def firstFamily : TransformationFamily systemDirection :=
   ⟨[forwardLowTransform, forwardHighTransform, returnChangeTransform], by simp⟩
@@ -511,10 +588,63 @@ def systemIntegration : RecurrentIntegration systemDirection unconstrainedFeed w
     change Stage.forwardHigh.rank < Stage.returnInput.rank
     decide
 
+def memoryPersistence : PersistenceWitness systemDirection where
+  states := [state true .returnInput, state true .returnHigh]
+  hasTransition := ⟨state true .returnInput, state true .returnHigh, [], rfl⟩
+  invariant := ⟨fun current => current.value.1 = true⟩
+  invariantHolds := by
+    intro current member
+    simp [state] at member
+    rcases member with rfl | rfl <;> rfl
+  ordered := by simp [OrderedBy, systemDirection, state, Stage.rank]
+
+def systemPerception : PerspectivePerception ToyPart systemBody true false where
+  difference := by decide
+  state := state true .forwardInput
+  stateIsInternal := by simp [systemBody, internalSpecification, state]
+  contribution := forwardContribution
+  stateRegistersCondition := rfl
+  differenceIsUpstream := ⟨rfl, rfl⟩
+
+def systemMemory : PerspectiveMemory ToyPart systemBody true false where
+  difference := by decide
+  recordedState := state true .returnInput
+  persistence := memoryPersistence
+  recordedStateInPersistence := by simp [memoryPersistence]
+  recordedStateIsInternal := by simp [systemBody, internalSpecification, state]
+  contribution := returnContribution
+  recordedStateSuppliesMemory := rfl
+  contributionResultInPersistence := by
+    simp [memoryPersistence, returnContribution, returnChangeTransform]
+  differenceIsUpstream := ⟨rfl, rfl⟩
+
+def systemPerspectiveModel :
+    PerspectiveModel ToyPart systemBody systemPerception systemMemory where
+  representations := [true, false]
+  conditionRepresentationInModel := by simp
+  contrastConditionRepresentationInModel := by simp
+  memoryRepresentationInModel := by simp
+  contrastMemoryRepresentationInModel := by simp
+  transformations := [forwardLowTransform, returnLowTransform]
+  transformationsNonempty := by simp
+  transformationsWithinBody := by
+    intro transformation member
+    simp at member
+    rcases member with rfl | rfl <;> simp [systemBody]
+  laterStates := [state true .forwardHigh, state true .returnHigh]
+  perceptionResultInLaterStates := by
+    simp [systemPerception, forwardContribution, forwardChangeTransform]
+  memoryResultInLaterStates := by
+    simp [systemMemory, returnContribution, returnChangeTransform]
+  constraints := [internalOnly]
+  constraintsNonempty := by simp
+  constraintsFromBoundary := by
+    intro constraint member
+    simpa [systemEntity, systemBoundary] using member
+
 def systemPerspective : EmbodiedPerspective ToyPart systemBody where
   conditionRepresentation := true
   contrastConditionRepresentation := false
-  conditionDifference := by decide
   representedCondition := state true .forwardHigh
   conditionDenotation := ⟨true, state true .forwardHigh⟩
   denotationNamesCondition := ⟨rfl, rfl⟩
@@ -530,18 +660,16 @@ def systemPerspective : EmbodiedPerspective ToyPart systemBody where
   availableDenotation := fun transformation =>
     ⟨transformation.output.value.1, transformation.output⟩
   availableDenotationExact := by simp
-  perceptionContribution := forwardContribution
-  perceptionDifferenceExact := ⟨rfl, rfl⟩
+  perception := systemPerception
   memoryRepresentation := true
   contrastMemoryRepresentation := false
-  memoryDifference := by decide
-  memoryContribution := returnContribution
-  memoryDifferenceExact := ⟨rfl, rfl⟩
+  memory := systemMemory
+  model := systemPerspectiveModel
   perceptionChangesInternal := by
-    simp [systemBody, internalSpecification, forwardContribution,
+    simp [systemPerception, systemBody, internalSpecification, forwardContribution,
       forwardChangeTransform, state]
   memoryChangesInternal := by
-    simp [systemBody, internalSpecification, returnContribution,
+    simp [systemMemory, systemBody, internalSpecification, returnContribution,
       returnChangeTransform, state]
 
 def systemSelection : InternalActivitySelection ToyPart systemBody where
@@ -626,8 +754,9 @@ theorem embodiedCandidateIsInhabited :
 
 def perspectiveOnlyBody : Body ToyPart systemEntity where
   states := systemPersistence.states
-  statesArePersistence := rfl
   statesNonempty := by simp [systemPersistence]
+  statesWithinPersistence := by intro state member; exact member
+  statesOrdered := systemPersistence.ordered
   partAt := fun _ _ => True
   eachStateHasConstituent := by intro state member; exact ⟨.sensor, trivial⟩
   interior := internalSpecification
@@ -663,10 +792,55 @@ def perspectiveOnlyBody : Body ToyPart systemEntity where
     subst transformation
     simp [systemEntity, systemIdentity, forwardLowTransform, transform, state]
 
+def perspectiveOnlyPerception :
+    PerspectivePerception ToyPart perspectiveOnlyBody true false where
+  difference := by decide
+  state := state true .forwardInput
+  stateIsInternal := by
+    simp [perspectiveOnlyBody, internalSpecification, state]
+  contribution := forwardContribution
+  stateRegistersCondition := rfl
+  differenceIsUpstream := ⟨rfl, rfl⟩
+
+def perspectiveOnlyMemory :
+    PerspectiveMemory ToyPart perspectiveOnlyBody true false where
+  difference := by decide
+  recordedState := state true .returnInput
+  persistence := memoryPersistence
+  recordedStateInPersistence := by simp [memoryPersistence]
+  recordedStateIsInternal := by
+    simp [perspectiveOnlyBody, internalSpecification, state]
+  contribution := returnContribution
+  recordedStateSuppliesMemory := rfl
+  contributionResultInPersistence := by
+    simp [memoryPersistence, returnContribution, returnChangeTransform]
+  differenceIsUpstream := ⟨rfl, rfl⟩
+
+def perspectiveOnlyModel :
+    PerspectiveModel ToyPart perspectiveOnlyBody
+      perspectiveOnlyPerception perspectiveOnlyMemory where
+  representations := [true, false]
+  conditionRepresentationInModel := by simp
+  contrastConditionRepresentationInModel := by simp
+  memoryRepresentationInModel := by simp
+  contrastMemoryRepresentationInModel := by simp
+  transformations := [forwardLowTransform]
+  transformationsNonempty := by simp
+  transformationsWithinBody := by simp [perspectiveOnlyBody]
+  laterStates := [state true .forwardHigh, state true .returnHigh]
+  perceptionResultInLaterStates := by
+    simp [perspectiveOnlyPerception, forwardContribution, forwardChangeTransform]
+  memoryResultInLaterStates := by
+    simp [perspectiveOnlyMemory, returnContribution, returnChangeTransform]
+  constraints := [internalOnly]
+  constraintsNonempty := by simp
+  constraintsFromBoundary := by
+    intro constraint member
+    simpa [systemEntity, systemBoundary] using member
+
 def perspectiveOnly : EmbodiedPerspective ToyPart perspectiveOnlyBody where
   conditionRepresentation := true
   contrastConditionRepresentation := false
-  conditionDifference := by decide
   representedCondition := state true .forwardHigh
   conditionDenotation := ⟨true, state true .forwardHigh⟩
   denotationNamesCondition := ⟨rfl, rfl⟩
@@ -679,19 +853,17 @@ def perspectiveOnly : EmbodiedPerspective ToyPart perspectiveOnlyBody where
   availableDenotation := fun transformation =>
     ⟨transformation.output.value.1, transformation.output⟩
   availableDenotationExact := by simp
-  perceptionContribution := forwardContribution
-  perceptionDifferenceExact := ⟨rfl, rfl⟩
+  perception := perspectiveOnlyPerception
   memoryRepresentation := true
   contrastMemoryRepresentation := false
-  memoryDifference := by decide
-  memoryContribution := returnContribution
-  memoryDifferenceExact := ⟨rfl, rfl⟩
+  memory := perspectiveOnlyMemory
+  model := perspectiveOnlyModel
   perceptionChangesInternal := by
-    simp [perspectiveOnlyBody, internalSpecification, forwardContribution,
-      forwardChangeTransform, state]
+    simp [perspectiveOnlyPerception, perspectiveOnlyBody,
+      internalSpecification, forwardContribution, forwardChangeTransform, state]
   memoryChangesInternal := by
-    simp [perspectiveOnlyBody, internalSpecification, returnContribution,
-      returnChangeTransform, state]
+    simp [perspectiveOnlyMemory, perspectiveOnlyBody,
+      internalSpecification, returnContribution, returnChangeTransform, state]
 
 theorem perspectiveOnlyHasNoSelection :
     ¬ Nonempty (InternalActivitySelection ToyPart perspectiveOnlyBody) := by
@@ -764,8 +936,10 @@ theorem sharedEnclosureDoesNotEntailBodilyOrganization :
   constructor
   · exact ⟨enclosedOrgans⟩
   · rintro ⟨organization⟩
-    obtain ⟨first, second, firstMember, secondMember, _, recurringDistinct,
-      _, _⟩ := organization.coordinationWitness
+    obtain ⟨first, second, firstMember, secondMember, distinct, _, _⟩ :=
+      organization.coordinationWitness
+    have recurringDistinct := organization.recurringPairwiseDistinct
+      first firstMember second secondMember distinct
     have firstInBody := organization.recurringInBody first firstMember
     have secondInBody := organization.recurringInBody second secondMember
     have firstEq : organization.recurring first = forwardLowTransform := by

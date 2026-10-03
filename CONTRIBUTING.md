@@ -45,12 +45,21 @@ Use Lean when dependent structure and proof obligations are central; use a finit
 Add at least one finite inhabited witness for a promoted structure. For every claimed anti-entailment, add a countermodel or explain why the claim is outside the current formal boundary. Do not use `sorry`, `admit`, or undeclared axioms as promotion evidence.
 
 Schema-v2 proposal manifests must classify every statement as `proved`,
-`outside_formal_boundary`, or `open_gate`. A proved statement names a marked
-theorem in a checked promotion-contract module, lists the load-bearing symbols
-that must occur in that theorem block, and names any indices that must be shared
-across its premises and conclusion. Declaration existence alone is not formal
-evidence. Every direct structure field returning `Prop` must also appear in the
-manifest's semantic-field ledger as canonical, derived, or local and gated.
+`proved_with_boundaries`, `outside_formal_boundary`, or `open_gate`. A proved statement names a marked
+theorem in a checked promotion-contract module and gives every `depends_on`
+entry exactly one dependency disposition: `formalized`, `represented_by`,
+`prose_only`, or `outside_formal_boundary`. Formalized and represented
+dependencies name the symbols that must occur in the exact theorem block;
+`represented_by` also explains the projection, while prose-only and boundary
+dispositions explain the unproved limit. The checker derives its symbol set from
+that complete ledger plus `subject_symbols`; a separately authored
+`required_symbols` whitelist is forbidden. Shared indices must still occur
+across the theorem's premises and conclusion. Declaration existence alone is
+not formal evidence. A theorem with any prose-only or outside-boundary
+dependency must use `proved_with_boundaries`; a fully `proved` contract may use
+only formalized and represented dependencies. Every direct structure field returning `Prop` must also
+appear in the manifest's semantic-field ledger as canonical, derived, or local
+and gated.
 
 ### 8. Preserve the readable ontology
 

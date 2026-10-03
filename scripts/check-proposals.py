@@ -36,8 +36,15 @@ PROMOTION_CONTRACT_MARKER = re.compile(
 )
 FORMAL_CONTRACT_STATUSES = {
     "proved",
+    "proved_with_boundaries",
     "outside_formal_boundary",
     "open_gate",
+}
+DEPENDENCY_DISPOSITION_STATUSES = {
+    "formalized",
+    "represented_by",
+    "prose_only",
+    "outside_formal_boundary",
 }
 
 
@@ -86,6 +93,103 @@ def direct_prop_fields(text: str) -> set[str]:
             continue
         index += 1
     return fields
+
+
+def check_dependency_dispositions(
+    statement_id: str,
+    dependencies: list[str],
+    contract: dict,
+    block: str,
+    contract_status: str,
+) -> list[str]:
+    """Require an explicit, checked disposition for every declared dependency."""
+    errors: list[str] = []
+    if "required_symbols" in contract:
+        errors.append(
+            f"{statement_id}: required_symbols is forbidden; checked symbols "
+            "must come from subject_symbols and dependency_dispositions"
+        )
+
+    subject_symbols = contract.get("subject_symbols")
+    if not isinstance(subject_symbols, list) or not subject_symbols or not all(
+        isinstance(symbol, str) and symbol for symbol in subject_symbols
+    ):
+        errors.append(f"{statement_id}: proved contract requires subject_symbols")
+        subject_symbols = []
+
+    dispositions = contract.get("dependency_dispositions")
+    if not isinstance(dispositions, dict):
+        errors.append(
+            f"{statement_id}: proved contract requires dependency_dispositions"
+        )
+        dispositions = {}
+
+    expected = set(dependencies)
+    actual = set(dispositions)
+    if actual != expected:
+        errors.append(
+            f"{statement_id}: dependency disposition drift; "
+            f"missing {sorted(expected - actual)}, extra {sorted(actual - expected)}"
+        )
+
+    checked_symbols = list(subject_symbols)
+    boundary_dependencies = 0
+    for dependency in dependencies:
+        disposition = dispositions.get(dependency)
+        if not isinstance(disposition, dict):
+            continue
+        status = disposition.get("status")
+        if status not in DEPENDENCY_DISPOSITION_STATUSES:
+            errors.append(
+                f"{statement_id}: {dependency} has invalid dependency status {status}"
+            )
+            continue
+        symbols = disposition.get("symbols", [])
+        reason = str(disposition.get("reason", "")).strip()
+        if status in {"formalized", "represented_by"}:
+            if not isinstance(symbols, list) or not symbols or not all(
+                isinstance(symbol, str) and symbol for symbol in symbols
+            ):
+                errors.append(
+                    f"{statement_id}: {dependency} status {status} requires symbols"
+                )
+                symbols = []
+            checked_symbols.extend(symbols)
+            if status == "represented_by" and len(reason) < 20:
+                errors.append(
+                    f"{statement_id}: represented dependency {dependency} "
+                    "requires a substantive representation reason"
+                )
+        else:
+            boundary_dependencies += 1
+            if symbols:
+                errors.append(
+                    f"{statement_id}: {dependency} status {status} cannot claim symbols"
+                )
+            if len(reason) < 20:
+                errors.append(
+                    f"{statement_id}: {dependency} status {status} "
+                    "requires a substantive boundary reason"
+                )
+
+    if contract_status == "proved" and boundary_dependencies:
+        errors.append(
+            f"{statement_id}: proved contract has {boundary_dependencies} "
+            "prose-only or outside-boundary dependencies; use "
+            "proved_with_boundaries"
+        )
+    if contract_status == "proved_with_boundaries" and not boundary_dependencies:
+        errors.append(
+            f"{statement_id}: proved_with_boundaries requires at least one "
+            "prose-only or outside-boundary dependency"
+        )
+    for symbol in dict.fromkeys(checked_symbols):
+        if not re.search(rf"\b{re.escape(symbol)}\b", block):
+            errors.append(
+                f"{statement_id}: contract block lacks disposition-derived "
+                f"symbol {symbol}"
+            )
+    return errors
 
 
 def check_manifest(
@@ -251,9 +355,9 @@ def check_manifest(
                     f"{contract_status}"
                 )
             allowed_statuses = {
-                "proposed_definition": {"proved"},
+                "proposed_definition": {"proved", "proved_with_boundaries"},
                 "anti_collapse_constraint": {
-                    "proved", "outside_formal_boundary"
+                    "proved", "proved_with_boundaries", "outside_formal_boundary"
                 },
                 "open_formalization_gate": {"open_gate"},
                 "open_evidence_gate": {"open_gate"},
@@ -263,7 +367,7 @@ def check_manifest(
                     f"{statement_id}: {statement_type} cannot use "
                     f"formal status {contract_status}"
                 )
-            if contract_status == "proved":
+            if contract_status in {"proved", "proved_with_boundaries"}:
                 theorem = contract.get("theorem")
                 block = promotion_contract_block(contract_text, statement_id)
                 if block is None:
@@ -278,12 +382,11 @@ def check_manifest(
                         f"from its marked block"
                     )
                 else:
-                    for symbol in contract.get("required_symbols", []):
-                        if not re.search(rf"\b{re.escape(symbol)}\b", block):
-                            errors.append(
-                                f"{statement_id}: contract block lacks required "
-                                f"symbol {symbol}"
-                            )
+                    dependencies = item.get("depends_on", [])
+                    errors.extend(check_dependency_dispositions(
+                        statement_id, dependencies, contract, block,
+                        contract_status,
+                    ))
                     for shared_index in contract.get("shared_indices", []):
                         occurrences = len(re.findall(
                             rf"\b{re.escape(shared_index)}\b", block
