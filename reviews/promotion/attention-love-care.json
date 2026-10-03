@@ -2,27 +2,30 @@
   "schema_version": 1,
   "proposal_id": "attention-love-care",
   "status": "promotion-ready",
-  "reviewed_commit": "69718a1a71493b627e2f89ce33c591a3666b11a1",
-  "reviewed_tree": "50d41d19beb97c1afa9d4316262385ae9721ed35",
+  "reviewed_commit": "8ffcd04bc7b6ffe5436287703d88b6abe19ac2e3",
+  "reviewed_tree": "ec04ba35d718c7b05afda5ccb98546603e7244f5",
   "reviewed_at": "2026-10-03",
-  "review_scope": "Adversarial review of target/outcome separation, finite Attention measurement, exact causal organization, partial versus absolute scope, target Denotation, Care history, Respect constraints, canonical dependency projections, countermodels, and formal boundaries.",
+  "review_scope": "Adversarial review of target/outcome separation, finite Attention measurement, exact causal organization, partial versus absolute scope, target Denotation, Care history, Respect constraints, canonical dependency projections, countermodels, and formal boundaries. PR #18 takeover: local adversarial audit of duplicate counting, enumeration order, snapshot causality, identity versus current State, exact-action protection, and governed selection; unchanged embodiment contracts revalidated.",
   "source_sha256": {
-    "ontology/ontology.md": "a31dcbea85cbc432f7316f52f120386f0927810dba8421168a0f9583699ce3c5",
-    "ontology/terms.yaml": "c2059b1d7cd73c7ff129de1fb0172530603056a8c9a84ec737d0310db5c047f7",
-    "ontology/changelog.md": "ca91955a9f9653663d37c7b04cbf0c0d20a0b16b0af6e533b157160bb5a316f9",
-    "ontology/formal/AttentionLoveCare.lean": "540865c0329f1bb844e126ce35cf1eb56d5d35c6dca9321c607e13e9abb2dee6",
-    "ontology/formal/AttentionLoveCareContracts.lean": "ca081be763a26388cea40566d9b47dfa155aa443de6b57a2bba93edec738c89e",
+    "ontology/ontology.md": "28f96ab5ee7b48fd5d87cac3153c967ccab47c7f81c61b886479d6a90576d390",
+    "ontology/terms.yaml": "7c74cf829e9ebdb03268edcd8b952876eb5c6904028b373314846b53b2c9e97f",
+    "ontology/changelog.md": "c741bd40eee18cf7d5a0936d3f4e4a7dcb7d061fd1521ab393c592df3584ac57",
+    "ontology/formal/AttentionLoveCare.lean": "4051282ae0a6c0b54b8a655bd903325147e2f1c518d0189eb559a43fc379c726",
+    "ontology/formal/AttentionLoveCareContracts.lean": "f30857dd58a15297cd262310ac584a14f00927d25a27412497609bf7978e7e41",
     "ontology/formal/EmbodiedConsciousness.lean": "8f0367384b57f56f0e9e4496acfac781c180b6c126c89d26ef94cf740f83eae5",
     "ontology/formal/Model.lean": "6195c4e7d3aab7de036abc9b0ee6c63d39c1d83f74b5a40142bf5014e249d568",
-    "ontology/formal/README.md": "2a967c4f40588511fb066a76d3d8864d0aa728a9531712bf2ab6c13d92a45adb",
-    "ontology/formal/decisions.md": "f2acbb2696cb6d783c80968a605401928693a2184417d3ce38ca278bfc10fbab",
+    "ontology/formal/README.md": "720b58df0ab285cae612175d0e39418aeed1393d9351c738d4d4bad045c5527d",
+    "ontology/formal/decisions.md": "23217504db4ee5996d61eebae9b1aecf4f2693029d027da7730eae1ca25a6dba",
     "ontology/formal/lakefile.toml": "274d02a064289c4c3d014643b9ca25cd1bf7ed344ae96a79cf5375d48a7837a9",
-    "proposals/attention-love-care.md": "b16a2b944a146cf39eaa0ba6b3255ef1d8e1b2a4748b953f4a1754af22ffec08",
-    "proposals/attention-love-care-claims.json": "283bab985a510a139caf1994b7417669f9bd39d60f9590fd7c138890769cfe11",
-    "releases/v0-20-0.md": "23fd5db26337eac7613d314d4d10f642ccd342e99b107aa9f2b43a4be2128a95",
+    "proposals/attention-love-care.md": "bb89de8ef9af498db08a430177a6e1b2a9072002c5cfbd8f5a7fe0dedecd3944",
+    "proposals/attention-love-care-claims.json": "b2591b61cb034cad8fd174edb0809a22b83eac882c4d620140279f50dc2f071d",
+    "releases/v0-20-0.md": "0cac8d0bb587429e1ccf1e241ec4c154c15437e11379e0c4d747192d07512a03",
     "scripts/check-proposals.py": "87f26905ba0450b92a9f38c6ee63a144e5973fd424a971622b42f6a9eb03fb24",
     "scripts/check-promotion-review.py": "511241352a32b1f4b25a6c1b1a66bc088ec4afc71e0f3426c2c6d5074725a3aa",
-    "evals/tests/test_promotion_contracts.py": "d6d92e48c527ba3bceaab490ece4f9c74e3a1d9ff11d1807da0d612ef12d0562"
+    "evals/tests/test_promotion_contracts.py": "d6d92e48c527ba3bceaab490ece4f9c74e3a1d9ff11d1807da0d612ef12d0562",
+    "scripts/check-organon-core-audit.py": "1b872e2a862c79f0db3b997ed07c6238c709ea20cee19998695e1c83454af2a9",
+    "ontology/formal/organon-core-term-audit.md": "3d035fa9a06aca7a573735c485609193de8526e6529f07d8e0656960625f0426",
+    "evals/tests/test_algebra.py": "1d3cf646ab460aed3a776530a84963e399ecfd3c94a3b5a1ed923485f186c9e4"
   },
   "verified_contracts": [
     "AC-D1",
@@ -49,7 +52,7 @@
       "id": "ALC-AR-2",
       "severity": "critical",
       "disposition": "resolved",
-      "resolution": "Absolute Attention no longer relies on an unconstrained list of available Differences; it is exact equality of organized and available channels under one Attention."
+      "resolution": "Absolute Attention proves membership coverage of unique available channels, independently of enumeration order; the reordered finite witness is absolute despite unequal lists."
     },
     {
       "id": "ALC-AR-3",
@@ -73,7 +76,7 @@
       "id": "ALC-AR-6",
       "severity": "high",
       "disposition": "resolved",
-      "resolution": "Attention uses exact organized and available list lengths with a nonempty denominator, subset proof, shared upstream Difference, and downstream result for every counted channel."
+      "resolution": "Unique availability and organization as a sublist of a permuted availability enumeration exclude duplicate counting. The numerator bound, positive denominator, and organized uniqueness are derived theorems, alongside exact focus/result joins."
     },
     {
       "id": "ALC-AR-7",
@@ -92,6 +95,55 @@
       "severity": "medium",
       "disposition": "resolved",
       "resolution": "The promotion leaves Consciousness and the proposed Authority revision unchanged and limits v0.20 to the eight dependency-closed terms."
+    },
+    {
+      "id": "ALC-AR-10",
+      "severity": "high",
+      "disposition": "resolved",
+      "resolution": "Duplicate membership inflated the Attention ratio. Unique availability and sublist/permutation counting now derive a bounded numerator and reject counting one item twice."
+    },
+    {
+      "id": "ALC-AR-11",
+      "severity": "high",
+      "disposition": "resolved",
+      "resolution": "Absolute coverage used list equality. Membership coverage now accepts the reordered finite witness and still excludes focus-independent available Action."
+    },
+    {
+      "id": "ALC-AR-12",
+      "severity": "high",
+      "disposition": "resolved",
+      "resolution": "Sustained Attention reused one snapshot at earlier States. Each snapshot now names its exact Body State, organized results cannot be future, and the finite sustained witness uses separate early and later snapshots."
+    },
+    {
+      "id": "ALC-AR-13",
+      "severity": "high",
+      "disposition": "resolved",
+      "resolution": "The other Entity differed only in current State. Love, Care, and Respect now carry distinct identity Invariants in this finite reduct, while a regression witness demonstrates different current States with one identity."
+    },
+    {
+      "id": "ALC-AR-14",
+      "severity": "high",
+      "disposition": "resolved",
+      "resolution": "Respect option branches were unrelated to the actor Action and the Boundary branch did not admit it under target constraints. All options now begin at its output and preserve target identity; Boundary protection admits that exact Action. Every branch is inhabited and an identity-destroying Action is rejected."
+    },
+    {
+      "id": "ALC-AR-15",
+      "severity": "high",
+      "disposition": "resolved",
+      "resolution": "A governed family could omit the selected activity. Its membership is now required by EmbodiedSelfGovernance and restated by its promotion contract."
+    },
+    {
+      "id": "ALC-AR-16",
+      "severity": "medium",
+      "disposition": "resolved",
+      "resolution": "The term-audit generator omitted the eight compiled shadows. Its inventory and regenerated audit now classify them as compiled shadows with prose parity still unknown."
+    },
+    {
+      "id": "ALC-AR-17",
+      "severity": "medium",
+      "disposition": "outside-formal-boundary",
+      "resolution": "The dossier explicitly bounds local kind/result channel individuation, distinct-Invariant other-Entity sufficiency, sampled rather than uninterrupted attention, and canonical Agency/Action parity. The merged Interpretation/Understanding proposal remains nonbinding and is not silently migrated."
     }
-  ]
+  ],
+  "reviewer": "Codex local source audit; not an independent external review"
 }
