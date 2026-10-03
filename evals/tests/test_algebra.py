@@ -166,7 +166,7 @@ def test_degenerate_reflection_control_is_not_a_semantic_reduction():
         "retained_foundation": 3,
         "definitions_reflected": 119,
         "constructors": 1,
-        "dependency_removal_fixtures": 969,
+        "dependency_removal_fixtures": 970,
         "unreflected_definitions": 0,
     }
     assert ledger["degenerate_control_comparison"]["constructor_minimum_proved"] is False
@@ -182,4 +182,4 @@ def test_degenerate_reflection_control_is_not_a_semantic_reduction():
         for entry in ledger["entries"]
         for mutation_id in entry["one_step_mutations"]
     ]
-    assert len(mutation_ids) == len(set(mutation_ids)) == 969
+    assert len(mutation_ids) == len(set(mutation_ids)) == 970
