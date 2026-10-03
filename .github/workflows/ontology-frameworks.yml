@@ -1,0 +1,29 @@
+name: Ontology framework experiment
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  framework-experiment:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - name: Install Lean and build the formal shadow
+        uses: leanprover/lean-action@38fbc41a8c28c4cbaec22d7f7de508ec2e7c0dd9 # v1.5.0
+        with:
+          lake-package-directory: ontology/formal
+          auto-config: false
+          build: true
+          test: false
+          use-mathlib-cache: false
+          use-github-cache: false
+      - name: Check all experiment proofs and axiom dependencies
+        run: python3 scripts/check-ontology-frameworks.py

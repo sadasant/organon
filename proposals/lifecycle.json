@@ -60,6 +60,15 @@
       "status": "promoted",
       "binding_release": "0.17.0",
       "remaining_quarantine": []
+    },
+    {
+      "manifest": "ontological-frameworks-claims.json",
+      "dossier": "ontological-frameworks.md",
+      "status": "ready-for-review",
+      "binding_release": null,
+      "remaining_quarantine": [
+        "eight original candidate definitions plus the Interpretation/Understanding split; no binding promotion enacted"
+      ]
     }
   ]
 }
