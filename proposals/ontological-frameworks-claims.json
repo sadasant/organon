@@ -14,7 +14,9 @@
     "organon:Scarcity",
     "organon:OntologicalProbability",
     "organon:Differentiation",
-    "organon:Novelty"
+    "organon:Novelty",
+    "organon:Interpretation",
+    "organon:Understanding"
   ],
   "local_symbols": [
     "local:AllocationFeasibility",
@@ -26,22 +28,59 @@
     "local:HistoryIndex",
     "local:RewriteSemantics",
     "local:ScaleIndex",
-    "local:SourceLink"
+    "local:SourceLink",
+    "local:SemanticContext",
+    "local:PracticalPossibility"
   ],
   "statements": [
+    {
+      "id": "OF-D9",
+      "type": "proposed_definition",
+      "subject": "Interpretation",
+      "depends_on": [
+        "organon:Relation",
+        "organon:Representation",
+        "organon:Denotation",
+        "organon:Configuration",
+        "organon:Scope",
+        "organon:Presence",
+        "local:SemanticContext"
+      ],
+      "formal_symbol": "Interpretation"
+    },
+    {
+      "id": "OF-D10",
+      "type": "proposed_definition",
+      "subject": "Understanding",
+      "depends_on": [
+        "organon:Transformation",
+        "organon:Entity",
+        "organon:Perception",
+        "organon:Memory",
+        "organon:Model",
+        "organon:Action",
+        "organon:Difference",
+        "organon:State",
+        "organon:Direction",
+        "organon:Scope",
+        "organon:Constraint",
+        "local:PracticalPossibility"
+      ],
+      "formal_symbol": "Understanding"
+    },
     {
       "id": "OF-D1",
       "type": "proposed_definition",
       "subject": "Classification",
       "depends_on": [
+        "OF-D9",
         "organon:Representation",
         "organon:Denotation",
         "organon:Relation",
         "organon:Presence",
         "organon:Configuration",
         "organon:Scope",
-        "local:CategoryCondition",
-        "organon:Interpretation"
+        "local:CategoryCondition"
       ],
       "formal_symbol": "Classification"
     },
@@ -198,7 +237,9 @@
         "organon:Rule",
         "organon:Constraint",
         "organon:Entity",
-        "organon:CausalPath"
+        "organon:CausalPath",
+        "OF-D9",
+        "OF-D10"
       ]
     },
     {
