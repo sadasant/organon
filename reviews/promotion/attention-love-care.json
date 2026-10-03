@@ -1,0 +1,97 @@
+{
+  "schema_version": 1,
+  "proposal_id": "attention-love-care",
+  "status": "promotion-ready",
+  "reviewed_commit": "69718a1a71493b627e2f89ce33c591a3666b11a1",
+  "reviewed_tree": "50d41d19beb97c1afa9d4316262385ae9721ed35",
+  "reviewed_at": "2026-10-03",
+  "review_scope": "Adversarial review of target/outcome separation, finite Attention measurement, exact causal organization, partial versus absolute scope, target Denotation, Care history, Respect constraints, canonical dependency projections, countermodels, and formal boundaries.",
+  "source_sha256": {
+    "ontology/ontology.md": "a31dcbea85cbc432f7316f52f120386f0927810dba8421168a0f9583699ce3c5",
+    "ontology/terms.yaml": "c2059b1d7cd73c7ff129de1fb0172530603056a8c9a84ec737d0310db5c047f7",
+    "ontology/changelog.md": "ca91955a9f9653663d37c7b04cbf0c0d20a0b16b0af6e533b157160bb5a316f9",
+    "ontology/formal/AttentionLoveCare.lean": "540865c0329f1bb844e126ce35cf1eb56d5d35c6dca9321c607e13e9abb2dee6",
+    "ontology/formal/AttentionLoveCareContracts.lean": "ca081be763a26388cea40566d9b47dfa155aa443de6b57a2bba93edec738c89e",
+    "ontology/formal/EmbodiedConsciousness.lean": "8f0367384b57f56f0e9e4496acfac781c180b6c126c89d26ef94cf740f83eae5",
+    "ontology/formal/Model.lean": "6195c4e7d3aab7de036abc9b0ee6c63d39c1d83f74b5a40142bf5014e249d568",
+    "ontology/formal/README.md": "2a967c4f40588511fb066a76d3d8864d0aa728a9531712bf2ab6c13d92a45adb",
+    "ontology/formal/decisions.md": "f2acbb2696cb6d783c80968a605401928693a2184417d3ce38ca278bfc10fbab",
+    "ontology/formal/lakefile.toml": "274d02a064289c4c3d014643b9ca25cd1bf7ed344ae96a79cf5375d48a7837a9",
+    "proposals/attention-love-care.md": "b16a2b944a146cf39eaa0ba6b3255ef1d8e1b2a4748b953f4a1754af22ffec08",
+    "proposals/attention-love-care-claims.json": "283bab985a510a139caf1994b7417669f9bd39d60f9590fd7c138890769cfe11",
+    "releases/v0-20-0.md": "23fd5db26337eac7613d314d4d10f642ccd342e99b107aa9f2b43a4be2128a95",
+    "scripts/check-proposals.py": "87f26905ba0450b92a9f38c6ee63a144e5973fd424a971622b42f6a9eb03fb24",
+    "scripts/check-promotion-review.py": "511241352a32b1f4b25a6c1b1a66bc088ec4afc71e0f3426c2c6d5074725a3aa",
+    "evals/tests/test_promotion_contracts.py": "d6d92e48c527ba3bceaab490ece4f9c74e3a1d9ff11d1807da0d612ef12d0562"
+  },
+  "verified_contracts": [
+    "AC-D1",
+    "AC-D2",
+    "AC-D3",
+    "AC-D4",
+    "AC-D5",
+    "AC-D6",
+    "AC-D7",
+    "AC-D8",
+    "AC-C1",
+    "AC-C2",
+    "AC-C3",
+    "AC-C4"
+  ],
+  "findings": [
+    {
+      "id": "ALC-AR-1",
+      "severity": "critical",
+      "disposition": "resolved",
+      "resolution": "Intention no longer equates its target with the guided result; the exact upstream target Difference guides an activity whose output may differ."
+    },
+    {
+      "id": "ALC-AR-2",
+      "severity": "critical",
+      "disposition": "resolved",
+      "resolution": "Absolute Attention no longer relies on an unconstrained list of available Differences; it is exact equality of organized and available channels under one Attention."
+    },
+    {
+      "id": "ALC-AR-3",
+      "severity": "high",
+      "disposition": "resolved",
+      "resolution": "Respect now proves that its named Constraint admits the actor scoped Action as well as carrying a typed protection witness for the other Entity."
+    },
+    {
+      "id": "ALC-AR-4",
+      "severity": "high",
+      "disposition": "resolved",
+      "resolution": "Care requires the attended target State to belong to the cared-for Entity Persistence history and joins the exact Entity-State Denotation to an organized action channel."
+    },
+    {
+      "id": "ALC-AR-5",
+      "severity": "critical",
+      "disposition": "resolved",
+      "resolution": "Every canonical dependency receives a formalized, represented-by, prose-only, or outside-boundary disposition; local channel projections cannot disappear from the ledger."
+    },
+    {
+      "id": "ALC-AR-6",
+      "severity": "high",
+      "disposition": "resolved",
+      "resolution": "Attention uses exact organized and available list lengths with a nonempty denominator, subset proof, shared upstream Difference, and downstream result for every counted channel."
+    },
+    {
+      "id": "ALC-AR-7",
+      "severity": "high",
+      "disposition": "resolved",
+      "resolution": "The partial-Attention countermodel negates an AbsoluteAttention wrapper around the same Attention instead of proving only an unrelated omitted item."
+    },
+    {
+      "id": "ALC-AR-8",
+      "severity": "medium",
+      "disposition": "outside-formal-boundary",
+      "resolution": "Normative and interpersonal reverse anti-entailments remain binding prose explicitly outside the reduct because closed-world benefit, consent, morality, agreement, and affection predicates are absent."
+    },
+    {
+      "id": "ALC-AR-9",
+      "severity": "medium",
+      "disposition": "resolved",
+      "resolution": "The promotion leaves Consciousness and the proposed Authority revision unchanged and limits v0.20 to the eight dependency-closed terms."
+    }
+  ]
+}

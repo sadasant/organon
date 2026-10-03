@@ -1,0 +1,23 @@
+{
+  "schema_version": 2,
+  "run": {
+    "evaluation": "editorial-artifacts",
+    "methodology_version": "1.0",
+    "stages": [
+      "snapshot",
+      "deterministic-preflight",
+      "human-promotion"
+    ],
+    "generated_at": "2026-10-03",
+    "organon_commit": "69718a1a71493b627e2f89ce33c591a3666b11a1",
+    "committed_inputs_sha256": {
+      "ontology/ontology.md": "a31dcbea85cbc432f7316f52f120386f0927810dba8421168a0f9583699ce3c5"
+    },
+    "ontology_sha256": "a31dcbea85cbc432f7316f52f120386f0927810dba8421168a0f9583699ce3c5",
+    "complete": true,
+    "passed": false,
+    "incomplete_reason": "The deterministic inputs were refreshed for v0.20; the model-judged suite was not rerun for this promotion.",
+    "human_disposition": "adopted"
+  },
+  "improvement_plans": []
+}
