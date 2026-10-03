@@ -4,7 +4,7 @@ status: verified
 canonicality: noncanonical
 created: 2026-08-02
 updated: 2026-10-02
-repository_commit: "664f5486218cc650220962aa33cd17ac68ba84c6"
+repository_commit: "66f101aee406e2f545092ae52ac24130be52db57"
 ---
 # Lean Spike Build Receipt
 
@@ -46,9 +46,9 @@ The shadow additionally constructs one Factive Operative Knowledge instance whos
 
 Proposal-local evidence, sovereignty, own-Principal, observed-choice, exchange, and moral-worth predicates remain formal shadows rather than complete joins to every core Organon structure. Reality, universal Claim semantics, universal moral conditions, Action attribution, complete Evidence parity, Interior-and-Boundary Exposure, Action-to-Change Consequence, complete Sense-to-Perception access, Ritual uptake parity through canonical Perception, Memory, and Interpretation, represented-target Denotation, temporal Meaning decay, fidelity, carrier realization, Alignment-profile composition, completeness and provenance of external Rule encodings, runtime construction, temporal ordering of transmission stages, universal semantic preservation, international-law sufficiency, preference revelation, expected utility, market clearing, Beauty, Play, Love, generic Knowledge, generic Sovereignty, and generic Value remain open formalization gates.
 
-`PromotionContracts.lean` restates every formally proved embodied proposal claim as a marked theorem contract. The schema-v2 claim manifest requires load-bearing symbols and shared indices to occur inside each exact contract block, inventories every direct proposition-valued semantic field, and records explicit dispositions for claims outside the formal boundary. A separately committed exact-source adversarial review pins the implementation commit, tree, governed source hashes, verified contract set, and resolution of each reported finding.
+`PromotionContracts.lean` restates every formally proved embodied proposal claim as a marked theorem contract. The schema-v2 claim manifest gives every declared dependency an exact disposition, derives checked symbols from that complete ledger and the subject symbols, requires shared indices inside each exact contract block, inventories every direct proposition-valued semantic field, and distinguishes fully proved contracts from theorem projections with formal boundaries. A separately committed exact-source adversarial review pins the implementation commit, tree, governed source hashes, verified contract set, and resolution of each reported finding.
 
-The repository commit attested by this receipt is `664f5486218cc650220962aa33cd17ac68ba84c6`.
+The repository commit attested by this receipt is `66f101aee406e2f545092ae52ac24130be52db57`.
 
 ## Source digests
 
@@ -58,8 +58,8 @@ The repository commit attested by this receipt is `664f5486218cc650220962aa33cd1
 - `DanielOntology.lean`: `f8880dbdd90b198beba9392d3ef8ab18e575715f206ec1e497fe3d31eab69ba1`
 - `BridgeRelations.lean`: `a17cdd4eb893859d3895cc729f5726a9689eb97d6290d7aa40e99dfca010b7cf`
 - `RitualMeaning.lean`: `4154d3d8ec479679ec0faab4f8d4bb4364c8ed670b61528e77fcf996e537a68e`
-- `EmbodiedConsciousness.lean`: `ec63d84ae7c8ef150ee67105e95eb9ac105bc8dbb05eda69ac58dc9d7b0b5c65`
-- `PromotionContracts.lean`: `7192ee8681098a260a717ffa3368a46e8bd59d923abef44edd8918d944667543`
+- `EmbodiedConsciousness.lean`: `8f0367384b57f56f0e9e4496acfac781c180b6c126c89d26ef94cf740f83eae5`
+- `PromotionContracts.lean`: `e1b974d2e11679df3ba6612b9b24291f3d5bfa82dd9c96116db005281a696301`
 - `Consciousness.lean`: `18c9af64b04e3f822c97cf24371d17dd22bd34c89e036d7362207fbba4e9cd86`
 - `Operationalization.lean`: `14e75b936ad86f5a03292b316990b7d3ab7a1ada811cb1865ec2831ac8d1a3ce`
 - `WorldSubstrate.lean`: `d3a9d36f6acfe56318ba35dd1f742d2d2e73136f84d70ed27267eb7228122ec5`

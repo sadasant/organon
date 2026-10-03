@@ -2,27 +2,28 @@
   "schema_version": 1,
   "proposal_id": "embodied-consciousness",
   "status": "promotion-ready",
-  "reviewed_commit": "664f5486218cc650220962aa33cd17ac68ba84c6",
-  "reviewed_tree": "94805bb8430fd0965621c778c6aac3b949cb1b8b",
+  "reviewed_commit": "66f101aee406e2f545092ae52ac24130be52db57",
+  "reviewed_tree": "99ee04b24efde6c96fc38027379e9575ee164ba8",
   "reviewed_at": "2026-10-02",
-  "review_scope": "Adversarial review of the embodied integration definitions, formal joins, countermodels, quarantine boundary, evaluation disposition, and the enforcement machinery added in response.",
+  "review_scope": "Second adversarial review of canonical dependency coverage, Body interval scope, pairwise Organ transformation distinctness, explicit Model/Perception/Memory joins, countermodels, quarantine boundaries, and the promotion enforcement machinery.",
   "source_sha256": {
     ".github/workflows/verify.yml": "f2a2094f2e680cacbf4860613b1c2c0c87e0ba149c4f01fdea3209052f9144ed",
-    "CONTRIBUTING.md": "daaeb16c7045dd365ef760a16933c70a3be29ccd6d6dcdd8b7fbfdc920511b7a",
+    "CONTRIBUTING.md": "cc48d52f69d833b979a3173e1d3afca6285371ff09daebefa616aebf5ff2aff5",
     "ontology/ontology.md": "02b518c93f42b236178b68e6bd911ae4dbea38905c5dd44a7de46654a435d284",
     "ontology/terms.yaml": "bc4c8641089d1f341e91f48d18f45296c18509191782ba74279e4dafbfc3b293",
-    "ontology/changelog.md": "7673517d029d6e718e7595958b77355dc06e12d48c67a4662d8c8bdad0a582db",
-    "ontology/formal/EmbodiedConsciousness.lean": "ec63d84ae7c8ef150ee67105e95eb9ac105bc8dbb05eda69ac58dc9d7b0b5c65",
-    "ontology/formal/PromotionContracts.lean": "7192ee8681098a260a717ffa3368a46e8bd59d923abef44edd8918d944667543",
+    "ontology/changelog.md": "c020e43b3798fb12b03dd910611b25815167be25c6878f502007a9175ea69ac3",
+    "ontology/formal/EmbodiedConsciousness.lean": "8f0367384b57f56f0e9e4496acfac781c180b6c126c89d26ef94cf740f83eae5",
+    "ontology/formal/PromotionContracts.lean": "e1b974d2e11679df3ba6612b9b24291f3d5bfa82dd9c96116db005281a696301",
     "ontology/formal/Model.lean": "bf5cbf596d216b0280aa0558d6ba24bc5e695be5231bd815e6d466d2009bf85e",
-    "ontology/formal/README.md": "659356f0ef0782b507cbfa97b5d6c53ad231257a3f7c54f95f2ef469c5577a32",
-    "ontology/formal/decisions.md": "c1eb9a5fece00202545ec3940f4283a0950c8def9ebd8e67aac9267ee2960f7d",
+    "ontology/formal/README.md": "99803621d3e3b4238acd6616a4ba6cf9408223f9389b336a4b4b6c5c66a0db10",
+    "ontology/formal/decisions.md": "734ca0ff11bc09f5cd432c4f39b12644746c9423e0b913f36b5a007364af1cd4",
     "ontology/formal/lakefile.toml": "fa35d92f0d59ceb5e76edb102834fdd3627eb861baf178c78f66010a7256eecf",
-    "proposals/embodied-consciousness.md": "ce61bf38e58e6c56323866f15ddc7fca8aad87bfebbce6cbcd845d473aba094e",
-    "proposals/embodied-consciousness-claims.json": "6ba0eb0ad5b8e21eaf244847386a91b78b757b35b68857a9114ae16bc7f23db2",
-    "scripts/check-proposals.py": "3bfaf688e9128f6e1f7c0644080ed09546bcc051e92a21d070a3ea7cc37a7de9",
-    "scripts/check-promotion-review.py": "237f874d551075fb110749134a101111e791b229c71b4d9072e52135c2bdc3f7",
-    "evals/tests/test_promotion_contracts.py": "fd72567576f8e5af1deb650fdc2ae5fca674c557197c984faa224137eafc26c0"
+    "proposals/embodied-consciousness.md": "e65fb71b29f471fe2ed2c8341e867b2ec39a7a64928e91c04337a76212f60522",
+    "proposals/embodied-consciousness-claims.json": "0c256014dfb9ca96887e40b92e327446dec851f68ad3150d57e1cae2dfab2224",
+    "scripts/check-proposals.py": "87f26905ba0450b92a9f38c6ee63a144e5973fd424a971622b42f6a9eb03fb24",
+    "scripts/check-promotion-review.py": "511241352a32b1f4b25a6c1b1a66bc088ec4afc71e0f3426c2c6d5074725a3aa",
+    "evals/tests/test_promotion_contracts.py": "bb68dae6b28aa1ee92a84c0d1cd54d9f54888bd19d64a973cc6afc85b898e530",
+    "evals/editorial-artifacts/inputs/targets.json": "7b9ba7d9324a97cd51f2c82437913387fb06da4151144f4b79ae18e0ece27197"
   },
   "verified_contracts": [
     "EC-D1",
@@ -85,6 +86,24 @@
       "severity": "high",
       "disposition": "resolved",
       "resolution": "Schema-v2 manifests, exact Lean promotion contracts, a semantic-field ledger, and exact-source review hashes now turn the relevant review obligations into CI failures."
+    },
+    {
+      "id": "AR-9",
+      "severity": "critical",
+      "disposition": "resolved",
+      "resolution": "Every dependency of a theorem-backed statement now has an exact disposition; checked symbols derive from that complete ledger, required_symbols is forbidden, and boundary-bearing projections cannot use the fully proved status."
+    },
+    {
+      "id": "AR-10",
+      "severity": "high",
+      "disposition": "resolved",
+      "resolution": "Embodied Perspective now contains explicit PerspectivePerception, PerspectiveMemory, and PerspectiveModel objects joined to internal States, Persistence, Contributions, Representations, Transformations, later States, and Boundary Constraints."
+    },
+    {
+      "id": "AR-11",
+      "severity": "medium",
+      "disposition": "resolved",
+      "resolution": "Bodily Organization requires pairwise distinct recurring Transformations for every pair of distinct named Organs, and Body States form an ordered nonempty subsequence of Entity Persistence rather than equaling the complete history."
     }
   ]
 }
