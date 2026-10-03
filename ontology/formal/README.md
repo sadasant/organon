@@ -76,3 +76,7 @@ The local machine uses an Elan override named `organon-lean-4.30.0` because Elan
 5. Markdown is rendered deterministically from Lean declarations and doc-comments.
 6. The generated Markdown is readable in Obsidian and has stable internal links.
 7. Daniel explicitly promotes Lean from experimental artifact to canonical ontology.
+
+### v0.20 promotion audit refinements
+
+`AttentionLoveCare.lean` derives a positive denominator and a numerator no greater than it from unique finite availability and sublist/permutation counting. Absolute coverage is independent of list order. Sustained snapshots share a focus while carrying their own Body State indices and excluding future organized results. Other-Entity witnesses differ in identity Invariant, rather than only current State. Respect either admits its exact constrained Action under the target Boundary or retains identity-preserving options starting at its output. Regression proofs cover duplicates, future results, reordered coverage, same-identity snapshots, and identity-destroying actions. These are finite structural proofs; the dossier's canonical-channel and application gates remain open.

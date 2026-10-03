@@ -19,6 +19,7 @@ theorem embodiedSelfGovernanceContract
     governance.perspective.perception.contribution =
         governance.selection.contribution ∧
     governance.governedTransformations ≠ [] ∧
+    governance.selection.selected ∈ governance.governedTransformations ∧
     (∀ transformation,
       transformation ∈ governance.governedTransformations →
         governance.scope.includes transformation ∧
@@ -27,7 +28,7 @@ theorem embodiedSelfGovernanceContract
     governance.constraint ∈ entity.boundary.constraints := by
   refine ⟨governance.perspectiveGuidesSelection.1,
     governance.perspectiveGuidesSelection.2,
-    governance.governedNonempty, ?_, governance.constraintFromBoundary⟩
+    governance.governedNonempty, governance.selectionIsGoverned, ?_, governance.constraintFromBoundary⟩
   intro transformation member
   exact ⟨governance.governedInScope transformation member,
     governance.governedWithinBody transformation member,
@@ -63,6 +64,10 @@ theorem attentionContract
     (attention : Attention Part body) :
     attention.contrastRepresentation ≠ attention.focalRepresentation ∧
     attention.available ≠ [] ∧
+    attention.available.Nodup ∧ attention.organized.Nodup ∧
+    attention.moment ∈ body.states ∧
+    attention.degreeNumerator ≤ attention.degreeDenominator ∧
+    0 < attention.degreeDenominator ∧
     attention.degreeNumerator = attention.organized.length ∧
     attention.degreeDenominator = attention.available.length ∧
     (∀ item, item ∈ attention.available →
@@ -76,8 +81,12 @@ theorem attentionContract
       (attention.organizingContribution item).rightEndpoints.first.input.value.1 =
           attention.focalRepresentation ∧
       (attention.organizingContribution item).downstreamChange.transformation.output =
-          item.result) := by
+          item.result ∧
+      (item.result = attention.moment ∨
+        entity.persistenceDirection.before item.result attention.moment)) := by
+  have bounds := attentionDegreeBounded attention
   refine ⟨attention.focalDifference, attention.availableNonempty,
+    attention.availableUnique, bounds.2.2, attention.momentWithinBody, bounds.1, bounds.2.1,
     attention.degreeNumeratorExact, attention.degreeDenominatorExact, ?_, ?_⟩
   · intro item _
     cases item.channel <;> simp
@@ -85,7 +94,8 @@ theorem attentionContract
   exact ⟨attention.organizedWithinAvailable item member,
     (attention.organizedByDifference item member).1,
     (attention.organizedByDifference item member).2,
-    attention.contributionProducesResult item member⟩
+    attention.contributionProducesResult item member,
+    attention.resultsAtOrBeforeMoment item member⟩
 
 /-- organon:promotion-contract AC-D4 -/
 theorem sustainedAttentionContract
@@ -96,6 +106,7 @@ theorem sustainedAttentionContract
     OrderedBy entity.persistenceDirection.before sustained.states ∧
     (∀ state, state ∈ sustained.states →
       state ∈ body.states ∧
+      (sustained.attentionAt state).moment = state ∧
       (sustained.attentionAt state).organized ≠ [] ∧
       (sustained.attentionAt state).focalRepresentation =
           sustained.commonFocalRepresentation ∧
@@ -104,6 +115,7 @@ theorem sustainedAttentionContract
   refine ⟨sustained.hasChangingStates, sustained.statesOrdered, ?_⟩
   intro state member
   exact ⟨sustained.statesWithinBody state member,
+    sustained.indexedAtState state member,
     sustained.maintained state member,
     (sustained.sameDifference state member).1,
     (sustained.sameDifference state member).2⟩
@@ -113,7 +125,8 @@ theorem absoluteAttentionContract
     {Part : Type u} {Feature : Type v} {Context : Type w}
     {entity : Entity (Feature × Context)} {body : Body Part entity}
     (absolute : AbsoluteAttention Part body) :
-    absolute.attention.organized = absolute.attention.available ∧
+    (∀ item, item ∈ absolute.attention.available →
+      item ∈ absolute.attention.organized) ∧
     (∀ item, ¬ FocusIndependentAction absolute.attention item) := by
   exact ⟨absolute.allAvailableOrganized,
     absoluteAttentionInhibitsFocusIndependentAction absolute⟩
@@ -124,12 +137,13 @@ theorem loveContract
     {entity : Entity (Feature × Context)} {body : Body Part entity}
     (love : Love Part body) :
     love.beloved ≠ entity ∧
+    love.beloved.identity ≠ entity.identity ∧
     love.belovedDenotation.expression = love.belovedRepresentation ∧
     love.belovedDenotation.target = love.beloved ∧
     love.attention.commonFocalRepresentation = love.belovedRepresentation ∧
     (∀ state, state ∈ love.attention.states →
       (love.attention.attentionAt state).organized ≠ []) := by
-  exact ⟨love.belovedIsOther, love.denotationNamesBeloved.1,
+  exact ⟨love.belovedIsOther, love.belovedIdentityIsOther, love.denotationNamesBeloved.1,
     love.denotationNamesBeloved.2, love.attentionDirectedTowardBeloved,
     love.attention.maintained⟩
 
@@ -139,6 +153,7 @@ theorem careContract
     {entity : Entity (Feature × Context)} {body : Body Part entity}
     (care : Care Part body) :
     care.caredFor ≠ entity ∧
+    care.caredFor.identity ≠ entity.identity ∧
     care.targetDenotation.expression = care.targetRepresentation ∧
     care.targetDenotation.target = (care.caredFor, care.attendedState) ∧
     care.attendedState ∈ care.caredFor.persistence.states ∧
@@ -146,7 +161,7 @@ theorem careContract
     care.actionItem.channel = .action ∧
     care.actionItem ∈ care.attention.available ∧
     care.actionItem ∈ care.attention.organized := by
-  exact ⟨care.caredForIsOther, care.denotationNamesTargetState.1,
+  exact ⟨care.caredForIsOther, care.caredForIdentityIsOther, care.denotationNamesTargetState.1,
     care.denotationNamesTargetState.2, care.attendedStateInHistory,
     care.attentionTargetsState,
     care.itemIsAction, care.actionAvailable, care.actionOrganizedByAttention⟩
@@ -156,12 +171,15 @@ theorem respectContract
     {Carrier : Type u} {actor target : Entity Carrier}
     (respect : Respect actor target) :
     target ≠ actor ∧
+    target.identity ≠ actor.identity ∧
     respect.actionScope.includes respect.constrainedAction ∧
     respect.constraint.permits respect.constrainedAction ∧
+    target.identity.holds respect.constrainedAction.output ∧
     Nonempty (RespectProtection target respect.constraint
       respect.constrainedAction) := by
-  exact ⟨respect.targetIsOther, respect.actionInScope,
-    respect.actionConstrained, ⟨respect.protection⟩⟩
+  exact ⟨respect.targetIsOther, respect.targetIdentityIsOther, respect.actionInScope,
+    respect.actionConstrained, respectProtectionPreservesIdentity respect.protection,
+    ⟨respect.protection⟩⟩
 
 /-- organon:promotion-contract AC-C1 -/
 theorem partialSelfGovernanceCountermodel :

@@ -239,7 +239,8 @@
         "organon:Interpretation",
         "organon:Action",
         "organon:CausalContribution",
-        "organon:State"
+        "organon:State",
+        "organon:Direction"
       ],
       "formal_contract": {
         "status": "proved",
@@ -314,8 +315,17 @@
             "status": "formalized",
             "symbols": [
               "result",
-              "output"
+              "output",
+              "moment"
             ]
+          },
+          "organon:Direction": {
+            "status": "formalized",
+            "symbols": [
+              "persistenceDirection",
+              "before"
+            ],
+            "reason": "Every counted organized result is at or before its Body snapshot under the same Entity Direction."
           }
         }
       }
@@ -348,7 +358,8 @@
           "AC-D3": {
             "status": "formalized",
             "symbols": [
-              "attentionAt"
+              "attentionAt",
+              "moment"
             ]
           },
           "organon:Entity": {
@@ -486,7 +497,8 @@
             "status": "formalized",
             "symbols": [
               "entity",
-              "beloved"
+              "beloved",
+              "identity"
             ]
           },
           "organon:Representation": {
@@ -558,7 +570,8 @@
             "status": "formalized",
             "symbols": [
               "entity",
-              "caredFor"
+              "caredFor",
+              "identity"
             ]
           },
           "organon:State": {
@@ -659,7 +672,8 @@
             "status": "formalized",
             "symbols": [
               "actor",
-              "target"
+              "target",
+              "identity"
             ]
           },
           "organon:Scope": {
