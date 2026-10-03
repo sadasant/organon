@@ -1,0 +1,263 @@
+{
+  "schema_version": 1,
+  "proposal_id": "ontological-frameworks",
+  "status": "ready-for-review",
+  "binding": false,
+  "markdown": "ontological-frameworks.md",
+  "formal_shadow": "../ontology/formal/OntologyCompleteness.lean",
+  "formal_evidence": [],
+  "introduced_terms": [
+    "organon:Classification",
+    "organon:OntologicalFramework",
+    "organon:Granularity",
+    "organon:Expressivity",
+    "organon:Scarcity",
+    "organon:OntologicalProbability",
+    "organon:Differentiation",
+    "organon:Novelty",
+    "organon:Interpretation",
+    "organon:Understanding"
+  ],
+  "local_symbols": [
+    "local:AllocationFeasibility",
+    "local:CategoryCondition",
+    "local:ConditionFamily",
+    "local:ConditionIndex",
+    "local:ExpressionInventory",
+    "local:FiniteMass",
+    "local:HistoryIndex",
+    "local:RewriteSemantics",
+    "local:ScaleIndex",
+    "local:SourceLink",
+    "local:SemanticContext",
+    "local:PracticalPossibility"
+  ],
+  "statements": [
+    {
+      "id": "OF-D9",
+      "type": "proposed_definition",
+      "subject": "Interpretation",
+      "depends_on": [
+        "organon:Relation",
+        "organon:Representation",
+        "organon:Denotation",
+        "organon:Configuration",
+        "organon:Scope",
+        "organon:Presence",
+        "local:SemanticContext"
+      ],
+      "formal_symbol": "Interpretation"
+    },
+    {
+      "id": "OF-D10",
+      "type": "proposed_definition",
+      "subject": "Understanding",
+      "depends_on": [
+        "organon:Transformation",
+        "organon:Entity",
+        "organon:Perception",
+        "organon:Memory",
+        "organon:Model",
+        "organon:Action",
+        "organon:Difference",
+        "organon:State",
+        "organon:Direction",
+        "organon:Scope",
+        "organon:Constraint",
+        "local:PracticalPossibility"
+      ],
+      "formal_symbol": "Understanding"
+    },
+    {
+      "id": "OF-D1",
+      "type": "proposed_definition",
+      "subject": "Classification",
+      "depends_on": [
+        "OF-D9",
+        "organon:Representation",
+        "organon:Denotation",
+        "organon:Relation",
+        "organon:Presence",
+        "organon:Configuration",
+        "organon:Scope",
+        "local:CategoryCondition"
+      ],
+      "formal_symbol": "Classification"
+    },
+    {
+      "id": "OF-D2",
+      "type": "proposed_definition",
+      "subject": "Ontological Framework",
+      "depends_on": [
+        "OF-D1",
+        "organon:Configuration",
+        "organon:Representation",
+        "organon:Denotation",
+        "organon:Constraint",
+        "organon:Rule",
+        "organon:Specification",
+        "organon:Transformation",
+        "organon:Scope",
+        "organon:Presence",
+        "organon:Relation",
+        "local:ExpressionInventory",
+        "local:RewriteSemantics"
+      ],
+      "formal_symbol": "OntologicalFramework"
+    },
+    {
+      "id": "OF-D3",
+      "type": "proposed_definition",
+      "subject": "Granularity",
+      "depends_on": [
+        "OF-D1",
+        "OF-D2",
+        "organon:Relation",
+        "organon:Difference",
+        "organon:Scope",
+        "local:ExpressionInventory"
+      ],
+      "formal_symbol": "Granularity"
+    },
+    {
+      "id": "OF-D4",
+      "type": "proposed_definition",
+      "subject": "Expressivity",
+      "depends_on": [
+        "OF-D1",
+        "OF-D2",
+        "organon:Representation",
+        "organon:Denotation",
+        "organon:Scope",
+        "organon:Relation",
+        "local:ConditionFamily"
+      ],
+      "formal_symbol": "Expressivity"
+    },
+    {
+      "id": "OF-D5",
+      "type": "proposed_definition",
+      "subject": "Scarcity",
+      "depends_on": [
+        "organon:Constraint",
+        "organon:Scope",
+        "organon:Configuration",
+        "organon:Relation",
+        "organon:State",
+        "organon:Transformation",
+        "local:AllocationFeasibility"
+      ],
+      "formal_symbol": "Scarcity"
+    },
+    {
+      "id": "OF-D6",
+      "type": "proposed_definition",
+      "subject": "Ontological Probability",
+      "depends_on": [
+        "organon:Representation",
+        "organon:Denotation",
+        "organon:Scope",
+        "organon:State",
+        "organon:Transformation",
+        "local:ConditionIndex",
+        "local:FiniteMass"
+      ],
+      "formal_symbol": "OntologicalProbability"
+    },
+    {
+      "id": "OF-D7",
+      "type": "proposed_definition",
+      "subject": "Differentiation",
+      "depends_on": [
+        "organon:Entity",
+        "organon:Relation",
+        "organon:State",
+        "organon:Direction",
+        "organon:Scope",
+        "organon:Difference",
+        "local:SourceLink",
+        "local:ScaleIndex",
+        "local:HistoryIndex"
+      ],
+      "formal_symbol": "Differentiation"
+    },
+    {
+      "id": "OF-D8",
+      "type": "proposed_definition",
+      "subject": "Novelty",
+      "depends_on": [
+        "OF-D7"
+      ],
+      "formal_symbol": "Novelty"
+    },
+    {
+      "id": "OF-H1",
+      "type": "hypothesis",
+      "subject": "Source-loss criterion of full novelty",
+      "depends_on": [
+        "OF-D7",
+        "OF-D8",
+        "organon:CausalPath",
+        "organon:Entity",
+        "organon:Relation"
+      ]
+    },
+    {
+      "id": "OF-H2",
+      "type": "hypothesis",
+      "subject": "Probability belongs to the modeled process",
+      "depends_on": [
+        "OF-D6",
+        "organon:Truth",
+        "organon:Evidence",
+        "organon:EvidentialBearing",
+        "organon:Claim",
+        "organon:Substrate",
+        "organon:State",
+        "organon:Transformation"
+      ]
+    },
+    {
+      "id": "OF-G1",
+      "type": "open_formalization_gate",
+      "subject": "Complete canonical realization and promotion contracts",
+      "depends_on": [
+        "OF-D1",
+        "OF-D2",
+        "OF-D3",
+        "OF-D4",
+        "OF-D5",
+        "OF-D6",
+        "OF-D7",
+        "OF-D8",
+        "organon:Presence",
+        "organon:Configuration",
+        "organon:Representation",
+        "organon:Denotation",
+        "organon:Rule",
+        "organon:Constraint",
+        "organon:Entity",
+        "organon:CausalPath",
+        "OF-D9",
+        "OF-D10"
+      ]
+    },
+    {
+      "id": "OF-G2",
+      "type": "open_evidence_gate",
+      "subject": "Authority and epistemic adequacy remain separate",
+      "depends_on": [
+        "OF-D2",
+        "OF-D5",
+        "OF-D6",
+        "organon:Authority",
+        "organon:Recognition",
+        "organon:CountsAs",
+        "organon:Trust",
+        "organon:Truth",
+        "organon:Evidence",
+        "organon:EvidentialBearing"
+      ]
+    }
+  ]
+}
