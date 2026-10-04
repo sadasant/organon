@@ -72,6 +72,12 @@ theorem attentionContract
     attention.moment ∈ body.states ∧
     attention.degreeNumerator ≤ attention.degreeDenominator ∧
     0 < attention.degreeDenominator ∧
+    (∀ item, item ∈ attention.organized ↔
+      item ∈ attention.available ∧ ChannelOrganizedByDifference attention.moment
+        attention.contrastRepresentation attention.focalRepresentation
+        (attention.result item) (attention.causalContributions item)) ∧
+    (∀ item, item ∈ attention.organized →
+      attention.organizingContribution item ∈ attention.causalContributions item) ∧
     attention.degreeNumerator = attention.organized.length ∧
     attention.degreeDenominator = attention.available.length ∧
     (∀ item, item ∈ attention.available →
@@ -91,7 +97,7 @@ theorem attentionContract
   have bounds := attentionDegreeBounded attention
   refine ⟨attention.focalDifference, attention.availableExact, ?_, attention.availableNonempty,
     attention.availableUnique, bounds.2.2, attention.momentWithinBody, bounds.1, bounds.2.1,
-    attention.degreeNumeratorExact, attention.degreeDenominatorExact, ?_, ?_⟩
+    attention.organizedExact, attention.organizingContributionDeclared, attention.degreeNumeratorExact, attention.degreeDenominatorExact, ?_, ?_⟩
   · intro channel member
     exact (attention.inventory.availabilityAt attention.moment).conformityWithinScope
       channel ((attention.availableExact channel).mp member)
@@ -208,9 +214,11 @@ theorem partialAttentionCountermodel :
     (¬ ∃ absolute : AbsoluteAttention ToyPart systemBody,
       absolute.attention = systemAttention) ∧
     actionItem ∈ systemAttention.available ∧
-    actionItem ∉ systemAttention.organized := by
+    actionItem ∉ systemAttention.organized ∧
+    FocusIndependentAction systemAttention actionItem := by
   exact ⟨systemAttentionIsNotAbsolute,
-    attentionDoesNotRequireAllAvailableItems⟩
+    attentionDoesNotRequireAllAvailableItems.1,
+    attentionDoesNotRequireAllAvailableItems.2, partialActionIsCausallyIndependent⟩
 
 /-- organon:promotion-contract AC-C4 -/
 theorem absoluteAttentionActionLimit :

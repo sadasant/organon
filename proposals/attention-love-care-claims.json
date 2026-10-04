@@ -36,7 +36,9 @@
     "ordinary:affection",
     "ordinary:obedience",
     "local:ChannelInventory",
-    "local:EntityIndividuation"
+    "local:EntityIndividuation",
+    "local:ChannelOrganizedByDifference",
+    "local:ContributionOrganizesChannel"
   ],
   "semantic_fields": [],
   "statements": [
@@ -313,8 +315,12 @@
               "organizingContribution",
               "leftEndpoints",
               "rightEndpoints",
-              "downstreamChange"
-            ]
+              "downstreamChange",
+              "ChannelOrganizedByDifference",
+              "causalContributions",
+              "organizingContributionDeclared"
+            ],
+            "reason": "Organization existentially quantifies over the complete declared channel-specific contribution collection independently of the counted list or selected witness. A selected witness belongs to that collection; exact coverage counts every available channel with a qualifying upstream Difference, exact result, and snapshot timing."
           },
           "organon:State": {
             "status": "formalized",
@@ -878,9 +884,10 @@
           "organon:Action": {
             "status": "represented_by",
             "symbols": [
-              "actionItem"
+              "actionItem",
+              "FocusIndependentAction"
             ],
-            "reason": "The explicit available but unorganized local action channel witnesses failure of total organization."
+            "reason": "The available omitted Action has an exact contribution to its result with a different upstream Difference, so it fails the independently evaluated causal-organization condition."
           }
         }
       }

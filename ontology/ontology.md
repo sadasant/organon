@@ -4,7 +4,7 @@ status: provisional-binding
 binding: true
 version: 0.20
 created: 2026-08-01
-updated: 2026-10-03
+updated: 2026-10-04
 evidence_scope: "Daniel's adopted commitments and the recovered essay corpus"
 corpus_audit: "../provenance/essays.md"
 term_registry: "terms.yaml"
@@ -846,7 +846,7 @@ Together, Body, Embodied Perspective, Recurrent Integration, and Internal Activi
 <a id="organon-attention"></a>
 <!-- organon:term organon:Attention claim=D114 -->
 
-**Attention** is the finite ratio of an Entity's Perception, Interpretation, and Action channels causally organized by one Difference, relative to a declared channel inventory and an availability Specification evaluated at a State of one Body. The inventory individuates channels independently of their kind and result. The Specification supplies the availability criterion and its Scope; the nonempty finite available enumeration covers exactly every conforming channel, counts each once, and includes every organized channel. A different inventory or Specification defines a different measurement context, not a different degree within the same context. Each Attention snapshot is indexed to a State of that Body; its exact Causal Contribution carries the focal representational Difference to the channel's result, which occurs at or before the indexed State under the Entity's Direction. Attention alone makes no Claim about benefit, consent, morality, accuracy, Truth, or purpose.
+**Attention** is the finite ratio of an Entity's Perception, Interpretation, and Action channels causally organized by one Difference, relative to a declared channel inventory and an availability Specification evaluated at a State of one Body. The inventory individuates channels independently of their kind and result. The Specification supplies the availability criterion and its Scope; the nonempty finite available enumeration covers exactly every conforming channel, counts each once, and includes every organized channel. A different inventory or Specification defines a different measurement context, not a different degree within the same context. Each Attention snapshot is indexed to a State of that Body. Each snapshot declares channel results and a collection of channel-specific Causal Contributions independently of the counted enumeration. A channel is organized exactly when at least one contribution in its declared collection has the focal representational Difference as its upstream Difference, produces that exact channel result, and the result occurs at or before the indexed State under the Entity's Direction. A selected organization witness must belong to that collection; selecting a nonfocal witness cannot hide another qualifying contribution. The organized enumeration covers exactly every available channel meeting those conditions, counts each once, and supplies the numerator; the available enumeration supplies the denominator. Attention alone makes no Claim about benefit, consent, morality, accuracy, Truth, or purpose.
 
 <a id="organon-sustained-attention"></a>
 <!-- organon:term organon:SustainedAttention claim=D115 -->
