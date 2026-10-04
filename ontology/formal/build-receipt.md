@@ -3,8 +3,8 @@ type: formal-build-receipt
 status: verified
 canonicality: noncanonical
 created: 2026-08-02
-updated: 2026-10-03
-repository_commit: "52bb3bf8e7051bbb705e9f1df94e5b9481b39b54"
+updated: 2026-10-04
+repository_commit: "f0bd946e43200032481ba10a660d2ad4461c268c"
 ---
 # Lean Spike Build Receipt
 
@@ -50,11 +50,13 @@ Proposal-local evidence, sovereignty, own-Principal, observed-choice, exchange, 
 
 `PromotionContracts.lean` and `AttentionLoveCareContracts.lean` restate every formally proved promoted proposal claim as a marked theorem contract. The schema-v2 claim manifest gives every declared dependency an exact disposition, derives checked symbols from that complete ledger and the subject symbols, requires shared indices inside each exact contract block, inventories every direct proposition-valued semantic field, and distinguishes fully proved contracts from theorem projections with formal boundaries. A separately committed exact-source adversarial review pins the implementation commit, tree, governed source hashes, verified contract set, and resolution of each reported finding.
 
-The repository commit attested by this receipt is `52bb3bf8e7051bbb705e9f1df94e5b9481b39b54`.
+The repository commit attested by this receipt is `f0bd946e43200032481ba10a660d2ad4461c268c`.
 
 The PR #18 takeover adds proof-checked counting bounds, positive denominator, organized uniqueness, no future organized result, order-independent absolute coverage, and same-identity/different-current-State separation. Respect's three protection branches are inhabited; its exact Action output retains identity, and an identity-destroying Action cannot obtain a protection witness even when the actor's own Constraint admits it. The new theorem axiom audit uses only standard `propext`, `Classical.choice`, and `Quot.sound`, or no axioms. The separately checked framework experiment retains all 30 theorems without placeholders or nonstandard axiom dependencies.
 
 The subsequent reviewer response closes Attention's relative denominator through an explicit inventory of channel identities and constructive state-indexed Specification with exact finite coverage. Kind/result equality does not collapse channels, changing a result does not alter the denominator, and an omitted conforming Action cannot satisfy coverage. Unequal identity Invariants are no longer constitutive: snapshot-stable local participant classification supports Love, Care, and Respect with the same identity criterion. Its canonical individuation parity remains gated. The inert Intention mode tag is removed, and Absolute Attention's scoped entrainment choice is explicit. These regression theorems compile with only standard Lean axiom dependencies.
+
+The exact-numerator repair defines causal organization existentially over the complete declared contribution collection, independently of the counted enumeration and selected witness, requires exact coverage in both directions, and gives the partial Action a different upstream Difference with an exact result-producing contribution. The promotion contract includes exact numerator coverage; regression theorems reject qualifying-channel omission a zero numerator hiding a qualifying channel, and hiding a qualifying alternative by selecting a nonfocal contribution. A general theorem fixes the numerator for a fixed declared causal situation under any unique exact enumeration. The complete 36-job Lean build and finite executable pass, with no proof placeholders or new axiom declarations. Canonical channel parity and empirical completeness of the declared contribution collections remain open.
 
 ## Source digests
 
@@ -72,8 +74,8 @@ The subsequent reviewer response closes Attention's relative denominator through
 - `TruthTrustAlignment.lean`: `bdaa0217e7434c9bc1d7cd3a6a2d489c684fbf38ffeb98a87388864d1cd5a733`
 - `IntelligenceKnowledge.lean`: `bc0ad1caa81adb25316f79aecd5011e32cf94cc73e1e046f7e13bcd10779aee8`
 - `QuarantineProfiles.lean`: `245c94b5c1a8096e9fdea457b1cafba3ddf4f7ab9d98b214aaee8be5eebdbce4`
-- `AttentionLoveCare.lean`: `e1eb0ee0e431fded3793d8670953578d8f166842ae88440d95a3b35e57c41462`
-- `AttentionLoveCareContracts.lean`: `42462f71153fa703379df72d7fb39b1caaf8da4084ec2babf3eb67322b86fae8`
+- `AttentionLoveCare.lean`: `72dcc4e1a9dbba3933ba6c9ea06659e840be4e3e0a023c6a3b529d3d4c34bafe`
+- `AttentionLoveCareContracts.lean`: `af876dbbc3ad9bea06602ed36664039d4ffb79a7ffd64bf538f3a1025690479f`
 - `Model.lean`: `6195c4e7d3aab7de036abc9b0ee6c63d39c1d83f74b5a40142bf5014e249d568`
 - `lakefile.toml`: `274d02a064289c4c3d014643b9ca25cd1bf7ed344ae96a79cf5375d48a7837a9`
 - `lean-toolchain`: `54727eec5cba149c18842e6deb5c41b369d66455c93ce135d7d5347c782b2325`

@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
   "suite": "project-ontologies",
-  "current_run": "results/2026-10-03-organon-v0.20-promotion",
-  "predecessor": "results/2026-09-30-organon-v0.19-adversarial-repair",
+  "current_run": "results/2026-10-04-v0.20-numerator-repair",
+  "predecessor": "results/2026-10-03-organon-v0.20-promotion",
   "run_record": "run.json",
   "primary_artifact": "report.md",
   "evaluation_status": "incomplete",
   "promotion_status": "adopted",
   "ontology_version": "0.20.0",
-  "ontology_sha256": "9d6a5f90429c9b53a2e0b0cff1e1128783d373bf8a8689116e5f91523ce49b66",
+  "ontology_sha256": "8b3e5a034892b8f5ae8c6db057c28829c8b14484ed7d7d8230748e3f403f2999",
   "promotion_basis": "human-maintainer-disposition"
 }
