@@ -2,11 +2,11 @@
   "schema_version": 1,
   "status": "nonbinding-experiment-input",
   "ontology_version": "0.20.0",
-  "repository_commit": "f0bd946e43200032481ba10a660d2ad4461c268c",
+  "repository_commit": "cf786f3dde95eb461a8c9b207b445a6e5f64b364",
   "sources_sha256": {
-    "ontology/ontology.md": "8b3e5a034892b8f5ae8c6db057c28829c8b14484ed7d7d8230748e3f403f2999",
-    "ontology/terms.yaml": "c2b7bd9cad8f62ed84b18cb1e029645279644e8522cfd3a77ffed99a0e01d3cf",
+    "ontology/ontology.md": "0efec67fe99f2c8b3a53e4570b398f648181fc310387cae90813662368d6aeff",
+    "ontology/terms.yaml": "be09e3bc3228a9b2763a2a2bb0bc7c985f220a302e0ae970a878b8ee42fe83ae",
     "ontology/hidden-bridge-audit.md": "1d8c1094cc8aaca56fcca24b5802fe6a7bbbb2d88b89a8c7652e2570bd3ec1c5",
-    "ontology/prompt.md": "476dbf70e176d2f706856a28eb63ade5bf444c8b665fb6bbbc30de16f60369f3"
+    "ontology/prompt.md": "3a2e273de0a0b1ed1fff9dde2df6a10f4d53de6821bbaf72859ef5c12f87fe6a"
   }
 }

@@ -3,8 +3,8 @@ type: formal-build-receipt
 status: verified
 canonicality: noncanonical
 created: 2026-08-02
-updated: 2026-10-04
-repository_commit: "f0bd946e43200032481ba10a660d2ad4461c268c"
+updated: 2026-10-06
+repository_commit: "cf786f3dde95eb461a8c9b207b445a6e5f64b364"
 ---
 # Lean Spike Build Receipt
 
@@ -12,7 +12,7 @@ This receipt records external Evidence for the noncanonical Lean spike. It does 
 
 ## Toolchain
 
-- Lean: `4.30.0`, arm64 macOS
+- Lean: `4.30.0`, x86_64 Linux orb
 - Commit: `d024af099ca4bf2c86f649261ebf59565dc8c622`
 - Project pin: `leanprover/lean4:v4.30.0`
 - Active toolchain: the project pin `leanprover/lean4:v4.30.0`
@@ -50,7 +50,7 @@ Proposal-local evidence, sovereignty, own-Principal, observed-choice, exchange, 
 
 `PromotionContracts.lean` and `AttentionLoveCareContracts.lean` restate every formally proved promoted proposal claim as a marked theorem contract. The schema-v2 claim manifest gives every declared dependency an exact disposition, derives checked symbols from that complete ledger and the subject symbols, requires shared indices inside each exact contract block, inventories every direct proposition-valued semantic field, and distinguishes fully proved contracts from theorem projections with formal boundaries. A separately committed exact-source adversarial review pins the implementation commit, tree, governed source hashes, verified contract set, and resolution of each reported finding.
 
-The repository commit attested by this receipt is `f0bd946e43200032481ba10a660d2ad4461c268c`.
+The repository commit attested by this receipt is `cf786f3dde95eb461a8c9b207b445a6e5f64b364`. The earlier repair notes below record development history; the snapshot-local repair supersedes their historical organization predicate. Compilation does not establish promotion readiness, and the two remaining review findings are unresolved.
 
 The PR #18 takeover adds proof-checked counting bounds, positive denominator, organized uniqueness, no future organized result, order-independent absolute coverage, and same-identity/different-current-State separation. Respect's three protection branches are inhabited; its exact Action output retains identity, and an identity-destroying Action cannot obtain a protection witness even when the actor's own Constraint admits it. The new theorem axiom audit uses only standard `propext`, `Classical.choice`, and `Quot.sound`, or no axioms. The separately checked framework experiment retains all 30 theorems without placeholders or nonstandard axiom dependencies.
 
@@ -59,6 +59,8 @@ The subsequent reviewer response closes Attention's relative denominator through
 The exact-numerator repair defines causal organization existentially over the complete declared contribution collection, independently of the counted enumeration and selected witness, requires exact coverage in both directions, and gives the partial Action a different upstream Difference with an exact result-producing contribution. The promotion contract includes exact numerator coverage; regression theorems reject qualifying-channel omission a zero numerator hiding a qualifying channel, and hiding a qualifying alternative by selecting a nonfocal contribution. A general theorem fixes the numerator for a fixed declared causal situation under any unique exact enumeration. The complete 36-job Lean build and finite executable pass, with no proof placeholders or new axiom declarations. Canonical channel parity and empirical completeness of the declared contribution collections remain open.
 
 ## Source digests
+
+The current snapshot-local repair replaces Attention's historical contribution paths with focal/contrast response comparisons in one current context. The result must equal the indexed State; past-only and future results, constant responses, and mixed-context comparisons are rejected. Different earlier sustained snapshots preserve the same current organization. The 36-job build, finite executable, and snapshot regressions pass. Canonical causal parity is explicitly a local projection; the reversed-Difference witness and history-length participant classifier still require separate resolution.
 
 - `OrganonCore.lean`: `143274a701e03826ce8eea0756caf3db534587b96f497d227d534e52627be161`
 - `OrganonCorePreservation.lean`: `e672e51e2a5cf84a83b73d5a65d325feb1aa2e76fc9733fd66a33d08d7534c2b`
@@ -74,8 +76,8 @@ The exact-numerator repair defines causal organization existentially over the co
 - `TruthTrustAlignment.lean`: `bdaa0217e7434c9bc1d7cd3a6a2d489c684fbf38ffeb98a87388864d1cd5a733`
 - `IntelligenceKnowledge.lean`: `bc0ad1caa81adb25316f79aecd5011e32cf94cc73e1e046f7e13bcd10779aee8`
 - `QuarantineProfiles.lean`: `245c94b5c1a8096e9fdea457b1cafba3ddf4f7ab9d98b214aaee8be5eebdbce4`
-- `AttentionLoveCare.lean`: `72dcc4e1a9dbba3933ba6c9ea06659e840be4e3e0a023c6a3b529d3d4c34bafe`
-- `AttentionLoveCareContracts.lean`: `af876dbbc3ad9bea06602ed36664039d4ffb79a7ffd64bf538f3a1025690479f`
+- `AttentionLoveCare.lean`: `bc78773f7277181bfbdaa89f305bd8b9e45d75e3d53f2d4aa0f387e31f98215d`
+- `AttentionLoveCareContracts.lean`: `e044dadebec94a11551e10215ae596790c189d15e72626bedd727dce972278c4`
 - `Model.lean`: `6195c4e7d3aab7de036abc9b0ee6c63d39c1d83f74b5a40142bf5014e249d568`
 - `lakefile.toml`: `274d02a064289c4c3d014643b9ca25cd1bf7ed344ae96a79cf5375d48a7837a9`
 - `lean-toolchain`: `54727eec5cba149c18842e6deb5c41b369d66455c93ce135d7d5347c782b2325`

@@ -1,31 +1,31 @@
 {
   "schema_version": 1,
   "proposal_id": "attention-love-care",
-  "status": "promotion-ready",
-  "reviewed_commit": "f0bd946e43200032481ba10a660d2ad4461c268c",
-  "reviewed_tree": "145ce647b152094f6f738e906a54dd336559efbe",
-  "reviewed_at": "2026-10-04",
-  "review_scope": "Adversarial review of target/outcome separation, finite Attention measurement, exact causal organization, partial versus absolute scope, target Denotation, Care history, Respect constraints, canonical dependency projections, countermodels, and formal boundaries. PR #18 takeover: local adversarial audit of duplicate counting, enumeration order, snapshot causality, identity versus current State, exact-action protection, and governed selection; unchanged embodiment contracts revalidated. Reviewer response: scoped channel inventory and exact Specification coverage; current-insensitive participant classification; shared-criterion witnesses; Intention tag removal; explicit entrainment decision. Exact numerator repair: locally re-audited independent channel causal organization, two-way enumeration coverage, genuinely different upstream Difference in the partial Action, omission and zero-numerator regressions, and unchanged embodiment contracts. Not an independent external review.",
+  "status": "changes-requested",
+  "reviewed_commit": "cf786f3dde95eb461a8c9b207b445a6e5f64b364",
+  "reviewed_tree": "e209afaadee358f1ab8d6853482dd1a3df847ae7",
+  "reviewed_at": "2026-10-06",
+  "review_scope": "Local verification of snapshot-only Attention following the maintainer's clarification. Current-context focal/contrast responses replace historical causal paths; past-only and future results, constant responses, and mixed contexts are rejected. Exact counting, availability, selected-witness membership, and inhabited current/sustained witnesses remain checked. Canonical causal parity is explicitly represented, not asserted. Prior findings below retain their historical resolutions; ALC-AR-24 and ALC-AR-25 reopen the orientation and participant-individuation claims. These remain unresolved, so the promotion gate must fail. Not an independent external review.",
   "source_sha256": {
-    "ontology/ontology.md": "8b3e5a034892b8f5ae8c6db057c28829c8b14484ed7d7d8230748e3f403f2999",
-    "ontology/terms.yaml": "c2b7bd9cad8f62ed84b18cb1e029645279644e8522cfd3a77ffed99a0e01d3cf",
-    "ontology/changelog.md": "0f3d9a65c44a18b31bd462e81ccb95c86c176a71374216135c8a07a5e2f32346",
-    "ontology/formal/AttentionLoveCare.lean": "72dcc4e1a9dbba3933ba6c9ea06659e840be4e3e0a023c6a3b529d3d4c34bafe",
-    "ontology/formal/AttentionLoveCareContracts.lean": "af876dbbc3ad9bea06602ed36664039d4ffb79a7ffd64bf538f3a1025690479f",
+    "ontology/ontology.md": "0efec67fe99f2c8b3a53e4570b398f648181fc310387cae90813662368d6aeff",
+    "ontology/terms.yaml": "be09e3bc3228a9b2763a2a2bb0bc7c985f220a302e0ae970a878b8ee42fe83ae",
+    "ontology/changelog.md": "8ed769dede17dec188bfdcedf20c7161725ce52851ba69ce787613753655825f",
+    "ontology/formal/AttentionLoveCare.lean": "bc78773f7277181bfbdaa89f305bd8b9e45d75e3d53f2d4aa0f387e31f98215d",
+    "ontology/formal/AttentionLoveCareContracts.lean": "e044dadebec94a11551e10215ae596790c189d15e72626bedd727dce972278c4",
     "ontology/formal/EmbodiedConsciousness.lean": "8f0367384b57f56f0e9e4496acfac781c180b6c126c89d26ef94cf740f83eae5",
     "ontology/formal/Model.lean": "6195c4e7d3aab7de036abc9b0ee6c63d39c1d83f74b5a40142bf5014e249d568",
-    "ontology/formal/README.md": "e81874a00f8c2e307d29d055f58ff69217db20d0c646a7d888c7819f699d9a0b",
-    "ontology/formal/decisions.md": "18478f7adcad8e2a71c7fd2e4fbe2e14b2d23a03c1233359f6337f11f9cd746b",
+    "ontology/formal/README.md": "c10477e68374095970f07a7392e5b7b614d1b87b37b727eb3b6bf02c5b4c5ea2",
+    "ontology/formal/decisions.md": "1505bf12beab19b71df7a499144c65bb6e3f944a4bbef2f0a015544367423c47",
     "ontology/formal/lakefile.toml": "274d02a064289c4c3d014643b9ca25cd1bf7ed344ae96a79cf5375d48a7837a9",
-    "proposals/attention-love-care.md": "a89a455b5cde33824da7f5e81027d18c8f3940319a56f182131b8c2e7e3cd7e2",
-    "proposals/attention-love-care-claims.json": "82b5fb4cd29367bc17be9f882bb67dee6b36e2a05a7a33ec8721efec20044d0d",
-    "releases/v0-20-0.md": "0094623f9f326f92af4f260ca024643181dba95c7b6a645a8fbb670630f44b88",
+    "proposals/attention-love-care.md": "26f0716c721eb90fc5280e2fbcb8741196ba7c1761d2194fd09365153bdda944",
+    "proposals/attention-love-care-claims.json": "02bbb116667dcc5b3809ff08f351c7ecbd5e9beda3cf2385676faf059c54dc75",
+    "releases/v0-20-0.md": "296bfad418bfcbc3e78c5053f7196483394a05c9a9d7e7dcbcaf9aa9d4a6ade4",
     "scripts/check-proposals.py": "87f26905ba0450b92a9f38c6ee63a144e5973fd424a971622b42f6a9eb03fb24",
     "scripts/check-promotion-review.py": "511241352a32b1f4b25a6c1b1a66bc088ec4afc71e0f3426c2c6d5074725a3aa",
     "evals/tests/test_promotion_contracts.py": "d6d92e48c527ba3bceaab490ece4f9c74e3a1d9ff11d1807da0d612ef12d0562",
     "scripts/check-organon-core-audit.py": "1b872e2a862c79f0db3b997ed07c6238c709ea20cee19998695e1c83454af2a9",
     "ontology/formal/organon-core-term-audit.md": "3d035fa9a06aca7a573735c485609193de8526e6529f07d8e0656960625f0426",
-    "evals/tests/test_algebra.py": "5cd78cf1d2d430d497f41027324538da3312cb4d72f4a908242b37c74af3a51d"
+    "evals/tests/test_algebra.py": "0305fcf95b57ab30664b1e186c5e149995ad60a73b60eeb45cfde94da9e4f41f"
   },
   "verified_contracts": [
     "AC-D1",
@@ -173,7 +173,25 @@
       "severity": "high",
       "disposition": "resolved",
       "resolution": "The numerator previously allowed a qualifying causally organized channel to be omitted. ContributionOrganizesChannel evaluates upstream focus, exact result, and snapshot timing; ChannelOrganizedByDifference quantifies over the full independently declared channel-specific causal domain, and organizedExact requires both directions of membership coverage. The selected witness must belong to that domain and cannot hide a qualifying alternative. Fixed-domain unique exact enumerations have the same numerator. The partial Action uses a different upstream Difference while still producing its exact result. Regression proofs reject omission and a zero numerator that hides a qualifying channel. Empirical completeness of declared channel-specific causal data remains an application gate."
+    },
+    {
+      "id": "ALC-AR-23",
+      "severity": "high",
+      "disposition": "resolved",
+      "resolution": "Attention formerly accepted an old contribution at multiple later snapshots. SnapshotCausalContribution now evaluates focal and contrast responses in one current context and requires the exact current result. The organization predicate takes no historical paths. Regression proofs reject past-only and future results, constant responses and mixed contexts; distinct earlier histories retain the same present organization. Sustained Attention owns temporal comparison. Canonical causal parity remains explicitly gated."
+    },
+    {
+      "id": "ALC-AR-24",
+      "severity": "medium",
+      "disposition": "unresolved",
+      "resolution": "Open: the partial Action uses the same two representations in reversed orientation. Failure to match an ordered contrast/focal pair does not yet establish a different canonical Difference. The snapshot repair deliberately preserves this behavior for separate review."
+    },
+    {
+      "id": "ALC-AR-25",
+      "severity": "medium",
+      "disposition": "unresolved",
+      "resolution": "Open: the shared-criterion other-Entity witness uses a prefix of the actor's history and distinguishes it by history length. The claimed distinct participant is not established independently of that record difference. Snapshot-local Attention does not repair participant individuation."
     }
   ],
-  "reviewer": "Codex local source audit; not an independent external review"
+  "reviewer": "Amp local snapshot-repair verification; remaining review findings unresolved"
 }

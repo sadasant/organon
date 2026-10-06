@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
   "suite": "essay-questions",
-  "current_run": "results/2026-10-04-v0.20-numerator-repair",
-  "predecessor": "results/2026-10-03-answer-form-v0.20-promotion",
+  "current_run": "results/2026-10-06-v0.20-snapshot-attention",
+  "predecessor": "results/2026-10-04-v0.20-numerator-repair",
   "run_record": "evaluation.json",
   "primary_artifact": "evaluation.md",
   "evaluation_status": "incomplete",
-  "promotion_status": "adopted",
+  "promotion_status": "hold",
   "ontology_version": "0.20.0",
-  "ontology_sha256": "8b3e5a034892b8f5ae8c6db057c28829c8b14484ed7d7d8230748e3f403f2999",
-  "promotion_basis": "human-maintainer-disposition"
+  "ontology_sha256": "0efec67fe99f2c8b3a53e4570b398f648181fc310387cae90813662368d6aeff",
+  "promotion_basis": "unresolved-pr-review-findings"
 }
