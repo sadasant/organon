@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# No services or authentication need repair after waking. Dependencies belong
+# in setup, never here; credentials for model runs must be injected at runtime.
+repo_root="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+test -x "$repo_root/.venv/bin/python"
+test -x "$HOME/.elan/bin/lake"
+echo "[resume] Organon tools are present; no services to reconnect"
