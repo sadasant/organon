@@ -65,6 +65,11 @@
       "path": ".github/",
       "role": "hosted repository process",
       "hydration": "load only for contribution or CI work"
+    },
+    {
+      "path": ".agents/",
+      "role": "orb setup and resume lifecycle",
+      "hydration": "load only for remote development environment work"
     }
   ],
   "root_documents": [

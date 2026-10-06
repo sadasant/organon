@@ -1,0 +1,66 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+repo_root="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+cd "$repo_root"
+SECONDS=0
+
+echo "[setup] Checking system prerequisites"
+packages=()
+for package in build-essential ca-certificates curl zstd; do
+  if ! dpkg-query -W -f='${Status}' "$package" 2>/dev/null | grep -qx 'install ok installed'; then
+    packages+=("$package")
+  fi
+done
+if ((${#packages[@]})); then
+  sudo apt-get update -qq
+  sudo env DEBIAN_FRONTEND=noninteractive apt-get install -y "${packages[@]}"
+fi
+
+# Provenance checks need historical commits, just as CI's fetch-depth: 0 does.
+echo "[setup ${SECONDS}s] Ensuring complete Git history"
+if [[ "$(git rev-parse --is-shallow-repository)" == true ]]; then
+  git fetch --quiet --unshallow origin
+fi
+
+# uv is supplied by the orb base image. Keep packages out of system Python.
+echo "[setup ${SECONDS}s] Installing evaluation dependencies"
+if [[ ! -x .venv/bin/python ]]; then
+  uv venv --python 3.11 .venv
+fi
+uv pip install --python .venv/bin/python -r evals/requirements-dev.txt
+
+echo "[setup ${SECONDS}s] Installing Lean from ontology/formal/lean-toolchain"
+export PATH="$HOME/.elan/bin:$PATH"
+if [[ ! -x "$HOME/.elan/bin/elan" ]]; then
+  installer_dir="$(mktemp -d)"
+  trap 'rm -rf "$installer_dir"' EXIT
+  curl --fail --location --silent --show-error --retry 3 \
+    "https://github.com/leanprover/elan/releases/download/v4.2.4/elan-$(uname -m)-unknown-linux-gnu.tar.gz" \
+    -o "$installer_dir/elan.tar.gz"
+  tar -xzf "$installer_dir/elan.tar.gz" -C "$installer_dir"
+  "$installer_dir/elan-init" -y --no-modify-path --default-toolchain none
+fi
+elan toolchain install "$(cat ontology/formal/lean-toolchain)"
+
+# Amp and supervised services start in new login shells. Scope activation to
+# this checkout, including commands run from its subdirectories.
+profile_marker="# Organon orb toolchain"
+if ! grep -Fqx "$profile_marker" "$HOME/.bash_profile" 2>/dev/null; then
+  cat >> "$HOME/.bash_profile" <<EOF
+
+$profile_marker
+case "\$PWD/" in
+  "$repo_root/"*)
+    case ":\$PATH:" in
+      *":$repo_root/.venv/bin:"*) ;;
+      *) export PATH="$repo_root/.venv/bin:\$HOME/.elan/bin:\$PATH" ;;
+    esac
+    ;;
+esac
+EOF
+fi
+
+echo "[setup ${SECONDS}s] Warming the Lean build cache"
+(cd ontology/formal && lake build)
+echo "[setup ${SECONDS}s] Ready; model evaluations still require runtime credentials"
