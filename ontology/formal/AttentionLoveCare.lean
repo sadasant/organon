@@ -88,42 +88,94 @@ structure EntityIndividuation (Carrier : Type u) where
       identityHolds := holds }) = participant entity
 
 
-/-- Organization is evaluated from the channel's causal data, independently of
-its membership in any counted enumeration. Canonical channel parity remains gated. -/
+/-- A local counterfactual projection evaluated at one current snapshot.
+`response feature context` is the feature the channel would yield if the
+upstream Representation were `feature` in the declared `context`. This is
+deliberately not a canonical temporal `CausalContribution`: it carries no paths,
+endpoints, downstream Transformation, or chronology, and proves no canonical
+causal parity. Comparisons over time belong to `SustainedAttention`. -/
+structure SnapshotCausalContribution (Feature : Type v) (Context : Type w) where
+  contrast : Feature
+  focal : Feature
+  response : Feature → Context → Feature
+
+/-- Organization is a pure function of the current snapshot. Both responses are
+evaluated in the same context, the moment's own context `moment.value.2`; the
+focal response yields the declared current result, the contrast response does
+not, and the result is the moment itself. No earlier or later State is
+inspected. Canonical channel parity remains gated. -/
 def ContributionOrganizesChannel
     {Feature : Type v} {Context : Type w}
-    {direction : Direction (Feature × Context)}
-    {feeding : FeedRelation (Feature × Context)}
     (moment : State (Feature × Context)) (contrast focal : Feature)
     (result : State (Feature × Context))
-    (contribution : CausalContribution Feature Context direction feeding) : Prop :=
-  contribution.leftEndpoints.first.input.value.1 = contrast ∧
-  contribution.rightEndpoints.first.input.value.1 = focal ∧
-  contribution.downstreamChange.transformation.output = result ∧
-  (result = moment ∨ direction.before result moment)
+    (contribution : SnapshotCausalContribution Feature Context) : Prop :=
+  contribution.contrast = contrast ∧
+  contribution.focal = focal ∧
+  result = moment ∧
+  contribution.response focal moment.value.2 = result.value.1 ∧
+  contribution.response contrast moment.value.2 ≠ result.value.1
 
-/-- The finite declared causal domain is independent of the counted list and
-of the particular contribution selected as an organization witness. -/
+/-- The finite declared snapshot causal domain is independent of the counted
+list and of the particular contribution selected as an organization witness. -/
 def ChannelOrganizedByDifference
     {Feature : Type v} {Context : Type w}
-    {direction : Direction (Feature × Context)}
-    {feeding : FeedRelation (Feature × Context)}
     (moment : State (Feature × Context)) (contrast focal : Feature)
     (result : State (Feature × Context))
-    (contributions : List (CausalContribution Feature Context direction feeding)) : Prop :=
+    (contributions : List (SnapshotCausalContribution Feature Context)) : Prop :=
   ∃ contribution, contribution ∈ contributions ∧
     ContributionOrganizesChannel moment contrast focal result contribution
 
 @[simp] theorem channelOrganizationSingleton
     {Feature : Type v} {Context : Type w}
-    {direction : Direction (Feature × Context)}
-    {feeding : FeedRelation (Feature × Context)}
     (moment : State (Feature × Context)) (contrast focal : Feature)
     (result : State (Feature × Context))
-    (contribution : CausalContribution Feature Context direction feeding) :
+    (contribution : SnapshotCausalContribution Feature Context) :
     ChannelOrganizedByDifference moment contrast focal result [contribution] ↔
       ContributionOrganizesChannel moment contrast focal result contribution := by
   simp [ChannelOrganizedByDifference]
+
+/-- Organization reads only the moment: its result and its single context. -/
+theorem contributionOrganizesAtMoment
+    {Feature : Type v} {Context : Type w}
+    (moment : State (Feature × Context)) (contrast focal : Feature)
+    (result : State (Feature × Context))
+    (contribution : SnapshotCausalContribution Feature Context) :
+    ContributionOrganizesChannel moment contrast focal result contribution ↔
+      contribution.contrast = contrast ∧ contribution.focal = focal ∧ result = moment ∧
+      contribution.response focal moment.value.2 = moment.value.1 ∧
+      contribution.response contrast moment.value.2 ≠ moment.value.1 := by
+  constructor
+  · rintro ⟨contrastLabel, focalLabel, rfl, focalResponse, contrastResponse⟩
+    exact ⟨contrastLabel, focalLabel, rfl, focalResponse, contrastResponse⟩
+  · rintro ⟨contrastLabel, focalLabel, rfl, focalResponse, contrastResponse⟩
+    exact ⟨contrastLabel, focalLabel, rfl, focalResponse, contrastResponse⟩
+
+/-- No Direction can place an organizing result strictly before or after its
+snapshot: past-only and future results never organize. -/
+theorem organizationRejectsNoncurrentResult
+    {Feature : Type v} {Context : Type w}
+    (direction : Direction (Feature × Context))
+    (moment : State (Feature × Context)) (contrast focal : Feature)
+    (result : State (Feature × Context))
+    (contribution : SnapshotCausalContribution Feature Context)
+    (organizes : ContributionOrganizesChannel moment contrast focal result contribution) :
+    ¬ direction.before result moment ∧ ¬ direction.before moment result := by
+  rw [organizes.2.2.1]
+  exact ⟨fun earlier => direction.asymmetric earlier earlier,
+    fun later => direction.asymmetric later later⟩
+
+/-- A response constant across the two representations in the moment's context
+never organizes, whatever the contrast and focal labels say. -/
+theorem constantResponseCannotOrganize
+    {Feature : Type v} {Context : Type w}
+    (moment : State (Feature × Context)) (contrast focal : Feature)
+    (result : State (Feature × Context))
+    (contribution : SnapshotCausalContribution Feature Context)
+    (constant : contribution.response contrast moment.value.2 =
+      contribution.response focal moment.value.2) :
+    ¬ ContributionOrganizesChannel moment contrast focal result contribution := by
+  rintro ⟨_, _, _, focalResponse, contrastResponse⟩
+  exact contrastResponse (constant.trans focalResponse)
 
 structure Attention
     (Part : Type u)
@@ -146,22 +198,20 @@ structure Attention
   organizedWithinAvailable : ∀ item, item ∈ organized → item ∈ available
   countedOnce : ∃ enumeration,
     enumeration.Perm available ∧ organized.Sublist enumeration
-  resultsAtOrBeforeMoment : ∀ item, item ∈ organized →
-    result item = moment ∨ entity.persistenceDirection.before (result item) moment
-  organizingContribution : inventory.Channel →
-    CausalContribution Feature Context entity.persistenceDirection body.feeding
-  causalContributions : inventory.Channel →
-    List (CausalContribution Feature Context entity.persistenceDirection body.feeding)
+  resultsAtMoment : ∀ item, item ∈ organized → result item = moment
+  organizingContribution : inventory.Channel → SnapshotCausalContribution Feature Context
+  causalContributions : inventory.Channel → List (SnapshotCausalContribution Feature Context)
   organizingContributionDeclared : ∀ item, item ∈ organized →
     organizingContribution item ∈ causalContributions item
   organizedByDifference : ∀ item, item ∈ organized →
-    (organizingContribution item).leftEndpoints.first.input.value.1 =
-        contrastRepresentation ∧
-    (organizingContribution item).rightEndpoints.first.input.value.1 =
-        focalRepresentation
+    (organizingContribution item).contrast = contrastRepresentation ∧
+    (organizingContribution item).focal = focalRepresentation
   contributionProducesResult : ∀ item, item ∈ organized →
-    (organizingContribution item).downstreamChange.transformation.output =
-      result item
+    (organizingContribution item).response focalRepresentation moment.value.2 =
+      (result item).value.1
+  contrastChangesResponse : ∀ item, item ∈ organized →
+    (organizingContribution item).response contrastRepresentation moment.value.2 ≠
+      (result item).value.1
   organizedExact : ∀ item, item ∈ organized ↔
     item ∈ available ∧ ChannelOrganizedByDifference moment
       contrastRepresentation focalRepresentation (result item) (causalContributions item)
@@ -170,6 +220,22 @@ structure Attention
   degreeNumeratorExact : degreeNumerator = organized.length
   degreeDenominatorExact : degreeDenominator = available.length
 
+/-- The selected witness of every counted channel itself organizes it at the snapshot. -/
+theorem organizingContributionOrganizes
+    {Part : Type u} {Feature : Type v} {Context : Type w}
+    {entity : Entity (Feature × Context)} {body : Body Part entity}
+    (attention : Attention Part body) (item : attention.inventory.Channel)
+    (organized : item ∈ attention.organized) :
+    ContributionOrganizesChannel attention.moment attention.contrastRepresentation
+      attention.focalRepresentation (attention.result item)
+      (attention.organizingContribution item) :=
+  ⟨(attention.organizedByDifference item organized).1,
+    (attention.organizedByDifference item organized).2,
+    attention.resultsAtMoment item organized,
+    attention.contributionProducesResult item organized,
+    attention.contrastChangesResponse item organized⟩
+
+/-- Comparisons across snapshots: each indexed Attention is evaluated only at its own State. -/
 structure SustainedAttention
     (Part : Type u)
     {Feature : Type v} {Context : Type w}
@@ -397,9 +463,8 @@ def toyKind : ToyChannel → AttentionChannel
   | .interpreter => .interpretation
   | .effector => .action
 
-def toyResult : ToyChannel → State Carrier
-  | .sensor | .secondSensor => state true .forwardHigh
-  | .interpreter | .effector => state true .returnHigh
+/-- Every toy channel reports the current snapshot as its result. -/
+def toyResult (moment : State Carrier) (_ : ToyChannel) : State Carrier := moment
 
 def toyAvailable (moment : State Carrier) (channel : ToyChannel) : Bool :=
   channel == .sensor ||
@@ -417,53 +482,47 @@ def systemInventory : ChannelInventory ToyPart systemBody where
   kind := toyKind
   availabilityAt := toyAvailability
 
-def contributionForItem : ToyChannel →
-    CausalContribution Bool Stage systemDirection unconstrainedFeed
-  | .sensor | .secondSensor => forwardContribution
-  | .interpreter | .effector => returnContribution
+/-- The focal representation is copied into the channel's current feature. -/
+def focalSnapshotContribution : SnapshotCausalContribution Bool Stage where
+  contrast := false
+  focal := true
+  response := fun feature _ => feature
 
-def independentActionLeft : Transformation systemDirection where
-  input := state true .returnInput
-  output := state false .returnLow
-  advances := by change 4 < 5; decide
+def contributionForItem (_ : ToyChannel) : SnapshotCausalContribution Bool Stage :=
+  focalSnapshotContribution
 
-def independentActionRight : Transformation systemDirection where
-  input := state false .returnInput
-  output := state true .returnHigh
-  advances := by change 4 < 6; decide
+/-- The independent Action keeps its reversed true/false orientation (an
+unresolved finding preserved here): its own counterfactual response yields
+the current result, but its labels do not match the Attention's focus. -/
+def independentActionContribution : SnapshotCausalContribution Bool Stage where
+  contrast := true
+  focal := false
+  response := fun feature _ => !feature
 
-def independentActionContribution :
-    CausalContribution Bool Stage systemDirection unconstrainedFeed where
-  leftPath := singletonPath independentActionLeft
-  rightPath := singletonPath independentActionRight
-  leftEndpoints := singletonEndpoints independentActionLeft
-  rightEndpoints := singletonEndpoints independentActionRight
-  sameDeclaredContext := rfl
-  inputDiffers := by decide
-  downstreamChange := ⟨returnChangeTransform, by simp [returnChangeTransform, state]⟩
-  changeStartsAt := rfl
-  changeEndsAt := rfl
-
-def partialContributionForItem : ToyChannel →
-    CausalContribution Bool Stage systemDirection unconstrainedFeed
+def partialContributionForItem : ToyChannel → SnapshotCausalContribution Bool Stage
   | .effector => independentActionContribution
   | channel => contributionForItem channel
 
 def focalCausalDomain (channel : ToyChannel) := [contributionForItem channel]
 def partialCausalDomain (channel : ToyChannel) := [partialContributionForItem channel]
 
-def changedResultContribution : ToyChannel →
-    CausalContribution Bool Stage systemDirection unconstrainedFeed
-  | .effector => independentActionContribution
-  | _ => returnContribution
+theorem focalSnapshotOrganizesTrue (stage : Stage) (channel : ToyChannel) :
+    ChannelOrganizedByDifference (state true stage) false true
+      (toyResult (state true stage) channel) (focalCausalDomain channel) := by
+  rw [focalCausalDomain, channelOrganizationSingleton]
+  exact ⟨rfl, rfl, rfl, rfl, Bool.false_ne_true⟩
 
-def changedResultCausalDomain (channel : ToyChannel) := [changedResultContribution channel]
+theorem independentActionDoesNotOrganize (moment result : State Carrier) :
+    ¬ ContributionOrganizesChannel moment false true result independentActionContribution := by
+  intro organized
+  have impossible : true = false := organized.1
+  contradiction
 
 def systemAttention : Attention ToyPart systemBody where
   moment := state true .returnHigh
   momentWithinBody := by simp [systemBody, systemPersistence]
   inventory := systemInventory
-  result := toyResult
+  result := toyResult (state true .returnHigh)
   focalRepresentation := true
   contrastRepresentation := false
   focalDifference := by decide
@@ -479,12 +538,7 @@ def systemAttention : Attention ToyPart systemBody where
   organizedWithinAvailable := by simp
   countedOnce := ⟨_, List.Perm.refl _,
     .cons_cons _ (.cons_cons _ (.cons _ .slnil))⟩
-  resultsAtOrBeforeMoment := by
-    intro item member
-    simp at member
-    rcases member with rfl | rfl
-    · exact Or.inr (by change 3 < 6; decide)
-    · exact Or.inl rfl
+  resultsAtMoment := by intro item _; rfl
   organizingContribution := partialContributionForItem
   causalContributions := partialCausalDomain
   organizingContributionDeclared := by intro channel _; exact List.mem_singleton_self _
@@ -496,22 +550,24 @@ def systemAttention : Attention ToyPart systemBody where
     intro item member
     simp at member
     rcases member with rfl | rfl <;> rfl
+  contrastChangesResponse := by
+    intro item member
+    simp at member
+    rcases member with rfl | rfl <;> decide
   organizedExact := by
-      change ∀ channel : ToyChannel,
-        channel ∈ [perceptionItem, interpretationItem] ↔
-          channel ∈ [perceptionItem, interpretationItem, actionItem] ∧
-            ChannelOrganizedByDifference (state true .returnHigh) false true
-              (toyResult channel) (partialCausalDomain channel)
-      intro channel
-      cases channel <;> simp only [partialCausalDomain, channelOrganizationSingleton] <;>
-        dsimp only [ContributionOrganizesChannel,
-        focalCausalDomain, partialCausalDomain, changedResultCausalDomain, changedResultContribution, partialContributionForItem,
-        contributionForItem, toyResult, perceptionItem, interpretationItem, actionItem,
-        independentActionContribution, independentActionLeft, independentActionRight,
-        forwardContribution, returnContribution, singletonEndpoints, singletonPath,
-        forwardLowTransform, forwardHighTransform, forwardChangeTransform, returnLowTransform,
-        returnHighTransform, returnChangeTransform, transform, systemEntity, systemDirection,
-        state, Stage.rank] <;> simp
+    change ∀ channel : ToyChannel,
+      channel ∈ [perceptionItem, interpretationItem] ↔
+        channel ∈ [perceptionItem, interpretationItem, actionItem] ∧
+          ChannelOrganizedByDifference (state true .returnHigh) false true
+            (toyResult (state true .returnHigh) channel) (partialCausalDomain channel)
+    intro channel
+    cases channel
+    · simpa [perceptionItem] using focalSnapshotOrganizesTrue .returnHigh .sensor
+    · simp [perceptionItem, interpretationItem, actionItem]
+    · simpa [interpretationItem] using focalSnapshotOrganizesTrue .returnHigh .interpreter
+    · simp only [partialCausalDomain, channelOrganizationSingleton]
+      simp [perceptionItem, interpretationItem, actionItem, partialContributionForItem,
+        independentActionDoesNotOrganize]
   degreeNumerator := 2
   degreeDenominator := 3
   degreeNumeratorExact := rfl
@@ -521,7 +577,7 @@ def earlyAttention : Attention ToyPart systemBody where
   moment := state true .forwardHigh
   momentWithinBody := by simp [systemBody, systemPersistence]
   inventory := systemInventory
-  result := toyResult
+  result := toyResult (state true .forwardHigh)
   focalRepresentation := true
   contrastRepresentation := false
   focalDifference := by decide
@@ -536,28 +592,22 @@ def earlyAttention : Attention ToyPart systemBody where
   organized := [perceptionItem]
   organizedWithinAvailable := by simp
   countedOnce := ⟨_, List.Perm.refl _, List.Sublist.refl _⟩
-  resultsAtOrBeforeMoment := by intro item member; simp at member; subst item; exact Or.inl rfl
+  resultsAtMoment := by intro item _; rfl
   organizingContribution := contributionForItem
   causalContributions := focalCausalDomain
   organizingContributionDeclared := by intro channel _; exact List.mem_singleton_self _
-  organizedByDifference := by intro item member; simp at member; subst item; exact ⟨rfl, rfl⟩
-  contributionProducesResult := by intro item member; simp at member; subst item; rfl
+  organizedByDifference := by intro item _; exact ⟨rfl, rfl⟩
+  contributionProducesResult := by intro item _; rfl
+  contrastChangesResponse := by intro item _; exact Bool.false_ne_true
   organizedExact := by
-      change ∀ channel : ToyChannel,
-        channel ∈ [perceptionItem] ↔
-          channel ∈ [perceptionItem] ∧
-            ChannelOrganizedByDifference (state true .forwardHigh) false true
-              (toyResult channel) (focalCausalDomain channel)
-      intro channel
-      cases channel <;> simp only [focalCausalDomain, channelOrganizationSingleton] <;>
-        dsimp only [ContributionOrganizesChannel,
-        focalCausalDomain, partialCausalDomain, changedResultCausalDomain, changedResultContribution, partialContributionForItem,
-        contributionForItem, toyResult, perceptionItem, interpretationItem, actionItem,
-        independentActionContribution, independentActionLeft, independentActionRight,
-        forwardContribution, returnContribution, singletonEndpoints, singletonPath,
-        forwardLowTransform, forwardHighTransform, forwardChangeTransform, returnLowTransform,
-        returnHighTransform, returnChangeTransform, transform, systemEntity, systemDirection,
-        state, Stage.rank] <;> simp
+    change ∀ channel : ToyChannel,
+      channel ∈ [perceptionItem] ↔
+        channel ∈ [perceptionItem] ∧
+          ChannelOrganizedByDifference (state true .forwardHigh) false true
+            (toyResult (state true .forwardHigh) channel) (focalCausalDomain channel)
+    intro channel
+    exact ⟨fun member => ⟨member, focalSnapshotOrganizesTrue .forwardHigh channel⟩,
+      fun both => both.1⟩
   degreeNumerator := 1
   degreeDenominator := 1
   degreeNumeratorExact := rfl
@@ -600,37 +650,19 @@ def systemAbsoluteAttention : AbsoluteAttention ToyPart systemBody where
     organized := [perceptionItem, interpretationItem, actionItem]
     organizedWithinAvailable := by simp [systemAttention]
     countedOnce := ⟨_, List.Perm.refl _, List.Sublist.refl _⟩
-    resultsAtOrBeforeMoment := by
-      intro item member
-      simp at member
-      rcases member with rfl | rfl | rfl
-      · exact Or.inr (by change 3 < 6; decide)
-      · exact Or.inl rfl
-      · exact Or.inl rfl
-    organizedByDifference := by
-      intro item member
-      simp at member
-      rcases member with rfl | rfl | rfl <;> exact ⟨rfl, rfl⟩
-    contributionProducesResult := by
-      intro item member
-      simp at member
-      rcases member with rfl | rfl | rfl <;> rfl
+    resultsAtMoment := by intro item _; rfl
+    organizedByDifference := by intro item _; exact ⟨rfl, rfl⟩
+    contributionProducesResult := by intro item _; rfl
+    contrastChangesResponse := by intro item _; exact Bool.false_ne_true
     organizedExact := by
       change ∀ channel : ToyChannel,
         channel ∈ [perceptionItem, interpretationItem, actionItem] ↔
           channel ∈ [perceptionItem, interpretationItem, actionItem] ∧
             ChannelOrganizedByDifference (state true .returnHigh) false true
-              (toyResult channel) (focalCausalDomain channel)
+              (toyResult (state true .returnHigh) channel) (focalCausalDomain channel)
       intro channel
-      cases channel <;> simp only [focalCausalDomain, channelOrganizationSingleton] <;>
-        dsimp only [ContributionOrganizesChannel,
-        focalCausalDomain, partialCausalDomain, changedResultCausalDomain, changedResultContribution, partialContributionForItem,
-        contributionForItem, toyResult, perceptionItem, interpretationItem, actionItem,
-        independentActionContribution, independentActionLeft, independentActionRight,
-        forwardContribution, returnContribution, singletonEndpoints, singletonPath,
-        forwardLowTransform, forwardHighTransform, forwardChangeTransform, returnLowTransform,
-        returnHighTransform, returnChangeTransform, transform, systemEntity, systemDirection,
-        state, Stage.rank, systemAttention] <;> simp
+      exact ⟨fun member => ⟨member, focalSnapshotOrganizesTrue .returnHigh channel⟩,
+        fun both => both.1⟩
     degreeNumerator := 3
     degreeNumeratorExact := rfl
   }
@@ -769,12 +801,18 @@ theorem organizedResultCannotBeFuture
     {entity : Entity (Feature × Context)} {body : Body Part entity}
     (attention : Attention Part body) (item : attention.inventory.Channel)
     (organized : item ∈ attention.organized) :
-    ¬ entity.persistenceDirection.before attention.moment (attention.result item) := by
-  intro future
-  rcases attention.resultsAtOrBeforeMoment item organized with equal | earlier
-  · rw [equal] at future
-    exact entity.persistenceDirection.asymmetric future future
-  · exact entity.persistenceDirection.asymmetric future earlier
+    ¬ entity.persistenceDirection.before attention.moment (attention.result item) :=
+  (organizationRejectsNoncurrentResult entity.persistenceDirection _ _ _ _ _
+    (organizingContributionOrganizes attention item organized)).2
+
+theorem organizedResultCannotBePast
+    {Part : Type u} {Feature : Type v} {Context : Type w}
+    {entity : Entity (Feature × Context)} {body : Body Part entity}
+    (attention : Attention Part body) (item : attention.inventory.Channel)
+    (organized : item ∈ attention.organized) :
+    ¬ entity.persistenceDirection.before (attention.result item) attention.moment :=
+  (organizationRejectsNoncurrentResult entity.persistenceDirection _ _ _ _ _
+    (organizingContributionOrganizes attention item organized)).1
 
 def reorderedAbsoluteAttention : AbsoluteAttention ToyPart systemBody where
   attention := {
@@ -787,37 +825,21 @@ def reorderedAbsoluteAttention : AbsoluteAttention ToyPart systemBody where
       change item ∈ ([perceptionItem, interpretationItem, actionItem] : List ToyChannel)
       exact (List.reverse_perm _).mem_iff.mp member
     countedOnce := ⟨_, List.reverse_perm _, List.Sublist.refl _⟩
-    resultsAtOrBeforeMoment := by
-      intro item member
-      simp at member
-      rcases member with rfl | rfl | rfl
-      · exact Or.inl rfl
-      · exact Or.inl rfl
-      · exact Or.inr (by change 3 < 6; decide)
-    organizedByDifference := by
-      intro item member
-      simp at member
-      rcases member with rfl | rfl | rfl <;> exact ⟨rfl, rfl⟩
-    contributionProducesResult := by
-      intro item member
-      simp at member
-      rcases member with rfl | rfl | rfl <;> rfl
+    resultsAtMoment := by intro item _; rfl
+    organizedByDifference := by intro item _; exact ⟨rfl, rfl⟩
+    contributionProducesResult := by intro item _; rfl
+    contrastChangesResponse := by intro item _; exact Bool.false_ne_true
     organizedExact := by
       change ∀ channel : ToyChannel,
         channel ∈ [actionItem, interpretationItem, perceptionItem] ↔
           channel ∈ [perceptionItem, interpretationItem, actionItem] ∧
             ChannelOrganizedByDifference (state true .returnHigh) false true
-              (toyResult channel) (focalCausalDomain channel)
+              (toyResult (state true .returnHigh) channel) (focalCausalDomain channel)
       intro channel
-      cases channel <;> simp only [focalCausalDomain, channelOrganizationSingleton] <;>
-        dsimp only [ContributionOrganizesChannel,
-        focalCausalDomain, partialCausalDomain, changedResultCausalDomain, changedResultContribution, partialContributionForItem,
-        contributionForItem, toyResult, perceptionItem, interpretationItem, actionItem,
-        independentActionContribution, independentActionLeft, independentActionRight,
-        forwardContribution, returnContribution, singletonEndpoints, singletonPath,
-        forwardLowTransform, forwardHighTransform, forwardChangeTransform, returnLowTransform,
-        returnHighTransform, returnChangeTransform, transform, systemEntity, systemDirection,
-        state, Stage.rank, systemAttention, systemAbsoluteAttention] <;> simp
+      refine ⟨fun member => ⟨?_, focalSnapshotOrganizesTrue .returnHigh channel⟩,
+        fun both => ?_⟩
+      · revert member; cases channel <;> decide
+      · have member := both.1; revert member; cases channel <;> decide
     degreeNumeratorExact := rfl
   }
   allAvailableOrganized := by
@@ -993,7 +1015,7 @@ def twoSensorAttention : Attention ToyPart systemBody where
   moment := state true .forwardHigh
   momentWithinBody := by simp [systemBody, systemPersistence]
   inventory := twoSensorInventory
-  result := toyResult
+  result := toyResult (state true .forwardHigh)
   focalRepresentation := true
   contrastRepresentation := false
   focalDifference := by decide
@@ -1010,43 +1032,22 @@ def twoSensorAttention : Attention ToyPart systemBody where
   organized := [.sensor, .secondSensor]
   organizedWithinAvailable := by intro channel member; exact member
   countedOnce := ⟨_, List.Perm.refl _, List.Sublist.refl _⟩
-  resultsAtOrBeforeMoment := by
-    intro channel member
-    change channel ∈ ([.sensor, .secondSensor] : List ToyChannel) at member
-    have split : channel = ToyChannel.sensor ∨ channel = ToyChannel.secondSensor :=
-      (List.mem_cons.mp member).elim Or.inl (fun tail => Or.inr (List.mem_singleton.mp tail))
-    rcases split with rfl | rfl <;> exact Or.inl rfl
+  resultsAtMoment := by intro channel _; rfl
   organizingContribution := contributionForItem
   causalContributions := focalCausalDomain
   organizingContributionDeclared := by intro channel _; exact List.mem_singleton_self _
-  organizedByDifference := by
-    intro channel member
-    change channel ∈ ([.sensor, .secondSensor] : List ToyChannel) at member
-    have split : channel = ToyChannel.sensor ∨ channel = ToyChannel.secondSensor :=
-      (List.mem_cons.mp member).elim Or.inl (fun tail => Or.inr (List.mem_singleton.mp tail))
-    rcases split with rfl | rfl <;> exact ⟨rfl, rfl⟩
-  contributionProducesResult := by
-    intro channel member
-    change channel ∈ ([.sensor, .secondSensor] : List ToyChannel) at member
-    have split : channel = ToyChannel.sensor ∨ channel = ToyChannel.secondSensor :=
-      (List.mem_cons.mp member).elim Or.inl (fun tail => Or.inr (List.mem_singleton.mp tail))
-    rcases split with rfl | rfl <;> rfl
+  organizedByDifference := by intro channel _; exact ⟨rfl, rfl⟩
+  contributionProducesResult := by intro channel _; rfl
+  contrastChangesResponse := by intro channel _; exact Bool.false_ne_true
   organizedExact := by
-      change ∀ channel : ToyChannel,
-        channel ∈ [.sensor, .secondSensor] ↔
-          channel ∈ [.sensor, .secondSensor] ∧
-            ChannelOrganizedByDifference (state true .forwardHigh) false true
-              (toyResult channel) (focalCausalDomain channel)
-      intro channel
-      cases channel <;> simp only [focalCausalDomain, channelOrganizationSingleton] <;>
-        dsimp only [ContributionOrganizesChannel,
-        focalCausalDomain, partialCausalDomain, changedResultCausalDomain, changedResultContribution, partialContributionForItem,
-        contributionForItem, toyResult, perceptionItem, interpretationItem, actionItem,
-        independentActionContribution, independentActionLeft, independentActionRight,
-        forwardContribution, returnContribution, singletonEndpoints, singletonPath,
-        forwardLowTransform, forwardHighTransform, forwardChangeTransform, returnLowTransform,
-        returnHighTransform, returnChangeTransform, transform, systemEntity, systemDirection,
-        state, Stage.rank, systemAttention, systemAbsoluteAttention] <;> simp
+    change ∀ channel : ToyChannel,
+      channel ∈ [.sensor, .secondSensor] ↔
+        channel ∈ [.sensor, .secondSensor] ∧
+          ChannelOrganizedByDifference (state true .forwardHigh) false true
+            (toyResult (state true .forwardHigh) channel) (focalCausalDomain channel)
+    intro channel
+    exact ⟨fun member => ⟨member, focalSnapshotOrganizesTrue .forwardHigh channel⟩,
+      fun both => both.1⟩
   degreeNumerator := 2
   degreeDenominator := 2
   degreeNumeratorExact := rfl
@@ -1055,7 +1056,7 @@ def twoSensorAttention : Attention ToyPart systemBody where
 theorem equalKindAndResultDoNotCollapseDistinctChannels :
     (ToyChannel.sensor ≠ ToyChannel.secondSensor) ∧
     toyKind .sensor = toyKind .secondSensor ∧
-    toyResult .sensor = toyResult .secondSensor ∧
+    twoSensorAttention.result .sensor = twoSensorAttention.result .secondSensor ∧
     twoSensorAttention.degreeNumerator = 2 ∧ twoSensorAttention.degreeDenominator = 2 := by
   exact ⟨by decide, rfl, rfl, rfl, rfl⟩
 
@@ -1064,50 +1065,39 @@ theorem absoluteAttentionPermitsFocusOrganizedAction :
     actionItem ∈ systemAbsoluteAttention.attention.organized := by
   exact ⟨rfl, systemCare.actionOrganizedByAttention⟩
 
+/-- A stale result changes the channel's reported result without changing its
+identity or the denominator, and it cannot organize: the numerator drops to zero. -/
 def changedResultAttention : Attention ToyPart systemBody := {
   systemAttention with
-  result := fun _ => state true .returnHigh
-  organizingContribution := changedResultContribution
-  causalContributions := changedResultCausalDomain
-  organizingContributionDeclared := by intro channel _; exact List.mem_singleton_self _
-  organizedByDifference := by
-    intro channel member
-    change channel ∈ [perceptionItem, interpretationItem] at member
-    rcases List.mem_cons.mp member with first | second
-    · subst channel; exact ⟨rfl, rfl⟩
-    · have equal := List.mem_singleton.mp second
-      subst channel; exact ⟨rfl, rfl⟩
-  contributionProducesResult := by
-    intro channel member
-    cases channel <;> rfl
-  resultsAtOrBeforeMoment := by intro channel member; exact Or.inl rfl
+  result := fun _ => state true .forwardHigh
+  organized := []
+  organizedWithinAvailable := by intro channel member; cases member
+  countedOnce := ⟨_, List.Perm.refl _, List.nil_sublist _⟩
+  resultsAtMoment := by intro channel member; cases member
+  organizingContributionDeclared := by intro channel member; cases member
+  organizedByDifference := by intro channel member; cases member
+  contributionProducesResult := by intro channel member; cases member
+  contrastChangesResponse := by intro channel member; cases member
   organizedExact := by
-      change ∀ channel : ToyChannel,
-        channel ∈ [perceptionItem, interpretationItem] ↔
-          channel ∈ [perceptionItem, interpretationItem, actionItem] ∧
-            ChannelOrganizedByDifference (state true .returnHigh) false true
-              (state true .returnHigh)
-              (changedResultCausalDomain channel)
-      intro channel
-      cases channel <;> simp only [changedResultCausalDomain, channelOrganizationSingleton] <;>
-        dsimp only [ContributionOrganizesChannel,
-        focalCausalDomain, partialCausalDomain, changedResultCausalDomain, changedResultContribution, partialContributionForItem,
-        contributionForItem, toyResult, perceptionItem, interpretationItem, actionItem,
-        independentActionContribution, independentActionLeft, independentActionRight,
-        forwardContribution, returnContribution, singletonEndpoints, singletonPath,
-        forwardLowTransform, forwardHighTransform, forwardChangeTransform, returnLowTransform,
-        returnHighTransform, returnChangeTransform, transform, systemEntity, systemDirection,
-        state, Stage.rank, systemAttention, systemAbsoluteAttention] <;> simp
+    intro channel
+    refine ⟨fun member => by simp at member, ?_⟩
+    rintro ⟨_, contribution, _, organizes⟩
+    have stale := congrArg (fun current : State Carrier => current.value.2) organizes.2.2.1
+    simp [systemAttention, state] at stale
+  degreeNumerator := 0
+  degreeNumeratorExact := rfl
 }
 
 theorem changingResultDoesNotReindividuateChannel :
     changedResultAttention.result perceptionItem ≠ systemAttention.result perceptionItem ∧
     changedResultAttention.available = systemAttention.available ∧
-    changedResultAttention.degreeDenominator = systemAttention.degreeDenominator := by
-  refine ⟨?_, rfl, rfl⟩
+    changedResultAttention.degreeDenominator = systemAttention.degreeDenominator ∧
+    changedResultAttention.degreeNumerator = 0 ∧
+    perceptionItem ∈ systemAttention.organized := by
+  refine ⟨?_, rfl, rfl, rfl, List.Mem.head _⟩
   intro equal
   have values := congrArg State.value equal
-  simp [changedResultAttention, systemAttention, toyResult, perceptionItem, state] at values
+  simp [changedResultAttention, systemAttention, toyResult, state] at values
 
 /-! ## Exact numerator regressions -/
 
@@ -1122,20 +1112,24 @@ theorem attentionCannotOmitOrganizedChannel
     item ∈ attention.organized :=
   (attention.organizedExact item).mpr ⟨available, causal⟩
 
+/-- The partial Action produces its exact current result through its own
+snapshot response, but only under the reversed true/false orientation; under
+the Attention's false/true focus it is not organized. The orientation
+sensitivity is an unresolved finding preserved deliberately. -/
 theorem partialActionHasDifferentUpstreamDifference :
-    (systemAttention.organizingContribution actionItem).downstreamChange.transformation.output =
-      systemAttention.result actionItem ∧
+    ContributionOrganizesChannel systemAttention.moment
+      (systemAttention.organizingContribution actionItem).contrast
+      (systemAttention.organizingContribution actionItem).focal
+      (systemAttention.result actionItem) (systemAttention.organizingContribution actionItem) ∧
     ¬ ChannelOrganizedByDifference systemAttention.moment
       systemAttention.contrastRepresentation systemAttention.focalRepresentation
       (systemAttention.result actionItem) (systemAttention.causalContributions actionItem) := by
   constructor
-  · rfl
+  · exact ⟨rfl, rfl, rfl, rfl, by decide⟩
   · change ¬ ChannelOrganizedByDifference (state true .returnHigh) false true
       (state true .returnHigh) [independentActionContribution]
     rw [channelOrganizationSingleton]
-    intro organized
-    have impossible : true = false := organized.1
-    contradiction
+    exact independentActionDoesNotOrganize _ _
 
 theorem partialActionIsCausallyIndependent :
     FocusIndependentAction systemAttention actionItem := by
@@ -1183,21 +1177,19 @@ theorem focalAlternativeCannotBeOmitted
       channel ∈ organized ↔
         channel ∈ [perceptionItem, interpretationItem, actionItem] ∧
           ChannelOrganizedByDifference (state true .returnHigh) false true
-            (toyResult channel)
+            (toyResult (state true .returnHigh) channel)
             [partialContributionForItem channel, contributionForItem channel]) :
     actionItem ∈ organized ∧
       ¬ ContributionOrganizesChannel (state true .returnHigh) false true
-        (toyResult actionItem) (partialContributionForItem actionItem) := by
+        (toyResult (state true .returnHigh) actionItem) (partialContributionForItem actionItem) := by
   constructor
   · apply (exactCoverage actionItem).mpr
     constructor
     · decide
-    · refine ⟨returnContribution, ?_, ?_⟩
+    · refine ⟨focalSnapshotContribution, ?_, ?_⟩
       · exact List.mem_cons.mpr (Or.inr (List.mem_singleton_self _))
-      · exact ⟨rfl, rfl, rfl, Or.inl rfl⟩
-  · intro selected
-    have impossible : true = false := selected.1
-    contradiction
+      · exact ⟨rfl, rfl, rfl, rfl, by decide⟩
+  · exact independentActionDoesNotOrganize _ _
 
 
 /-- Holding the declared causal situation and measurement context fixed,
@@ -1209,7 +1201,7 @@ theorem fixedCausalDataDeterminesNumerator
     (moment : State (Feature × Context)) (contrast focal : Feature)
     (result : inventory.Channel → State (Feature × Context))
     (causalDomain : inventory.Channel →
-      List (CausalContribution Feature Context entity.persistenceDirection body.feeding))
+      List (SnapshotCausalContribution Feature Context))
     (available first second : List inventory.Channel)
     (firstUnique : first.Nodup) (secondUnique : second.Nodup)
     (firstExact : ∀ item, item ∈ first ↔ item ∈ available ∧
@@ -1225,5 +1217,163 @@ theorem fixedCausalDataDeterminesNumerator
     rw [firstUnique.count, secondUnique.count]
     simp only [sameMembers item])
   exact permutation.length_eq
+
+/-! ## Snapshot causal regressions -/
+
+/-- The earlier sensor result `state true .forwardHigh` is matched by the focal
+response in its own context, but it is past at the later snapshot and is rejected. -/
+theorem pastOnlyResultCannotOrganize :
+    focalSnapshotContribution.response true Stage.forwardHigh = (state true .forwardHigh).value.1 ∧
+    ¬ ContributionOrganizesChannel (state true .returnHigh) false true
+      (state true .forwardHigh) focalSnapshotContribution := by
+  refine ⟨rfl, ?_⟩
+  intro organized
+  have contexts := congrArg (fun current : State Carrier => current.value.2) organized.2.2.1
+  simp [state] at contexts
+
+theorem futureResultCannotOrganize :
+    ¬ ContributionOrganizesChannel (state true .forwardHigh) false true
+      (state true .returnHigh) focalSnapshotContribution := by
+  intro organized
+  have contexts := congrArg (fun current : State Carrier => current.value.2) organized.2.2.1
+  simp [state] at contexts
+
+/-- A past snapshot that is organized by a different response function. -/
+def negatingSnapshotContribution : SnapshotCausalContribution Bool Stage where
+  contrast := false
+  focal := true
+  response := fun feature _ => !feature
+
+def lowPastAttention : Attention ToyPart systemBody := {
+  earlyAttention with
+  moment := state false .forwardLow
+  momentWithinBody := by simp [systemBody, systemPersistence]
+  result := toyResult (state false .forwardLow)
+  availableExact := by
+    intro channel
+    change channel ∈ ([perceptionItem] : List ToyChannel) ↔
+      toyAvailable (state false .forwardLow) channel = true
+    cases channel <;> decide
+  resultsAtMoment := by intro item _; rfl
+  organizingContribution := fun _ => negatingSnapshotContribution
+  causalContributions := fun _ => [negatingSnapshotContribution]
+  organizingContributionDeclared := by intro channel _; exact List.mem_singleton_self _
+  organizedByDifference := by intro item _; exact ⟨rfl, rfl⟩
+  contributionProducesResult := by intro item _; rfl
+  contrastChangesResponse := by intro item _; exact Bool.noConfusion
+  organizedExact := by
+    change ∀ channel : ToyChannel,
+      channel ∈ [perceptionItem] ↔
+        channel ∈ [perceptionItem] ∧
+          ChannelOrganizedByDifference (state false .forwardLow) false true
+            (toyResult (state false .forwardLow) channel) [negatingSnapshotContribution]
+    intro channel
+    rw [channelOrganizationSingleton]
+    exact ⟨fun member => ⟨member, rfl, rfl, rfl, rfl, Bool.noConfusion⟩, fun both => both.1⟩
+}
+
+/-- The same current snapshot under a different past record. -/
+def alternatePastSustainedAttention : SustainedAttention ToyPart systemBody := {
+  systemSustainedAttention with
+  states := [state false .forwardLow, state true .returnHigh]
+  hasChangingStates := ⟨_, _, [], rfl⟩
+  statesWithinBody := by simp [systemBody, systemPersistence]
+  statesOrdered := by
+    simp [OrderedBy, systemEntity, systemDirection, state, Stage.rank]
+  attentionAt := fun current =>
+    if current.value.2 = .forwardLow then lowPastAttention else systemAttention
+  sameInventory := by
+    intro current member
+    simp at member
+    rcases member with rfl | rfl <;> rfl
+  indexedAtState := by
+    intro current member
+    simp at member
+    rcases member with rfl | rfl <;> rfl
+  maintained := by
+    intro current member
+    simp at member
+    rcases member with rfl | rfl <;>
+      simp [state, lowPastAttention, earlyAttention, systemAttention]
+  sameDifference := by
+    intro current member
+    simp at member
+    rcases member with rfl | rfl <;>
+      simp [state, lowPastAttention, earlyAttention, systemAttention, systemSustainedAttention]
+}
+
+/-- Two sustained traces with different past snapshots and different past
+response functions share the current snapshot, and its organization is the
+same: the Attention at a State never consults the past record. -/
+theorem fixedSnapshotIgnoresPastRecord :
+    systemSustainedAttention.states.head? ≠ alternatePastSustainedAttention.states.head? ∧
+    (systemSustainedAttention.attentionAt (state true .forwardHigh)).organizingContribution
+        perceptionItem ≠
+      (alternatePastSustainedAttention.attentionAt (state false .forwardLow)).organizingContribution
+        perceptionItem ∧
+    systemSustainedAttention.attentionAt (state true .returnHigh) =
+      alternatePastSustainedAttention.attentionAt (state true .returnHigh) ∧
+    (systemSustainedAttention.attentionAt (state true .returnHigh)).organized =
+      (alternatePastSustainedAttention.attentionAt (state true .returnHigh)).organized := by
+  refine ⟨?_, ?_, rfl, rfl⟩
+  · simp [systemSustainedAttention, alternatePastSustainedAttention, state]
+  · intro equal
+    have responses := congrArg
+      (fun contribution : SnapshotCausalContribution Bool Stage =>
+        contribution.response true .forwardHigh) equal
+    simp [systemSustainedAttention, alternatePastSustainedAttention, earlyAttention,
+      lowPastAttention, contributionForItem, focalSnapshotContribution,
+      negatingSnapshotContribution, state] at responses
+
+/-- Matching contrast/focal labels and a focal response that yields the current
+result do not organize when the response ignores the representation. -/
+def constantSnapshotContribution : SnapshotCausalContribution Bool Stage where
+  contrast := false
+  focal := true
+  response := fun _ _ => true
+
+theorem constantLabelledResponseDoesNotOrganize :
+    constantSnapshotContribution.contrast = false ∧
+    constantSnapshotContribution.focal = true ∧
+    constantSnapshotContribution.response true Stage.returnHigh =
+      (state true .returnHigh).value.1 ∧
+    ¬ ContributionOrganizesChannel (state true .returnHigh) false true
+      (state true .returnHigh) constantSnapshotContribution :=
+  ⟨rfl, rfl, rfl, constantResponseCannotOrganize _ _ _ _ _ rfl⟩
+
+/-- A response that differs only across contexts cannot supply the contrast:
+both representations are compared in the moment's single context. -/
+def contextOnlySnapshotContribution : SnapshotCausalContribution Bool Stage where
+  contrast := false
+  focal := true
+  response := fun _ context => decide (context = .returnHigh)
+
+theorem differentContextsCannotBeMixed :
+    contextOnlySnapshotContribution.response false Stage.forwardHigh ≠
+      contextOnlySnapshotContribution.response true Stage.returnHigh ∧
+    ¬ ContributionOrganizesChannel (state true .returnHigh) false true
+      (state true .returnHigh) contextOnlySnapshotContribution ∧
+    ¬ ContributionOrganizesChannel (state false .forwardHigh) false true
+      (state false .forwardHigh) contextOnlySnapshotContribution :=
+  ⟨by decide, constantResponseCannotOrganize _ _ _ _ _ rfl,
+    constantResponseCannotOrganize _ _ _ _ _ rfl⟩
+
+/-- Current sensor and Action witnesses, partial and absolute snapshots, and
+both sustained traces remain inhabited. -/
+theorem currentSnapshotWitnessesInhabited :
+    perceptionItem ∈ systemAttention.organized ∧
+    ContributionOrganizesChannel systemAttention.moment false true
+      (systemAttention.result perceptionItem) (systemAttention.organizingContribution perceptionItem) ∧
+    actionItem ∈ systemAbsoluteAttention.attention.organized ∧
+    ContributionOrganizesChannel systemAbsoluteAttention.attention.moment false true
+      (systemAbsoluteAttention.attention.result actionItem)
+      (systemAbsoluteAttention.attention.organizingContribution actionItem) ∧
+    systemCare.attention.inventory.kind systemCare.actionItem = .action ∧
+    Nonempty (SustainedAttention ToyPart systemBody) ∧
+    Nonempty (Love ToyPart systemBody) ∧
+    alternatePastSustainedAttention.states.length = 2 := by
+  refine ⟨List.Mem.head _, ⟨rfl, rfl, rfl, rfl, Bool.false_ne_true⟩,
+    systemCare.actionOrganizedByAttention, ⟨rfl, rfl, rfl, rfl, Bool.false_ne_true⟩,
+    rfl, ⟨systemSustainedAttention⟩, ⟨systemLove⟩, rfl⟩
 
 end DanielOntology.AttentionLoveCareProposal

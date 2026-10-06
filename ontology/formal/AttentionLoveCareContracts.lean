@@ -86,14 +86,13 @@ theorem attentionContract
       attention.inventory.kind item = .action) ∧
     (∀ item, item ∈ attention.organized →
       item ∈ attention.available ∧
-      (attention.organizingContribution item).leftEndpoints.first.input.value.1 =
-          attention.contrastRepresentation ∧
-      (attention.organizingContribution item).rightEndpoints.first.input.value.1 =
-          attention.focalRepresentation ∧
-      (attention.organizingContribution item).downstreamChange.transformation.output =
-          attention.result item ∧
-      (attention.result item = attention.moment ∨
-        entity.persistenceDirection.before (attention.result item) attention.moment)) := by
+      (attention.organizingContribution item).contrast = attention.contrastRepresentation ∧
+      (attention.organizingContribution item).focal = attention.focalRepresentation ∧
+      attention.result item = attention.moment ∧
+      (attention.organizingContribution item).response attention.focalRepresentation
+          attention.moment.value.2 = (attention.result item).value.1 ∧
+      (attention.organizingContribution item).response attention.contrastRepresentation
+          attention.moment.value.2 ≠ (attention.result item).value.1) := by
   have bounds := attentionDegreeBounded attention
   refine ⟨attention.focalDifference, attention.availableExact, ?_, attention.availableNonempty,
     attention.availableUnique, bounds.2.2, attention.momentWithinBody, bounds.1, bounds.2.1,
@@ -105,10 +104,7 @@ theorem attentionContract
     cases attention.inventory.kind item <;> simp
   intro item member
   exact ⟨attention.organizedWithinAvailable item member,
-    (attention.organizedByDifference item member).1,
-    (attention.organizedByDifference item member).2,
-    attention.contributionProducesResult item member,
-    attention.resultsAtOrBeforeMoment item member⟩
+    organizingContributionOrganizes attention item member⟩
 
 /-- organon:promotion-contract AC-D4 -/
 theorem sustainedAttentionContract

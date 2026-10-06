@@ -38,7 +38,8 @@
     "local:ChannelInventory",
     "local:EntityIndividuation",
     "local:ChannelOrganizedByDifference",
-    "local:ContributionOrganizesChannel"
+    "local:ContributionOrganizesChannel",
+    "local:SnapshotCausalContribution"
   ],
   "semantic_fields": [],
   "statements": [
@@ -242,7 +243,6 @@
         "organon:Action",
         "organon:CausalContribution",
         "organon:State",
-        "organon:Direction",
         "organon:Specification",
         "organon:Scope"
       ],
@@ -310,33 +310,25 @@
             "reason": "The action channel constructor is the declared local projection of canonical Action."
           },
           "organon:CausalContribution": {
-            "status": "formalized",
+            "status": "represented_by",
             "symbols": [
               "organizingContribution",
-              "leftEndpoints",
-              "rightEndpoints",
-              "downstreamChange",
+              "contrast",
+              "focal",
+              "response",
               "ChannelOrganizedByDifference",
               "causalContributions",
               "organizingContributionDeclared"
             ],
-            "reason": "Organization existentially quantifies over the complete declared channel-specific contribution collection independently of the counted list or selected witness. A selected witness belongs to that collection; exact coverage counts every available channel with a qualifying upstream Difference, exact result, and snapshot timing."
+            "reason": "SnapshotCausalContribution is a local counterfactual projection, not canonical temporal CausalContribution. At the indexed State it holds context fixed, requires the focal response to match the current result and the contrast response to differ. Organization quantifies over all declared channel comparisons independently of enumeration or selected witness. No historical path is inspected; canonical causal parity and empirical fidelity remain open."
           },
           "organon:State": {
             "status": "formalized",
             "symbols": [
               "result",
-              "output",
+              "value",
               "moment"
             ]
-          },
-          "organon:Direction": {
-            "status": "formalized",
-            "symbols": [
-              "persistenceDirection",
-              "before"
-            ],
-            "reason": "Every counted organized result is at or before its Body snapshot under the same Entity Direction."
           },
           "organon:Specification": {
             "status": "formalized",
@@ -645,7 +637,7 @@
             "symbols": [
               "organized"
             ],
-            "reason": "Membership in organized invokes the exact organizing Causal Contribution required by the underlying Attention contract."
+            "reason": "Membership in organized invokes Attention's snapshot-local counterfactual comparison at the current State, not a historical CausalContribution. Canonical causal parity remains open."
           },
           "organon:Persistence": {
             "status": "formalized",
