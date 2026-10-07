@@ -914,7 +914,7 @@
             "symbols": [
               "FocusIndependentAction"
             ],
-            "reason": "The derived predicate is exactly an available local action channel outside the organized set."
+            "reason": "The derived predicate requires an available local action channel with the exact current result and a nonempty declared response domain. Every declared response reproduces that result and is invariant under the attended contrast with the snapshot context fixed. Independence implies nonorganization; nonorganization alone does not establish independence."
           },
           "organon:Difference": {
             "status": "represented_by",
