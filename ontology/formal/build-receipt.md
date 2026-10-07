@@ -4,7 +4,7 @@ status: verified
 canonicality: noncanonical
 created: 2026-08-02
 updated: 2026-10-07
-repository_commit: "66908adf778fb27ae927507e8ed05df0d20796e8"
+repository_commit: "23b815a992febc3f9e9fc0304a736d19654d462f"
 ---
 # Lean Spike Build Receipt
 
@@ -50,7 +50,7 @@ Proposal-local evidence, sovereignty, own-Principal, observed-choice, exchange, 
 
 `PromotionContracts.lean` and `AttentionLoveCareContracts.lean` restate every formally proved promoted proposal claim as a marked theorem contract. The schema-v2 claim manifest gives every declared dependency an exact disposition, derives checked symbols from that complete ledger and the subject symbols, requires shared indices inside each exact contract block, inventories every direct proposition-valued semantic field, and distinguishes fully proved contracts from theorem projections with formal boundaries. A separately committed exact-source adversarial review pins the implementation commit, tree, governed source hashes, verified contract set, and resolution of each reported finding.
 
-The repository commit attested by this receipt is `66908adf778fb27ae927507e8ed05df0d20796e8`. The earlier repair notes below record development history; the snapshot-local repair supersedes their historical organization predicate, and the behavioral-independence repair supersedes the reversed-Difference claim. Compilation does not establish promotion readiness; participant individuation remains unresolved.
+The repository commit attested by this receipt is `23b815a992febc3f9e9fc0304a736d19654d462f`. The earlier repair notes below record development history: the snapshot-local repair supersedes historical organization, behavioral independence supersedes the reversed-Difference claim, and record-independent classification supersedes the history-length participant witness. Compilation alone does not establish promotion readiness; the exact-source review records the local repairs and remaining canonical-parity boundaries.
 
 The PR #18 takeover adds proof-checked counting bounds, positive denominator, organized uniqueness, no future organized result, order-independent absolute coverage, and same-identity/different-current-State separation. Respect's three protection branches are inhabited; its exact Action output retains identity, and an identity-destroying Action cannot obtain a protection witness even when the actor's own Constraint admits it. The new theorem axiom audit uses only standard `propext`, `Classical.choice`, and `Quot.sound`, or no axioms. The separately checked framework experiment retains all 30 theorems without placeholders or nonstandard axiom dependencies.
 
@@ -62,7 +62,9 @@ The exact-numerator repair defines causal organization existentially over the co
 
 The snapshot-local repair replaces Attention's historical contribution paths with focal/contrast response comparisons in one current context. The result must equal the indexed State; past-only and future results, constant responses, and mixed-context comparisons are rejected. Different earlier sustained snapshots preserve the same current organization. The 36-job build, finite executable, and snapshot regressions pass. Canonical causal parity is explicitly a local projection.
 
-The behavioral-independence repair requires a nonempty declared domain of responses that reproduce the exact current result and remain invariant under the attended contrast in one context. The partial Action follows a separate input; both inputs vary independently in the proofs. Regressions reject reversed labels, hidden sensitive alternatives, empty domains, and wrong or stale results. Absolute Attention still excludes independent Action. Seven independence theorems were checked with `#print axioms`; they use only standard `propext`, `Classical.choice`, and `Quot.sound`, or no axioms. The history-length participant classifier remains unresolved.
+The behavioral-independence repair requires a nonempty declared domain of responses that reproduce the exact current result and remain invariant under the attended contrast in one context. The partial Action follows a separate input; both inputs vary independently in the proofs. Regressions reject reversed labels, hidden sensitive alternatives, empty domains, and wrong or stale results. Absolute Attention still excludes independent Action. Seven independence theorems were checked with `#print axioms`; they use only standard `propext`, `Classical.choice`, and `Quot.sound`, or no axioms.
+
+The participant repair restricts the classifier's inputs to identity Invariant and Boundary. `ignoresRecords` proves record independence without axioms. The former three-State prefix cannot become another participant in Love, Care, or Respect. The replacement positive witnesses share the actor's identity criterion, full history, current State, and constraint count, but differ on Boundary admission of an unrecorded alternative. Both Boundaries admit every recorded output. Nine participant theorems, including the classifier's non-injectivity, permitted Boundary-insensitive classification, and duplicate-constraint stability, were audited with `#print axioms`; only the standard axioms above occur. Canonical numerical identity across Boundary changes remains explicitly gated. The complete 36-job build and finite executable pass.
 
 - `OrganonCore.lean`: `143274a701e03826ce8eea0756caf3db534587b96f497d227d534e52627be161`
 - `OrganonCorePreservation.lean`: `e672e51e2a5cf84a83b73d5a65d325feb1aa2e76fc9733fd66a33d08d7534c2b`
@@ -78,7 +80,7 @@ The behavioral-independence repair requires a nonempty declared domain of respon
 - `TruthTrustAlignment.lean`: `bdaa0217e7434c9bc1d7cd3a6a2d489c684fbf38ffeb98a87388864d1cd5a733`
 - `IntelligenceKnowledge.lean`: `bc0ad1caa81adb25316f79aecd5011e32cf94cc73e1e046f7e13bcd10779aee8`
 - `QuarantineProfiles.lean`: `245c94b5c1a8096e9fdea457b1cafba3ddf4f7ab9d98b214aaee8be5eebdbce4`
-- `AttentionLoveCare.lean`: `405a47d501b2cbf48c6985b911a44725a9df52e1d1bbe2359c48c98bcf831c1f`
+- `AttentionLoveCare.lean`: `d0211381714c60a0d506537fdcec1a1847cfa5ea4bc969ee58d395ffc5b4be81`
 - `AttentionLoveCareContracts.lean`: `e044dadebec94a11551e10215ae596790c189d15e72626bedd727dce972278c4`
 - `Model.lean`: `6195c4e7d3aab7de036abc9b0ee6c63d39c1d83f74b5a40142bf5014e249d568`
 - `lakefile.toml`: `274d02a064289c4c3d014643b9ca25cd1bf7ed344ae96a79cf5375d48a7837a9`

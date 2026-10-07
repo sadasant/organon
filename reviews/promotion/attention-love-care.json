@@ -1,25 +1,25 @@
 {
   "schema_version": 1,
   "proposal_id": "attention-love-care",
-  "status": "changes-requested",
-  "reviewed_commit": "66908adf778fb27ae927507e8ed05df0d20796e8",
-  "reviewed_tree": "d04a0519f826f15b04ca0f083000a27b6024f4f4",
+  "status": "promotion-ready",
+  "reviewed_commit": "23b815a992febc3f9e9fc0304a736d19654d462f",
+  "reviewed_tree": "2432fcfb34219fb7ae312ff7d4a6248ca39ef3b6",
   "reviewed_at": "2026-10-07",
-  "review_scope": "Local verification of behavioral Action independence after the snapshot-only Attention repair. Independence requires an exact current result, nonempty declared response domain, and invariance under the attended contrast for every model in the same context. The partial Action follows a separate input; regression proofs reject reversed labels, hidden sensitive alternatives, missing models, wrong results, and stale results. The complete Lean build and existing snapshot/counting contracts pass. ALC-AR-24 supersedes the historical reversed-Difference claim in ALC-AR-22. ALC-AR-25 remains unresolved, so the promotion gate must fail. Canonical causal/channel parity and empirical fidelity remain gated. Not an independent external review.",
+  "review_scope": "Local verification of record-independent participant classification after the snapshot and Action-independence repairs. Classifiers receive only identity Invariant and Boundary; a general theorem excludes current-State, Persistence-record, and Direction differences alone. The former prefix record is rejected as another participant by Love, Care, and Respect. Replacement shared-criterion witnesses share the full history, current State, and constraint count, but differ in admission of an unrecorded alternative; both Boundaries admit every recorded output. Regression proofs establish classifier limits and duplicate-constraint stability. The complete Lean build and existing contracts pass. ALC-AR-23 through ALC-AR-25 resolve the three local review findings; canonical numerical identity across Boundary changes, causal/channel parity, and empirical fidelity remain explicit AC-G1 boundaries. Focused Oracle consultation supported the fixed-Boundary projection, not a general independent external review. Model evaluations were not rerun.",
   "source_sha256": {
     "ontology/ontology.md": "0efec67fe99f2c8b3a53e4570b398f648181fc310387cae90813662368d6aeff",
     "ontology/terms.yaml": "be09e3bc3228a9b2763a2a2bb0bc7c985f220a302e0ae970a878b8ee42fe83ae",
-    "ontology/changelog.md": "ffdb992d5db6bce1ac91352be61b61cedf9b61e4c2178eabd3b3390f41d730e0",
-    "ontology/formal/AttentionLoveCare.lean": "405a47d501b2cbf48c6985b911a44725a9df52e1d1bbe2359c48c98bcf831c1f",
+    "ontology/changelog.md": "112bbc4d56ff3baab18f33990b7af2bef902a668d941f3f2f7d1b9ed68a88c33",
+    "ontology/formal/AttentionLoveCare.lean": "d0211381714c60a0d506537fdcec1a1847cfa5ea4bc969ee58d395ffc5b4be81",
     "ontology/formal/AttentionLoveCareContracts.lean": "e044dadebec94a11551e10215ae596790c189d15e72626bedd727dce972278c4",
     "ontology/formal/EmbodiedConsciousness.lean": "8f0367384b57f56f0e9e4496acfac781c180b6c126c89d26ef94cf740f83eae5",
     "ontology/formal/Model.lean": "6195c4e7d3aab7de036abc9b0ee6c63d39c1d83f74b5a40142bf5014e249d568",
-    "ontology/formal/README.md": "62c0b52261e40265d35d1bb2396c19ee46699f5e3aa750053b36d155c25f819e",
-    "ontology/formal/decisions.md": "5d062585cb89dfc3e19bafa3dbf023a78fcf2843870de8d3e25628a3fc60468a",
+    "ontology/formal/README.md": "6cbd41392e381883184426f6b384a995935f68bfefe87402ff98add03be803db",
+    "ontology/formal/decisions.md": "2f8b50a8738210997e3648bc41628053fcd345639c1c24239f03feb0f11c4f58",
     "ontology/formal/lakefile.toml": "274d02a064289c4c3d014643b9ca25cd1bf7ed344ae96a79cf5375d48a7837a9",
-    "proposals/attention-love-care.md": "f814c2ed393848da5283a828cad6045c7d001d984eb200b29763f0734d8c1896",
-    "proposals/attention-love-care-claims.json": "02bbb116667dcc5b3809ff08f351c7ecbd5e9beda3cf2385676faf059c54dc75",
-    "releases/v0-20-0.md": "90378bb9ab0520f674820159b2ae1aaa15c4557d64e247b0ba0b8b62a693573e",
+    "proposals/attention-love-care.md": "ee6c7bd0bf6b6d111ad953107e7d16a385458a11b08bd811322d2d7532e5df51",
+    "proposals/attention-love-care-claims.json": "897ca5df971e045acec62a70b6453307ceadfc766bcec0c9501fd0f666a744e4",
+    "releases/v0-20-0.md": "b8c9acdaa96b336be2c9a534d991fb7bea540752ba0effd87081fa9c56db45b7",
     "scripts/check-proposals.py": "87f26905ba0450b92a9f38c6ee63a144e5973fd424a971622b42f6a9eb03fb24",
     "scripts/check-promotion-review.py": "511241352a32b1f4b25a6c1b1a66bc088ec4afc71e0f3426c2c6d5074725a3aa",
     "evals/tests/test_promotion_contracts.py": "d6d92e48c527ba3bceaab490ece4f9c74e3a1d9ff11d1807da0d612ef12d0562",
@@ -189,9 +189,9 @@
     {
       "id": "ALC-AR-25",
       "severity": "medium",
-      "disposition": "unresolved",
-      "resolution": "Open: the shared-criterion other-Entity witness uses a prefix of the actor's history and distinguishes it by history length. The claimed distinct participant is not established independently of that record difference. Snapshot-local Attention does not repair participant individuation."
+      "disposition": "resolved",
+      "resolution": "EntityIndividuation.classify now receives only identity Invariant and Boundary. ignoresRecords proves that histories, Directions, and current States cannot alter classification when those inputs are fixed. The old three-State prefix remains a negative witness and cannot be the other participant in Love, Care, or Respect under any admitted classifier. A positive shared-criterion witness has the actor's full history, current State, and constraint count but differs in Boundary admission of an unrecorded alternative; both Boundaries admit all recorded outputs. Regression proofs show that duplicate constraints do not affect the behavioral classifier, equal classes do not imply one Entity, and Boundary difference need not imply otherness for every classifier. This closes the record-length error within the local projection; canonical identity across Boundary changes remains AC-G1."
     }
   ],
-  "reviewer": "Amp local Action-independence verification; participant-individuation finding unresolved"
+  "reviewer": "Amp local verification with focused Oracle design consultation; not an independent external review"
 }
