@@ -39,6 +39,14 @@
     {"claim": "C35", "status": "positive_schema_missing", "reason": "No complete Perception-Memory embodied perspective circuit is encoded."},
     {"claim": "C36", "status": "positive_schema_missing", "reason": "No complete reciprocal ordered causal contribution circuit is encoded."},
     {"claim": "C37", "status": "positive_schema_missing", "reason": "No complete outcome-denoting internal alternative-selection circuit is encoded."},
-    {"claim": "C38", "status": "positive_schema_missing", "reason": "The embodied recurrent candidate remains quarantined and has no complete binding consciousness circuit."}
+    {"claim": "C38", "status": "positive_schema_missing", "reason": "The embodied recurrent candidate remains quarantined and has no complete binding consciousness circuit."},
+    {"claim": "C39", "status": "positive_schema_missing", "reason": "No complete canonical Control circuit is encoded for partial embodied self-governance."},
+    {"claim": "C40", "status": "positive_schema_missing", "reason": "No complete Intention and outcome-occurrence circuit is encoded in the candidate algebra."},
+    {"claim": "C41", "status": "positive_schema_missing", "reason": "No complete available-channel Attention ratio circuit is encoded."},
+    {"claim": "C42", "status": "positive_schema_missing", "reason": "No complete Absolute Attention and focus-independent Action circuit is encoded."},
+    {"claim": "C43", "status": "positive_schema_missing", "reason": "Benefit, consent, morality, accuracy, and purpose remain outside the candidate algebra."},
+    {"claim": "C44", "status": "positive_schema_missing", "reason": "No complete Love, Care, and Respect separation circuit is encoded."},
+    {"claim": "C45", "status": "positive_schema_missing", "reason": "No complete Care, benefit, harm, and Love separation circuit is encoded."},
+    {"claim": "C46", "status": "positive_schema_missing", "reason": "No complete Respect, agreement, affection, and interference circuit is encoded."}
   ]
 }

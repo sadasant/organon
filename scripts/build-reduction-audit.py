@@ -59,8 +59,8 @@ def audit(*, check: bool) -> dict[str, int]:
     terms = registry.get("terms", [])
     commitments = registry.get("commitments", [])
     term_ids = [term["id"] for term in terms]
-    if len(term_ids) != 114 or len(term_ids) != len(set(term_ids)):
-        raise AuditError("complete audit requires exactly 114 unique registered terms")
+    if len(term_ids) != 122 or len(term_ids) != len(set(term_ids)):
+        raise AuditError("complete audit requires exactly 122 unique registered terms")
 
     card_by_term = {card["term_id"]: card["id"] for card in cards}
     if len(card_by_term) != len(cards):
@@ -106,7 +106,7 @@ def audit(*, check: bool) -> dict[str, int]:
     }
     disposition_ids = [item.get("claim") for item in dispositions]
     if set(disposition_ids) != consistency_ids or len(disposition_ids) != len(set(disposition_ids)):
-        raise AuditError("consistency dispositions must account for C1-C38 exactly once")
+        raise AuditError("consistency dispositions must account for C1-C46 exactly once")
     candidate_ids = {entry["claim"] for entry in candidate_entries}
     allowed = {"candidate_clause_derived", "retained_governance", "positive_schema_missing"}
     for item in dispositions:
@@ -163,7 +163,7 @@ def audit(*, check: bool) -> dict[str, int]:
     report = [
         "# Complete reduction audit",
         "",
-        "> Generated from the complete v0.19 registry. This audits the candidate algebra after v0.18 promoted definition admission into C1 and the v0.19 embodiment promotion.",
+        "> Generated from the complete v0.20 registry. This audits the candidate algebra after v0.18 promoted definition admission into C1, the v0.19 embodiment promotion, and the v0.20 attention-and-relation promotion.",
         "",
         "## Result",
         "",
@@ -198,11 +198,11 @@ def audit(*, check: bool) -> dict[str, int]:
             "1. a small generative calculus of positive constructors for persistence, representation, causation, agency, institution, epistemic status, situated world, adaptive knowledge, and ritual meaning; and",
             "2. an executable admissibility semantics governing how those constructors may compose.",
             "",
-            "A future completeness claim must reconstruct all 111 definitions from that combined system and eliminate every paired target-extension sketch with genuine models or proofs. Adding more prohibitions alone cannot do it.",
+            "A future completeness claim must reconstruct all 119 definitions from that combined system and eliminate every paired target-extension sketch with genuine models or proofs. Adding more prohibitions alone cannot do it.",
             "",
             "## Follow-on constructor result",
             "",
-            "The [degenerate registry-reflection control](./positive-calculus-report.md) tests one generic witnessed-introduction wrapper. It reflects all 111 definitions only after receiving each complete binding definition schema, every lexical dependency as a positive fact over one candidate, and an opaque conformity witness. It therefore fails the semantic anti-vacuity gate and does not semantically eliminate any definition schema or close the positive-constructor question.",
+            "The [degenerate registry-reflection control](./positive-calculus-report.md) tests one generic witnessed-introduction wrapper. It reflects all 119 definitions only after receiving each complete binding definition schema, every lexical dependency as a positive fact over one candidate, and an opaque conformity witness. It therefore fails the semantic anti-vacuity gate and does not semantically eliminate any definition schema or close the positive-constructor question.",
             "",
             "## Complete disposition",
             "",

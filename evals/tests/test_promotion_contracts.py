@@ -108,5 +108,9 @@ def test_unformalized_dependency_forces_boundary_qualified_status() -> None:
 
 
 def test_promoted_schema_v2_manifest_has_exact_source_review() -> None:
-    manifest = ROOT / "proposals" / "embodied-consciousness-claims.json"
-    assert REVIEWS.check_review(manifest) == []
+    manifests = [
+        ROOT / "proposals" / "embodied-consciousness-claims.json",
+        ROOT / "proposals" / "attention-love-care-claims.json",
+    ]
+    for manifest in manifests:
+        assert REVIEWS.check_review(manifest) == []

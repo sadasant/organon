@@ -1,0 +1,209 @@
+{
+  "schema_version": 1,
+  "proposal_id": "attention-love-care",
+  "status": "promotion-ready",
+  "reviewed_commit": "1a4f127c9bd622b0aa76c58841358366f12825ae",
+  "reviewed_tree": "fc719e2da41b087e3abd34c1468527b27bed8e11",
+  "reviewed_at": "2026-10-07",
+  "review_scope": "Local verification of record-independent participant classification after the snapshot and Action-independence repairs. Classifiers receive only identity Invariant and Boundary; a general theorem excludes current-State, Persistence-record, and Direction differences alone. The former prefix record is rejected as another participant by Love, Care, and Respect. Replacement shared-criterion witnesses share the full history, current State, and constraint count, but differ in admission of an unrecorded alternative; both Boundaries admit every recorded output. Regression proofs establish classifier limits and duplicate-constraint stability. The complete Lean build and existing contracts pass. ALC-AR-23 through ALC-AR-25 resolve the three local review findings; canonical numerical identity across Boundary changes, causal/channel parity, and empirical fidelity remain explicit AC-G1 boundaries. Focused Oracle consultation supported the fixed-Boundary projection, not a general independent external review. Model evaluations were not rerun.",
+  "source_sha256": {
+    "ontology/ontology.md": "0efec67fe99f2c8b3a53e4570b398f648181fc310387cae90813662368d6aeff",
+    "ontology/terms.yaml": "be09e3bc3228a9b2763a2a2bb0bc7c985f220a302e0ae970a878b8ee42fe83ae",
+    "ontology/changelog.md": "112bbc4d56ff3baab18f33990b7af2bef902a668d941f3f2f7d1b9ed68a88c33",
+    "ontology/formal/AttentionLoveCare.lean": "d0211381714c60a0d506537fdcec1a1847cfa5ea4bc969ee58d395ffc5b4be81",
+    "ontology/formal/AttentionLoveCareContracts.lean": "e044dadebec94a11551e10215ae596790c189d15e72626bedd727dce972278c4",
+    "ontology/formal/EmbodiedConsciousness.lean": "8f0367384b57f56f0e9e4496acfac781c180b6c126c89d26ef94cf740f83eae5",
+    "ontology/formal/Model.lean": "6195c4e7d3aab7de036abc9b0ee6c63d39c1d83f74b5a40142bf5014e249d568",
+    "ontology/formal/README.md": "6cbd41392e381883184426f6b384a995935f68bfefe87402ff98add03be803db",
+    "ontology/formal/decisions.md": "2f8b50a8738210997e3648bc41628053fcd345639c1c24239f03feb0f11c4f58",
+    "ontology/formal/lakefile.toml": "274d02a064289c4c3d014643b9ca25cd1bf7ed344ae96a79cf5375d48a7837a9",
+    "proposals/attention-love-care.md": "ee6c7bd0bf6b6d111ad953107e7d16a385458a11b08bd811322d2d7532e5df51",
+    "proposals/attention-love-care-claims.json": "a53566df77bea9d1f83b81d75c31e18cfd48cbc1c80842c30a73784a29efa333",
+    "releases/v0-20-0.md": "b8c9acdaa96b336be2c9a534d991fb7bea540752ba0effd87081fa9c56db45b7",
+    "scripts/check-proposals.py": "87f26905ba0450b92a9f38c6ee63a144e5973fd424a971622b42f6a9eb03fb24",
+    "scripts/check-promotion-review.py": "511241352a32b1f4b25a6c1b1a66bc088ec4afc71e0f3426c2c6d5074725a3aa",
+    "evals/tests/test_promotion_contracts.py": "d6d92e48c527ba3bceaab490ece4f9c74e3a1d9ff11d1807da0d612ef12d0562",
+    "scripts/check-organon-core-audit.py": "1b872e2a862c79f0db3b997ed07c6238c709ea20cee19998695e1c83454af2a9",
+    "ontology/formal/organon-core-term-audit.md": "3d035fa9a06aca7a573735c485609193de8526e6529f07d8e0656960625f0426",
+    "evals/tests/test_algebra.py": "0305fcf95b57ab30664b1e186c5e149995ad60a73b60eeb45cfde94da9e4f41f"
+  },
+  "verified_contracts": [
+    "AC-D1",
+    "AC-D2",
+    "AC-D3",
+    "AC-D4",
+    "AC-D5",
+    "AC-D6",
+    "AC-D7",
+    "AC-D8",
+    "AC-C1",
+    "AC-C2",
+    "AC-C3",
+    "AC-C4"
+  ],
+  "findings": [
+    {
+      "id": "ALC-AR-1",
+      "severity": "critical",
+      "disposition": "resolved",
+      "resolution": "Intention no longer equates its target with the guided result; the exact upstream target Difference guides an activity whose output may differ."
+    },
+    {
+      "id": "ALC-AR-2",
+      "severity": "critical",
+      "disposition": "resolved",
+      "resolution": "Absolute Attention proves membership coverage of unique available channels, independently of enumeration order; the reordered finite witness is absolute despite unequal lists."
+    },
+    {
+      "id": "ALC-AR-3",
+      "severity": "high",
+      "disposition": "resolved",
+      "resolution": "Respect now proves that its named Constraint admits the actor scoped Action as well as carrying a typed protection witness for the other Entity."
+    },
+    {
+      "id": "ALC-AR-4",
+      "severity": "high",
+      "disposition": "resolved",
+      "resolution": "Care requires the attended target State to belong to the cared-for Entity Persistence history and joins the exact Entity-State Denotation to an organized action channel."
+    },
+    {
+      "id": "ALC-AR-5",
+      "severity": "critical",
+      "disposition": "resolved",
+      "resolution": "Every canonical dependency receives a formalized, represented-by, prose-only, or outside-boundary disposition; local channel projections cannot disappear from the ledger."
+    },
+    {
+      "id": "ALC-AR-6",
+      "severity": "high",
+      "disposition": "resolved",
+      "resolution": "Unique availability and organization as a sublist of a permuted availability enumeration exclude duplicate counting. The numerator bound, positive denominator, and organized uniqueness are derived theorems, alongside exact focus/result joins."
+    },
+    {
+      "id": "ALC-AR-7",
+      "severity": "high",
+      "disposition": "resolved",
+      "resolution": "The partial-Attention countermodel negates an AbsoluteAttention wrapper around the same Attention instead of proving only an unrelated omitted item."
+    },
+    {
+      "id": "ALC-AR-8",
+      "severity": "medium",
+      "disposition": "outside-formal-boundary",
+      "resolution": "Normative and interpersonal reverse anti-entailments remain binding prose explicitly outside the reduct because closed-world benefit, consent, morality, agreement, and affection predicates are absent."
+    },
+    {
+      "id": "ALC-AR-9",
+      "severity": "medium",
+      "disposition": "resolved",
+      "resolution": "The promotion leaves Consciousness and the proposed Authority revision unchanged and limits v0.20 to the eight dependency-closed terms."
+    },
+    {
+      "id": "ALC-AR-10",
+      "severity": "high",
+      "disposition": "resolved",
+      "resolution": "Duplicate membership inflated the Attention ratio. Unique availability and sublist/permutation counting now derive a bounded numerator and reject counting one item twice."
+    },
+    {
+      "id": "ALC-AR-11",
+      "severity": "high",
+      "disposition": "resolved",
+      "resolution": "Absolute coverage used list equality. Membership coverage now accepts the reordered finite witness and still excludes focus-independent available Action."
+    },
+    {
+      "id": "ALC-AR-12",
+      "severity": "high",
+      "disposition": "resolved",
+      "resolution": "Sustained Attention reused one snapshot at earlier States. Each snapshot now names its exact Body State, organized results cannot be future, and the finite sustained witness uses separate early and later snapshots."
+    },
+    {
+      "id": "ALC-AR-13",
+      "severity": "high",
+      "disposition": "resolved",
+      "resolution": "Removed constitutive inequality of identity Invariants. Local participant classification ignores current-State updates; numerical Entity inequality is retained. Shared-criterion finite witnesses inhabit Love, Care, and Respect, while canonical individuation parity remains explicitly gated."
+    },
+    {
+      "id": "ALC-AR-14",
+      "severity": "high",
+      "disposition": "resolved",
+      "resolution": "Respect option branches were unrelated to the actor Action and the Boundary branch did not admit it under target constraints. All options now begin at its output and preserve target identity; Boundary protection admits that exact Action. Every branch is inhabited and an identity-destroying Action is rejected."
+    },
+    {
+      "id": "ALC-AR-15",
+      "severity": "high",
+      "disposition": "resolved",
+      "resolution": "A governed family could omit the selected activity. Its membership is now required by EmbodiedSelfGovernance and restated by its promotion contract."
+    },
+    {
+      "id": "ALC-AR-16",
+      "severity": "medium",
+      "disposition": "resolved",
+      "resolution": "The term-audit generator omitted the eight compiled shadows. Its inventory and regenerated audit now classify them as compiled shadows with prose parity still unknown."
+    },
+    {
+      "id": "ALC-AR-17",
+      "severity": "medium",
+      "disposition": "outside-formal-boundary",
+      "resolution": "The relative denominator is now closed by exact Specification coverage over independent inventory channel identities. Universal channel exhaustiveness, canonical channel/Agency parity, sampled attention continuity, and canonical numerical Entity individuation remain explicit gates. The merged Interpretation/Understanding proposal remains nonbinding."
+    },
+    {
+      "id": "ALC-AR-18",
+      "severity": "high",
+      "disposition": "resolved",
+      "resolution": "Removed all three unequal-Invariant requirements; EntityIndividuation.participant is explicitly local and snapshot-stable. The same-criterion positive witnesses inhabit all three relations, and the current-State update leaves participant classification unchanged."
+    },
+    {
+      "id": "ALC-AR-19",
+      "severity": "critical",
+      "disposition": "resolved",
+      "resolution": "ChannelInventory declares channel identities independently of kind/result and supplies a constructive availability Specification for each Body State. Available lists have exact coverage and no duplicates; sustained snapshots share the inventory. Omitted conforming Action is rejected, same-kind/result sensors remain two channels, and a changed result leaves the inventory and denominator unchanged."
+    },
+    {
+      "id": "ALC-AR-20",
+      "severity": "medium",
+      "disposition": "resolved",
+      "resolution": "Removed the inert ActivityGuidance enum and narrowed the Intention definition to witnessed causal guidance of an activity. Select/continue/inhibit/revise semantics are no longer claimed by an unproved tag."
+    },
+    {
+      "id": "ALC-AR-21",
+      "severity": "medium",
+      "disposition": "resolved",
+      "resolution": "The dossier explicitly chooses entrainment rather than universal paralysis: absolute coverage excludes independent available Action but permits focus-organized Action. An inhabited action-channel proof preserves that choice within the declared availability context."
+    },
+    {
+      "id": "ALC-AR-22",
+      "severity": "high",
+      "disposition": "resolved",
+      "resolution": "The numerator previously allowed a qualifying causally organized channel to be omitted. ContributionOrganizesChannel evaluates upstream focus, exact result, and snapshot timing; ChannelOrganizedByDifference quantifies over the full independently declared channel-specific causal domain, and organizedExact requires both directions of membership coverage. The selected witness must belong to that domain and cannot hide a qualifying alternative. Fixed-domain unique exact enumerations have the same numerator. The partial Action uses a different upstream Difference while still producing its exact result. Regression proofs reject omission and a zero numerator that hides a qualifying channel. Empirical completeness of declared channel-specific causal data remains an application gate."
+    },
+    {
+      "id": "ALC-AR-23",
+      "severity": "high",
+      "disposition": "resolved",
+      "resolution": "Attention formerly accepted an old contribution at multiple later snapshots. SnapshotCausalContribution now evaluates focal and contrast responses in one current context and requires the exact current result. The organization predicate takes no historical paths. Regression proofs reject past-only and future results, constant responses and mixed contexts; distinct earlier histories retain the same present organization. Sustained Attention owns temporal comparison. Canonical causal parity remains explicitly gated."
+    },
+    {
+      "id": "ALC-AR-24",
+      "severity": "medium",
+      "disposition": "resolved",
+      "resolution": "Replaced negated organization with ChannelIndependentOfDifference: every model in a nonempty declared domain reproduces the exact current result and is invariant under the attended contrast in one fixed context. Labels alone cannot establish independence. The partial Action follows a separate Boolean input; proofs vary both inputs independently and join that response to its declared snapshot contribution. Regressions reject reversed labels despite a matching current result, a hidden sensitive alternative, empty domains, and wrong or stale results. Absolute Attention still excludes independent Action. This resolves the local witness error, not empirical completeness or canonical channel parity."
+    },
+    {
+      "id": "ALC-AR-25",
+      "severity": "medium",
+      "disposition": "resolved",
+      "resolution": "EntityIndividuation.classify now receives only identity Invariant and Boundary. ignoresRecords proves that histories, Directions, and current States cannot alter classification when those inputs are fixed. The old three-State prefix remains a negative witness and cannot be the other participant in Love, Care, or Respect under any admitted classifier. A positive shared-criterion witness has the actor's full history, current State, and constraint count but differs in Boundary admission of an unrecorded alternative; both Boundaries admit all recorded outputs. Regression proofs show that duplicate constraints do not affect the behavioral classifier, equal classes do not imply one Entity, and Boundary difference need not imply otherness for every classifier. This closes the record-length error within the local projection; canonical identity across Boundary changes remains AC-G1."
+    },
+    {
+      "id": "ALC-AR-26",
+      "severity": "medium",
+      "disposition": "resolved",
+      "resolution": "The accompanying evaluation evidence advances all three current pointers to new implementation-pinned deterministic snapshots while preserving historical runs. Evaluation remains incomplete and artifact promotion remains on hold because model judgment was not rerun, not because the local PR findings remain unresolved. This evaluation-artifact disposition is separate from ontology promotion readiness."
+    },
+    {
+      "id": "ALC-AR-27",
+      "severity": "medium",
+      "disposition": "resolved",
+      "resolution": "AC-C4's dependency explanation now requires a nonempty declared response domain whose models reproduce the exact current result and are invariant under the attended contrast in the fixed snapshot context. It states only that independence implies nonorganization, not the false converse; reversedLabelsDoNotEstablishIndependence remains the checked counterexample. No Lean definitions or proofs changed."
+    }
+  ],
+  "reviewer": "Amp local verification with focused Oracle design consultation; not an independent external review"
+}

@@ -2,6 +2,13 @@
   "schema_version": 1,
   "entries": [
     {
+      "manifest": "attention-love-care-claims.json",
+      "dossier": "attention-love-care.md",
+      "status": "promoted",
+      "binding_release": "0.20.0",
+      "remaining_quarantine": []
+    },
+    {
       "manifest": "embodied-consciousness-claims.json",
       "dossier": "embodied-consciousness.md",
       "status": "partially-promoted",

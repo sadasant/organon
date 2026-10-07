@@ -16,3 +16,7 @@ The sources are deliberately coarse. This is not a claim that each article conta
 ## Maintenance
 
 When a term changes meaning, update its definition, registry dependencies, provenance entry, and changelog together. When a new term has no honest source, label its basis as a new adopted commitment rather than manufacturing ancestry.
+
+## October 7 PR18 repair and proposal preservation
+
+D111's exact alternative occurrences and constructive availability, and D112's Configuration typing, come from the preserved local formalization and independent review findings recorded in [formal decisions](../ontology/formal/decisions.md). Existing adopted lineage remains intact. [Self/Auto](../proposals/self-auto.md) remains a nonbinding proposal and introduces no adopted registry/provenance identifiers.

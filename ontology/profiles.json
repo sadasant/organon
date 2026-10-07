@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "ontology_version": "0.19.0",
+  "ontology_version": "0.20.0",
   "profiles": {
     "agent": {
       "description": "Entities, boundaries, interpretation, action, tools, and contextual capability.",
@@ -129,6 +129,19 @@
         "organon:EmbodiedPerspective",
         "organon:RecurrentIntegration",
         "organon:InternalActivitySelection"
+      ]
+    },
+    "attention-and-relation": {
+      "description": "Embodied self-governance and intention, finite attention forms, and the distinct relations of Love, Care, and Respect.",
+      "roots": [
+        "organon:EmbodiedSelfGovernance",
+        "organon:Intention",
+        "organon:Attention",
+        "organon:SustainedAttention",
+        "organon:AbsoluteAttention",
+        "organon:Love",
+        "organon:Care",
+        "organon:Respect"
       ]
     }
   }

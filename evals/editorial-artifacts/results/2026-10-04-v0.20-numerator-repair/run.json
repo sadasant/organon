@@ -1,0 +1,23 @@
+{
+  "schema_version": 2,
+  "run": {
+    "evaluation": "editorial-artifacts",
+    "methodology_version": "1.0",
+    "stages": [
+      "snapshot",
+      "deterministic-preflight",
+      "human-promotion"
+    ],
+    "generated_at": "2026-10-04",
+    "organon_commit": "f0bd946e43200032481ba10a660d2ad4461c268c",
+    "committed_inputs_sha256": {
+      "ontology/ontology.md": "8b3e5a034892b8f5ae8c6db057c28829c8b14484ed7d7d8230748e3f403f2999"
+    },
+    "ontology_sha256": "8b3e5a034892b8f5ae8c6db057c28829c8b14484ed7d7d8230748e3f403f2999",
+    "complete": true,
+    "passed": false,
+    "incomplete_reason": "The deterministic snapshot includes exact causal coverage of the Attention numerator and a genuinely partial causal witness. Model-judged evaluation was not rerun; this is not a model-quality pass.",
+    "human_disposition": "adopted"
+  },
+  "improvement_plans": []
+}

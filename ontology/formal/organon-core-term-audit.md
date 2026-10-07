@@ -3,14 +3,14 @@ type: formal-experiment-audit
 status: draft
 canonicality: noncanonical
 created: 2026-08-03
-ontology_version: "0.19.0"
+ontology_version: "0.20.0"
 generated_by: scripts/check-organon-core-audit.py
 ---
 # OrganonCore term audit
 
 This table accounts for every registered term. `proved` means only that the declared challenge classifier is preserved in Lean. It is not automatically a complete encoding of the binding prose. `compiled shadow` means a named Lean shadow builds without the Absence extension; it does not mean that the shadow is extensionally identical to the binding prose definition.
 
-Result totals: **4 proved translations**, **1 pending representation decision**, **1 intentionally excluded**, and **108 unknown**.
+Result totals: **4 proved translations**, **1 pending representation decision**, **1 intentionally excluded**, and **116 unknown**.
 
 | Claim | Term | Reduct disposition | Experiment result | Reason |
 |---|---|---|---|---|
@@ -128,3 +128,11 @@ Result totals: **4 proved translations**, **1 pending representation decision**,
 | D109 | `organon:EmbodiedPerspective` | compiled shadow | unknown | The Lean shadow is extension-invariant; exact prose parity is not established. |
 | D110 | `organon:RecurrentIntegration` | compiled shadow | unknown | The Lean shadow is extension-invariant; exact prose parity is not established. |
 | D111 | `organon:InternalActivitySelection` | compiled shadow | unknown | The Lean shadow is extension-invariant; exact prose parity is not established. |
+| D112 | `organon:EmbodiedSelfGovernance` | compiled shadow | unknown | The Lean shadow is extension-invariant; exact prose parity is not established. |
+| D113 | `organon:Intention` | compiled shadow | unknown | The Lean shadow is extension-invariant; exact prose parity is not established. |
+| D114 | `organon:Attention` | compiled shadow | unknown | The Lean shadow is extension-invariant; exact prose parity is not established. |
+| D115 | `organon:SustainedAttention` | compiled shadow | unknown | The Lean shadow is extension-invariant; exact prose parity is not established. |
+| D116 | `organon:AbsoluteAttention` | compiled shadow | unknown | The Lean shadow is extension-invariant; exact prose parity is not established. |
+| D117 | `organon:Love` | compiled shadow | unknown | The Lean shadow is extension-invariant; exact prose parity is not established. |
+| D118 | `organon:Care` | compiled shadow | unknown | The Lean shadow is extension-invariant; exact prose parity is not established. |
+| D119 | `organon:Respect` | compiled shadow | unknown | The Lean shadow is extension-invariant; exact prose parity is not established. |

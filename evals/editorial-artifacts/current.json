@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
   "suite": "editorial-artifacts",
-  "current_run": "results/2026-09-30-v0.19-adversarial-repair",
-  "predecessor": "results/2026-09-25-v0.19-promotion",
+  "current_run": "results/2026-10-07-v0.20-self-auto-integration",
+  "predecessor": "results/2026-10-07-v0.20-review-repairs",
   "run_record": "run.json",
   "primary_artifact": "report.md",
   "evaluation_status": "incomplete",
-  "promotion_status": "adopted",
-  "ontology_version": "0.19.0",
-  "ontology_sha256": "02b518c93f42b236178b68e6bd911ae4dbea38905c5dd44a7de46654a435d284",
-  "promotion_basis": "human-maintainer-disposition"
+  "promotion_status": "hold",
+  "ontology_version": "0.20.0",
+  "ontology_sha256": "1e0e804e46b6887fbae74d3a89aa5f7109f63f03f0cc2542f9b47982fde9cb01",
+  "promotion_basis": "authorized-push-for-review; no new model judgment or semantic promotion"
 }

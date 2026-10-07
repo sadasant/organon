@@ -1,0 +1,18 @@
+{
+  "schema_version": 2,
+  "run": {
+    "evaluation": "editorial-artifacts",
+    "methodology_version": "1.0",
+    "stages": ["snapshot", "deterministic-preflight"],
+    "generated_at": "2026-10-07",
+    "organon_commit": "1a4f127c9bd622b0aa76c58841358366f12825ae",
+    "committed_inputs_sha256": {
+      "ontology/ontology.md": "0efec67fe99f2c8b3a53e4570b398f648181fc310387cae90813662368d6aeff"
+    },
+    "ontology_sha256": "0efec67fe99f2c8b3a53e4570b398f648181fc310387cae90813662368d6aeff",
+    "complete": true,
+    "passed": false,
+    "incomplete_reason": "Deterministic snapshot after the local Attention, Action-independence, and participant-individuation findings were resolved. Model judgment was not rerun; evaluation remains incomplete and artifact promotion remains on hold for that reason, not unresolved PR findings. Ontology promotion readiness is recorded separately in the exact-source promotion review."
+  },
+  "improvement_plans": []
+}
