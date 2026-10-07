@@ -2,8 +2,8 @@
   "schema_version": 1,
   "proposal_id": "attention-love-care",
   "status": "promotion-ready",
-  "reviewed_commit": "23b815a992febc3f9e9fc0304a736d19654d462f",
-  "reviewed_tree": "2432fcfb34219fb7ae312ff7d4a6248ca39ef3b6",
+  "reviewed_commit": "1a4f127c9bd622b0aa76c58841358366f12825ae",
+  "reviewed_tree": "fc719e2da41b087e3abd34c1468527b27bed8e11",
   "reviewed_at": "2026-10-07",
   "review_scope": "Local verification of record-independent participant classification after the snapshot and Action-independence repairs. Classifiers receive only identity Invariant and Boundary; a general theorem excludes current-State, Persistence-record, and Direction differences alone. The former prefix record is rejected as another participant by Love, Care, and Respect. Replacement shared-criterion witnesses share the full history, current State, and constraint count, but differ in admission of an unrecorded alternative; both Boundaries admit every recorded output. Regression proofs establish classifier limits and duplicate-constraint stability. The complete Lean build and existing contracts pass. ALC-AR-23 through ALC-AR-25 resolve the three local review findings; canonical numerical identity across Boundary changes, causal/channel parity, and empirical fidelity remain explicit AC-G1 boundaries. Focused Oracle consultation supported the fixed-Boundary projection, not a general independent external review. Model evaluations were not rerun.",
   "source_sha256": {
@@ -18,7 +18,7 @@
     "ontology/formal/decisions.md": "2f8b50a8738210997e3648bc41628053fcd345639c1c24239f03feb0f11c4f58",
     "ontology/formal/lakefile.toml": "274d02a064289c4c3d014643b9ca25cd1bf7ed344ae96a79cf5375d48a7837a9",
     "proposals/attention-love-care.md": "ee6c7bd0bf6b6d111ad953107e7d16a385458a11b08bd811322d2d7532e5df51",
-    "proposals/attention-love-care-claims.json": "897ca5df971e045acec62a70b6453307ceadfc766bcec0c9501fd0f666a744e4",
+    "proposals/attention-love-care-claims.json": "a53566df77bea9d1f83b81d75c31e18cfd48cbc1c80842c30a73784a29efa333",
     "releases/v0-20-0.md": "b8c9acdaa96b336be2c9a534d991fb7bea540752ba0effd87081fa9c56db45b7",
     "scripts/check-proposals.py": "87f26905ba0450b92a9f38c6ee63a144e5973fd424a971622b42f6a9eb03fb24",
     "scripts/check-promotion-review.py": "511241352a32b1f4b25a6c1b1a66bc088ec4afc71e0f3426c2c6d5074725a3aa",
@@ -191,6 +191,18 @@
       "severity": "medium",
       "disposition": "resolved",
       "resolution": "EntityIndividuation.classify now receives only identity Invariant and Boundary. ignoresRecords proves that histories, Directions, and current States cannot alter classification when those inputs are fixed. The old three-State prefix remains a negative witness and cannot be the other participant in Love, Care, or Respect under any admitted classifier. A positive shared-criterion witness has the actor's full history, current State, and constraint count but differs in Boundary admission of an unrecorded alternative; both Boundaries admit all recorded outputs. Regression proofs show that duplicate constraints do not affect the behavioral classifier, equal classes do not imply one Entity, and Boundary difference need not imply otherness for every classifier. This closes the record-length error within the local projection; canonical identity across Boundary changes remains AC-G1."
+    },
+    {
+      "id": "ALC-AR-26",
+      "severity": "medium",
+      "disposition": "resolved",
+      "resolution": "The accompanying evaluation evidence advances all three current pointers to new implementation-pinned deterministic snapshots while preserving historical runs. Evaluation remains incomplete and artifact promotion remains on hold because model judgment was not rerun, not because the local PR findings remain unresolved. This evaluation-artifact disposition is separate from ontology promotion readiness."
+    },
+    {
+      "id": "ALC-AR-27",
+      "severity": "medium",
+      "disposition": "resolved",
+      "resolution": "AC-C4's dependency explanation now requires a nonempty declared response domain whose models reproduce the exact current result and are invariant under the attended contrast in the fixed snapshot context. It states only that independence implies nonorganization, not the false converse; reversedLabelsDoNotEstablishIndependence remains the checked counterexample. No Lean definitions or proofs changed."
     }
   ],
   "reviewer": "Amp local verification with focused Oracle design consultation; not an independent external review"
