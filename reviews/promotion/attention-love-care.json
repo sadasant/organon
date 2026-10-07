@@ -2,24 +2,24 @@
   "schema_version": 1,
   "proposal_id": "attention-love-care",
   "status": "changes-requested",
-  "reviewed_commit": "cf786f3dde95eb461a8c9b207b445a6e5f64b364",
-  "reviewed_tree": "e209afaadee358f1ab8d6853482dd1a3df847ae7",
-  "reviewed_at": "2026-10-06",
-  "review_scope": "Local verification of snapshot-only Attention following the maintainer's clarification. Current-context focal/contrast responses replace historical causal paths; past-only and future results, constant responses, and mixed contexts are rejected. Exact counting, availability, selected-witness membership, and inhabited current/sustained witnesses remain checked. Canonical causal parity is explicitly represented, not asserted. Prior findings below retain their historical resolutions; ALC-AR-24 and ALC-AR-25 reopen the orientation and participant-individuation claims. These remain unresolved, so the promotion gate must fail. Not an independent external review.",
+  "reviewed_commit": "66908adf778fb27ae927507e8ed05df0d20796e8",
+  "reviewed_tree": "d04a0519f826f15b04ca0f083000a27b6024f4f4",
+  "reviewed_at": "2026-10-07",
+  "review_scope": "Local verification of behavioral Action independence after the snapshot-only Attention repair. Independence requires an exact current result, nonempty declared response domain, and invariance under the attended contrast for every model in the same context. The partial Action follows a separate input; regression proofs reject reversed labels, hidden sensitive alternatives, missing models, wrong results, and stale results. The complete Lean build and existing snapshot/counting contracts pass. ALC-AR-24 supersedes the historical reversed-Difference claim in ALC-AR-22. ALC-AR-25 remains unresolved, so the promotion gate must fail. Canonical causal/channel parity and empirical fidelity remain gated. Not an independent external review.",
   "source_sha256": {
     "ontology/ontology.md": "0efec67fe99f2c8b3a53e4570b398f648181fc310387cae90813662368d6aeff",
     "ontology/terms.yaml": "be09e3bc3228a9b2763a2a2bb0bc7c985f220a302e0ae970a878b8ee42fe83ae",
-    "ontology/changelog.md": "8ed769dede17dec188bfdcedf20c7161725ce52851ba69ce787613753655825f",
-    "ontology/formal/AttentionLoveCare.lean": "bc78773f7277181bfbdaa89f305bd8b9e45d75e3d53f2d4aa0f387e31f98215d",
+    "ontology/changelog.md": "ffdb992d5db6bce1ac91352be61b61cedf9b61e4c2178eabd3b3390f41d730e0",
+    "ontology/formal/AttentionLoveCare.lean": "405a47d501b2cbf48c6985b911a44725a9df52e1d1bbe2359c48c98bcf831c1f",
     "ontology/formal/AttentionLoveCareContracts.lean": "e044dadebec94a11551e10215ae596790c189d15e72626bedd727dce972278c4",
     "ontology/formal/EmbodiedConsciousness.lean": "8f0367384b57f56f0e9e4496acfac781c180b6c126c89d26ef94cf740f83eae5",
     "ontology/formal/Model.lean": "6195c4e7d3aab7de036abc9b0ee6c63d39c1d83f74b5a40142bf5014e249d568",
-    "ontology/formal/README.md": "c10477e68374095970f07a7392e5b7b614d1b87b37b727eb3b6bf02c5b4c5ea2",
-    "ontology/formal/decisions.md": "1505bf12beab19b71df7a499144c65bb6e3f944a4bbef2f0a015544367423c47",
+    "ontology/formal/README.md": "62c0b52261e40265d35d1bb2396c19ee46699f5e3aa750053b36d155c25f819e",
+    "ontology/formal/decisions.md": "5d062585cb89dfc3e19bafa3dbf023a78fcf2843870de8d3e25628a3fc60468a",
     "ontology/formal/lakefile.toml": "274d02a064289c4c3d014643b9ca25cd1bf7ed344ae96a79cf5375d48a7837a9",
-    "proposals/attention-love-care.md": "26f0716c721eb90fc5280e2fbcb8741196ba7c1761d2194fd09365153bdda944",
+    "proposals/attention-love-care.md": "f814c2ed393848da5283a828cad6045c7d001d984eb200b29763f0734d8c1896",
     "proposals/attention-love-care-claims.json": "02bbb116667dcc5b3809ff08f351c7ecbd5e9beda3cf2385676faf059c54dc75",
-    "releases/v0-20-0.md": "296bfad418bfcbc3e78c5053f7196483394a05c9a9d7e7dcbcaf9aa9d4a6ade4",
+    "releases/v0-20-0.md": "90378bb9ab0520f674820159b2ae1aaa15c4557d64e247b0ba0b8b62a693573e",
     "scripts/check-proposals.py": "87f26905ba0450b92a9f38c6ee63a144e5973fd424a971622b42f6a9eb03fb24",
     "scripts/check-promotion-review.py": "511241352a32b1f4b25a6c1b1a66bc088ec4afc71e0f3426c2c6d5074725a3aa",
     "evals/tests/test_promotion_contracts.py": "d6d92e48c527ba3bceaab490ece4f9c74e3a1d9ff11d1807da0d612ef12d0562",
@@ -183,8 +183,8 @@
     {
       "id": "ALC-AR-24",
       "severity": "medium",
-      "disposition": "unresolved",
-      "resolution": "Open: the partial Action uses the same two representations in reversed orientation. Failure to match an ordered contrast/focal pair does not yet establish a different canonical Difference. The snapshot repair deliberately preserves this behavior for separate review."
+      "disposition": "resolved",
+      "resolution": "Replaced negated organization with ChannelIndependentOfDifference: every model in a nonempty declared domain reproduces the exact current result and is invariant under the attended contrast in one fixed context. Labels alone cannot establish independence. The partial Action follows a separate Boolean input; proofs vary both inputs independently and join that response to its declared snapshot contribution. Regressions reject reversed labels despite a matching current result, a hidden sensitive alternative, empty domains, and wrong or stale results. Absolute Attention still excludes independent Action. This resolves the local witness error, not empirical completeness or canonical channel parity."
     },
     {
       "id": "ALC-AR-25",
@@ -193,5 +193,5 @@
       "resolution": "Open: the shared-criterion other-Entity witness uses a prefix of the actor's history and distinguishes it by history length. The claimed distinct participant is not established independently of that record difference. Snapshot-local Attention does not repair participant individuation."
     }
   ],
-  "reviewer": "Amp local snapshot-repair verification; remaining review findings unresolved"
+  "reviewer": "Amp local Action-independence verification; participant-individuation finding unresolved"
 }
