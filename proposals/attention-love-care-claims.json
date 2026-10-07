@@ -530,7 +530,7 @@
               "participant",
               "individuation"
             ],
-            "reason": "Entity records are joined to a local participant classifier insensitive to current-State updates. Canonical numerical individuation parity remains AC-G1, rather than requiring unequal identity Invariants."
+            "reason": "The local participant classifier receives only the identity Invariant and Boundary, so current-State and Persistence-record changes cannot affect classification. The finite witness distinguishes Boundary admission with the same identity criterion and full history. Equal classification does not entail one Entity; Boundary difference need not entail otherness under every classifier. Canonical numerical individuation, especially across Boundary changes, remains AC-G1."
           },
           "organon:Representation": {
             "status": "formalized",
@@ -603,7 +603,7 @@
               "participant",
               "individuation"
             ],
-            "reason": "Entity records are joined to a local participant classifier insensitive to current-State updates. Canonical numerical individuation parity remains AC-G1, rather than requiring unequal identity Invariants."
+            "reason": "The local participant classifier receives only the identity Invariant and Boundary, so current-State and Persistence-record changes cannot affect classification. The finite witness distinguishes Boundary admission with the same identity criterion and full history. Equal classification does not entail one Entity; Boundary difference need not entail otherness under every classifier. Canonical numerical individuation, especially across Boundary changes, remains AC-G1."
           },
           "organon:State": {
             "status": "formalized",
@@ -705,7 +705,7 @@
               "participant",
               "individuation"
             ],
-            "reason": "Entity records are joined to a local participant classifier insensitive to current-State updates. Canonical numerical individuation parity remains AC-G1, rather than requiring unequal identity Invariants."
+            "reason": "The local participant classifier receives only the identity Invariant and Boundary, so current-State and Persistence-record changes cannot affect classification. The finite witness distinguishes Boundary admission with the same identity criterion and full history. Equal classification does not entail one Entity; Boundary difference need not entail otherness under every classifier. Canonical numerical individuation, especially across Boundary changes, remains AC-G1."
           },
           "organon:Scope": {
             "status": "formalized",

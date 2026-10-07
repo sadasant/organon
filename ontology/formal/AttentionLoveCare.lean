@@ -76,16 +76,29 @@ structure ChannelInventory
   kind : Channel → AttentionChannel
   availabilityAt : State (Feature × Context) → Specification Channel
 
-/-- Local participant classification, insensitive to a current-state update.
-Its parity with canonical numerical individuation remains gated. -/
+/-- Local participant classification over the identity criterion and Boundary
+only. The classifier cannot inspect current States, Persistence records, or
+their ordering. This fixed-Boundary projection is not a universal account of
+numerical identity across Boundary changes; canonical parity remains gated. -/
 structure EntityIndividuation (Carrier : Type u) where
-  participant : Entity Carrier → Nat
-  ignoresCurrent : ∀ (entity : Entity Carrier) (current : State Carrier)
-    (within : current ∈ entity.persistence.states) (holds : entity.identity.holds current),
-    participant ({ entity with
-      current := current
-      currentInPersistence := within
-      identityHolds := holds }) = participant entity
+  classify : (identity : Invariant Carrier) → Boundary Carrier identity → Nat
+
+def EntityIndividuation.participant {Carrier : Type u}
+    (individuation : EntityIndividuation Carrier) (entity : Entity Carrier) : Nat :=
+  individuation.classify entity.identity entity.boundary
+
+/-- Any two records of the same identity/Boundary configuration have the same
+classification, regardless of history length, current State, or Direction. -/
+theorem EntityIndividuation.ignoresRecords {Carrier : Type u}
+    (individuation : EntityIndividuation Carrier) (left right : Entity Carrier)
+    (sameIdentity : left.identity = right.identity)
+    (sameBoundary : HEq left.boundary right.boundary) :
+    individuation.participant left = individuation.participant right := by
+  cases left
+  cases right
+  cases sameIdentity
+  cases sameBoundary
+  rfl
 
 
 /-- A local counterfactual projection evaluated at one current snapshot.
@@ -738,15 +751,32 @@ theorem belovedIsOther : belovedEntity ≠ systemEntity := by
   intro equal
   exact belovedIdentityIsOther (congrArg Entity.identity equal)
 
-def historyIndividuation : EntityIndividuation Carrier where
-  participant := fun entity => entity.persistence.states.length
-  ignoresCurrent := by intro entity current within holds; rfl
+/-- Its output is not among the actor's recorded States. -/
+def individuationProbe := transform true .returnInput .returnLow (by decide)
+
+noncomputable section
+
+/-- In this two-class finite model, Boundary admission of one named
+Transformation distinguishes participants. The difference is behavioral, not
+a difference in constraint-list length or recorded history. -/
+def boundaryIndividuation : EntityIndividuation Carrier := by
+  classical
+  exact ⟨fun _ boundary =>
+    if ∀ constraint, constraint ∈ boundary.constraints → constraint.permits individuationProbe
+    then 0 else 1⟩
+
+theorem belovedParticipantIsOther :
+    boundaryIndividuation.participant belovedEntity ≠
+      boundaryIndividuation.participant systemEntity := by
+  simp [EntityIndividuation.participant, boundaryIndividuation, belovedEntity,
+    belovedBoundary, belovedConstraint, belovedIdentity, systemEntity, systemBoundary,
+    internalOnly, systemIdentity, individuationProbe, transform, state]
 
 def systemLove : Love ToyPart systemBody where
   beloved := belovedEntity
   belovedIsOther := belovedIsOther
-  individuation := historyIndividuation
-  belovedParticipantIsOther := by decide
+  individuation := boundaryIndividuation
+  belovedParticipantIsOther := belovedParticipantIsOther
   attention := systemSustainedAttention
   belovedRepresentation := true
   belovedDenotation := ⟨true, belovedEntity⟩
@@ -756,8 +786,8 @@ def systemLove : Love ToyPart systemBody where
 def systemCare : Care ToyPart systemBody where
   caredFor := belovedEntity
   caredForIsOther := belovedIsOther
-  individuation := historyIndividuation
-  caredForParticipantIsOther := by decide
+  individuation := boundaryIndividuation
+  caredForParticipantIsOther := belovedParticipantIsOther
   attendedState := belovedEntity.current
   attendedStateInHistory := belovedEntity.currentInPersistence
   targetRepresentation := true
@@ -776,8 +806,8 @@ def systemCare : Care ToyPart systemBody where
 
 def systemRespect : Respect systemEntity belovedEntity where
   targetIsOther := belovedIsOther
-  individuation := historyIndividuation
-  targetParticipantIsOther := by decide
+  individuation := boundaryIndividuation
+  targetParticipantIsOther := belovedParticipantIsOther
   constraint := internalOnly
   actionScope := ⟨fun transformation => transformation = forwardLowTransform⟩
   constrainedAction := forwardLowTransform
@@ -952,27 +982,49 @@ def sharedCriterionPersistence : PersistenceWitness systemDirection := {
     rcases member with rfl | rfl | rfl <;> simp [systemIdentity, state]
 }
 
-def sharedCriterionEntity : Entity Carrier where
-  identity := systemIdentity
-  boundary := systemBoundary
-  persistenceDirection := systemDirection
+/-- A shorter record of the actor, not a distinct participant. -/
+def truncatedSystemRecord : Entity Carrier := {
+  earlierSystemSnapshot with
   persistence := sharedCriterionPersistence
   persistenceNamesIdentity := rfl
-  current := state true .forwardHigh
-  currentInPersistence := by simp [sharedCriterionPersistence, belovedPersistence]
-  identityHolds := by simp [systemIdentity, state]
+  currentInPersistence := by simp [earlierSystemSnapshot, sharedCriterionPersistence, belovedPersistence]
+}
+
+/-- A distinct Boundary behavior while preserving the same identity criterion.
+Both this Boundary and the actor's have one constraint. -/
+def sharedCriterionConstraint : Constraint Carrier :=
+  ⟨fun transformation => systemIdentity.holds transformation.output ∧
+    transformation.output ≠ individuationProbe.output⟩
+
+def sharedCriterionBoundary : Boundary Carrier systemIdentity where
+  constraints := [sharedCriterionConstraint]
+  preserves := by
+    intro direction transformation admitted _
+    exact (admitted sharedCriterionConstraint (by simp)).1
+
+/-- The positive other-participant witness shares the actor's entire history
+and current State. Only the maintained Boundary behavior distinguishes it. -/
+def sharedCriterionEntity : Entity Carrier := {
+  systemEntity with boundary := sharedCriterionBoundary
+}
+
+theorem sharedCriterionParticipantIsOther :
+    boundaryIndividuation.participant sharedCriterionEntity ≠
+      boundaryIndividuation.participant systemEntity := by
+  simp [EntityIndividuation.participant, boundaryIndividuation, sharedCriterionEntity,
+    sharedCriterionBoundary, sharedCriterionConstraint, systemEntity,
+    systemBoundary, internalOnly, systemIdentity, individuationProbe, transform, state]
 
 theorem sharedCriterionIsOther : sharedCriterionEntity ≠ systemEntity := by
   intro equal
-  have histories := congrArg (fun entity => entity.persistence.states.length) equal
-  change 3 = 6 at histories
-  contradiction
+  exact sharedCriterionParticipantIsOther
+    (congrArg boundaryIndividuation.participant equal)
 
 def sharedCriterionLove : Love ToyPart systemBody := {
   systemLove with
   beloved := sharedCriterionEntity
   belovedIsOther := sharedCriterionIsOther
-  belovedParticipantIsOther := by decide
+  belovedParticipantIsOther := sharedCriterionParticipantIsOther
   belovedDenotation := ⟨true, sharedCriterionEntity⟩
   denotationNamesBeloved := ⟨rfl, rfl⟩
 }
@@ -981,7 +1033,7 @@ def sharedCriterionCare : Care ToyPart systemBody := {
   systemCare with
   caredFor := sharedCriterionEntity
   caredForIsOther := sharedCriterionIsOther
-  caredForParticipantIsOther := by decide
+  caredForParticipantIsOther := sharedCriterionParticipantIsOther
   attendedState := sharedCriterionEntity.current
   attendedStateInHistory := sharedCriterionEntity.currentInPersistence
   targetDenotation := ⟨true, (sharedCriterionEntity, sharedCriterionEntity.current)⟩
@@ -990,20 +1042,21 @@ def sharedCriterionCare : Care ToyPart systemBody := {
 
 def sharedCriterionRespect : Respect systemEntity sharedCriterionEntity where
   targetIsOther := sharedCriterionIsOther
-  individuation := historyIndividuation
-  targetParticipantIsOther := by decide
+  individuation := boundaryIndividuation
+  targetParticipantIsOther := sharedCriterionParticipantIsOther
   constraint := internalOnly
   actionScope := ⟨fun transformation => transformation = forwardLowTransform⟩
   constrainedAction := forwardLowTransform
   actionInScope := rfl
   actionConstrained := by simp [internalOnly, systemIdentity, forwardLowTransform, transform, state]
   protection := .boundary
-    (by simp [sharedCriterionEntity, systemIdentity, forwardLowTransform, transform, state])
+    (by simp [sharedCriterionEntity, systemEntity, systemIdentity, forwardLowTransform, transform, state])
     (by
       intro constraint member
-      simp [sharedCriterionEntity, systemBoundary] at member
+      simp [sharedCriterionEntity, sharedCriterionBoundary] at member
       subst constraint
-      simp [internalOnly, systemIdentity, forwardLowTransform, transform, state])
+      simp [sharedCriterionConstraint, systemIdentity, individuationProbe,
+        forwardLowTransform, transform, state])
 
 theorem othernessDoesNotRequireDifferentIdentityCriteria :
     sharedCriterionEntity.identity = systemEntity.identity ∧
@@ -1013,8 +1066,124 @@ theorem othernessDoesNotRequireDifferentIdentityCriteria :
   exact ⟨rfl, rfl, rfl, ⟨sharedCriterionRespect⟩⟩
 
 theorem currentStateUpdateDoesNotChangeParticipant :
-    historyIndividuation.participant earlierSystemSnapshot =
-      historyIndividuation.participant systemEntity := by rfl
+    ∀ individuation : EntityIndividuation Carrier,
+      individuation.participant earlierSystemSnapshot =
+        individuation.participant systemEntity := by intro _; rfl
+
+/-- The old three-State prefix counterexample cannot establish otherness
+under any admitted classifier, including after moving the current State. -/
+theorem shorterHistoryDoesNotChangeParticipant :
+    truncatedSystemRecord.persistence.states.length = 3 ∧
+    systemEntity.persistence.states.length = 6 ∧
+    truncatedSystemRecord.persistence.states.IsPrefix systemEntity.persistence.states ∧
+    (∀ individuation : EntityIndividuation Carrier,
+      individuation.participant truncatedSystemRecord =
+        individuation.participant systemEntity) := by
+  refine ⟨rfl, rfl, ?_, fun _ => rfl⟩
+  exact ⟨[state false .returnInput, state false .returnLow, state true .returnHigh], rfl⟩
+
+theorem shorterRecordCannotBeAnotherParticipant :
+    (¬ ∃ love : Love ToyPart systemBody, love.beloved = truncatedSystemRecord) ∧
+    (¬ ∃ care : Care ToyPart systemBody, care.caredFor = truncatedSystemRecord) ∧
+    ¬ Nonempty (Respect systemEntity truncatedSystemRecord) := by
+  refine ⟨?_, ?_, ?_⟩
+  · rintro ⟨love, target⟩
+    have other := love.belovedParticipantIsOther
+    rw [target] at other
+    exact other (shorterHistoryDoesNotChangeParticipant.2.2.2 love.individuation)
+  · rintro ⟨care, target⟩
+    have other := care.caredForParticipantIsOther
+    rw [target] at other
+    exact other (shorterHistoryDoesNotChangeParticipant.2.2.2 care.individuation)
+  · rintro ⟨respect⟩
+    exact respect.targetParticipantIsOther
+      (shorterHistoryDoesNotChangeParticipant.2.2.2 respect.individuation)
+
+/-- Same criterion, full history, current State, and constraint count; the
+actual admission of a named Transformation differs. -/
+theorem boundaryBehaviorDistinguishesSharedCriterionParticipants :
+    sharedCriterionEntity.identity = systemEntity.identity ∧
+    sharedCriterionEntity.persistence.states = systemEntity.persistence.states ∧
+    sharedCriterionEntity.current = systemEntity.current ∧
+    sharedCriterionEntity.boundary.constraints.length = systemEntity.boundary.constraints.length ∧
+    (∀ constraint, constraint ∈ systemEntity.boundary.constraints →
+      constraint.permits individuationProbe) ∧
+    (¬ ∀ constraint, constraint ∈ sharedCriterionEntity.boundary.constraints →
+      constraint.permits individuationProbe) ∧
+    boundaryIndividuation.participant sharedCriterionEntity ≠
+      boundaryIndividuation.participant systemEntity := by
+  refine ⟨rfl, rfl, rfl, rfl, ?_, ?_, sharedCriterionParticipantIsOther⟩
+  · simp [systemEntity, systemBoundary, internalOnly, systemIdentity,
+      individuationProbe, transform, state]
+  · simp [sharedCriterionEntity, sharedCriterionBoundary, sharedCriterionConstraint]
+
+/-- The distinguishing prohibition does not contradict the shared record:
+both Boundaries admit every Transformation whose output is recorded there. -/
+theorem sharedHistoryAdmittedByBothBoundaries
+    {direction : Direction Carrier} (transformation : Transformation direction)
+    (recorded : transformation.output ∈ systemPersistence.states) :
+    internalOnly.permits transformation ∧ sharedCriterionConstraint.permits transformation := by
+  simp [systemPersistence] at recorded
+  rcases recorded with output | output | output | output | output | output <;>
+    simp [internalOnly, sharedCriterionConstraint, systemIdentity, output,
+      individuationProbe, transform, state]
+
+/-- The classifier type permits coarser projections: different Boundaries do
+not universally entail different participants. -/
+theorem boundaryDifferenceDoesNotForceOtherness :
+    (∃ individuation : EntityIndividuation Carrier,
+      individuation.participant sharedCriterionEntity =
+        individuation.participant systemEntity) ∧
+    boundaryIndividuation.participant sharedCriterionEntity ≠
+      boundaryIndividuation.participant systemEntity :=
+  ⟨⟨⟨fun _ _ => 0⟩, rfl⟩, sharedCriterionParticipantIsOther⟩
+
+/-- Equal class is not proof of one Entity; this projection is not injective. -/
+theorem equalClassificationDoesNotEstablishEntityIdentity :
+    belovedEntity ≠ sharedCriterionEntity ∧
+    boundaryIndividuation.participant belovedEntity =
+      boundaryIndividuation.participant sharedCriterionEntity := by
+  constructor
+  · intro equal
+    have identities := congrArg Entity.identity equal
+    exact belovedIdentityIsOther identities
+  · simp [EntityIndividuation.participant, boundaryIndividuation, belovedEntity,
+      belovedBoundary, belovedConstraint, belovedIdentity, sharedCriterionEntity,
+      sharedCriterionBoundary, sharedCriterionConstraint, individuationProbe, transform, state]
+
+/-- Merely duplicating the actor's constraint is not a new participant in the
+behavioral projection, although the constraint-list lengths differ. -/
+def duplicatedSystemBoundary : Boundary Carrier systemIdentity where
+  constraints := [internalOnly, internalOnly]
+  preserves := by
+    intro direction transformation admitted _
+    exact admitted internalOnly (by simp)
+
+def duplicatedSystemRecord : Entity Carrier := {
+  systemEntity with boundary := duplicatedSystemBoundary
+}
+
+theorem duplicateConstraintDoesNotChangeClassification :
+    duplicatedSystemRecord.boundary.constraints.length ≠ systemEntity.boundary.constraints.length ∧
+    boundaryIndividuation.participant duplicatedSystemRecord =
+      boundaryIndividuation.participant systemEntity := by
+  constructor
+  · decide
+  · simp [EntityIndividuation.participant, boundaryIndividuation, duplicatedSystemRecord,
+      duplicatedSystemBoundary, systemEntity, systemBoundary]
+    have duplicateAdmitted : ∀ constraint, constraint ∈ [internalOnly, internalOnly] →
+        constraint.permits individuationProbe := by
+      intro constraint member
+      simp only [List.mem_cons, List.not_mem_nil, or_false, or_self] at member
+      subst constraint
+      simp [internalOnly, systemIdentity, individuationProbe, transform, state]
+    have singleAdmitted : ∀ constraint, constraint ∈ [internalOnly] →
+        constraint.permits individuationProbe := by
+      intro constraint member
+      have equal := List.mem_singleton.mp member
+      subst constraint
+      simp [internalOnly, systemIdentity, individuationProbe, transform, state]
+    rw [if_pos duplicateAdmitted, if_pos singleAdmitted]
 
 theorem omittedActionCannotSatisfyInventoryCoverage :
     ¬ (∀ channel : ToyChannel,
@@ -1443,5 +1612,7 @@ theorem currentSnapshotWitnessesInhabited :
   refine ⟨List.Mem.head _, ⟨rfl, rfl, rfl, rfl, Bool.false_ne_true⟩,
     systemCare.actionOrganizedByAttention, ⟨rfl, rfl, rfl, rfl, Bool.false_ne_true⟩,
     rfl, ⟨systemSustainedAttention⟩, ⟨systemLove⟩, rfl⟩
+
+end
 
 end DanielOntology.AttentionLoveCareProposal
