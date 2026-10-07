@@ -13,6 +13,8 @@ This note records how [Daniel's Ontology](./ontology.md) changed. Historical arg
 
 ### v0.20 - Attention, love, care, and respect
 
+- Integrated the proposed Self/Auto reading work for review without a vocabulary promotion; retained Daniel's newer Attention and participant changes. Repaired D112 Capability typing to Configuration and D111 exact branch-occurrence/constructive availability joins. Added a checked, inhabited internal-Governance-to-Agency profile and reflexive perception examples; generic Auto/Autonomy and Consciousness remain open.
+
 - Added Embodied Self-Governance and Intention with exact perspective-selection, target-Denotation, upstream-Difference, Body, Scope, and Boundary-Constraint joins; intention no longer entails achievement.
 - Added Attention as a finite ratio of available perceptual, interpretive, and action channels organized by one exact causal Difference, plus Sustained and Absolute Attention.
 - Added Love, Care, and Respect as separate structures: target-directed Sustained Attention, Action organized by Attention to another Entity's indexed State, and a scoped Action Constraint with a typed protection witness.

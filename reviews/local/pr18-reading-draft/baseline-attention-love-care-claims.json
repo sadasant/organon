@@ -38,8 +38,7 @@
     "local:ChannelInventory",
     "local:EntityIndividuation",
     "local:ChannelOrganizedByDifference",
-    "local:ContributionOrganizesChannel",
-    "local:SnapshotCausalContribution"
+    "local:ContributionOrganizesChannel"
   ],
   "semantic_fields": [],
   "statements": [
@@ -48,7 +47,7 @@
       "type": "proposed_definition",
       "subject": "Embodied Self-Governance",
       "depends_on": [
-        "organon:Configuration",
+        "organon:Capability",
         "organon:Entity",
         "organon:EmbodiedPerspective",
         "organon:InternalActivitySelection",
@@ -57,10 +56,10 @@
         "organon:Scope",
         "organon:Constraint",
         "organon:Boundary",
-        "organon:Control"
+        "organon:Agency"
       ],
       "formal_contract": {
-        "status": "proved_with_boundaries",
+        "status": "proved",
         "theorem": "embodiedSelfGovernanceContract",
         "shared_indices": [
           "entity",
@@ -70,6 +69,14 @@
           "EmbodiedSelfGovernance"
         ],
         "dependency_dispositions": {
+          "organon:Capability": {
+            "status": "represented_by",
+            "symbols": [
+              "governedTransformations",
+              "permits"
+            ],
+            "reason": "The nonempty admitted governed family is the constructive capability projection in this Body-indexed reduct."
+          },
           "organon:Entity": {
             "status": "formalized",
             "symbols": [
@@ -121,17 +128,13 @@
               "constraints"
             ]
           },
-          "organon:Configuration": {
+          "organon:Agency": {
             "status": "represented_by",
             "symbols": [
-              "governedTransformations",
-              "permits"
+              "selection",
+              "perspectiveGuidesSelection"
             ],
-            "reason": "This proof-carrying record is an admitted scoped internal Configuration, not canonical Agent/Action Capability or Agency."
-          },
-          "organon:Control": {
-            "status": "outside_formal_boundary",
-            "reason": "Complete Control remains outside this theorem; the finite partiality contract witnesses a proper governed Scope."
+            "reason": "The exact perspective-to-selection join represents the scoped exercise of Agency without asserting complete Action parity."
           }
         }
       }
@@ -239,6 +242,7 @@
         "organon:Action",
         "organon:CausalContribution",
         "organon:State",
+        "organon:Direction",
         "organon:Specification",
         "organon:Scope"
       ],
@@ -306,25 +310,33 @@
             "reason": "The action channel constructor is the declared local projection of canonical Action."
           },
           "organon:CausalContribution": {
-            "status": "represented_by",
+            "status": "formalized",
             "symbols": [
               "organizingContribution",
-              "contrast",
-              "focal",
-              "response",
+              "leftEndpoints",
+              "rightEndpoints",
+              "downstreamChange",
               "ChannelOrganizedByDifference",
               "causalContributions",
               "organizingContributionDeclared"
             ],
-            "reason": "SnapshotCausalContribution is a local counterfactual projection, not canonical temporal CausalContribution. At the indexed State it holds context fixed, requires the focal response to match the current result and the contrast response to differ. Organization quantifies over all declared channel comparisons independently of enumeration or selected witness. No historical path is inspected; canonical causal parity and empirical fidelity remain open."
+            "reason": "Organization existentially quantifies over the complete declared channel-specific contribution collection independently of the counted list or selected witness. A selected witness belongs to that collection; exact coverage counts every available channel with a qualifying upstream Difference, exact result, and snapshot timing."
           },
           "organon:State": {
             "status": "formalized",
             "symbols": [
               "result",
-              "value",
+              "output",
               "moment"
             ]
+          },
+          "organon:Direction": {
+            "status": "formalized",
+            "symbols": [
+              "persistenceDirection",
+              "before"
+            ],
+            "reason": "Every counted organized result is at or before its Body snapshot under the same Entity Direction."
           },
           "organon:Specification": {
             "status": "formalized",
@@ -526,7 +538,7 @@
               "participant",
               "individuation"
             ],
-            "reason": "The local participant classifier receives only the identity Invariant and Boundary, so current-State and Persistence-record changes cannot affect classification. The finite witness distinguishes Boundary admission with the same identity criterion and full history. Equal classification does not entail one Entity; Boundary difference need not entail otherness under every classifier. Canonical numerical individuation, especially across Boundary changes, remains AC-G1."
+            "reason": "Entity records are joined to a local participant classifier insensitive to current-State updates. Canonical numerical individuation parity remains AC-G1, rather than requiring unequal identity Invariants."
           },
           "organon:Representation": {
             "status": "formalized",
@@ -599,7 +611,7 @@
               "participant",
               "individuation"
             ],
-            "reason": "The local participant classifier receives only the identity Invariant and Boundary, so current-State and Persistence-record changes cannot affect classification. The finite witness distinguishes Boundary admission with the same identity criterion and full history. Equal classification does not entail one Entity; Boundary difference need not entail otherness under every classifier. Canonical numerical individuation, especially across Boundary changes, remains AC-G1."
+            "reason": "Entity records are joined to a local participant classifier insensitive to current-State updates. Canonical numerical individuation parity remains AC-G1, rather than requiring unequal identity Invariants."
           },
           "organon:State": {
             "status": "formalized",
@@ -633,7 +645,7 @@
             "symbols": [
               "organized"
             ],
-            "reason": "Membership in organized invokes Attention's snapshot-local counterfactual comparison at the current State, not a historical CausalContribution. Canonical causal parity remains open."
+            "reason": "Membership in organized invokes the exact organizing Causal Contribution required by the underlying Attention contract."
           },
           "organon:Persistence": {
             "status": "formalized",
@@ -701,7 +713,7 @@
               "participant",
               "individuation"
             ],
-            "reason": "The local participant classifier receives only the identity Invariant and Boundary, so current-State and Persistence-record changes cannot affect classification. The finite witness distinguishes Boundary admission with the same identity criterion and full history. Equal classification does not entail one Entity; Boundary difference need not entail otherness under every classifier. Canonical numerical individuation, especially across Boundary changes, remains AC-G1."
+            "reason": "Entity records are joined to a local participant classifier insensitive to current-State updates. Canonical numerical individuation parity remains AC-G1, rather than requiring unequal identity Invariants."
           },
           "organon:Scope": {
             "status": "formalized",
@@ -910,7 +922,7 @@
             "symbols": [
               "FocusIndependentAction"
             ],
-            "reason": "The derived predicate requires an available local action channel with the exact current result and a nonempty declared response domain. Every declared response reproduces that result and is invariant under the attended contrast with the snapshot context fixed. Independence implies nonorganization; nonorganization alone does not establish independence."
+            "reason": "The derived predicate is exactly an available local action channel outside the organized set."
           },
           "organon:Difference": {
             "status": "represented_by",

@@ -15,6 +15,29 @@ namespace DanielOntology.EmbodiedConsciousnessProposal
 
 open ConsciousnessProposal
 
+instance stateDecidableEq {Carrier : Type u} [DecidableEq Carrier] :
+    DecidableEq (State Carrier) := fun first second =>
+  match first, second with
+  | ⟨first⟩, ⟨second⟩ =>
+    if equal : first = second then isTrue (by subst second; rfl)
+    else isFalse (by intro same; cases same; exact equal rfl)
+
+instance transformationDecidableEq {Carrier : Type u} [DecidableEq Carrier]
+    {direction : Direction Carrier} : DecidableEq (Transformation direction) :=
+  fun first second =>
+    if inputEqual : first.input = second.input then
+      if outputEqual : first.output = second.output then
+        isTrue (by
+          cases first with
+          | mk firstInput firstOutput firstAdvances =>
+            cases second with
+            | mk secondInput secondOutput secondAdvances =>
+              cases inputEqual
+              cases outputEqual
+              rfl)
+      else isFalse (by intro same; cases same; exact outputEqual rfl)
+    else isFalse (by intro same; cases same; exact inputEqual rfl)
+
 structure Body
     (Part : Type u)
     {Feature : Type v}
@@ -245,6 +268,11 @@ structure InternalActivitySelection
   options : List (Transformation entity.persistenceDirection)
   selected : Transformation entity.persistenceDirection
   rejected : Transformation entity.persistenceDirection
+  availability : Specification (Transformation entity.persistenceDirection)
+  availabilityExactlyOptions : ∀ transformation,
+    availability.conforms transformation ↔ transformation ∈ options
+  selectedIsChangedPathLast : selected = contribution.rightEndpoints.last
+  rejectedIsContrastPathLast : rejected = contribution.leftEndpoints.last
   selectedInOptions : selected ∈ options
   rejectedInOptions : rejected ∈ options
   optionsWithinBody : ∀ transformation,
@@ -684,6 +712,15 @@ def systemSelection : InternalActivitySelection ToyPart systemBody where
   options := [forwardLowTransform, forwardHighTransform]
   selected := forwardHighTransform
   rejected := forwardLowTransform
+  availability := {
+    scope := ⟨fun transformation => transformation ∈ [forwardLowTransform, forwardHighTransform]⟩
+    conforms := fun transformation => transformation ∈ [forwardLowTransform, forwardHighTransform]
+    decideConformity := fun transformation => decide (transformation ∈ [forwardLowTransform, forwardHighTransform])
+    conformityCorrect := by simp
+    conformityWithinScope := by intro transformation member; exact member }
+  availabilityExactlyOptions := by intro transformation; rfl
+  selectedIsChangedPathLast := rfl
+  rejectedIsContrastPathLast := rfl
   selectedInOptions := by simp
   rejectedInOptions := by simp
   optionsWithinBody := by

@@ -50,6 +50,9 @@ name = "AttentionLoveCare"
 [[lean_lib]]
 name = "AttentionLoveCareContracts"
 
+[[lean_lib]]
+name = "PR18Governance"
+
 [[lean_exe]]
 name = "ontology_check"
 root = "Model"

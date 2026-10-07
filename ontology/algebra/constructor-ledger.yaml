@@ -2,7 +2,7 @@
   "schema_version": 1,
   "status": "generated-nonbinding-degenerate-registry-reflection-ledger",
   "source_sha256": {
-    "ontology/terms.yaml": "be09e3bc3228a9b2763a2a2bb0bc7c985f220a302e0ae970a878b8ee42fe83ae",
+    "ontology/terms.yaml": "956084f5fe1fd92d9775b5520b7d965e849c723e37371b5744e1e188adc952d1",
     "ontology/algebra/positive-calculus.yaml": "76c83651ae6d9ada317546a862450ec7940b5d1e12fb93b973f8bd6fd1abdd73",
     "scripts/build-positive-calculus.py": "18a7acee2743973676b11d60f3833c2f330874307344b07e0404cc282d4eac50"
   },
@@ -4385,11 +4385,11 @@
       "claim": "D112",
       "constructor": "G1",
       "declared_dependencies": [
-        "organon:Agency",
         "organon:Body",
         "organon:Boundary",
-        "organon:Capability",
+        "organon:Configuration",
         "organon:Constraint",
+        "organon:Control",
         "organon:EmbodiedPerspective",
         "organon:Entity",
         "organon:InternalActivitySelection",
@@ -4412,11 +4412,11 @@
       },
       "derives": true,
       "one_step_mutations": [
-        "G1-D112-remove-Agency",
         "G1-D112-remove-Body",
         "G1-D112-remove-Boundary",
-        "G1-D112-remove-Capability",
+        "G1-D112-remove-Configuration",
         "G1-D112-remove-Constraint",
+        "G1-D112-remove-Control",
         "G1-D112-remove-EmbodiedPerspective",
         "G1-D112-remove-Entity",
         "G1-D112-remove-InternalActivitySelection",

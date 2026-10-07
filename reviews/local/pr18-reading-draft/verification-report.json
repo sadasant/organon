@@ -1,0 +1,45 @@
+{
+  "status": "locally-checked-review-draft-not-promotion-ready",
+  "base_commit": "5d2cad619ad4c17d6aa0fe40918c2be9dccdfe4b",
+  "no_commit_push_merge": true,
+  "candidate_checks": {
+    "reading_draft_validator": "passed: 129 ordered terms, 28 exact definition entries, 20 located field forms",
+    "lean_candidate": "passed: lake env lean -o .lake/build/lib/lean/PR18ReviewDraft.olean PR18ReviewDraft.lean",
+    "axiom_audit": "passed: 2080 imported DanielOntology theorem declarations, no project axioms or dependencies beyond propext/Classical.choice/Quot.sound",
+    "source_placeholder_scan": "zero matches for sorry/admit/sorryAx or declared axiom/opaque lines across all formal Lean source"
+  },
+  "preserved_active_tree_checks": {
+    "check-links.py": "passed",
+    "check-semantics.py": "passed: 122 active terms, 57 typed commitments",
+    "check-proposals.py": "passed: 9 active manifests, 121 statements",
+    "check-promotion-review.py": "passed: 2 existing exact-source reviews",
+    "check-formal-receipt.py": "passed: 19 historical-source digests, existing implementation f0bd946e",
+    "check-adoption.py": "passed: 3 active profiles, 63-term closure",
+    "check-structure.py": "passed",
+    "lake build": "passed: 36 default jobs",
+    "lake exe ontology_check": "passed",
+    "pytest evals": "69 passed",
+    "check-ontology-frameworks.py": "passed: 30 separate theorem audits",
+    "git diff --check": "passed"
+  },
+  "compiler": "Lean 4.30.0, d024af099ca4bf2c86f649261ebf59565dc8c622",
+  "scope_limits": [
+    "Default lake build covers preserved source; candidate module is separately elaborated and imported into the explicit axiom audit.",
+    "Active registry checkers do not attest the separate candidate registry. The dedicated draft validator checks its ordered closure and exact source/paragraph/form consistency.",
+    "Existing source-pinned promotion reviews/build receipt attest original PR18 implementation, not this uncommitted draft.",
+    "New terms have partial structural shadows; operator-role realization, full canonical Sense/Agency, and positive Autonomy witness remain open.",
+    "No PDF/site/rendering work performed on this host; source packet is intended for a separate PDF worker.",
+    "The candidate finite Governance witness uses an executable toy-endpoint availability test; no general constructive IAS lifting theorem is claimed.",
+    "Autoperception is omitted by vocabulary choice; canonical Sense uptake does not prove the additional Auto operator-source condition."
+  ],
+  "candidate_sha256": {
+    "proposed-ontology.md": "013615a2ad71de4502f922fd64bc4bb4f348a7000e402effe4815af7b4ec2a5a",
+    "proposed-registry.json": "b3efb6ef51b3b5d41686fe48999fa37dff8e9d24c970ce3f136d9d00b6ad95e3",
+    "proposed-contract-ledger.json": "18867a5fee64cd706fb5111ae638cc98c28dbba554545e4f3135da418cfd1c23",
+    "ontology/formal/PR18ReviewDraft.lean": "3c1a09056060bb0f1af9c12dd2273960e3a42b2a4ebfa3842186b678b263a0af"
+  },
+  "packet_sha256": {
+    "pr18-source-packet.md": "e6f224f2b1121ee054e02b2ce8d1554f15cac5faa93924272043efd31b413165",
+    "pr18-source-packet.json": "8518c2061de4092f03df7d0f4bd57b724992e63492874072fa16d82bc56e602d"
+  }
+}

@@ -2,7 +2,7 @@
   "schema_version": 1,
   "status": "generated-nonbinding-complete-reduction-audit",
   "source_sha256": {
-    "ontology/terms.yaml": "be09e3bc3228a9b2763a2a2bb0bc7c985f220a302e0ae970a878b8ee42fe83ae",
+    "ontology/terms.yaml": "956084f5fe1fd92d9775b5520b7d965e849c723e37371b5744e1e188adc952d1",
     "ontology/algebra/normal-forms.yaml": "e801315ee1104ee39aee834214c679a564cd3aac982980dc3b5b3a3a3fd29aa7",
     "ontology/algebra/candidate-laws.yaml": "8d739e8c928f527ee8f66b28c4e3a8b696d0539333627bf26243d72073212550",
     "ontology/algebra/claim-coverage.yaml": "17c549d7193e680b126fd112eaa36053105eb00a9c5b4b72655444d16594637a",
@@ -3689,7 +3689,7 @@
       "claim": "D112",
       "claim_type": "definition",
       "depends_on": [
-        "organon:Capability",
+        "organon:Configuration",
         "organon:Entity",
         "organon:EmbodiedPerspective",
         "organon:InternalActivitySelection",
@@ -3698,14 +3698,14 @@
         "organon:Scope",
         "organon:Constraint",
         "organon:Boundary",
-        "organon:Agency"
+        "organon:Control"
       ],
       "disposition": "positively_underdetermined",
       "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
       "paired_target_extension_sketch": {
         "all_declared_dependencies_present": true,
         "shared_dependency_extensions": [
-          "organon:Capability",
+          "organon:Configuration",
           "organon:Entity",
           "organon:EmbodiedPerspective",
           "organon:InternalActivitySelection",
@@ -3714,7 +3714,7 @@
           "organon:Scope",
           "organon:Constraint",
           "organon:Boundary",
-          "organon:Agency"
+          "organon:Control"
         ],
         "target_predicate": "organon:EmbodiedSelfGovernance",
         "model_without_target_extension": [],

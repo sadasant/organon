@@ -1,17 +1,18 @@
+<!-- Historical proposal snapshot; local links relocated for this repository. Exact original bytes are in the adjacent .original.txt file. -->
 ---
 type: editorial-ontology
-status: provisional-binding
-binding: true
+status: local-review-draft
+binding: false
 version: 0.20
 created: 2026-08-01
-updated: 2026-10-06
+updated: 2026-10-04
 evidence_scope: "Daniel's adopted commitments and the recovered essay corpus"
 corpus_audit: "../provenance/essays.md"
 term_registry: "terms.yaml"
 companion_grammar: "../editorial/long-form.md"
 delivery_language: "../editorial/short-form.md"
 ---
-# Daniel's Ontology
+# Daniel's Ontology — PR18 Reading Draft
 
 > [!important] Binding ontology
 > For work governed by Organon, a term explicitly mapped to a stable `organon:*` identifier retains the meaning defined here. Capitalization is presentation, not adoption. A quarantined term carries no binding ontological meaning.
@@ -30,9 +31,9 @@ Within that boundary, every registered ontological term is either the primitive,
 
 ## Claim typing and stable identity
 
-The binding semantic seam is the registry in [terms.yaml](./terms.yaml). Each term has a stable `organon:*` identifier, a stable anchor, a claim identifier, a claim type, and explicit dependencies. Definitions, axioms, binding constraints, hypotheses, and authorized projections are distinct claim types; prose proximity does not promote one into another.
+The binding semantic seam is the registry in [terms.yaml](../../../ontology/terms.yaml). Each term has a stable `organon:*` identifier, a stable anchor, a claim identifier, a claim type, and explicit dependencies. Definitions, axioms, binding constraints, hypotheses, and authorized projections are distinct claim types; prose proximity does not promote one into another.
 
-The Markdown remains the readable binding statement. The registry makes its identity and dependency structure mechanically inspectable. A downstream repository adopts only the terms it maps explicitly through an [adoption manifest](../schemas/organon-adoption-schema.json); matching words alone do not create conformance.
+The Markdown remains the readable binding statement. The registry makes its identity and dependency structure mechanically inspectable. A downstream repository adopts only the terms it maps explicitly through an [adoption manifest](../../../schemas/organon-adoption-schema.json); matching words alone do not create conformance.
 
 ## Primitive and axioms
 
@@ -823,12 +824,47 @@ Body does not duplicate Entity, Boundary, or Persistence and has no separate ide
 
 **Recurrent Integration** is an organization of at least two distinct named nonempty families of constituent Transformations under one Direction. The first Causal Contribution's two comparison paths begin with Transformations in the first family and its downstream Change belongs to the second family; the return contribution's comparison paths begin in the second family and its downstream Change belongs to the first. The return contribution begins later than the first downstream Change. Shared storage, broadcast, duplicated signals, temporal co-occurrence, or correlation alone does not establish Recurrent Integration.
 
+<a id="organon-self"></a>
+<!-- organon:term organon:Self claim=D120 -->
+
+**Self** is a scoped Relation identifying the Entity occupying two declared roles as the same Entity under its identity criterion and Persistence. The roles must be named. Reflexive reference does not require a mind or constitute Agency, causal activity, or psychological identity.
+
+<a id="organon-auto"></a>
+<!-- organon:term organon:Auto claim=D121 -->
+
+**Auto** is a scoped Relation in which a named activity is produced through an Entity's operative organization. A constructive Specification must identify the Entity's activity-producing organizational role, distinguish it from merely supplying a represented target or causal input, and name an organizational Transformation in the operative Causal path. A Difference passing through that organization must make a Causal Contribution to the activity's exact output under stated Constraints. The role assignment requires its own constructive justification; declaring an operator label is insufficient. Auto may obtain on an occasion or recur; it requires neither uninterrupted operation, Agency, wholly internal mechanisms, nor independence from external inputs. This organizational-role criterion is a proposed design choice whose complete canonical realization remains open.
+
+<a id="organon-governance"></a>
+<!-- organon:term organon:Governance claim=D122 -->
+
+**Governance** is a scoped Configuration in which a Difference between an outcome Representation and an admissible contrast Representation is the named upstream Difference of a Causal Contribution selecting among at least two distinct available Transformations under stated Constraints. The outcome Representation exactly Denotes the selected Transformation's output, and the contribution's downstream output equals that output. A constructive Specification admits the selected and excluded alternatives in one declared Scope. The governing and governed Entity roles must be named, but need not coincide. Representation without this operative selection is insufficient; Governance does not by itself establish Agency.
+
+<a id="organon-self-governance"></a>
+<!-- organon:term organon:SelfGovernance claim=D123 -->
+
+**Self-governance** is Governance whose governing and governed Entity roles are joined by Self in the same Scope. It adds reflexivity to Governance's already operative selection. The compound alone does not establish the additional organizational-source condition proposed for Auto, Embodied Perspective, or complete Control.
+
+<a id="organon-autogovernance"></a>
+<!-- organon:term organon:Autogovernance claim=D124 -->
+
+**Autogovernance** is Self-governance whose exact governing activity and selecting Causal Contribution also satisfy Auto for that same Entity. The operative-source witness and Governance witness must share the selected Transformation and exact contribution, rather than merely coexist. Requiring both reflexive roles and operative source is the proposed convention for this compound, not an implication of the prefix alone. It may be partial and does not require Embodied Perspective or complete Control.
+
+<a id="organon-autonomy"></a>
+<!-- organon:term organon:Autonomy claim=D125 -->
+
+**Autonomy** is a scoped Configuration joining an Entity's Autogovernance to its Agency through one operative chain: the internally selected Transformation's output is the named upstream State of a Causal Contribution changing its Interpretation, and that Interpretation's output is the named upstream State of a Causal Contribution changing the exact selected Action. All occurrences share the Entity, Direction, Scope, Constraints, and Causal-path interpretation. The internal selection and the Boundary-crossing Action are distinct occurrences. Governance and Agency merely coexisting are insufficient. Autonomy is relative to this activity and Scope; external inputs, partial dependence, or failure in another Scope do not alone defeat it.
+
+<a id="organon-self-perception"></a>
+<!-- organon:term organon:SelfPerception claim=D126 -->
+
+**Self-perception** is a Configuration in which an Entity's own Perception carries a Representation exactly Denoting that same Entity or a named State of that Entity under its identity criterion and Persistence. The Representation must be produced and registered in the perceiver's internal State through its Sense; an external observer assigning the Denotation without this uptake is insufficient. Self joins perceiver and represented Entity. A generic category label alone supplies no same-Entity Denotation. Self-perception requires neither Agency, Embodied Perspective, a mind, nor consciousness. Autoperception is not introduced in this iteration: Self-perception names the reflexive referent needed for the mirror and GPS cases. This is a vocabulary choice, not a proof that Sense uptake supplies Auto's additional organizational-source criterion; an Auto-perceptual source profile could be considered separately.
+
 <a id="organon-internal-activity-selection"></a>
 <!-- organon:term organon:InternalActivitySelection claim=D111 -->
 
-**Internal Activity Selection** is a Configuration in which the Difference between a Representation of an outcome and an admissible contrast Representation is the named upstream Difference of a Causal Contribution that discriminates among at least two available Transformations related by one Body. The outcome Representation denotes the selected Transformation's output, the contribution's downstream output equals that output, and the selected and excluded alternatives are exactly the last Transformation occurrences on the contribution's changed and contrast paths respectively. A constructive availability Specification conforms exactly to the declared options. Both alternatives occur within the Entity's Interior under the Body Relation's Scope and Specification. Selection may continue, inhibit, or revise internal activity without crossing the Entity's Boundary and therefore does not by itself constitute Action or Agency.
+**Internal Activity Selection** is a Configuration in which the Difference between a Representation of an outcome and an admissible contrast Representation is the named upstream Difference of a Causal Contribution that discriminates among at least two available Transformations related by one Body. The outcome Representation denotes the selected Transformation's output, the contribution's downstream output equals that output, and the selected and excluded alternatives both occur within the Entity's Interior under the Body Relation's Scope and Specification. This is the Body-internal specialization of Governance; its internal Scope and exact output joins remain required. Selection may continue, inhibit, or revise internal activity without crossing the Entity's Boundary and therefore does not by itself constitute Action or Agency.
 
-Together, Body, Embodied Perspective, Recurrent Integration, and Internal Activity Selection specify one proposal-local candidate condition for consciousness only when they share the same Entity, Body Relation, Scope, Interior Specification, Direction, and Causal-path interpretation; every Transformation and Change in the recurrent families belongs to that Body Relation; and the perspective's condition Representation and exact Causal Contribution are the Representation and contribution that perform the selection or revision. This structural conjunction is the candidate's complete obtainment condition rather than evidence for a separately stipulated predicate. It is not a binding definition of Consciousness and remains distinct from Consciousness Attribution and Consciousness Designation.
+Consciousness remains deferred in this reading draft. Together, Body, Embodied Perspective, Recurrent Integration, and Internal Activity Selection specify one proposal-local candidate condition for consciousness only when they share the same Entity, Body Relation, Scope, Interior Specification, Direction, and Causal-path interpretation; every Transformation and Change in the recurrent families belongs to that Body Relation; and the perspective's condition Representation and exact Causal Contribution are the Representation and contribution that perform the selection or revision. This structural conjunction is the candidate's complete obtainment condition rather than evidence for a separately stipulated predicate. It is not a binding definition of Consciousness and remains distinct from Consciousness Attribution and Consciousness Designation.
 
 
 ### 32. Self-governance, intention, attention, love, care, and respect
@@ -846,12 +882,12 @@ Together, Body, Embodied Perspective, Recurrent Integration, and Internal Activi
 <a id="organon-attention"></a>
 <!-- organon:term organon:Attention claim=D114 -->
 
-**Attention** is the finite ratio of an Entity's currently available Perception, Interpretation, and Action channels causally organized by one Difference in one State of one Body, relative to a declared channel inventory and availability Specification. The inventory individuates channels independently of their kind and result. The Specification supplies the availability criterion and its Scope; the nonempty finite available enumeration covers exactly every conforming channel and counts each once. A different inventory or Specification defines a different measurement context, not a different degree within the same context. Each snapshot declares channel results and a collection of channel-specific response comparisons independently of the counted enumeration. Causal organization is evaluated at that snapshot, rather than by searching historical Causal Contributions: a qualifying comparison holds the snapshot's declared context fixed, produces the channel's current result under the focal Representation, and produces a different result under the contrast Representation. The result must belong to the indexed snapshot; neither earlier nor later States qualify. A channel is organized exactly when at least one declared comparison satisfies these conditions for the focal Difference. A selected witness must belong to that collection; selecting a nonfocal witness cannot hide a qualifying alternative. The organized enumeration covers exactly every available qualifying channel, counts each once, and supplies the numerator; the available enumeration supplies the denominator. Holding the snapshot and declared measurement data fixed fixes the ratio independently of any history. Attention alone makes no Claim about benefit, consent, morality, accuracy, Truth, or purpose.
+**Attention** is the finite ratio of an Entity's Perception, Interpretation, and Action channels causally organized by one Difference, relative to a declared channel inventory and an availability Specification evaluated at a State of one Body. The inventory individuates channels independently of their kind and result. The Specification supplies the availability criterion and its Scope; the nonempty finite available enumeration covers exactly every conforming channel, counts each once, and includes every organized channel. A different inventory or Specification defines a different measurement context, not a different degree within the same context. Each Attention snapshot is indexed to a State of that Body. Each snapshot declares channel results and a collection of channel-specific Causal Contributions independently of the counted enumeration. A channel is organized exactly when at least one contribution in its declared collection has the focal representational Difference as its upstream Difference, produces that exact channel result, and the result occurs at or before the indexed State under the Entity's Direction. A selected organization witness must belong to that collection; selecting a nonfocal witness cannot hide another qualifying contribution. The organized enumeration covers exactly every available channel meeting those conditions, counts each once, and supplies the numerator; the available enumeration supplies the denominator. Attention alone makes no Claim about benefit, consent, morality, accuracy, Truth, or purpose.
 
 <a id="organon-sustained-attention"></a>
 <!-- organon:term organon:SustainedAttention claim=D115 -->
 
-**Sustained Attention** is Attention organized by the same Difference under one declared channel inventory across at least two ordered changing States of one Body. At every named State, Attention is evaluated independently at that exact State and at least one available channel is currently organized by that Difference. Ordering these snapshots establishes the temporal comparison; no snapshot inherits organization merely because a channel was organized at an earlier State. Repeated encounters qualify only when indexed to such ordered States rather than inferred from resemblance.
+**Sustained Attention** is Attention organized by the same Difference under one declared channel inventory across at least two ordered changing States of one Body. At every named State, the Attention snapshot is indexed to that exact State and at least one available channel remains organized by that Difference. Repeated encounters qualify only when indexed to such ordered States rather than inferred from resemblance.
 
 <a id="organon-absolute-attention"></a>
 <!-- organon:term organon:AbsoluteAttention claim=D116 -->
@@ -882,7 +918,7 @@ These signatures make the ontology operational. They are schemas, not executable
 | `denotes` | expression Presence, target Presence, Relation, or Configuration | Denotation with ordered expression and target positions; no entailment of fidelity, Truth, Interpretation, status, or causal use |
 | `governsEmbodiment` | Entity, Embodied Perspective, Internal Activity Selection, Body Transformations, Boundary Constraint, Scope | partial or complete Embodied Self-Governance over the named family; no entailment of complete Control |
 | `intends` | Entity, target Representation, Denotation, upstream Difference, Causal Contribution, guided bodily activity | target-directed causal guidance; no entailment that the target outcome occurs |
-| `attends` | Entity, current Body State, declared channel inventory, availability Specification and Scope, focal Difference, organized channels, current-snapshot focal/contrast response comparisons in the same context | current finite organized-to-conforming ratio relative to that measurement context; no historical-state lookup or normative or epistemic valence |
+| `attends` | Entity, Body State, declared channel inventory, availability Specification and Scope, focal Difference, organized channels, exact Causal Contributions | finite organized-to-conforming ratio relative to that measurement context; no normative or epistemic valence |
 | `sustainsAttention` | Entity, Attention, ordered changing States, common Difference | the same focus organizes at least one available channel at each State |
 | `attendsAbsolutely` | Entity, Attention, same inventory and availability Specification, one Difference | every conforming channel is organized by the focus; no focus-independent available Action channel |
 | `loves` | Entity, another Entity, Sustained Attention, exact Denotation | sustained target-directed Attention without entailment of Care, Respect, reciprocity, or benefit |
@@ -1097,7 +1133,7 @@ For any essay, project narrative, or editorial evaluation:
 
 4. Treat a concept absent from the dependency order as outside the ontology unless it receives a dependency-closed definition.
 
-5. Keep ontology, editorial grammar, and delivery separate. The ontology governs what the argument says exists and how it relates. The [Long-Form Editorial Grammar](../editorial/long-form.md) governs how the reader is brought to the idea. [Short Form](../editorial/short-form.md) governs delivery at sentence scale.
+5. Keep ontology, editorial grammar, and delivery separate. The ontology governs what the argument says exists and how it relates. The [Long-Form Editorial Grammar](../../../editorial/long-form.md) governs how the reader is brought to the idea. [Short Form](../../../editorial/short-form.md) governs delivery at sentence scale.
 
 ## Scope and limitations
 
@@ -1105,4 +1141,4 @@ Internal closure does not establish metaphysical completeness. Absence is primit
 
 Ritual-dependent Meaning is one binding account of significance, not a complete aesthetics, ethics, theology, philosophy of mind, or anthropology. The embodiment terms specify identity-bearing bodily organization, operative perspective, recurrent integration, and internal selection without defining Consciousness universally or deciding which Entities satisfy the proposal-local candidate. Beauty, Play, sacredness, grief, goodness, consent, consciousness, and moral worth remain outside those definitions. Love is binding only in the exact Sustained-Attention sense defined above. The noncanonical formal shadow proves finite participant-history access and exact causal joins, not complete Sense-to-Perception uptake, universal process individuation, or a universal law of temporal decay.
 
-In the [Long-Form Editorial Grammar](../editorial/long-form.md), **Missingness** names the felt gap an article makes consequential. **Absence** remains reserved for the absolute primitive defined here.
+In the [Long-Form Editorial Grammar](../../../editorial/long-form.md), **Missingness** names the felt gap an article makes consequential. **Absence** remains reserved for the absolute primitive defined here.

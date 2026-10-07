@@ -13,6 +13,7 @@ import EmbodiedConsciousness
 import PromotionContracts
 import AttentionLoveCare
 import AttentionLoveCareContracts
+import PR18Governance
 
 /-!
 # Daniel's Ontology: finite inhabited model

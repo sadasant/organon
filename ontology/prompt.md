@@ -869,17 +869,17 @@ Depends: organon:Configuration, organon:Transformation, organon:Direction, organ
 
 ### `organon:InternalActivitySelection` · Internal Activity Selection
 
-**Internal Activity Selection** is a Configuration in which the Difference between a Representation of an outcome and an admissible contrast Representation is the named upstream Difference of a Causal Contribution that discriminates among at least two available Transformations related by one Body. The outcome Representation denotes the selected Transformation's output, the contribution's downstream output equals that output, and the selected and excluded alternatives both occur within the Entity's Interior under the Body Relation's Scope and Specification. Selection may continue, inhibit, or revise internal activity without crossing the Entity's Boundary and therefore does not by itself constitute Action or Agency.
+**Internal Activity Selection** is a Configuration in which the Difference between a Representation of an outcome and an admissible contrast Representation is the named upstream Difference of a Causal Contribution that discriminates among at least two available Transformations related by one Body. The outcome Representation denotes the selected Transformation's output, the contribution's downstream output equals that output, and the selected and excluded alternatives are exactly the last Transformation occurrences on the contribution's changed and contrast paths respectively. A constructive availability Specification conforms exactly to the declared options. Both alternatives occur within the Entity's Interior under the Body Relation's Scope and Specification. Selection may continue, inhibit, or revise internal activity without crossing the Entity's Boundary and therefore does not by itself constitute Action or Agency.
 
 Claim: `D111` (definition).
 Depends: organon:Configuration, organon:Difference, organon:Representation, organon:Denotation, organon:CausalContribution, organon:Transformation, organon:Body, organon:Relation, organon:Entity, organon:Interior, organon:Scope, organon:Specification, organon:Boundary, organon:Action, organon:Agency, organon:State, organon:Constraint.
 
 ### `organon:EmbodiedSelfGovernance` · Embodied Self-Governance
 
-**Embodied Self-Governance** is the scoped Capability through which an Entity's Embodied Perspective is exactly joined to Internal Activity Selection that selects, inhibits, continues, or revises Transformations of its Body under Constraints of its Boundary. The governed family is nonempty, includes the selected Transformation, occurs within that Body, and is admitted by the named Constraint. Embodied Self-Governance may be partial and limited to particular functions or Transformations; it does not entail complete Control.
+**Embodied Self-Governance** is the scoped Configuration through which an Entity's Embodied Perspective is exactly joined to Internal Activity Selection that selects, inhibits, continues, or revises Transformations of its Body under Constraints of its Boundary. The governed family is nonempty, includes the selected Transformation, occurs within that Body, and is admitted by the named Constraint. Embodied Self-Governance may be partial and limited to particular functions or Transformations; it does not entail complete Control.
 
 Claim: `D112` (definition).
-Depends: organon:Capability, organon:Entity, organon:EmbodiedPerspective, organon:InternalActivitySelection, organon:Body, organon:Transformation, organon:Scope, organon:Constraint, organon:Boundary, organon:Agency.
+Depends: organon:Configuration, organon:Entity, organon:EmbodiedPerspective, organon:InternalActivitySelection, organon:Body, organon:Transformation, organon:Scope, organon:Constraint, organon:Boundary, organon:Control.
 
 ### `organon:Intention` · Intention
 
