@@ -266,13 +266,40 @@ structure AbsoluteAttention
   allAvailableOrganized : ∀ item, item ∈ attention.available →
     item ∈ attention.organized
 
+/-- Behavioral independence in the declared current causal domain, not failure
+to match ordered labels. Every declared response reproduces the current result
+and is invariant under the attended contrast, with the context held fixed.
+An empty domain cannot establish independence. This is relative to the named
+contrast and declared models, not all possible inputs or physical mechanisms. -/
+def ChannelIndependentOfDifference
+    {Feature : Type v} {Context : Type w}
+    (moment : State (Feature × Context)) (contrast focal : Feature)
+    (result : State (Feature × Context))
+    (contributions : List (SnapshotCausalContribution Feature Context)) : Prop :=
+  result = moment ∧ contributions ≠ [] ∧
+    ∀ contribution, contribution ∈ contributions →
+      contribution.response focal moment.value.2 = result.value.1 ∧
+      contribution.response contrast moment.value.2 =
+        contribution.response focal moment.value.2
+
+theorem independentChannelCannotBeOrganized
+    {Feature : Type v} {Context : Type w}
+    (moment : State (Feature × Context)) (contrast focal : Feature)
+    (result : State (Feature × Context))
+    (contributions : List (SnapshotCausalContribution Feature Context))
+    (independent : ChannelIndependentOfDifference moment contrast focal result contributions) :
+    ¬ ChannelOrganizedByDifference moment contrast focal result contributions := by
+  rintro ⟨contribution, member, organized⟩
+  exact constantResponseCannotOrganize moment contrast focal result contribution
+    (independent.2.2 contribution member).2 organized
+
 def FocusIndependentAction
     {Part : Type u} {Feature : Type v} {Context : Type w}
     {entity : Entity (Feature × Context)} {body : Body Part entity}
     (attention : Attention Part body)
     (item : attention.inventory.Channel) : Prop :=
   attention.inventory.kind item = .action ∧ item ∈ attention.available ∧
-    ¬ ChannelOrganizedByDifference attention.moment
+    ChannelIndependentOfDifference attention.moment
       attention.contrastRepresentation attention.focalRepresentation
       (attention.result item) (attention.causalContributions item)
 
@@ -282,8 +309,8 @@ theorem absoluteAttentionInhibitsFocusIndependentAction
     (absolute : AbsoluteAttention Part body) :
     ∀ item, ¬ FocusIndependentAction absolute.attention item := by
   intro item independent
-  rcases independent with ⟨_, available, notOrganized⟩
-  apply notOrganized
+  rcases independent with ⟨_, available, invariantResponse⟩
+  apply independentChannelCannotBeOrganized _ _ _ _ _ invariantResponse
   exact ((absolute.attention.organizedExact item).mp
     (absolute.allAvailableOrganized item available)).2
 
@@ -491,13 +518,16 @@ def focalSnapshotContribution : SnapshotCausalContribution Bool Stage where
 def contributionForItem (_ : ToyChannel) : SnapshotCausalContribution Bool Stage :=
   focalSnapshotContribution
 
-/-- The independent Action keeps its reversed true/false orientation (an
-unresolved finding preserved here): its own counterfactual response yields
-the current result, but its labels do not match the Attention's focus. -/
+/-- Two independently variable inputs. The Action follows the other input,
+not the attended input. Neither argument represents a past State. -/
+def independentActionResponse (_attended otherInput : Bool) : Bool := otherInput
+
+/-- The other input is currently true. The snapshot response holds it fixed
+while varying the attended input; labels agree with the Attention's focus. -/
 def independentActionContribution : SnapshotCausalContribution Bool Stage where
-  contrast := true
-  focal := false
-  response := fun feature _ => !feature
+  contrast := false
+  focal := true
+  response := fun feature _ => independentActionResponse feature true
 
 def partialContributionForItem : ToyChannel → SnapshotCausalContribution Bool Stage
   | .effector => independentActionContribution
@@ -513,10 +543,8 @@ theorem focalSnapshotOrganizesTrue (stage : Stage) (channel : ToyChannel) :
   exact ⟨rfl, rfl, rfl, rfl, Bool.false_ne_true⟩
 
 theorem independentActionDoesNotOrganize (moment result : State Carrier) :
-    ¬ ContributionOrganizesChannel moment false true result independentActionContribution := by
-  intro organized
-  have impossible : true = false := organized.1
-  contradiction
+    ¬ ContributionOrganizesChannel moment false true result independentActionContribution :=
+  constantResponseCannotOrganize _ _ _ _ _ rfl
 
 def systemAttention : Attention ToyPart systemBody where
   moment := state true .returnHigh
@@ -1112,29 +1140,69 @@ theorem attentionCannotOmitOrganizedChannel
     item ∈ attention.organized :=
   (attention.organizedExact item).mpr ⟨available, causal⟩
 
-/-- The partial Action produces its exact current result through its own
-snapshot response, but only under the reversed true/false orientation; under
-the Attention's false/true focus it is not organized. The orientation
-sensitivity is an unresolved finding preserved deliberately. -/
-theorem partialActionHasDifferentUpstreamDifference :
-    ContributionOrganizesChannel systemAttention.moment
-      (systemAttention.organizingContribution actionItem).contrast
-      (systemAttention.organizingContribution actionItem).focal
-      (systemAttention.result actionItem) (systemAttention.organizingContribution actionItem) ∧
-    ¬ ChannelOrganizedByDifference systemAttention.moment
-      systemAttention.contrastRepresentation systemAttention.focalRepresentation
-      (systemAttention.result actionItem) (systemAttention.causalContributions actionItem) := by
-  constructor
-  · exact ⟨rfl, rfl, rfl, rfl, by decide⟩
-  · change ¬ ChannelOrganizedByDifference (state true .returnHigh) false true
-      (state true .returnHigh) [independentActionContribution]
-    rw [channelOrganizationSingleton]
-    exact independentActionDoesNotOrganize _ _
+/-- Varying the attended input never changes this Action, for either value of
+the other input. Varying the other input does change it, for either focus. -/
+theorem partialActionRespondsOnlyToOtherInput :
+    (∀ otherInput, independentActionResponse false otherInput =
+      independentActionResponse true otherInput) ∧
+    (∀ attended, independentActionResponse attended false ≠
+      independentActionResponse attended true) ∧
+    (∀ attended context, independentActionContribution.response attended context =
+      independentActionResponse attended true) := by
+  exact ⟨fun _ => rfl, fun _ => Bool.false_ne_true, fun _ _ => rfl⟩
 
 theorem partialActionIsCausallyIndependent :
     FocusIndependentAction systemAttention actionItem := by
-  exact ⟨rfl, attentionDoesNotRequireAllAvailableItems.1,
-    partialActionHasDifferentUpstreamDifference.2⟩
+  refine ⟨rfl, attentionDoesNotRequireAllAvailableItems.1, rfl, by decide, ?_⟩
+  intro contribution member
+  have equal : contribution = independentActionContribution := List.mem_singleton.mp member
+  subst contribution
+  exact ⟨rfl, rfl⟩
+
+/-- The old reversed-label counterexample is still not organized under the
+ordered focus, but its response changes, so it is not independent either. -/
+def reversedActionContribution : SnapshotCausalContribution Bool Stage where
+  contrast := true
+  focal := false
+  response := fun feature _ => !feature
+
+theorem reversedLabelsDoNotEstablishIndependence :
+    ¬ ChannelOrganizedByDifference (state false .returnHigh) false true
+      (state false .returnHigh) [reversedActionContribution] ∧
+    ¬ ChannelIndependentOfDifference (state false .returnHigh) false true
+      (state false .returnHigh) [reversedActionContribution] := by
+  constructor
+  · rintro ⟨contribution, member, organized⟩
+    have equal := List.mem_singleton.mp member
+    subst contribution
+    exact Bool.noConfusion organized.1
+  · intro independent
+    have invariantResponse := (independent.2.2 _ (List.mem_singleton_self _)).2
+    exact Bool.noConfusion invariantResponse
+
+/-- A valid invariant selected response cannot hide a focus-sensitive
+alternative in the same declared domain. -/
+theorem sensitiveAlternativePreventsIndependence :
+    ¬ ChannelIndependentOfDifference (state true .returnHigh) false true
+      (state true .returnHigh) [independentActionContribution, focalSnapshotContribution] := by
+  intro independent
+  have invariantResponse := (independent.2.2 focalSnapshotContribution
+    (List.mem_cons.mpr (Or.inr (List.mem_singleton_self _)))).2
+  exact Bool.noConfusion invariantResponse
+
+theorem missingOrWrongResultDoesNotEstablishIndependence :
+    ¬ ChannelIndependentOfDifference (state true .returnHigh) false true
+      (state true .returnHigh) ([] : List (SnapshotCausalContribution Bool Stage)) ∧
+    ¬ ChannelIndependentOfDifference (state false .returnHigh) false true
+      (state false .returnHigh) [independentActionContribution] ∧
+    ¬ ChannelIndependentOfDifference (state true .returnHigh) false true
+      (state true .forwardHigh) [independentActionContribution] := by
+  refine ⟨fun independent => independent.2.1 rfl, ?_, ?_⟩
+  · intro independent
+    exact Bool.noConfusion (independent.2.2 _ (List.mem_singleton_self _)).1
+  · intro independent
+    have equal := congrArg (fun result => result.value.2) independent.1
+    cases equal
 
 theorem omittingOrganizedActionCannotSatisfyExactCoverage :
     ¬ (∀ channel : ToyChannel,

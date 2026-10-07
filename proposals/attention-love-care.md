@@ -4,7 +4,7 @@ status: promoted
 binding: false
 concept: attention-love-care
 created: 2026-10-03
-updated: 2026-10-06
+updated: 2026-10-07
 recommended_outcome: promoted-in-v0.20
 statement_manifest: "attention-love-care-claims.json"
 formal_shadow: "../ontology/formal/AttentionLoveCare.lean"
@@ -13,7 +13,7 @@ formal_shadow: "../ontology/formal/AttentionLoveCare.lean"
 
 ## Verdict
 
-Attention is a snapshot-local finite ratio over available perceptual, interpretive, and action channels. Every organized channel has a response comparison in the current context that changes under the focal representational Difference; historical occurrence alone cannot organize a current channel. Love, Care, and Respect remain different kinds: sustained target-directed Attention, Action organized by Attention to another Entity's State, and a scoped Constraint upon Action with a typed protection witness. Promotion review remains open on Difference orientation and participant individuation; the snapshot repair does not resolve those findings.
+Attention is a snapshot-local finite ratio over available perceptual, interpretive, and action channels. Every organized channel has a response comparison in the current context that changes under the focal representational Difference; historical occurrence alone cannot organize a current channel. Love, Care, and Respect remain different kinds: sustained target-directed Attention, Action organized by Attention to another Entity's State, and a scoped Constraint upon Action with a typed protection witness. Promotion review remains open on participant individuation; the snapshot and Action-independence repairs do not resolve that finding.
 
 The formal shadow uses explicit local channel projections where Organon's canonical Perception, Interpretation, Action, Agency, and Capability structures are not parameterized for this Body reduct. The dependency ledger records each projection. It does not promote Consciousness, benefit, consent, morality, reciprocity, understanding, possession, goodness, or moral worth.
 
@@ -83,6 +83,8 @@ The present shadow represents Perception, Interpretation, and Action as typed lo
 The merged framework dossier remains nonbinding: its proposed Interpretation/Understanding migration is not incorporated into the adopted registry by this promotion. These channel projections retain the current canonical Interpretation dependency; canonical parity must address that migration if it is later adopted.
 
 `SnapshotCausalContribution` is a local counterfactual projection, not canonical temporal Causal Contribution. Its response function takes a Representation and the indexed State's context; the focal response must equal the current result and the contrast response must differ in that same context. The toy encoding represents a current channel result by the indexed State itself. No comparison paths or historical States are inputs to the organization predicate. Empirical fidelity of the response functions and their relation to canonical Causal Contribution remain open; declaring a function does not prove that a physical mechanism implements it. The same present response can occur after different histories, including through effects represented in the current State. Past-only and future results, constant responses, and mixed-context comparisons are rejected. Sustained Attention supplies the temporal ordering of independently evaluated snapshots, without proving continuity between them.
+
+Focus-independent Action requires positive response invariance under the named attended contrast, not reversed labels or failed organization. Its nonempty declared response domain must reproduce the exact current result and leave it unchanged under that contrast in the same context, for every declared model. The finite partial Action follows a separate Boolean input while ignoring the attended input; both inputs vary independently in the proofs. Independence remains relative to the declared comparison and models, not every possible input or an empirically exhaustive mechanism inventory.
 
 ### Definition decisions: guidance and the attention limit
 

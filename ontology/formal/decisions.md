@@ -235,3 +235,13 @@ The response-function model is a local counterfactual projection rather than a p
 Regression theorems reject past-only and future results, correctly labelled constant responses, and comparisons that mix contexts. Two sustained histories with different earlier snapshots share the same current Attention and numerator. Current sensor and action organization, Sustained Attention, Love, and Care remain inhabited.
 
 The orientation-sensitive partial-Action witness and the history-length participant classifier remain unresolved review findings. Their existing proofs compile, but neither compilation nor this snapshot repair establishes the stronger semantic claims previously attributed to them. The promotion review must not be marked ready until those findings receive their own dispositions.
+
+## PR #18 behavioral Action independence (2026-10-07)
+
+The earlier exact-numerator repair incorrectly described the reversed true/false witness as genuinely independent. Ordered-label mismatch proves only failed organization under that ordering. A negating response still depends on the attended input. This repair supersedes that claim and resolves the orientation finding left open by the snapshot repair.
+
+`ChannelIndependentOfDifference` now requires a nonempty declared response domain, an exact current result, and response invariance under the attended contrast in one fixed context. Every declared response must reproduce the result and satisfy invariance; a selected invariant response cannot conceal a sensitive alternative. `FocusIndependentAction` combines that positive condition with Action kind and current availability. Independence implies non-organization, but non-organization alone no longer establishes independence. Absolute Attention still excludes independent available Action through its organizing witness's changed response.
+
+The partial witness uses two separately variable Boolean inputs. Its Action follows the other input and ignores the attended one; the snapshot fixes the other input to true without consulting history. Proofs cover both values of each input and join that response to the partial Attention's actual declared contribution. Regression proofs reject the old reversed-label example even when its focal response reproduces the current result, a mixed domain with a sensitive alternative, an empty domain, and wrong or stale results.
+
+The claim remains relative to the named contrast and declared response models. Physical fidelity and canonical channel parity remain open. The history-length participant classifier is unchanged and still blocks promotion readiness.

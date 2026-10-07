@@ -3,7 +3,7 @@ type: ontology-changelog
 status: active
 ontology: "ontology.md"
 created: 2026-08-02
-updated: 2026-10-06
+updated: 2026-10-07
 ---
 # Daniel's Ontology - Changelog
 
@@ -19,7 +19,8 @@ This note records how [Daniel's Ontology](./ontology.md) changed. Historical arg
 - Tightened finite counting to exclude duplicates; made Absolute Attention independent of enumeration order; indexed sustained snapshots; distinguished other-Entity identity from current State; and joined Respect protection to the exact constrained Action.
 - Defined the Attention denominator by exact state-indexed availability Specification coverage over independent channel identities; replaced unequal-Invariant otherness with local snapshot-stable individuation; removed inert Intention guidance tags and documented the entrainment limit.
 - Closed the Attention numerator by exact coverage of independently evaluated channel-specific causal organization. The partial witness now has an Action driven by a different upstream Difference; regressions reject omitting a qualifying channel and hiding it with a zero numerator.
-- Replaced historical Attention witnesses with snapshot-local response comparisons: focal and contrast responses share the current context, the focal result must be current, and the contrast must change it. Sustained Attention compares independently evaluated snapshots. Past-only results, constant responses, and mixed contexts are rejected; canonical causal parity remains explicitly open. The prior partial-witness orientation and participant-individuation claims remain under review.
+- Replaced historical Attention witnesses with snapshot-local response comparisons: focal and contrast responses share the current context, the focal result must be current, and the contrast must change it. Sustained Attention compares independently evaluated snapshots. Past-only results, constant responses, and mixed contexts are rejected; canonical causal parity remains explicitly open. That repair left the partial-witness orientation and participant-individuation claims under review.
+- Repaired the partial Action's independence evidence: reversing the same Difference had not established a separate upstream influence. Independence now requires an unchanged current response under the attended contrast throughout a nonempty declared domain. The Action follows a separately variable input, and regressions reject reversed-label, mixed-domain, empty-domain, wrong-result, and stale-result shortcuts. Participant individuation remains unresolved.
 - Added C39-C46 for partial governance, intention/outcome, partial/absolute attention, focus-independent Action, normative neutrality, and Love/Care/Respect anti-collapses.
 - Added schema-v2 contracts with complete dependency dispositions, finite witnesses for four anti-entailments, and explicit canonical-parity and application gates.
 - Refreshed the prompt projection, provenance, adoption metadata, formal audit, nonbinding algebra accounting, and evaluation pointers for the 122-term, 57-commitment registry.
