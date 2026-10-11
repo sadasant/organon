@@ -4,7 +4,7 @@ status: verified
 canonicality: noncanonical
 created: 2026-08-02
 updated: 2026-10-11
-repository_commit: "644625c159970871b5e950b6f6cfefc547251faf"
+repository_commit: "5b8ab493d335f614d69764926c3be937507ba1c2"
 ---
 # Lean Spike Build Receipt
 
@@ -32,12 +32,12 @@ Result: all 40 build jobs completed successfully. The executable printed:
 OrganonCore v0.20-compatible reduct: hidden bridge relations, private ritual, ritual-dependent meaning, embodied integration, partial self-governance, nonbinding representation-activity example, finite attention, love, care, respect, an embodied recurrent consciousness candidate, downstream shadows, four preserved challenge classifiers, one pending Reality representation elaboration, and metalinguistic definition admission
 ```
 
-The October 11 cleanup withdraws Intention (D113/C40) without a replacement canonical term. `RepresentationActivityExample` preserves the historical record exactly, proves general inverse conversions to its three-field reduction, and permits both result and non-result referents without changing the causal mechanism. The current registry contains 121 terms and 56 commitments.
+The October 11 cleanup withdraws Intention (D113/C40) and Fully Exercisable Permission (D061) without replacement canonical terms. `RepresentationActivityExample` preserves the historical Intention record exactly, proves general inverse conversions to its three-field reduction, and permits both result and non-result referents without changing the causal mechanism. `Model.PermissionCoverageExample` fixes one Permission, time, and resource Configuration: with two units, operations costing one and two units individually qualify but neither ordering can fund both; three units fund both orderings. Zero-resource, partial-resource, and out-of-interval cases separate authorization from exercisability. These are finite resource-feasibility checks, not execution traces or complete D060 parity. The current registry contains 120 terms and 56 commitments.
 
 The integrated axiom audit was rerun after separately compiling `PR18ReviewDraft.lean`:
 
 ```text
-PROJECT_AXIOM_AUDIT: 2447 project theorems checked; 0 declared project axioms; allowed only propext, Classical.choice, Quot.sound.
+PROJECT_AXIOM_AUDIT: 2467 project theorems checked; 0 declared project axioms; allowed only propext, Classical.choice, Quot.sound.
 ```
 
 This is a build attestation, not promotion readiness. The incoming PR's exact-source promotion reviews were already stale and remain stale; the causal selection-ordering question and other declared semantic gates are not resolved by this withdrawal. Model-judged evaluations were not rerun.
@@ -96,7 +96,7 @@ The participant repair restricts the classifier's inputs to identity Invariant a
 - `QuarantineProfiles.lean`: `245c94b5c1a8096e9fdea457b1cafba3ddf4f7ab9d98b214aaee8be5eebdbce4`
 - `AttentionLoveCare.lean`: `178223126a8f16b68ccac7bd06fd25bdb63bba1aed183ec0e80fc7a922972bf1`
 - `AttentionLoveCareContracts.lean`: `87a0cdfe32c5da7f3e8afa3de26326969c72ef2c06ebefbac36de75dd7207ca4`
-- `Model.lean`: `0cf70256a7a9cee88df3d4f7d16ec4d9cd10f05e984560e5127437233d8e1782`
+- `Model.lean`: `336119adcc36abc31f09fa58db21c7801cc15deeb1b0665f668bba7ca7983ca0`
 - `lakefile.toml`: `d244acbc5c1204ff84c96f8cb0e7ec73a3418f957f008da228c9422429045397`
 - `lean-toolchain`: `54727eec5cba149c18842e6deb5c41b369d66455c93ce135d7d5347c782b2325`
 - `PR18Governance.lean`: `4b54f4c9a046ce26c1ad5a058675730bd2aa76ea7ac82fac31b94a94a45da349`

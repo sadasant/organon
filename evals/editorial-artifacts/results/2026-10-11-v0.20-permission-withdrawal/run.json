@@ -1,0 +1,19 @@
+{
+  "schema_version": 2,
+  "run": {
+    "evaluation": "editorial-artifacts",
+    "methodology_version": "1.0",
+    "stages": ["snapshot", "deterministic-preflight"],
+    "generated_at": "2026-10-11",
+    "organon_commit": "5b8ab493d335f614d69764926c3be937507ba1c2",
+    "committed_inputs_sha256": {
+      "ontology/ontology.md": "bf692e6b33f6ca299c1cf0615195864e23c724d4994bd6b4553d239ac1192ab4"
+    },
+    "ontology_sha256": "bf692e6b33f6ca299c1cf0615195864e23c724d4994bd6b4553d239ac1192ab4",
+    "complete": true,
+    "passed": false,
+    "incomplete_reason": "Permission-withdrawal source snapshot only. Model generation and judgments were not rerun. Exact-source promotion reviews remain stale; no new semantic promotion is attested.",
+    "human_disposition": "hold"
+  },
+  "improvement_plans": []
+}
