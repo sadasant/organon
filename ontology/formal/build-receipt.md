@@ -3,8 +3,8 @@ type: formal-build-receipt
 status: verified
 canonicality: noncanonical
 created: 2026-08-02
-updated: 2026-10-07
-repository_commit: "1a882da27fa4797b536ced4a3fd50fe39d2bc09d"
+updated: 2026-10-11
+repository_commit: "644625c159970871b5e950b6f6cfefc547251faf"
 ---
 # Lean Spike Build Receipt
 
@@ -12,7 +12,7 @@ This receipt records external Evidence for the noncanonical Lean spike. It does 
 
 ## Toolchain
 
-- Lean: `4.30.0`, arm64 macOS Daniels-Air
+- Lean: `4.30.0`, x86_64 Linux orb
 - Commit: `d024af099ca4bf2c86f649261ebf59565dc8c622`
 - Project pin: `leanprover/lean4:v4.30.0`
 - Active toolchain: the project pin `leanprover/lean4:v4.30.0`
@@ -26,11 +26,25 @@ lake build
 lake exe ontology_check
 ```
 
-Result: all 38 build jobs completed successfully. The executable printed:
+Result: all 40 build jobs completed successfully. The executable printed:
 
 ```text
-OrganonCore v0.20-compatible reduct: hidden bridge relations, private ritual, ritual-dependent meaning, embodied integration, partial self-governance, target-guided intention, finite attention, love, care, respect, an embodied recurrent consciousness candidate, downstream shadows, four preserved challenge classifiers, one pending Reality representation elaboration, and metalinguistic definition admission
+OrganonCore v0.20-compatible reduct: hidden bridge relations, private ritual, ritual-dependent meaning, embodied integration, partial self-governance, nonbinding representation-activity example, finite attention, love, care, respect, an embodied recurrent consciousness candidate, downstream shadows, four preserved challenge classifiers, one pending Reality representation elaboration, and metalinguistic definition admission
 ```
+
+The October 11 cleanup withdraws Intention (D113/C40) without a replacement canonical term. `RepresentationActivityExample` preserves the historical record exactly, proves general inverse conversions to its three-field reduction, and permits both result and non-result referents without changing the causal mechanism. The current registry contains 121 terms and 56 commitments.
+
+The integrated axiom audit was rerun after separately compiling `PR18ReviewDraft.lean`:
+
+```text
+PROJECT_AXIOM_AUDIT: 2447 project theorems checked; 0 declared project axioms; allowed only propext, Classical.choice, Quot.sound.
+```
+
+This is a build attestation, not promotion readiness. The incoming PR's exact-source promotion reviews were already stale and remain stale; the causal selection-ordering question and other declared semantic gates are not resolved by this withdrawal. Model-judged evaluations were not rerun.
+
+## Prior verification history
+
+The following descriptions record earlier stages, including the now-withdrawn Intention promotion and earlier vocabulary counts. They are not the current source attestation; the frontmatter and digest list identify the October 11 implementation.
 
 The Lean sources contain no `sorry`, `admit`, or `axiom` declaration. The existing formal witnesses remain intact: consciousness candidate/Attribution/Designation separation; discriminating Operationalization; participant-bound World access; ordered Substrate Persistence; Truth without modeled Agent access; accepted Trust versus involuntary Dependence; profile-scoped Alignment; joined adaptive Intelligence; useful-false Operative Knowledge; dormant Records; copied Records without recipient knowledge; and inter-agent plus self-transmission. The v0.16 bridge module additionally constructs unequal Denotation; paired-path Causal Contribution with a named Change whose Transformation joins the compared endpoints; constructive Capability realization; fully indexed Standing recorded for an exact Order, Rule, Entity, status, and Scope; and in-Scope supportive Evidential Bearing for a false Claim. `TruthSemantics.isTrue` requires its exact claim-indexed Denotation rather than a parallel free adequacy predicate.
 
@@ -80,13 +94,14 @@ The participant repair restricts the classifier's inputs to identity Invariant a
 - `TruthTrustAlignment.lean`: `bdaa0217e7434c9bc1d7cd3a6a2d489c684fbf38ffeb98a87388864d1cd5a733`
 - `IntelligenceKnowledge.lean`: `bc0ad1caa81adb25316f79aecd5011e32cf94cc73e1e046f7e13bcd10779aee8`
 - `QuarantineProfiles.lean`: `245c94b5c1a8096e9fdea457b1cafba3ddf4f7ab9d98b214aaee8be5eebdbce4`
-- `AttentionLoveCare.lean`: `d0211381714c60a0d506537fdcec1a1847cfa5ea4bc969ee58d395ffc5b4be81`
-- `AttentionLoveCareContracts.lean`: `e044dadebec94a11551e10215ae596790c189d15e72626bedd727dce972278c4`
-- `Model.lean`: `7a6905c8e096763c41f2ad16169f38f0ed1d88fef5c69112f314f38715b214f4`
-- `lakefile.toml`: `2e5e14480f195418173d8f1902f95db648f93cec78f65a9abf9185f32fe85391`
+- `AttentionLoveCare.lean`: `178223126a8f16b68ccac7bd06fd25bdb63bba1aed183ec0e80fc7a922972bf1`
+- `AttentionLoveCareContracts.lean`: `87a0cdfe32c5da7f3e8afa3de26326969c72ef2c06ebefbac36de75dd7207ca4`
+- `Model.lean`: `0cf70256a7a9cee88df3d4f7d16ec4d9cd10f05e984560e5127437233d8e1782`
+- `lakefile.toml`: `d244acbc5c1204ff84c96f8cb0e7ec73a3418f957f008da228c9422429045397`
 - `lean-toolchain`: `54727eec5cba149c18842e6deb5c41b369d66455c93ce135d7d5347c782b2325`
 - `PR18Governance.lean`: `4b54f4c9a046ce26c1ad5a058675730bd2aa76ea7ac82fac31b94a94a45da349`
 - `PR18ReviewDraft.lean`: `3c1a09056060bb0f1af9c12dd2273960e3a42b2a4ebfa3842186b678b263a0af`
+- `RepresentationActivityExample.lean`: `e4dbab2ecfeba547f3ba9a3148c065e3bd7340897f3711a5aa55a7e10440af1d`
 
 ## October 7 combined-source boundary
 
