@@ -1,9 +1,9 @@
 import EmbodiedConsciousness
 
 /-!
-# Self-governance, intention, attention, love, care, and respect
+# Self-governance, attention, love, care, and respect
 
-This proposal-local shadow encodes the eight terms promoted after the
+This proposal-local shadow encodes the seven terms promoted after the
 embodiment foundation. It does not define Consciousness, benefit, consent,
 morality, reciprocity, understanding, possession, or complete Control.
 -/
@@ -37,29 +37,6 @@ structure EmbodiedSelfGovernance
   constraintFromBoundary : constraint ∈ entity.boundary.constraints
   governedAdmitted : ∀ transformation,
     transformation ∈ governedTransformations → constraint.permits transformation
-
-structure Intention
-    (Part : Type u)
-    {Feature : Type v} {Context : Type w}
-    {entity : Entity (Feature × Context)}
-    (body : Body Part entity) where
-  targetRepresentation : Feature
-  contrastRepresentation : Feature
-  targetDifference : contrastRepresentation ≠ targetRepresentation
-  targetOutcome : State (Feature × Context)
-  targetDenotation : Denotation Feature (State (Feature × Context))
-  denotationNamesTarget :
-    targetDenotation.expression = targetRepresentation ∧
-    targetDenotation.target = targetOutcome
-  contribution :
-    CausalContribution Feature Context entity.persistenceDirection body.feeding
-  targetGuidesActivity :
-    contribution.leftEndpoints.first.input.value.1 = contrastRepresentation ∧
-    contribution.rightEndpoints.first.input.value.1 = targetRepresentation
-  guidedActivity : Transformation entity.persistenceDirection
-  guidedActivityWithinBody : guidedActivity ∈ body.recurringTransformations
-  contributionGuidesActivity :
-    contribution.downstreamChange.transformation = guidedActivity
 
 inductive AttentionChannel where
   | perception
@@ -470,25 +447,6 @@ theorem selfGovernanceCanBePartial :
     have inputs := congrArg Transformation.input equal
     simp [forwardHighTransform, returnLowTransform,
       transform, state] at inputs
-
-def systemIntention : Intention ToyPart systemBody where
-  targetRepresentation := true
-  contrastRepresentation := false
-  targetDifference := by decide
-  targetOutcome := state true .returnLow
-  targetDenotation := ⟨true, state true .returnLow⟩
-  denotationNamesTarget := ⟨rfl, rfl⟩
-  contribution := forwardContribution
-  targetGuidesActivity := ⟨rfl, rfl⟩
-  guidedActivity := forwardChangeTransform
-  guidedActivityWithinBody := by simp [systemBody]
-  contributionGuidesActivity := rfl
-
-theorem intentionNeedNotAchieveTarget :
-    systemIntention.targetOutcome ≠ systemIntention.guidedActivity.output := by
-  intro equal
-  have values := congrArg State.value equal
-  simp [systemIntention, forwardChangeTransform, state] at values
 
 inductive ToyChannel where
   | sensor | secondSensor | interpreter | effector

@@ -3,7 +3,7 @@ type: ontology-changelog
 status: active
 ontology: "ontology.md"
 created: 2026-08-02
-updated: 2026-10-07
+updated: 2026-10-11
 ---
 # Daniel's Ontology - Changelog
 
@@ -12,6 +12,9 @@ This note records how [Daniel's Ontology](./ontology.md) changed. Historical arg
 ## Version history
 
 ### v0.20 - Attention, love, care, and respect
+
+- October 11 termhood cleanup: withdrew Intention (`organon:Intention`, D113) and C40 from the proposed release, without reassigning their identifiers or introducing a replacement term. General Lean inverse conversions reduce the historical record to an existing Causal Contribution, bodily membership, and an arbitrary State referent. The construction survives as a [nonbinding example](./formal/RepresentationActivityExample.lean), not a definition of desire, endorsement, or goal pursuit. Seven terms and seven constraints remain promoted; the registry now has 121 terms and 56 commitments. Earlier bullets below record the proposal's evolution, including the withdrawn promotion.
+- Added full-Scope, meaning-preserving consolidation and default-to-example composite policies to the contribution protocol. The remaining-term sweep is recorded in [formal decisions](./formal/decisions.md); candidates are not automatically removed on name length, consumer count, or formal shape alone.
 
 - Integrated the proposed Self/Auto reading work for review without a vocabulary promotion; retained Daniel's newer Attention and participant changes. Repaired D112 Capability typing to Configuration and D111 exact branch-occurrence/constructive availability joins. Added a checked, inhabited internal-Governance-to-Agency profile and reflexive perception examples; generic Auto/Autonomy and Consciousness remain open.
 

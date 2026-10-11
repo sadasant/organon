@@ -27,8 +27,8 @@ binding_source: ontology.md
 
 - Mode: full
 - Requested: all registered terms
-- Terms carried: 122 of 122
-- Commitments carried: 57 of 57
+- Terms carried: 121 of 121
+- Commitments carried: 56 of 56
 
 ## Metalanguage boundary
 
@@ -881,13 +881,6 @@ Depends: organon:Configuration, organon:Difference, organon:Representation, orga
 Claim: `D112` (definition).
 Depends: organon:Configuration, organon:Entity, organon:EmbodiedPerspective, organon:InternalActivitySelection, organon:Body, organon:Transformation, organon:Scope, organon:Constraint, organon:Boundary, organon:Control.
 
-### `organon:Intention` · Intention
-
-**Intention** is a Configuration in which a represented outcome is exactly Denoted as a target and a Difference involving that Representation is the upstream Difference of a Causal Contribution guiding an activity within one Body. The guided activity need not produce the represented target outcome. An outcome's occurrence does not establish Intention without the target Representation, Denotation, Difference, and guiding contribution.
-
-Claim: `D113` (definition).
-Depends: organon:Configuration, organon:Representation, organon:Denotation, organon:Difference, organon:CausalContribution, organon:Transformation, organon:Body, organon:State, organon:Action.
-
 ### `organon:Attention` · Attention
 
 **Attention** is the finite ratio of an Entity's currently available Perception, Interpretation, and Action channels causally organized by one Difference in one State of one Body, relative to a declared channel inventory and availability Specification. The inventory individuates channels independently of their kind and result. The Specification supplies the availability criterion and its Scope; the nonempty finite available enumeration covers exactly every conforming channel and counts each once. A different inventory or Specification defines a different measurement context, not a different degree within the same context. Each snapshot declares channel results and a collection of channel-specific response comparisons independently of the counted enumeration. Causal organization is evaluated at that snapshot, rather than by searching historical Causal Contributions: a qualifying comparison holds the snapshot's declared context fixed, produces the channel's current result under the focal Representation, and produces a different result under the contrast Representation. The result must belong to the indexed snapshot; neither earlier nor later States qualify. A channel is organized exactly when at least one declared comparison satisfies these conditions for the focal Difference. A selected witness must belong to that collection; selecting a nonfocal witness cannot hide a qualifying alternative. The organized enumeration covers exactly every available qualifying channel, counts each once, and supplies the numerator; the available enumeration supplies the denominator. Holding the snapshot and declared measurement data fixed fixes the ratio independently of any history. Attention alone makes no Claim about benefit, consent, morality, accuracy, Truth, or purpose.
@@ -1201,12 +1194,6 @@ Depends: organon:Body, organon:EmbodiedPerspective, organon:RecurrentIntegration
 **No self-governance-total-control collapse:** Embodied Self-Governance may govern a nonempty proper subset of a Body's Transformations. It does not entail complete Control, and Control alone does not establish the Embodied Perspective-to-selection join.
 
 Depends: organon:EmbodiedSelfGovernance, organon:Body, organon:Transformation, organon:Control, organon:EmbodiedPerspective, organon:InternalActivitySelection.
-
-### `C40` · binding_constraint
-
-**No intention-achievement collapse:** Intention does not entail that its target outcome occurs. An occurring outcome does not establish Intention without the target Representation, exact Denotation, upstream Difference, and guiding Causal Contribution.
-
-Depends: organon:Intention, organon:State, organon:Representation, organon:Denotation, organon:Difference, organon:CausalContribution.
 
 ### `C41` · binding_constraint
 

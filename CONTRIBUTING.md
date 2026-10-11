@@ -24,6 +24,12 @@ Write the shortest exact claim being promoted. Identify its corpus evidence and 
 
 Try to express the candidate as an existing term, a Configuration of existing terms, or a derived consequence. A new stable term is justified only when that reduction loses a distinction the ontology needs. Record the strongest rejected reduction and the surviving difference.
 
+Keep compositions of existing terms as nonbinding example Configurations by default. Promote a composition only when the distinction it names is load-bearing for other core definitions or commitments and expressing it through existing terms loses that distinction. Name length and downstream reference counts are screening aids, not proofs of redundancy. Do not add psychological, normative, or institutional premises merely to rescue a familiar name for a narrower mechanism.
+
+**Collapse equivalent definitions:** If two definitions are shown to be isomorphic across their full declared Scope, preserving their participant roles, dependencies, Constraints, and entailments in both directions, consolidate them into one definition and remove the unsupported distinction from the active ontology. A renaming, shared implementation shape, or isomorphism between finite witnesses is not sufficient; the correspondence must preserve the definitions' meaning and governed uses. An equivalence established only under additional assumptions warrants consolidation only within that restricted Scope.
+
+Apply this rule to existing terms as well as candidates. Record the correspondence and its justification, update every governed surface and affected adoption mapping, and preserve the retired distinction and identifier migration in the changelog and provenance rather than silently reassigning a stable identifier. Suspected equivalence remains a review question until established; it is not permission to erase an unexamined distinction.
+
 ### 3. Type and order dependencies
 
 Classify the candidate as an Entity, Relation, Configuration, Specification, Rule, institutional record, or another already-defined kind. List every earlier term used anywhere in the complete logical form, including positive premises, participant and index types, alternatives, contrasts, exclusions, and anti-entailments. Record positive premises and witnesses separately. `depends_on` establishes lexical closure and definition order; it is not an instance constructor. Do not use undeclared object-language vocabulary to explain the candidate.

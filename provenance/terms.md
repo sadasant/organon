@@ -20,3 +20,7 @@ When a term changes meaning, update its definition, registry dependencies, prove
 ## October 7 PR18 repair and proposal preservation
 
 D111's exact alternative occurrences and constructive availability, and D112's Configuration typing, come from the preserved local formalization and independent review findings recorded in [formal decisions](../ontology/formal/decisions.md). Existing adopted lineage remains intact. [Self/Auto](../proposals/self-auto.md) remains a nonbinding proposal and introduces no adopted registry/provenance identifiers.
+
+## October 11 Intention withdrawal
+
+Daniel withdrew `organon:Intention` (D113) and its dependent C40 after a general Lean reduction exposed no distinct mechanism beyond an existing Causal Contribution, bodily membership, and a freely assigned referent. No other registered term depends on it. The name does not establish desire, endorsement, or goal pursuit; those premises were not added to rescue it. The [nonbinding example](../ontology/formal/RepresentationActivityExample.lean) preserves the old record, inverse conversions, and achieved/unachieved referents. D113 and C40 are retired, not reassigned; historical snapshots retain their original identifiers. There is no replacement canonical term.

@@ -4,7 +4,7 @@ status: provisional-binding
 binding: true
 version: 0.20
 created: 2026-08-01
-updated: 2026-10-06
+updated: 2026-10-11
 evidence_scope: "Daniel's adopted commitments and the recovered essay corpus"
 corpus_audit: "../provenance/essays.md"
 term_registry: "terms.yaml"
@@ -831,17 +831,12 @@ Body does not duplicate Entity, Boundary, or Persistence and has no separate ide
 Together, Body, Embodied Perspective, Recurrent Integration, and Internal Activity Selection specify one proposal-local candidate condition for consciousness only when they share the same Entity, Body Relation, Scope, Interior Specification, Direction, and Causal-path interpretation; every Transformation and Change in the recurrent families belongs to that Body Relation; and the perspective's condition Representation and exact Causal Contribution are the Representation and contribution that perform the selection or revision. This structural conjunction is the candidate's complete obtainment condition rather than evidence for a separately stipulated predicate. It is not a binding definition of Consciousness and remains distinct from Consciousness Attribution and Consciousness Designation.
 
 
-### 32. Self-governance, intention, attention, love, care, and respect
+### 32. Self-governance, attention, love, care, and respect
 
 <a id="organon-embodied-self-governance"></a>
 <!-- organon:term organon:EmbodiedSelfGovernance claim=D112 -->
 
 **Embodied Self-Governance** is the scoped Configuration through which an Entity's Embodied Perspective is exactly joined to Internal Activity Selection that selects, inhibits, continues, or revises Transformations of its Body under Constraints of its Boundary. The governed family is nonempty, includes the selected Transformation, occurs within that Body, and is admitted by the named Constraint. Embodied Self-Governance may be partial and limited to particular functions or Transformations; it does not entail complete Control.
-
-<a id="organon-intention"></a>
-<!-- organon:term organon:Intention claim=D113 -->
-
-**Intention** is a Configuration in which a represented outcome is exactly Denoted as a target and a Difference involving that Representation is the upstream Difference of a Causal Contribution guiding an activity within one Body. The guided activity need not produce the represented target outcome. An outcome's occurrence does not establish Intention without the target Representation, Denotation, Difference, and guiding contribution.
 
 <a id="organon-attention"></a>
 <!-- organon:term organon:Attention claim=D114 -->
@@ -881,7 +876,6 @@ These signatures make the ontology operational. They are schemas, not executable
 | --- | --- | --- |
 | `denotes` | expression Presence, target Presence, Relation, or Configuration | Denotation with ordered expression and target positions; no entailment of fidelity, Truth, Interpretation, status, or causal use |
 | `governsEmbodiment` | Entity, Embodied Perspective, Internal Activity Selection, Body Transformations, Boundary Constraint, Scope | partial or complete Embodied Self-Governance over the named family; no entailment of complete Control |
-| `intends` | Entity, target Representation, Denotation, upstream Difference, Causal Contribution, guided bodily activity | target-directed causal guidance; no entailment that the target outcome occurs |
 | `attends` | Entity, current Body State, declared channel inventory, availability Specification and Scope, focal Difference, organized channels, current-snapshot focal/contrast response comparisons in the same context | current finite organized-to-conforming ratio relative to that measurement context; no historical-state lookup or normative or epistemic valence |
 | `sustainsAttention` | Entity, Attention, ordered changing States, common Difference | the same focus organizes at least one available channel at each State |
 | `attendsAbsolutely` | Entity, Attention, same inventory and availability Specification, one Difference | every conforming channel is organized by the focus; no focus-independent available Action channel |
@@ -1030,8 +1024,6 @@ These signatures make the ontology operational. They are schemas, not executable
 
 39. <!-- organon:claim C39 --> **No self-governance-total-control collapse:** Embodied Self-Governance may govern a nonempty proper subset of a Body's Transformations. It does not entail complete Control, and Control alone does not establish the Embodied Perspective-to-selection join.
 
-40. <!-- organon:claim C40 --> **No intention-achievement collapse:** Intention does not entail that its target outcome occurs. An occurring outcome does not establish Intention without the target Representation, exact Denotation, upstream Difference, and guiding Causal Contribution.
-
 41. <!-- organon:claim C41 --> **No attention-absolute-attention collapse:** Attention may organize only some available channels. Perception, Interpretation, Action, Difference, salience, exposure, or repeated occurrence alone does not establish Attention without the exact causal organization and finite availability denominator.
 
 42. <!-- organon:claim C42 --> **Absolute Attention excludes focus-independent available Action:** When every available channel is organized by the same Difference, no available Action channel remains independent of that Difference. Absolute Attention does not prohibit Action organized by the focus and does not entail benefit, consent, morality, accuracy, or purpose.
@@ -1048,6 +1040,7 @@ These signatures make the ontology operational. They are schemas, not executable
 
 These terms occur in the corpus but have no binding definition yet. They may be used in ordinary or quoted language, but no argument may depend on their ontological meaning until they are defined and placed in the dependency order.
 
+- **Intention:** ordinary intention has no binding definition. A Representation participating in a bodily Causal Contribution does not by itself establish desire, endorsement, or goal pursuit.
 - **Consciousness:** the underlying condition remains quarantined and is not inferable from Entity, Agent, Memory, Model, Interior, Consciousness Attribution, or Consciousness Designation. The two discourse terms govern Claims and institutional status without defining consciousness itself.
 - **Knowledge:** bare knowledge has no binding genus. Use Operative Knowledge, Factive Operative Knowledge, or Warranted Knowledge only when the corresponding operative, truth, and evidence obligations obtain; acquaintance, collective knowledge, and practiced Capability remain unmapped ordinary uses.
 - **Moral personhood:** the underlying candidate condition and moral worth remain undefined. Moral Status Attribution and Moral Personhood Designation govern Claims and institutional status without deciding that condition or collapsing it into institutional Person.

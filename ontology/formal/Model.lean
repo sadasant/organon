@@ -14,6 +14,7 @@ import PromotionContracts
 import AttentionLoveCare
 import AttentionLoveCareContracts
 import PR18Governance
+import RepresentationActivityExample
 
 /-!
 # Daniel's Ontology: finite inhabited model
@@ -573,4 +574,4 @@ theorem exerciseModelIsInhabited :
 end DanielOntology.Model
 
 def main : IO Unit :=
-  IO.println "OrganonCore v0.20-compatible reduct: hidden bridge relations, private ritual, ritual-dependent meaning, embodied integration, partial self-governance, target-guided intention, finite attention, love, care, respect, an embodied recurrent consciousness candidate, downstream shadows, four preserved challenge classifiers, one pending Reality representation elaboration, and metalinguistic definition admission"
+  IO.println "OrganonCore v0.20-compatible reduct: hidden bridge relations, private ritual, ritual-dependent meaning, embodied integration, partial self-governance, nonbinding representation-activity example, finite attention, love, care, respect, an embodied recurrent consciousness candidate, downstream shadows, four preserved challenge classifiers, one pending Reality representation elaboration, and metalinguistic definition admission"

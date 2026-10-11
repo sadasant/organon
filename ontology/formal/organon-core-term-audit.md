@@ -10,7 +10,7 @@ generated_by: scripts/check-organon-core-audit.py
 
 This table accounts for every registered term. `proved` means only that the declared challenge classifier is preserved in Lean. It is not automatically a complete encoding of the binding prose. `compiled shadow` means a named Lean shadow builds without the Absence extension; it does not mean that the shadow is extensionally identical to the binding prose definition.
 
-Result totals: **4 proved translations**, **1 pending representation decision**, **1 intentionally excluded**, and **116 unknown**.
+Result totals: **4 proved translations**, **1 pending representation decision**, **1 intentionally excluded**, and **115 unknown**.
 
 | Claim | Term | Reduct disposition | Experiment result | Reason |
 |---|---|---|---|---|
@@ -129,7 +129,6 @@ Result totals: **4 proved translations**, **1 pending representation decision**,
 | D110 | `organon:RecurrentIntegration` | compiled shadow | unknown | The Lean shadow is extension-invariant; exact prose parity is not established. |
 | D111 | `organon:InternalActivitySelection` | compiled shadow | unknown | The Lean shadow is extension-invariant; exact prose parity is not established. |
 | D112 | `organon:EmbodiedSelfGovernance` | compiled shadow | unknown | The Lean shadow is extension-invariant; exact prose parity is not established. |
-| D113 | `organon:Intention` | compiled shadow | unknown | The Lean shadow is extension-invariant; exact prose parity is not established. |
 | D114 | `organon:Attention` | compiled shadow | unknown | The Lean shadow is extension-invariant; exact prose parity is not established. |
 | D115 | `organon:SustainedAttention` | compiled shadow | unknown | The Lean shadow is extension-invariant; exact prose parity is not established. |
 | D116 | `organon:AbsoluteAttention` | compiled shadow | unknown | The Lean shadow is extension-invariant; exact prose parity is not established. |

@@ -34,29 +34,6 @@ theorem embodiedSelfGovernanceContract
     governance.governedWithinBody transformation member,
     governance.governedAdmitted transformation member⟩
 
-/-- organon:promotion-contract AC-D2 -/
-theorem intentionContract
-    {Part : Type u} {Feature : Type v} {Context : Type w}
-    {entity : Entity (Feature × Context)} {body : Body Part entity}
-    (intention : Intention Part body) :
-    intention.contrastRepresentation ≠ intention.targetRepresentation ∧
-    intention.targetDenotation.expression = intention.targetRepresentation ∧
-    intention.targetDenotation.target = intention.targetOutcome ∧
-    intention.contribution.leftEndpoints.first.input.value.1 =
-        intention.contrastRepresentation ∧
-    intention.contribution.rightEndpoints.first.input.value.1 =
-        intention.targetRepresentation ∧
-    intention.guidedActivity ∈ body.recurringTransformations ∧
-    intention.contribution.downstreamChange.transformation =
-        intention.guidedActivity := by
-  exact ⟨intention.targetDifference,
-    intention.denotationNamesTarget.1,
-    intention.denotationNamesTarget.2,
-    intention.targetGuidesActivity.1,
-    intention.targetGuidesActivity.2,
-    intention.guidedActivityWithinBody,
-    intention.contributionGuidesActivity⟩
-
 /-- organon:promotion-contract AC-D3 -/
 theorem attentionContract
     {Part : Type u} {Feature : Type v} {Context : Type w}
@@ -199,11 +176,6 @@ theorem partialSelfGovernanceCountermodel :
     systemSelfGovernance.scope.includes forwardHighTransform ∧
     ¬ systemSelfGovernance.scope.includes returnLowTransform :=
   selfGovernanceCanBePartial
-
-/-- organon:promotion-contract AC-C2 -/
-theorem intentionOutcomeCountermodel :
-    systemIntention.targetOutcome ≠ systemIntention.guidedActivity.output :=
-  intentionNeedNotAchieveTarget
 
 /-- organon:promotion-contract AC-C3 -/
 theorem partialAttentionCountermodel :

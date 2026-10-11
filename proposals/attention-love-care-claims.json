@@ -1,7 +1,7 @@
 {
   "schema_version": 2,
   "proposal_id": "attention-love-care",
-  "status": "promoted",
+  "status": "partially-promoted",
   "binding": false,
   "markdown": "attention-love-care.md",
   "formal_shadow": "../ontology/formal/AttentionLoveCare.lean",
@@ -12,7 +12,6 @@
   "promotion_review": "../reviews/promotion/attention-love-care.json",
   "introduced_terms": [
     "organon:EmbodiedSelfGovernance",
-    "organon:Intention",
     "organon:Attention",
     "organon:SustainedAttention",
     "organon:AbsoluteAttention",
@@ -132,95 +131,6 @@
           "organon:Control": {
             "status": "outside_formal_boundary",
             "reason": "Complete Control remains outside this theorem; the finite partiality contract witnesses a proper governed Scope."
-          }
-        }
-      }
-    },
-    {
-      "id": "AC-D2",
-      "type": "proposed_definition",
-      "subject": "Intention",
-      "depends_on": [
-        "organon:Configuration",
-        "organon:Representation",
-        "organon:Denotation",
-        "organon:Difference",
-        "organon:CausalContribution",
-        "organon:Transformation",
-        "organon:Body",
-        "organon:State",
-        "organon:Action"
-      ],
-      "formal_contract": {
-        "status": "proved_with_boundaries",
-        "theorem": "intentionContract",
-        "shared_indices": [
-          "body",
-          "intention"
-        ],
-        "subject_symbols": [
-          "Intention"
-        ],
-        "dependency_dispositions": {
-          "organon:Configuration": {
-            "status": "represented_by",
-            "symbols": [
-              "Intention"
-            ],
-            "reason": "The Intention structure is the proposal-local configuration collecting the target and causal joins."
-          },
-          "organon:Representation": {
-            "status": "formalized",
-            "symbols": [
-              "targetRepresentation",
-              "contrastRepresentation"
-            ]
-          },
-          "organon:Denotation": {
-            "status": "formalized",
-            "symbols": [
-              "targetDenotation"
-            ]
-          },
-          "organon:Difference": {
-            "status": "represented_by",
-            "symbols": [
-              "contrastRepresentation",
-              "targetRepresentation"
-            ],
-            "reason": "The unequal contrast and target representations are the exact upstream Difference of the guiding contribution."
-          },
-          "organon:CausalContribution": {
-            "status": "formalized",
-            "symbols": [
-              "contribution",
-              "downstreamChange"
-            ]
-          },
-          "organon:Transformation": {
-            "status": "formalized",
-            "symbols": [
-              "guidedActivity",
-              "transformation"
-            ]
-          },
-          "organon:Body": {
-            "status": "formalized",
-            "symbols": [
-              "body",
-              "recurringTransformations"
-            ]
-          },
-          "organon:State": {
-            "status": "formalized",
-            "symbols": [
-              "targetOutcome"
-            ]
-          },
-          "organon:Action": {
-            "status": "outside_formal_boundary",
-            "symbols": [],
-            "reason": "The formal witness guides an internal bodily Transformation; canonical boundary-crossing Action remains outside this reduct."
           }
         }
       }
@@ -797,46 +707,6 @@
       }
     },
     {
-      "id": "AC-C2",
-      "type": "anti_collapse_constraint",
-      "subject": "Intention does not entail achievement",
-      "depends_on": [
-        "AC-D2",
-        "organon:State",
-        "organon:CausalContribution"
-      ],
-      "formal_contract": {
-        "status": "proved_with_boundaries",
-        "theorem": "intentionOutcomeCountermodel",
-        "shared_indices": [
-          "systemIntention"
-        ],
-        "subject_symbols": [
-          "systemIntention"
-        ],
-        "dependency_dispositions": {
-          "AC-D2": {
-            "status": "formalized",
-            "symbols": [
-              "systemIntention"
-            ]
-          },
-          "organon:State": {
-            "status": "formalized",
-            "symbols": [
-              "targetOutcome",
-              "output"
-            ]
-          },
-          "organon:CausalContribution": {
-            "status": "prose_only",
-            "symbols": [],
-            "reason": "The proved direction uses the Intention contract causal join; the reverse occurrence-without-Intention claim remains prose-only."
-          }
-        }
-      }
-    },
-    {
       "id": "AC-C3",
       "type": "anti_collapse_constraint",
       "subject": "Attention does not entail Absolute Attention",
@@ -1005,7 +875,6 @@
       "subject": "Application",
       "depends_on": [
         "AC-D1",
-        "AC-D2",
         "AC-D3",
         "AC-D4",
         "AC-D5",

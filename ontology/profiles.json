@@ -132,10 +132,9 @@
       ]
     },
     "attention-and-relation": {
-      "description": "Embodied self-governance and intention, finite attention forms, and the distinct relations of Love, Care, and Respect.",
+      "description": "Embodied self-governance, finite attention forms, and the distinct relations of Love, Care, and Respect.",
       "roots": [
         "organon:EmbodiedSelfGovernance",
-        "organon:Intention",
         "organon:Attention",
         "organon:SustainedAttention",
         "organon:AbsoluteAttention",

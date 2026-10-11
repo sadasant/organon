@@ -1,15 +1,15 @@
 ---
 type: quarantine-proposal
-status: promoted
+status: partially-promoted
 binding: false
 concept: attention-love-care
 created: 2026-10-03
-updated: 2026-10-07
-recommended_outcome: promoted-in-v0.20
+updated: 2026-10-11
+recommended_outcome: partially-promoted-in-v0.20
 statement_manifest: "attention-love-care-claims.json"
 formal_shadow: "../ontology/formal/AttentionLoveCare.lean"
 ---
-# Self-Governance, Intention, Attention, Love, Care, and Respect
+# Self-Governance, Attention, Love, Care, and Respect
 
 ## Verdict
 
@@ -21,9 +21,6 @@ The formal shadow uses explicit local channel projections where Organon's canoni
 
 <!-- organon:proposal-statement AC-D1 type=proposed_definition -->
 **AC-D1 — Embodied Self-Governance:** Embodied Self-Governance is the scoped Configuration through which an Entity's Embodied Perspective is exactly joined to Internal Activity Selection that selects, inhibits, continues, or revises Transformations of its Body under Constraints of its Boundary. The governed family is nonempty, includes the selected Transformation, occurs within that Body, and is admitted by the named Constraint. The Configuration may govern only some bodily functions or Transformations.
-
-<!-- organon:proposal-statement AC-D2 type=proposed_definition -->
-**AC-D2 — Intention:** Intention is a Configuration in which a represented outcome is exactly Denoted as a target and a Difference involving that Representation is the upstream Difference of a Causal Contribution guiding an activity within one Body. The guided activity need not produce the represented target outcome.
 
 <!-- organon:proposal-statement AC-D3 type=proposed_definition -->
 **AC-D3 — Attention:** Attention is the finite ratio of an Entity's currently available Perception, Interpretation, and Action channels causally organized by one Difference in one State of one Body, relative to a declared channel inventory and availability Specification. The inventory individuates channels independently of their kind and result. The Specification supplies the availability criterion and its Scope; the nonempty finite available enumeration covers exactly every conforming channel and counts each once. A different inventory or Specification defines a different measurement context, not a different degree within the same context. Each snapshot declares channel results and a collection of channel-specific response comparisons independently of the counted enumeration. Causal organization is evaluated at that snapshot, rather than by searching historical Causal Contributions: a qualifying comparison holds the snapshot's declared context fixed, produces the channel's current result under the focal Representation, and produces a different result under the contrast Representation. The result must belong to the indexed snapshot; neither earlier nor later States qualify. A channel is organized exactly when at least one declared comparison satisfies these conditions for the focal Difference. A selected witness must belong to that collection; selecting a nonfocal witness cannot hide a qualifying alternative. The organized enumeration covers exactly every available qualifying channel, counts each once, and supplies the numerator; the available enumeration supplies the denominator. Holding the snapshot and declared measurement data fixed fixes the ratio independently of any history. Attention alone makes no Claim about benefit, consent, morality, accuracy, Truth, or purpose.
@@ -48,9 +45,6 @@ The formal shadow uses explicit local channel projections where Organon's canoni
 <!-- organon:proposal-statement AC-C1 type=anti_collapse_constraint -->
 **AC-C1 — Self-governance may be partial:** One inhabited Embodied Self-Governance structure governs one recurring bodily Transformation while another recurring bodily Transformation lies outside its Scope. Embodied Self-Governance therefore does not entail complete Control of the Body.
 
-<!-- organon:proposal-statement AC-C2 type=anti_collapse_constraint -->
-**AC-C2 — Intention does not entail achievement:** In the finite witness, the Denoted target outcome differs from the output of the causally guided activity. Conversely, occurrence alone does not establish Intention without the target Representation, Denotation, upstream Difference, and guiding Causal Contribution.
-
 <!-- organon:proposal-statement AC-C3 type=anti_collapse_constraint -->
 **AC-C3 — Attention does not entail Absolute Attention:** One finite Attention structure organizes its perceptual and interpretive channels while an available action channel remains unorganized: that Action's exact contribution produces its result from a different upstream Difference, not from the focal Difference.
 
@@ -71,9 +65,9 @@ The formal shadow uses explicit local channel projections where Organon's canoni
 
 ## Formal shadow
 
-[AttentionLoveCare.lean](../ontology/formal/AttentionLoveCare.lean) defines the eight structures, four finite separations, and the local projection types `AttentionChannel`, `ChannelInventory`, `SnapshotCausalContribution`, `EntityIndividuation`, `FocusIndependentAction`, and `RespectProtection`. [AttentionLoveCareContracts.lean](../ontology/formal/AttentionLoveCareContracts.lean) restates every promoted definition and four Lean-supported anti-entailments as exact promotion contracts.
+[AttentionLoveCare.lean](../ontology/formal/AttentionLoveCare.lean) defines the seven structures, three finite separations, and the local projection types `AttentionChannel`, `ChannelInventory`, `SnapshotCausalContribution`, `EntityIndividuation`, `FocusIndependentAction`, and `RespectProtection`. [AttentionLoveCareContracts.lean](../ontology/formal/AttentionLoveCareContracts.lean) restates every promoted definition and three Lean-supported anti-entailments as exact promotion contracts.
 
-The finite model witnesses partial self-governance, an intended target not achieved by the guided activity, partial Attention, Absolute Attention with no focus-independent available Action channel, target-directed Love, Care indexed to the target's Persistence history, and Respect whose Constraint both admits the actor's scoped Action and carries a typed protection witness. AC-C5 through AC-C8 remain binding prose outside the current Lean boundary because their normative, interpersonal, and reverse anti-entailments lack closed-world negations in the reduct.
+The finite model witnesses partial self-governance, partial Attention, Absolute Attention with no focus-independent available Action channel, target-directed Love, Care indexed to the target's Persistence history, and Respect whose Constraint both admits the actor's scoped Action and carries a typed protection witness. AC-C5 through AC-C8 remain binding prose outside the current Lean boundary because their normative, interpersonal, and reverse anti-entailments lack closed-world negations in the reduct.
 
 <!-- organon:proposal-statement AC-G1 type=open_formalization_gate -->
 ### AC-G1 — Open formalization gate: canonical channel parity
@@ -88,21 +82,20 @@ Focus-independent Action requires positive response invariance under the named a
 
 ### Definition decisions: guidance and the attention limit
 
-Intention's formal content is target-representational causal guidance of an activity. The unproved select/continue/inhibit/revise tag has been removed; operation-specific classifications require additional semantics rather than an inert annotation.
+Intention was withdrawn on October 11 rather than renamed. Former AC-D2/D113 and AC-C2/C40 are retired, not reassigned. The [representation-mediated bodily activity example](../ontology/formal/RepresentationActivityExample.lean) proves inverse conversions between the historical record and a Causal Contribution whose downstream Transformation belongs to the Body, together with a freely assigned State referent. Changing that referent leaves the mechanism unchanged. No other registered definition needs the withdrawn distinction. Desire, endorsement, or goal pursuit are not added to rescue the name; ordinary intention remains undefined. The example retains the temporal Causal Contribution shadow and does not resolve its separate selection-ordering question.
 
 Absolute Attention chooses **entrainment**: no available activity independent of the focus remains, while focus-organized Action may continue. It does not choose a paralysis law forbidding all Action. The inhabited action-channel witness proves this distinction. The limit is absolute within the declared inventory and availability Specification; claiming exhaustive coverage of every possible channel of an Entity would require a separate closure argument. Sustained nonzero Attention establishes Love in this definition without fixing its degree or intensity.
 
 <!-- organon:proposal-statement AC-G2 type=open_evidence_gate -->
 ### AC-G2 — Open evidence gate: application
 
-No observation here establishes that a biological, artificial, institutional, or other Entity instantiates any of the eight terms. Application requires a separate Specification of available channels, target Denotations, Causal Contributions, Scopes, Constraints, and admissible Evidence.
+No observation here establishes that a biological, artificial, institutional, or other Entity instantiates any of the seven terms. Application requires a separate Specification of available channels, target Denotations, Causal Contributions, Scopes, Constraints, and admissible Evidence.
 
 ## Proposal statement registry
 
 | ID | Type | Statement | Dependencies | Evidence or gate |
 | --- | --- | --- | --- | --- |
 | AC-D1 | Proposed definition | Embodied Self-Governance | Configuration, Entity, Embodied Perspective, Internal Activity Selection, Body, Transformation, Scope, Constraint, Boundary, Control | `embodiedSelfGovernanceContract` |
-| AC-D2 | Proposed definition | Intention | Configuration, Representation, Denotation, Difference, Causal Contribution, Transformation, Body, State, Action | `intentionContract` |
 | AC-D3 | Proposed definition | Attention | Entity, Body, Difference, Representation, Perception, Interpretation, Action, Causal Contribution, State, Specification, Scope | `attentionContract`; snapshot causal parity remains open |
 | AC-D4 | Proposed definition | Sustained Attention | AC-D3, Entity, Body, State, Direction, Persistence, Difference | `sustainedAttentionContract` |
 | AC-D5 | Proposed definition | Absolute Attention | AC-D3, Difference, Action, Specification | `absoluteAttentionContract` |
@@ -110,7 +103,6 @@ No observation here establishes that a biological, artificial, institutional, or
 | AC-D7 | Proposed definition | Care | Relation, AC-D3, Entity, State, Representation, Denotation, Action, Causal Contribution, Persistence | `careContract`; canonical Action remains a boundary |
 | AC-D8 | Proposed definition | Respect | Relation, Constraint, Action, Entity, Scope, Boundary, Agency, Capability, Transformation, Invariant | `respectContract` |
 | AC-C1 | Anti-collapse constraint | Self-governance may be partial | AC-D1, Body, Scope, Control | `partialSelfGovernanceCountermodel` |
-| AC-C2 | Anti-collapse constraint | Intention does not entail achievement | AC-D2, State, Causal Contribution | `intentionOutcomeCountermodel`; reverse direction outside boundary |
 | AC-C3 | Anti-collapse constraint | Attention does not entail Absolute Attention | AC-D3, AC-D5, Action | `partialAttentionCountermodel` |
 | AC-C4 | Anti-collapse constraint | Absolute Attention excludes focus-independent Action | AC-D5, Action, Difference | `absoluteAttentionActionLimit` |
 | AC-C5 | Anti-collapse constraint | Attention neutrality | AC-D3, Claim, Truth, Consequence | Outside current Lean boundary |
@@ -118,11 +110,11 @@ No observation here establishes that a biological, artificial, institutional, or
 | AC-C7 | Anti-collapse constraint | Care/benefit/Love separation | AC-D7, AC-D6, Consequence | Outside current Lean boundary |
 | AC-C8 | Anti-collapse constraint | Respect/agreement/affection separation | AC-D8, AC-D6, Consequence | Outside current Lean boundary |
 | AC-G1 | Open formalization gate | Canonical channel parity | AC-D1, AC-D3, AC-D7, AC-D8, Perception, Interpretation, Action, Agency, Capability | Open |
-| AC-G2 | Open evidence gate | Application | AC-D1, AC-D2, AC-D3, AC-D4, AC-D5, AC-D6, AC-D7, AC-D8, Specification, Evidence | Open |
+| AC-G2 | Open evidence gate | Application | AC-D1, AC-D3, AC-D4, AC-D5, AC-D6, AC-D7, AC-D8, Specification, Evidence | Open |
 
 ## Promotion boundary
 
-Organon v0.20 promotes all eight terms and eight anti-collapse constraints. Four anti-entailments have finite Lean proofs; four state explicit binding limits outside the reduct. Consciousness and the proposed revision of Authority remain outside this dossier and unchanged.
+Organon v0.20 promotes seven terms and seven anti-collapse constraints. Three anti-entailments have finite Lean proofs; four state explicit binding limits outside the reduct. Intention is withdrawn to a nonbinding example. Consciousness and the proposed revision of Authority remain outside this dossier and unchanged.
 
 ## Configuration repair and source preservation
 

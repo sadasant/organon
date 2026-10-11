@@ -53,6 +53,9 @@ name = "AttentionLoveCareContracts"
 [[lean_lib]]
 name = "PR18Governance"
 
+[[lean_lib]]
+name = "RepresentationActivityExample"
+
 [[lean_exe]]
 name = "ontology_check"
 root = "Model"

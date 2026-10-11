@@ -4,9 +4,9 @@
     {
       "manifest": "attention-love-care-claims.json",
       "dossier": "attention-love-care.md",
-      "status": "promoted",
+      "status": "partially-promoted",
       "binding_release": "0.20.0",
-      "remaining_quarantine": []
+      "remaining_quarantine": ["Intention withdrawn; construction retained only as a nonbinding example"]
     },
     {
       "manifest": "embodied-consciousness-claims.json",

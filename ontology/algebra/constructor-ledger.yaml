@@ -2,29 +2,29 @@
   "schema_version": 1,
   "status": "generated-nonbinding-degenerate-registry-reflection-ledger",
   "source_sha256": {
-    "ontology/terms.yaml": "956084f5fe1fd92d9775b5520b7d965e849c723e37371b5744e1e188adc952d1",
+    "ontology/terms.yaml": "6d3274804f24627e17cae0a3e6a8da37323823a2309035d77bf83f8edd911736",
     "ontology/algebra/positive-calculus.yaml": "76c83651ae6d9ada317546a862450ec7940b5d1e12fb93b973f8bd6fd1abdd73",
-    "scripts/build-positive-calculus.py": "18a7acee2743973676b11d60f3833c2f330874307344b07e0404cc282d4eac50"
+    "scripts/build-positive-calculus.py": "9bb7ecf3244c474f57f9e829d45b4bea5aa5b7e40c3fc62997783a18e466c729"
   },
   "counts": {
-    "registered_terms": 122,
+    "registered_terms": 121,
     "retained_foundation": 3,
-    "definitions_reflected": 119,
+    "definitions_reflected": 118,
     "constructors": 1,
-    "dependency_removal_fixtures": 972,
+    "dependency_removal_fixtures": 962,
     "unreflected_definitions": 0
   },
   "degenerate_control_comparison": {
     "zero_constructors_positive_heads": 0,
     "zero_constructors_definitions_derived": 0,
-    "one_constructor_definitions_derived": 119,
+    "one_constructor_definitions_derived": 118,
     "ablate_G1_definitions_derived": 0,
     "constructor_minimum_proved": false,
     "explanation": "The comparison covers only G0 and the hand-authored G1 wrapper; it is not an exhaustive search over nondegenerate constructor families."
   },
   "semantic_minimality": {
     "proved": false,
-    "binding_definition_schemas_retained": 119,
+    "binding_definition_schemas_retained": 118,
     "anti_vacuity_passes": false,
     "opaque_parameter": "Conforms(binding_definition_schema, candidate)",
     "eligible_for_promotion": false,
@@ -4423,49 +4423,6 @@
         "G1-D112-remove-Scope",
         "G1-D112-remove-Transformation",
         "G1-D112-remove-witness"
-      ]
-    },
-    {
-      "term": "organon:Intention",
-      "claim": "D113",
-      "constructor": "G1",
-      "declared_dependencies": [
-        "organon:Action",
-        "organon:Body",
-        "organon:CausalContribution",
-        "organon:Configuration",
-        "organon:Denotation",
-        "organon:Difference",
-        "organon:Representation",
-        "organon:State",
-        "organon:Transformation"
-      ],
-      "conformity_witness": {
-        "predicate": "Conforms",
-        "args": [
-          "D113",
-          "candidate"
-        ]
-      },
-      "result": {
-        "predicate": "Classified",
-        "args": [
-          "organon:Intention",
-          "candidate"
-        ]
-      },
-      "derives": true,
-      "one_step_mutations": [
-        "G1-D113-remove-Action",
-        "G1-D113-remove-Body",
-        "G1-D113-remove-CausalContribution",
-        "G1-D113-remove-Configuration",
-        "G1-D113-remove-Denotation",
-        "G1-D113-remove-Difference",
-        "G1-D113-remove-Representation",
-        "G1-D113-remove-State",
-        "G1-D113-remove-Transformation",
-        "G1-D113-remove-witness"
       ]
     },
     {

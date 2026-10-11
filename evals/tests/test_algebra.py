@@ -136,17 +136,17 @@ def test_complete_reduction_audit_accounts_for_registry_and_refutes_completeness
     subprocess.run([sys.executable, str(script), "--check"], cwd=ROOT, check=True)
     ledger = json.loads((ALGEBRA / "reduction-ledger.yaml").read_text())
     assert ledger["answer"] == "no"
-    assert len(ledger["terms"]) == ledger["counts"]["registered_terms"] == 122
-    assert len(ledger["consistency_rules"]) == 46
+    assert len(ledger["terms"]) == ledger["counts"]["registered_terms"] == 121
+    assert len(ledger["consistency_rules"]) == 45
     assert len(ledger["other_commitments"]) == 11
     assert ledger["counts"]["constructively_encoded"] == 9
-    assert ledger["counts"]["positively_underdetermined"] == 110
+    assert ledger["counts"]["positively_underdetermined"] == 109
     pairs = [
         item["paired_target_extension_sketch"]
         for item in ledger["terms"]
         if item["disposition"] == "positively_underdetermined"
     ]
-    assert len(pairs) == 110
+    assert len(pairs) == 109
     assert all(pair["classification_differs"] for pair in pairs)
     assert all(pair["all_declared_dependencies_present"] for pair in pairs)
     assert all(
@@ -162,18 +162,18 @@ def test_degenerate_reflection_control_is_not_a_semantic_reduction():
     subprocess.run([sys.executable, str(script), "--check"], cwd=ROOT, check=True)
     ledger = json.loads((ALGEBRA / "constructor-ledger.yaml").read_text())
     assert ledger["counts"] == {
-        "registered_terms": 122,
+        "registered_terms": 121,
         "retained_foundation": 3,
-        "definitions_reflected": 119,
+        "definitions_reflected": 118,
         "constructors": 1,
-        "dependency_removal_fixtures": 972,
+        "dependency_removal_fixtures": 962,
         "unreflected_definitions": 0,
     }
     assert ledger["degenerate_control_comparison"]["constructor_minimum_proved"] is False
     assert ledger["degenerate_control_comparison"]["zero_constructors_definitions_derived"] == 0
-    assert ledger["degenerate_control_comparison"]["one_constructor_definitions_derived"] == 119
+    assert ledger["degenerate_control_comparison"]["one_constructor_definitions_derived"] == 118
     assert ledger["semantic_minimality"]["proved"] is False
-    assert ledger["semantic_minimality"]["binding_definition_schemas_retained"] == 119
+    assert ledger["semantic_minimality"]["binding_definition_schemas_retained"] == 118
     assert ledger["semantic_minimality"]["anti_vacuity_passes"] is False
     assert ledger["semantic_minimality"]["eligible_for_promotion"] is False
     assert all(entry["derives"] for entry in ledger["entries"])
@@ -182,4 +182,4 @@ def test_degenerate_reflection_control_is_not_a_semantic_reduction():
         for entry in ledger["entries"]
         for mutation_id in entry["one_step_mutations"]
     ]
-    assert len(mutation_ids) == len(set(mutation_ids)) == 972
+    assert len(mutation_ids) == len(set(mutation_ids)) == 962
