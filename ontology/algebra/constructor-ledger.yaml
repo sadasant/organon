@@ -2,29 +2,29 @@
   "schema_version": 1,
   "status": "generated-nonbinding-degenerate-registry-reflection-ledger",
   "source_sha256": {
-    "ontology/terms.yaml": "6d3274804f24627e17cae0a3e6a8da37323823a2309035d77bf83f8edd911736",
+    "ontology/terms.yaml": "acd439071189ef5123912d2e51c0f484d228b218b47ad9d4d57c9b61f6de9ea8",
     "ontology/algebra/positive-calculus.yaml": "76c83651ae6d9ada317546a862450ec7940b5d1e12fb93b973f8bd6fd1abdd73",
-    "scripts/build-positive-calculus.py": "9bb7ecf3244c474f57f9e829d45b4bea5aa5b7e40c3fc62997783a18e466c729"
+    "scripts/build-positive-calculus.py": "6d7f2c41ec1d04763ac233c508b8a92063d51bd48f53c12759cacd94e25f7268"
   },
   "counts": {
-    "registered_terms": 121,
+    "registered_terms": 120,
     "retained_foundation": 3,
-    "definitions_reflected": 118,
+    "definitions_reflected": 117,
     "constructors": 1,
-    "dependency_removal_fixtures": 962,
+    "dependency_removal_fixtures": 957,
     "unreflected_definitions": 0
   },
   "degenerate_control_comparison": {
     "zero_constructors_positive_heads": 0,
     "zero_constructors_definitions_derived": 0,
-    "one_constructor_definitions_derived": 118,
+    "one_constructor_definitions_derived": 117,
     "ablate_G1_definitions_derived": 0,
     "constructor_minimum_proved": false,
     "explanation": "The comparison covers only G0 and the hand-authored G1 wrapper; it is not an exhaustive search over nondegenerate constructor families."
   },
   "semantic_minimality": {
     "proved": false,
-    "binding_definition_schemas_retained": 118,
+    "binding_definition_schemas_retained": 117,
     "anti_vacuity_passes": false,
     "opaque_parameter": "Conforms(binding_definition_schema, candidate)",
     "eligible_for_promotion": false,
@@ -2159,39 +2159,6 @@
         "G1-D060-remove-Relation",
         "G1-D060-remove-Scope",
         "G1-D060-remove-witness"
-      ]
-    },
-    {
-      "term": "organon:FullyExercisablePermission",
-      "claim": "D061",
-      "constructor": "G1",
-      "declared_dependencies": [
-        "organon:Action",
-        "organon:Exercisability",
-        "organon:Permission",
-        "organon:Scope"
-      ],
-      "conformity_witness": {
-        "predicate": "Conforms",
-        "args": [
-          "D061",
-          "candidate"
-        ]
-      },
-      "result": {
-        "predicate": "Classified",
-        "args": [
-          "organon:FullyExercisablePermission",
-          "candidate"
-        ]
-      },
-      "derives": true,
-      "one_step_mutations": [
-        "G1-D061-remove-Action",
-        "G1-D061-remove-Exercisability",
-        "G1-D061-remove-Permission",
-        "G1-D061-remove-Scope",
-        "G1-D061-remove-witness"
       ]
     },
     {

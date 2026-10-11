@@ -24,3 +24,7 @@ D111's exact alternative occurrences and constructive availability, and D112's C
 ## October 11 Intention withdrawal
 
 Daniel withdrew `organon:Intention` (D113) and its dependent C40 after a general Lean reduction exposed no distinct mechanism beyond an existing Causal Contribution, bodily membership, and a freely assigned referent. No other registered term depends on it. The name does not establish desire, endorsement, or goal pursuit; those premises were not added to rescue it. The [nonbinding example](../ontology/formal/RepresentationActivityExample.lean) preserves the old record, inverse conversions, and achieved/unachieved referents. D113 and C40 are retired, not reassigned; historical snapshots retain their original identifiers. There is no replacement canonical term.
+
+## October 11 Fully Exercisable Permission withdrawal
+
+Daniel withdrew `organon:FullyExercisablePermission` (D061) as a named universal condition over Exercisability, without a replacement term or identifier reassignment. Its earlier v0.9 review-repair lineage remains in history. The [nonbinding example](../ontology/formal/Model.lean) fixes one Permission, time, and resource Configuration and distinguishes individual coverage from jointly funding two operations. No registered term, commitment, or profile root depends on the retired term. Permission and Exercisability remain binding; authorization still does not supply Capability.

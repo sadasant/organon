@@ -456,10 +456,7 @@ An assertion that a Permission is valid remains a Claim before an independent Ob
 
 **Exercisability** is a Relation among a Permission, one Action, a time, and a Configuration of environmental, technical, and temporal Constraints when the Action is in Scope, the time is in the interval, the governing Order still admits the Permission, and the Agent has the Capability to perform that Action under the stated Configuration.
 
-<a id="organon-fully-exercisable-permission"></a>
-<!-- organon:term organon:FullyExercisablePermission claim=D061 -->
-
-**Fully Exercisable Permission** is the condition in which every Action in a Permission's Scope satisfies Exercisability. A Permission may remain valid while no Action, or only some Actions, currently satisfies it.
+A Permission may remain valid while no Action, or only some Actions, currently satisfies Exercisability.
 
 <a id="organon-enforcement"></a>
 <!-- organon:term organon:Enforcement claim=D062 -->

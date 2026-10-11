@@ -10,7 +10,7 @@ generated_by: scripts/check-organon-core-audit.py
 
 This table accounts for every registered term. `proved` means only that the declared challenge classifier is preserved in Lean. It is not automatically a complete encoding of the binding prose. `compiled shadow` means a named Lean shadow builds without the Absence extension; it does not mean that the shadow is extensionally identical to the binding prose definition.
 
-Result totals: **4 proved translations**, **1 pending representation decision**, **1 intentionally excluded**, and **115 unknown**.
+Result totals: **4 proved translations**, **1 pending representation decision**, **1 intentionally excluded**, and **114 unknown**.
 
 | Claim | Term | Reduct disposition | Experiment result | Reason |
 |---|---|---|---|---|
@@ -79,7 +79,6 @@ Result totals: **4 proved translations**, **1 pending representation decision**,
 | D058 | `organon:Revocation` | downstream translation gate | unknown | No exact paired classifier yet; dependency closure alone cannot prove preservation. |
 | D059 | `organon:PermissionExercise` | compiled shadow | unknown | The Lean shadow is extension-invariant; exact prose parity is not established. |
 | D060 | `organon:Exercisability` | downstream translation gate | unknown | No exact paired classifier yet; dependency closure alone cannot prove preservation. |
-| D061 | `organon:FullyExercisablePermission` | downstream translation gate | unknown | No exact paired classifier yet; dependency closure alone cannot prove preservation. |
 | D062 | `organon:Enforcement` | downstream translation gate | unknown | No exact paired classifier yet; dependency closure alone cannot prove preservation. |
 | D063 | `organon:Role` | downstream translation gate | unknown | No exact paired classifier yet; dependency closure alone cannot prove preservation. |
 | D064 | `organon:AdmissibilityRule` | downstream translation gate | unknown | No exact paired classifier yet; dependency closure alone cannot prove preservation. |

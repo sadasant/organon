@@ -64,7 +64,7 @@
     {
       "basis": "review-repair",
       "sources": ["essay:cryptoeconomic-justice", "essay:priced-ledger", "essay:forging-reality", "review:v0.9", "formal:lean-v0.9"],
-      "terms": ["organon:Claim", "organon:Witness", "organon:Control", "organon:Order", "organon:Standing", "organon:Recognition", "organon:Principal", "organon:ActsFor", "organon:CountsAs", "organon:Authority", "organon:PermissionClaim", "organon:Declaration", "organon:Grant", "organon:Admission", "organon:Permission", "organon:Revocation", "organon:PermissionExercise", "organon:Exercisability", "organon:FullyExercisablePermission", "organon:Enforcement", "organon:Role", "organon:AdmissibilityRule", "organon:IndependentFor", "organon:Evidence", "organon:Attestation"]
+      "terms": ["organon:Claim", "organon:Witness", "organon:Control", "organon:Order", "organon:Standing", "organon:Recognition", "organon:Principal", "organon:ActsFor", "organon:CountsAs", "organon:Authority", "organon:PermissionClaim", "organon:Declaration", "organon:Grant", "organon:Admission", "organon:Permission", "organon:Revocation", "organon:PermissionExercise", "organon:Exercisability", "organon:Enforcement", "organon:Role", "organon:AdmissibilityRule", "organon:IndependentFor", "organon:Evidence", "organon:Attestation"]
     },
     {
       "basis": "corpus-extraction",

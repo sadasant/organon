@@ -27,7 +27,7 @@ binding_source: ontology.md
 
 - Mode: full
 - Requested: all registered terms
-- Terms carried: 121 of 121
+- Terms carried: 120 of 120
 - Commitments carried: 56 of 56
 
 ## Metalanguage boundary
@@ -530,13 +530,6 @@ Depends: organon:Action, organon:Permission, organon:Agent, organon:Scope, organ
 
 Claim: `D060` (definition).
 Depends: organon:Relation, organon:Permission, organon:Action, organon:Configuration, organon:Constraint, organon:Scope, organon:Order, organon:Agent, organon:Capability.
-
-### `organon:FullyExercisablePermission` · Fully Exercisable Permission
-
-**Fully Exercisable Permission** is the condition in which every Action in a Permission's Scope satisfies Exercisability. A Permission may remain valid while no Action, or only some Actions, currently satisfies it.
-
-Claim: `D061` (definition).
-Depends: organon:Permission, organon:Action, organon:Scope, organon:Exercisability.
 
 ### `organon:Enforcement` · Enforcement
 

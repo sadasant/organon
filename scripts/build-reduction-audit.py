@@ -59,8 +59,8 @@ def audit(*, check: bool) -> dict[str, int]:
     terms = registry.get("terms", [])
     commitments = registry.get("commitments", [])
     term_ids = [term["id"] for term in terms]
-    if len(term_ids) != 121 or len(term_ids) != len(set(term_ids)):
-        raise AuditError("complete audit requires exactly 121 unique registered terms")
+    if len(term_ids) != 120 or len(term_ids) != len(set(term_ids)):
+        raise AuditError("complete audit requires exactly 120 unique registered terms")
 
     card_by_term = {card["term_id"]: card["id"] for card in cards}
     if len(card_by_term) != len(cards):
@@ -198,11 +198,11 @@ def audit(*, check: bool) -> dict[str, int]:
             "1. a small generative calculus of positive constructors for persistence, representation, causation, agency, institution, epistemic status, situated world, adaptive knowledge, and ritual meaning; and",
             "2. an executable admissibility semantics governing how those constructors may compose.",
             "",
-            "A future completeness claim must reconstruct all 118 definitions from that combined system and eliminate every paired target-extension sketch with genuine models or proofs. Adding more prohibitions alone cannot do it.",
+            "A future completeness claim must reconstruct all 117 definitions from that combined system and eliminate every paired target-extension sketch with genuine models or proofs. Adding more prohibitions alone cannot do it.",
             "",
             "## Follow-on constructor result",
             "",
-            "The [degenerate registry-reflection control](./positive-calculus-report.md) tests one generic witnessed-introduction wrapper. It reflects all 118 definitions only after receiving each complete binding definition schema, every lexical dependency as a positive fact over one candidate, and an opaque conformity witness. It therefore fails the semantic anti-vacuity gate and does not semantically eliminate any definition schema or close the positive-constructor question.",
+            "The [degenerate registry-reflection control](./positive-calculus-report.md) tests one generic witnessed-introduction wrapper. It reflects all 117 definitions only after receiving each complete binding definition schema, every lexical dependency as a positive fact over one candidate, and an opaque conformity witness. It therefore fails the semantic anti-vacuity gate and does not semantically eliminate any definition schema or close the positive-constructor question.",
             "",
             "## Complete disposition",
             "",
