@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
   "suite": "project-ontologies",
-  "current_run": "results/2026-10-11-v0.20-permission-withdrawal",
-  "predecessor": "results/2026-10-11-v0.20-intention-withdrawal",
+  "current_run": "results/2026-10-11-v0.20-termhood-sweep",
+  "predecessor": "results/2026-10-11-v0.20-permission-withdrawal",
   "run_record": "run.json",
   "primary_artifact": "report.md",
   "evaluation_status": "incomplete",
   "promotion_status": "hold",
   "ontology_version": "0.20.0",
-  "ontology_sha256": "bf692e6b33f6ca299c1cf0615195864e23c724d4994bd6b4553d239ac1192ab4",
-  "promotion_basis": "permission-withdrawal snapshot; no new model judgment or semantic promotion"
+  "ontology_sha256": "06f31022bfcb7608bba410ddb60d45d3cbf67b68d9f5b927ef1756ea4ff5a8a6",
+  "promotion_basis": "termhood-sweep snapshot; no new model judgment or promotion-readiness attestation"
 }

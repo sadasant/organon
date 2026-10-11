@@ -4,7 +4,7 @@ status: verified
 canonicality: noncanonical
 created: 2026-08-02
 updated: 2026-10-11
-repository_commit: "5b8ab493d335f614d69764926c3be937507ba1c2"
+repository_commit: "d7dce5965d0e9947de460705d4d4c93e32a113a8"
 ---
 # Lean Spike Build Receipt
 
@@ -32,12 +32,14 @@ Result: all 40 build jobs completed successfully. The executable printed:
 OrganonCore v0.20-compatible reduct: hidden bridge relations, private ritual, ritual-dependent meaning, embodied integration, partial self-governance, nonbinding representation-activity example, finite attention, love, care, respect, an embodied recurrent consciousness candidate, downstream shadows, four preserved challenge classifiers, one pending Reality representation elaboration, and metalinguistic definition admission
 ```
 
-The October 11 cleanup withdraws Intention (D113/C40) and Fully Exercisable Permission (D061) without replacement canonical terms. `RepresentationActivityExample` preserves the historical Intention record exactly, proves general inverse conversions to its three-field reduction, and permits both result and non-result referents without changing the causal mechanism. `Model.PermissionCoverageExample` fixes one Permission, time, and resource Configuration: with two units, operations costing one and two units individually qualify but neither ordering can fund both; three units fund both orderings. Zero-resource, partial-resource, and out-of-interval cases separate authorization from exercisability. These are finite resource-feasibility checks, not execution traces or complete D060 parity. The current registry contains 120 terms and 56 commitments.
+The October 11 cleanup withdraws Intention (D113/C40), Fully Exercisable Permission (D061), Constituted Exercise (D077), Embodied Self-Governance (D112/C39), and Absolute Attention (D116) without replacement canonical terms. `RepresentationActivityExample` preserves the historical Intention record exactly, proves general inverse conversions to its three-field reduction, and permits both result and non-result referents without changing the causal mechanism. `Model.PermissionCoverageExample` fixes one Permission, time, and resource Configuration: with two units, operations costing one and two units individually qualify but neither ordering can fund both; three units fund both orderings. Zero-resource, partial-resource, and out-of-interval cases separate authorization from exercisability. These are finite resource-feasibility checks, not execution traces or complete D060 parity. The current registry contains 117 terms and 55 commitments.
+
+The historical D112 and D116 records remain under `AttentionLoveCareProposal.NonbindingExamples`. D112 preserves its exact family and Constraint, without claiming that admission proves causal regulation of every member. Full coverage is now a condition on the exact Attention instance; `fullCoverageIffHistoricalWrapper` proves equivalence to inhabiting the old wrapper with that instance, and the general `fullCoverageExcludesFocusIndependentAction` retains C42. Standing now requires placement rather than recording. Recognition carries that exact Standing plus its same-index record; countermodels separate unrecorded Standing from Recognition and a record alone from either. The four sovereignty-profile countermodels still compile. Constituent Exercise and Constituent Sovereignty are unchanged.
 
 The integrated axiom audit was rerun after separately compiling `PR18ReviewDraft.lean`:
 
 ```text
-PROJECT_AXIOM_AUDIT: 2467 project theorems checked; 0 declared project axioms; allowed only propext, Classical.choice, Quot.sound.
+PROJECT_AXIOM_AUDIT: 2481 project theorems checked; 0 declared project axioms; allowed only propext, Classical.choice, Quot.sound.
 ```
 
 This is a build attestation, not promotion readiness. The incoming PR's exact-source promotion reviews were already stale and remain stale; the causal selection-ordering question and other declared semantic gates are not resolved by this withdrawal. Model-judged evaluations were not rerun.
@@ -80,11 +82,11 @@ The behavioral-independence repair requires a nonempty declared domain of respon
 
 The participant repair restricts the classifier's inputs to identity Invariant and Boundary. `ignoresRecords` proves record independence without axioms. The former three-State prefix cannot become another participant in Love, Care, or Respect. The replacement positive witnesses share the actor's identity criterion, full history, current State, and constraint count, but differ on Boundary admission of an unrecorded alternative. Both Boundaries admit every recorded output. Nine participant theorems, including the classifier's non-injectivity, permitted Boundary-insensitive classification, and duplicate-constraint stability, were audited with `#print axioms`; only the standard axioms above occur. Canonical numerical identity across Boundary changes remains explicitly gated. The complete 36-job build and finite executable pass.
 
-- `OrganonCore.lean`: `143274a701e03826ce8eea0756caf3db534587b96f497d227d534e52627be161`
+- `OrganonCore.lean`: `d080cd83c6d946fe48e8219f02ba6277367a49f8ac88186ce40a1531220a65d0`
 - `OrganonCorePreservation.lean`: `e672e51e2a5cf84a83b73d5a65d325feb1aa2e76fc9733fd66a33d08d7534c2b`
 - `OrganonCoreChallenge.lean`: `e3aa3028ce6aa5d449540abf87aefe0cfe96d9e25ae542020589e5d4f6777d8a`
 - `DanielOntology.lean`: `f8880dbdd90b198beba9392d3ef8ab18e575715f206ec1e497fe3d31eab69ba1`
-- `BridgeRelations.lean`: `a17cdd4eb893859d3895cc729f5726a9689eb97d6290d7aa40e99dfca010b7cf`
+- `BridgeRelations.lean`: `021dc3e5394a1c64c1055f2526cafee440ce9f7f7f168217d03f329ac59389ff`
 - `RitualMeaning.lean`: `4154d3d8ec479679ec0faab4f8d4bb4364c8ed670b61528e77fcf996e537a68e`
 - `EmbodiedConsciousness.lean`: `d2e0fbe06b70955433b28af59f2b4f4ffa0984d2c656d7d4e7a5912f0c9e11ad`
 - `PromotionContracts.lean`: `2ad1d436f4bd85e0164f1d113ec97212f975f7f5155da66d17078109b0c3d3c4`
@@ -93,14 +95,14 @@ The participant repair restricts the classifier's inputs to identity Invariant a
 - `WorldSubstrate.lean`: `d3a9d36f6acfe56318ba35dd1f742d2d2e73136f84d70ed27267eb7228122ec5`
 - `TruthTrustAlignment.lean`: `bdaa0217e7434c9bc1d7cd3a6a2d489c684fbf38ffeb98a87388864d1cd5a733`
 - `IntelligenceKnowledge.lean`: `bc0ad1caa81adb25316f79aecd5011e32cf94cc73e1e046f7e13bcd10779aee8`
-- `QuarantineProfiles.lean`: `245c94b5c1a8096e9fdea457b1cafba3ddf4f7ab9d98b214aaee8be5eebdbce4`
-- `AttentionLoveCare.lean`: `178223126a8f16b68ccac7bd06fd25bdb63bba1aed183ec0e80fc7a922972bf1`
-- `AttentionLoveCareContracts.lean`: `87a0cdfe32c5da7f3e8afa3de26326969c72ef2c06ebefbac36de75dd7207ca4`
+- `QuarantineProfiles.lean`: `769a1fd2a8817476d55cefc7323da0837245783eb09a3dcc1e2657aa704d0509`
+- `AttentionLoveCare.lean`: `75718a2e02bde687d288261e9748306d80b1375ce6e0203b771d405b1329836c`
+- `AttentionLoveCareContracts.lean`: `6c32c0856aeca7d1082d4d6700b1574d9b8f051fdada18a19114f4d0546c5363`
 - `Model.lean`: `336119adcc36abc31f09fa58db21c7801cc15deeb1b0665f668bba7ca7983ca0`
 - `lakefile.toml`: `d244acbc5c1204ff84c96f8cb0e7ec73a3418f957f008da228c9422429045397`
 - `lean-toolchain`: `54727eec5cba149c18842e6deb5c41b369d66455c93ce135d7d5347c782b2325`
-- `PR18Governance.lean`: `4b54f4c9a046ce26c1ad5a058675730bd2aa76ea7ac82fac31b94a94a45da349`
-- `PR18ReviewDraft.lean`: `3c1a09056060bb0f1af9c12dd2273960e3a42b2a4ebfa3842186b678b263a0af`
+- `PR18Governance.lean`: `cd26841c40ff8808bae91d0f31547a3fb0f1f693b049433ee4baa411bbdc5550`
+- `PR18ReviewDraft.lean`: `736485b4859be92602ef238c237033ab4d880489167e320488377cff1de786bc`
 - `RepresentationActivityExample.lean`: `e4dbab2ecfeba547f3ba9a3148c065e3bd7340897f3711a5aa55a7e10440af1d`
 
 ## October 7 combined-source boundary
