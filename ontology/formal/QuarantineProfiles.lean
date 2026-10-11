@@ -399,7 +399,9 @@ structure SovereigntySemantics
   Rule : Type u
   hasConstituentPower : Polity → Order → Prop
   constitutes : Polity → Order → Action → Prop
-  standingRecords :
+  /-- The Order's Rule-indexed placement of an Entity in an Action within a
+  Scope. Standing uses placement; whether the Order records it is not consulted. -/
+  standingPlacement :
     Order → Rule → Entity → Action → Scope (Entity × Action) → Prop
   hasAuthority : Order → Entity → Action → Prop
   superior : Order → Entity → Entity → Action → Prop
@@ -421,7 +423,7 @@ def SovereigntySemantics.HasStanding
     (action : Action)
     (scope : Scope (Entity × Action)) : Prop :=
   Nonempty
-    (StandingRelation semantics.standingRecords
+    (StandingRelation semantics.standingPlacement
       order rule entity action scope)
 
 structure ConstituentSovereignty
@@ -515,7 +517,9 @@ def toySovereignty : SovereigntySemantics ToyPolity SovereignEntity
     polity = .people ∧ order = .internal
   constitutes := fun polity order action =>
     polity = .people ∧ order = .internal ∧ action = .refound
-  standingRecords := fun order rule entity action scope =>
+  -- Explicit placements: the internal Order places the governor in
+  -- administration, and the foreign Order places the assembly there.
+  standingPlacement := fun order rule entity action scope =>
     (((order = .internal ∧ rule = .internalAuthority ∧
         entity = .governor ∧ action = .administer) ∨
       (order = .foreign ∧ rule = .externalRecognition ∧
@@ -558,7 +562,7 @@ def constitutedWitness : ConstitutedSovereignty toySovereignty where
   representativeInScope := by simp
   standing := ⟨{
     inScope := rfl
-    recorded := by simp [toySovereignty]
+    placed := by simp [toySovereignty]
   }⟩
   authority := by
     intro action inScope
@@ -600,7 +604,7 @@ def externalWitness : ExternalSovereignty toySovereignty where
   actionInScope := by simp
   standing := ⟨{
     inScope := rfl
-    recorded := by simp [toySovereignty]
+    placed := by simp [toySovereignty]
   }⟩
   recognized := by simp [toySovereignty]
   ownPrincipal := by simp [toySovereignty]
@@ -609,7 +613,7 @@ def externalWitness : ExternalSovereignty toySovereignty where
 def constituentOnlySemantics : SovereigntySemantics ToyPolity SovereignEntity
     SovereignOrder SovereignAction Crossing BoundaryOutcome :=
   { toySovereignty with
-    standingRecords := fun _ _ _ _ _ => False
+    standingPlacement := fun _ _ _ _ _ => False
     hasAuthority := fun _ _ _ => False
     superior := fun _ _ _ _ => False
     controlsCrossing := fun _ _ => False
@@ -638,7 +642,7 @@ def boundaryOnlySemantics : SovereigntySemantics ToyPolity SovereignEntity
   { toySovereignty with
     hasConstituentPower := fun _ _ => False
     constitutes := fun _ _ _ => False
-    standingRecords := fun _ _ _ _ _ => False
+    standingPlacement := fun _ _ _ _ _ => False
     hasAuthority := fun _ _ _ => False
     superior := fun _ _ _ _ => False
     externallyRecognizes := fun _ _ _ _ => False
@@ -677,7 +681,7 @@ def constitutedOnlyWitness : ConstitutedSovereignty constitutedOnlySemantics whe
   representativeInScope := by simp
   standing := ⟨{
     inScope := rfl
-    recorded := by simp [constitutedOnlySemantics, toySovereignty]
+    placed := by simp [constitutedOnlySemantics, toySovereignty]
   }⟩
   authority := by
     intro action inScope
@@ -719,7 +723,7 @@ def externalOnlyWitness : ExternalSovereignty externalOnlySemantics where
   actionInScope := by simp
   standing := ⟨{
     inScope := rfl
-    recorded := by simp [externalOnlySemantics, toySovereignty]
+    placed := by simp [externalOnlySemantics, toySovereignty]
   }⟩
   recognized := by simp [externalOnlySemantics, toySovereignty]
   ownPrincipal := by simp [externalOnlySemantics, toySovereignty]
@@ -733,7 +737,7 @@ theorem constituentDoesNotEntailOtherSovereigntyProfiles :
   refine ⟨⟨constituentOnlyWitness⟩, ?_, ?_, ?_⟩
   · rintro ⟨profile⟩
     rcases profile.standing with ⟨standing⟩
-    simpa [constituentOnlySemantics] using standing.recorded
+    simpa [constituentOnlySemantics] using standing.placed
   · rintro ⟨profile⟩
     simpa [constituentOnlySemantics] using profile.controlsAdmitted
   · rintro ⟨profile⟩
@@ -762,7 +766,7 @@ theorem boundaryDoesNotEntailOtherSovereigntyProfiles :
     simpa [boundaryOnlySemantics] using profile.power
   · rintro ⟨profile⟩
     rcases profile.standing with ⟨standing⟩
-    simpa [boundaryOnlySemantics] using standing.recorded
+    simpa [boundaryOnlySemantics] using standing.placed
   · rintro ⟨profile⟩
     simpa [boundaryOnlySemantics] using profile.recognized
 

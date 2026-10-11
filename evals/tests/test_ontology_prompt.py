@@ -20,10 +20,14 @@ def load_builder():
 def test_full_projection_covers_registry_and_is_current():
     registry = json.loads((ROOT / "ontology" / "terms.yaml").read_text())
     prompt, manifest = load_builder().build([])
-    assert manifest["term_count"] == len(registry["terms"]) == 120
-    assert manifest["commitment_count"] == len(registry["commitments"]) == 56
+    assert manifest["term_count"] == len(registry["terms"]) == 117
+    assert manifest["commitment_count"] == len(registry["commitments"]) == 55
     assert "`organon:Intention`" not in prompt
     assert "`organon:FullyExercisablePermission`" not in prompt
+    assert "`organon:ConstitutedExercise`" not in prompt
+    assert "`organon:EmbodiedSelfGovernance`" not in prompt
+    assert "`organon:AbsoluteAttention`" not in prompt
+    assert "`C39`" not in prompt
     assert "`C40`" not in prompt
     assert "`organon:Absence`" in prompt
     assert "`C38`" in prompt

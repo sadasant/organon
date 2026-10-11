@@ -10,7 +10,7 @@ generated_by: scripts/check-organon-core-audit.py
 
 This table accounts for every registered term. `proved` means only that the declared challenge classifier is preserved in Lean. It is not automatically a complete encoding of the binding prose. `compiled shadow` means a named Lean shadow builds without the Absence extension; it does not mean that the shadow is extensionally identical to the binding prose definition.
 
-Result totals: **4 proved translations**, **1 pending representation decision**, **1 intentionally excluded**, and **114 unknown**.
+Result totals: **4 proved translations**, **1 pending representation decision**, **1 intentionally excluded**, and **111 unknown**.
 
 | Claim | Term | Reduct disposition | Experiment result | Reason |
 |---|---|---|---|---|
@@ -66,7 +66,7 @@ Result totals: **4 proved translations**, **1 pending representation decision**,
 | D045 | `organon:Control` | downstream translation gate | unknown | No exact paired classifier yet; dependency closure alone cannot prove preservation. |
 | D046 | `organon:Order` | downstream translation gate | unknown | No exact paired classifier yet; dependency closure alone cannot prove preservation. |
 | D047 | `organon:Standing` | compiled shadow | unknown | The Lean shadow is extension-invariant; exact prose parity is not established. |
-| D048 | `organon:Recognition` | downstream translation gate | unknown | No exact paired classifier yet; dependency closure alone cannot prove preservation. |
+| D048 | `organon:Recognition` | compiled shadow | unknown | The Lean shadow is extension-invariant; exact prose parity is not established. |
 | D049 | `organon:Principal` | downstream translation gate | unknown | No exact paired classifier yet; dependency closure alone cannot prove preservation. |
 | D050 | `organon:ActsFor` | downstream translation gate | unknown | No exact paired classifier yet; dependency closure alone cannot prove preservation. |
 | D051 | `organon:CountsAs` | direct translation gate | unknown | The prose definition names Presence directly and lacks an exact paired classifier. |
@@ -95,7 +95,6 @@ Result totals: **4 proved translations**, **1 pending representation decision**,
 | D074 | `organon:Receipt` | downstream translation gate | unknown | No exact paired classifier yet; dependency closure alone cannot prove preservation. |
 | D075 | `organon:Ledger` | downstream translation gate | unknown | No exact paired classifier yet; dependency closure alone cannot prove preservation. |
 | D076 | `organon:Polity` | downstream translation gate | unknown | No exact paired classifier yet; dependency closure alone cannot prove preservation. |
-| D077 | `organon:ConstitutedExercise` | downstream translation gate | unknown | No exact paired classifier yet; dependency closure alone cannot prove preservation. |
 | D078 | `organon:ConstituentExercise` | downstream translation gate | unknown | No exact paired classifier yet; dependency closure alone cannot prove preservation. |
 | D079 | `organon:ConstituentPower` | downstream translation gate | unknown | No exact paired classifier yet; dependency closure alone cannot prove preservation. |
 | D080 | `organon:ConsciousnessAttribution` | compiled shadow | unknown | The Lean shadow is extension-invariant; exact prose parity is not established. |
@@ -127,10 +126,8 @@ Result totals: **4 proved translations**, **1 pending representation decision**,
 | D109 | `organon:EmbodiedPerspective` | compiled shadow | unknown | The Lean shadow is extension-invariant; exact prose parity is not established. |
 | D110 | `organon:RecurrentIntegration` | compiled shadow | unknown | The Lean shadow is extension-invariant; exact prose parity is not established. |
 | D111 | `organon:InternalActivitySelection` | compiled shadow | unknown | The Lean shadow is extension-invariant; exact prose parity is not established. |
-| D112 | `organon:EmbodiedSelfGovernance` | compiled shadow | unknown | The Lean shadow is extension-invariant; exact prose parity is not established. |
 | D114 | `organon:Attention` | compiled shadow | unknown | The Lean shadow is extension-invariant; exact prose parity is not established. |
 | D115 | `organon:SustainedAttention` | compiled shadow | unknown | The Lean shadow is extension-invariant; exact prose parity is not established. |
-| D116 | `organon:AbsoluteAttention` | compiled shadow | unknown | The Lean shadow is extension-invariant; exact prose parity is not established. |
 | D117 | `organon:Love` | compiled shadow | unknown | The Lean shadow is extension-invariant; exact prose parity is not established. |
 | D118 | `organon:Care` | compiled shadow | unknown | The Lean shadow is extension-invariant; exact prose parity is not established. |
 | D119 | `organon:Respect` | compiled shadow | unknown | The Lean shadow is extension-invariant; exact prose parity is not established. |

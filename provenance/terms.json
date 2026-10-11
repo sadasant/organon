@@ -69,7 +69,7 @@
     {
       "basis": "corpus-extraction",
       "sources": ["essay:invariants", "essay:forging-reality", "essay:artificial-persons", "essay:priced-ledger"],
-      "terms": ["organon:Institution", "organon:Center", "organon:Organ", "organon:CanonicalSystem", "organon:ShadowSystem", "organon:Person", "organon:Receipt", "organon:Ledger", "organon:Polity", "organon:ConstitutedExercise", "organon:ConstituentExercise", "organon:ConstituentPower"]
+      "terms": ["organon:Institution", "organon:Center", "organon:Organ", "organon:CanonicalSystem", "organon:ShadowSystem", "organon:Person", "organon:Receipt", "organon:Ledger", "organon:Polity", "organon:ConstituentExercise", "organon:ConstituentPower"]
     },
     {
       "basis": "review-repair",
@@ -116,6 +116,6 @@
       "sources": ["proposal:embodied-consciousness", "formal:embodied-consciousness", "review:daniel"],
       "terms": ["organon:Body", "organon:BodilyOrganization", "organon:EmbodiedPerspective", "organon:RecurrentIntegration", "organon:InternalActivitySelection"]
     },
-    {"basis": "adopted-commitment", "sources": ["proposal:attention-love-care", "formal:attention-love-care", "review:daniel"], "terms": ["organon:EmbodiedSelfGovernance", "organon:Attention", "organon:SustainedAttention", "organon:AbsoluteAttention", "organon:Love", "organon:Care", "organon:Respect"]}
+    {"basis": "adopted-commitment", "sources": ["proposal:attention-love-care", "formal:attention-love-care", "review:daniel"], "terms": ["organon:Attention", "organon:SustainedAttention", "organon:Love", "organon:Care", "organon:Respect"]}
   ]
 }

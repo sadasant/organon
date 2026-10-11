@@ -5,6 +5,7 @@ realization, full Sense uptake and canonical Agency remain explicit boundaries. 
 universe u v w
 namespace DanielOntology.PR18ReviewDraft
 open EmbodiedConsciousnessProposal AttentionLoveCareProposal
+open AttentionLoveCareProposal.NonbindingExamples
 
 def Self {EntityId : Type u} (subject target : EntityId) : Prop := subject = target
 inductive ParticipationRole where | operator | input deriving DecidableEq, Repr

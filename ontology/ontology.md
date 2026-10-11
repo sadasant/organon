@@ -387,12 +387,12 @@ The sequence contains at least two distinct Transformation occurrences joined by
 <a id="organon-standing"></a>
 <!-- organon:term organon:Standing claim=D047 -->
 
-**Standing** is the Relation through which an Order, under a Rule, places an Entity within the domain of named institutional statuses or Actions in a specified Scope. “Institutional eligibility” is shorthand for the relevant Standing Relation, not an additional predicate. Standing in one Order supplies no Standing in another.
+**Standing** is the Relation through which an Order, under a Rule, places an Entity within the domain of named institutional statuses or Actions in a specified Scope. Placement is not recording: Standing does not require that the Order has recorded the placement, and a Record of a status without that placement supplies no Standing. “Institutional eligibility” is shorthand for the relevant Standing Relation, not an additional predicate. Standing in one Order supplies no Standing in another.
 
 <a id="organon-recognition"></a>
 <!-- organon:term organon:Recognition claim=D048 -->
 
-**Recognition** is the Relation established when an Order records Standing for an Entity under a Rule and Scope.
+**Recognition** is the Relation established when an Order records Standing for an Entity under a Rule and Scope. The Standing must itself obtain at exactly the same Order, Rule, Entity, institutional status, and Scope; a record at different indices is not Recognition of that Standing.
 
 <a id="organon-principal"></a>
 <!-- organon:term organon:Principal claim=D049 -->
@@ -563,10 +563,7 @@ A Ledger can preserve standing and history; it does not become Reality.
 
 **Polity** is the plurality of Agents and Institutions whose recurring Actions enact and contest a political Order.
 
-<a id="organon-constituted-exercise"></a>
-<!-- organon:term organon:ConstitutedExercise claim=D077 -->
-
-**Constituted exercise** is an exercise of Authority under the current Order.
+For example, an Agent issuing a Declaration exercises Authority under its Order. Merely holding Authority does not establish that the Declaration occurred. This is an example of existing terms, not a separate institutional category.
 
 <a id="organon-constituent-exercise"></a>
 <!-- organon:term organon:ConstituentExercise claim=D078 -->
@@ -828,27 +825,19 @@ Body does not duplicate Entity, Boundary, or Persistence and has no separate ide
 Together, Body, Embodied Perspective, Recurrent Integration, and Internal Activity Selection specify one proposal-local candidate condition for consciousness only when they share the same Entity, Body Relation, Scope, Interior Specification, Direction, and Causal-path interpretation; every Transformation and Change in the recurrent families belongs to that Body Relation; and the perspective's condition Representation and exact Causal Contribution are the Representation and contribution that perform the selection or revision. This structural conjunction is the candidate's complete obtainment condition rather than evidence for a separately stipulated predicate. It is not a binding definition of Consciousness and remains distinct from Consciousness Attribution and Consciousness Designation.
 
 
-### 32. Self-governance, attention, love, care, and respect
-
-<a id="organon-embodied-self-governance"></a>
-<!-- organon:term organon:EmbodiedSelfGovernance claim=D112 -->
-
-**Embodied Self-Governance** is the scoped Configuration through which an Entity's Embodied Perspective is exactly joined to Internal Activity Selection that selects, inhibits, continues, or revises Transformations of its Body under Constraints of its Boundary. The governed family is nonempty, includes the selected Transformation, occurs within that Body, and is admitted by the named Constraint. Embodied Self-Governance may be partial and limited to particular functions or Transformations; it does not entail complete Control.
+### 32. Attention, love, care, and respect
 
 <a id="organon-attention"></a>
 <!-- organon:term organon:Attention claim=D114 -->
 
 **Attention** is the finite ratio of an Entity's currently available Perception, Interpretation, and Action channels causally organized by one Difference in one State of one Body, relative to a declared channel inventory and availability Specification. The inventory individuates channels independently of their kind and result. The Specification supplies the availability criterion and its Scope; the nonempty finite available enumeration covers exactly every conforming channel and counts each once. A different inventory or Specification defines a different measurement context, not a different degree within the same context. Each snapshot declares channel results and a collection of channel-specific response comparisons independently of the counted enumeration. Causal organization is evaluated at that snapshot, rather than by searching historical Causal Contributions: a qualifying comparison holds the snapshot's declared context fixed, produces the channel's current result under the focal Representation, and produces a different result under the contrast Representation. The result must belong to the indexed snapshot; neither earlier nor later States qualify. A channel is organized exactly when at least one declared comparison satisfies these conditions for the focal Difference. A selected witness must belong to that collection; selecting a nonfocal witness cannot hide a qualifying alternative. The organized enumeration covers exactly every available qualifying channel, counts each once, and supplies the numerator; the available enumeration supplies the denominator. Holding the snapshot and declared measurement data fixed fixes the ratio independently of any history. Attention alone makes no Claim about benefit, consent, morality, accuracy, Truth, or purpose.
 
+When every channel conforming to the same inventory and indexed availability Specification is organized by the same Difference, Attention has full coverage. This is a derived condition on that Attention instance, independent of enumeration order, not a separate term. It excludes available Action independent of the focus, but neither focus-organized Action nor motion itself.
+
 <a id="organon-sustained-attention"></a>
 <!-- organon:term organon:SustainedAttention claim=D115 -->
 
 **Sustained Attention** is Attention organized by the same Difference under one declared channel inventory across at least two ordered changing States of one Body. At every named State, Attention is evaluated independently at that exact State and at least one available channel is currently organized by that Difference. Ordering these snapshots establishes the temporal comparison; no snapshot inherits organization merely because a channel was organized at an earlier State. Repeated encounters qualify only when indexed to such ordered States rather than inferred from resemblance.
-
-<a id="organon-absolute-attention"></a>
-<!-- organon:term organon:AbsoluteAttention claim=D116 -->
-
-**Absolute Attention** is the limiting condition, relative to the same declared channel inventory and indexed availability Specification, in which every conforming perceptual, interpretive, and action channel is organized by the same Difference. Completeness concerns membership, independent of enumeration order. It leaves no available Action channel independent of that Difference. It does not entail immobility or the absence of Action organized by the focus.
 
 <a id="organon-love"></a>
 <!-- organon:term organon:Love claim=D117 -->
@@ -1019,11 +1008,9 @@ These signatures make the ontology operational. They are schemas, not executable
 38. <!-- organon:claim C38 --> **No embodied-structure-to-status collapse:** The complete embodied structural conjunction, Consciousness Attribution, Consciousness Designation, Standing, protection, and moral status do not entail one another. Every institutional consequence requires its own Rule, Order, and Scope; this rule does not promote or define Consciousness.
 
 
-39. <!-- organon:claim C39 --> **No self-governance-total-control collapse:** Embodied Self-Governance may govern a nonempty proper subset of a Body's Transformations. It does not entail complete Control, and Control alone does not establish the Embodied Perspective-to-selection join.
+41. <!-- organon:claim C41 --> **Attention need not cover every available channel:** Attention may organize only some available channels. Perception, Interpretation, Action, Difference, salience, exposure, or repeated occurrence alone does not establish Attention without the exact causal organization and finite availability denominator.
 
-41. <!-- organon:claim C41 --> **No attention-absolute-attention collapse:** Attention may organize only some available channels. Perception, Interpretation, Action, Difference, salience, exposure, or repeated occurrence alone does not establish Attention without the exact causal organization and finite availability denominator.
-
-42. <!-- organon:claim C42 --> **Absolute Attention excludes focus-independent available Action:** When every available channel is organized by the same Difference, no available Action channel remains independent of that Difference. Absolute Attention does not prohibit Action organized by the focus and does not entail benefit, consent, morality, accuracy, or purpose.
+42. <!-- organon:claim C42 --> **Full coverage excludes focus-independent available Action:** When every available channel in an Attention instance is organized by the same Difference, no available Action channel remains independent of that Difference. This condition does not prohibit Action organized by the focus and does not entail benefit, consent, morality, accuracy, or purpose.
 
 43. <!-- organon:claim C43 --> **Attention is normatively and epistemically neutral:** Attention does not entail benefit, consent, morality, accuracy, Truth, purpose, or favorable Consequence, and none of those separately establishes Attention.
 

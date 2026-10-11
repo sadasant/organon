@@ -3,8 +3,9 @@ import EmbodiedConsciousness
 /-!
 # Self-governance, attention, love, care, and respect
 
-This proposal-local shadow encodes the seven terms promoted after the
-embodiment foundation. It does not define Consciousness, benefit, consent,
+This proposal-local shadow encodes five terms promoted after the
+embodiment foundation, with historical composites retained as nonbinding examples.
+It does not define Consciousness, benefit, consent,
 morality, reciprocity, understanding, possession, or complete Control.
 -/
 
@@ -14,6 +15,11 @@ namespace DanielOntology.AttentionLoveCareProposal
 
 open EmbodiedConsciousnessProposal
 
+namespace NonbindingExamples
+
+/-- Historical D112 construction, retained without a registered term. The exact
+family and Constraint are preserved; admission does not prove causal regulation
+of every family member. The field names record the former construction. -/
 structure EmbodiedSelfGovernance
     (Part : Type u)
     {Feature : Type v} {Context : Type w}
@@ -37,6 +43,10 @@ structure EmbodiedSelfGovernance
   constraintFromBoundary : constraint ∈ entity.boundary.constraints
   governedAdmitted : ∀ transformation,
     transformation ∈ governedTransformations → constraint.permits transformation
+
+end NonbindingExamples
+
+open NonbindingExamples
 
 inductive AttentionChannel where
   | perception
@@ -247,6 +257,18 @@ structure SustainedAttention
     (attentionAt state).focalRepresentation = commonFocalRepresentation ∧
     (attentionAt state).contrastRepresentation = commonContrastRepresentation
 
+/-- Full coverage is a derived condition on the same Attention instance, not
+a new canonical term. It is relative to that instance's inventory and Scope. -/
+def Attention.fullCoverage
+    {Part : Type u} {Feature : Type v} {Context : Type w}
+    {entity : Entity (Feature × Context)} {body : Body Part entity}
+    (attention : Attention Part body) : Prop :=
+  ∀ item, item ∈ attention.available → item ∈ attention.organized
+
+namespace NonbindingExamples
+
+/-- Historical D116 wrapper retained only for existing example witnesses.
+Binding consequences use `Attention.fullCoverage` directly. -/
 structure AbsoluteAttention
     (Part : Type u)
     {Feature : Type v} {Context : Type w}
@@ -255,6 +277,21 @@ structure AbsoluteAttention
   attention : Attention Part body
   allAvailableOrganized : ∀ item, item ∈ attention.available →
     item ∈ attention.organized
+
+end NonbindingExamples
+
+/-- The historical wrapper adds precisely the derived coverage condition. -/
+theorem fullCoverageIffHistoricalWrapper
+    {Part : Type u} {Feature : Type v} {Context : Type w}
+    {entity : Entity (Feature × Context)} {body : Body Part entity}
+    (attention : Attention Part body) :
+    attention.fullCoverage ↔
+      ∃ historical : AbsoluteAttention Part body, historical.attention = attention := by
+  constructor
+  · intro coverage
+    exact ⟨⟨attention, coverage⟩, rfl⟩
+  · rintro ⟨historical, rfl⟩
+    exact historical.allAvailableOrganized
 
 /-- Behavioral independence in the declared current causal domain, not failure
 to match ordered labels. Every declared response reproduces the current result
@@ -293,16 +330,23 @@ def FocusIndependentAction
       attention.contrastRepresentation attention.focalRepresentation
       (attention.result item) (attention.causalContributions item)
 
+theorem fullCoverageExcludesFocusIndependentAction
+    {Part : Type u} {Feature : Type v} {Context : Type w}
+    {entity : Entity (Feature × Context)} {body : Body Part entity}
+    (attention : Attention Part body) (coverage : attention.fullCoverage) :
+    ∀ item, ¬ FocusIndependentAction attention item := by
+  intro item independent
+  rcases independent with ⟨_, available, invariantResponse⟩
+  apply independentChannelCannotBeOrganized _ _ _ _ _ invariantResponse
+  exact ((attention.organizedExact item).mp (coverage item available)).2
+
+/-- Compatibility theorem for the nonbinding historical examples. -/
 theorem absoluteAttentionInhibitsFocusIndependentAction
     {Part : Type u} {Feature : Type v} {Context : Type w}
     {entity : Entity (Feature × Context)} {body : Body Part entity}
     (absolute : AbsoluteAttention Part body) :
-    ∀ item, ¬ FocusIndependentAction absolute.attention item := by
-  intro item independent
-  rcases independent with ⟨_, available, invariantResponse⟩
-  apply independentChannelCannotBeOrganized _ _ _ _ _ invariantResponse
-  exact ((absolute.attention.organizedExact item).mp
-    (absolute.allAvailableOrganized item available)).2
+    ∀ item, ¬ FocusIndependentAction absolute.attention item :=
+  fullCoverageExcludesFocusIndependentAction absolute.attention absolute.allAvailableOrganized
 
 structure Love
     (Part : Type u)

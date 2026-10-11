@@ -11,10 +11,8 @@
   "promotion_contracts": "../ontology/formal/AttentionLoveCareContracts.lean",
   "promotion_review": "../reviews/promotion/attention-love-care.json",
   "introduced_terms": [
-    "organon:EmbodiedSelfGovernance",
     "organon:Attention",
     "organon:SustainedAttention",
-    "organon:AbsoluteAttention",
     "organon:Love",
     "organon:Care",
     "organon:Respect"
@@ -42,99 +40,6 @@
   ],
   "semantic_fields": [],
   "statements": [
-    {
-      "id": "AC-D1",
-      "type": "proposed_definition",
-      "subject": "Embodied Self-Governance",
-      "depends_on": [
-        "organon:Configuration",
-        "organon:Entity",
-        "organon:EmbodiedPerspective",
-        "organon:InternalActivitySelection",
-        "organon:Body",
-        "organon:Transformation",
-        "organon:Scope",
-        "organon:Constraint",
-        "organon:Boundary",
-        "organon:Control"
-      ],
-      "formal_contract": {
-        "status": "proved_with_boundaries",
-        "theorem": "embodiedSelfGovernanceContract",
-        "shared_indices": [
-          "entity",
-          "body"
-        ],
-        "subject_symbols": [
-          "EmbodiedSelfGovernance"
-        ],
-        "dependency_dispositions": {
-          "organon:Entity": {
-            "status": "formalized",
-            "symbols": [
-              "entity"
-            ]
-          },
-          "organon:EmbodiedPerspective": {
-            "status": "formalized",
-            "symbols": [
-              "perspective"
-            ]
-          },
-          "organon:InternalActivitySelection": {
-            "status": "formalized",
-            "symbols": [
-              "selection"
-            ]
-          },
-          "organon:Body": {
-            "status": "formalized",
-            "symbols": [
-              "body"
-            ]
-          },
-          "organon:Transformation": {
-            "status": "formalized",
-            "symbols": [
-              "governedTransformations"
-            ]
-          },
-          "organon:Scope": {
-            "status": "formalized",
-            "symbols": [
-              "scope",
-              "includes"
-            ]
-          },
-          "organon:Constraint": {
-            "status": "formalized",
-            "symbols": [
-              "constraint",
-              "permits"
-            ]
-          },
-          "organon:Boundary": {
-            "status": "formalized",
-            "symbols": [
-              "boundary",
-              "constraints"
-            ]
-          },
-          "organon:Configuration": {
-            "status": "represented_by",
-            "symbols": [
-              "governedTransformations",
-              "permits"
-            ],
-            "reason": "This proof-carrying record is an admitted scoped internal Configuration, not canonical Agent/Action Capability or Agency."
-          },
-          "organon:Control": {
-            "status": "outside_formal_boundary",
-            "reason": "Complete Control remains outside this theorem; the finite partiality contract witnesses a proper governed Scope."
-          }
-        }
-      }
-    },
     {
       "id": "AC-D3",
       "type": "proposed_definition",
@@ -331,62 +236,6 @@
               "commonContrastRepresentation"
             ],
             "reason": "The common focal and contrast representations preserve one Difference across the indexed states."
-          }
-        }
-      }
-    },
-    {
-      "id": "AC-D5",
-      "type": "proposed_definition",
-      "subject": "Absolute Attention",
-      "depends_on": [
-        "AC-D3",
-        "organon:Difference",
-        "organon:Action",
-        "organon:Specification"
-      ],
-      "formal_contract": {
-        "status": "proved",
-        "theorem": "absoluteAttentionContract",
-        "shared_indices": [
-          "absolute",
-          "attention",
-          "item"
-        ],
-        "subject_symbols": [
-          "AbsoluteAttention"
-        ],
-        "dependency_dispositions": {
-          "AC-D3": {
-            "status": "formalized",
-            "symbols": [
-              "attention"
-            ]
-          },
-          "organon:Difference": {
-            "status": "represented_by",
-            "symbols": [
-              "attention",
-              "organized",
-              "available"
-            ],
-            "reason": "Every available item is organized by the one focal Difference already fixed by the underlying Attention."
-          },
-          "organon:Action": {
-            "status": "represented_by",
-            "symbols": [
-              "FocusIndependentAction"
-            ],
-            "reason": "FocusIndependentAction is the exact local action-channel projection excluded by complete organization."
-          },
-          "organon:Specification": {
-            "status": "formalized",
-            "symbols": [
-              "inventory",
-              "availabilityAt",
-              "conforms"
-            ],
-            "reason": "Absolute coverage includes every channel conforming to the same indexed availability Specification."
           }
         }
       }
@@ -658,85 +507,28 @@
       }
     },
     {
-      "id": "AC-C1",
-      "type": "anti_collapse_constraint",
-      "subject": "Self-governance may be partial",
-      "depends_on": [
-        "AC-D1",
-        "organon:Body",
-        "organon:Scope",
-        "organon:Control"
-      ],
-      "formal_contract": {
-        "status": "proved_with_boundaries",
-        "theorem": "partialSelfGovernanceCountermodel",
-        "shared_indices": [
-          "systemSelfGovernance"
-        ],
-        "subject_symbols": [
-          "systemSelfGovernance"
-        ],
-        "dependency_dispositions": {
-          "AC-D1": {
-            "status": "formalized",
-            "symbols": [
-              "systemSelfGovernance"
-            ]
-          },
-          "organon:Body": {
-            "status": "represented_by",
-            "symbols": [
-              "forwardHighTransform",
-              "returnLowTransform"
-            ],
-            "reason": "The two named recurring Transformations belong to the shared finite Body witness."
-          },
-          "organon:Scope": {
-            "status": "formalized",
-            "symbols": [
-              "scope",
-              "includes"
-            ]
-          },
-          "organon:Control": {
-            "status": "outside_formal_boundary",
-            "symbols": [],
-            "reason": "Complete canonical Control has no closed-world negation in the reduct; the proof establishes a proper governed Scope."
-          }
-        }
-      }
-    },
-    {
       "id": "AC-C3",
       "type": "anti_collapse_constraint",
-      "subject": "Attention does not entail Absolute Attention",
+      "subject": "Attention need not cover every available channel",
       "depends_on": [
         "AC-D3",
-        "AC-D5",
         "organon:Action"
       ],
       "formal_contract": {
         "status": "proved",
         "theorem": "partialAttentionCountermodel",
         "shared_indices": [
-          "systemAttention",
-          "absolute"
+          "systemAttention"
         ],
         "subject_symbols": [
           "systemAttention",
-          "AbsoluteAttention"
+          "fullCoverage"
         ],
         "dependency_dispositions": {
           "AC-D3": {
             "status": "formalized",
             "symbols": [
               "systemAttention"
-            ]
-          },
-          "AC-D5": {
-            "status": "formalized",
-            "symbols": [
-              "AbsoluteAttention"
             ]
           },
           "organon:Action": {
@@ -753,26 +545,29 @@
     {
       "id": "AC-C4",
       "type": "anti_collapse_constraint",
-      "subject": "Absolute Attention excludes focus-independent Action",
+      "subject": "Full coverage excludes focus-independent Action",
       "depends_on": [
-        "AC-D5",
+        "AC-D3",
         "organon:Action",
         "organon:Difference"
       ],
       "formal_contract": {
         "status": "proved",
-        "theorem": "absoluteAttentionActionLimit",
+        "theorem": "fullCoverageActionLimit",
         "shared_indices": [
+          "attention",
           "item"
         ],
         "subject_symbols": [
-          "systemAbsoluteAttention"
+          "Attention",
+          "fullCoverage"
         ],
         "dependency_dispositions": {
-          "AC-D5": {
+          "AC-D3": {
             "status": "formalized",
             "symbols": [
-              "systemAbsoluteAttention"
+              "Attention",
+              "fullCoverage"
             ]
           },
           "organon:Action": {
@@ -854,7 +649,6 @@
       "type": "open_formalization_gate",
       "subject": "Canonical channel parity",
       "depends_on": [
-        "AC-D1",
         "AC-D3",
         "AC-D7",
         "AC-D8",
@@ -874,10 +668,8 @@
       "type": "open_evidence_gate",
       "subject": "Application",
       "depends_on": [
-        "AC-D1",
         "AC-D3",
         "AC-D4",
-        "AC-D5",
         "AC-D6",
         "AC-D7",
         "AC-D8",

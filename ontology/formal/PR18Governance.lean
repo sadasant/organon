@@ -8,6 +8,7 @@ all canonical Sense, Perception, Agency or Self-perception instances. -/
 universe u v w
 namespace DanielOntology.PR18Governance
 open EmbodiedConsciousnessProposal AttentionLoveCareProposal
+open AttentionLoveCareProposal.NonbindingExamples
 
 structure Governance {Feature : Type u} {Context : Type v}
     (direction : Direction (Feature × Context))

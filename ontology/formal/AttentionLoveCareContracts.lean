@@ -8,8 +8,9 @@ namespace DanielOntology.AttentionLoveCarePromotionContracts
 
 open EmbodiedConsciousnessProposal
 open AttentionLoveCareProposal
+open AttentionLoveCareProposal.NonbindingExamples
 
-/-- organon:promotion-contract AC-D1 -/
+/-- Nonbinding historical D112 example; no promotion contract. -/
 theorem embodiedSelfGovernanceContract
     {Part : Type u} {Feature : Type v} {Context : Type w}
     {entity : Entity (Feature × Context)} {body : Body Part entity}
@@ -107,7 +108,7 @@ theorem sustainedAttentionContract
     (sustained.sameDifference state member).1,
     (sustained.sameDifference state member).2⟩
 
-/-- organon:promotion-contract AC-D5 -/
+/-- Historical wrapper consequence, not a separate promoted definition. -/
 theorem absoluteAttentionContract
     {Part : Type u} {Feature : Type v} {Context : Type w}
     {entity : Entity (Feature × Context)} {body : Body Part entity}
@@ -171,7 +172,7 @@ theorem respectContract
     respect.actionConstrained, respectProtectionPreservesIdentity respect.protection,
     ⟨respect.protection⟩⟩
 
-/-- organon:promotion-contract AC-C1 -/
+/-- Nonbinding historical C39 example. -/
 theorem partialSelfGovernanceCountermodel :
     systemSelfGovernance.scope.includes forwardHighTransform ∧
     ¬ systemSelfGovernance.scope.includes returnLowTransform :=
@@ -179,18 +180,21 @@ theorem partialSelfGovernanceCountermodel :
 
 /-- organon:promotion-contract AC-C3 -/
 theorem partialAttentionCountermodel :
-    (¬ ∃ absolute : AbsoluteAttention ToyPart systemBody,
-      absolute.attention = systemAttention) ∧
+    ¬ systemAttention.fullCoverage ∧
     actionItem ∈ systemAttention.available ∧
     actionItem ∉ systemAttention.organized ∧
     FocusIndependentAction systemAttention actionItem := by
-  exact ⟨systemAttentionIsNotAbsolute,
+  exact ⟨fun coverage => attentionDoesNotRequireAllAvailableItems.2
+      (coverage actionItem attentionDoesNotRequireAllAvailableItems.1),
     attentionDoesNotRequireAllAvailableItems.1,
     attentionDoesNotRequireAllAvailableItems.2, partialActionIsCausallyIndependent⟩
 
 /-- organon:promotion-contract AC-C4 -/
-theorem absoluteAttentionActionLimit :
-    ∀ item, ¬ FocusIndependentAction systemAbsoluteAttention.attention item :=
-  absoluteAttentionHasNoFocusIndependentAction
+theorem fullCoverageActionLimit
+    {Part : Type u} {Feature : Type v} {Context : Type w}
+    {entity : Entity (Feature × Context)} {body : Body Part entity}
+    (attention : Attention Part body) (coverage : attention.fullCoverage) :
+    ∀ item, ¬ FocusIndependentAction attention item :=
+  fullCoverageExcludesFocusIndependentAction attention coverage
 
 end DanielOntology.AttentionLoveCarePromotionContracts

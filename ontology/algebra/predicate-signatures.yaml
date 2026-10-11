@@ -100,7 +100,7 @@
     "Ritual": [["Ritual","Configuration","Scope"]],
     "RitualDerivedRecord": [["Record","Ritual","Scope"]],
     "Standing": [["Order","Rule","Configuration","InstitutionalStatus","Scope"]],
-    "StandingClaim": [["Record","Order","Configuration","InstitutionalStatus","Rule","Scope"]],
+    "StandingClaim": [["Order","Configuration","InstitutionalStatus","Rule","Scope"]],
     "StorageContinuity": [["Configuration","Invariant","StateSequence"]],
     "TargetPosition": [["Presence"]],
     "TemporalPrecedence": [["CausalPath","Agent","Action","Configuration"]],

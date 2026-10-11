@@ -6,8 +6,9 @@ import OrganonCore
 This module prices the three object-language relations promoted by the v0.16
 hidden-bridge audit. Identity criteria and relative possibility remain declared
 metalanguage, while Entity and Capability must carry their object-level
-witnesses. Institutional eligibility reduces to Standing rather than receiving
-a second predicate.
+witnesses. Institutional eligibility reduces to Standing, an Order's placement
+of an Entity, rather than receiving a second predicate; Recognition is a record
+of that exact Standing and cannot replace it.
 -/
 
 universe u v w x
@@ -191,27 +192,105 @@ def supportiveFalseBearing :
 
 inductive ToyStandingEntity where
   | participant
+  | outsider
 deriving DecidableEq, Repr
 
 inductive ToyStandingStatus where
   | mayReview
+  | mayVote
 deriving DecidableEq, Repr
 
 def toyStandingScope : Scope (ToyStandingEntity × ToyStandingStatus) :=
   ⟨fun pair => pair = (.participant, .mayReview)⟩
 
+def toyOpenStandingScope : Scope (ToyStandingEntity × ToyStandingStatus) :=
+  ⟨fun _ => True⟩
+
+/-- Explicit placement: the laboratory, under the accepting Rule, places only
+the participant, in either status, within the declared Scope. -/
+def toyStandingPlacement :
+    ToyBearingOrder → ToyEvaluationRule → ToyStandingEntity →
+      ToyStandingStatus → Scope (ToyStandingEntity × ToyStandingStatus) → Prop :=
+  fun order rule entity status scope =>
+    order = .laboratory ∧ rule = .accepts ∧ entity = .participant ∧
+      scope.includes (entity, status)
+
+/-- Explicit records: the laboratory records review status for the participant
+and, without any placement, for the outsider. Voting status is never recorded. -/
 def toyStandingRecords :
     ToyBearingOrder → ToyEvaluationRule → ToyStandingEntity →
       ToyStandingStatus → Scope (ToyStandingEntity × ToyStandingStatus) → Prop :=
   fun order rule entity status scope =>
-    order = .laboratory ∧ rule = .accepts ∧
+    order = .laboratory ∧ rule = .accepts ∧ status = .mayReview ∧
       scope.includes (entity, status)
 
 def finiteStandingWitness :
-    StandingRelation toyStandingRecords .laboratory .accepts
+    StandingRelation toyStandingPlacement .laboratory .accepts
       .participant .mayReview toyStandingScope where
   inScope := rfl
+  placed := by simp [toyStandingPlacement, toyStandingScope]
+
+/-- Recognition at exactly the Standing witness's indices. -/
+def finiteRecognitionWitness :
+    RecognitionRelation toyStandingPlacement toyStandingRecords .laboratory
+      .accepts .participant .mayReview toyStandingScope where
+  standing := finiteStandingWitness
   recorded := by simp [toyStandingRecords, toyStandingScope]
+
+/-- Recognition entails Standing at the same Order, Rule, Entity, status, and
+Scope; no index is relaxed. -/
+theorem recognitionEntailsExactStanding
+    {Order : Type u} {Entity : Type v} {Rule : Type w} {Status : Type x}
+    {places records :
+      Order → Rule → Entity → Status → Scope (Entity × Status) → Prop}
+    {order : Order} {rule : Rule} {entity : Entity} {status : Status}
+    {scope : Scope (Entity × Status)}
+    (recognition :
+      RecognitionRelation places records order rule entity status scope) :
+    StandingRelation places order rule entity status scope :=
+  recognition.standing
+
+theorem finiteRecognitionEntailsItsStanding :
+    Nonempty
+      (StandingRelation toyStandingPlacement .laboratory .accepts
+        .participant .mayReview toyStandingScope) :=
+  ⟨recognitionEntailsExactStanding finiteRecognitionWitness⟩
+
+/-- Standing need not be recorded: the participant is placed in voting status,
+the laboratory has no record of that placement, and so there is no
+Recognition at those indices. -/
+theorem unrecordedStandingWithoutRecognition :
+    Nonempty
+      (StandingRelation toyStandingPlacement .laboratory .accepts
+        .participant .mayVote toyOpenStandingScope) ∧
+    ¬ toyStandingRecords .laboratory .accepts .participant .mayVote
+      toyOpenStandingScope ∧
+    ¬ Nonempty
+      (RecognitionRelation toyStandingPlacement toyStandingRecords
+        .laboratory .accepts .participant .mayVote toyOpenStandingScope) := by
+  refine ⟨⟨{ inScope := trivial, placed := ?_ }⟩, ?_, ?_⟩
+  · simp [toyStandingPlacement, toyOpenStandingScope]
+  · simp [toyStandingRecords]
+  · rintro ⟨recognition⟩
+    simpa [toyStandingRecords] using recognition.recorded
+
+/-- A record alone cannot supply Standing: the outsider's review status is
+recorded but not placed, so neither Standing nor Recognition holds there. -/
+theorem recordingAloneDoesNotSupplyStanding :
+    toyStandingRecords .laboratory .accepts .outsider .mayReview
+      toyOpenStandingScope ∧
+    ¬ Nonempty
+      (StandingRelation toyStandingPlacement .laboratory .accepts
+        .outsider .mayReview toyOpenStandingScope) ∧
+    ¬ Nonempty
+      (RecognitionRelation toyStandingPlacement toyStandingRecords
+        .laboratory .accepts .outsider .mayReview toyOpenStandingScope) := by
+  refine ⟨?_, ?_, ?_⟩
+  · simp [toyStandingRecords, toyOpenStandingScope]
+  · rintro ⟨standing⟩
+    simpa [toyStandingPlacement] using standing.placed
+  · rintro ⟨recognition⟩
+    simpa [toyStandingPlacement] using recognition.standing.placed
 
 def bridgeTruth : ToyBridgeClaim → Prop := fun _ => False
 

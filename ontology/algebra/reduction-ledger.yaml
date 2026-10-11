@@ -2,26 +2,26 @@
   "schema_version": 1,
   "status": "generated-nonbinding-complete-reduction-audit",
   "source_sha256": {
-    "ontology/terms.yaml": "acd439071189ef5123912d2e51c0f484d228b218b47ad9d4d57c9b61f6de9ea8",
-    "ontology/algebra/normal-forms.yaml": "e801315ee1104ee39aee834214c679a564cd3aac982980dc3b5b3a3a3fd29aa7",
+    "ontology/terms.yaml": "f0ff1fb84826f46096827994a461ef5088977c99e0048e3225cc3a6ff4f699fe",
+    "ontology/algebra/normal-forms.yaml": "1e4c8a950a920840f4e9966778fbdda625aec7d5560efe692e05ae4efac0bae0",
     "ontology/algebra/candidate-laws.yaml": "8d739e8c928f527ee8f66b28c4e3a8b696d0539333627bf26243d72073212550",
     "ontology/algebra/claim-coverage.yaml": "17c549d7193e680b126fd112eaa36053105eb00a9c5b4b72655444d16594637a",
-    "ontology/algebra/consistency-dispositions.yaml": "5d14aa7436bdcbf729ed0ad864ca7ba582cf54a7735894779bab7ec6051f3f19",
-    "scripts/build-reduction-audit.py": "0cfc7d8aa0c06a0e65caa2ff886399051df27d06434823587664d21eaeaa9f19"
+    "ontology/algebra/consistency-dispositions.yaml": "ff60740cd141efeedf089bb251839daf4a5de81538931fddf308eb4e87aef760",
+    "scripts/build-reduction-audit.py": "30b5b70d4b292611b524ab649d5e633653c8c8a0c28d672395f6c0c3f7ce4791"
   },
   "question": "Do the retained foundation, nine positive normal forms, and six candidate disciplines preserve every registered Organon classification?",
   "answer": "no",
   "reason": "Complete reduction requires positive construction as well as prohibition of invalid collapses.",
   "counts": {
-    "registered_terms": 120,
-    "registered_commitments": 56,
+    "registered_terms": 117,
+    "registered_commitments": 55,
     "candidate_laws": 6,
     "normal_forms": 9,
     "constructively_encoded": 9,
-    "positively_underdetermined": 108,
+    "positively_underdetermined": 105,
     "retained_foundation": 3,
     "consistency_candidate_clause_derived": 20,
-    "consistency_positive_schema_missing": 23,
+    "consistency_positive_schema_missing": 22,
     "consistency_retained_governance": 2
   },
   "terms": [
@@ -2271,30 +2271,6 @@
       }
     },
     {
-      "term": "organon:ConstitutedExercise",
-      "claim": "D077",
-      "claim_type": "definition",
-      "depends_on": [
-        "organon:Authority",
-        "organon:Order"
-      ],
-      "disposition": "positively_underdetermined",
-      "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
-      "paired_target_extension_sketch": {
-        "all_declared_dependencies_present": true,
-        "shared_dependency_extensions": [
-          "organon:Authority",
-          "organon:Order"
-        ],
-        "target_predicate": "organon:ConstitutedExercise",
-        "model_without_target_extension": [],
-        "model_with_target_extension": [
-          "candidate"
-        ],
-        "classification_differs": true
-      }
-    },
-    {
       "term": "organon:ConstituentExercise",
       "claim": "D078",
       "claim_type": "definition",
@@ -3657,46 +3633,6 @@
       }
     },
     {
-      "term": "organon:EmbodiedSelfGovernance",
-      "claim": "D112",
-      "claim_type": "definition",
-      "depends_on": [
-        "organon:Configuration",
-        "organon:Entity",
-        "organon:EmbodiedPerspective",
-        "organon:InternalActivitySelection",
-        "organon:Body",
-        "organon:Transformation",
-        "organon:Scope",
-        "organon:Constraint",
-        "organon:Boundary",
-        "organon:Control"
-      ],
-      "disposition": "positively_underdetermined",
-      "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
-      "paired_target_extension_sketch": {
-        "all_declared_dependencies_present": true,
-        "shared_dependency_extensions": [
-          "organon:Configuration",
-          "organon:Entity",
-          "organon:EmbodiedPerspective",
-          "organon:InternalActivitySelection",
-          "organon:Body",
-          "organon:Transformation",
-          "organon:Scope",
-          "organon:Constraint",
-          "organon:Boundary",
-          "organon:Control"
-        ],
-        "target_predicate": "organon:EmbodiedSelfGovernance",
-        "model_without_target_extension": [],
-        "model_with_target_extension": [
-          "candidate"
-        ],
-        "classification_differs": true
-      }
-    },
-    {
       "term": "organon:Attention",
       "claim": "D114",
       "claim_type": "definition",
@@ -3765,34 +3701,6 @@
           "organon:Difference"
         ],
         "target_predicate": "organon:SustainedAttention",
-        "model_without_target_extension": [],
-        "model_with_target_extension": [
-          "candidate"
-        ],
-        "classification_differs": true
-      }
-    },
-    {
-      "term": "organon:AbsoluteAttention",
-      "claim": "D116",
-      "claim_type": "definition",
-      "depends_on": [
-        "organon:Attention",
-        "organon:Difference",
-        "organon:Action",
-        "organon:Specification"
-      ],
-      "disposition": "positively_underdetermined",
-      "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
-      "paired_target_extension_sketch": {
-        "all_declared_dependencies_present": true,
-        "shared_dependency_extensions": [
-          "organon:Attention",
-          "organon:Difference",
-          "organon:Action",
-          "organon:Specification"
-        ],
-        "target_predicate": "organon:AbsoluteAttention",
         "model_without_target_extension": [],
         "model_with_target_extension": [
           "candidate"
@@ -4083,11 +3991,6 @@
       "reason": "The embodied recurrent candidate remains quarantined and has no complete binding consciousness circuit."
     },
     {
-      "claim": "C39",
-      "status": "positive_schema_missing",
-      "reason": "No complete canonical Control circuit is encoded for partial embodied self-governance."
-    },
-    {
       "claim": "C41",
       "status": "positive_schema_missing",
       "reason": "No complete available-channel Attention ratio circuit is encoded."
@@ -4095,7 +3998,7 @@
     {
       "claim": "C42",
       "status": "positive_schema_missing",
-      "reason": "No complete Absolute Attention and focus-independent Action circuit is encoded."
+      "reason": "No complete Attention full-coverage and focus-independent Action circuit is encoded."
     },
     {
       "claim": "C43",

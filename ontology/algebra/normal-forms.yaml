@@ -165,21 +165,20 @@
       "result": {"predicate": "Standing", "args": ["order", "rule", "entity", "status", "scope"]},
       "variables": {
         "order": "Order", "rule": "Rule", "entity": "Configuration", "status": "InstitutionalStatus",
-        "scope": "Scope", "record": "Record"
+        "scope": "Scope"
       },
       "participants": ["order", "entity", "status"],
-      "participant_roles": {"order": "status-recording institutional Order", "entity": "Entity placed within the domain", "status": "named institutional status or Action domain"},
+      "participant_roles": {"order": "institutional Order placing the Entity", "entity": "Entity placed within the domain", "status": "named institutional status or Action domain"},
       "indices": ["order", "rule", "scope"],
       "premises": [
         {"id": "order", "predicate": "Order", "args": ["order"]},
         {"id": "rule", "predicate": "RuleOfOrder", "args": ["rule", "order"]},
         {"id": "entity", "predicate": "Entity", "args": ["entity"]},
         {"id": "status", "predicate": "InstitutionalStatus", "args": ["status", "order"]},
-        {"id": "scope", "predicate": "ScopeOfOrder", "args": ["scope", "order"]},
-        {"id": "placement", "predicate": "PlacesWithinDomain", "args": ["order", "entity", "status", "rule", "scope"]}
+        {"id": "scope", "predicate": "ScopeOfOrder", "args": ["scope", "order"]}
       ],
       "witnesses": [
-        {"id": "standing-record", "predicate": "RecordedStanding", "args": ["record", "order", "entity", "status", "rule", "scope"]}
+        {"id": "placement", "predicate": "PlacesWithinDomain", "args": ["order", "entity", "status", "rule", "scope"]}
       ],
       "shared_variables": ["order", "rule", "entity", "status", "scope"],
       "positive_entailments": ["this Entity has this status in this Order, under this Rule and Scope"],
@@ -193,8 +192,8 @@
           "placement": {"predicate": "InversePlacesWithinDomain", "args": ["order", "status", "entity", "rule", "scope"]}
         },
         "substitute_atoms": {
-          "standing-record": [
-            {"predicate": "StandingClaim", "args": ["record", "order", "entity", "status", "rule", "scope"], "shape": "projection_inversion"}
+          "placement": [
+            {"predicate": "StandingClaim", "args": ["order", "entity", "status", "rule", "scope"], "shape": "projection_inversion"}
           ]
         }
       }

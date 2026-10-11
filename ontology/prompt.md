@@ -27,8 +27,8 @@ binding_source: ontology.md
 
 - Mode: full
 - Requested: all registered terms
-- Terms carried: 120 of 120
-- Commitments carried: 56 of 56
+- Terms carried: 117 of 117
+- Commitments carried: 55 of 55
 
 ## Metalanguage boundary
 
@@ -435,14 +435,14 @@ Depends: organon:Configuration, organon:Constraint, organon:Record, organon:Inte
 
 ### `organon:Standing` · Standing
 
-**Standing** is the Relation through which an Order, under a Rule, places an Entity within the domain of named institutional statuses or Actions in a specified Scope. “Institutional eligibility” is shorthand for the relevant Standing Relation, not an additional predicate. Standing in one Order supplies no Standing in another.
+**Standing** is the Relation through which an Order, under a Rule, places an Entity within the domain of named institutional statuses or Actions in a specified Scope. Placement is not recording: Standing does not require that the Order has recorded the placement, and a Record of a status without that placement supplies no Standing. “Institutional eligibility” is shorthand for the relevant Standing Relation, not an additional predicate. Standing in one Order supplies no Standing in another.
 
 Claim: `D047` (definition).
 Depends: organon:Relation, organon:Order, organon:Record, organon:Entity, organon:Rule, organon:Scope.
 
 ### `organon:Recognition` · Recognition
 
-**Recognition** is the Relation established when an Order records Standing for an Entity under a Rule and Scope.
+**Recognition** is the Relation established when an Order records Standing for an Entity under a Rule and Scope. The Standing must itself obtain at exactly the same Order, Rule, Entity, institutional status, and Scope; a record at different indices is not Recognition of that Standing.
 
 Claim: `D048` (definition).
 Depends: organon:Relation, organon:Order, organon:Standing, organon:Entity, organon:Rule, organon:Scope.
@@ -642,13 +642,6 @@ Depends: organon:Record, organon:Claim, organon:Permission, organon:Observation,
 
 Claim: `D076` (definition).
 Depends: organon:Agent, organon:Institution, organon:Action, organon:Order.
-
-### `organon:ConstitutedExercise` · Constituted exercise
-
-**Constituted exercise** is an exercise of Authority under the current Order.
-
-Claim: `D077` (definition).
-Depends: organon:Authority, organon:Order.
 
 ### `organon:ConstituentExercise` · Constituent exercise
 
@@ -867,13 +860,6 @@ Depends: organon:Configuration, organon:Transformation, organon:Direction, organ
 Claim: `D111` (definition).
 Depends: organon:Configuration, organon:Difference, organon:Representation, organon:Denotation, organon:CausalContribution, organon:Transformation, organon:Body, organon:Relation, organon:Entity, organon:Interior, organon:Scope, organon:Specification, organon:Boundary, organon:Action, organon:Agency, organon:State, organon:Constraint.
 
-### `organon:EmbodiedSelfGovernance` · Embodied Self-Governance
-
-**Embodied Self-Governance** is the scoped Configuration through which an Entity's Embodied Perspective is exactly joined to Internal Activity Selection that selects, inhibits, continues, or revises Transformations of its Body under Constraints of its Boundary. The governed family is nonempty, includes the selected Transformation, occurs within that Body, and is admitted by the named Constraint. Embodied Self-Governance may be partial and limited to particular functions or Transformations; it does not entail complete Control.
-
-Claim: `D112` (definition).
-Depends: organon:Configuration, organon:Entity, organon:EmbodiedPerspective, organon:InternalActivitySelection, organon:Body, organon:Transformation, organon:Scope, organon:Constraint, organon:Boundary, organon:Control.
-
 ### `organon:Attention` · Attention
 
 **Attention** is the finite ratio of an Entity's currently available Perception, Interpretation, and Action channels causally organized by one Difference in one State of one Body, relative to a declared channel inventory and availability Specification. The inventory individuates channels independently of their kind and result. The Specification supplies the availability criterion and its Scope; the nonempty finite available enumeration covers exactly every conforming channel and counts each once. A different inventory or Specification defines a different measurement context, not a different degree within the same context. Each snapshot declares channel results and a collection of channel-specific response comparisons independently of the counted enumeration. Causal organization is evaluated at that snapshot, rather than by searching historical Causal Contributions: a qualifying comparison holds the snapshot's declared context fixed, produces the channel's current result under the focal Representation, and produces a different result under the contrast Representation. The result must belong to the indexed snapshot; neither earlier nor later States qualify. A channel is organized exactly when at least one declared comparison satisfies these conditions for the focal Difference. A selected witness must belong to that collection; selecting a nonfocal witness cannot hide a qualifying alternative. The organized enumeration covers exactly every available qualifying channel, counts each once, and supplies the numerator; the available enumeration supplies the denominator. Holding the snapshot and declared measurement data fixed fixes the ratio independently of any history. Attention alone makes no Claim about benefit, consent, morality, accuracy, Truth, or purpose.
@@ -887,13 +873,6 @@ Depends: organon:Entity, organon:Body, organon:Difference, organon:Representatio
 
 Claim: `D115` (definition).
 Depends: organon:Attention, organon:Entity, organon:Body, organon:State, organon:Direction, organon:Persistence, organon:Difference.
-
-### `organon:AbsoluteAttention` · Absolute Attention
-
-**Absolute Attention** is the limiting condition, relative to the same declared channel inventory and indexed availability Specification, in which every conforming perceptual, interpretive, and action channel is organized by the same Difference. Completeness concerns membership, independent of enumeration order. It leaves no available Action channel independent of that Difference. It does not entail immobility or the absence of Action organized by the focus.
-
-Claim: `D116` (definition).
-Depends: organon:Attention, organon:Difference, organon:Action, organon:Specification.
 
 ### `organon:Love` · Love
 
@@ -1182,23 +1161,17 @@ Depends: organon:Body, organon:EmbodiedPerspective, organon:RecurrentIntegration
 
 Depends: organon:Body, organon:EmbodiedPerspective, organon:RecurrentIntegration, organon:InternalActivitySelection, organon:ConsciousnessAttribution, organon:ConsciousnessDesignation, organon:Standing, organon:Order, organon:Rule, organon:Scope, organon:MoralStatusAttribution, organon:MoralPersonhoodDesignation.
 
-### `C39` · binding_constraint
-
-**No self-governance-total-control collapse:** Embodied Self-Governance may govern a nonempty proper subset of a Body's Transformations. It does not entail complete Control, and Control alone does not establish the Embodied Perspective-to-selection join.
-
-Depends: organon:EmbodiedSelfGovernance, organon:Body, organon:Transformation, organon:Control, organon:EmbodiedPerspective, organon:InternalActivitySelection.
-
 ### `C41` · binding_constraint
 
-**No attention-absolute-attention collapse:** Attention may organize only some available channels. Perception, Interpretation, Action, Difference, salience, exposure, or repeated occurrence alone does not establish Attention without the exact causal organization and finite availability denominator.
+**Attention need not cover every available channel:** Attention may organize only some available channels. Perception, Interpretation, Action, Difference, salience, exposure, or repeated occurrence alone does not establish Attention without the exact causal organization and finite availability denominator.
 
-Depends: organon:Attention, organon:AbsoluteAttention, organon:Perception, organon:Interpretation, organon:Action, organon:Difference, organon:CausalContribution.
+Depends: organon:Attention, organon:Perception, organon:Interpretation, organon:Action, organon:Difference, organon:CausalContribution.
 
 ### `C42` · binding_constraint
 
-**Absolute Attention excludes focus-independent available Action:** When every available channel is organized by the same Difference, no available Action channel remains independent of that Difference. Absolute Attention does not prohibit Action organized by the focus and does not entail benefit, consent, morality, accuracy, or purpose.
+**Full coverage excludes focus-independent available Action:** When every available channel in an Attention instance is organized by the same Difference, no available Action channel remains independent of that Difference. This condition does not prohibit Action organized by the focus and does not entail benefit, consent, morality, accuracy, or purpose.
 
-Depends: organon:AbsoluteAttention, organon:Attention, organon:Action, organon:Difference.
+Depends: organon:Attention, organon:Action, organon:Difference.
 
 ### `C43` · binding_constraint
 
