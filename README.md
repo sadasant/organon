@@ -127,6 +127,8 @@ python3 scripts/check-adoption.py examples/organon-adoption.json --repo-root .
 
 The link check keeps public Markdown inside the portable Obsidian/GitHub intersection documented in [Markdown Policy](./MARKDOWN.md). The semantic check verifies stable markers, claim types, dependency order, governed projections, and term-level provenance. The adoption check verifies the contract a downstream repository would make.
 
+Qualities no script can decide are judged separately by the Aesthetics workflow under the rules in [.aesthetics.yaml](./.aesthetics.yaml): pull requests are judged as diffs, and a manual run audits the repository or named paths. Its results are review input, not adoption.
+
 ## Status
 
 Organon v0.20 is provisional and binding only where explicitly adopted. The ontology is not complete, universally true, or immune to revision. It is a versioned promise that named distinctions will not quietly change halfway through an argument.
