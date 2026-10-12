@@ -71,5 +71,16 @@ of that pointer.
 - Separate calls from the same model are not independent witnesses.
 - Outputs never overwrite an existing run artifact.
 
-Install once from this directory with `requirements-dev.txt`. Inject only
-`OPENAI_API_KEY`; the runners never read or persist a secret on their own.
+## Usage
+
+From the repository root, install once and verify the contracts without calling
+a model:
+
+```sh
+python3 -m venv .venv
+.venv/bin/pip install -r evals/requirements-dev.txt
+.venv/bin/python -m pytest evals
+```
+
+Each suite's README gives its run commands. Inject only `OPENAI_API_KEY`; the
+runners never read or persist a secret on their own.

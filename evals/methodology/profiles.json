@@ -1,6 +1,7 @@
 {
   "schema_version": 1,
   "methodology_version": "1.0",
+  "description": "Target profiles that specialize the lifecycle in README.md. Each names whether the suite owns generation, its judge layers in order, when comparison is required, and who decides promotion.",
   "profiles": [
     {
       "id": "essay-answer",

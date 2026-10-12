@@ -182,7 +182,9 @@ def source_dossier(
         digest = sha256_text(text)
         if digest != declared[relative]:
             raise ValueError(
-                f"source digest mismatch for {relative}: expected {declared[relative]}, got {digest}"
+                f"source digest mismatch for {relative}: expected {declared[relative]}, got {digest}; "
+                "restore the pinned source, or re-pin source_digests in "
+                "inputs/targets.json and start a new run"
             )
         digests[relative] = digest
         sections.append(f"# SOURCE DOSSIER: {relative}\n\n{text}")

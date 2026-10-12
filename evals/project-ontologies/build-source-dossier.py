@@ -51,7 +51,10 @@ def build(repo: Path, ontology: Path, project: str, expected_commit: str) -> tup
         text=True,
     ).stdout.strip()
     if actual_commit != expected_commit:
-        raise ValueError(f"source checkout commit mismatch: expected {expected_commit}, got {actual_commit}")
+        raise ValueError(
+            f"source checkout commit mismatch: expected {expected_commit}, got {actual_commit}; "
+            "check out the pinned commit in the source repository"
+        )
     references = cited_ranges(ontology.read_text(encoding="utf-8"))
     sections = [
         "---",

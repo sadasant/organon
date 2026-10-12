@@ -9,7 +9,7 @@ from pathlib import Path
 class RunWorkspace:
     """Write one run as named artifacts under one directory."""
 
-    def __init__(self, root: Path):
+    def __init__(self, root: Path) -> None:
         self.root = root
         self.root.mkdir(parents=True, exist_ok=True)
 
@@ -22,7 +22,10 @@ class RunWorkspace:
     def write_text(self, relative: str, value: str) -> Path:
         path = self.path(relative)
         if path.exists():
-            raise FileExistsError(f"refusing to overwrite run artifact: {path}")
+            raise FileExistsError(
+                f"refusing to overwrite run artifact: {path}; "
+                "write the run to a new directory"
+            )
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_text(value, encoding="utf-8")
         return path
@@ -38,6 +41,8 @@ def write_projection(path: Path | None, value: str) -> None:
     if path is None:
         return
     if path.exists():
-        raise FileExistsError(f"refusing to overwrite projection: {path}")
+        raise FileExistsError(
+            f"refusing to overwrite projection: {path}; choose a new output path"
+        )
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(value, encoding="utf-8")

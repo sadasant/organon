@@ -10,8 +10,11 @@ import json
 import os
 import platform
 import sys
+from collections.abc import Callable
 from datetime import UTC, datetime
 from pathlib import Path
+from types import ModuleType
+from typing import Any
 
 import dspy
 from pydantic import BaseModel, Field
@@ -38,7 +41,7 @@ from core.judging import call_structured_with_retry
 from core.workspace import RunWorkspace
 
 
-def load_judge_module():
+def load_judge_module() -> ModuleType:
     spec = importlib.util.spec_from_file_location(
         "organon_project_ontology_judges", EVAL_ROOT / "run.py"
     )
@@ -140,7 +143,7 @@ def parse_args() -> argparse.Namespace:
 
 
 def generate_valid_draft(
-    program,
+    program: Callable[..., Any],
     *,
     target: dict,
     ontology: str,

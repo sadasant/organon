@@ -71,13 +71,18 @@ sets:
     guidelines:
       - id: typed-boundaries
         content: [code]
+        exclude: ["**/tests/**", "**/test_*.py"]
         text: Functions that cross a module boundary have type hints, and a docstring states intent wherever the name alone does not.
+        recommendation: Annotate the parameters and return values of functions other modules call.
       - id: actionable-errors
         content: [code]
+        exclude: ["**/tests/**", "**/test_*.py"]
         text: Error messages say what failed, where, and what the user can do, and the exit status distinguishes success from failure.
+        recommendation: Add the next step to each error a contributor can plausibly hit, such as the command to run or the input to restore.
       - id: no-dead-compatibility
         content: [code]
         text: There are no fallback paths for files, layouts, or options the repository no longer has.
+        recommendation: Delete the fallback and keep only the current path.
 
   infra-citizen:
     name: CI workflows and orb lifecycle scripts
@@ -178,15 +183,21 @@ sets:
       - id: facts-before-judges
         content: [code]
         priority: 1
-        text: Models are asked only what code cannot decide; identity, digests, lengths, and schema validity are checked in code before any model call.
+        text: Code, not a model, decides exact facts such as identity, digests, lengths, and schema validity; judges are not asked to estimate them, and pinned inputs are verified before any model call.
+        instructions: Judge only behavior this file implements. A file that makes no model call meets this guideline.
+        recommendation: Move the exact check into deterministic preflight and remove it from the model's instructions.
       - id: candidates-not-edits
         content: [code]
         priority: 1
         text: Generated text is kept as a candidate tied to its pinned source identity; nothing edits a source artifact in place or reuses a judgment after its source changes.
+        instructions: Judge only behavior this file implements. A file that generates no text and reuses no judgment meets this guideline.
+        recommendation: Write generated text to a new run directory with its source digests, and reuse a judgment only after checking both candidate and source digests.
       - id: passing-means-hold
         content: [code]
         priority: 1
         text: A passing gate is reported as ready for human review, never as adoption or promotion.
+        instructions: Judge only behavior this file implements. A file that reports no gate result meets this guideline.
+        recommendation: Word the pass result as ready for human review and state what it does not establish.
 
   organon-checkers:
     name: Repository checkers and generators
@@ -214,7 +225,8 @@ rules:
       carry the meaning it defines; terms.yaml registers them. Lean sources, the
       candidate algebra, proposals, reviews, and project ontologies are nonbinding
       shadows or dossiers. A passing check, compilation, or model judgment is evidence
-      about an artifact, never adoption.
+      about an artifact, never adoption. A guideline about something the artifact
+      does not contain, such as errors, model calls, gate results, or witnesses, is met.
 
   - name: Markdown
     match: ["*.md"]
@@ -225,11 +237,23 @@ rules:
     extends: [organon-binding]
 
   - name: Instruments
-    match: [editorial/**, CONTRIBUTING.md, MARKDOWN.md, evals/methodology/*.md, reviews/template.md, proposals/README.md]
+    match: [editorial/**, CONTRIBUTING.md, MARKDOWN.md, evals/methodology/README.md, reviews/template.md, proposals/README.md]
     extends: [organon-instruments]
+
+  - name: Component READMEs
+    match: ["**/README.md"]
+    min_depth: 1
+    override:
+      - id: readme/states-purpose
+        text: The README opens with the component's name and a short statement of what it contains and why it exists.
+
+  - name: Methodology is an instrument, not a component README
+    match: [evals/methodology/README.md]
+    disable: [readme]
 
   - name: Narrative
     match: [README.md, DANIEL.md]
+    max_depth: 0
     extends: [organon-narrative]
 
   - name: Dossiers and reports
@@ -269,6 +293,9 @@ rules:
     match: [scripts/**, evals/**]
     content: [code]
     extends: [unix, kiss, python-citizen]
+    override:
+      - id: unix/composable
+        instructions: Command-line entry points may default to the repository's own paths when arguments can override them, and repository checkers read the repository by design. Judge whether library functions take their inputs as arguments.
 
   - name: Evaluation machinery
     match: [evals/**]
