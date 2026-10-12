@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
   "suite": "essay-questions",
-  "current_run": "results/2026-10-12-v0.20-care-revision",
-  "predecessor": "results/2026-10-12-v0.20-attention-love-withdrawal",
+  "current_run": "results/2026-10-12-v0.20-respect-revision",
+  "predecessor": "results/2026-10-12-v0.20-care-revision",
   "run_record": "evaluation.json",
   "primary_artifact": "evaluation.md",
   "evaluation_status": "incomplete",
   "promotion_status": "hold",
   "ontology_version": "0.20.0",
-  "ontology_sha256": "0e89e1082a2c0f42aa4698542b3245eda2058bb49a8e4ffddbd8355988aa0595",
-  "promotion_basis": "Care revision source snapshot; no new model judgment or promotion-readiness attestation"
+  "ontology_sha256": "a7e7dee22b0a18f627eddf5883dc2aec6cc81e70fb20704d0d1bc582ab181260",
+  "promotion_basis": "Respect revision source snapshot; no new model judgment or promotion-readiness attestation"
 }
