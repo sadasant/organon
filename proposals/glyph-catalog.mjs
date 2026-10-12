@@ -2,6 +2,11 @@
 // Motif combinations are mnemonics, NOT a compositional semantic grammar.
 export const strokes = {
   ring: "M16 8a8 8 0 1 1 0 16a8 8 0 1 1 0-16",
+  // Overlapping concentric strokes form solid ink, leaving a small clear center.
+  // These are drawing operations, not layers or parts of Reality.
+  inversePresence: [3, 4, 5, 6, 7, 8].map((r) =>
+    `M16 ${16-r}a${r} ${r} 0 1 1 0 ${2*r}a${r} ${r} 0 1 1 0 ${-2*r}`,
+  ).join(" "),
   crescent: "M21 5a12 12 0 0 0 0 22M21 5a16 16 0 0 0 0 22",
   open: "M24 9a11 11 0 1 0 0 14",
   diamond: "M16 5 27 16 16 27 5 16Z",
@@ -44,7 +49,6 @@ export const strokes = {
   // Revision 2: term-specific signatures keep the semantic distinctions that
   // generic crowns, eyes, and tiny decorative additions obscured. These names
   // document design intent; combining paths still does not assert entailment.
-  totality: "M3 9H11V4M11 9 20 16H29M20 16 12 25H4M20 16V5M12 25V29",
   ordered: "M4 7H9V13H20V24H27M4 4V10M17 10V16M24 21V27",
   denotes: "M5 8V24M5 16H17M22 11H28V21H22Z",
   grouping: "M10 4H4V10M22 4H28V10M4 22V28H10M28 22V28H22M9 10V16M15 20H21M21 9H25",
@@ -97,8 +101,8 @@ const alphabet = {
   // Standalone conventional name, not a slot, ground or relation.
   Absence: ["foot"],
   Presence: ["ring", "dot"],
-  Missingness: ["frame", "seed"],
-  Reality: ["totality"],
+  Missingness: ["ring"],
+  Reality: ["inversePresence"],
   Difference: ["bars", "slash"],
   Relation: ["ordered"],
   Denotation: ["denotes"],

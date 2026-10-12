@@ -4,9 +4,9 @@
 <text x="75" y="100" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Absence</text>
 <g transform="translate(205,42) scale(1.25)"><path d="M16 8a8 8 0 1 1 0 16a8 8 0 1 1 0-16 M16 14a2 2 0 1 1 0 4a2 2 0 1 1 0-4" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
 <text x="225" y="100" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Presence</text>
-<g transform="translate(355,42) scale(1.25)"><path d="M11 5H5V27H11M21 5H27V27H21 M16 27a1 1 0 1 1 0 2a1 1 0 1 1 0-2" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
+<g transform="translate(355,42) scale(1.25)"><path d="M16 8a8 8 0 1 1 0 16a8 8 0 1 1 0-16" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
 <text x="375" y="100" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Missingness</text>
-<g transform="translate(505,42) scale(1.25)"><path d="M3 9H11V4M11 9 20 16H29M20 16 12 25H4M20 16V5M12 25V29" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
+<g transform="translate(505,42) scale(1.25)"><path d="M16 13a3 3 0 1 1 0 6a3 3 0 1 1 0 -6 M16 12a4 4 0 1 1 0 8a4 4 0 1 1 0 -8 M16 11a5 5 0 1 1 0 10a5 5 0 1 1 0 -10 M16 10a6 6 0 1 1 0 12a6 6 0 1 1 0 -12 M16 9a7 7 0 1 1 0 14a7 7 0 1 1 0 -14 M16 8a8 8 0 1 1 0 16a8 8 0 1 1 0 -16" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
 <text x="525" y="100" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Reality</text>
 <g transform="translate(655,42) scale(1.25)"><path d="M8 12H24M8 20H24 M5 27 27 5" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
 <text x="675" y="100" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Difference</text>
