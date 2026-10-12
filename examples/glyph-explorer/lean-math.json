@@ -1,0 +1,528 @@
+{
+  "Absence": {
+    "module": "DanielOntology",
+    "name": "Absent",
+    "status": "projection",
+    "note": "Uninhabited-type predicate inside Lean’s metatheory, not absolute Absence. The primitive’s axioms remain in the prose."
+  },
+  "Presence": {
+    "module": "DanielOntology",
+    "name": "Present",
+    "status": "projection",
+    "note": "The existing local encoding uses type inhabitation."
+  },
+  "Missingness": { "module": "OrganonCore", "name": "Missingness" },
+  "Reality": {
+    "module": "DanielOntology",
+    "name": "FullLocalRealityMember",
+    "status": "projection",
+    "note": "Membership in one inhabited carrier, not Reality as the totality of Presence. The source explicitly leaves the global representation open."
+  },
+  "Difference": {
+    "module": "OrganonCore",
+    "name": "Change",
+    "fields": ["differs"],
+    "note": "A difference of Transformation endpoints. This field is one use of inequality, not a general definition of Difference."
+  },
+  "Relation": {
+    "status": "unencoded",
+    "note": "The formalization deliberately uses separate typed relations rather than a universal Relation type. No generic definition is supplied.",
+    "reference": "ontology/formal/decisions.md"
+  },
+  "Denotation": { "module": "OrganonCore", "name": "Denotation" },
+  "Configuration": {
+    "status": "unencoded",
+    "note": "No standalone Configuration declaration exists in the audited Lean sources. Context carriers and structured records do not by themselves define canonical Configuration."
+  },
+  "State": { "module": "OrganonCore", "name": "State" },
+  "Direction": { "module": "OrganonCore", "name": "Direction" },
+  "Transformation": { "module": "OrganonCore", "name": "Transformation" },
+  "Change": { "module": "OrganonCore", "name": "Change" },
+  "Feeds": {
+    "module": "OrganonCore",
+    "name": "FeedRelation",
+    "note": "A supplied relation on States. Chains applies it to consecutive Transformations.",
+    "support": [["OrganonCore", "Chains"]]
+  },
+  "CausalPath": {
+    "module": "OrganonCore",
+    "name": "CausalPath",
+    "support": [
+      ["OrganonCore", "Chains"],
+      ["OrganonCore", "PathEndpoints"]
+    ],
+    "note": "The path record permits an empty list; PathEndpoints is the separate nonempty endpoint witness."
+  },
+  "CausalContribution": {
+    "module": "OrganonCore",
+    "name": "CausalContribution",
+    "support": [["OrganonCore", "PathEndpoints"]]
+  },
+  "Invariant": { "module": "OrganonCore", "name": "Invariant" },
+  "Persistence": {
+    "module": "OrganonCore",
+    "name": "PersistenceWitness",
+    "support": [["OrganonCore", "OrderedBy"]],
+    "note": "This witness requires at least two States and an ordered history preserving one Invariant."
+  },
+  "Constraint": { "module": "OrganonCore", "name": "Constraint" },
+  "Entity": { "module": "OrganonCore", "name": "Entity" },
+  "Boundary": { "module": "OrganonCore", "name": "Boundary" },
+  "Environment": {
+    "module": "EmbodiedConsciousness",
+    "name": "Body",
+    "fields": ["environment", "interiorEnvironmentDisjoint"],
+    "note": "A Body-indexed external State scope. This is not a complete independent Environment definition."
+  },
+  "Representation": {
+    "module": "OrganonCore",
+    "name": "Denotation",
+    "fields": ["expression"],
+    "note": "The expression position of a Denotation. Its carrier is supplied; the field alone does not construct the full prose definition."
+  },
+  "Scope": { "module": "OrganonCore", "name": "Scope" },
+  "Specification": { "module": "OrganonCore", "name": "Specification" },
+  "Rule": {
+    "module": "RitualMeaning",
+    "name": "FlowRule",
+    "status": "projection",
+    "note": "A Flow-local Rule encoding. Other modules use SelectionRule, AdaptiveRule or supplied Rule carriers; this is not a universal Rule construction.",
+    "support": [
+      ["Operationalization", "SelectionRule"],
+      ["IntelligenceKnowledge", "AdaptiveRule"]
+    ]
+  },
+  "Sign": {
+    "status": "unencoded",
+    "note": "No corresponding Sign declaration exists in the audited Lean sources. Denotation alone would omit the Sign’s causal participation."
+  },
+  "Symbol": {
+    "status": "unencoded",
+    "note": "No corresponding Symbol declaration exists in the audited Lean sources. A glyph or a type named Symbol would not supply the persistence and Rule conditions."
+  },
+  "Language": {
+    "module": "Consciousness",
+    "name": "AttributionSemantics",
+    "parameters": ["Language"],
+    "note": "Language is a supplied type parameter in this semantic model, not a constructed system of Symbols and Rules."
+  },
+  "Map": {
+    "status": "unencoded",
+    "note": "No corresponding Map declaration exists in the audited Lean sources. Consciousness.ReferenceMap instead maps an Agent to an Entity and is not this term."
+  },
+  "Reference": {
+    "status": "unencoded",
+    "note": "No corresponding Reference declaration exists in the audited Lean sources. ReferenceMap is a different, proposal-local perspective mapping."
+  },
+  "Sense": {
+    "module": "PR18Governance",
+    "name": "Sense",
+    "status": "projection",
+    "note": "The current Body-indexed sensing construction joins an environmental input to an internal difference."
+  },
+  "Perception": {
+    "module": "PR18Governance",
+    "name": "Perception",
+    "status": "projection",
+    "note": "The current Body-indexed Perception produced by its Sense witness."
+  },
+  "Record": {
+    "module": "IntelligenceKnowledge",
+    "name": "OperativeKnowledge",
+    "parameters": ["Record"],
+    "note": "Record is a supplied carrier in this construction. The module explicitly does not construct canonical Records."
+  },
+  "Observation": {
+    "module": "OrganonCore",
+    "name": "IndependentFor",
+    "parameters": ["Observation"],
+    "note": "Observation is supplied to the independence test. The environmental sensing and recording chain is not constructed here."
+  },
+  "Memory": {
+    "module": "EmbodiedConsciousness",
+    "name": "PerspectiveMemory",
+    "status": "projection",
+    "note": "Body- and perspective-indexed Memory; not a universal Memory construction."
+  },
+  "Model": {
+    "module": "EmbodiedConsciousness",
+    "name": "PerspectiveModel",
+    "status": "projection",
+    "note": "Body- and perspective-indexed Model joining represented Perception and Memory to subsequent States."
+  },
+  "Action": {
+    "module": "PR18Governance",
+    "name": "Action",
+    "status": "projection",
+    "note": "A Body-indexed, Boundary-admitted crossing from Interior to Environment."
+  },
+  "Consequence": {
+    "module": "IntelligenceKnowledge",
+    "name": "CognitivePipeline",
+    "parameters": ["Consequence"],
+    "note": "Consequence is a supplied carrier in this pipeline, not a constructed causal Change. Dependence.dependentOutput is also explicitly not canonical Consequence."
+  },
+  "Interpretation": {
+    "module": "PR18Governance",
+    "name": "Interpretation",
+    "status": "projection",
+    "note": "This candidate processes Perception and distinguishes available Actions. It does not supply the full Memory/Model join of the prose.",
+    "support": [["PR18Governance", "ExactChains"]]
+  },
+  "Agent": {
+    "module": "PR18Governance",
+    "name": "Agent",
+    "status": "projection",
+    "note": "An Agent of a fixed Body, joined to that Body’s Interpretation and exact Action."
+  },
+  "Agency": {
+    "module": "PR18Governance",
+    "name": "Agency",
+    "status": "projection",
+    "note": "The existing Body-indexed candidate. Its contribution must be exactly the Interpretation’s contribution and produce the Agent’s exact Action."
+  },
+  "Tool": {
+    "status": "unencoded",
+    "note": "No corresponding Tool declaration exists in the audited Lean sources. A generic Entity parameter would omit its use by an Agent."
+  },
+  "Capability": {
+    "module": "OrganonCore",
+    "name": "Capability",
+    "support": [["OrganonCore", "Capability.can"]]
+  },
+  "Interior": {
+    "module": "EmbodiedConsciousness",
+    "name": "Body",
+    "fields": ["interior", "recurringWithinInterior"],
+    "note": "The Body’s State Specification and recurring Transformation membership obligations. This does not independently classify all interior Transformations."
+  },
+  "Exposure": {
+    "module": "PR18Governance",
+    "name": "Action",
+    "fields": ["crossingInput", "crossingOutput", "admitted"],
+    "note": "The crossing conditions of this Action candidate, not a general Exposure predicate."
+  },
+  "Flow": { "module": "RitualMeaning", "name": "Flow" },
+  "Interface": {
+    "module": "Operationalization",
+    "name": "OperationalInterface",
+    "status": "projection",
+    "note": "A predicate exposing Transformations. The source does not construct the complete Boundary- and Entity-indexed Interface."
+  },
+  "Claim": {
+    "module": "TruthTrustAlignment",
+    "name": "TruthSemantics",
+    "parameters": ["Claim"],
+    "note": "Claim is a supplied type with semantic accessors. Its Agent, Representation and Scope are not constructed as a canonical Claim record here."
+  },
+  "Witness": {
+    "module": "OrganonCore",
+    "name": "IndependentFor",
+    "parameters": ["Witness"],
+    "note": "Witness is supplied to the independence construction, not derived as a producer of an Observation."
+  },
+  "Control": {
+    "module": "OrganonCore",
+    "name": "IndependentFor",
+    "fields": ["controls", "outsideControl"],
+    "note": "A supplied control predicate and its negation for the claimant. This is not the full Control construction."
+  },
+  "Order": {
+    "module": "OrganonCore",
+    "name": "InstitutionalOrder",
+    "status": "projection",
+    "note": "Institutional judgment predicates; this record does not construct a persistent Configuration."
+  },
+  "Standing": { "module": "OrganonCore", "name": "StandingRelation" },
+  "Recognition": { "module": "OrganonCore", "name": "RecognitionRelation" },
+  "Principal": {
+    "module": "OrganonCore",
+    "name": "InstitutionalOrder",
+    "fields": ["recognizesPrincipal"],
+    "note": "A supplied Principal carrier and recognition predicate, not a Principal derived from canonical Standing."
+  },
+  "ActsFor": {
+    "module": "QuarantineProfiles",
+    "name": "SovereigntySemantics",
+    "fields": ["actsFor"],
+    "note": "An opaque relation used in the sovereignty example. Its canonical Recognition and Scope conditions are not constructed."
+  },
+  "CountsAs": {
+    "module": "QuarantineProfiles",
+    "name": "InstitutionalValuation",
+    "fields": ["countsAs", "counted"],
+    "note": "A proposal-local institutional valuation projection, not a universal CountsAs construction."
+  },
+  "Authority": {
+    "module": "OrganonCore",
+    "name": "Authority",
+    "note": "The core module’s institutional encoding. The broader institutional-revision candidates remain separate proposals."
+  },
+  "PermissionClaim": { "module": "OrganonCore", "name": "PermissionClaim" },
+  "Declaration": {
+    "module": "OrganonCore",
+    "name": "AdmissibilityRuleProvenance",
+    "fields": ["declaration", "authorized", "authorizationHolds"],
+    "note": "A supplied Declaration and authorization witness; no canonical Action submitting a Claim is constructed."
+  },
+  "Grant": {
+    "module": "OrganonCore",
+    "name": "Grant",
+    "note": "The current Grant record is not itself typed as a canonical Declaration."
+  },
+  "Admission": {
+    "module": "OrganonCore",
+    "name": "InstitutionalOrder",
+    "fields": ["admits"],
+    "note": "A supplied institutional admission predicate over numeric identifiers and time, not a complete Admission record."
+  },
+  "Permission": { "module": "OrganonCore", "name": "Permission" },
+  "Revocation": {
+    "module": "OrganonCore",
+    "name": "InstitutionalOrder",
+    "fields": ["revokes"],
+    "note": "A supplied institutional revocation predicate, not a Declaration under Authority."
+  },
+  "PermissionExercise": {
+    "module": "OrganonCore",
+    "name": "PermissionExercise",
+    "note": "This Lean record supplies permission, feasibility and non-revocation conditions, but has no field witnessing that the Action actually occurred."
+  },
+  "Exercisability": {
+    "module": "OrganonCore",
+    "name": "PermissionExercise",
+    "status": "projection",
+    "note": "The available general record carries the conjuncts of exercisability, despite its PermissionExercise name. It is not relabelled as a proved equivalent of the prose."
+  },
+  "Enforcement": {
+    "module": "QuarantineProfiles",
+    "name": "SovereigntySemantics",
+    "fields": ["enforcementChanges"],
+    "note": "A supplied effect predicate in the boundary-sovereignty example; general Enforcement is not constructed."
+  },
+  "Role": {
+    "status": "unencoded",
+    "note": "No corresponding institutional Role declaration exists in the audited Lean sources. The unrelated ParticipationRole draft is not this definition."
+  },
+  "AdmissibilityRule": {
+    "module": "OrganonCore",
+    "name": "AdmissibilityRuleProvenance",
+    "status": "projection",
+    "note": "The Rule’s authorization provenance is constructed; the Rule carrier and authorized predicate remain supplied."
+  },
+  "IndependentFor": { "module": "OrganonCore", "name": "IndependentFor" },
+  "Evidence": {
+    "module": "QuarantineProfiles",
+    "name": "EvidenceAdmission",
+    "status": "projection",
+    "note": "A proposal-local admission construction with supplied Observation and independence semantics, and a supporting disposition. It is narrower than general Evidence."
+  },
+  "EvidentialBearing": {
+    "module": "BridgeRelations",
+    "name": "EvidentialBearing"
+  },
+  "Attestation": {
+    "status": "unencoded",
+    "note": "No corresponding Attestation declaration exists in the audited Lean sources."
+  },
+  "Institution": {
+    "module": "InstitutionalRevision",
+    "name": "handoffAt",
+    "parameters": ["Institution"],
+    "note": "Institution is a supplied carrier in this succession test. Its persistence, Rules and Roles are not constructed here."
+  },
+  "Center": {
+    "status": "unencoded",
+    "note": "No corresponding Center declaration exists in the audited Lean sources."
+  },
+  "Organ": {
+    "module": "EmbodiedConsciousness",
+    "name": "BodilyOrganization",
+    "parameters": ["Organ"],
+    "note": "Organs are supplied participants in the bodily organization model, not independently constructed general Organs."
+  },
+  "CanonicalSystem": {
+    "status": "unencoded",
+    "note": "No corresponding CanonicalSystem declaration exists in the audited Lean sources."
+  },
+  "ShadowSystem": {
+    "status": "unencoded",
+    "note": "No corresponding ShadowSystem declaration exists in the audited Lean sources."
+  },
+  "Person": {
+    "status": "unencoded",
+    "note": "No corresponding Person declaration exists in the audited Lean sources. MoralPersonhoodDesignation is a different term."
+  },
+  "Receipt": {
+    "status": "unencoded",
+    "note": "No corresponding Receipt declaration exists in the audited Lean sources."
+  },
+  "Ledger": {
+    "module": "QuarantineProfiles",
+    "name": "PriceSemantics",
+    "fields": ["recordedInLedger"],
+    "note": "An opaque recorded-in-ledger predicate over supplied records, not a constructed ordered Ledger."
+  },
+  "Polity": {
+    "module": "QuarantineProfiles",
+    "name": "SovereigntySemantics",
+    "parameters": ["Polity"],
+    "note": "A supplied carrier in the sovereignty model, not an independent Polity construction."
+  },
+  "ConstituentExercise": {
+    "module": "QuarantineProfiles",
+    "name": "ConstituentSovereignty",
+    "fields": ["exercised"],
+    "note": "Witnesses the supplied constitutes relation; does not construct the full Agency-based Constituent Exercise."
+  },
+  "ConstituentPower": {
+    "module": "QuarantineProfiles",
+    "name": "SovereigntySemantics",
+    "fields": ["hasConstituentPower"],
+    "note": "An opaque predicate in the sovereignty model, not derived from Capability."
+  },
+  "ConsciousnessAttribution": {
+    "module": "Consciousness",
+    "name": "ConsciousnessAttribution"
+  },
+  "ConsciousnessDesignation": {
+    "module": "Consciousness",
+    "name": "ConsciousnessDesignation",
+    "support": [["Consciousness", "DesignationOrder"]]
+  },
+  "Operationalization": {
+    "module": "Operationalization",
+    "name": "Operationalization",
+    "support": [["Operationalization", "SelectionRule"]]
+  },
+  "World": {
+    "module": "WorldSubstrate",
+    "name": "World",
+    "support": [["WorldSubstrate", "AccessPath"]]
+  },
+  "Substrate": { "module": "WorldSubstrate", "name": "Substrate" },
+  "Truth": {
+    "module": "TruthTrustAlignment",
+    "name": "TruthSemantics.isTrue",
+    "support": [["TruthTrustAlignment", "TruthSemantics"]],
+    "note": "The target lies in a supplied reality model. A bridge from that carrier to unrestricted Reality is not supplied."
+  },
+  "Trust": {
+    "module": "TruthTrustAlignment",
+    "name": "Trust",
+    "support": [
+      ["TruthTrustAlignment", "Dependence"],
+      ["TruthTrustAlignment", "Dependence.isAccepted"]
+    ]
+  },
+  "Alignment": {
+    "module": "TruthTrustAlignment",
+    "name": "Alignment",
+    "support": [["TruthTrustAlignment", "AlignmentProfile"]]
+  },
+  "Intelligence": {
+    "module": "IntelligenceKnowledge",
+    "name": "Intelligence",
+    "support": [
+      ["IntelligenceKnowledge", "JoinedAdaptiveCase"],
+      ["IntelligenceKnowledge", "AdaptiveAcross"]
+    ]
+  },
+  "OperativeKnowledge": {
+    "module": "IntelligenceKnowledge",
+    "name": "OperativeKnowledge"
+  },
+  "KnowledgeTransmission": {
+    "module": "IntelligenceKnowledge",
+    "name": "KnowledgeTransmission"
+  },
+  "FactiveOperativeKnowledge": {
+    "module": "QuarantineProfiles",
+    "name": "FactiveOperativeKnowledge"
+  },
+  "WarrantedKnowledge": {
+    "module": "QuarantineProfiles",
+    "name": "WarrantedKnowledge"
+  },
+  "MoralStatusAttribution": {
+    "module": "QuarantineProfiles",
+    "name": "MoralStatusAttribution"
+  },
+  "MoralPersonhoodDesignation": {
+    "module": "QuarantineProfiles",
+    "name": "MoralPersonhoodDesignation"
+  },
+  "ConstituentSovereignty": {
+    "module": "QuarantineProfiles",
+    "name": "ConstituentSovereignty"
+  },
+  "ConstitutedSovereignty": {
+    "module": "QuarantineProfiles",
+    "name": "ConstitutedSovereignty"
+  },
+  "BoundarySovereignty": {
+    "module": "QuarantineProfiles",
+    "name": "BoundarySovereignty"
+  },
+  "ExternalSovereignty": {
+    "module": "QuarantineProfiles",
+    "name": "ExternalSovereignty"
+  },
+  "Preference": { "module": "QuarantineProfiles", "name": "Preference" },
+  "UtilityMeasure": {
+    "module": "QuarantineProfiles",
+    "name": "UtilityMeasure"
+  },
+  "Price": {
+    "module": "QuarantineProfiles",
+    "name": "Price",
+    "support": [["QuarantineProfiles", "PriceSemantics"]]
+  },
+  "Ritual": {
+    "module": "RitualMeaning",
+    "name": "Ritual",
+    "support": [["RitualMeaning", "RitualUptake"]]
+  },
+  "Meaning": {
+    "module": "RitualMeaning",
+    "name": "Meaning",
+    "support": [["RitualMeaning", "MeaningRelation"]]
+  },
+  "Body": { "module": "EmbodiedConsciousness", "name": "Body" },
+  "BodilyOrganization": {
+    "module": "EmbodiedConsciousness",
+    "name": "BodilyOrganization"
+  },
+  "EmbodiedPerspective": {
+    "module": "EmbodiedConsciousness",
+    "name": "EmbodiedPerspective"
+  },
+  "RecurrentIntegration": {
+    "module": "EmbodiedConsciousness",
+    "name": "RecurrentIntegration"
+  },
+  "InternalActivitySelection": {
+    "module": "EmbodiedConsciousness",
+    "name": "InternalActivitySelection",
+    "status": "projection",
+    "note": "A restricted temporal selection witness: rejected output precedes selected output. Canonical D111 does not require that ordering."
+  },
+  "Attention": {
+    "module": "AttentionRevision",
+    "name": "tracks",
+    "status": "projection",
+    "note": "Current directed sensitivity over a scoped trace. Entity identity, canonical Perception/Interpretation, uninterrupted continuity and Causal Contribution remain supplied or unproved. Historical Attention records are not used."
+  },
+  "Care": {
+    "module": "CareRevision",
+    "name": "responsive",
+    "status": "projection",
+    "note": "Current response- and Specification-sensitive selection predicate. It does not construct canonical Attention, Action, Consequence or the same-target causal join. Historical Care is not used."
+  },
+  "Respect": {
+    "module": "RespectRevision",
+    "name": "admitted",
+    "status": "projection",
+    "note": "Current scoped admission predicate: an expressed condition overrides the contextual default. Condition provenance, consent and causal regulation remain outside this predicate. Historical Respect is not used."
+  }
+}
