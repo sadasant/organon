@@ -60,7 +60,7 @@ sets:
       - id: module-docstring
         text: The file opens with a module docstring that states what it formalizes and what it leaves out.
       - id: naming
-        text: Declarations follow one Lean naming convention used across the formal directory, UpperCamelCase for types, structures, and namespaces and lowerCamelCase for definitions and theorems.
+        text: Declarations follow the Lean 4 naming convention consistently, UpperCamelCase for types, structures, namespaces, and definitions whose value is a type or proposition, and lowerCamelCase for theorems and other definitions.
       - id: names-describe-content
         text: The module's file name describes what it formalizes, not the pull request, review, or date that produced it.
       - id: named-steps
@@ -172,7 +172,9 @@ sets:
         text: Each witness and countermodel names, in its identifier or docstring, the claim or anti-entailment it tests.
       - id: nonbinding-marked
         priority: 1
-        text: Nonbinding examples and historical records live in clearly marked namespaces or modules, never mixed unmarked with the current shadow.
+        text: Withdrawn or historical constructions kept for reference live in a clearly marked namespace or module, such as NonbindingExamples, separate from the current shadow.
+        instructions: Every Lean module in Organon is a nonbinding shadow; this guideline concerns withdrawn or historical constructions inside it, not the module's overall status.
+        recommendation: Move the withdrawn or historical declarations into a NonbindingExamples namespace.
       - id: no-undeclared-vocabulary
         priority: 1
         text: The module introduces no object-language vocabulary the ontology does not define, unless it is marked as a local modeling device.
@@ -229,6 +231,10 @@ rules:
       shadows or dossiers. A passing check, compilation, or model judgment is evidence
       about an artifact, never adoption. A guideline about something the artifact
       does not contain, such as errors, model calls, gate results, or witnesses, is met.
+    override:
+      - id: atomic/single-purpose
+        severity: warning
+        instructions: A change that applies one kind of edit across several files, such as one audit's fixes of one kind or one documentation convention, has one purpose.
 
   - name: Markdown
     match: ["*.md"]
