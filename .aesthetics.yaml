@@ -206,10 +206,12 @@ sets:
         content: [code]
         priority: 1
         text: The script's docstring names the document or contract it enforces or projects, so a failure can be traced to the rule it broke.
+        recommendation: Name the governing document in the module docstring.
       - id: reports-what-it-checked
         content: [code]
         priority: 1
         text: Success messages report what was checked and claim nothing more.
+        recommendation: Report the counts or artifacts that were checked, not a broader conclusion.
 
   organon-data:
     name: Registries, manifests, and ledgers
@@ -295,7 +297,7 @@ rules:
     extends: [unix, kiss, python-citizen]
     override:
       - id: unix/composable
-        instructions: Command-line entry points may default to the repository's own paths when arguments can override them, and repository checkers read the repository by design. Judge whether library functions take their inputs as arguments.
+        instructions: Command-line entry points may default to the repository's own paths when arguments can override them, and repository checkers and generators read and write the repository's own files by design. Judge whether library functions take their inputs as arguments.
 
   - name: Evaluation machinery
     match: [evals/**]
