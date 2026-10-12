@@ -6,7 +6,7 @@ binding: false
 
 # Organon's symbolic vocabulary: Unicode study and custom typeface
 
-**Current direction: one provisional typeface shared by the study and website.** The [Organon Symbols catalog](./glyph-catalog.mjs) now supplies all 115 marks, the installable font, and the website. The [symbol review](./glyph-atlas.md) shows the same marks with per-term judgments: **49 revised trials and 66 retained trials**. None is certified as semantically equivalent to its definition. The earlier Unicode assessment below remains a record of alternatives, not a second active assignment system. **Hold adoption and merge pending review of the revised mappings.**
+**Current direction: one provisional typeface shared by the study and website.** The [Organon Symbols catalog](./glyph-catalog.mjs) now supplies all 115 marks, the installable font, and the website. The [symbol review](./glyph-atlas.md) shows the same marks with per-term judgments: **49 revised trials and 66 retained trials**. None is certified as semantically equivalent to its definition. The earlier Unicode assessment below remains a record of alternatives, not a second active assignment system. **Publication accepts this experimental vocabulary for use with labels; it does not promote the glyphs into binding definitions or close the reader-testing gates.**
 
 ## Shared typeface and semantic review
 

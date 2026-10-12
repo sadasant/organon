@@ -1,5 +1,9 @@
 #!/usr/bin/env python3
-"""Build and verify the nonbinding Organon algebra experiment."""
+"""Build and verify the nonbinding Organon algebra experiment.
+
+Contract: ontology/algebra/README.md. Writes mutations.yaml, fixtures/witnesses.yaml,
+fixtures/countermodels.yaml, and coverage.md; --check fails when any is stale.
+"""
 
 from __future__ import annotations
 
@@ -672,7 +676,10 @@ def render_coverage(
 def write_or_check(path: Path, content: str, *, check: bool) -> None:
     if check:
         if not path.is_file() or path.read_text(encoding="utf-8") != content:
-            raise AlgebraError(f"generated algebra artifact is stale: {path.relative_to(ROOT)}")
+            raise AlgebraError(
+                f"generated algebra artifact is stale: {path.relative_to(ROOT)}; "
+                "run python3 scripts/build-algebra.py to regenerate it"
+            )
     else:
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_text(content, encoding="utf-8")
@@ -777,9 +784,9 @@ def main() -> int:
     except AlgebraError as error:
         print(f"Algebra experiment failed: {error}", file=sys.stderr)
         return 1
-    mode = "verified" if args.check else "generated"
+    mode = "are current" if args.check else "written"
     print(
-        f"Algebra experiment {mode}: {counts['cards']} cards, {counts['mutations']} mutations, "
+        f"Algebra artifacts {mode}: {counts['cards']} cards, {counts['mutations']} mutations, "
         f"{counts['witnesses']} witnesses, {counts['countermodels']} structural fixtures, "
         f"{counts['holdouts']} holdouts, {counts['circuits']} joined circuits, "
         f"{counts['laws']} candidate disciplines uniquely represented in the labeled suite."

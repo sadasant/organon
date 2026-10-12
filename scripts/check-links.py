@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
-"""Reject repository-facing Markdown dependencies that escape Organon."""
+"""Reject repository-facing Markdown dependencies that escape Organon.
+
+Contract: MARKDOWN.md. Also runs scripts/check-structure.py.
+"""
 
 from __future__ import annotations
 

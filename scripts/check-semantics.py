@@ -1,5 +1,10 @@
 #!/usr/bin/env python3
-"""Check Organon's stable terms, typed claims, and dependency order."""
+"""Check Organon's stable terms, typed claims, and dependency order.
+
+Contract: the claim typing and stable identity rules in ontology/ontology.md and the
+binding-promotion protocol in CONTRIBUTING.md, checked against ontology/terms.yaml and
+provenance/terms.json. Also runs the generated-projection checks.
+"""
 
 from __future__ import annotations
 
@@ -11,27 +16,13 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parent.parent
-ONTOLOGY = next(
-    path
-    for path in (ROOT / "ontology" / "ontology.md", ROOT / "Daniels-Ontology.md")
-    if path.exists()
-)
-REGISTRY = next(
-    path
-    for path in (ROOT / "ontology" / "terms.yaml", ROOT / "Ontology" / "terms.yaml")
-    if path.exists()
-)
+ONTOLOGY = ROOT / "ontology" / "ontology.md"
+REGISTRY = ROOT / "ontology" / "terms.yaml"
 PROVENANCE = ROOT / "provenance" / "terms.json"
 FORMAL = ROOT / "ontology" / "formal"
 GOVERNED = [
-    path
-    for path in (
-        ROOT / "editorial" / "long-form.md",
-        ROOT / "editorial" / "short-form.md",
-        ROOT / "Long-Form-Editorial-Grammar.md",
-        ROOT / "Samples" / "Short-Form.md",
-    )
-    if path.exists()
+    ROOT / "editorial" / "long-form.md",
+    ROOT / "editorial" / "short-form.md",
 ]
 TERM_MARKER = re.compile(r"<!-- organon:term (organon:[A-Za-z0-9]+) claim=([A-Za-z0-9]+) -->")
 CLAIM_MARKER = re.compile(r"<!-- organon:claim ([A-Za-z0-9]+) -->")

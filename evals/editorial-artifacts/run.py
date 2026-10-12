@@ -12,7 +12,8 @@ import re
 import sys
 from datetime import UTC, datetime
 from pathlib import Path
-from typing import Literal
+from collections.abc import Callable
+from typing import Any, Literal
 
 import dspy
 from pydantic import BaseModel, Field
@@ -253,9 +254,9 @@ def evaluate_draft(
     short_form: str,
     long_form: str,
     dossier: str,
-    ontology_judge,
-    delivery_judge,
-    long_form_judge,
+    ontology_judge: Callable[..., Any],
+    delivery_judge: Callable[..., Any],
+    long_form_judge: Callable[..., Any],
 ) -> dict:
     draft_json = draft.model_dump_json()
     deterministic = deterministic_checks(draft, allowed_sources, target)

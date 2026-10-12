@@ -1,5 +1,9 @@
 #!/usr/bin/env python3
-"""Build and audit the nonbinding ontology-framework experiment."""
+"""Build and audit the nonbinding ontology-framework experiment.
+
+Contract: ontology/formal/ontology-completeness-experiment.md and
+proposals/ontological-frameworks.md.
+"""
 from pathlib import Path
 import re
 import subprocess

@@ -11,9 +11,11 @@ import os
 import platform
 import re
 import sys
+from collections.abc import Callable
 from datetime import UTC, datetime
 from pathlib import Path
-from typing import Literal
+from types import ModuleType
+from typing import Any, Literal
 
 import dspy
 from pydantic import BaseModel, Field
@@ -21,6 +23,26 @@ from pydantic import BaseModel, Field
 
 ROOT = Path(__file__).resolve().parents[2]
 EVAL_ROOT = Path(__file__).resolve().parent
+EVALS_ROOT = EVAL_ROOT.parent
+if str(EVALS_ROOT) not in sys.path:
+    sys.path.insert(0, str(EVALS_ROOT))
+
+from core import METHODOLOGY_VERSION
+from core.contracts import (
+    canonical_digest,
+    committed_input_manifest,
+    git_head,
+    methodology_inputs,
+    read_text,
+    resolve_within,
+    sha256_path,
+    sha256_text,
+)
+from core.improvement import improvement_plan, render_improvement_plans
+from core.judging import escape_cell, judgment_passed, score_values
+from core.result import validate_evaluation_result
+from core.workspace import RunWorkspace, write_projection
+
 DEFAULT_ONTOLOGY = ROOT / "ontology" / "ontology.md"
 DEFAULT_ANSWER_FORM = ROOT / "editorial" / "essay-answer-form.md"
 DEFAULT_QUESTIONS = EVAL_ROOT / "inputs" / "questions.md"
@@ -34,7 +56,7 @@ ALLOWED_DISPOSITIONS = {
 }
 
 
-def load_run_module():
+def load_run_module() -> ModuleType:
     spec = importlib.util.spec_from_file_location("organon_essay_run_for_judges", EVAL_ROOT / "run.py")
     assert spec and spec.loader
     module = importlib.util.module_from_spec(spec)
@@ -44,19 +66,6 @@ def load_run_module():
 
 
 RUN = load_run_module()
-
-from core import METHODOLOGY_VERSION
-from core.contracts import (
-    canonical_digest,
-    methodology_inputs,
-    read_text,
-    sha256_path,
-    sha256_text,
-)
-from core.improvement import improvement_plan, render_improvement_plans
-from core.judging import escape_cell, judgment_passed, score_values
-from core.result import validate_evaluation_result
-from core.workspace import RunWorkspace, write_projection
 
 
 class OntologyJudgment(BaseModel):
@@ -175,7 +184,7 @@ def deterministic_checks(answer: dict) -> dict:
     }
 
 
-def validate_judgment_ids(expected: list[str], judgments: list[BaseModel]) -> list:
+def validate_judgment_ids(expected: list[str], judgments: list[BaseModel]) -> list[BaseModel]:
     actual = [judgment.question_id for judgment in judgments]
     if len(actual) != len(set(actual)) or set(actual) != set(expected):
         raise ValueError(f"Expected judgment IDs {expected}, received {actual}")
@@ -183,7 +192,9 @@ def validate_judgment_ids(expected: list[str], judgments: list[BaseModel]) -> li
     return [by_id[question_id] for question_id in expected]
 
 
-def call_judge_with_id_retry(program, expected: list[str], bundle: str, **kwargs):
+def call_judge_with_id_retry(
+    program: Callable[..., Any], expected: list[str], bundle: str, **kwargs: Any
+) -> list[BaseModel]:
     last_error: ValueError | None = None
     answers = json.loads(bundle)
     for attempt in range(3):
@@ -306,11 +317,17 @@ def main() -> None:
     ]
     if args.baseline_evaluation:
         governed_inputs.append(args.baseline_evaluation)
-    input_manifest = RUN.committed_input_manifest(ROOT, governed_inputs)
+    input_manifest = committed_input_manifest(ROOT, governed_inputs)
     if source["run"]["ontology_sha256"] != sha256_text(ontology):
-        raise SystemExit("Source result ontology digest does not match current input")
+        raise SystemExit(
+            "Source result ontology digest does not match current input; pass the "
+            "--ontology the answers were generated with, or regenerate them"
+        )
     if source["run"]["answer_form_sha256"] != sha256_text(answer_form):
-        raise SystemExit("Source result Essay-Answer Form digest does not match current input")
+        raise SystemExit(
+            "Source result Essay-Answer Form digest does not match current input; "
+            "pass the --answer-form the answers were generated with, or regenerate them"
+        )
 
     lm = dspy.LM(
         f"openai/{args.judge_model}",
@@ -334,7 +351,7 @@ def main() -> None:
             raise SystemExit("Baseline evaluation ontology digest does not match current input")
         if baseline["run"]["answer_form_sha256"] != sha256_text(answer_form):
             raise SystemExit("Baseline evaluation Essay-Answer Form digest does not match current input")
-        baseline_source_path = RUN.resolve_within(
+        baseline_source_path = resolve_within(
             args.baseline_evaluation.parent,
             baseline["run"]["source_result"],
             label="baseline source-result selector",
@@ -439,7 +456,7 @@ def main() -> None:
             "dspy_version": importlib.metadata.version("dspy"),
             "litellm_version": importlib.metadata.version("litellm"),
             "python_version": platform.python_version(),
-            "organon_commit": RUN.git_head(ROOT),
+            "organon_commit": git_head(ROOT),
             "committed_inputs_sha256": input_manifest,
             "source_result": args.source_result.name,
             "source_result_sha256": sha256_path(args.source_result),

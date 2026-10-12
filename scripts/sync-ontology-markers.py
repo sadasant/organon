@@ -1,5 +1,9 @@
 #!/usr/bin/env python3
-"""Insert missing stable term markers into the binding ontology."""
+"""Insert missing stable term markers into the binding ontology.
+
+Writes the stable term markers that ontology/ontology.md declares and
+scripts/check-semantics.py requires.
+"""
 
 from __future__ import annotations
 
@@ -8,16 +12,8 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parent.parent
-ONTOLOGY = next(
-    path
-    for path in (ROOT / "ontology" / "ontology.md", ROOT / "Daniels-Ontology.md")
-    if path.exists()
-)
-REGISTRY = next(
-    path
-    for path in (ROOT / "ontology" / "terms.yaml", ROOT / "Ontology" / "terms.yaml")
-    if path.exists()
-)
+ONTOLOGY = ROOT / "ontology" / "ontology.md"
+REGISTRY = ROOT / "ontology" / "terms.yaml"
 
 
 def main() -> None:

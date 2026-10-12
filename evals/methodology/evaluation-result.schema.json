@@ -2,6 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://github.com/sadasant/organon/evals/methodology/evaluation-result.schema.json",
   "title": "Organon evaluation result envelope",
+  "description": "Final run.json envelope shared by every suite and enforced by evals/core/result.py. The lifecycle stages and gate semantics are defined in README.md.",
   "type": "object",
   "required": ["schema_version", "run", "improvement_plans"],
   "properties": {

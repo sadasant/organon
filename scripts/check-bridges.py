@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
-"""Check that every audited hidden bridge has one stable resolution."""
+"""Check that every audited hidden bridge has one stable resolution.
+
+Contract: ontology/hidden-bridge-audit.md, as recorded in ontology/bridges.json.
+"""
 
 from __future__ import annotations
 
