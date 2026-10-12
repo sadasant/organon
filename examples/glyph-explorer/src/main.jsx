@@ -224,9 +224,6 @@ function App() {
       </header>
       <main>
         <section className="intro">
-          <div className="intro-mark" aria-hidden="true">
-            ◎
-          </div>
           <div>
             <p className="edition">An experimental atlas · v{version}</p>
             <h1>

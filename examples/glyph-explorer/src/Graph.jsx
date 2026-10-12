@@ -149,12 +149,12 @@ export default function Graph({ term, terms, search }) {
               <circle
                 cx={n.x}
                 cy={n.y}
-                r={n.center ? 26 : 2}
+                r={n.center ? 4 : 2}
                 className="node-star"
               />
               <text
                 x={n.x}
-                y={n.y + (n.center ? 7 : -10)}
+                y={n.y + (n.center ? -14 : -10)}
                 textAnchor="middle"
                 className={n.term.glyph ? "node-glyph" : "node-code"}
               >
@@ -162,7 +162,7 @@ export default function Graph({ term, terms, search }) {
               </text>
               <text
                 x={n.x}
-                y={n.y + (n.center ? 48 : 24)}
+                y={n.y + (n.center ? 32 : 24)}
                 textAnchor="middle"
                 className="node-label"
               >
