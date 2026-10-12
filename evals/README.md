@@ -50,7 +50,8 @@ run independently inside one lineage.
 recursively. Each suite has one `current.json` pointer naming the current run,
 its predecessor, exact ontology snapshot, evaluation result, and separate
 human-promotion status. A filename such as `final` has no authority independent
-of that pointer.
+of that pointer. A `passed` pointer must cover the current ontology; an
+`incomplete` or `failed` one may lag it and records which snapshot it judged.
 
 ## Suites
 
