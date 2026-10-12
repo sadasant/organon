@@ -1,5 +1,11 @@
 #!/usr/bin/env python3
-"""Audit and reproduce the nonbinding, source-pinned Unicode vocabulary atlas."""
+"""Audit and reproduce the nonbinding, source-pinned Unicode vocabulary atlas.
+
+Contract: proposals/unicode-vocabulary.md. Reads the candidates in
+proposals/unicode-vocabulary-candidates.json against their pinned source commit
+and writes proposals/unicode-vocabulary-atlas.md with --write; the default run
+fails when the atlas is stale.
+"""
 
 from __future__ import annotations
 
