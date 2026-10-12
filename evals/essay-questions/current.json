@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
   "suite": "essay-questions",
-  "current_run": "results/2026-10-11-v0.20-termhood-sweep",
-  "predecessor": "results/2026-10-11-v0.20-permission-withdrawal",
+  "current_run": "results/2026-10-12-v0.20-attention-love-withdrawal",
+  "predecessor": "results/2026-10-11-v0.20-termhood-sweep",
   "run_record": "evaluation.json",
   "primary_artifact": "evaluation.md",
   "evaluation_status": "incomplete",
   "promotion_status": "hold",
   "ontology_version": "0.20.0",
-  "ontology_sha256": "06f31022bfcb7608bba410ddb60d45d3cbf67b68d9f5b927ef1756ea4ff5a8a6",
-  "promotion_basis": "termhood-sweep snapshot; no new model judgment or promotion-readiness attestation"
+  "ontology_sha256": "e7876b614c2cd51bc130e3b02065e3f5451de9ea331a0e66a42b2417e263051a",
+  "promotion_basis": "Attention revision and Love withdrawal source snapshot; no new model judgment or promotion-readiness attestation"
 }

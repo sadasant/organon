@@ -1,0 +1,19 @@
+{
+  "schema_version": 2,
+  "run": {
+    "evaluation": "essay-questions",
+    "methodology_version": "1.0",
+    "stages": ["snapshot", "deterministic-preflight"],
+    "generated_at": "2026-10-12",
+    "organon_commit": "db978be8b2d02debff5e1d8850cd9882841a1e90",
+    "committed_inputs_sha256": {
+      "ontology/ontology.md": "e7876b614c2cd51bc130e3b02065e3f5451de9ea331a0e66a42b2417e263051a"
+    },
+    "ontology_sha256": "e7876b614c2cd51bc130e3b02065e3f5451de9ea331a0e66a42b2417e263051a",
+    "complete": true,
+    "passed": false,
+    "incomplete_reason": "Attention revision and Love withdrawal source snapshot only. Model generation and judgments were not rerun. Exact-source promotion reviews remain stale; no renewed promotion readiness is attested.",
+    "human_disposition": "hold"
+  },
+  "improvement_plans": []
+}
