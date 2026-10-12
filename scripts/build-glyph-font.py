@@ -14,6 +14,7 @@ import hashlib
 import html
 import json
 from pathlib import Path
+import re
 import subprocess
 import tempfile
 
@@ -26,6 +27,8 @@ from shapely.geometry.polygon import orient
 from shapely.ops import unary_union
 
 ROOT = Path(__file__).resolve().parents[1]
+GEOMETRY = json.loads((ROOT / "proposals/glyph-geometry.json").read_text())
+SCALE = GEOMETRY["units_per_em"] / GEOMETRY["canvas"]
 
 
 class StrokePen(BasePen):
@@ -73,19 +76,25 @@ class StrokePen(BasePen):
 
 
 def outline(path):
+    numbers = re.findall(r"[-+]?(?:\d*\.\d+|\d+)(?:[eE][-+]?\d+)?", path)
+    assert all(float(n) % GEOMETRY["coordinate_grid"] == 0 for n in numbers), "Off-grid glyph coordinate"
     stroke = StrokePen()
     parse_path(path, stroke)
     shape = unary_union([
-        line.buffer(0.55, cap_style="square", join_style="mitre")
+        line.buffer(GEOMETRY["stroke_width"] / 2, cap_style=GEOMETRY["linecap"],
+                    join_style="mitre", mitre_limit=GEOMETRY["miter_limit"])
         for line in stroke.lines
     ])
+    assert GEOMETRY["linejoin"] == "miter", "Font and specimen must share join style"
+    low, high = GEOMETRY["ink_inset"], GEOMETRY["canvas"] - GEOMETRY["ink_inset"]
+    assert not shape.is_empty and all(low <= b <= high for b in shape.bounds), f"Ink outside geometric envelope: {shape.bounds}"
     pen = TTGlyphPen(None)
     polygons = [shape] if shape.geom_type == "Polygon" else shape.geoms
     for polygon in polygons:
         # Flipping SVG's downward Y makes CCW exterior rings clockwise in TTF.
         polygon = orient(polygon, sign=1)
         for ring in [polygon.exterior, *polygon.interiors]:
-            points = [(round(x*32), round((32-y)*32)) for x, y in ring.coords[:-1]]
+            points = [(round(x*SCALE), round((GEOMETRY["canvas"]-y)*SCALE)) for x, y in ring.coords[:-1]]
             pen.moveTo(points[0])
             for point in points[1:]:
                 pen.lineTo(point)
@@ -109,12 +118,13 @@ def build(output_root):
     assert all(0xE000 <= g["codepoint"] <= 0xF8FF for g in catalog)
     for source, expected in reviews["source"]["sha256"].items():
         # The original SVG module is preserved by the review's historical commit.
-        if source.startswith("ontology/") or source == "proposals/glyph-catalog.mjs":
+        if source.startswith("ontology/") or source in {"proposals/glyph-catalog.mjs", "proposals/glyph-geometry.json"}:
             assert hashlib.sha256((ROOT / source).read_bytes()).hexdigest() == expected
 
     out = output_root / "proposals/glyph-assets"
     out.mkdir(parents=True, exist_ok=True)
-    font = FontBuilder(1024, isTTF=True)
+    em = GEOMETRY["units_per_em"]
+    font = FontBuilder(em, isTTF=True)
     names = [g["term"] for g in catalog]
     font.setupGlyphOrder([".notdef", "space", *names])
     font.setupCharacterMap({32: "space", **{g["codepoint"]: g["term"] for g in catalog}})
@@ -123,22 +133,23 @@ def build(output_root):
         "space": TTGlyphPen(None).glyph(),
         **{g["term"]: outline(g["path"]) for g in catalog},
     })
-    font.setupHorizontalMetrics({name: (1024, 0) for name in font.font.getGlyphOrder()})
+    assert len({font.font["glyf"][name].compile(font.font["glyf"]) for name in names}) == len(names), "Duplicate font outlines"
+    font.setupHorizontalMetrics({name: (em, 0) for name in font.font.getGlyphOrder()})
     # Match outline left sidebearings to avoid renderer-dependent shifts.
     for name in names + [".notdef"]:
-        font.font["hmtx"].metrics[name] = (1024, font.font["glyf"][name].xMin)
-    font.setupHorizontalHeader(ascent=1024, descent=0)
+        font.font["hmtx"].metrics[name] = (em, font.font["glyf"][name].xMin)
+    font.setupHorizontalHeader(ascent=em, descent=0)
     font.setupNameTable({
         "familyName": "Organon Symbols",
         "styleName": "Regular",
-        "uniqueFontIdentifier": "OrganonSymbols-0.1",
+        "uniqueFontIdentifier": "OrganonSymbols-0.2",
         "fullName": "Organon Symbols Regular",
         "psName": "OrganonSymbols-Regular",
-        "version": "Version 0.1",
+        "version": "Version 0.2",
         "description": "Nonbinding experimental symbols. Use with the Organon catalog and labels.",
     })
-    font.setupOS2(sTypoAscender=1024, sTypoDescender=0, sTypoLineGap=0,
-                  usWinAscent=1024, usWinDescent=0)
+    font.setupOS2(sTypoAscender=em, sTypoDescender=0, sTypoLineGap=0,
+                  usWinAscent=em, usWinDescent=0)
     font.setupPost()
     # Fixed timestamps make repeated builds byte reproducible.
     font.font["head"].created = font.font["head"].modified = 3864153600
@@ -153,7 +164,7 @@ def build(output_root):
              '<rect width="1200" height="1680" fill="#080808"/>']
     for i, (glyph, term) in enumerate(zip(catalog, terms)):
         x, y = 75 + (i % 8)*150, 42 + (i // 8)*110
-        sheet.append(f'<g transform="translate({x-20},{y}) scale(1.25)"><path d="{glyph["path"]}" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter"/></g>')
+        sheet.append(f'<g transform="translate({x-20},{y}) scale(1.25)"><path d="{glyph["path"]}" fill="none" stroke="#e8e7e3" stroke-width="{GEOMETRY["stroke_width"]}" stroke-linecap="{GEOMETRY["linecap"]}" stroke-linejoin="{GEOMETRY["linejoin"]}" stroke-miterlimit="{GEOMETRY["miter_limit"]}"/></g>')
         # Stable IDs make very long labels unambiguous in the accompanying table.
         label = term.get("label", glyph["term"])
         words, lines = label.split(), [""]
@@ -167,9 +178,10 @@ def build(output_root):
     (out / "specimen.svg").write_text("\n".join(sheet) + "\n")
     rows = ["# Organon symbol review", "",
             "Generated by `uv run scripts/build-glyph-font.py` from the shared catalog and semantic review. **Nonbinding; all marks remain provisional.**", "",
-            f"Coverage: {len(catalog)} marks; {sum(r['verdict'] == 'trial' for r in reviews['entries'])} trial, {sum(r['verdict'] == 'revise' for r in reviews['entries'])} revise. These are editorial judgments, not semantic proofs or reader-test results.", "",
+            f"Coverage: {len(catalog)} marks; {sum(r['verdict'] == 'trial' for r in reviews['entries'])} retained trials, {sum(r['verdict'] == 'revised' for r in reviews['entries'])} revised trials, {sum(r['verdict'] == 'revise' for r in reviews['entries'])} awaiting redesign. Revised means changed, not approved. These are editorial judgments, not semantic proofs or reader-test results.", "",
             "![All shared glyphs, in registry order](./glyph-assets/specimen.svg)", "",
             "[Installable TTF](./glyph-assets/OrganonSymbols.ttf) · [Webfont](./glyph-assets/OrganonSymbols.woff2) · [Source catalog](./glyph-catalog.mjs) · [Method](./unicode-vocabulary.md)", "",
+            "[Geometric rules](./glyph-geometry.json): 32-unit grid, uniform 1.1-unit stroke, 1-unit ink margins, square caps and bounded miter joins. Golden-section guides at 12/20 are advisory, not a claim of semantic or aesthetic correctness.", "",
             "Private-use characters work only with this font. Labels and Organon IDs remain authoritative; component shapes do not imply compositional meaning. Earlier Unicode candidates are historical alternatives, not a second active alphabet.", "",
             "| Term | Font slot | Verdict | Cue | Risk | Recommendation |",
             "| --- | --- | --- | --- | --- | --- |"]

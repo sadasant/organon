@@ -48,7 +48,7 @@ test("all 115 definitions preserve source ordering and carry a glyph assessment"
   assert.equal(terms.at(-1).id, "organon:Respect");
   assert.ok(terms.every((t) => t.statement.startsWith(`**${t.label}**`)));
   assert.ok(terms.every((t) => `organon:${t.glyphReview.term}` === t.id));
-  assert.ok(terms.every((t) => ["trial", "revise"].includes(t.glyphReview.verdict)));
+  assert.ok(terms.every((t) => ["trial", "revised", "revise"].includes(t.glyphReview.verdict)));
   assert.equal(terms.filter((t) => t.form).length, 9);
 });
 

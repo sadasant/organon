@@ -350,7 +350,9 @@ function App() {
                         Organon Symbols · provisional. Glyph review:{" "}
                         {term.glyphReview.verdict === "revise"
                           ? "needs revision"
-                          : "mnemonic trial"}.
+                          : term.glyphReview.verdict === "revised"
+                            ? "revised trial — awaiting review"
+                            : "mnemonic trial"}.
                       </p>
                       <p className="notation-note">{term.glyphReview.cue}</p>
                       <p className="notation-note">{term.glyphReview.risk}</p>
