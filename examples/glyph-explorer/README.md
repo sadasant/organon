@@ -1,6 +1,6 @@
-# Organon glyph explorer — local preview
+# Organon glyph explorer
 
-A nonbinding website prototype on `preview/glyph-observatory`, branched from the Unicode study. No ontology changes, official glyph assignments, GitHub Pages deployment, or domain changes are made here.
+A static reader for Organon's definitions, provisional glyphs, candidate algebra and local dependency graphs. It projects the repository's sources without changing the binding ontology. The release target is [organon.sadasant.ai](https://organon.sadasant.ai).
 
 ## Run
 
@@ -24,10 +24,19 @@ npm run preview
 - Graph edges point from prerequisite to dependent, expressing `depends_on`, not causal contribution. Immediate prerequisites and immediate dependents are both included. Narrow screens arrange this graph vertically.
 - Definitions unfold to their natural height without framed cells or reserved blank space. Full entries and notation qualifications remain available in compact disclosures. Term navigation opens only one definition and waits for fonts before aligning it below the fixed header; the app owns history scroll restoration.
 - The star field uses a single Three.js point draw with a small shader, capped at 20 rendered frames per second and 1.5 device-pixel ratio. Reduced motion, hidden tabs and manual pause stop animation. If WebGL is unavailable, a static CSS star field remains. Graph nodes are SVG links, so navigation still works without WebGL.
-- The byline links to Daniel's existing GitHub profile. The confirmed intended site address is `organon.sadasant.ai`; confirm the byline destination before publication.
+- The byline links to Daniel's existing GitHub profile; the repository link opens the canonical source.
 
-## GitHub Pages preparation, not deployment
+## GitHub Pages deployment
 
 Vite builds entirely static output under `dist/`, with locally bundled fonts and relative asset paths. React Router uses `#/term/agency` routes: direct links, refresh, Back and Forward work on Pages without a catch-all server. View modes live in the same fragment URL. This works at either a repository subpath or a custom-domain root.
 
-After semantic review and merge approval, a separate Pages PR can add a workflow that builds this directory and uploads `dist/`. At that point, configure `organon.sadasant.ai` in GitHub Pages, add its DNS CNAME pointing to `sadasant.github.io`, and enable HTTPS. **That is the point to set up the confirmed subdomain.** No workflow, CNAME or DNS record has been created by this preview.
+The [Glyph explorer workflow](../../.github/workflows/pages.yml) builds and tests pull requests without deploying them. Pushes to `main` build, test, upload only `dist/`, and deploy through the `github-pages` environment. Deployment permissions are confined to that job. A manual run on `main` can retry a deployment; runs on other branches cannot deploy. The separate [glyph-study workflow](../../.github/workflows/glyphs.yml) verifies source coverage and reproducible font assets.
+
+Initial hosting setup requires repository administration and DNS access:
+
+1. In this repository's **Settings → Pages**, select **GitHub Actions** as the source.
+2. Set the custom domain to `organon.sadasant.ai` before pointing DNS at GitHub.
+3. In the `sadasant.ai` DNS zone, add a DNS-only CNAME named `organon` pointing to `sadasant.github.io`. This does not change the personal Pages repository or the apex domain.
+4. After GitHub provisions the certificate, enable **Enforce HTTPS**. Verify the root page, a direct fragment URL, refresh, Back/Forward, glyph loading and graph navigation over HTTPS.
+
+The custom domain is repository Pages configuration, not a `CNAME` file: the Actions deployment uses that configuration. Check **Actions → Glyph explorer** for the deployed commit and environment URL. To roll back, revert the website change on `main`; the next successful workflow publishes that revision.
