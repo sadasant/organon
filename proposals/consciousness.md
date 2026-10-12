@@ -11,7 +11,7 @@ formal_shadow: "../ontology/formal/Consciousness.lean"
 ---
 # Consciousness
 
-*Proposed August 2, 2026. Partially promoted in v0.10.0.*
+*First proposed August 2, 2026; last revised August 3, 2026. Partially promoted in v0.10.0.*
 
 ## Verdict
 

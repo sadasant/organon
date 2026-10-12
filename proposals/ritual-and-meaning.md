@@ -10,7 +10,7 @@ formal_shadow: "../ontology/formal/RitualMeaning.lean"
 ---
 # Proposal: Ritual and ritual-dependent Meaning
 
-*Proposed August 4, 2026. Promoted in v0.17.0.*
+*First proposed August 4, 2026; last revised October 12, 2026. Promoted in v0.17.0.*
 
 ## Verdict
 

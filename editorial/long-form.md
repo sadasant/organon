@@ -15,7 +15,7 @@ applies_to:
 ---
 # Long-Form Editorial Grammar
 
-*First published August 1, 2026 (v0.2, provisional).*
+*Published August 1, 2026 (v0.2, provisional).*
 
 Companion model of recurring entities and relations: [Daniel's Ontology](../ontology/ontology.md).
 

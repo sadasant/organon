@@ -11,7 +11,7 @@ provenance: "../provenance/editorial.md"
 ---
 # Short Form
 
-*First published July 31, 2026; revised August 1, 2026 (v1.0, canonical).*
+*First published July 31, 2026; last revised August 1, 2026 (v1.0, canonical).*
 
 This is the canonical working reference for Daniel's short-form editorial language. It is a direction for future writing, not evidence that every sample is Daniel-authored or ready to publish without judgment.
 
