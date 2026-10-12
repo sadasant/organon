@@ -1,0 +1,567 @@
+@font-face {
+  font-family: "Organon Symbols";
+  src: url("../../../proposals/glyph-assets/OrganonSymbols.woff2") format("woff2");
+  font-display: block;
+  font-weight: 400;
+}
+:root {
+  font-family: "Inter Variable", sans-serif;
+  color: #e8e7e3;
+  background: #080808;
+  color-scheme: dark;
+  font-synthesis: none;
+  font-size: 13px;
+  --reading-width: 480px;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+button,
+input {
+  font: inherit;
+  color: inherit;
+}
+button {
+  border: 0;
+  background: none;
+  cursor: pointer;
+}
+button,
+a,
+input,
+summary {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+summary:focus-visible,
+.graph-viewport:focus-visible {
+  outline: 1px dotted #ddd;
+  outline-offset: 4px;
+}
+h1:focus {
+  outline: 0;
+}
+::selection {
+  color: #080808;
+  background: #ddd;
+}
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+}
+.topbar {
+  position: fixed;
+  z-index: 10;
+  inset: 0 0 auto;
+  height: 36px;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #080808;
+  font-size: 10px;
+}
+.wordmark {
+  font-size: 14px;
+  font-weight: 650;
+  letter-spacing: -0.4px;
+}
+.byline {
+  color: #828282;
+}
+.topbar nav {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  color: #aaa;
+}
+.topbar a,
+.topbar button {
+  display: inline-flex;
+  align-items: center;
+  min-height: 28px;
+  padding: 0;
+}
+main {
+  position: relative;
+  z-index: 1;
+  max-width: 1120px;
+  margin: auto;
+  padding: 48px 24px 24px;
+}
+.atlas-toolbar {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0 8px 16px;
+  scroll-margin-top: 44px;
+}
+.atlas-toolbar label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #777;
+}
+.atlas-toolbar svg {
+  width: 14px;
+  height: 14px;
+  flex: none;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+}
+.atlas-toolbar input {
+  background: none;
+  border: 0;
+  border-radius: 0;
+  width: 145px;
+  height: 32px;
+  padding: 0;
+  font-size: 16px;
+}
+.atlas-toolbar input::placeholder {
+  color: #777;
+}
+.glyph-grid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: 12px;
+  row-gap: 8px;
+}
+.glyph-tile {
+  min-width: 0;
+  min-height: 76px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 8px 2px;
+  color: #9b9b98;
+  text-align: center;
+}
+.tile-glyph {
+  width: 34px;
+  height: 34px;
+  color: #ddd;
+}
+.rune-letter {
+  font-family: "Organon Symbols";
+  font-weight: 400;
+  fill: currentColor;
+  stroke: none;
+}
+.tile-label {
+  display: none;
+  position: absolute;
+  top: calc(50% + 22px);
+  left: 0;
+  font-size: 10px;
+  line-height: 1.35;
+  width: 100%;
+  overflow-wrap: anywhere;
+  z-index: 2;
+  background: #080808;
+  text-wrap: balance;
+  pointer-events: none;
+}
+.glyph-tile:focus-visible .tile-label,
+.searching .tile-label {
+  display: block;
+}
+.glyph-grid.searching {
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  row-gap: 12px;
+}
+.searching .tile-label {
+  position: static;
+}
+.glyph-tile.active {
+  color: white;
+}
+.glyph-tile.active .tile-label {
+  font-weight: 650;
+}
+.term-panel {
+  grid-column: 1/-1;
+  scroll-margin-top: 36px;
+  padding: 32px 0 20px;
+  min-width: 0;
+}
+.definition-block,
+.entry-notes {
+  width: min(100%, var(--reading-width));
+  margin: 0 auto;
+}
+.term-heading {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: baseline;
+  gap: 14px;
+  margin-bottom: 16px;
+}
+.term-heading h1 {
+  grid-column: 1;
+  font-family: "Newsreader Variable", serif;
+  font-size: 46px;
+  font-weight: 600;
+  letter-spacing: -1px;
+  line-height: 1.08;
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+.heading-glyph {
+  width: 58px;
+  height: 58px;
+  color: #ddd;
+}
+.close-definition {
+  grid-column: 2;
+  grid-row: 1;
+  margin-left: auto;
+  align-self: flex-start;
+  color: #888;
+  font-size: 20px;
+  min-width: 28px;
+  min-height: 28px;
+  text-align: right;
+}
+.definition-copy {
+  font-family: "Newsreader Variable", serif;
+  font-size: 28px;
+  font-weight: 350;
+  line-height: 1.38;
+  text-wrap: pretty;
+}
+.definition-copy p {
+  margin: 0 0 16px;
+}
+.definition-copy a,
+.full-entry a {
+  text-decoration: underline dotted #646464;
+  text-underline-offset: 4px;
+  text-decoration-thickness: 1px;
+}
+.inline-glyph {
+  display: inline-block;
+  vertical-align: -0.15em;
+  line-height: 1;
+  margin: 0 2px;
+}
+.inline-glyph .rune {
+  width: 1em;
+  height: 1em;
+}
+.segments {
+  display: inline-flex;
+  gap: 16px;
+  align-items: center;
+}
+.segments button {
+  padding: 2px 0;
+  min-height: 28px;
+  font-size: 11px;
+  color: #777;
+}
+.segments button[aria-pressed="true"] {
+  color: #eee;
+  text-decoration: underline;
+  text-underline-offset: 5px;
+  text-decoration-thickness: 1px;
+}
+.representation {
+  margin: 8px auto 0;
+}
+.representation-tools {
+  width: min(100%, var(--reading-width));
+  margin: auto;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.motion-toggle {
+  padding: 2px 0;
+  min-height: 28px;
+  font-size: 10px;
+  color: #888;
+  margin-left: auto;
+}
+.formula-wrap {
+  width: min(100%, var(--reading-width));
+  margin: 20px auto 0;
+}
+.formula-meta {
+  font-size: 10px;
+  color: #888;
+  text-align: center;
+  margin-bottom: 14px;
+}
+.formula {
+  color: #ccc;
+  overflow-x: auto;
+  padding: 4px 0 8px;
+  font-size: 16px;
+}
+.katex-display {
+  margin: 0;
+}
+summary {
+  width: fit-content;
+  cursor: pointer;
+  color: #999;
+  font-size: 11px;
+  min-height: 28px;
+  padding: 6px 0;
+}
+.notation-details {
+  margin-top: 8px;
+}
+.math-note,
+.notation-note {
+  color: #999;
+  font-size: 12px;
+  line-height: 1.6;
+}
+.variables {
+  font-size: 12px;
+  line-height: 1.6;
+  color: #aaa;
+}
+.variables dl > div {
+  display: flex;
+  gap: 14px;
+}
+.variables dt {
+  min-width: 20px;
+}
+.variables dd {
+  margin: 0;
+}
+.entry-notes {
+  margin-top: 0;
+}
+.entry-notes > details > a {
+  font-size: 12px;
+}
+.full-entry {
+  font-family: "Newsreader Variable", serif;
+  font-size: 20px;
+  line-height: 1.5;
+  color: #bbb;
+}
+.full-entry strong {
+  color: #eee;
+  font-weight: 600;
+}
+.sky {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+.sky canvas {
+  display: block;
+}
+.static-stars {
+  background-image:
+    radial-gradient(1px 1px at 30% 35%, #aaa, transparent),
+    radial-gradient(1px 1px at 70% 15%, #aaa, transparent);
+  background-size:
+    167px 231px,
+    213px 177px;
+}
+.graph-mode .definition-block {
+  text-shadow:
+    0 1px 8px #080808,
+    0 0 20px #080808;
+}
+.graph-mode .term-heading {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.graph-mode .heading-glyph {
+  width: 36px;
+  height: 36px;
+  flex: none;
+}
+.graph-mode .term-heading h1 {
+  font-size: 32px;
+}
+.graph-mode .definition-copy {
+  font-size: 22px;
+}
+.graph-mode .glyph-tile {
+  text-shadow: 0 0 6px #080808;
+}
+.graph-section {
+  margin: 16px 0 0;
+}
+.graph-key {
+  display: flex;
+  justify-content: space-between;
+  color: #999;
+  font-size: 10px;
+  padding: 0 12px;
+}
+.graph-viewport {
+  overflow: auto;
+  max-height: 60svh;
+  overscroll-behavior-x: contain;
+  scrollbar-width: thin;
+  scrollbar-color: #333 transparent;
+}
+.constellation {
+  display: block;
+  width: 100%;
+  min-width: 0;
+}
+.graph-edge {
+  stroke: #707070;
+  stroke-opacity: 0.45;
+  stroke-width: 0.8;
+}
+.node-hit {
+  fill: #080808;
+  fill-opacity: 0;
+}
+.node-star {
+  fill: #ddd;
+  stroke: #ddd;
+  stroke-width: 0.6;
+  filter: drop-shadow(0 0 3px #ffffff88);
+}
+.selected .node-star {
+  fill: #fff;
+  stroke: #fff;
+  filter: drop-shadow(0 0 7px #fff);
+}
+.node-glyph {
+  color: #ddd;
+}
+.node-label {
+  font-size: 11px;
+  fill: #bbb;
+  paint-order: stroke;
+  stroke: #080808;
+  stroke-width: 4px;
+  stroke-linejoin: round;
+}
+.selected .node-label {
+  fill: #fff;
+  font-size: 14px;
+}
+.star-node:focus-visible {
+  outline: none;
+}
+.star-node:focus-visible .node-hit {
+  stroke: #fff;
+}
+.graph-note {
+  color: #888;
+  font-size: 10px;
+  text-align: center;
+  line-height: 1.5;
+  margin: 8px 0;
+}
+.not-found,
+.no-results {
+  grid-column: 1/-1;
+  width: 100%;
+  padding: 16px 0;
+}
+@media (hover: hover) {
+  .glyph-tile:hover .tile-label {
+    display: block;
+  }
+  a:hover,
+  button:hover,
+  summary:hover,
+  .glyph-tile:hover {
+    color: #fff;
+  }
+  .star-node:hover .node-label {
+    fill: #fff;
+  }
+}
+@media (max-width: 900px) {
+  .glyph-grid {
+    grid-template-columns: repeat(8, minmax(0, 1fr));
+  }
+}
+@media (max-width: 600px) {
+  .topbar {
+    padding: 0 14px;
+    gap: 6px;
+  }
+  .topbar nav {
+    gap: 16px;
+  }
+  .wordmark {
+    font-size: 13px;
+  }
+  main {
+    padding: 44px 18px 20px;
+  }
+  .atlas-toolbar {
+    padding: 0 0 12px;
+  }
+  .glyph-grid {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    column-gap: 6px;
+    row-gap: 4px;
+  }
+  .glyph-tile {
+    min-height: 64px;
+  }
+  .tile-glyph {
+    width: 31px;
+    height: 31px;
+  }
+  .tile-label {
+    font-size: 10px;
+  }
+  .term-panel {
+    padding: 24px 0 16px;
+  }
+  .term-heading h1 {
+    font-size: 38px;
+  }
+  .heading-glyph {
+    width: 54px;
+    height: 54px;
+  }
+  .definition-copy {
+    font-size: 26px;
+    line-height: 1.35;
+  }
+  .formula {
+    font-size: 14px;
+  }
+  .graph-key {
+    padding: 0;
+    font-size: 9px;
+  }
+  .graph-viewport {
+    max-height: 52svh;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  * {
+    scroll-behavior: auto !important;
+  }
+}
