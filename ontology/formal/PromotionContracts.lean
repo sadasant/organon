@@ -7,6 +7,12 @@ These theorems are the proof-checked interface between the embodied-consciousnes
 proposal manifest and its formal shadow. Each theorem is deliberately redundant
 with structure fields or a finite witness: that redundancy fixes the exact claim
 CI must continue to elaborate when the underlying formalization changes.
+
+Each theorem carries its statement ID from
+`proposals/embodied-consciousness-claims.json`. That manifest's dependency
+dispositions record which dependencies are formalized, represented, prose-only,
+or outside the formal boundary; a `proved_with_boundaries` statement holds only
+within those limits. The open gates EC-G1 and EC-G2 have no theorem here.
 -/
 
 universe u v w

@@ -11,6 +11,9 @@ field. `DanielOntology.lean` is a conservative extension that imports this file
 and adds the Absence/Presence experiment. Downstream formal modules import this
 file directly, making their independence from that extension checkable through
 Lean's module dependency graph.
+
+The term-by-term preservation result and its prose-parity limit are recorded in
+`organon-core-reduct-report.md` and `organon-core-term-audit.md`.
 -/
 
 universe u v w x
