@@ -13,8 +13,62 @@ delivery_language: "../editorial/short-form.md"
 ---
 # Daniel's Ontology
 
+*First published August 1, 2026; substantive revision October 12, 2026 (v0.20).*
+
+Daniel's Ontology defines the vocabulary through which Organon reviews a body of work. It begins from one primitive, Absence, and its axioms, then orders 112 definitions by declared dependency, each with a stable `organon:*` identifier in the [registry](./terms.yaml). Typed Relation signatures and 42 binding constraints govern how the terms combine. The definitions run from Reality, Difference, and Relation through the representational, perceptual, and agentic regions to an Order-indexed institutional kernel, and on to the regions on Evidence, political order, valuation, Ritual and Meaning, embodiment, and Attention, Care, and Respect.
+
+Its claimed contribution is a unification constraint: metaphysical, perceptual, agentic, evidentiary, and institutional terms share one dependency chain, and no term's definition changes at the border between regions. The [intellectual shadows](#intellectual-shadows-and-contribution) state where each region borrows rigor from prior work and where the resemblance stops. Version 0.20 is provisional and binds only a repository that adopts named terms through an adoption manifest; the Lean shadow and the candidate algebra test it without replacing it.
+
 > [!important] Binding ontology
 > For work governed by Organon, a term explicitly mapped to a stable `organon:*` identifier retains the meaning defined here. Capitalization is presentation, not adoption. A quarantined term carries no binding ontological meaning.
+
+## Contents
+
+- [The closure boundary](#the-closure-boundary)
+- [Claim typing and stable identity](#claim-typing-and-stable-identity)
+- [Primitive and axioms](#primitive-and-axioms)
+- [Dependency-ordered definitions and commitments](#dependency-ordered-definitions-and-commitments)
+  - [1. Reality](#1-reality)
+  - [2. Difference](#2-difference)
+  - [3. Relation](#3-relation)
+  - [4. Configuration and state](#4-configuration-and-state)
+  - [5. Transformation and change](#5-transformation-and-change)
+  - [6. Invariant and persistence](#6-invariant-and-persistence)
+  - [7. Constraint](#7-constraint)
+  - [8. Entity, boundary, environment](#8-entity-boundary-environment)
+  - [9. Representation, specification, sign, symbol, language, and map](#9-representation-specification-sign-symbol-language-and-map)
+  - [10. Sense, perception, record, and observation](#10-sense-perception-record-and-observation)
+  - [11. Memory, model, and interpretation](#11-memory-model-and-interpretation)
+  - [12. Agent and agency](#12-agent-and-agency)
+  - [13. Tool and capability](#13-tool-and-capability)
+  - [14. Interiority and exposure](#14-interiority-and-exposure)
+  - [15. Flow and interface](#15-flow-and-interface)
+  - [16. Claim, witness, and control](#16-claim-witness-and-control)
+  - [17. Order-indexed institutional kernel](#17-order-indexed-institutional-kernel)
+  - [18. Independence, rule provenance, and evidence](#18-independence-rule-provenance-and-evidence)
+  - [19. Institution, shadow system, and person](#19-institution-shadow-system-and-person)
+  - [20. Political order and constituent action](#20-political-order-and-constituent-action)
+  - [21. Consciousness discourse and designation](#21-consciousness-discourse-and-designation)
+  - [22. Operationalized representation](#22-operationalized-representation)
+  - [23. World and substrate](#23-world-and-substrate)
+  - [24. Truth, trust, and alignment](#24-truth-trust-and-alignment)
+  - [25. Intelligence and operative knowledge](#25-intelligence-and-operative-knowledge)
+  - [26. Factive and warranted operative knowledge](#26-factive-and-warranted-operative-knowledge)
+  - [27. Moral-status discourse](#27-moral-status-discourse)
+  - [28. Sovereignty profiles](#28-sovereignty-profiles)
+  - [29. Preference, measurement, price, and institutional valuation](#29-preference-measurement-price-and-institutional-valuation)
+  - [30. Ritual and meaning](#30-ritual-and-meaning)
+  - [31. Embodiment and recurrent integration](#31-embodiment-and-recurrent-integration)
+  - [32. Attention, care, and respect](#32-attention-care-and-respect)
+- [Relation signatures](#relation-signatures)
+- [Binding consistency rules](#binding-consistency-rules)
+- [Quarantined vocabulary](#quarantined-vocabulary)
+- [Intellectual shadows and contribution](#intellectual-shadows-and-contribution)
+- [How to use the ontology](#how-to-use-the-ontology)
+- [Scope and limitations](#scope-and-limitations)
+- [Bibliography](#bibliography)
+- [Related entries](#related-entries)
+- [How to cite](#how-to-cite)
 
 ## The closure boundary
 
@@ -1072,3 +1126,72 @@ Internal closure does not establish metaphysical completeness. Absence is primit
 Ritual-dependent Meaning is one binding account of significance, not a complete aesthetics, ethics, theology, philosophy of mind, or anthropology. The embodiment terms specify identity-bearing bodily organization, operative perspective, recurrent integration, and internal selection without defining Consciousness universally or deciding which Entities satisfy the proposal-local candidate. Beauty, Play, love, sacredness, grief, goodness, consent, consciousness, and moral worth remain outside those definitions. The noncanonical formal shadow proves finite participant-history access and selected causal joins, not complete Sense-to-Perception uptake, canonical Attention/Interpretation parity, universal process individuation, or a universal law of temporal decay.
 
 In the [Long-Form Editorial Grammar](../editorial/long-form.md), **Missingness** names the felt gap an article makes consequential. **Absence** remains reserved for the absolute primitive defined here.
+
+## Bibliography
+
+- Aristotle. *Physics*, Book I. [Online text](https://classics.mit.edu/Aristotle/physics.1.i.html).
+- Badiou, Alain. *Being and Event*. 1988; English translation 2005. [Publisher](https://www.bloomsbury.com/being-and-event-9781472511065/).
+- Baier, Annette. "Trust and Antitrust." *Ethics* 96 (1986). [JSTOR](https://www.jstor.org/stable/2265347).
+- Basic Formal Ontology 2020, standardized as ISO/IEC 21838-2:2021. [BFO](https://bfo-ontology.github.io/bfo-2020.html); [ISO](https://www.iso.org/standard/74572.html).
+- Bell, Catherine. *Ritual Theory, Ritual Practice*. 1992.
+- Bridgman, P. W. *The Logic of Modern Physics*. 1927. [Online text](https://www.gutenberg.org/ebooks/70620).
+- Casati, Roberto, and Achille Varzi. *Holes and Other Superficialities*. 1994. [Publisher](https://mitpress.mit.edu/9780262531337/holes-and-other-superficialities/).
+- Collins, Randall. *Interaction Ritual Chains*. 2004.
+- Deacon, Terrence. *Incomplete Nature*. 2011. [Google Books](https://books.google.com/books?id=aT_y7ao96LgC).
+- DOLCE foundational ontology. [Laboratory for Applied Ontology](https://www.loa.istc.cnr.it/index.php/dolce/).
+- Durkheim, Émile. *The Elementary Forms of Religious Life*. 1912.
+- Frankfurt, Harry. *The Reasons of Love*. 2004.
+- Frege, Gottlob. "On Sense and Reference." 1892.
+- Gettier, Edmund. "Is Justified True Belief Knowledge?" *Analysis* 23 (1963). [JSTOR](https://www.jstor.org/stable/3326922).
+- Gibson, James J. *The Ecological Approach to Visual Perception*. 1979. [Publisher](https://www.routledge.com/The-Ecological-Approach-to-Visual-Perception-Classic-Edition/Gibson/p/book/9781848725782).
+- Hardin, Russell. *Trust and Trustworthiness*. 2002. [Publisher](https://www.russellsage.org/publications/book/trust-and-trustworthiness).
+- Hobbes, Thomas. *Leviathan*. 1651. [Online text](https://www.gutenberg.org/ebooks/3207).
+- Jones, Karen. "Trust as an Affective Attitude." *Ethics* 107 (1996). [JSTOR](https://www.jstor.org/stable/2381965).
+- Kant, Immanuel. *Groundwork of the Metaphysics of Morals*. 1785. [Online text](https://www.gutenberg.org/ebooks/5682).
+- Kripke, Saul. *Naming and Necessity*. 1980.
+- Legg, Shane, and Marcus Hutter. "Universal Intelligence: A Definition of Machine Intelligence." 2007. [arXiv](https://arxiv.org/abs/0712.3329).
+- Lewis, David. "Causation." *Journal of Philosophy* 70 (1973).
+- Luhmann, Niklas. *Social Systems*. 1984; English translation 1995. [Publisher](https://www.sup.org/books/sociology/social-systems).
+- Luhmann, Niklas. *Trust and Power*. 1979. [Publisher](https://www.wiley.com/en-us/Trust+and+Power-p-9781509519458).
+- Martin-Löf, Per. *Intuitionistic Type Theory*. 1984.
+- Merleau-Ponty, Maurice. *Phenomenology of Perception*. 1945.
+- Montevideo Convention on the Rights and Duties of States. 1933. [Text](https://www.oas.org/juridico/english/sigs/a-40.html).
+- Murdoch, Iris. *The Sovereignty of Good*. 1970.
+- Negri, Antonio. *Insurgencies: Constituent Power and the Modern State*. 1992; English translation 1999. [Publisher](https://www.upress.umn.edu/9780816622740/insurgencies/).
+- Rappaport, Roy. *Ritual and Religion in the Making of Humanity*. 1999.
+- Ryle, Gilbert. *The Concept of Mind*. 1949. [Google Books](https://books.google.com/books?id=mSbjClXFaIkC).
+- Samuelson, Paul. "A Note on the Pure Theory of Consumer's Behaviour." *Economica* 5 (1938). [JSTOR](https://www.jstor.org/stable/2548836).
+- Schmitt, Carl. *Political Theology*. 1922. [Publisher](https://press.uchicago.edu/ucp/books/book/chicago/P/bo3643854.html).
+- Searle, John. *Making the Social World*. 2010. [Publisher](https://academic.oup.com/book/5336).
+- Searle, John. "Human Social Reality and Language." *Phenomenology and Mind* 2. [DOI](https://doi.org/10.13128/Phe_Mi-19621).
+- Shannon, Claude. "A Mathematical Theory of Communication." *Bell System Technical Journal* 27 (1948). [DOI](https://onlinelibrary.wiley.com/doi/abs/10.1002/j.1538-7305.1948.tb00917.x).
+- Simondon, Gilbert. *On the Mode of Existence of Technical Objects*. 1958; English translation 2017. [Publisher](https://www.upress.umn.edu/9781517904876/on-the-mode-of-existence-of-technical-objects/).
+- Spencer-Brown, G. *Laws of Form*. 1969. [Site](https://lof50.com/).
+- Sperber, Dan. "Why a deep understanding of cultural evolution is incompatible with shallow psychology." 2006. [PDF](https://www.dan.sperber.fr/wp-content/uploads/2006_why-a-deep-understanding-of-cultural-evolution-is-incompatible.pdf).
+- Tarski, Alfred. "The Semantic Conception of Truth." *Philosophy and Phenomenological Research* 4 (1944). [Online text](https://www.jfsowa.com/logic/tarski.htm).
+- Terry, Michael, et al. "Interactive AI Alignment." 2023. [arXiv](https://arxiv.org/abs/2311.00710).
+- Thompson, Evan. *Mind in Life*. 2007.
+- Toulmin, Stephen. *The Uses of Argument*. 1958.
+- Uexküll, Jakob von. *A Foray into the Worlds of Animals and Humans*. 1934; English translation 2010. [Publisher](https://www.upress.umn.edu/9781452903798/a-foray-into-the-worlds-of-animals-and-humans/).
+- Varela, Francisco, Evan Thompson, and Eleanor Rosch. *The Embodied Mind*. 1991.
+- von Neumann, John, and Oskar Morgenstern. *Theory of Games and Economic Behavior*. 1944. [Publisher](https://press.princeton.edu/books/paperback/9780691130613/theory-of-games-and-economic-behavior).
+- Weil, Simone. *Waiting for God*. 1950.
+- Wiggins, David. *Sameness and Substance Renewed*. 2001.
+- Woodward, James. *Making Things Happen*. 2003.
+
+The shadows table also names traditions rather than single works: Peirce's triadic semiotics, Wittgenstein's account of meaning and use, Victor Lamme's recurrent-processing account, and the care ethics associated with Carol Gilligan and Joan Tronto.
+
+## Related entries
+
+- [Term registry](./terms.yaml), with stable identifiers and dependencies, and its [term provenance](../provenance/terms.md).
+- [Changelog](./changelog.md), which keeps earlier arguments and withdrawn formulations.
+- [Proposals](../proposals/README.md) for quarantined vocabulary.
+- [Hidden-bridge audit](./hidden-bridge-audit.md).
+- [Lean shadow](./formal/README.md) and [candidate algebra](./algebra/README.md).
+- [Long-Form Editorial Grammar](../editorial/long-form.md) and [Short Form](../editorial/short-form.md).
+- [Adoption schema](../schemas/organon-adoption-schema.json) and [example manifest](../examples/organon-adoption.json).
+- [Glyph explorer](https://organon.sadasant.ai), a nonbinding reading interface.
+
+## How to cite
+
+Rodríguez, Daniel. "Daniel's Ontology," version 0.20. In *Organon*, 2026. https://github.com/sadasant/organon/blob/main/ontology/ontology.md. Citation metadata for the repository is in [CITATION.cff](../CITATION.cff).
