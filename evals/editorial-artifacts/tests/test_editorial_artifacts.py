@@ -71,17 +71,29 @@ def test_judgment_gate_requires_all_scores_at_least_three():
 
 
 def test_target_file_defines_unique_digest_pinned_targets():
+    """Every source is pinned; only snapshots must match their pins.
+
+    Live Organon documents keep evolving, so their pins describe the next run's
+    inputs and may lag. The runner refuses to start until they are re-pinned
+    (test_source_digest_mismatch_fails_closed). Snapshots under inputs/sources/
+    exist only to be pinned, so they must always match.
+    """
     import json
+    import re
+
+    from core.contracts import sha256_path
 
     targets = json.loads((ROOT / "inputs" / "targets.json").read_text())["targets"]
     assert len(targets) == 4
     assert len({target["id"] for target in targets}) == len(targets)
     for target in targets:
-        dossier, digests = MODULE.source_dossier(target)
-        assert dossier
-        assert set(digests) == set(target["source_files"])
-        for path, expected in target.get("source_digests", {}).items():
-            assert digests[path] == expected
+        pins = target["source_digests"]
+        assert set(pins) == set(target["source_files"])
+        for path, expected in pins.items():
+            assert re.fullmatch(r"[0-9a-f]{64}", expected)
+            source = MODULE.resolve_within(MODULE.ROOT, path, label="source selector")
+            if path.startswith("evals/editorial-artifacts/inputs/sources/"):
+                assert sha256_path(source) == expected
 
 
 def test_target_specific_word_range_is_enforced():

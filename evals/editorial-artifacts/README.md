@@ -34,6 +34,9 @@ results/<run>/
 ```
 
 External README sources are pinned to repository, commit, path, and SHA-256.
+Pins on live Organon documents describe the next run's inputs and may lag those
+documents; the runner refuses to start until they are re-pinned. Snapshots under
+`inputs/sources/` must always match their pins.
 Generated candidates remain proposals; this suite never writes into the target
 repository.
 
