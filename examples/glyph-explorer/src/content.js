@@ -63,30 +63,30 @@ export function linkTerms(terms) {
   };
 }
 
-const mathText = (value) => `\\mathsf{${value.replace(/[^A-Za-z0-9]/g, "")}}`;
-
-export function mathFor(term, terms) {
-  if (!term.form) {
-    if (!term.depends_on.length)
-      return `\\text{${term.claim_type === "primitive" ? "Primitive" : "Foundation"}} \\quad ${mathText(term.label)}`;
-    const names = term.depends_on.map(
-      (id) => terms.find((t) => t.id === id)?.label || id,
-    );
-    return `\\begin{gathered}\\operatorname{vocab}(${mathText(term.label)}) = \\\\ \\left\\{\\begin{gathered}${names.map(mathText).join(" \\\\ ")}\\end{gathered}\\right\\}\\end{gathered}`;
-  }
-  const form = term.form;
-  const variables = Object.keys(form.variables);
-  const atom = (a) =>
-    `${mathText(a.predicate)}(${a.args.map((v) => `x_{${variables.indexOf(v) + 1}}`).join(",")})`;
-  const atoms = [...form.premises, ...form.witnesses];
-  return `\\begin{gathered}${atoms.map(atom).join(" \\;\\land\\; \\\\ ")} \\\\ \\Downarrow \\\\ ${atom(form.result)}\\end{gathered}`;
+export function ontologyGraph(terms) {
+  // A3's reference to Absence is contrast in the metalanguage, not an edge
+  // within Presence. Preserve the source registry; exclude it in this view.
+  const nodes = terms.filter((t) => t.id !== "organon:Absence");
+  const ids = new Set(nodes.map((t) => t.id));
+  const edges = nodes.flatMap((t) =>
+    t.depends_on
+      .filter((id) => ids.has(id))
+      .map((id) => ({ source: id, target: t.id })),
+  );
+  return { nodes, edges };
 }
 
 export function locality(term, terms) {
+  const graph = ontologyGraph(terms);
+  if (term.id === "organon:Absence") return { nodes: [term], edges: [] };
+  const ids = new Set([term.id]);
+  for (const edge of graph.edges) {
+    if (edge.source === term.id) ids.add(edge.target);
+    if (edge.target === term.id) ids.add(edge.source);
+  }
+  // An induced subgraph keeps every actual edge between visible neighbours.
   return {
-    dependencies: term.depends_on
-      .map((id) => terms.find((t) => t.id === id))
-      .filter(Boolean),
-    dependents: terms.filter((t) => t.depends_on.includes(term.id)),
+    nodes: graph.nodes.filter((t) => ids.has(t.id)),
+    edges: graph.edges.filter((e) => ids.has(e.source) && ids.has(e.target)),
   };
 }

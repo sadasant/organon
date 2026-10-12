@@ -1,6 +1,7 @@
 @font-face {
   font-family: "Organon Symbols";
-  src: url("../../../proposals/glyph-assets/OrganonSymbols.woff2") format("woff2");
+  src: url("../../../proposals/glyph-assets/OrganonSymbols.woff2")
+    format("woff2");
   font-display: block;
   font-weight: 400;
 }
@@ -61,9 +62,12 @@ button:focus-visible,
 a:focus-visible,
 input:focus-visible,
 summary:focus-visible,
-.graph-viewport:focus-visible {
+.constellation:focus-visible {
   outline: 1px dotted var(--ink-300);
   outline-offset: 4px;
+}
+.constellation:focus:not(:focus-visible) {
+  outline: none;
 }
 h1:focus {
   outline: 0;
@@ -318,7 +322,7 @@ main {
   margin-left: auto;
 }
 .formula-wrap {
-  width: min(100%, var(--reading-width));
+  width: min(100%, 860px);
   margin: 20px auto 0;
 }
 .formula-meta {
@@ -335,6 +339,39 @@ main {
 }
 .katex-display {
   margin: 0;
+}
+.katex .math-glyph,
+.katex .math-glyph * {
+  font-family: "Organon Symbols";
+  font-style: normal;
+}
+.formula .katex-display {
+  width: max-content;
+  min-width: 100%;
+  padding: 0 4px;
+}
+.formula-wrap > .math-note,
+.formula-wrap > .math-source,
+.notation-details > summary,
+.notation-details > .math-note,
+.supporting-math > summary {
+  display: block;
+  max-width: var(--reading-width);
+  margin-left: auto;
+  margin-right: auto;
+}
+.lean-source {
+  overflow-x: auto;
+  font-size: 12px;
+  line-height: 1.6;
+  color: var(--ink-600);
+  padding: 8px 0;
+}
+.lean-declaration {
+  min-width: 0;
+}
+.supporting-math .lean-declaration {
+  margin: 16px 0;
 }
 summary {
   width: fit-content;
@@ -353,20 +390,11 @@ summary {
   font-size: 12px;
   line-height: 1.6;
 }
-.variables {
-  font-size: 12px;
-  line-height: 1.6;
-  color: var(--ink-600);
-}
-.variables dl > div {
-  display: flex;
-  gap: 14px;
-}
-.variables dt {
-  min-width: 20px;
-}
-.variables dd {
-  margin: 0;
+.math-source {
+  font-size: 11px;
+  overflow-wrap: anywhere;
+  text-decoration: underline dotted var(--ink-900);
+  text-underline-offset: 4px;
 }
 .entry-notes {
   margin-top: 0;
@@ -431,26 +459,51 @@ summary {
 .graph-key {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   color: var(--ink-700);
   font-size: 10px;
   padding: 0 12px;
 }
+.graph-camera {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.graph-camera button {
+  min-width: 28px;
+  min-height: 32px;
+}
+.graph-key button:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
 .graph-viewport {
-  overflow: auto;
-  max-height: 60svh;
-  overscroll-behavior-x: contain;
-  scrollbar-width: thin;
-  scrollbar-color: var(--ink-950) transparent;
+  overflow: hidden;
 }
 .constellation {
   display: block;
   width: 100%;
   min-width: 0;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+  cursor: grab;
+}
+.constellation:active {
+  cursor: grabbing;
 }
 .graph-edge {
-  stroke: var(--ink-850);
-  stroke-opacity: 0.45;
-  stroke-width: 0.8;
+  stroke: var(--ink-700);
+  stroke-opacity: 0.28;
+  stroke-width: 0.65;
+  vector-effect: non-scaling-stroke;
+}
+.graph-edge.incident {
+  stroke: var(--ink-300);
+  stroke-opacity: 0.55;
+}
+.star-node {
+  cursor: pointer;
 }
 .node-hit {
   fill: var(--color-background);
@@ -481,6 +534,13 @@ summary {
 .selected .node-label {
   fill: var(--ink-100);
   font-size: 14px;
+}
+.whole-graph .star-node:not(.selected) .node-label {
+  display: none;
+}
+.whole-graph .star-node:hover .node-label,
+.whole-graph .star-node:focus-visible .node-label {
+  display: block;
 }
 .star-node:focus-visible {
   outline: none;
@@ -572,9 +632,6 @@ summary {
   .graph-key {
     padding: 0;
     font-size: 9px;
-  }
-  .graph-viewport {
-    max-height: 52svh;
   }
 }
 @media (prefers-reduced-motion: reduce) {

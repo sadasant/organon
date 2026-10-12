@@ -11,7 +11,12 @@ import { Link, useLocation, useSearchParams } from "react-router-dom";
 import Markdown from "react-markdown";
 import katex from "katex";
 import data from "./data.json";
-import { linkTerms, mathFor } from "./content.js";
+import { linkTerms } from "./content.js";
+import {
+  declarationMath,
+  parameterMath,
+  mathRenderOptions,
+} from "./lean-math.js";
 import Graph from "./Graph.jsx";
 import Glyph from "./Glyph.jsx";
 
@@ -66,55 +71,156 @@ function Definition({ term, glyphs, search, full = false }) {
   );
 }
 
-function Formula({ term }) {
+function MathExpression({ expression, englishExpression }) {
   const html = useMemo(
     () =>
-      katex.renderToString(mathFor(term, terms), {
-        displayMode: true,
-        throwOnError: true,
-        output: "htmlAndMathml",
-      }),
-    [term],
+      expression
+        ? katex.renderToString(expression, {
+            ...mathRenderOptions,
+            output: englishExpression ? "html" : "htmlAndMathml",
+          })
+        : null,
+    [expression, englishExpression],
   );
+  const accessible = useMemo(
+    () =>
+      englishExpression
+        ? katex.renderToString(englishExpression, {
+            displayMode: true,
+            throwOnError: true,
+            output: "mathml",
+          })
+        : null,
+    [englishExpression],
+  );
+  return html ? (
+    <div
+      className="formula"
+      tabIndex={0}
+      aria-label="Mathematical expression; scroll horizontally if needed"
+    >
+      <span
+        aria-hidden={accessible ? true : undefined}
+        dangerouslySetInnerHTML={{ __html: html }}
+      />
+      {accessible && (
+        <span
+          className="sr-only"
+          dangerouslySetInnerHTML={{ __html: accessible }}
+        />
+      )}
+    </div>
+  ) : null;
+}
+
+function LeanDeclaration({ declaration, selection = {}, glyphs = false }) {
   return (
-    <div className="formula-wrap">
-      <div className="formula-meta">
-        {term.form
-          ? "Candidate witness form"
-          : term.depends_on.length
-            ? "Lexical dependency signature"
-            : "Retained foundation"}
-      </div>
-      <div className="formula" dangerouslySetInnerHTML={{ __html: html }} />
-      <details className="notation-details" key={term.id}>
-        <summary>Notation</summary>
+    <section
+      className="lean-declaration"
+      aria-label={`${declaration.name} formal declaration`}
+    >
+      <MathExpression
+        expression={declarationMath(declaration, selection, glyphs)}
+        englishExpression={
+          glyphs ? declarationMath(declaration, selection) : null
+        }
+      />
+      <details className="notation-details">
+        <summary>Parameters, notation & Lean source</summary>
+        <MathExpression
+          expression={parameterMath(declaration, glyphs)}
+          englishExpression={glyphs ? parameterMath(declaration) : null}
+        />
         <p className="math-note">
-          {term.form
-            ? "An existing nonbinding construction. All premises and witnesses share the variables below."
-            : term.depends_on.length
-              ? "Vocabulary required to state this definition. Not a logical equivalence; no complete algebraic form is supplied by the current experiment."
-              : "A foundational commitment, not an algebraic derivation."}
+          Record braces specify typed fields in order, not a set of
+          dependencies. Proposition-valued fields require proofs; later fields
+          may refer to earlier ones. Names, application order and grouping
+          follow Lean. Juxtaposition applies a function; a dot selects a field.
+          Braces in the parameter signature mark implicit arguments. Type u
+          names a universe; Prop names propositions. All displayed parameters
+          are fixed for the construction below that signature. Glyphs abbreviate
+          named types using the shared Organon Symbols catalog; variables and
+          field names stay distinct. English notation and the Lean source retain
+          the original names. Glyphs do not assert equivalence with prose.
         </p>
-        {term.form && (
-          <div className="variables">
-            <dl>
-              {Object.entries(term.form.variables).map(([key, kind], index) => (
-                <div key={key}>
-                  <dt>
-                    x<sub>{index + 1}</sub>
-                  </dt>
-                  <dd>
-                    {key} · {kind}
-                  </dd>
-                </div>
-              ))}
-            </dl>
-            {term.form.anti_entailments.map((item, i) => (
-              <p key={i}>{item.statement}</p>
-            ))}
-          </div>
+        {(selection.fields || selection.parameters) && (
+          <>
+            <p className="math-note">
+              The excerpt above belongs to this full parent declaration; its
+              other fields are not implied by the excerpt alone.
+            </p>
+            <MathExpression
+              expression={declarationMath(declaration, {}, glyphs)}
+              englishExpression={glyphs ? declarationMath(declaration) : null}
+            />
+          </>
         )}
+        <pre className="lean-source">
+          <code>{declaration.source}</code>
+        </pre>
+        <a
+          className="math-source"
+          href={`${source}/blob/main/${declaration.path}#L${declaration.line}-L${declaration.endLine}`}
+          target="_blank"
+          rel="noreferrer"
+        >
+          {declaration.symbol} ↗
+        </a>
       </details>
+    </section>
+  );
+}
+
+function Formula({ term, glyphs }) {
+  const math = term.math;
+  const [primary, ...support] = math.declarations;
+  return (
+    <div className="formula-wrap" key={term.id}>
+      <div className="formula-meta">
+        {math.status === "unencoded"
+          ? "No corresponding Lean encoding"
+          : math.parameters
+            ? "Supplied Lean parameter · not a definition"
+            : math.fields
+              ? "Lean field projection · partial encoding"
+              : math.status === "projection"
+                ? "Lean construction · scoped projection"
+                : "Lean construction · noncanonical"}
+      </div>
+      {primary && (
+        <LeanDeclaration
+          declaration={primary}
+          selection={math}
+          glyphs={glyphs}
+        />
+      )}
+      {math.note && <p className="math-note formal-boundary">{math.note}</p>}
+      {support.length > 0 && (
+        <details className="supporting-math">
+          <summary>Supporting definitions ({support.length})</summary>
+          {support.map((declaration) => (
+            <LeanDeclaration
+              key={declaration.symbol}
+              declaration={declaration}
+              glyphs={glyphs}
+            />
+          ))}
+        </details>
+      )}
+      {!primary && math.reference && (
+        <a
+          className="math-source"
+          href={`${source}/blob/main/${math.reference}`}
+          target="_blank"
+          rel="noreferrer"
+        >
+          Formalization decisions ↗
+        </a>
+      )}
+      <p className="math-note formal-status">
+        The Lean encoding is shown as written; equivalence with the full prose
+        definition is not asserted.
+      </p>
     </div>
   );
 }
@@ -322,7 +428,7 @@ export default function App() {
                         search={location.search}
                       />
                     ) : (
-                      <Formula term={term} />
+                      <Formula term={term} glyphs={glyphs} />
                     )}
                   </div>
                   <div className="entry-notes">
@@ -342,7 +448,8 @@ export default function App() {
                           ? "needs revision"
                           : term.glyphReview.verdict === "revised"
                             ? "revised trial — awaiting review"
-                            : "mnemonic trial"}.
+                            : "mnemonic trial"}
+                        .
                       </p>
                       <p className="notation-note">{term.glyphReview.cue}</p>
                       <p className="notation-note">{term.glyphReview.risk}</p>

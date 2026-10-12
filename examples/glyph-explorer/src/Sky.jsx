@@ -3,6 +3,7 @@ import * as THREE from "three";
 
 export default function Sky({ paused }) {
   const host = useRef(null);
+  const elapsed = useRef(0);
   useEffect(() => {
     const target = host.current;
     let renderer;
@@ -47,53 +48,45 @@ export default function Sky({ paused }) {
       uniforms: {
         time: { value: 0 },
         ratio: { value: renderer.getPixelRatio() },
-        drift: { value: new THREE.Vector2() },
       },
       vertexShader: `attribute float seed; varying float vSeed;
-        uniform float ratio; uniform vec2 drift;
+        uniform float ratio;
         void main(){
           vSeed=seed;
-          gl_Position=vec4(position.xy+drift*(.2+position.z*.8),0.,1.);
-          gl_PointSize=(1.+6.*pow(seed,9.))*ratio;
+          gl_Position=vec4(position.xy,0.,1.);
+          gl_PointSize=(1.5+6.*pow(seed,9.))*ratio;
         }`,
       fragmentShader: `varying float vSeed; uniform float time;
         void main(){
           float d=length(gl_PointCoord-.5);
           float core=exp(-d*d*55.);
-          float halo=exp(-d*d*13.)*.18;
-          float shimmer=.82+.18*sin(time*(.35+vSeed*.3)+vSeed*90.);
+          float halo=exp(-d*d*13.)*.3;
+          float shimmer=.78+.22*sin(time*(.32+vSeed*.35)+vSeed*90.);
           float a=(core+halo)*smoothstep(.5,.3,d);
-          gl_FragColor=vec4(vec3(1.),a*(.18+.8*pow(vSeed,3.))*shimmer);
+          gl_FragColor=vec4(vec3(1.),a*(.4+.6*pow(vSeed,2.))*shimmer);
         }`,
     });
     const scene = new THREE.Scene();
     scene.add(new THREE.Points(geometry, material));
     const camera = new THREE.Camera();
     const reduced = matchMedia("(prefers-reduced-motion: reduce)");
-    const pointer = new THREE.Vector2();
     let frame = 0;
     let last = -Infinity;
-    const draw = (time = 0) => {
-      material.uniforms.time.value = time / 1000;
+    const draw = () => {
+      material.uniforms.time.value = elapsed.current;
       renderer.render(scene, camera);
     };
     const loop = (time) => {
       if (time - last >= 50) {
-        material.uniforms.drift.value.lerp(pointer, 0.08);
-        draw(time);
+        elapsed.current += Number.isFinite(last) ? (time - last) / 1000 : 0;
+        draw();
         last = time;
       }
       frame = requestAnimationFrame(loop);
     };
-    const move = (event) => {
-      if (paused || reduced.matches || event.pointerType === "touch") return;
-      pointer.set(
-        (event.clientX / innerWidth - 0.5) * 0.024,
-        (0.5 - event.clientY / innerHeight) * 0.024,
-      );
-    };
     const resume = () => {
       cancelAnimationFrame(frame);
+      last = -Infinity;
       draw();
       if (!paused && !reduced.matches && !document.hidden)
         frame = requestAnimationFrame(loop);
@@ -103,7 +96,6 @@ export default function Sky({ paused }) {
       draw();
     };
     window.addEventListener("resize", resize);
-    window.addEventListener("pointermove", move);
     document.addEventListener("visibilitychange", resume);
     reduced.addEventListener("change", resume);
     resize();
@@ -111,7 +103,6 @@ export default function Sky({ paused }) {
     return () => {
       cancelAnimationFrame(frame);
       window.removeEventListener("resize", resize);
-      window.removeEventListener("pointermove", move);
       document.removeEventListener("visibilitychange", resume);
       reduced.removeEventListener("change", resume);
       geometry.dispose();
