@@ -11,11 +11,36 @@ formal_shadow: "../ontology/formal/TruthTrustAlignment.lean"
 ---
 # Truth, Trust, and Alignment
 
+*Proposed August 3, 2026. Promoted in v0.13.0.*
+
 ## Verdict
 
 Truth, Trust, and Alignment can leave quarantine together, but only as three different Relations.
 
 Truth joins a Claim's Representation and declared truth-condition Specification to the Presence in Reality that the Claim is about through a local material-adequacy witness. Trust joins one Entity's maintained admission of causal dependence to another Entity's future contribution that the first does not determine. Alignment joins ordered subject and target roles under a declared Specification of correspondence. The corpus often places all three near confidence, cooperation, and institutional acceptance; the proposal keeps those neighbors from becoming synonyms.
+
+## Contents
+
+- [Verdict](#verdict)
+- [Corpus survival test](#corpus-survival-test)
+  - [Truth](#truth)
+  - [Trust](#trust)
+  - [Alignment](#alignment)
+- [Proposed definitions](#proposed-definitions)
+- [Exact anti-entailments](#exact-anti-entailments)
+- [Dependency audit](#dependency-audit)
+- [Intellectual shadows](#intellectual-shadows)
+  - [Tarski and correspondence](#tarski-and-correspondence)
+  - [Baier, Jones, Hardin, and Luhmann](#baier-jones-hardin-and-luhmann)
+  - [Specification and AI alignment](#specification-and-ai-alignment)
+- [Formal shadow](#formal-shadow)
+  - [TA-G1 — Open formalization gate: universal Claim semantics and Reality bridge](#ta-g1--open-formalization-gate-universal-claim-semantics-and-reality-bridge)
+  - [TA-G2 — Open formalization gate: Trust Action, Exposure, and Consequence joins](#ta-g2--open-formalization-gate-trust-action-exposure-and-consequence-joins)
+  - [TA-G3 — Open formalization gate: Alignment profile composition and persistence](#ta-g3--open-formalization-gate-alignment-profile-composition-and-persistence)
+- [Proposal statement registry](#proposal-statement-registry)
+- [Promotion boundary](#promotion-boundary)
+- [Bibliography](#bibliography)
+- [Related entries](#related-entries)
 
 ## Corpus survival test
 
@@ -143,3 +168,19 @@ This dossier records the promotion enacted in Organon v0.13:
 - preserve TA-G1 through TA-G3 as explicit limits on formal and semantic completeness.
 
 The dossier remains nonbinding provenance material. Promotion occurs only through the canonical single-file ontology and governed projections.
+
+## Bibliography
+
+- Baier, Annette. "Trust and Antitrust." *Ethics* 96 (1986). [JSTOR](https://www.jstor.org/stable/2265347).
+- Hardin, Russell. *Trust and Trustworthiness*. 2002. [Publisher](https://www.russellsage.org/publications/book/trust-and-trustworthiness).
+- Jones, Karen. "Trust as an Affective Attitude." *Ethics* 107 (1996). [JSTOR](https://www.jstor.org/stable/2381965).
+- Luhmann, Niklas. *Trust and Power*. 1979. [Publisher](https://www.wiley.com/en-us/Trust+and+Power-p-9781509519458).
+- Tarski, Alfred. "The Semantic Conception of Truth." *Philosophy and Phenomenological Research* 4 (1944). [Online text](https://www.jfsowa.com/logic/tarski.htm).
+- Terry, Michael, et al. "Interactive AI Alignment." 2023. [arXiv](https://arxiv.org/abs/2311.00710).
+
+## Related entries
+
+- [Statement manifest](./truth-trust-and-alignment-claims.json) and [proposal lifecycle](./lifecycle.json).
+- [Formal shadow](../ontology/formal/TruthTrustAlignment.lean).
+- Binding definitions in Daniel's Ontology: [Truth](../ontology/ontology.md#organon-truth), [Trust](../ontology/ontology.md#organon-trust), [Alignment](../ontology/ontology.md#organon-alignment).
+- [How proposals work](./README.md) and [Contributing](../CONTRIBUTING.md).

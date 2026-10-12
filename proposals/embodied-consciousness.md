@@ -11,6 +11,8 @@ formal_shadow: "../ontology/formal/EmbodiedConsciousness.lean"
 ---
 # Embodiment and Recurrent Consciousness Candidate
 
+*First proposed September 23, 2026; last revised October 12, 2026. Partially promoted in v0.19.0.*
+
 ## Verdict
 
 The embodiment cluster conforms after an adversarial repair that makes its load-bearing joins explicit. Body is a Relation between an Entity and state-indexed constituent Configurations; it does not receive an Entity-like identity of its own. Bodily Organization requires exact constituent membership and an inter-Organ causal feed. Embodied Perspective joins represented conditions and available Transformations to exact Denotations and upstream Differences. Recurrent Integration requires exact family membership for both comparison paths and both downstream Changes. Internal Activity Selection joins its representational Difference to the exact upstream Difference of the selecting Causal Contribution.
@@ -18,6 +20,18 @@ The embodiment cluster conforms after an adversarial repair that makes its load-
 The consciousness sentence conforms only as a **candidate condition** within the existing consciousness protocol. It does not settle what Consciousness universally is, which Entities instantiate it, or what Evidence would decide such a Claim. Organon v0.19 therefore partially promotes the five supporting terms while the underlying consciousness condition remains quarantined.
 
 This dossier does not address Attention, Love, Care, Respect, embodied self-governance, or Intention. Those terms require their own anti-collapse and formal review after the embodiment foundation is settled.
+
+## Contents
+
+- [Verdict](#verdict)
+- [Proposed definitions](#proposed-definitions)
+- [Exact anti-entailments](#exact-anti-entailments)
+- [Formal shadow](#formal-shadow)
+  - [EC-G1 — Open formalization gate: constituent and process identity](#ec-g1--open-formalization-gate-constituent-and-process-identity)
+  - [EC-G2 — Open evidence gate: candidate application](#ec-g2--open-evidence-gate-candidate-application)
+- [Proposal statement registry](#proposal-statement-registry)
+- [Promotion boundary](#promotion-boundary)
+- [Related entries](#related-entries)
 
 ## Proposed definitions
 
@@ -121,3 +135,10 @@ No observation in this dossier establishes that any biological, artificial, inst
 Organon v0.19 promotes Body, Bodily Organization, Embodied Perspective, Recurrent Integration, and Internal Activity Selection together with C32 through C38. Five anti-entailments have finite Lean witnesses; EC-C6 and EC-C7 state explicit limits outside the current formal boundary. The promoted constraints refer to the complete structural conjunction rather than making the quarantined candidate half-binding.
 
 The underlying consciousness condition remains quarantined. EC-D6 remains only a proposal-local candidate available to Consciousness Attribution and Consciousness Designation. Its application still requires the evidence gate in EC-G2, while v0.19 records the bounded constituent and process-identity limits from EC-G1 in binding prose.
+
+## Related entries
+
+- [Statement manifest](./embodied-consciousness-claims.json) and [proposal lifecycle](./lifecycle.json).
+- [Formal shadow](../ontology/formal/EmbodiedConsciousness.lean).
+- Binding definitions in Daniel's Ontology: [Body](../ontology/ontology.md#organon-body), [Bodily Organization](../ontology/ontology.md#organon-bodily-organization), [Embodied Perspective](../ontology/ontology.md#organon-embodied-perspective), [Recurrent Integration](../ontology/ontology.md#organon-recurrent-integration), [Internal Activity Selection](../ontology/ontology.md#organon-internal-activity-selection).
+- [How proposals work](./README.md) and [Contributing](../CONTRIBUTING.md).

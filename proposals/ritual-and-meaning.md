@@ -10,6 +10,8 @@ formal_shadow: "../ontology/formal/RitualMeaning.lean"
 ---
 # Proposal: Ritual and ritual-dependent Meaning
 
+*Proposed August 4, 2026. Promoted in v0.17.0.*
+
 ## Verdict
 
 Promote Ritual and Meaning as derived terms, strengthen Flow by making its previously implicit recurrence Relation explicit, and introduce no primitive or foundational axiom. Do not make constructive classification constitutive of Flow: place its Rule and Specification in Flow Claims and in Ritual's participant-relative Interpretation. Do not promote Recurrence or Ritual Residue: Flow already names repeated Transformation, while Record, Memory, Change, Consequence, Environment, and Causal Contribution already type the persistent effects left by Ritual.
@@ -17,6 +19,25 @@ Promote Ritual and Meaning as derived terms, strengthen Flow by making its previ
 The candidate commitment is narrower than “ritual makes everything meaningful.” Meaning is the participant-indexed Relation constituted and sustained through Ritual. A target does not contain Meaning in isolation, repetition without memory-conditioned Interpretation is only Flow or conditioning, and a dormant remnant is not a reservoir of Meaning. Private Ritual is sufficient. Social propagation can produce a causally derived Meaning Relation, but not numerical identity with the source Relation.
 
 The account is also normatively neutral. Ritual need not be chosen, beneficial, or benign. Addiction and trauma loops can satisfy it when recurrence enters Perception, load-bearing Memory conditions later Interpretation, and the resulting Causal Contribution sustains the participant-indexed Relation. Repetition, compulsion, distress, or diagnosis alone is not enough. The “repeated too often, becomes a trap” case is therefore included without treating pathology as the genus of Ritual or Meaning as endorsement.
+
+## Contents
+
+- [Verdict](#verdict)
+- [Evidence and adopted clarification](#evidence-and-adopted-clarification)
+- [Termhood challenge](#termhood-challenge)
+  - [Rejected new term: Recurrence](#rejected-new-term-recurrence)
+  - [Ritual survives reduction to Flow](#ritual-survives-reduction-to-flow)
+  - [Rejected new term: Ritual Residue](#rejected-new-term-ritual-residue)
+  - [Meaning survives reduction to Preference and Denotation](#meaning-survives-reduction-to-preference-and-denotation)
+- [Dependency-ordered statements](#dependency-ordered-statements)
+- [Exact entailments and anti-entailments](#exact-entailments-and-anti-entailments)
+- [Intellectual shadows](#intellectual-shadows)
+- [Formal shadow](#formal-shadow)
+- [Open gates](#open-gates)
+- [Promotion decision](#promotion-decision)
+- [Proposal statement registry](#proposal-statement-registry)
+- [Bibliography](#bibliography)
+- [Related entries](#related-entries)
 
 ## Evidence and adopted clarification
 
@@ -132,3 +153,19 @@ Promote RM-D1 through RM-D3 and RM-C1 through RM-C7. Keep RM-G1 through RM-G4 op
 | RM-G2 | Open formalization gate | Temporal maintenance and decay | RM-D3, State, Direction, Persistence, Causal Contribution | Open |
 | RM-G3 | Open formalization gate | Qualitative descendants | Meaning | Open |
 | RM-G4 | Open formalization gate | Represented target continuity | RM-D2, Representation, Denotation, State, Persistence, Invariant | Open |
+
+## Bibliography
+
+- Bell, Catherine. *Ritual Theory, Ritual Practice*. 1992.
+- Collins, Randall. *Interaction Ritual Chains*. 2004.
+- Durkheim, Émile. *The Elementary Forms of Religious Life*. 1912.
+- Rappaport, Roy. *Ritual and Religion in the Making of Humanity*. 1999.
+
+The dossier also names Peirce's semiotics and Wittgenstein on meaning and use without citing a specific work.
+
+## Related entries
+
+- [Statement manifest](./ritual-and-meaning-claims.json) and [proposal lifecycle](./lifecycle.json).
+- [Formal shadow](../ontology/formal/RitualMeaning.lean).
+- Binding definitions in Daniel's Ontology: [Ritual](../ontology/ontology.md#organon-ritual), [Meaning](../ontology/ontology.md#organon-meaning).
+- [How proposals work](./README.md) and [Contributing](../CONTRIBUTING.md).

@@ -11,6 +11,8 @@ formal_shadow: "../ontology/formal/Consciousness.lean"
 ---
 # Consciousness
 
+*Proposed August 2, 2026. Partially promoted in v0.10.0.*
+
 ## Verdict
 
 Organon should not declare which Entities instantiate consciousness. It should partially promote the machinery required to describe candidate conditions, make Claims about them, and assign institutional status to those Claims while the underlying consciousness condition remains quarantined.
@@ -22,6 +24,24 @@ Two definitions are ready for promotion:
 2. **Consciousness Designation** is the CountsAs Relation established when an Order, under a Rule and for a stated institutional purpose, admits a Consciousness Attribution and records the target Entity as carrying a consciousness status within an institutional Scope.
 
 Neither definition identifies the underlying condition. Their purpose is to make discourse about it inspectable without converting an utterance, an Observation, or an institutional decision into metaphysical proof.
+
+## Contents
+
+- [Verdict](#verdict)
+- [The three layers](#the-three-layers)
+- [Candidate condition and Specification](#candidate-condition-and-specification)
+- [Consciousness Attribution as Claim](#consciousness-attribution-as-claim)
+- [Consciousness Designation as CountsAs](#consciousness-designation-as-countsas)
+- [Exact anti-entailments](#exact-anti-entailments)
+- [Evidence protocol](#evidence-protocol)
+  - [Open formalization gate: evidentiary disposition](#open-formalization-gate-evidentiary-disposition)
+  - [Open evidence gate: historical, animal, and AI generalizations](#open-evidence-gate-historical-animal-and-ai-generalizations)
+- [Anti-collapse constraints](#anti-collapse-constraints)
+- [Formal shadow](#formal-shadow)
+- [Proposal statement registry](#proposal-statement-registry)
+- [Statement typing and verification](#statement-typing-and-verification)
+- [Promotion boundary](#promotion-boundary)
+- [Related entries](#related-entries)
 
 ## The three layers
 
@@ -186,3 +206,10 @@ This dossier records the **partial promotion** enacted in Organon v0.10:
 The dossier remains a provenance artifact rather than a second canonical ontology. `ontology/ontology.md`, `ontology/terms.yaml`, and constraint C10 enact the two promoted discourse terms; the underlying condition remains quarantined.
 
 If nobody attributes consciousness to an Entity, no Consciousness Attribution exists for that claimant and Scope. If no Order designates the Entity, no Consciousness Designation exists in that Order and institutional Scope. Whether any candidate condition obtains remains UNKNOWN unless a separately declared Specification and admissible Evidence decide the corresponding Claim. That boundary is the proposal's positive result.
+
+## Related entries
+
+- [Statement manifest](./consciousness-claims.json) and [proposal lifecycle](./lifecycle.json).
+- [Formal shadow](../ontology/formal/Consciousness.lean).
+- Binding definitions in Daniel's Ontology: [Consciousness Attribution](../ontology/ontology.md#organon-consciousness-attribution), [Consciousness Designation](../ontology/ontology.md#organon-consciousness-designation).
+- [How proposals work](./README.md) and [Contributing](../CONTRIBUTING.md).

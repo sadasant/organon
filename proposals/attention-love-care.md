@@ -11,6 +11,8 @@ formal_shadow: "../ontology/formal/AttentionLoveCare.lean"
 ---
 # Attention, Care, and Respect; Love withdrawn
 
+*First proposed October 3, 2026; last revised October 12, 2026. Partially promoted in v0.20.0.*
+
 ## Current disposition
 
 The [binding ontology](../ontology/ontology.md) retains Attention, Care, and Respect.
@@ -24,6 +26,16 @@ No universal conjunction, exhaustive taxonomy, or necessary-and-sufficient reduc
 of ordinary love is asserted. No psychological or normative premise is invented
 to preserve its former registered name. The old exact-Denotation construction
 remains a nonbinding historical example, not a definition of love.
+
+## Contents
+
+- [Current disposition](#current-disposition)
+- [Definitions](#definitions)
+- [Remaining constraints](#remaining-constraints)
+- [Formal evidence and limits](#formal-evidence-and-limits)
+- [Proposal statement registry](#proposal-statement-registry)
+- [Retired identifiers and migration](#retired-identifiers-and-migration)
+- [Related entries](#related-entries)
 
 ## Definitions
 
@@ -200,3 +212,10 @@ earlier formulations. The [current exact-source review](../reviews/promotion/att
 attests AC-D3, AC-D7, and AC-D8 with their declared formal boundaries, not the
 retired contracts. Model judgments have not been rerun; passing compilation alone
 does not renew adversarial review or establish empirical applicability.
+
+## Related entries
+
+- [Statement manifest](./attention-love-care-claims.json) and [proposal lifecycle](./lifecycle.json).
+- [Formal shadow](../ontology/formal/AttentionLoveCare.lean).
+- Binding definitions in Daniel's Ontology: [Attention](../ontology/ontology.md#organon-attention), [Care](../ontology/ontology.md#organon-care), [Respect](../ontology/ontology.md#organon-respect).
+- [How proposals work](./README.md) and [Contributing](../CONTRIBUTING.md).

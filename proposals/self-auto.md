@@ -7,11 +7,26 @@ updated: 2026-10-07
 ---
 # Self, Auto, Governance and reflexive perception
 
+*First proposed October 5, 2026; last revised October 7, 2026. Draft; nonbinding.*
+
 These definitions preserve Daniel's requested Self/Auto work for review alongside PR18. They are proposed vocabulary, not adopted canonical definitions. Self identifies reflexive roles; Auto proposes an operative-source relation. They are not a blanket renaming of each other.
 
 The exact October 5 reading packet and full competing candidate ontology are retained in [the preserved packet](../reviews/local/pr18-reading-draft/pr18-source-packet.md). Its unchanged Attention paragraphs describe the October 4 baseline; PR18's newer snapshot Attention, Action independence and participant classification take precedence in the canonical ontology. This proposal does not reverse those changes.
 
 Generic Auto's organizational-source criterion remains open: neither a causal trigger, Body membership, repeated activity, nor an arbitrary operator classifier alone realizes it. The historical `PR18ReviewDraft.lean` is a structural shadow with those recorded limitations. The separately checked `PR18Governance.lean` supplies an inhabited internal-Governance-to-Agency profile and reflexive perception witnesses; it does not prove generic Auto, Autogovernance or universal Autonomy. Autoperception is omitted by the existing vocabulary choice, not by a theorem that Perception supplies Auto. Consciousness remains deferred.
+
+## Contents
+
+- [Proposed definitions preserved from the reading packet](#proposed-definitions-preserved-from-the-reading-packet)
+  - [Self — new-proposed](#self--new-proposed)
+  - [Auto — new-proposed](#auto--new-proposed)
+  - [Governance — new-proposed](#governance--new-proposed)
+  - [Self-governance — new-proposed](#self-governance--new-proposed)
+  - [Autogovernance — new-proposed](#autogovernance--new-proposed)
+  - [Autonomy — new-proposed](#autonomy--new-proposed)
+  - [Self-perception — new-proposed](#self-perception--new-proposed)
+- [Integrated repairs and retained boundaries](#integrated-repairs-and-retained-boundaries)
+- [Related entries](#related-entries)
 
 ## Proposed definitions preserved from the reading packet
 
@@ -51,3 +66,9 @@ The current canonical D111 now joins the selected and excluded alternatives to t
 The checked internal-Governance-to-Agency profile uses distinct internal selection, interpretation and Boundary-crossing Action occurrences. Every occurrence on its governing, processing, interpretation-comparison and action-comparison paths lies in its common Scope and satisfies the same Entity's Boundary Constraints. It supplies actual Sense uptake and own-Entity or own-condition Denotation for mirror/GPS examples. Generic camera classification, an arbitrary condition, or external assignment alone fails that local Self-perception profile.
 
 The proposal's generic Governance role names and Auto source semantics remain broader than this Body-indexed witness. Their complete canonical realization and universal participant identity are not established by the finite examples. The two sources are retained together for Daniel's review without asserting their equivalence or promoting the open generic terms.
+
+## Related entries
+
+- Formal profiles: [PR18Governance.lean](../ontology/formal/PR18Governance.lean) and the historical [PR18ReviewDraft.lean](../ontology/formal/PR18ReviewDraft.lean).
+- [Preserved reading packet](../reviews/local/pr18-reading-draft/pr18-source-packet.md) and [local review record](../reviews/local/README.md).
+- [How proposals work](./README.md) and [Contributing](../CONTRIBUTING.md).

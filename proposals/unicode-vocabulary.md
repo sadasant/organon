@@ -6,7 +6,24 @@ binding: false
 
 # Organon's symbolic vocabulary: Unicode study and custom typeface
 
+*Proposed October 12, 2026. Ready for review; nonbinding.*
+
 **Current direction: one provisional typeface shared by the study and website.** The [Organon Symbols catalog](./glyph-catalog.mjs) now supplies all 115 marks, the installable font, and the website. The [symbol review](./glyph-atlas.md) shows the same marks with per-term judgments: **49 revised trials and 66 retained trials**. None is certified as semantically equivalent to its definition. The earlier Unicode assessment below remains a record of alternatives, not a second active assignment system. **Publication accepts this experimental vocabulary for use with labels; it does not promote the glyphs into binding definitions or close the reader-testing gates.**
+
+## Contents
+
+- [Shared typeface and semantic review](#shared-typeface-and-semantic-review)
+  - [A constrained drawing system, not a semantic grammar](#a-constrained-drawing-system-not-a-semantic-grammar)
+- [Original Unicode investigation](#original-unicode-investigation)
+- [What kind of match are we looking for?](#what-kind-of-match-are-we-looking-for)
+- [Method and judgment boundary](#method-and-judgment-boundary)
+- [Promising cues and useful counterexamples](#promising-cues-and-useful-counterexamples)
+- [A two-layer experiment is the smallest useful next step](#a-two-layer-experiment-is-the-smallest-useful-next-step)
+- [Unicode constraints are testable, but not sufficient](#unicode-constraints-are-testable-but-not-sufficient)
+- [Reproducing the computational checks](#reproducing-the-computational-checks)
+- [Statement registry](#statement-registry)
+- [Sources](#sources)
+- [Related entries](#related-entries)
 
 ## Shared typeface and semantic review
 
@@ -154,3 +171,10 @@ The command reports the runtime Unicode database version (initially Python's UCD
 3. [Unicode Standard Annex #15](https://www.unicode.org/reports/tr15/): canonical and compatibility normalization.
 4. [Unicode Technical Standard #39](https://www.unicode.org/reports/tr39/): confusability and the limits of confusable detection.
 5. [Unicode Technical Standard #51](https://www.unicode.org/reports/tr51/): emoji and text presentation sequences.
+
+## Related entries
+
+- [Statement manifest](./unicode-vocabulary-claims.json) and [proposal lifecycle](./lifecycle.json).
+- [Candidate atlas](./unicode-vocabulary-atlas.md) and [symbol review](./glyph-atlas.md), reproduced by [check-unicode-vocabulary.py](../scripts/check-unicode-vocabulary.py) and [build-glyph-font.py](../scripts/build-glyph-font.py).
+- [Glyph explorer](https://organon.sadasant.ai), which uses the provisional typeface.
+- [How proposals work](./README.md) and [Contributing](../CONTRIBUTING.md).
