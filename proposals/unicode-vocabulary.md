@@ -33,7 +33,7 @@ uv run scripts/build-glyph-font.py
 uv run scripts/build-glyph-font.py --check
 ```
 
-The build checks registry/review coverage, unique paths, outlines and private-use slots, geometric bounds, and the reviewed ontology, catalog and geometry hashes. `--check` additionally rebuilds in a temporary directory and rejects stale font or study artifacts without changing the repository. It does not establish perceptual distinctness, semantic fidelity, accessibility with an actual screen reader, or cross-cultural neutrality. Those remain review and reader-testing obligations. The already approved wall/paper/sky layout does not settle any of those questions.
+The build checks registry/review coverage, unique paths, outlines and private-use slots, geometric bounds, and the reviewed catalog and geometry hashes. It reads the reviewed ontology from the review's pinned commit and verifies its hashes there; when a term's primary definition has changed since the review, the atlas lists that term instead of blocking ontology edits. `--check` additionally rebuilds in a temporary directory and rejects stale font or study artifacts without changing the repository. It does not establish perceptual distinctness, semantic fidelity, accessibility with an actual screen reader, or cross-cultural neutrality. Those remain review and reader-testing obligations. The already approved wall/paper/sky layout does not settle any of those questions.
 
 ## Original Unicode investigation
 
