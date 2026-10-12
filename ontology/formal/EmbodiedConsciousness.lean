@@ -247,6 +247,10 @@ inductive RevisionMode where
   | select | continue | inhibit | revise
 deriving DecidableEq, Repr
 
+/-- Restricted temporal witness, not a characterization of canonical D111.
+Its endpoint joins order the rejected output before the selected output, and
+Body membership requires actual occurrences. Canonical rejection is instead a
+contrasting possibility; neither restriction is necessary there. -/
 structure InternalActivitySelection
     (Part : Type u)
     {Feature : Type v} {Context : Type w}
@@ -284,6 +288,17 @@ structure InternalActivitySelection
   selectedIsInternal : body.interior.conforms selected.output
   rejectedIsInternal : body.interior.conforms rejected.output
   mode : RevisionMode
+
+/-- Exposes the extra ordering imposed by the restricted witness. This is not
+a promotion theorem about rejection in the binding ontology. -/
+theorem restrictedSelectionOrdersOutputs
+    {Part : Type u} {Feature : Type v} {Context : Type w}
+    {entity : Entity (Feature × Context)} {body : Body Part entity}
+    (selection : InternalActivitySelection Part body) :
+    entity.persistenceDirection.before selection.rejected.output selection.selected.output := by
+  rw [selection.rejectedIsContrastPathLast, selection.selectedIsChangedPathLast,
+    ← selection.contribution.changeStartsAt, ← selection.contribution.changeEndsAt]
+  exact selection.contribution.downstreamChange.transformation.advances
 
 structure EmbodiedRecurrentStructure
     (Part : Type u)

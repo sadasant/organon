@@ -553,7 +553,7 @@
               "InternalActivitySelection",
               "selection"
             ],
-            "reason": "InternalActivitySelection is the typed local configuration collecting the exact selection joins."
+            "reason": "InternalActivitySelection is a restricted temporal configuration, not a characterization of canonical D111: exact branch endpoints force the rejected output to precede the selected output, and Body membership requires both alternatives to occur. Contrast-only rejection and the complete shared represented condition remain outside this projection."
           },
           "organon:Difference": {
             "status": "represented_by",
@@ -584,11 +584,12 @@
             ]
           },
           "organon:Transformation": {
-            "status": "formalized",
+            "status": "represented_by",
             "symbols": [
               "selected",
               "rejected"
-            ]
+            ],
+            "reason": "The local alternatives are exact changed/contrast path occurrences in the Body history. Canonical availability and rejection do not require those occurrences or that temporal ordering."
           },
           "EC-D1": {
             "status": "formalized",
@@ -631,7 +632,9 @@
             "status": "formalized",
             "symbols": [
               "interior",
-              "conformityWithinScope"
+              "conformityWithinScope",
+              "availability",
+              "availabilityExactlyOptions"
             ]
           },
           "organon:Boundary": {
@@ -720,7 +723,7 @@
             "symbols": [
               "EmbodiedRecurrentStructure"
             ],
-            "reason": "The structure type contains its Body-indexed InternalActivitySelection and perspective-selection joins."
+            "reason": "The structure contains the restricted Body-indexed InternalActivitySelection and perspective-selection joins. It inherits EC-D5's occurrence and ordering restrictions; this candidate equivalence does not characterize general contrast-only selection."
           },
           "organon:Entity": {
             "status": "formalized",

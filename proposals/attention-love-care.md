@@ -190,9 +190,13 @@ Application requires a separate Specification and admissible Evidence.
   The bodily-selection composite remains under `NonbindingExamples`; the
   [representation-activity example](../ontology/formal/RepresentationActivityExample.lean)
   preserves the former Intention construction. Ordinary intention and Consciousness
-  remain undefined. The separate temporal selection-ordering question is unresolved.
+  remain undefined. Canonical rejection is a contrasting possibility rather than
+  a required prior event; the retained temporal selection witness and its limitations
+  are documented under EC-D5 in the [embodiment dossier](./embodied-consciousness.md).
 
 No retired identifier is reassigned. Historical snapshots, the
 [formal decision record](../ontology/formal/decisions.md), and Git history retain
-earlier formulations. Exact-source promotion reviews remain stale rather than
-being silently refreshed; passing compilation does not renew adversarial review.
+earlier formulations. The [current exact-source review](../reviews/promotion/attention-love-care.json)
+attests AC-D3, AC-D7, and AC-D8 with their declared formal boundaries, not the
+retired contracts. Model judgments have not been rerun; passing compilation alone
+does not renew adversarial review or establish empirical applicability.

@@ -4,7 +4,7 @@ status: partially-promoted
 binding: false
 concept: embodied-consciousness
 created: 2026-09-23
-updated: 2026-09-25
+updated: 2026-10-12
 recommended_outcome: partially-promoted-in-v0.19
 statement_manifest: "embodied-consciousness-claims.json"
 formal_shadow: "../ontology/formal/EmbodiedConsciousness.lean"
@@ -42,14 +42,16 @@ The exact inter-Organ feed replaces an unconstrained coordination predicate. Con
 The two Causal Contributions supply their own contrastive upstream Differences. Exact membership replaces unconstrained process-registration and process-affection predicates.
 
 <!-- organon:proposal-statement EC-D5 type=proposed_definition -->
-**EC-D5 — Internal Activity Selection:** Internal Activity Selection is a Configuration in which the Difference between a Representation of an outcome and an admissible contrast Representation is the named upstream Difference of a Causal Contribution that discriminates among at least two available Transformations related by one Body. The outcome Representation denotes the selected Transformation's output, the contribution's downstream output equals that output, and both alternatives occur within the Entity's Interior under the Body Relation's Scope and Specification.
+**EC-D5 — Internal Activity Selection:** Internal Activity Selection is a Configuration in which the Difference between a Representation of an outcome and an admissible contrast Representation is the named upstream Difference of a Causal Contribution that discriminates among at least two available Transformations related by one Body. The outcome Representation denotes the selected Transformation's output, and the contribution's downstream output equals that output. An availability Specification conforms exactly to the declared options within the Entity's Interior under the Body Relation's Scope. Selection and rejection describe one determination within the same represented condition; any Difference used to determine the outcome must be retained in that condition's Representation. A rejected alternative is a contrasting possibility, not a State the Entity must previously reach or a Transformation that must occur. Selection may continue, inhibit, or revise internal activity without crossing the Entity's Boundary and therefore does not by itself constitute Action or Agency.
+
+**Formal boundary:** The retained Lean `InternalActivitySelection` is a restricted temporal witness, not a characterization of D111. Its selected and rejected Transformations are the last occurrences on the changed and contrast paths, and both belong to the Body's recurring history. Together with the core endpoint Change, these joins force the rejected output to precede the selected output, as `restrictedSelectionOrdersOutputs` proves. They prohibit simultaneous outputs and reversing the same pair under the same Direction. None is required by canonical rejection. EC-D5 therefore attests only this restricted construction; general contrast-only selection, its shared represented condition, and revision across determinations remain unproved. Exact availability membership does not establish feasibility or computational constructivity and is not joined to the perspective's complete availability inventory.
 
 This term is required because binding Action crosses an Entity's Boundary. Internal Activity Selection can occur wholly within an Interior and therefore cannot be defined as Action or Agency. When it later produces a boundary-crossing Transformation, the existing Action and Agency definitions apply without modification.
 
 <!-- organon:proposal-statement EC-D6 type=proposed_definition -->
 **EC-D6 — Embodied recurrent consciousness candidate:** One proposal-local candidate condition for consciousness obtains exactly when Body, Embodied Perspective, Recurrent Integration, and Internal Activity Selection share the same Entity, Body Relation, Scope, Interior Specification, Direction, and causal-path interpretation; every Transformation and Change in the recurrent families belongs to that Body Relation; and the perspective's condition Representation and exact Causal Contribution are the Representation and contribution that perform the selection or revision.
 
-The complete structural conjunction supplies the semantics of the existing `CandidateCondition` protocol; no separately authored obtainment predicate remains. It does not become `organon:Consciousness`, and its obtainment remains distinct from Consciousness Attribution and Consciousness Designation.
+The complete structural conjunction supplies the semantics of the existing `CandidateCondition` protocol; no separately authored obtainment predicate remains. Its Lean witness inherits EC-D5's restricted temporal construction, not complete canonical selection. It does not become `organon:Consciousness`, and its obtainment remains distinct from Consciousness Attribution and Consciousness Designation.
 
 ## Exact anti-entailments
 

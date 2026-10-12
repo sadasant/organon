@@ -389,3 +389,33 @@ provenance, contextual accuracy, consent, or causal regulation of actual behavio
 Admission alone is deliberately not named a complete Respect witness. The seven
 tests and contract are included in the default build. Counts remain unchanged;
 historical reviews and model-judged evaluations are not silently renewed.
+
+## PR18 readiness review (2026-10-12)
+
+The final review found that D111 still prescribed the exact contrast-path endpoint
+join despite Daniel's approved distinction between rejection and prior occurrence.
+Canonical selection now retains declared availability and the exact selected output,
+but rejection is a contrasting possibility within the represented condition, not
+a required historical event. The obsolete `governsEmbodiment` signature is removed
+with its already withdrawn term.
+
+The existing Lean construction remains a restricted witness. The new general
+`restrictedSelectionOrdersOutputs` theorem exposes its additional ordering instead
+of presenting that restriction as necessary for canonical selection. EC-D5's dossier
+and dependency ledger now describe the occurrence/ordering boundary and exact
+availability membership. EC-D6 inherits the same boundary. The revision-mode enum
+does not prove continuation, inhibition, or revision semantics; a general
+contrast-only selection model and its complete shared represented condition remain
+open. This preserves the core Causal Contribution contract rather than weakening it
+to solve a downstream encoding problem.
+
+The review also found that auxiliary `formal_evidence` files were not required in
+exact-source attestations. The checker now requires every declared evidence pin.
+A temporary-repository regression fails on the old checker when its second evidence
+file is omitted, then passes after the fix and also detects source drift.
+
+The renewed reviews attest current contracts, not the retired eight-term proposal.
+Historical findings remain in Git; their conclusions are not transferred to the
+new definitions. Attention, Care, Respect, selection, institutional parity, and
+empirical application retain their explicit formal limits. Model generation and
+judgments have not been rerun, so downstream evaluations remain incomplete/hold.

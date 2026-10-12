@@ -95,6 +95,12 @@ def check_review(manifest_path: Path) -> list[str]:
         "scripts/check-proposals.py",
         "scripts/check-promotion-review.py",
     }
+    for relative in manifest.get("formal_evidence", []):
+        evidence_path = (manifest_path.parent / relative).resolve()
+        try:
+            required_sources.add(evidence_path.relative_to(ROOT.resolve()).as_posix())
+        except ValueError:
+            errors.append(f"{prefix}: formal_evidence escapes repository root: {relative}")
     missing_sources = sorted(required_sources - set(sources))
     if missing_sources:
         errors.append(f"{prefix}: missing required source pins {missing_sources}")
