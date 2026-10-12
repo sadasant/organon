@@ -132,3 +132,7 @@ Qualities no script can decide are judged separately by the Aesthetics workflow 
 ## Status
 
 Organon v0.20 is provisional and binding only where explicitly adopted. The ontology is not complete, universally true, or immune to revision. It is a versioned promise that named distinctions will not quietly change halfway through an argument.
+
+## License and citation
+
+Organon, including Daniel's Ontology, is licensed under the [Apache License 2.0](./LICENSE). To cite it, use the metadata in [CITATION.cff](./CITATION.cff); GitHub renders it under **Cite this repository**.

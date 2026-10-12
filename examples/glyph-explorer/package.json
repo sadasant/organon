@@ -2,6 +2,7 @@
   "name": "organon-glyph-explorer",
   "version": "0.1.0",
   "private": true,
+  "license": "Apache-2.0",
   "type": "module",
   "scripts": {
     "data": "python3 build-data.py",

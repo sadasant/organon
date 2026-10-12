@@ -1,0 +1,25 @@
+cff-version: 1.2.0
+message: "If you use Organon or Daniel's Ontology, please cite it using this metadata."
+type: software
+title: "Organon"
+abstract: >-
+  Instruments for making a body of work internally legible: Daniel's Ontology,
+  a dependency-ordered binding vocabulary with stable identifiers; editorial
+  grammars for carrying difficult ideas; and formal artifacts that test where
+  apparently compatible definitions collapse.
+authors:
+  - given-names: Daniel
+    family-names: Rodríguez
+    website: "https://github.com/sadasant"
+version: 0.20.0
+date-released: 2026-10-03
+license: Apache-2.0
+repository-code: "https://github.com/sadasant/organon"
+url: "https://organon.sadasant.ai"
+keywords:
+  - ontology
+  - philosophy
+  - formal methods
+  - Lean
+  - documentation
+  - AI agents

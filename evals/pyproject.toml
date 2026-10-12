@@ -3,6 +3,7 @@ name = "organon-evals"
 version = "1.0.0"
 description = "Source-pinned generation, evaluation, and improvement workflows governed by Organon"
 requires-python = ">=3.11,<3.14"
+license = "Apache-2.0"
 dependencies = [
   "dspy==3.3.0",
   "litellm==1.91.4",
