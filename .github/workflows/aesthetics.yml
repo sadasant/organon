@@ -1,0 +1,85 @@
+name: Aesthetics
+
+# Judges qualities that the deterministic checks in verify.yml cannot decide,
+# using the guidelines declared in .aesthetics.yaml. Pull requests are judged as
+# diffs; a manual run audits the whole repository or the paths it names.
+
+on:
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+    inputs:
+      paths:
+        description: Space-separated paths to audit. Leave empty to audit the whole repository.
+        required: false
+        default: ""
+
+permissions:
+  contents: read
+
+concurrency:
+  group: aesthetics-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  aesthetics:
+    runs-on: ubuntu-latest
+    env:
+      # Aesthetics has no tagged release yet, so pin the exact source commit.
+      AESTHETICS_COMMIT: 7f109d147f418c7a64f9a6bd7007fdd0bec1352a
+      OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          fetch-depth: 0
+
+      - name: Decide whether to evaluate
+        id: gate
+        run: |
+          if [[ ! -f .aesthetics.yaml ]]; then
+            echo "::notice::No .aesthetics.yaml is present, so there is nothing to evaluate."
+          elif [[ -z "$OPENAI_API_KEY" ]]; then
+            echo "::warning::OPENAI_API_KEY is unavailable (pull requests from forks receive no secrets), so evaluation is skipped."
+          else
+            echo "evaluate=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Set up Go
+        if: steps.gate.outputs.evaluate == 'true'
+        uses: actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16 # v6.5.0
+        with:
+          go-version: "1.25"
+          cache: false
+
+      - name: Install Aesthetics
+        if: steps.gate.outputs.evaluate == 'true'
+        run: go install "github.com/sadasant/aesthetics/cmd/aesthetics@${AESTHETICS_COMMIT}"
+
+      - name: Evaluate
+        if: steps.gate.outputs.evaluate == 'true'
+        env:
+          BASE_REF: ${{ github.base_ref }}
+          AUDIT_PATHS: ${{ inputs.paths }}
+        run: |
+          if [[ "$GITHUB_EVENT_NAME" == pull_request ]]; then
+            args=(--base "origin/$BASE_REF")
+          else
+            read -ra args <<< "$AUDIT_PATHS"
+          fi
+          set +e
+          aesthetics check "${args[@]}" --color never --record aesthetics-record.json | tee aesthetics.txt
+          status=${PIPESTATUS[0]}
+          set -e
+          { echo '```text'; cat aesthetics.txt; echo '```'; } >> "$GITHUB_STEP_SUMMARY"
+          exit "$status"
+
+      - name: Keep the report and model exchanges
+        if: always() && steps.gate.outputs.evaluate == 'true'
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: aesthetics
+          path: |
+            aesthetics.txt
+            aesthetics-record.json
+          if-no-files-found: ignore

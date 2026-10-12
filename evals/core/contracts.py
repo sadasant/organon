@@ -88,7 +88,10 @@ def committed_input_manifest(
             text=True,
         )
         if tracked.returncode:
-            raise ValueError(f"governed input is not tracked: {relative}")
+            raise ValueError(
+                f"governed input is not tracked: {relative}; "
+                "commit it before starting a run"
+            )
         committed = subprocess.run(
             ["git", "-C", str(repo_root), "show", f"HEAD:{relative}"],
             check=True,
@@ -96,7 +99,10 @@ def committed_input_manifest(
         ).stdout
         current = resolved.read_bytes()
         if current != committed:
-            raise ValueError(f"governed input differs from HEAD: {relative}")
+            raise ValueError(
+                f"governed input differs from HEAD: {relative}; "
+                "commit or restore it so the run records the bytes the model saw"
+            )
         manifest[relative] = sha256_bytes(current)
     return dict(sorted(manifest.items()))
 
@@ -123,7 +129,9 @@ def pinned_sources(
         if digest != source_digests[relative]:
             raise ValueError(
                 f"source digest mismatch for {relative}: "
-                f"expected {source_digests[relative]}, got {digest}"
+                f"expected {source_digests[relative]}, got {digest}; "
+                "restore the pinned source, or re-pin source_digests in the "
+                "suite's inputs/targets.json and start a new run"
             )
         observed[relative] = digest
         paths.append(path)

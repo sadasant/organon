@@ -1,5 +1,9 @@
 #!/usr/bin/env python3
-"""Build the exhaustive witnessed-introduction calculus over Organon's registry."""
+"""Build the exhaustive witnessed-introduction calculus over Organon's registry.
+
+Contract: ontology/algebra/README.md. Writes constructor-ledger.yaml and
+positive-calculus-report.md; --check fails when either is stale.
+"""
 
 from __future__ import annotations
 
@@ -40,7 +44,10 @@ def digest(path: Path) -> str:
 def write_or_check(path: Path, content: str, *, check: bool) -> None:
     if check:
         if not path.is_file() or path.read_text(encoding="utf-8") != content:
-            raise CalculusError(f"generated positive-calculus artifact is stale: {path.relative_to(ROOT)}")
+            raise CalculusError(
+                f"generated positive-calculus artifact is stale: {path.relative_to(ROOT)}; "
+                "run python3 scripts/build-positive-calculus.py to regenerate it"
+            )
         return
     path.write_text(content, encoding="utf-8")
 

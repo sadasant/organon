@@ -1,5 +1,9 @@
 #!/usr/bin/env python3
-"""Verify Organon's declared repository, lifecycle, and hydration structure."""
+"""Verify Organon's declared repository, lifecycle, and hydration structure.
+
+Contract: organon-structure.json, proposals/lifecycle.json, and the portable paths
+required by MARKDOWN.md.
+"""
 
 from __future__ import annotations
 

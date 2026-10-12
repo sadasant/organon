@@ -1,5 +1,9 @@
 #!/usr/bin/env python3
-"""Build a compact, deterministic prompt projection of the binding ontology."""
+"""Build a compact, deterministic prompt projection of the binding ontology.
+
+Contract: the prompt projection described in README.md. Writes ontology/prompt.md and
+ontology/prompt-manifest.json; --check fails when either is stale.
+"""
 
 from __future__ import annotations
 
@@ -284,7 +288,10 @@ def write_or_check(path: Path, content: str, *, check: bool) -> None:
                 display = path.relative_to(ROOT)
             except ValueError:
                 display = path
-            raise ValueError(f"generated artifact is stale: {display}")
+            raise ValueError(
+                f"generated artifact is stale: {display}; "
+                "rerun this command without --check to regenerate it"
+            )
         return
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(content, encoding="utf-8")
