@@ -265,16 +265,12 @@ structure SustainedAttention
     (attentionAt state).focalRepresentation = commonFocalRepresentation ∧
     (attentionAt state).contrastRepresentation = commonContrastRepresentation
 
-end NonbindingExamples
-
 /-- Full coverage is a condition on the historical finite measurement only. -/
-def NonbindingExamples.Attention.fullCoverage
+def Attention.fullCoverage
     {Part : Type u} {Feature : Type v} {Context : Type w}
     {entity : Entity (Feature × Context)} {body : Body Part entity}
     (attention : Attention Part body) : Prop :=
   ∀ item, item ∈ attention.available → item ∈ attention.organized
-
-namespace NonbindingExamples
 
 /-- Historical D116 wrapper retained only for existing example witnesses. -/
 structure AbsoluteAttention
@@ -285,8 +281,6 @@ structure AbsoluteAttention
   attention : Attention Part body
   allAvailableOrganized : ∀ item, item ∈ attention.available →
     item ∈ attention.organized
-
-end NonbindingExamples
 
 /-- The historical wrapper adds precisely the derived coverage condition. -/
 theorem fullCoverageIffHistoricalWrapper
@@ -355,8 +349,6 @@ theorem absoluteAttentionInhibitsFocusIndependentAction
     (absolute : AbsoluteAttention Part body) :
     ∀ item, ¬ FocusIndependentAction absolute.attention item :=
   fullCoverageExcludesFocusIndependentAction absolute.attention absolute.allAvailableOrganized
-
-namespace NonbindingExamples
 
 /-- Retired D117. This construction no longer defines ordinary love. -/
 structure Love

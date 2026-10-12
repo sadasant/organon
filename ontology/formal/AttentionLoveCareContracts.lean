@@ -18,19 +18,12 @@ open EmbodiedConsciousnessProposal
 open AttentionLoveCareProposal
 open AttentionLoveCareProposal.NonbindingExamples
 
-/-- organon:promotion-contract AC-D3 -/
-theorem directedAttentionContract {Participant TargetState Context Response : Type}
-    (state : Participant → Nat → TargetState) (context : Nat → Context)
-    (respond : Participant → Participant → Nat → TargetState → Context → Response)
-    (scope : Scope Nat) (observer target : Participant)
-    (attention : AttentionRevision.tracks state context respond scope observer target) :
-    observer ≠ target ∧
-    (∃ first second, scope.includes first ∧ scope.includes second ∧
-      first < second ∧ state target first ≠ state target second) ∧
-    ∀ step, scope.includes step → ∃ contrast,
-      respond observer target step (state target step) (context step) ≠
-        respond observer target step contrast (context step) :=
-  attention
+/-! ## Historical examples
+
+These theorems preserve withdrawn constructions for reference. None is a promotion
+contract. -/
+
+namespace NonbindingExamples
 
 /-- Nonbinding historical D112 example; no promotion contract. -/
 theorem embodiedSelfGovernanceContract
@@ -179,32 +172,6 @@ theorem careContract
     care.attentionTargetsState,
     care.itemIsAction, care.actionAvailable, care.actionOrganizedByAttention⟩
 
-/-- organon:promotion-contract AC-D7 -/
-theorem criterionCareContract {Response Outcome Operation : Type}
-    (select : Response → Specification Outcome → Operation)
-    (response : Response) (spec : Specification Outcome)
-    (care : CareRevision.responsive select response spec) :
-    (∃ contrast, select response spec ≠ select contrast spec) ∧
-    (∃ alternative, select response spec ≠ select response alternative) :=
-  care
-
-/-- organon:promotion-contract AC-D8 -/
-theorem conditionRespectContract {Participant Operation : Type}
-    (expressed : Participant → Operation → Option Bool)
-    (contextual : Participant → Participant → Operation → Bool)
-    (scope : Scope Operation) (actor target : Participant) (operation : Operation)
-    (admission : RespectRevision.admitted expressed contextual scope actor target operation) :
-    scope.includes operation ∧
-      (expressed target operation = some true ∨
-        (expressed target operation = none ∧ contextual actor target operation = true)) := by
-  obtain ⟨withinScope, allowed⟩ := admission
-  refine ⟨withinScope, ?_⟩
-  cases decision : expressed target operation with
-  | none => exact Or.inr ⟨rfl, by simpa [decision] using allowed⟩
-  | some value =>
-    have accepted : value = true := by simpa [decision] using allowed
-    exact Or.inl (congrArg some accepted)
-
 /-- Historical exact-action identity protection; no current Respect contract. -/
 theorem respectContract
     {Carrier : Type u} {actor target : Entity Carrier}
@@ -244,5 +211,49 @@ theorem fullCoverageActionLimit
     (attention : Attention Part body) (coverage : attention.fullCoverage) :
     ∀ item, ¬ FocusIndependentAction attention item :=
   fullCoverageExcludesFocusIndependentAction attention coverage
+
+end NonbindingExamples
+
+/-! ## Current promotion contracts -/
+
+/-- organon:promotion-contract AC-D3 -/
+theorem directedAttentionContract {Participant TargetState Context Response : Type}
+    (state : Participant → Nat → TargetState) (context : Nat → Context)
+    (respond : Participant → Participant → Nat → TargetState → Context → Response)
+    (scope : Scope Nat) (observer target : Participant)
+    (attention : AttentionRevision.tracks state context respond scope observer target) :
+    observer ≠ target ∧
+    (∃ first second, scope.includes first ∧ scope.includes second ∧
+      first < second ∧ state target first ≠ state target second) ∧
+    ∀ step, scope.includes step → ∃ contrast,
+      respond observer target step (state target step) (context step) ≠
+        respond observer target step contrast (context step) :=
+  attention
+
+/-- organon:promotion-contract AC-D7 -/
+theorem criterionCareContract {Response Outcome Operation : Type}
+    (select : Response → Specification Outcome → Operation)
+    (response : Response) (spec : Specification Outcome)
+    (care : CareRevision.responsive select response spec) :
+    (∃ contrast, select response spec ≠ select contrast spec) ∧
+    (∃ alternative, select response spec ≠ select response alternative) :=
+  care
+
+/-- organon:promotion-contract AC-D8 -/
+theorem conditionRespectContract {Participant Operation : Type}
+    (expressed : Participant → Operation → Option Bool)
+    (contextual : Participant → Participant → Operation → Bool)
+    (scope : Scope Operation) (actor target : Participant) (operation : Operation)
+    (admission : RespectRevision.admitted expressed contextual scope actor target operation) :
+    scope.includes operation ∧
+      (expressed target operation = some true ∨
+        (expressed target operation = none ∧ contextual actor target operation = true)) := by
+  obtain ⟨withinScope, allowed⟩ := admission
+  refine ⟨withinScope, ?_⟩
+  cases decision : expressed target operation with
+  | none => exact Or.inr ⟨rfl, by simpa [decision] using allowed⟩
+  | some value =>
+    have accepted : value = true := by simpa [decision] using allowed
+    exact Or.inl (congrArg some accepted)
 
 end DanielOntology.AttentionLoveCarePromotionContracts
