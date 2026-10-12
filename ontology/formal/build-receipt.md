@@ -3,8 +3,8 @@ type: formal-build-receipt
 status: verified
 canonicality: noncanonical
 created: 2026-08-02
-updated: 2026-10-11
-repository_commit: "d7dce5965d0e9947de460705d4d4c93e32a113a8"
+updated: 2026-10-12
+repository_commit: "61981329331f4f3b62ee53538eed6ed7ddfb0ed6"
 ---
 # Lean Spike Build Receipt
 
@@ -26,11 +26,13 @@ lake build
 lake exe ontology_check
 ```
 
-Result: all 40 build jobs completed successfully. The executable printed:
+Result: all 42 build jobs completed successfully. The executable printed:
 
 ```text
 OrganonCore v0.20-compatible reduct: hidden bridge relations, private ritual, ritual-dependent meaning, embodied integration, partial self-governance, nonbinding representation-activity example, finite attention, love, care, respect, an embodied recurrent consciousness candidate, downstream shadows, four preserved challenge classifiers, one pending Reality representation elaboration, and metalinguistic definition admission
 ```
+
+The October 12 follow-up retains the [approved institutional revision candidates](../../proposals/institutional-revision.md) as a nonbinding proposal. `InstitutionalRevision.lean` contributes 17 named theorems to the default build: an exact Order/Rule/conformity join and exclusions; Recognition-maintenance monotonicity, strict exclusion, and shared maintenance; broad conditioning without source choice; operative versus dormant represented choice; indirect exploitation of an external event; prediction boundaries; and actual further succession under one supplied institutional continuity criterion. The finite history tests reject an available but unobserved successor and a replacement breaking continuity. No finite history alone certifies unending survival. These are bounded tests, not canonical replacements or empirical evidence. The binding ontology, registry, algebra source lock, and ontology-evaluation snapshots are unchanged. Editorial input digests follow the updated formal README; model judgments were not rerun.
 
 The October 11 cleanup withdraws Intention (D113/C40), Fully Exercisable Permission (D061), Constituted Exercise (D077), Embodied Self-Governance (D112/C39), and Absolute Attention (D116) without replacement canonical terms. `RepresentationActivityExample` preserves the historical Intention record exactly, proves general inverse conversions to its three-field reduction, and permits both result and non-result referents without changing the causal mechanism. `Model.PermissionCoverageExample` fixes one Permission, time, and resource Configuration: with two units, operations costing one and two units individually qualify but neither ordering can fund both; three units fund both orderings. Zero-resource, partial-resource, and out-of-interval cases separate authorization from exercisability. These are finite resource-feasibility checks, not execution traces or complete D060 parity. The current registry contains 117 terms and 55 commitments.
 
@@ -39,14 +41,14 @@ The historical D112 and D116 records remain under `AttentionLoveCareProposal.Non
 The integrated axiom audit was rerun after separately compiling `PR18ReviewDraft.lean`:
 
 ```text
-PROJECT_AXIOM_AUDIT: 2481 project theorems checked; 0 declared project axioms; allowed only propext, Classical.choice, Quot.sound.
+PROJECT_AXIOM_AUDIT: 2514 project theorems checked; 0 declared project axioms; allowed only propext, Classical.choice, Quot.sound.
 ```
 
 This is a build attestation, not promotion readiness. The incoming PR's exact-source promotion reviews were already stale and remain stale; the causal selection-ordering question and other declared semantic gates are not resolved by this withdrawal. Model-judged evaluations were not rerun.
 
 ## Prior verification history
 
-The following descriptions record earlier stages, including the now-withdrawn Intention promotion and earlier vocabulary counts. They are not the current source attestation; the frontmatter and digest list identify the October 11 implementation.
+The following descriptions record earlier stages, including the now-withdrawn Intention promotion and earlier vocabulary counts. They are not the current source attestation; the frontmatter and digest list identify the October 12 implementation.
 
 The Lean sources contain no `sorry`, `admit`, or `axiom` declaration. The existing formal witnesses remain intact: consciousness candidate/Attribution/Designation separation; discriminating Operationalization; participant-bound World access; ordered Substrate Persistence; Truth without modeled Agent access; accepted Trust versus involuntary Dependence; profile-scoped Alignment; joined adaptive Intelligence; useful-false Operative Knowledge; dormant Records; copied Records without recipient knowledge; and inter-agent plus self-transmission. The v0.16 bridge module additionally constructs unequal Denotation; paired-path Causal Contribution with a named Change whose Transformation joins the compared endpoints; constructive Capability realization; fully indexed Standing recorded for an exact Order, Rule, Entity, status, and Scope; and in-Scope supportive Evidential Bearing for a false Claim. `TruthSemantics.isTrue` requires its exact claim-indexed Denotation rather than a parallel free adequacy predicate.
 
@@ -98,12 +100,13 @@ The participant repair restricts the classifier's inputs to identity Invariant a
 - `QuarantineProfiles.lean`: `769a1fd2a8817476d55cefc7323da0837245783eb09a3dcc1e2657aa704d0509`
 - `AttentionLoveCare.lean`: `75718a2e02bde687d288261e9748306d80b1375ce6e0203b771d405b1329836c`
 - `AttentionLoveCareContracts.lean`: `6c32c0856aeca7d1082d4d6700b1574d9b8f051fdada18a19114f4d0546c5363`
-- `Model.lean`: `336119adcc36abc31f09fa58db21c7801cc15deeb1b0665f668bba7ca7983ca0`
-- `lakefile.toml`: `d244acbc5c1204ff84c96f8cb0e7ec73a3418f957f008da228c9422429045397`
+- `Model.lean`: `97fac10bae06493e342b84b6ed42a92458650c0b9beb5e9617ab1f755974249b`
+- `lakefile.toml`: `49dba64a3405d48f26719aa81497631be305321e7e7f6488744218e543c5e212`
 - `lean-toolchain`: `54727eec5cba149c18842e6deb5c41b369d66455c93ce135d7d5347c782b2325`
 - `PR18Governance.lean`: `cd26841c40ff8808bae91d0f31547a3fb0f1f693b049433ee4baa411bbdc5550`
 - `PR18ReviewDraft.lean`: `736485b4859be92602ef238c237033ab4d880489167e320488377cff1de786bc`
 - `RepresentationActivityExample.lean`: `e4dbab2ecfeba547f3ba9a3148c065e3bd7340897f3711a5aa55a7e10440af1d`
+- `InstitutionalRevision.lean`: `56bb2c4ee85f1617966beae97eb239f1d87d9c30c1cb36e13acdcad673b37e10`
 
 ## October 7 combined-source boundary
 
