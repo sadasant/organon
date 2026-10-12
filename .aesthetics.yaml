@@ -1,0 +1,331 @@
+# Judgment-based review for Organon, run by .github/workflows/aesthetics.yml.
+#
+# This file decides which principles govern which kind of content, and at which
+# level: file, directory, repository, or diff. Principles come in two families:
+#
+#   *-citizen sets   what a careful maintainer expects in that language or medium;
+#   organon-* sets   commitments specific to Organon, ranked above citizen sets.
+#
+# Anything a script can decide stays in verify.yml and is not restated here:
+# links and portable paths, registry markers and dependency order, generated
+# projection freshness, proposal manifests, sorry/axiom audits, Lean builds,
+# and adoption manifests.
+#
+# Diátaxis is deliberately not active. Organon's prose is argument-led; the
+# long-form grammar and the Short Form govern it instead.
+
+version: 1
+
+provider:
+  type: openai
+
+extends: [atomic, readme]
+
+guidelines:
+  # Diff level.
+  - id: one-change-class
+    applies_to: [diff]
+    priority: 1
+    text: The change belongs to one change class from CONTRIBUTING.md (editorial or nonbinding, registry-preserving, or binding promotion), and a binding promotion is identifiable as one.
+
+  # Directory level.
+  - id: directory-purpose
+    applies_to: [directory]
+    text: The directory's purpose is evident from its name or README, and every file in it serves that purpose.
+  - id: directory-status-legible
+    applies_to: [directory]
+    priority: 1
+    text: Binding, nonbinding, generated, and historical material in the directory can be told apart by name, location, or a README that says which is which.
+
+  # Repository level.
+  - id: one-canonical-source
+    applies_to: [repository]
+    priority: 1
+    text: The tree and READMEs make the binding ontology, its governed projections, and its nonbinding shadows distinguishable, and each binding claim has exactly one canonical source.
+
+sets:
+  docs-citizen:
+    name: Markdown documents
+    guidelines:
+      - id: purpose-evident
+        content: [docs]
+        text: The document's purpose and audience are evident within its opening section.
+      - id: structure-follows-argument
+        content: [docs]
+        text: Headings, lists, and tables follow the document's argument, so a reader scanning the headings can reconstruct its structure.
+
+  lean-citizen:
+    name: Lean 4 sources
+    guidelines:
+      - id: module-docstring
+        text: The file opens with a module docstring that states what it formalizes and what it leaves out.
+      - id: naming
+        text: Declarations follow one Lean naming convention used across the formal directory, UpperCamelCase for types, structures, and namespaces and lowerCamelCase for definitions and theorems.
+      - id: names-describe-content
+        text: The module's file name describes what it formalizes, not the pull request, review, or date that produced it.
+      - id: named-steps
+        text: Long proofs are decomposed into named lemmas whose statements carry meaning, rather than one opaque tactic block.
+
+  python-citizen:
+    name: Python sources
+    guidelines:
+      - id: typed-boundaries
+        content: [code]
+        text: Functions that cross a module boundary have type hints, and a docstring states intent wherever the name alone does not.
+      - id: actionable-errors
+        content: [code]
+        text: Error messages say what failed, where, and what the user can do, and the exit status distinguishes success from failure.
+      - id: no-dead-compatibility
+        content: [code]
+        text: There are no fallback paths for files, layouts, or options the repository no longer has.
+
+  infra-citizen:
+    name: CI workflows and orb lifecycle scripts
+    guidelines:
+      - id: named-steps
+        text: Each step's name states what it does or verifies, and the workflow requests only the permissions it uses.
+      - id: idempotent
+        text: Rerunning the script on an already prepared environment changes nothing unexpected and fails loudly on real errors.
+
+  organon-claims:
+    name: Organon claim discipline
+    guidelines:
+      - id: calibrated-status
+        applies_to: [file, diff]
+        content: [docs]
+        severity: error
+        priority: 1
+        text: Every claim states its actual status (binding, nonbinding, proposed, generated, or historical), and no sentence presents a passing check, compilation, model judgment, or merge as adoption, promotion, or proof of truth.
+      - id: terms-in-binding-sense
+        applies_to: [file, diff]
+        content: [docs]
+        severity: error
+        priority: 1
+        text: Registered Organon terms and organon:* identifiers are used in their binding sense, or the text marks them as ordinary language, a projection, or quarantined vocabulary; nothing silently narrows, widens, or redefines them.
+        instructions: Capitalization is presentation, not adoption. Ordinary English uses of words such as "evidence" or "state" are fine unless the sentence leans on the binding definition.
+      - id: uncertainty-explicit
+        content: [docs]
+        priority: 1
+        text: Open gates, unknowns, and unproved dependencies are stated where they apply instead of being smoothed over by fluent prose.
+
+  organon-binding:
+    name: Binding ontology
+    guidelines:
+      - id: exact-anti-entailments
+        applies_to: [file, diff]
+        priority: 2
+        text: Wherever the text says two terms are independent or distinct, it states which implications fail and under what Scope, not a slogan of independence.
+      - id: witnessed-possibility
+        applies_to: [file, diff]
+        priority: 2
+        text: Every binding use of "can" or "possible" names its Constraint context and a constructive witness.
+      - id: closed-definitions
+        applies_to: [file, diff]
+        priority: 2
+        text: Each definition is stated using only the primitive, axioms, earlier definitions, and the declared metalanguage; no later or undeclared object-language term explains it.
+      - id: termhood-recorded
+        applies_to: [diff]
+        priority: 2
+        text: A new or changed definition records its strongest rejected reduction and the distinction that survives it, as the binding-promotion protocol in CONTRIBUTING.md requires.
+
+  organon-instruments:
+    name: Governing instruments
+    guidelines:
+      - id: declares-jurisdiction
+        priority: 1
+        text: The instrument states which artifacts it governs and what it leaves to other instruments, and it does not redefine what the ontology says exists.
+      - id: applicable-requirements
+        priority: 1
+        text: A contributor can apply each requirement without guessing what would satisfy it.
+
+  organon-narrative:
+    name: Long-form narrative
+    guidelines:
+      - id: earns-the-idea
+        priority: 1
+        text: The document starts from a situation the reader already recognizes and makes the consequential gap felt before delivering its distinctions, as editorial/long-form.md describes.
+        conflicts_with: [readme/states-purpose, readme/conventional-structure]
+      - id: delivery
+        priority: 1
+        text: Sentences preserve the actors, mechanism, and stakes they describe, and a strong distinction is allowed to stop without a closing flourish, as editorial/short-form.md describes.
+
+  organon-dossiers:
+    name: Nonbinding dossiers and reports
+    guidelines:
+      - id: conclusion-first
+        priority: 1
+        text: The document states its conclusion and status early, then the evidence and open gates that qualify it.
+
+  organon-formal:
+    name: Formal shadow
+    guidelines:
+      - id: declares-parity
+        priority: 1
+        text: The module states which ontology claims or proposal statements it shadows and where its parity with the prose stops.
+      - id: witnesses-named-for-claims
+        priority: 1
+        text: Each witness and countermodel names, in its identifier or docstring, the claim or anti-entailment it tests.
+      - id: nonbinding-marked
+        priority: 1
+        text: Nonbinding examples and historical records live in clearly marked namespaces or modules, never mixed unmarked with the current shadow.
+      - id: no-undeclared-vocabulary
+        priority: 1
+        text: The module introduces no object-language vocabulary the ontology does not define, unless it is marked as a local modeling device.
+
+  organon-evals:
+    name: Evaluation machinery
+    guidelines:
+      - id: facts-before-judges
+        content: [code]
+        priority: 1
+        text: Models are asked only what code cannot decide; identity, digests, lengths, and schema validity are checked in code before any model call.
+      - id: candidates-not-edits
+        content: [code]
+        priority: 1
+        text: Generated text is kept as a candidate tied to its pinned source identity; nothing edits a source artifact in place or reuses a judgment after its source changes.
+      - id: passing-means-hold
+        content: [code]
+        priority: 1
+        text: A passing gate is reported as ready for human review, never as adoption or promotion.
+
+  organon-checkers:
+    name: Repository checkers and generators
+    guidelines:
+      - id: names-its-contract
+        content: [code]
+        priority: 1
+        text: The script's docstring names the document or contract it enforces or projects, so a failure can be traced to the rule it broke.
+      - id: reports-what-it-checked
+        content: [code]
+        priority: 1
+        text: Success messages report what was checked and claim nothing more.
+
+  organon-data:
+    name: Registries, manifests, and ledgers
+    guidelines:
+      - id: self-describing
+        priority: 1
+        text: Field names and status values are self-explanatory or defined in a schema or README the file points to.
+
+rules:
+  - name: Organon context
+    instructions: >-
+      In Organon, ontology/ontology.md is the only binding artifact. Registered terms
+      carry the meaning it defines; terms.yaml registers them. Lean sources, the
+      candidate algebra, proposals, reviews, and project ontologies are nonbinding
+      shadows or dossiers. A passing check, compilation, or model judgment is evidence
+      about an artifact, never adoption.
+
+  - name: Markdown
+    match: ["*.md"]
+    extends: [docs-citizen, organon-claims]
+
+  - name: Binding ontology
+    match: [ontology/ontology.md]
+    extends: [organon-binding]
+
+  - name: Instruments
+    match: [editorial/**, CONTRIBUTING.md, MARKDOWN.md, evals/methodology/*.md, reviews/template.md, proposals/README.md]
+    extends: [organon-instruments]
+
+  - name: Narrative
+    match: [README.md, DANIEL.md]
+    extends: [organon-narrative]
+
+  - name: Dossiers and reports
+    match: [proposals/*.md, reviews/*.md, project-ontologies/*.md, ontology/hidden-bridge-audit.md, ontology/formal/*.md, ontology/algebra/*.md]
+    exclude: [proposals/README.md, reviews/template.md, "**/README.md"]
+    extends: [organon-dossiers]
+
+  - name: Proposal dossiers
+    match: [proposals/*.md]
+    exclude: [proposals/README.md]
+    guidelines:
+      - id: proposal-shape
+        priority: 1
+        text: The dossier covers the shape proposals/README.md requires, namely the problem, the candidate's type and dependencies, the kind of each claim, the Evidence that would bear on it, known collapses, the smallest promotable change, and open gates.
+
+  - name: Project audits
+    match: [reviews/*.md]
+    exclude: [reviews/template.md]
+    guidelines:
+      - id: classified-correspondences
+        priority: 1
+        text: Each correspondence is classified as exact, a refinement, a conflict, or unmapped, and each defect is attributed to the project, to Organon, or to the mapping.
+
+  - name: Project ontologies
+    match: [project-ontologies/*.md]
+    exclude: [project-ontologies/README.md]
+    guidelines:
+      - id: vocabulary-describes-mechanisms
+        priority: 1
+        text: Project vocabulary is mapped to project mechanisms, and each mapping cites the project source it relies on.
+
+  - name: Lean
+    match: ["**/*.lean"]
+    extends: [lean-citizen, organon-formal]
+
+  - name: Python
+    match: [scripts/**, evals/**]
+    content: [code]
+    extends: [unix, kiss, python-citizen]
+
+  - name: Evaluation machinery
+    match: [evals/**]
+    content: [code]
+    extends: [organon-evals]
+
+  - name: Checkers and generators
+    match: [scripts/**]
+    content: [code]
+    extends: [organon-checkers]
+
+  - name: Registries, manifests, and ledgers
+    match: [ontology/terms.yaml, ontology/*.json, ontology/algebra/*.yaml, ontology/algebra/*.json, ontology/algebra/fixtures/*.yaml, proposals/*.json, schemas/**, organon-structure.json, examples/**, reviews/promotion/*.json, reviews/*.json, provenance/*.json, evals/*/inputs/*.json, evals/*/current.json, evals/methodology/*.json]
+    applies_to: [file]
+    extends: [organon-data]
+
+  - name: CI and orb lifecycle
+    match: [".github/workflows/*.yml", ".agents/*"]
+    applies_to: [file]
+    extends: [infra-citizen]
+
+  - name: Retained records
+    applies_to: [diff]
+    match: [releases/**, ontology/changelog.md, ontology/history/**, evals/*/results/**, reviews/local/**]
+    guidelines:
+      - id: records-append-only
+        applies_to: [diff]
+        severity: error
+        priority: 2
+        text: The change appends to or supersedes retained records (release notes, changelog entries, ontology history, retained evaluation results, preserved local reviews) instead of rewriting what they recorded.
+
+files:
+  exclude:
+    # Generated projections. Their generators in scripts/ are judged instead.
+    - ontology/prompt.md
+    - ontology/prompt-manifest.json
+    - ontology/algebra/coverage.md
+    - ontology/algebra/mutations.yaml
+    - ontology/algebra/fixtures/witnesses.yaml
+    - ontology/algebra/fixtures/countermodels.yaml
+    - ontology/algebra/constructor-ledger.yaml
+    - ontology/algebra/positive-calculus-report.md
+    - ontology/algebra/reduction-ledger.yaml
+    - ontology/algebra/complete-reduction-report.md
+    - ontology/formal/lake-manifest.json
+    # Pinned snapshots of external sources used as evaluation inputs.
+    - evals/*/inputs/sources/**
+    # Retained records. A change that touches them is still judged as a diff,
+    # including records-append-only and the claim discipline for new entries.
+    - releases/**
+    - ontology/changelog.md
+    - ontology/history/**
+    - evals/*/results/**
+    - reviews/local/**
+
+# Start by failing only error-severity problems that a change introduces.
+# Warnings stay visible in the report while the wording is calibrated.
+ci:
+  fail_on: error
+  fail_on_preexisting: false
