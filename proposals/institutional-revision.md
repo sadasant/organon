@@ -10,6 +10,8 @@ formal_shadow: "../ontology/formal/InstitutionalRevision.lean"
 ---
 # Standing, Authority, Power, Institution, and Succession
 
+*Proposed October 12, 2026. Ready for review; nonbinding.*
+
 ## Approved wording, pending canonical migration
 
 This dossier preserves Daniel's approved candidates and qualifications from the
@@ -24,6 +26,27 @@ tests of the distinctions. It is included in the default build. It does not prov
 complete canonical parity, an astronomical model, a universal theory of Power,
 or the empirical continuity of any Institution. The schema-v1 manifest inventories
 discussion statements; declaration references are not schema-v2 promotion contracts.
+
+## Contents
+
+- [Approved wording, pending canonical migration](#approved-wording-pending-canonical-migration)
+- [Candidate definitions](#candidate-definitions)
+  - [Standing](#standing)
+  - [Authority](#authority)
+  - [Power](#power)
+  - [Institution](#institution)
+  - [Successful Succession](#successful-succession)
+- [Approved qualifications and remaining hypotheses](#approved-qualifications-and-remaining-hypotheses)
+  - [Recognition-dependent Authority has maintenance requirements](#recognition-dependent-authority-has-maintenance-requirements)
+  - [Capacity, records, and replacement do not establish further succession](#capacity-records-and-replacement-do-not-establish-further-succession)
+  - [A finite continuation is not enduring institutional success](#a-finite-continuation-is-not-enduring-institutional-success)
+  - [Power spending and prediction maintenance remain conditional research claims](#power-spending-and-prediction-maintenance-remain-conditional-research-claims)
+- [Termhood, inheritance, and migration gates](#termhood-inheritance-and-migration-gates)
+  - [Approved candidates are not yet dependency-closed replacements](#approved-candidates-are-not-yet-dependency-closed-replacements)
+- [Statement registry](#statement-registry)
+- [Resume the PR review](#resume-the-pr-review)
+- [Bibliography](#bibliography)
+- [Related entries](#related-entries)
 
 ## Candidate definitions
 
@@ -219,3 +242,17 @@ the withdrawn composites. Internal Activity Selection was discussed earlier; its
 temporal selection-ordering boundary remains open and is not settled by this dossier.
 The next unvisited surviving introduction is **Attention (D114)**, followed by
 Sustained Attention, Love, Care, and Respect.
+
+## Bibliography
+
+- Luhmann, Niklas. *Social Systems*. 1984; English translation 1995. [Publisher](https://www.sup.org/books/sociology/social-systems).
+- Searle, John. *Making the Social World*. 2010. [Publisher](https://academic.oup.com/book/5336).
+
+The dossier also names Machiavelli's political observations without citing a specific work.
+
+## Related entries
+
+- [Statement manifest](./institutional-revision-claims.json) and [proposal lifecycle](./lifecycle.json).
+- [Formal shadow](../ontology/formal/InstitutionalRevision.lean).
+- Binding definitions in Daniel's Ontology: [Standing](../ontology/ontology.md#organon-standing), [Authority](../ontology/ontology.md#organon-authority), [Institution](../ontology/ontology.md#organon-institution).
+- [How proposals work](./README.md) and [Contributing](../CONTRIBUTING.md).

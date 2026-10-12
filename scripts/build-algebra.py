@@ -213,8 +213,10 @@ def validate_source_lock(lock: dict[str, Any]) -> None:
     if not isinstance(commit, str) or len(commit) != 40:
         raise AlgebraError("source lock requires a full repository_commit")
     for relative, expected in lock.get("sources_sha256", {}).items():
+        # The builders read only the registry from the worktree; the prose sources
+        # are provenance, verified at the locked commit below.
         path = ROOT / relative
-        if not path.is_file() or sha256_path(path) != expected:
+        if relative == "ontology/terms.yaml" and (not path.is_file() or sha256_path(path) != expected):
             raise AlgebraError(f"source lock mismatch in worktree: {relative}")
         archived = subprocess.run(
             ["git", "show", f"{commit}:{relative}"],

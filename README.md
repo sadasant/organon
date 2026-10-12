@@ -8,6 +8,18 @@ Organon exists for that failure.
 
 It is a collection of instruments for making a body of work internally legible: an ontology for stabilizing meaning, an editorial grammar for carrying difficult ideas, and formal artifacts for discovering where apparently compatible definitions collapse under pressure. The name comes from the traditional title for Aristotle's collected works on logic: instruments of reasoning, not the doctrine those instruments may later examine.
 
+## Start here
+
+| If you want to | Start with |
+|---|---|
+| Read the definitions | [Daniel's Ontology](./ontology/ontology.md), or browse it at [organon.sadasant.ai](https://organon.sadasant.ai) |
+| Compare it with prior work | [Intellectual shadows and contribution](./ontology/ontology.md#intellectual-shadows-and-contribution) |
+| Check the formal shadow | [Lean experiment](./ontology/formal/README.md) |
+| Map a repository's vocabulary to it | [Adoption and review](#adoption-and-review) |
+| Propose or challenge a term | [Contributing](./CONTRIBUTING.md) and [proposals](./proposals/README.md) |
+| Inspect the evaluations | [Evaluations](./evals/README.md) |
+| Cite it | [CITATION.cff](./CITATION.cff) |
+
 ## Why it lives in Idolum
 
 [Idolum](https://github.com/idolum-ai) builds systems in which agents act across boundaries of authority, evidence, and responsibility. Those systems make unusually expensive demands on language. A capability is not automatically a permission. An output is not automatically completion. A record is not automatically evidence. When a project blurs those distinctions, the implementation eventually inherits the confusion.

@@ -11,6 +11,8 @@ formal_shadow: "../ontology/formal/WorldSubstrate.lean"
 ---
 # World and Substrate
 
+*Proposed August 3, 2026. Promoted in v0.12.0.*
+
 ## Verdict
 
 World and Substrate can leave quarantine together, provided neither is allowed to become a polite alias for Reality.
@@ -18,6 +20,30 @@ World and Substrate can leave quarantine together, provided neither is allowed t
 World names a participant-scoped Configuration in which Perception, Interpretation, and Action are possible through constrained Causal paths. Its scope does not make it arbitrary: a World must name an Invariant that persists across distinct access paths. Substrate names the contextual Configuration that supplies persistent input States and Constraints to a family of Transformations. It is neither passive matter nor a fundamental layer beneath Presence.
 
 The joint promotion matters because an Entity never encounters an unqualified “raw world.” It acts through Constraints on a Substrate inside a scoped World. The resulting Perception or Map remains a Representation of that World, not the World itself.
+
+## Contents
+
+- [Verdict](#verdict)
+- [Termhood challenge](#termhood-challenge)
+  - [World is not only Configuration, Environment, or Map](#world-is-not-only-configuration-environment-or-map)
+  - [Substrate is not only an input State](#substrate-is-not-only-an-input-state)
+- [Proposed definitions](#proposed-definitions)
+- [Exact anti-entailments](#exact-anti-entailments)
+- [World](#world)
+  - [Availability without idealism](#availability-without-idealism)
+  - [Political world-making](#political-world-making)
+- [Substrate](#substrate)
+  - [Context rather than essence](#context-rather-than-essence)
+  - [Carrier and carried Configuration](#carrier-and-carried-configuration)
+- [Intellectual shadows](#intellectual-shadows)
+  - [Uexküll and Gibson](#uexküll-and-gibson)
+  - [Aristotle and Simondon](#aristotle-and-simondon)
+- [Formal shadow](#formal-shadow)
+  - [WS-G1 — Open formalization gate: access and realization joins](#ws-g1--open-formalization-gate-access-and-realization-joins)
+- [Proposal statement registry](#proposal-statement-registry)
+- [Promotion boundary](#promotion-boundary)
+- [Bibliography](#bibliography)
+- [Related entries](#related-entries)
 
 ## Termhood challenge
 
@@ -139,3 +165,17 @@ This dossier records the promotion enacted in Organon v0.12:
 - keep the other quarantined vocabulary unchanged.
 
 The dossier remains nonbinding provenance material. Promotion is enacted only by the single-file ontology and its governed registry, profiles, provenance, changelog, release note, and formal receipt; the dossier's lifecycle state records that outcome without becoming a second canonical ontology.
+
+## Bibliography
+
+- Aristotle. *Physics*, Book I. [Online text](https://classics.mit.edu/Aristotle/physics.1.i.html).
+- Gibson, James J. *The Ecological Approach to Visual Perception*. 1979. [Publisher](https://www.routledge.com/The-Ecological-Approach-to-Visual-Perception-Classic-Edition/Gibson/p/book/9781848725782).
+- Simondon, Gilbert. *On the Mode of Existence of Technical Objects*. 1958; English translation 2017. [Publisher](https://www.upress.umn.edu/9781517904876/on-the-mode-of-existence-of-technical-objects/).
+- Uexküll, Jakob von. *A Foray into the Worlds of Animals and Humans*. 1934; English translation 2010. [Publisher](https://www.upress.umn.edu/9781452903798/a-foray-into-the-worlds-of-animals-and-humans/).
+
+## Related entries
+
+- [Statement manifest](./world-and-substrate-claims.json) and [proposal lifecycle](./lifecycle.json).
+- [Formal shadow](../ontology/formal/WorldSubstrate.lean).
+- Binding definitions in Daniel's Ontology: [World](../ontology/ontology.md#organon-world), [Substrate](../ontology/ontology.md#organon-substrate).
+- [How proposals work](./README.md) and [Contributing](../CONTRIBUTING.md).

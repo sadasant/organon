@@ -7,7 +7,61 @@ prose_ontology: "../ontology.md"
 ---
 # Formalization Decisions
 
+*First published August 2, 2026; last revised October 12, 2026. Noncanonical.*
+
 These decisions belong to the Lean spike. They expose choices priced by formalization. They do not independently revise [Daniel's Ontology v0.20](../ontology.md); accepted findings flow into the binding, single-file Markdown ontology through its changelog.
+
+## Contents
+
+- [Embodiment uses typed witnesses without promoting consciousness](#embodiment-uses-typed-witnesses-without-promoting-consciousness)
+- [Flow absorbs recurrence; Ritual and Meaning retain distinct burdens](#flow-absorbs-recurrence-ritual-and-meaning-retain-distinct-burdens)
+- [Hidden bridges divide into metalanguage, derivation, and object Relations](#hidden-bridges-divide-into-metalanguage-derivation-and-object-relations)
+- [Absence is not `Empty`](#absence-is-not-empty)
+- [OrganonCore is an Absence-free conservative reduct](#organoncore-is-an-absence-free-conservative-reduct)
+- [Presence is type-relative](#presence-is-type-relative)
+- [A3 currently commits to classical logic](#a3-currently-commits-to-classical-logic)
+- [A4 has two evidence levels](#a4-has-two-evidence-levels)
+- [A5 represents Missingness positively](#a5-represents-missingness-positively)
+- [Direction internalizes ordering](#direction-internalizes-ordering)
+- [Specification carries constructive content](#specification-carries-constructive-content)
+- [Identity remains parameterized and Persistence is explicit](#identity-remains-parameterized-and-persistence-is-explicit)
+- [Empty Boundary means maximal obligation](#empty-boundary-means-maximal-obligation)
+- [Permission is Order-indexed and does not imply Capability](#permission-is-order-indexed-and-does-not-imply-capability)
+- [Independence is scoped, not intrinsic](#independence-is-scoped-not-intrinsic)
+- [Consciousness discourse is formalized without a consciousness axiom](#consciousness-discourse-is-formalized-without-a-consciousness-axiom)
+- [Relations use typed structures, not one universal relation type](#relations-use-typed-structures-not-one-universal-relation-type)
+- [Operationalization requires semantic discrimination](#operationalization-requires-semantic-discrimination)
+- [World requires distinct access and a common Invariant](#world-requires-distinct-access-and-a-common-invariant)
+- [Substrate is contextual; realization remains open](#substrate-is-contextual-realization-remains-open)
+- [Truth separates correspondence from epistemic access](#truth-separates-correspondence-from-epistemic-access)
+- [Intelligence requires a witnessed adaptive Difference](#intelligence-requires-a-witnessed-adaptive-difference)
+- [Operative Knowledge is configurational and non-factive](#operative-knowledge-is-configurational-and-non-factive)
+- [Knowledge Transmission preserves specified function, not representation identity](#knowledge-transmission-preserves-specified-function-not-representation-identity)
+- [Factivity and warrant are cumulative structures](#factivity-and-warrant-are-cumulative-structures)
+- [Moral status repeats the candidate-Claim-Designation seam](#moral-status-repeats-the-candidate-claim-designation-seam)
+- [Sovereignty is four independently witnessed profiles](#sovereignty-is-four-independently-witnessed-profiles)
+- [Valuation separates ordering, measurement, recording, and counting](#valuation-separates-ordering-measurement-recording-and-counting)
+- [Trust is accepted Dependence, not involuntary vulnerability](#trust-is-accepted-dependence-not-involuntary-vulnerability)
+- [Alignment is conformity instantiated, not Specification possessed](#alignment-is-conformity-instantiated-not-specification-possessed)
+- [Scope of the spike](#scope-of-the-spike)
+- [v0.20 attention and interpersonal-relation findings](#v020-attention-and-interpersonal-relation-findings)
+- [PR #18 takeover audit (2026-10-03)](#pr-18-takeover-audit-2026-10-03)
+- [PR #18 reviewer response: individuation, inventory, guidance, and entrainment](#pr-18-reviewer-response-individuation-inventory-guidance-and-entrainment)
+- [PR #18 exact numerator repair](#pr-18-exact-numerator-repair)
+- [PR #18 snapshot-local Attention (2026-10-06)](#pr-18-snapshot-local-attention-2026-10-06)
+- [PR #18 behavioral Action independence (2026-10-07)](#pr-18-behavioral-action-independence-2026-10-07)
+- [PR #18 record-independent participant classification (2026-10-07)](#pr-18-record-independent-participant-classification-2026-10-07)
+- [PR #18 Self/Auto integration (2026-10-07)](#pr-18-selfauto-integration-2026-10-07)
+- [Intention withdrawal and termhood sweep (2026-10-11)](#intention-withdrawal-and-termhood-sweep-2026-10-11)
+  - [Screening the remaining 121 terms](#screening-the-remaining-121-terms)
+- [Fully Exercisable Permission withdrawal (2026-10-11)](#fully-exercisable-permission-withdrawal-2026-10-11)
+- [Approved sweep implementation (2026-10-11)](#approved-sweep-implementation-2026-10-11)
+- [Directed Attention and Love withdrawal (2026-10-12)](#directed-attention-and-love-withdrawal-2026-10-12)
+- [Criterion-governed Care (2026-10-12)](#criterion-governed-care-2026-10-12)
+- [Condition-governed Respect (2026-10-12)](#condition-governed-respect-2026-10-12)
+- [PR18 readiness review (2026-10-12)](#pr18-readiness-review-2026-10-12)
+- [Bibliography](#bibliography)
+- [Related entries](#related-entries)
 
 ## Embodiment uses typed witnesses without promoting consciousness
 
@@ -419,3 +473,12 @@ Historical findings remain in Git; their conclusions are not transferred to the
 new definitions. Attention, Care, Respect, selection, institutional parity, and
 empirical application retain their explicit formal limits. Model generation and
 judgments have not been rerun, so downstream evaluations remain incomplete/hold.
+
+## Bibliography
+
+- de Moura, Leonardo, and Sebastian Ullrich. "The Lean 4 Theorem Prover and Programming Language." In *Automated Deduction – CADE 28*, 2021. [DOI](https://doi.org/10.1007/978-3-030-79876-5_37).
+
+## Related entries
+
+- [Lean shadow](./README.md) and [build receipt](./build-receipt.md).
+- [Daniel's Ontology](../ontology.md) and its [changelog](../changelog.md).

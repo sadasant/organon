@@ -7,7 +7,20 @@ prose_ontology: "../ontology.md"
 ---
 # Daniel's Ontology - Lean Spike
 
+*First published August 2, 2026; last revised October 12, 2026. Noncanonical formal shadow.*
+
 This directory tests whether selected regions of [Daniel's Ontology v0.20](../ontology.md) can become a proof-checked Lean artifact. It is deliberately **noncanonical**. The single-file Markdown ontology remains the readable binding artifact until Daniel explicitly promotes a formal artifact after term-for-term parity, a complete model, clean builds without `sorry`, and a stable Markdown projection. The v0.18 definition-admission strengthening of C1 is metalinguistic and is tested by the nonbinding algebra experiment rather than encoded as an object-language Lean term.
+
+## Contents
+
+- [Included in the spike](#included-in-the-spike)
+- [Canonicality boundary](#canonicality-boundary)
+- [Toolchain](#toolchain)
+- [Build](#build)
+- [Promotion gates](#promotion-gates)
+  - [v0.20 promotion audit refinements](#v020-promotion-audit-refinements)
+- [Bibliography](#bibliography)
+- [Related entries](#related-entries)
 
 ## Included in the spike
 
@@ -93,3 +106,14 @@ The local machine uses an Elan override named `organon-lean-4.30.0` because Elan
 `FocusIndependentAction` requires behavioral invariance, not merely failed organization. The nonempty declared causal domain must reproduce the current result under every response model, and switching the attended Representation to its contrast in the same context must leave that result unchanged. The partial Action follows a separate Boolean input; proofs vary both inputs independently. Reversed labels, a focus-sensitive alternative hidden behind an invariant selected response, an empty domain, and wrong or stale results cannot establish independence. The guarantee is relative to the named contrast and declared domain, not empirical completeness or universal independence.
 
 `EntityIndividuation` receives only identity Invariant and Boundary. No admitted classifier can distinguish two records by history length, content, current State, or Direction alone. The former three-State prefix witness is rejected by the historical Respect/Love/Care examples. A replacement finite witness shares the actor's full history, current State, identity criterion, and constraint count, but differs in admission of an unrecorded Transformation; both Boundaries admit all recorded outputs. The behavioral classifier ignores duplicate constraints. Its classification is a local projection: equal classes do not prove one Entity, different Boundaries need not force different classes, and identity across Boundary changes remains an explicit canonical-parity gate.
+
+## Bibliography
+
+- de Moura, Leonardo, and Sebastian Ullrich. "The Lean 4 Theorem Prover and Programming Language." In *Automated Deduction – CADE 28*, 2021. [DOI](https://doi.org/10.1007/978-3-030-79876-5_37).
+
+## Related entries
+
+- [Formalization decisions](./decisions.md) and [build receipt](./build-receipt.md).
+- [OrganonCore reduct report](./organon-core-reduct-report.md) and [term audit](./organon-core-term-audit.md).
+- [Ontology completeness experiment](./ontology-completeness-experiment.md).
+- [Daniel's Ontology](../ontology.md), which remains binding.

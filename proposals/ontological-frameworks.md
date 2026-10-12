@@ -7,11 +7,42 @@ created: 2026-10-03
 
 # Ontological frameworks, distinctions, and source-relative novelty
 
+*First proposed October 3, 2026; last revised October 12, 2026. Ready for review; nonbinding.*
+
 This proposal makes eight of Daniel's developing concepts and his requested Interpretation/Understanding split available for review as precise English definitions and noncanonical Lean profiles. It addresses how a framework classifies reality at a particular granularity, what it can express, how competing access can become scarce, and how probability and source-link loss might describe actual processes. It does not conclude that every ontology is incomplete, socially effective frameworks are true, or all novelty consists in losing a source link.
 
 Daniel requested one combined PR after reviewing these definitions. That requested review scope groups related concepts; it does not make them one ontological kind. Merging this dossier alone promotes none of its terms. The adopted ontology and registry remain v0.19.0.
 
 Provenance is Daniel's Christias reading discussion: limited granularity and expressive frameworks; multidimensional scarcity and potentially illusory resource mappings; explicitly ontological probabilities; and actual differentiation through loss of a source signal. The definitions and formal encodings below are the assistant's proposed articulation, accepted by Daniel for incorporation into this review. They are not Christias's doctrine, a verified quotation, or proof that the proposed world-level interpretations hold.
+
+## Contents
+
+- [Interpretation and Understanding: requested split](#interpretation-and-understanding-requested-split)
+  - [Interpretation](#interpretation)
+  - [Understanding](#understanding)
+- [Candidate definitions](#candidate-definitions)
+  - [Classification](#classification)
+  - [Ontological Framework](#ontological-framework)
+  - [Granularity](#granularity)
+  - [Expressivity](#expressivity)
+  - [Scarcity](#scarcity)
+  - [Ontological Probability](#ontological-probability)
+  - [Differentiation](#differentiation)
+  - [Novelty](#novelty)
+- [Hypothesis: source loss and full novelty](#hypothesis-source-loss-and-full-novelty)
+- [Hypothesis: process-grounded probability](#hypothesis-process-grounded-probability)
+- [Termhood and dependencies](#termhood-and-dependencies)
+- [Semantic inputs and boundaries](#semantic-inputs-and-boundaries)
+- [Evidence ledger](#evidence-ledger)
+- [Exact proposed migration of the adopted vocabulary](#exact-proposed-migration-of-the-adopted-vocabulary)
+- [Intellectual shadows](#intellectual-shadows)
+- [Material decisions and failures](#material-decisions-and-failures)
+- [Gate: canonical realization and promotion](#gate-canonical-realization-and-promotion)
+- [Gate: social effectiveness and epistemic adequacy](#gate-social-effectiveness-and-epistemic-adequacy)
+- [Statement registry](#statement-registry)
+- [Verification and review](#verification-and-review)
+- [Bibliography](#bibliography)
+- [Related entries](#related-entries)
 
 ## Interpretation and Understanding: requested split
 
@@ -271,3 +302,17 @@ The authority discussion is preserved as provenance: verbal or nonverbal distinc
 Run `python3 scripts/check-ontology-frameworks.py` from the repository root, alongside the standard repository checks in [CONTRIBUTING](../CONTRIBUTING.md). The checker builds the formal shadow, compiles the experiment, and audits all theorem dependencies against Lean's standard axioms. A dedicated CI job repeats it on the PR.
 
 Review the English definitions before their implementation choices. In particular: whether source-relative Novelty warrants a separate term; whether the broad scarcity definition should include singleton inaccessibility; and what would count as evidence for process-grounded probability. Those are review questions, not unresolved compiler errors.
+
+## Bibliography
+
+- Heidegger, Martin. *Being and Time*. 1927; translated by John Macquarrie and Edward Robinson, 1962. §31, [pp. 184–185](https://www.beyng.com/pages/en/BeingandTimeMR/BeingandTimeMR.185.html); §32, [pp. 188–189](https://www.beyng.com/pages/en/BeingandTimeMR/BeingandTimeMR.188.html).
+- Tarski, Alfred. "The Semantic Conception of Truth and the Foundations of Semantics." *Philosophy and Phenomenological Research* 4 (1944). [PDF](https://inters.org/files/tarski1944.pdf).
+
+The dossier also compares the proposal with Sellars and Brandom on learned classification without citing a specific work.
+
+## Related entries
+
+- [Statement manifest](./ontological-frameworks-claims.json) and [proposal lifecycle](./lifecycle.json).
+- [Formal shadow](../ontology/formal/OntologyCompleteness.lean).
+- Binding definitions in Daniel's Ontology: [Interpretation](../ontology/ontology.md#organon-interpretation).
+- [How proposals work](./README.md) and [Contributing](../CONTRIBUTING.md).

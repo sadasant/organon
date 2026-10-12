@@ -1,8 +1,19 @@
 # Who is Daniel?
 
+*Published August 2, 2026.*
+
 Most repositories can treat their author as implementation detail. An ontology cannot do that so easily.
 
 Organon selects distinctions, names recurring failures, and decides which definitions must precede others. Those choices did not descend from an institution. They emerged from the work and writing of Daniel Rodriguez, then became more explicit through sustained argument with AI systems and, more recently, a proof assistant. This document states that position so readers can evaluate the instrument together with the perspective that produced it.
+
+## Contents
+
+- [The short biography](#the-short-biography)
+- [The recurring problem](#the-recurring-problem)
+- [Why the author belongs in the repository](#why-the-author-belongs-in-the-repository)
+- [Authorship in the presence of AI](#authorship-in-the-presence-of-ai)
+- [Public position](#public-position)
+- [Related entries](#related-entries)
 
 ## The short biography
 
@@ -51,3 +62,8 @@ Daniel writes and builds under the handle `sadasant`.
 - [Selected essays](https://medium.com/@sadasant)
 
 These links provide context. The Claims in Organon should still stand or fail on their definitions, arguments, and Evidence.
+
+## Related entries
+
+- [Organon](./README.md) and [Contributing](./CONTRIBUTING.md), which define who may adopt binding changes.
+- [Editorial provenance](./provenance/editorial.md) and the [Short Form](./editorial/short-form.md), which approximates Daniel's voice.

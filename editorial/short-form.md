@@ -11,6 +11,8 @@ provenance: "../provenance/editorial.md"
 ---
 # Short Form
 
+*First published July 31, 2026; last revised August 1, 2026 (v1.0, canonical).*
+
 This is the canonical working reference for Daniel's short-form editorial language. It is a direction for future writing, not evidence that every sample is Daniel-authored or ready to publish without judgment.
 
 ## Voice prompt
@@ -62,3 +64,9 @@ Prefer the shortest form that preserves the actual idea. Do not add a closing li
 ## Provenance
 
 Adopted after three review rounds. The generated predecessors, panel instructions, and review notes remain private vault artifacts; their public status and role are recorded in [Editorial Provenance](../provenance/editorial.md).
+
+## Related entries
+
+- [Long-Form Editorial Grammar](./long-form.md), which prepares the reader for a delivery.
+- [Essay-Answer Form](./essay-answer-form.md), for answering one reader's question.
+- [Daniel's Ontology](../ontology/ontology.md).

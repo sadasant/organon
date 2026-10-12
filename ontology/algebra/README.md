@@ -6,6 +6,8 @@ source_lock: source-lock.json
 ---
 # Candidate algebra experiment
 
+*First published August 8, 2026; last revised October 12, 2026. Nonbinding experiment.*
+
 This directory holds a nonbinding experiment over Organon's definitions: its
 hand-authored ledgers and fixtures, the mutations, witnesses, countermodels, and
 reports its builders generate, and the source lock that freezes the v0.20 inputs.
@@ -16,13 +18,27 @@ of those local definitions and fences instantiate a smaller calculus over typed
 participants, conserved indices, and explicit witnesses?
 
 The experiment does not shorten the binding term definitions. Version 0.20 is frozen by
-commit and source digest in [source-lock.json](./source-lock.json); v0.20
+commit and source digest in [source-lock.json](./source-lock.json). The registry must
+still match in the worktree because the builders read it; the prose sources are verified
+at the locked commit, so editing their presentation does not unfreeze the experiment; v0.20
 retains the definition-admission invariant and records the five embodiment definitions as positively underdetermined by this experiment, while the
 candidate disciplines and registry-reflection control remain nonbinding. The
 experiment is falsification-first: a candidate discipline is retained only
 when it uniquely annotates an isolating fixture, and a weakened definition
 matters only when an explicit near-miss structure satisfies the weakening
 while failing the original join.
+
+## Contents
+
+- [Scope](#scope)
+- [Files](#files)
+- [Witness normal form](#witness-normal-form)
+- [Structural mutation testing](#structural-mutation-testing)
+- [Candidate discipline taxonomy](#candidate-discipline-taxonomy)
+- [Result](#result)
+- [Complete-registry result](#complete-registry-result)
+- [Run](#run)
+- [Related entries](#related-entries)
 
 ## Scope
 
@@ -217,3 +233,10 @@ The second fails if any generated artifact is stale, a source lock drifts, a
 normal form is ill-typed, a near-miss model no longer distinguishes the original
 rule, a holdout escapes the unchanged taxonomy, or a candidate discipline
 loses its unique labeled fixture.
+
+## Related entries
+
+- [Residuals and promotion gates](./residuals.md).
+- Generated reports: [coverage](./coverage.md), [complete reduction](./complete-reduction-report.md), and [positive calculus](./positive-calculus-report.md).
+- [Source lock](./source-lock.json) and [hidden-bridge audit](../hidden-bridge-audit.md).
+- [Daniel's Ontology](../ontology.md).

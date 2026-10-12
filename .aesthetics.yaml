@@ -54,6 +54,30 @@ sets:
         content: [docs]
         text: Headings, lists, and tables follow the document's argument, so a reader scanning the headings can reconstruct its structure.
 
+  sep-entry:
+    name: Encyclopedia entry, modeled on the Stanford Encyclopedia of Philosophy
+    guidelines:
+      - id: revision-line
+        text: Directly below its title, the document states when it was first published or proposed, when it was last revised if it has been, and, if it is versioned or tracked through a lifecycle, its version or status.
+        instructions: Model this on the publication line of a Stanford Encyclopedia of Philosophy entry. A single publication date means the document has not been revised since; an author statement or other untracked document needs no version or status.
+        recommendation: Add an italic line below the title with the first-published date, any last-revised date, and the version or status.
+      - id: lead
+        text: Before its first section, or in an opening section, the document summarizes its subject and its main claim, requirement, or current state well enough that a reader could stop there.
+        instructions: Organon documents often put this summary in an opening section such as Verdict, Current disposition, Approved wording, or Founding proposition. An instrument summarizes what it requires, and a log summarizes what it records.
+        conflicts_with: [organon-narrative/earns-the-idea]
+        recommendation: Open with a short summary of what the document establishes and what it leaves open.
+      - id: contents
+        text: A document with five or more sections lists them, with links, before its first section after the summary.
+        instructions: A document with fewer than five sections meets this guideline.
+        recommendation: Add a Contents list linking every section and subsection.
+      - id: bibliography
+        text: Works the document relies on or compares itself with are listed in a Bibliography or Sources section with author, title, and year or edition, not only as inline links or names.
+        instructions: A document that names no outside work meets this guideline. Authors or traditions named without a specific work may be listed in a note.
+        recommendation: Add a Bibliography listing each cited work with author, title, and year.
+      - id: related-entries
+        text: The document ends by linking the related Organon documents a reader should consult next.
+        recommendation: End with a Related entries list.
+
   lean-citizen:
     name: Lean 4 sources
     guidelines:
@@ -274,6 +298,19 @@ rules:
   - name: Markdown
     match: ["*.md"]
     extends: [docs-citizen, organon-claims]
+
+  - name: Encyclopedia entries
+    match: [ontology/ontology.md, ontology/hidden-bridge-audit.md, "editorial/*.md", "proposals/*.md", "ontology/formal/*.md", ontology/algebra/README.md, ontology/algebra/residuals.md, DANIEL.md]
+    exclude: [proposals/README.md, "proposals/*-atlas.md", ontology/formal/build-receipt.md, ontology/formal/organon-core-term-audit.md]
+    extends: [sep-entry]
+
+  - name: Front door
+    match: [README.md]
+    max_depth: 0
+    guidelines:
+      - id: routes-audiences
+        text: After its opening, the README routes each audience Organon serves, including readers of the definitions, people comparing prior work, Lean users, adopters, contributors, evaluation reviewers, and people citing it, to one entry point.
+        recommendation: Add a Start here table that maps each audience to its entry point.
 
   - name: Binding ontology
     match: [ontology/ontology.md]

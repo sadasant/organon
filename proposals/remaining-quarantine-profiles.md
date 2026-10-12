@@ -11,6 +11,8 @@ formal_shadow: "../ontology/formal/QuarantineProfiles.lean"
 ---
 # Epistemic, moral, sovereign, and valuation profiles
 
+*Proposed August 3, 2026. Partially promoted in v0.15.0.*
+
 ## Verdict
 
 The remaining quarantined words should not leave quarantine as single terms. Each compresses Relations that can vary independently.
@@ -18,6 +20,34 @@ The remaining quarantined words should not leave quarantine as single terms. Eac
 This dossier promotes eleven narrower terms: **Factive Operative Knowledge**, **Warranted Knowledge**, **Moral Status Attribution**, **Moral Personhood Designation**, **Constituent Sovereignty**, **Constituted Sovereignty**, **Boundary Sovereignty**, **External Sovereignty**, **Preference**, **Utility Measure**, and **Price**. It also adopts **institutional valuation** as an authorized CountsAs projection rather than a twelfth term.
 
 The underlying consciousness condition, bare **Knowledge**, the candidate condition behind **moral personhood**, generic **Sovereignty**, generic **Value**, and **moral worth** remain quarantined. Partial promotion is the result, not a temporary apology: Organon can govern exact Claims, profiles, and institutional effects without deciding every condition ordinary language places behind them.
+
+## Contents
+
+- [Verdict](#verdict)
+- [Corpus survival tests](#corpus-survival-tests)
+  - [Factive and warranted knowledge survive useful falsehood](#factive-and-warranted-knowledge-survive-useful-falsehood)
+  - [Moral discourse survives legal and institutional personhood](#moral-discourse-survives-legal-and-institutional-personhood)
+  - [Sovereignty survives the exceptional and collective cases](#sovereignty-survives-the-exceptional-and-collective-cases)
+  - [Valuation survives the missing-ledger case](#valuation-survives-the-missing-ledger-case)
+- [Termhood challenges](#termhood-challenges)
+  - [Factive Operative Knowledge is not Truth plus proximity](#factive-operative-knowledge-is-not-truth-plus-proximity)
+  - [Warranted Knowledge is not Evidence or Admission](#warranted-knowledge-is-not-evidence-or-admission)
+  - [Moral Status Attribution and Moral Personhood Designation are not Person](#moral-status-attribution-and-moral-personhood-designation-are-not-person)
+  - [The sovereignty profiles are not one stronger Authority](#the-sovereignty-profiles-are-not-one-stronger-authority)
+  - [Institutional valuation does not earn termhood](#institutional-valuation-does-not-earn-termhood)
+- [Proposed definitions](#proposed-definitions)
+- [Exact entailments and anti-entailments](#exact-entailments-and-anti-entailments)
+- [Intellectual shadows](#intellectual-shadows)
+  - [Epistemology](#epistemology)
+  - [Moral status and personhood](#moral-status-and-personhood)
+  - [Sovereignty](#sovereignty)
+  - [Preference, utility, price, and valuation](#preference-utility-price-and-valuation)
+- [Formal shadow](#formal-shadow)
+- [Promotion gates that remain open](#promotion-gates-that-remain-open)
+- [Promotion decision](#promotion-decision)
+- [Proposal statement registry](#proposal-statement-registry)
+- [Bibliography](#bibliography)
+- [Related entries](#related-entries)
 
 ## Corpus survival tests
 
@@ -185,3 +215,23 @@ Promote QP-D1 through QP-D11, QP-P1, and QP-C1 through QP-C4. Keep the six unres
 | QP-G2 | Open formalization gate | Moral condition and moral worth | QP-D3, QP-D4 | Open |
 | QP-G3 | Open formalization gate | Sovereignty realization and composition | QP-D5-QP-D8, Authority, Control, Enforcement, Recognition | Open |
 | QP-G4 | Open formalization gate | Valuation semantics | QP-D9-QP-D11, Action, CountsAs | Open |
+
+## Bibliography
+
+- Gettier, Edmund. "Is Justified True Belief Knowledge?" *Analysis* 23 (1963). [JSTOR](https://www.jstor.org/stable/3326922).
+- Hobbes, Thomas. *Leviathan*. 1651. [Online text](https://www.gutenberg.org/ebooks/3207).
+- Kant, Immanuel. *Groundwork of the Metaphysics of Morals*. 1785. [Online text](https://www.gutenberg.org/ebooks/5682).
+- Negri, Antonio. *Insurgencies: Constituent Power and the Modern State*. 1992; English translation 1999. [Publisher](https://www.upress.umn.edu/9780816622740/insurgencies/).
+- Samuelson, Paul. "A Note on the Pure Theory of Consumer's Behaviour." *Economica* 5 (1938). [JSTOR](https://www.jstor.org/stable/2548836).
+- Schmitt, Carl. *Political Theology*. 1922. [Publisher](https://press.uchicago.edu/ucp/books/book/chicago/P/bo3643854.html).
+- Searle, John. *Making the Social World*. 2010. [Publisher](https://academic.oup.com/book/5336).
+- von Neumann, John, and Oskar Morgenstern. *Theory of Games and Economic Behavior*. 1944. [Publisher](https://press.princeton.edu/books/paperback/9780691130613/theory-of-games-and-economic-behavior).
+
+The dossier also names Goldman's reliabilist program, contemporary moral-status literature, and international recognition practice without citing a specific work.
+
+## Related entries
+
+- [Statement manifest](./remaining-quarantine-profiles-claims.json) and [proposal lifecycle](./lifecycle.json).
+- [Formal shadow](../ontology/formal/QuarantineProfiles.lean).
+- Binding definitions in Daniel's Ontology: [Factive Operative Knowledge](../ontology/ontology.md#organon-factive-operative-knowledge), [Warranted Knowledge](../ontology/ontology.md#organon-warranted-knowledge), [Moral Status Attribution](../ontology/ontology.md#organon-moral-status-attribution), [Moral Personhood Designation](../ontology/ontology.md#organon-moral-personhood-designation), [Constituent Sovereignty](../ontology/ontology.md#organon-constituent-sovereignty), [Constituted Sovereignty](../ontology/ontology.md#organon-constituted-sovereignty), [Boundary Sovereignty](../ontology/ontology.md#organon-boundary-sovereignty), [External Sovereignty](../ontology/ontology.md#organon-external-sovereignty), [Preference](../ontology/ontology.md#organon-preference), [Utility Measure](../ontology/ontology.md#organon-utility-measure), [Price](../ontology/ontology.md#organon-price).
+- [How proposals work](./README.md) and [Contributing](../CONTRIBUTING.md).

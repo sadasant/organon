@@ -11,6 +11,8 @@ formal_shadow: "../ontology/formal/IntelligenceKnowledge.lean"
 ---
 # Intelligence, Operative Knowledge, and Knowledge Transmission
 
+*Proposed August 3, 2026. Promoted in v0.14.0.*
+
 ## Verdict
 
 The three terms can leave quarantine together because they describe successive obligations in one causal stack.
@@ -18,6 +20,35 @@ The three terms can leave quarantine together because they describe successive o
 Intelligence names adaptive Capability at the level of the whole Agent. Operative Knowledge names a Record functioning discriminatingly inside a capable interpreter's action-producing Configuration. Knowledge Transmission names reconstruction of that operative function in another such Configuration. The sequence is neither “model contains intelligence” nor “file contains knowledge” nor “copy transmits knowledge.”
 
 Bare knowledge remains quarantined. The promoted term is deliberately **Operative Knowledge** because the corpus does not yet support one definition covering warranted true belief, propositional knowledge, acquaintance, collective knowledge, and practiced capability.
+
+## Contents
+
+- [Verdict](#verdict)
+- [Corpus survival tests](#corpus-survival-tests)
+  - [Intelligence survives the synthetic-interpreter case](#intelligence-survives-the-synthetic-interpreter-case)
+  - [Operative Knowledge survives the dormant-record case](#operative-knowledge-survives-the-dormant-record-case)
+  - [Knowledge Transmission survives the reconstruction case](#knowledge-transmission-survives-the-reconstruction-case)
+- [Termhood challenges](#termhood-challenges)
+  - [Intelligence is not Capability alone](#intelligence-is-not-capability-alone)
+  - [Operative Knowledge is not Record, Truth, or successful output](#operative-knowledge-is-not-record-truth-or-successful-output)
+  - [Knowledge Transmission is not Record transmission](#knowledge-transmission-is-not-record-transmission)
+- [Proposed definitions](#proposed-definitions)
+- [Exact anti-entailments](#exact-anti-entailments)
+- [The useful-falsehood commitment](#the-useful-falsehood-commitment)
+- [LLM and synthetic-interpreter classification](#llm-and-synthetic-interpreter-classification)
+- [Intellectual shadows](#intellectual-shadows)
+  - [Legg and Hutter](#legg-and-hutter)
+  - [Ryle](#ryle)
+  - [Shannon](#shannon)
+  - [Sperber](#sperber)
+- [Formal shadow](#formal-shadow)
+  - [IK-G1 — Open formalization gate: Rule encoding, runtime construction, and full causal realization](#ik-g1--open-formalization-gate-rule-encoding-runtime-construction-and-full-causal-realization)
+  - [IK-G2 — Open formalization gate: semantic and functional preservation](#ik-g2--open-formalization-gate-semantic-and-functional-preservation)
+  - [IK-G3 — Open formalization gate: factive and warranted knowledge](#ik-g3--open-formalization-gate-factive-and-warranted-knowledge)
+- [Proposal statement registry](#proposal-statement-registry)
+- [Promotion boundary](#promotion-boundary)
+- [Bibliography](#bibliography)
+- [Related entries](#related-entries)
 
 ## Corpus survival tests
 
@@ -165,3 +196,17 @@ This dossier records the promotion enacted in Organon v0.14:
 - preserve implementation claims, universal semantic equivalence, and factive knowledge behind IK-G1-IK-G3.
 
 The dossier remains nonbinding provenance material. Promotion is enacted only by the single-file ontology and its governed registry, profiles, provenance, changelog, release note, and formal receipt.
+
+## Bibliography
+
+- Legg, Shane, and Marcus Hutter. "Universal Intelligence: A Definition of Machine Intelligence." 2007. [arXiv](https://arxiv.org/abs/0712.3329).
+- Ryle, Gilbert. *The Concept of Mind*. 1949. [Google Books](https://books.google.com/books?id=mSbjClXFaIkC).
+- Shannon, Claude. "A Mathematical Theory of Communication." *Bell System Technical Journal* 27 (1948). [DOI](https://onlinelibrary.wiley.com/doi/abs/10.1002/j.1538-7305.1948.tb00917.x).
+- Sperber, Dan. "Why a deep understanding of cultural evolution is incompatible with shallow psychology." 2006. [PDF](https://www.dan.sperber.fr/wp-content/uploads/2006_why-a-deep-understanding-of-cultural-evolution-is-incompatible.pdf).
+
+## Related entries
+
+- [Statement manifest](./intelligence-operative-knowledge-transmission-claims.json) and [proposal lifecycle](./lifecycle.json).
+- [Formal shadow](../ontology/formal/IntelligenceKnowledge.lean).
+- Binding definitions in Daniel's Ontology: [Intelligence](../ontology/ontology.md#organon-intelligence), [Operative Knowledge](../ontology/ontology.md#organon-operative-knowledge), [Knowledge Transmission](../ontology/ontology.md#organon-knowledge-transmission).
+- [How proposals work](./README.md) and [Contributing](../CONTRIBUTING.md).

@@ -155,8 +155,6 @@ def check_current_evaluations() -> list[str]:
             errors.append(f"{prefix}: unsupported promotion_status")
         if data.get("ontology_version") != ontology_version:
             errors.append(f"{prefix}: ontology_version does not match prompt manifest")
-        if data.get("ontology_sha256") != ontology_sha256:
-            errors.append(f"{prefix}: ontology_sha256 does not match prompt manifest")
 
         current = base / str(data.get("current_run", ""))
         predecessor = base / str(data.get("predecessor", ""))
@@ -179,8 +177,15 @@ def check_current_evaluations() -> list[str]:
         expected_passed = data.get("evaluation_status") == "passed"
         if bool(record.get("passed")) != expected_passed:
             errors.append(f"{prefix}: current run pass state disagrees with pointer")
-        if record.get("ontology_sha256") != ontology_sha256:
-            errors.append(f"{prefix}: current run uses a different ontology snapshot")
+        # The pointer records the snapshot its run judged. Only a passed evaluation
+        # licenses a claim about the current ontology, so only it must be current.
+        if data.get("ontology_sha256") != record.get("ontology_sha256"):
+            errors.append(f"{prefix}: ontology_sha256 does not match its run record")
+        if expected_passed and record.get("ontology_sha256") != ontology_sha256:
+            errors.append(
+                f"{prefix}: a passed evaluation must cover the current ontology; "
+                "rerun the suite or mark the pointer incomplete"
+            )
     return errors
 
 
