@@ -1,7 +1,8 @@
 @font-face {
-  font-family: AtlasMath;
-  src: url("katex/dist/fonts/KaTeX_Main-Regular.woff2") format("woff2");
-  font-display: swap;
+  font-family: "Organon Symbols";
+  src: url("../../../proposals/glyph-assets/OrganonSymbols.woff2") format("woff2");
+  font-display: block;
+  font-weight: 400;
 }
 :root {
   font-family: "Inter Variable", sans-serif;
@@ -153,22 +154,16 @@ main {
   color: #9b9b98;
   text-align: center;
 }
-.unicode-candidate {
-  font-family: "Noto Sans Symbols 2", AtlasMath, serif;
-  font-variant-emoji: text;
-  font-weight: 400;
-}
 .tile-glyph {
   width: 34px;
   height: 34px;
   color: #ddd;
 }
-.rune {
-  fill: none;
-  stroke: currentColor;
-  stroke-width: 1.1;
-  stroke-linecap: square;
-  stroke-linejoin: miter;
+.rune-letter {
+  font-family: "Organon Symbols";
+  font-weight: 400;
+  fill: currentColor;
+  stroke: none;
 }
 .tile-label {
   display: none;

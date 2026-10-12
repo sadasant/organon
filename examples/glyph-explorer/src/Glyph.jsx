@@ -1,5 +1,9 @@
 import React from "react";
-import { runes } from "./runes.js";
+import { glyphs } from "../../../proposals/glyph-catalog.mjs";
+
+const characters = new Map(
+  glyphs.map((glyph) => [glyph.id, String.fromCodePoint(glyph.codepoint)]),
+);
 
 export default function Glyph({ term, className = "", ...props }) {
   return (
@@ -10,7 +14,9 @@ export default function Glyph({ term, className = "", ...props }) {
       focusable="false"
       {...props}
     >
-      <path d={runes[term.id]} />
+      <text className="rune-letter" x="0" y="32" fontSize="32">
+        {characters.get(term.id)}
+      </text>
     </svg>
   );
 }

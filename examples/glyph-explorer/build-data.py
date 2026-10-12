@@ -13,16 +13,13 @@ spec.loader.exec_module(builder)
 
 registry = json.loads((ROOT / "ontology/terms.yaml").read_text())
 ontology = (ROOT / "ontology/ontology.md").read_text()
-glyphs = {row["term"]: row for row in json.loads((ROOT / "proposals/unicode-vocabulary-candidates.json").read_text())["candidates"]}
+reviews = {row["term"]: row for row in json.loads((ROOT / "proposals/glyph-semantic-review.json").read_text())["entries"]}
 forms = {row["term_id"]: row for row in json.loads((ROOT / "ontology/algebra/normal-forms.yaml").read_text())["cards"]}
 terms = builder.extract_terms(ontology, registry["terms"])
 for term in terms:
     key = term["id"].split(":")[1]
-    candidate = glyphs[key]
     term["slug"] = term["anchor"].removeprefix("organon-")
-    term["glyph"] = candidate["glyph"] if candidate["verdict"] == "trial" else None
-    term["glyphNote"] = candidate["reason"]
-    term["glyphVerdict"] = candidate["verdict"]
+    term["glyphReview"] = reviews[key]
     term["form"] = forms.get(term["id"])
     marker = f'<!-- organon:term {term["id"]} claim={term["claim_id"]} -->'
     tail = ontology.split(marker, 1)[1]

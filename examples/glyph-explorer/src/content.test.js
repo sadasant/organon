@@ -2,7 +2,7 @@ import { test } from "node:test";
 import assert from "node:assert/strict";
 import fs from "node:fs";
 import { termMatcher, mathFor, locality } from "./content.js";
-import { runes } from "./runes.js";
+import { glyphs } from "../../../proposals/glyph-catalog.mjs";
 
 const { terms } = JSON.parse(
   fs.readFileSync(new URL("./data.json", import.meta.url)),
@@ -42,21 +42,20 @@ test("local graph has both incoming prerequisites and outgoing dependents", () =
   assert.ok(!graph.dependents.some((t) => t.id === "organon:Relation"));
 });
 
-test("all 115 definitions preserve source ordering and trial Unicode candidates", () => {
+test("all 115 definitions preserve source ordering and carry a glyph assessment", () => {
   assert.equal(terms.length, 115);
   assert.equal(terms[0].id, "organon:Absence");
   assert.equal(terms.at(-1).id, "organon:Respect");
   assert.ok(terms.every((t) => t.statement.startsWith(`**${t.label}**`)));
-  assert.ok(terms.every((t) => !t.glyph || t.glyphVerdict === "trial"));
+  assert.ok(terms.every((t) => `organon:${t.glyphReview.term}` === t.id));
+  assert.ok(terms.every((t) => ["trial", "revise"].includes(t.glyphReview.verdict)));
   assert.equal(terms.filter((t) => t.form).length, 9);
 });
 
-test("every term has its own complete interface rune", () => {
-  assert.deepEqual(Object.keys(runes).sort(), terms.map((t) => t.id).sort());
-  assert.equal(new Set(Object.values(runes)).size, terms.length);
-  assert.ok(
-    Object.values(runes).every(
-      (path) => path.startsWith("M") && !path.includes("undefined"),
-    ),
-  );
+test("every term has its own shared glyph and private-use font slot", () => {
+  assert.deepEqual(glyphs.map((g) => g.id), terms.map((t) => t.id));
+  assert.equal(new Set(glyphs.map((g) => g.path)).size, terms.length);
+  assert.equal(new Set(glyphs.map((g) => g.codepoint)).size, terms.length);
+  assert.ok(glyphs.every((g) => g.codepoint >= 0xe000 && g.codepoint <= 0xf8ff));
+  assert.ok(glyphs.every((g) => g.path.startsWith("M") && !g.path.includes("undefined")));
 });

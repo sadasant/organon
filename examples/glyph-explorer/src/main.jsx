@@ -19,7 +19,6 @@ import katex from "katex";
 import "katex/dist/katex.min.css";
 import "@fontsource-variable/inter";
 import "@fontsource-variable/newsreader";
-import "@fontsource/noto-sans-symbols-2";
 import "./style.css";
 import data from "./data.json";
 import { linkTerms, mathFor } from "./content.js";
@@ -348,17 +347,15 @@ function App() {
                         />
                       </div>
                       <p className="notation-note">
-                        The rune is a provisional interface mark, not canonical
-                        notation.
-                        {term.glyph && (
-                          <>
-                            {" "}
-                            Unicode study candidate:{" "}
-                            <span className="unicode-candidate">{`${term.glyph}\uFE0E`}</span>
-                            .
-                          </>
-                        )}{" "}
-                        {term.glyphNote}
+                        Organon Symbols · provisional. Glyph review:{" "}
+                        {term.glyphReview.verdict === "revise"
+                          ? "needs revision"
+                          : "mnemonic trial"}.
+                      </p>
+                      <p className="notation-note">{term.glyphReview.cue}</p>
+                      <p className="notation-note">{term.glyphReview.risk}</p>
+                      <p className="notation-note">
+                        {term.glyphReview.recommendation}
                       </p>
                       <a
                         href={`${source}/blob/main/ontology/ontology.md#${term.anchor}`}

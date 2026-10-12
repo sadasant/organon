@@ -4,7 +4,30 @@ status: ready-for-review
 binding: false
 ---
 
-# Can Organon have a Unicode symbolic vocabulary?
+# Organon's symbolic vocabulary: Unicode study and custom typeface
+
+**Current direction: one provisional typeface shared by the study and website.** The [Organon Symbols catalog](./glyph-catalog.mjs) now supplies all 115 marks, the installable font, and the website. The [symbol review](./glyph-atlas.md) shows the same marks with per-term judgments: **72 mnemonic trials and 43 revision candidates**. None is certified as semantically equivalent to its definition. The earlier Unicode assessment below remains a record of alternatives, not a second active assignment system. **Hold adoption and merge until the flagged mappings are resolved.**
+
+## Shared typeface and semantic review
+
+The [review data](./glyph-semantic-review.json) records each mark's visual cue, risky readings, and recommendation against the binding definition. Its source pin preserves the originally assessed SVG alphabet. The review distinguishes a learned name from a compositional expression: a glyph need not contain all the definition's witnesses, but should not systematically suggest an excluded meaning. Reused components currently have no formal grammar. A crown, eye, dot, or bar must not silently introduce sovereignty, sight, truth, or another entailment.
+
+Priority concerns include Absence/partial missingness, Relation/ordered roles, Agent/Agency, Capability/Permission, Observation/Perception, attribution/obtainment, and Care/benevolence. The judgments are proposals for design review, not measured reader outcomes. `trial` does not mean approved, and `revise` does not make the underlying definition defective. No drawings were changed in this audit.
+
+The font uses private-use slots U+E000–U+E072, not newly standardized Unicode characters. These characters have no portable meaning without this font and catalog. Organon IDs remain machine identity, and accessible term labels remain attached to website links. Prose and mathematical typesetting retain their existing fonts; Organon Symbols is a symbol typeface, not a replacement Latin alphabet.
+
+GitHub and ordinary Markdown readers cannot load our webfont. The study therefore embeds a labelled SVG specimen generated from the same catalog; the website renders the corresponding font glyphs. Historical Unicode alternatives are not rendered alongside them as competing assignments.
+
+Regenerate the TTF, WOFF2, specimen, and review table with Node, Python 3.11+, and uv:
+
+```sh
+uv run scripts/build-glyph-font.py
+uv run scripts/build-glyph-font.py --check
+```
+
+The build checks registry/review coverage, unique paths and private-use slots, and the reviewed ontology and catalog hashes. `--check` additionally rebuilds in a temporary directory and rejects stale font or study artifacts without changing the repository. It does not establish perceptual distinctness, semantic fidelity, accessibility with an actual screen reader, or cross-cultural neutrality. Those remain review and reader-testing obligations. The already approved wall/paper/sky layout does not settle any of those questions.
+
+## Original Unicode investigation
 
 **A small labelled notation is worth testing; an inherited one-character equivalent for every definition has not been established.** This study assesses all 115 active registered entries in Organon v0.20.0: 112 definitions and three foundational entries. The [candidate atlas](./unicode-vocabulary-atlas.md) contains a rationale for every entry: **34 trial mnemonics, 33 rejected candidates, and 48 composition-first assessments**.
 
@@ -94,7 +117,7 @@ A small follow-up experiment should include:
 3. GitHub and Obsidian at ordinary text sizes, light and dark themes, and at least two operating-system/font environments. Check every retained candidate, not only attractive screenshots.
 4. A screen reader and text-only export. If a mark is announced as an unrelated operation or disappears, the label must still carry the intended reference.
 
-Adopt only if the experiment improves the selected reading task without concealing distinctions. An inconclusive or negative result supports keeping prose and using symbols only in local diagrams. Designing new SVG glyphs or using private-use characters is a possible later alternative, but introduces fonts, distribution and accessibility costs and is not part of this PR.
+Adopt only if the experiment improves the selected reading task without concealing distinctions. An inconclusive or negative result supports keeping prose and using symbols only in local diagrams. The custom typeface follow-up above now explores SVG-derived private-use characters; its font, distribution, and accessibility costs do not disappear merely because we control the drawings.
 
 ## Reproducing the computational checks
 

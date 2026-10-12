@@ -1,6 +1,6 @@
-// A provisional interface alphabet, not canonical Organon notation.
-// Related concepts share motifs; marks are drawn from their roles, never IDs.
-const strokes = {
+// Shared, nonbinding source for the study, symbol font, and website.
+// Motif combinations are mnemonics, NOT a compositional semantic grammar.
+export const strokes = {
   ring: "M16 8a8 8 0 1 1 0 16a8 8 0 1 1 0-16",
   crescent: "M21 5a12 12 0 0 0 0 22M21 5a16 16 0 0 0 0 22",
   open: "M24 9a11 11 0 1 0 0 14",
@@ -161,9 +161,13 @@ const alphabet = {
   Respect: ["frame", "vessel", "dot"],
 };
 
-export const runes = Object.fromEntries(
-  Object.entries(alphabet).map(([name, motifs]) => [
-    `organon:${name}`,
-    motifs.map((motif) => strokes[motif]).join(" "),
-  ]),
-);
+// Private-use slots are font-local, not Unicode assignments. Preserve this
+// catalog's order; append new entries rather than reassigning existing slots.
+// Organon IDs, not code points, remain the interchange identity.
+export const glyphs = Object.entries(alphabet).map(([term, motifs], index) => ({
+  term,
+  id: `organon:${term}`,
+  codepoint: 0xe000 + index,
+  motifs,
+  path: motifs.map((motif) => strokes[motif]).join(" "),
+}));
