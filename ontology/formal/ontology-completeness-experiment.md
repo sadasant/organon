@@ -8,11 +8,26 @@ base_commit: "34e24ecb7e0b09618067547a2973979cb6af0bb3"
 
 # Ontological frameworks and completeness
 
+*Published October 3, 2026. Nonbinding experiment.*
+
 This experiment asks whether Organon can describe an ontology using its own vocabulary and then test precisely stated completeness claims in Lean. The initial results establish a conditional expressivity limit and a concrete limit of what the Body constraints determine. They also refute the inference that selectivity alone makes every framework incomplete. None establishes a universal theorem that every ontology fails to describe all Reality.
 
 The experiment is on `experiment/ontology-completeness`, rebased onto main after [PR 16](https://github.com/sadasant/organon/pull/16) merged. The base above identifies that merge. Its files are separate from the Body implementation and its exact-source promotion review.
 
 The [proposal and Interpretation/Understanding split](../../proposals/ontological-frameworks.md) contains the English definitions, termhood reductions, dependencies, and open gates. Daniel requested this combined review of his developing framework, probability, scarcity, and source-loss proposals. It remains nonbinding; merging this experiment does not update the adopted registry.
+
+## Contents
+
+- [Candidate definition using Organon](#candidate-definition-using-organon)
+- [What the Lean projection represents](#what-the-lean-projection-represents)
+- [Completeness claims and checked results](#completeness-claims-and-checked-results)
+- [Interpretation of the Body result](#interpretation-of-the-body-result)
+- [Philosophical boundary](#philosophical-boundary)
+- [Validation and remaining work](#validation-and-remaining-work)
+- [Extended profiles and exact verification](#extended-profiles-and-exact-verification)
+- [Semantic Interpretation and practical Understanding](#semantic-interpretation-and-practical-understanding)
+- [Bibliography](#bibliography)
+- [Related entries](#related-entries)
 
 ## Candidate definition using Organon
 
@@ -96,3 +111,17 @@ Daniel requested separating contextual semantic assignment from the practical Tr
 The `Understanding` projection carries one Entity's ordered orientation Transformation and changed differentiation among declared candidate possibilities. Six new theorems test the semantic/practical distinction and its execution boundary, bringing the audited total to 30. Model-theoretic Body interpretations retain their semantic sense. Cognitive input tags and candidate Action possibilities are explicitly partial projections, not full canonical realization.
 
 The primary-text check supports a two-lineage synthesis: Tarski's semantics/satisfaction and Heidegger's projection onto possibilities. Heidegger's own Auslegung develops Understanding and is not the semantic assignment adopted here. The dossier links the checked passages and preserves that limit.
+
+## Bibliography
+
+- Cantor, Georg. "Über eine elementare Frage der Mannigfaltigkeitslehre." *Jahresbericht der Deutschen Mathematiker-Vereinigung* 1 (1891).
+- Gödel, Kurt. "Über formal unentscheidbare Sätze der Principia Mathematica und verwandter Systeme I." *Monatshefte für Mathematik und Physik* 38 (1931).
+- Heidegger, Martin. *Being and Time*. 1927; translated by John Macquarrie and Edward Robinson, 1962.
+- Tarski, Alfred. "The Semantic Conception of Truth and the Foundations of Semantics." *Philosophy and Phenomenological Research* 4 (1944). [PDF](https://inters.org/files/tarski1944.pdf).
+- de Moura, Leonardo, and Sebastian Ullrich. "The Lean 4 Theorem Prover and Programming Language." In *Automated Deduction – CADE 28*, 2021. [DOI](https://doi.org/10.1007/978-3-030-79876-5_37).
+
+## Related entries
+
+- [OntologyCompleteness.lean](./OntologyCompleteness.lean) and its checker, [check-ontology-frameworks.py](../../scripts/check-ontology-frameworks.py).
+- [Ontological frameworks proposal](../../proposals/ontological-frameworks.md).
+- [Lean shadow](./README.md).

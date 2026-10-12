@@ -8,6 +8,8 @@ ontology_version: "0.20.0"
 ---
 # Hidden Bridge Audit
 
+*First published August 3, 2026; last revised October 11, 2026. Supporting audit; its resolutions bind only through Daniel's Ontology.*
+
 The v0.15 ontology repeatedly relied on six notions that were neither fully supplied by its metalanguage nor represented by stable typed Relations. Because those notions connected otherwise dependency-ordered definitions, they could introduce additional commitments without appearing in the registry.
 
 This audit applies the termhood challenge separately. Three notions are genuine object-language Relations. Two belong to the declared metalanguage but require explicit object witnesses whenever used. One duplicates an existing institutional Relation.
@@ -20,6 +22,16 @@ This audit applies the termhood challenge separately. Three notions are genuine 
 | modal capability | Constraint-relative possibility declared as metalinguistic satisfiability | Capability becomes a constructive Specification whose positive classifications supply a satisfying Configuration and Action-producing path under named Constraints |
 | support | Evidential Bearing promoted | supporting, defeating, and underdetermining are outputs of an evaluation Rule recorded by an Order for Evidence and Claim within a Scope |
 | institutional eligibility | reduced to Standing | every eligibility Claim must resolve to Standing in a named Order, Rule, and Scope; no parallel eligibility predicate exists |
+
+## Contents
+
+- [Strongest rejected reductions](#strongest-rejected-reductions)
+- [Intellectual shadows](#intellectual-shadows)
+- [Collapse audit](#collapse-audit)
+- [Formal evidence and boundary](#formal-evidence-and-boundary)
+- [Binding effect](#binding-effect)
+- [Bibliography](#bibliography)
+- [Related entries](#related-entries)
 
 ## Strongest rejected reductions
 
@@ -61,3 +73,20 @@ The shadow does not prove that every natural-language expression has a unique De
 ## Binding effect
 
 C24 makes bridge elision a consistency violation. Future definitions may refine these Relations, but they may not use “same,” “means,” “causes,” “can,” “supports,” or “eligible” as untyped substitutes for the required witness structures.
+
+## Bibliography
+
+- Frege, Gottlob. "On Sense and Reference." 1892.
+- Kripke, Saul. *Naming and Necessity*. 1980.
+- Lewis, David. "Causation." *Journal of Philosophy* 70 (1973).
+- Martin-Löf, Per. *Intuitionistic Type Theory*. 1984.
+- Toulmin, Stephen. *The Uses of Argument*. 1958.
+- Wiggins, David. *Sameness and Substance Renewed*. 2001.
+- Woodward, James. *Making Things Happen*. 2003.
+
+## Related entries
+
+- [Daniel's Ontology](./ontology.md), whose claim typing applies this audit's resolutions.
+- [BridgeRelations.lean](./formal/BridgeRelations.lean), the formal shadow of the promoted Relations.
+- [Candidate algebra](./algebra/README.md), whose source lock records this audit.
+- [Changelog](./changelog.md).

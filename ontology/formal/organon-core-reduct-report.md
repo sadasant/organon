@@ -7,6 +7,24 @@ source_ontology: "../ontology.md"
 ---
 # Absence-free OrganonCore Reduct
 
+*First published August 3, 2026; last revised October 3, 2026. Draft.*
+
+*Result in brief:* every classifier and witness currently compiled through the Absence-free reduct is preserved when the Absence/Presence extension is added back. Four challenge classifications survive a first falsification pass, Reality awaits a representation decision, and preservation is not established for the binding ontology as a whole.
+
+## Contents
+
+- [Question](#question)
+- [Construction](#construction)
+- [Result](#result)
+  - [Proven for the current formal shadow](#proven-for-the-current-formal-shadow)
+  - [The difficult seam did not refute the reduct; Reality requires a representation decision](#the-difficult-seam-did-not-refute-the-reduct-reality-requires-a-representation-decision)
+  - [Not proven for the binding ontology](#not-proven-for-the-binding-ontology)
+- [Why the theorem is definitionally simple](#why-the-theorem-is-definitionally-simple)
+- [Refutation conditions](#refutation-conditions)
+- [Promotion boundary](#promotion-boundary)
+- [Next gates](#next-gates)
+- [Related entries](#related-entries)
+
 ## Question
 
 Can Organon's current formal classifications be stated without absolute Absence, and do those classifications remain unchanged when the Absence/Presence layer is added back?
@@ -118,3 +136,8 @@ The warranted conclusion is:
 3. Propagate those translations through the registry dependency graph rather than treating transitive reachability as semantic dependence.
 4. Add adversarial fixtures at each neighboring-term boundary and stop on the first divergent classification.
 5. Replace each of the audit's 116 `UNKNOWN` results with a proof, a counterexample, or a narrower formalization gate.
+
+## Related entries
+
+- [OrganonCore.lean](./OrganonCore.lean) and the generated [term audit](./organon-core-term-audit.md), checked by [check-organon-core-audit.py](../../scripts/check-organon-core-audit.py).
+- [Lean shadow](./README.md) and [formalization decisions](./decisions.md).

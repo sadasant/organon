@@ -1,5 +1,7 @@
 # Residuals and promotion gates
 
+*First published August 8, 2026; last revised October 3, 2026. Nonbinding.*
+
 This experiment found a compact candidate-discipline taxonomy on its declared surface. The
 complete-registry audit now establishes why Organon has **not** been reduced to
 six annotations: they organize admissibility failures but do not execute or
@@ -86,3 +88,8 @@ Before any candidate discipline becomes a binding invariant, it must survive:
 
 Until then, the six disciplines are useful review annotations and compression
 hypotheses—nothing more.
+
+## Related entries
+
+- [Candidate algebra experiment](./README.md).
+- Generated reports: [complete reduction](./complete-reduction-report.md) and [positive calculus](./positive-calculus-report.md).
