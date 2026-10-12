@@ -41,11 +41,21 @@ Attention alone makes no Claim about benefit, consent, morality, accuracy, Truth
 or purpose. Persistence is intrinsic, so Sustained Attention is no longer a term.
 
 <!-- organon:proposal-statement AC-D7 type=proposed_definition -->
-**AC-D7 — Care:** Care is Action causally organized by Attention to another Entity's
-named State. The focal Representation exactly Denotes that Entity-State pair, and
-the State belongs to the other Entity's Persistence history. The Action must be
-causally organized by that Attention, not merely occur alongside it. Care may be
-competent or incompetent, wanted or unwanted, beneficial or harmful.
+**AC-D7 — Care:** Care is a Relation in which Attention to another Entity's changing
+State conditions the selection or adjustment of Action according to a Specification
+of Consequences concerning that Entity, within a Scope.
+
+Both Attention and the Specification must causally condition Action; an attached
+description or after-the-fact classification is insufficient. The Specification
+concerns the same Entity attended to. Actual conformity, benefit, consent, and
+agreement with the subject's own assessment are not required. No verbal statement
+or conscious deliberation is required. Competent nursing and careful interrogation
+can both qualify; their criteria, beneficiaries, and actual effects remain distinct.
+
+Daniel retained Care as a term rather than the proposed nonbinding label
+“Attention-organized Action.” The distinction retained is consequence-sensitive
+selection or adjustment under an operative criterion, not responsiveness alone.
+This is an approved revision, not an equivalence proof for the historical record.
 
 <!-- organon:proposal-statement AC-D8 type=proposed_definition -->
 **AC-D8 — Respect:** Respect is a scoped Constraint upon an Entity's Action toward
@@ -71,8 +81,10 @@ and none of those separately establishes Attention.
 
 <!-- organon:proposal-statement AC-C7 type=anti_collapse_constraint -->
 **AC-C7 — Care is not benefit:** Care may be competent or incompetent, wanted or
-unwanted, beneficial or harmful. Favorable Consequence does not establish Care
-without Attention to the other Entity's State organizing an Action.
+unwanted, beneficial or harmful. Neither favorable Consequence nor conformity to
+a Specification establishes Care without Attention and that Specification
+conditioning Action concerning the same Entity. Care does not entail successful
+conformity or benefit to that Entity.
 
 <!-- organon:proposal-statement AC-C8 type=anti_collapse_constraint -->
 **AC-C8 — Respect is not agreement or affection:** Respect does not entail
@@ -97,10 +109,18 @@ new Attention definition, and do not establish equivalence to the old ratio.
 finite Attention, Sustained Attention, Love, and Care records under `NonbindingExamples`.
 They preserve finite counting, same-context response comparisons, exact target
 Denotation, partial/full coverage, and the historical countermodels. The old ratio
-theorem is no longer an Attention contract. Care's partial contract retains the
-exact target joins but explicitly leaves revised Attention and canonical Action
-and Causal Contribution outside its formal boundary. The old full-coverage exclusion remains a theorem
+theorem is no longer an Attention contract, and the old `careContract` is no longer
+a Care promotion contract. The old full-coverage exclusion remains a theorem
 about that optional measurement, not a general condition imposed on Attention.
+
+[CareRevision.lean](../ontology/formal/CareRevision.lean) supplies five bounded
+theorems: opposite criteria use the same mechanism, both inputs condition selection,
+a mistaken represented condition can defeat conformity, an ignored criterion is
+insufficient, and success without response sensitivity is insufficient. The
+`criterionCareContract` projects response and Specification sensitivity. It does
+not construct canonical Attention, Action, Consequence, comparison Causal paths,
+or the join between the Specification's target and the attended Entity. The finite
+test uses the existing Specification type without defining benefit or harm.
 
 The Respect contract retains its exact-action protection and local participant
 classifier. That classifier receives only identity Invariant and Boundary, not
@@ -128,7 +148,7 @@ Application requires a separate Specification and admissible Evidence.
 | ID | Type | Statement | Evidence or gate |
 | --- | --- | --- | --- |
 | AC-D3 | Proposed definition | Directed persistent Attention | `directedAttentionContract`; canonical causal/perceptual parity open |
-| AC-D7 | Proposed definition | Care | `careContract`; target joins only, revised Attention and Action parity open |
+| AC-D7 | Proposed definition | Criterion-governed Care | `criterionCareContract`; operative sensitivity only, canonical and target joins open |
 | AC-D8 | Proposed definition | Respect | `respectContract`; local participant and option projections |
 | AC-C3 | Anti-collapse constraint | Nonexhaustive Attention | Narrow-response countermodel; canonical parity open |
 | AC-C5 | Anti-collapse constraint | Attention neutrality | Outside current formal boundary |

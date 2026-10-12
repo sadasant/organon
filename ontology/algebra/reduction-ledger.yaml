@@ -2,7 +2,7 @@
   "schema_version": 1,
   "status": "generated-nonbinding-complete-reduction-audit",
   "source_sha256": {
-    "ontology/terms.yaml": "5e940d68a9ad82fdf9e5ed59e76c0e5e601c3fd944c6ea6d068ea5d2fd3d6924",
+    "ontology/terms.yaml": "96cc8207d91376623d95e07d262e517337182465af491b6e58803fa972743387",
     "ontology/algebra/normal-forms.yaml": "1e4c8a950a920840f4e9966778fbdda625aec7d5560efe692e05ae4efac0bae0",
     "ontology/algebra/candidate-laws.yaml": "8d739e8c928f527ee8f66b28c4e3a8b696d0539333627bf26243d72073212550",
     "ontology/algebra/claim-coverage.yaml": "17c549d7193e680b126fd112eaa36053105eb00a9c5b4b72655444d16594637a",
@@ -3683,11 +3683,11 @@
         "organon:Attention",
         "organon:Entity",
         "organon:State",
-        "organon:Representation",
-        "organon:Denotation",
         "organon:Action",
-        "organon:CausalContribution",
-        "organon:Persistence"
+        "organon:Specification",
+        "organon:Consequence",
+        "organon:Scope",
+        "organon:CausalContribution"
       ],
       "disposition": "positively_underdetermined",
       "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
@@ -3698,11 +3698,11 @@
           "organon:Attention",
           "organon:Entity",
           "organon:State",
-          "organon:Representation",
-          "organon:Denotation",
           "organon:Action",
-          "organon:CausalContribution",
-          "organon:Persistence"
+          "organon:Specification",
+          "organon:Consequence",
+          "organon:Scope",
+          "organon:CausalContribution"
         ],
         "target_predicate": "organon:Care",
         "model_without_target_extension": [],

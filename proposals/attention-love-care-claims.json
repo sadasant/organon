@@ -5,7 +5,7 @@
   "binding": false,
   "markdown": "attention-love-care.md",
   "formal_shadow": "../ontology/formal/AttentionLoveCare.lean",
-  "formal_evidence": ["../ontology/formal/EmbodiedConsciousness.lean", "../ontology/formal/AttentionRevision.lean"],
+  "formal_evidence": ["../ontology/formal/EmbodiedConsciousness.lean", "../ontology/formal/AttentionRevision.lean", "../ontology/formal/CareRevision.lean"],
   "promotion_contracts": "../ontology/formal/AttentionLoveCareContracts.lean",
   "promotion_review": "../reviews/promotion/attention-love-care.json",
   "introduced_terms": ["organon:Attention", "organon:Care", "organon:Respect"],
@@ -41,22 +41,22 @@
       "id": "AC-D7",
       "type": "proposed_definition",
       "subject": "Care",
-      "depends_on": ["organon:Relation", "AC-D3", "organon:Entity", "organon:State", "organon:Representation", "organon:Denotation", "organon:Action", "organon:CausalContribution", "organon:Persistence"],
+      "depends_on": ["organon:Relation", "AC-D3", "organon:Entity", "organon:State", "organon:Action", "organon:Specification", "organon:Consequence", "organon:Scope", "organon:CausalContribution"],
       "formal_contract": {
         "status": "proved_with_boundaries",
-        "theorem": "careContract",
-        "shared_indices": ["entity", "care"],
-        "subject_symbols": ["Care"],
+        "theorem": "criterionCareContract",
+        "shared_indices": ["select", "response", "spec"],
+        "subject_symbols": ["CareRevision", "responsive"],
         "dependency_dispositions": {
-          "organon:Relation": {"status": "represented_by", "symbols": ["targetDenotation", "attentionTargetsState"], "reason": "The exact Entity-State target relation remains in the historical finite-channel projection."},
-          "AC-D3": {"status": "outside_formal_boundary", "reason": "The historical finite Attention field does not establish revised persistent directed Attention. This contract proves only the preserved target and channel joins, not the revised Attention-to-Action mechanism."},
-          "organon:Entity": {"status": "represented_by", "symbols": ["participant", "individuation"], "reason": "The record-independent local classifier distinguishes participants; canonical numerical identity remains open."},
-          "organon:State": {"status": "formalized", "symbols": ["attendedState", "states"]},
-          "organon:Representation": {"status": "formalized", "symbols": ["targetRepresentation", "focalRepresentation"]},
-          "organon:Denotation": {"status": "formalized", "symbols": ["targetDenotation", "expression", "target"]},
-          "organon:Action": {"status": "outside_formal_boundary", "reason": "An organized local action channel does not construct canonical boundary-crossing Action."},
-          "organon:CausalContribution": {"status": "outside_formal_boundary", "reason": "Historical snapshot organization does not establish the revised canonical Attention-to-Action causal join."},
-          "organon:Persistence": {"status": "formalized", "symbols": ["persistence", "states"]}
+          "organon:Relation": {"status": "represented_by", "symbols": ["responsive", "select", "response", "spec"], "reason": "The predicate joins one response and one operative Specification through the same selection function."},
+          "AC-D3": {"status": "outside_formal_boundary", "reason": "Response sensitivity alone does not construct directed persistent Attention or its causal join to selection."},
+          "organon:Entity": {"status": "outside_formal_boundary", "reason": "Canonical participant identity and the join between the Specification target and the attended Entity remain unproved."},
+          "organon:State": {"status": "outside_formal_boundary", "reason": "A supplied response is not a canonical changing target-State history."},
+          "organon:Action": {"status": "outside_formal_boundary", "reason": "The operation returned by the supplied selection function is not canonical boundary-crossing Action."},
+          "organon:Specification": {"status": "formalized", "symbols": ["Specification", "spec", "alternative"]},
+          "organon:Consequence": {"status": "outside_formal_boundary", "reason": "Outcome is a supplied carrier, not a canonical Action-to-Change causal endpoint."},
+          "organon:Scope": {"status": "outside_formal_boundary", "reason": "Specification carries a Scope, but the complete Care relation and contrast admissibility are not joined to one canonical Scope."},
+          "organon:CausalContribution": {"status": "outside_formal_boundary", "reason": "Contrasts in a supplied selection function do not construct canonical comparison paths or establish a physical mechanism."}
         }
       }
     },
@@ -102,8 +102,8 @@
       "id": "AC-C7",
       "type": "anti_collapse_constraint",
       "subject": "Care is not benefit",
-      "depends_on": ["AC-D7", "AC-D3", "organon:Action", "organon:Consequence", "organon:State"],
-      "formal_contract": {"status": "outside_formal_boundary", "reason": "Competence, wantedness, benefit, and harm lack formal predicates suitable for nonvacuous countermodels."}
+      "depends_on": ["AC-D7", "AC-D3", "organon:Action", "organon:Consequence", "organon:Specification", "organon:Entity"],
+      "formal_contract": {"status": "outside_formal_boundary", "reason": "Finite tests separate responsiveness and actual conformity; canonical Care, benefit, harm, competence, and wantedness are not established by those tests."}
     },
     {
       "id": "AC-C8",

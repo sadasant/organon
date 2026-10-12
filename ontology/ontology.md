@@ -837,7 +837,9 @@ The target remains the same Entity; the attended Differences and their Represent
 <a id="organon-care"></a>
 <!-- organon:term organon:Care claim=D118 -->
 
-**Care** is Action causally organized by Attention to another Entity's named State. The focal Representation exactly Denotes that Entity-State pair, and the State belongs to the other Entity's Persistence history. The Action must be causally organized by that Attention, not merely occur alongside it. Care may be competent or incompetent, wanted or unwanted, beneficial or harmful.
+**Care** is a Relation in which Attention to another Entity's changing State conditions the selection or adjustment of Action according to a Specification of Consequences concerning that Entity, within a Scope.
+
+Both the Attention and the Specification must causally condition the Action; an accompanying description or an after-the-fact classification is insufficient. The Specification concerns the same Entity attended to, not an unrelated target. Care does not require that the resulting Consequences conform to the Specification, benefit that Entity, or agree with its own assessment. Whose interests the Specification serves, whose interpretation supplies it, and what actually happens remain distinct. Care may be competent or incompetent, wanted or unwanted, beneficial or harmful; no verbal statement or conscious deliberation is required.
 
 <a id="organon-respect"></a>
 <!-- organon:term organon:Respect claim=D119 -->
@@ -853,7 +855,7 @@ These signatures make the ontology operational. They are schemas, not executable
 | `denotes` | expression Presence, target Presence, Relation, or Configuration | Denotation with ordered expression and target positions; no entailment of fidelity, Truth, Interpretation, status, or causal use |
 | `governsEmbodiment` | Entity, Embodied Perspective, Internal Activity Selection, Body Transformations, Boundary Constraint, Scope | partial or complete Embodied Self-Governance over the named family; no entailment of complete Control |
 | `attends` | Entity, another Entity, Perception or Interpretation, target Differences across changing States, Scope, Causal Contribution | directed causal organization persists across the target's changes; reciprocity and exhaustive coverage are not required |
-| `caresFor` | Entity, another Entity and State, Attention, Action, exact Denotation | Action organized by Attention to the other's indexed State |
+| `caresFor` | Entity, another Entity's changing State, Attention, Action, Specification of Consequences concerning that same Entity, Scope | Attention and the Specification condition selection or adjustment of Action; neither success nor benefit is entailed |
 | `respects` | acting Entity, other Entity, constrained Action, Scope, Constraint, protection witness | the Constraint admits the Action while preserving Boundary, Agency options, or self-determination capacity |
 | `directs` | Relation, input State, output State | forward ordering excludes reverse ordering under the same Relation |
 | `feeds` | output State, input State, Specification of contribution | part of one State supplies part of the other without requiring equality |
@@ -999,7 +1001,7 @@ These signatures make the ontology operational. They are schemas, not executable
 
 43. <!-- organon:claim C43 --> **Attention is normatively and epistemically neutral:** Attention does not entail benefit, consent, morality, accuracy, Truth, purpose, or favorable Consequence, and none of those separately establishes Attention.
 
-45. <!-- organon:claim C45 --> **No care-benefit collapse:** Care may be competent or incompetent, wanted or unwanted, beneficial or harmful. Favorable Consequence does not establish Care without Attention to the other Entity's State organizing an Action.
+45. <!-- organon:claim C45 --> **No care-benefit collapse:** Care may be competent or incompetent, wanted or unwanted, beneficial or harmful. Neither favorable Consequence nor conformity to a Specification establishes Care without Attention and that Specification conditioning Action concerning the same Entity. Care does not entail successful conformity or benefit to that Entity.
 
 46. <!-- organon:claim C46 --> **No respect-affection-agreement collapse:** Respect does not entail agreement, affection, obedience, favorable Consequence, or complete noninterference. None establishes Respect without a scoped Constraint upon Action and a typed Boundary, Agency-option, or self-determination protection witness.
 

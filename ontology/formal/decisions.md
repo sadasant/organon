@@ -339,3 +339,24 @@ only the historical target joins while marking revised Attention and canonical
 Action/causality unproved. The four prose constraints remain outside the complete
 formal boundary. The Respect contract remains. Build evidence must not masquerade as canonical
 parity or as a renewed exact-source promotion review.
+
+## Criterion-governed Care (2026-10-12)
+
+Daniel approved retaining Care (D118) as a Relation of Attention-conditioned
+selection or adjustment of Action under a Specification of Consequences concerning
+the same target Entity. A nurse and an interrogator can both qualify. Benefit,
+whose interests the criterion serves, the source of its interpretation, and actual
+success remain separate. The rejected reduction to “Attention-organized Action”
+omits the operative consequence criterion. No new Intention or benevolence premise
+is introduced. C45 now distinguishes actual conformity from this organization.
+
+`CareRevision.lean` preserves the discussion's finite criterion tests using the
+existing Specification type. Both the response and the criterion must affect the
+same selection function. Five theorems cover opposite criteria, operative inputs,
+mistaken state representation, ignored criteria, and accidental success. The new
+`criterionCareContract` replaces the historical channel contract as AC-D7 evidence.
+It is explicitly boundary-qualified: complete Attention, Entity identity,
+Action/Consequence, admissible causal comparisons, and the same-Entity target join
+remain unproved. Neither the old finite-channel record nor these local response
+tests establish full canonical Care. Normative anti-entailments remain prose gates.
+Registry counts remain 115 terms, 112 definitions, and 53 commitments.

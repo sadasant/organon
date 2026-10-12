@@ -1,10 +1,11 @@
 import AttentionLoveCare
 import AttentionRevision
+import CareRevision
 
 /-! Bounded promotion contracts and preserved historical example theorems.
-The old ratio does not prove revised Attention; Care's contract proves only
-the exact target joins in the historical projection, with revised Attention
-and canonical Action explicitly outside its formal boundary. -/
+The old ratio does not prove revised Attention. Care's current contract tests
+response and Specification sensitivity, not canonical Attention, Action,
+Consequence, or the same-Entity target join. Historical records remain examples. -/
 
 universe u v w
 
@@ -156,7 +157,7 @@ theorem loveContract
     love.denotationNamesBeloved.2, love.attentionDirectedTowardBeloved,
     love.attention.maintained⟩
 
-/-- organon:promotion-contract AC-D7 -/
+/-- Historical finite-channel target joins; no current Care contract. -/
 theorem careContract
     {Part : Type u} {Feature : Type v} {Context : Type w}
     {entity : Entity (Feature × Context)} {body : Body Part entity}
@@ -174,6 +175,15 @@ theorem careContract
     care.denotationNamesTargetState.2, care.attendedStateInHistory,
     care.attentionTargetsState,
     care.itemIsAction, care.actionAvailable, care.actionOrganizedByAttention⟩
+
+/-- organon:promotion-contract AC-D7 -/
+theorem criterionCareContract {Response Outcome Operation : Type}
+    (select : Response → Specification Outcome → Operation)
+    (response : Response) (spec : Specification Outcome)
+    (care : CareRevision.responsive select response spec) :
+    (∃ contrast, select response spec ≠ select contrast spec) ∧
+    (∃ alternative, select response spec ≠ select response alternative) :=
+  care
 
 /-- organon:promotion-contract AC-D8 -/
 theorem respectContract

@@ -869,10 +869,10 @@ Depends: organon:Relation, organon:Entity, organon:Perception, organon:Interpret
 
 ### `organon:Care` · Care
 
-**Care** is Action causally organized by Attention to another Entity's named State. The focal Representation exactly Denotes that Entity-State pair, and the State belongs to the other Entity's Persistence history. The Action must be causally organized by that Attention, not merely occur alongside it. Care may be competent or incompetent, wanted or unwanted, beneficial or harmful.
+**Care** is a Relation in which Attention to another Entity's changing State conditions the selection or adjustment of Action according to a Specification of Consequences concerning that Entity, within a Scope.
 
 Claim: `D118` (definition).
-Depends: organon:Relation, organon:Attention, organon:Entity, organon:State, organon:Representation, organon:Denotation, organon:Action, organon:CausalContribution, organon:Persistence.
+Depends: organon:Relation, organon:Attention, organon:Entity, organon:State, organon:Action, organon:Specification, organon:Consequence, organon:Scope, organon:CausalContribution.
 
 ### `organon:Respect` · Respect
 
@@ -1161,9 +1161,9 @@ Depends: organon:Attention, organon:Claim, organon:Truth, organon:Consequence.
 
 ### `C45` · binding_constraint
 
-**No care-benefit collapse:** Care may be competent or incompetent, wanted or unwanted, beneficial or harmful. Favorable Consequence does not establish Care without Attention to the other Entity's State organizing an Action.
+**No care-benefit collapse:** Care may be competent or incompetent, wanted or unwanted, beneficial or harmful. Neither favorable Consequence nor conformity to a Specification establishes Care without Attention and that Specification conditioning Action concerning the same Entity. Care does not entail successful conformity or benefit to that Entity.
 
-Depends: organon:Care, organon:Attention, organon:Action, organon:Consequence, organon:State.
+Depends: organon:Care, organon:Attention, organon:Action, organon:Consequence, organon:Specification, organon:Entity.
 
 ### `C46` · binding_constraint
 

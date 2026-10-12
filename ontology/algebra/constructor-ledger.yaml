@@ -2,7 +2,7 @@
   "schema_version": 1,
   "status": "generated-nonbinding-degenerate-registry-reflection-ledger",
   "source_sha256": {
-    "ontology/terms.yaml": "5e940d68a9ad82fdf9e5ed59e76c0e5e601c3fd944c6ea6d068ea5d2fd3d6924",
+    "ontology/terms.yaml": "96cc8207d91376623d95e07d262e517337182465af491b6e58803fa972743387",
     "ontology/algebra/positive-calculus.yaml": "76c83651ae6d9ada317546a862450ec7940b5d1e12fb93b973f8bd6fd1abdd73",
     "scripts/build-positive-calculus.py": "d35504151ada0ba68c1ba8e804987f493235196a5042610e73c188b42729b8b6"
   },
@@ -4373,11 +4373,11 @@
         "organon:Action",
         "organon:Attention",
         "organon:CausalContribution",
-        "organon:Denotation",
+        "organon:Consequence",
         "organon:Entity",
-        "organon:Persistence",
         "organon:Relation",
-        "organon:Representation",
+        "organon:Scope",
+        "organon:Specification",
         "organon:State"
       ],
       "conformity_witness": {
@@ -4399,11 +4399,11 @@
         "G1-D118-remove-Action",
         "G1-D118-remove-Attention",
         "G1-D118-remove-CausalContribution",
-        "G1-D118-remove-Denotation",
+        "G1-D118-remove-Consequence",
         "G1-D118-remove-Entity",
-        "G1-D118-remove-Persistence",
         "G1-D118-remove-Relation",
-        "G1-D118-remove-Representation",
+        "G1-D118-remove-Scope",
+        "G1-D118-remove-Specification",
         "G1-D118-remove-State",
         "G1-D118-remove-witness"
       ]
