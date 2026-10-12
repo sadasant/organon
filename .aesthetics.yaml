@@ -258,6 +258,10 @@ rules:
         instructions: If the component is something a reader runs, the README shows the command. An index or explanatory component meets this guideline.
     disable: [readme/conventional-structure]
 
+  - name: Fill-in templates
+    match: [.github/pull_request_template.md, reviews/template.md]
+    disable: [docs-citizen/purpose-evident]
+
   - name: Methodology is an instrument, not a component README
     match: [evals/methodology/README.md]
     disable: [readme]

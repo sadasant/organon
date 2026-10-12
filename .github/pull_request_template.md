@@ -44,7 +44,7 @@
 - [ ] The single-file ontology remains self-contained and readable
 - [ ] Registry and dependency order agree
 - [ ] Profiles, provenance, changelog, release note, and adoption example agree where applicable
-- [ ] Formal decisions and exact build receipt agree where applicable
+- [ ] Formal decisions and build receipt agree where applicable
 - [ ] Resolved objections and open promotion gates are distinguished
 
 ## Verification
