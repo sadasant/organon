@@ -49,12 +49,20 @@ def index_judgments(result: dict) -> dict[str, dict]:
 def validate_evaluation_candidate(evaluation: dict, candidate_path: Path) -> None:
     run = evaluation.get("run", {})
     if run.get("source_result") != candidate_path.name:
-        raise ValueError("Evaluation source-result name does not match the candidate")
+        raise ValueError(
+            "Evaluation source-result name does not match the candidate; "
+            "pass the candidate this evaluation judged"
+        )
     if run.get("source_result_sha256") != sha256_path(candidate_path):
-        raise ValueError("Evaluation source-result digest does not match the candidate")
+        raise ValueError(
+            "Evaluation source-result digest does not match the candidate; "
+            "re-evaluate the candidate or restore the judged bytes"
+        )
 
 
-def build_comparison(baseline: dict, candidate: dict, evaluation: dict, args) -> dict:
+def build_comparison(
+    baseline: dict, candidate: dict, evaluation: dict, args: argparse.Namespace
+) -> dict:
     validate_evaluation_candidate(evaluation, args.candidate)
     old = index_answers(baseline)
     new = index_answers(candidate)
@@ -131,7 +139,7 @@ def render(result: dict, obsidian_links: bool = False) -> str:
         "# Essay-Answer Form calibration comparison",
         "",
         "> [!summary]",
-        f"> Compared {run['question_count']} historical baseline answers governed by short-form delivery with candidates governed by the Essay-Answer Form. {run['passed_count']} candidates passed the deterministic, ontology, and Essay-Answer Form gate. Total visible answer length changed from {old_total} to {new_total} words. {comparison_scope} Interlocutor hypotheses are generated and defeasible, not facts about actual readers.",
+        f"> Compared {run['question_count']} historical baseline answers governed by short-form delivery with candidates governed by the Essay-Answer Form. {run['passed_count']} candidates passed the deterministic, ontology, and Essay-Answer Form gate. A pass holds a candidate for Daniel's review; it does not make the answer his. Total visible answer length changed from {old_total} to {new_total} words. {comparison_scope} Interlocutor hypotheses are generated and defeasible, not facts about actual readers.",
         "",
         "## Comparison scope",
         "",

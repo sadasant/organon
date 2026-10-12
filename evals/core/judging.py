@@ -3,6 +3,8 @@
 from __future__ import annotations
 
 import json
+from collections.abc import Callable
+from typing import Any
 
 
 NON_SCORE_FIELDS = {"critical_violations", "evidence", "revision"}
@@ -26,7 +28,9 @@ def judgment_passed(judgment: dict, *, threshold: int = 3) -> bool:
     )
 
 
-def call_structured_with_retry(program, *, output_field: str = "judgment", **kwargs):
+def call_structured_with_retry(
+    program: Callable[..., Any], *, output_field: str = "judgment", **kwargs: Any
+) -> Any:
     """Retry schema failures without broadening the requested judgment."""
     last_error: Exception | None = None
     target = json.loads(kwargs["target_json"])

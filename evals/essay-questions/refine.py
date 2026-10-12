@@ -10,15 +10,28 @@ import os
 import sys
 from datetime import UTC, datetime
 from pathlib import Path
+from types import ModuleType
 
 import dspy
 
 
 ROOT = Path(__file__).resolve().parents[2]
 EVAL_ROOT = Path(__file__).resolve().parent
+EVALS_ROOT = EVAL_ROOT.parent
+if str(EVALS_ROOT) not in sys.path:
+    sys.path.insert(0, str(EVALS_ROOT))
+
+from core.contracts import (
+    committed_input_manifest,
+    git_head,
+    methodology_inputs,
+    sha256_path,
+    sha256_text,
+)
+from core.workspace import write_projection
 
 
-def load_run_module():
+def load_run_module() -> ModuleType:
     spec = importlib.util.spec_from_file_location("organon_essay_run", EVAL_ROOT / "run.py")
     assert spec and spec.loader
     module = importlib.util.module_from_spec(spec)
@@ -28,14 +41,6 @@ def load_run_module():
 
 
 RUN = load_run_module()
-
-from core.contracts import (
-    committed_input_manifest,
-    methodology_inputs,
-    sha256_path,
-    sha256_text,
-)
-from core.workspace import write_projection
 
 
 class RefineEssayAnswers(dspy.Signature):
@@ -93,9 +98,22 @@ def main() -> None:
     evaluation = json.loads(args.evaluation.read_text())
     ontology = args.ontology.read_text()
     answer_form = args.answer_form.read_text()
+    if source["run"]["ontology_sha256"] != sha256_text(ontology):
+        raise SystemExit(
+            "Source result ontology digest does not match current input; pass the "
+            "--ontology the answers were generated with, or regenerate them"
+        )
+    if source["run"]["answer_form_sha256"] != sha256_text(answer_form):
+        raise SystemExit(
+            "Source result Essay-Answer Form digest does not match current input; "
+            "pass the --answer-form the answers were generated with, or regenerate them"
+        )
     source_result_sha256 = sha256_path(args.source_result)
     if evaluation["run"]["source_result_sha256"] != source_result_sha256:
-        raise SystemExit("Evaluation does not govern the supplied source result")
+        raise SystemExit(
+            "Evaluation does not govern the supplied source result; "
+            "pass the evaluation produced for this source result"
+        )
     input_manifest = committed_input_manifest(
         ROOT,
         methodology_inputs(EVAL_ROOT.parent)
@@ -148,7 +166,7 @@ def main() -> None:
         revised_ids.extend(failed_ids)
 
     source["run"]["generated_at"] = datetime.now(UTC).replace(microsecond=0).isoformat()
-    source["run"]["organon_commit"] = RUN.git_head(ROOT)
+    source["run"]["organon_commit"] = git_head(ROOT)
     source["run"]["revision"] = {
         "source_result": args.source_result.name,
         "source_result_sha256": source_result_sha256,

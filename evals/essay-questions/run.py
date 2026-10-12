@@ -12,7 +12,8 @@ import re
 import sys
 from datetime import UTC, datetime
 from pathlib import Path
-from typing import Literal
+from collections.abc import Callable
+from typing import Any, Literal
 
 import dspy
 from pydantic import BaseModel, Field
@@ -200,7 +201,9 @@ def validate_answers(
     return [by_id[question_id] for question_id in expected]
 
 
-def generate_with_retry(program, *, essay_set: EssayQuestions, **kwargs) -> list[AnswerDraft]:
+def generate_with_retry(
+    program: Callable[..., Any], *, essay_set: EssayQuestions, **kwargs: Any
+) -> list[AnswerDraft]:
     last_error: Exception | None = None
     for attempt in range(3):
         try:
