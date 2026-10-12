@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import * as THREE from "three";
 
-export default function Sky({ paused }) {
+export default function Sky({ paused, density }) {
   const host = useRef(null);
   const elapsed = useRef(0);
   useEffect(() => {
@@ -15,12 +15,12 @@ export default function Sky({ paused }) {
       });
     } catch {
       target.classList.add("static-stars");
-      return;
+      return () => target.classList.remove("static-stars");
     }
     renderer.setPixelRatio(Math.min(devicePixelRatio, 1.5));
     target.append(renderer.domElement);
     const geometry = new THREE.BufferGeometry();
-    const count = 2200;
+    const count = Math.round(2200 * density);
     const positions = new Float32Array(count * 3);
     const seeds = new Float32Array(count);
     let seed = 827;
@@ -110,6 +110,13 @@ export default function Sky({ paused }) {
       renderer.dispose();
       renderer.domElement.remove();
     };
-  }, [paused]);
-  return <div ref={host} className="sky" aria-hidden="true" />;
+  }, [paused, density]);
+  return (
+    <div
+      ref={host}
+      className="sky"
+      style={{ "--star-spacing": Math.sqrt(1 / density) }}
+      aria-hidden="true"
+    />
+  );
 }
