@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "binding": false,
+  "canvas": 32,
+  "units_per_em": 1024,
+  "coordinate_grid": 1,
+  "stroke_width": 1.1,
+  "ink_inset": 1,
+  "linecap": "square",
+  "linejoin": "miter",
+  "miter_limit": 4,
+  "proportion_guides": {
+    "enforcement": "advisory",
+    "center": 16,
+    "golden_sections_snapped": [12, 20],
+    "preferred_clear_gap": 2,
+    "preferred_axes_degrees": [0, 45, 90, 135],
+    "note": "The golden divisions of a 32-unit cell are approximately 12.22 and 19.78. Snap to the integer grid when useful; do not distort a semantic distinction to meet a ratio. Two-unit clear gaps and axial strokes are design-review targets, not universal constraints on curved or joined glyphs."
+  },
+  "semantic_constraints": [
+    "A glyph is a learned name, not a proof or an instance of its referent.",
+    "Reuse may suggest a family but does not establish ontological inclusion or entailment.",
+    "Do not distinguish semantically opposed terms solely by scale, rotation, or a tiny dot.",
+    "Test related marks at actual text sizes; unequal outlines alone do not establish perceptual distinctness."
+  ]
+}

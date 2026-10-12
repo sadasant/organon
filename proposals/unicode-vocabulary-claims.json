@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "proposal_id": "unicode-vocabulary",
+  "status": "ready-for-review",
+  "binding": false,
+  "markdown": "unicode-vocabulary.md",
+  "formal_shadow": "../scripts/check-unicode-vocabulary.py",
+  "introduced_terms": [],
+  "local_symbols": ["local:GlyphNotation", "local:ReaderTask"],
+  "statements": [
+    {
+      "id": "UG-H1",
+      "type": "hypothesis",
+      "subject": "Labelled glyph notation may improve reading",
+      "depends_on": ["organon:Representation", "organon:Symbol", "local:GlyphNotation", "local:ReaderTask"]
+    },
+    {
+      "id": "UG-C1",
+      "type": "anti_collapse_constraint",
+      "subject": "Typography does not establish definition equivalence",
+      "depends_on": ["organon:Denotation", "organon:Difference", "organon:Scope", "local:GlyphNotation"]
+    },
+    {
+      "id": "UG-G1",
+      "type": "open_formalization_gate",
+      "subject": "Typed compositional notation and interpretation",
+      "depends_on": ["UG-C1", "organon:Language", "organon:Rule", "organon:Specification", "organon:Scope"]
+    },
+    {
+      "id": "UG-E1",
+      "type": "open_evidence_gate",
+      "subject": "Reader, rendering and accessibility comparisons",
+      "depends_on": ["UG-H1", "UG-C1", "local:ReaderTask", "local:GlyphNotation"]
+    }
+  ]
+}

@@ -34,6 +34,7 @@ coverage and exact agreement with the individual manifests.
 
 ## Current dossiers
 
+- [Unicode symbolic vocabulary study](./unicode-vocabulary.md): nonbinding feasibility assessment of all 115 active entries, with a [candidate atlas](./unicode-vocabulary-atlas.md), normalization audit, and explicit usability gates; no glyph assignments adopted.
 - [Ontological frameworks, distinctions, and source-relative novelty](./ontological-frameworks.md): ready for proposal review; eight original candidate profiles plus the Interpretation/Understanding split, with Lean witnesses and explicit realization gates.
 
 - [Embodiment and Recurrent Consciousness Candidate](./embodied-consciousness.md): partially promoted in v0.19; five supporting terms are binding while the consciousness condition remains quarantined.
