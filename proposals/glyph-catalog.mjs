@@ -94,8 +94,8 @@ export const strokes = {
 };
 
 const alphabet = {
-  // Conventional unmarked/marked pair, not an empty region and its contents.
-  Absence: ["ring"],
+  // Standalone conventional name, not a slot, ground or relation.
+  Absence: ["foot"],
   Presence: ["ring", "dot"],
   Missingness: ["frame", "seed"],
   Reality: ["totality"],

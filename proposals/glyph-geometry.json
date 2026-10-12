@@ -22,13 +22,5 @@
     "Reuse may suggest a family but does not establish ontological inclusion or entailment.",
     "Do not distinguish semantically opposed terms solely by scale, rotation, or a tiny dot.",
     "Test related marks at actual text sizes; unequal outlines alone do not establish perceptual distinctness."
-  ],
-  "semantic_exceptions": [
-    {
-      "terms": ["Absence", "Presence"],
-      "rule": "Dot-only distinction between opposed terms",
-      "rationale": "The plain ring and ring with central dot are a conventional unmarked/marked pair naming the exhaustive distinction in A3. The shared ring is typographic structure, not a Boundary or empty region. Both inscriptions are Presence under A4; adding or removing the dot does not depict creation, destruction or a transformation between their referents.",
-      "conditions": "Retain the existing Presence dot and shared ring geometry, stable font slots and accessible labels. Check the pair at actual tile, graph and mathematical text sizes; shape uniqueness alone does not establish reader discrimination. This exception does not license other dot-only oppositions."
-    }
   ]
 }
