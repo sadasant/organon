@@ -9,6 +9,13 @@ metalanguage, while Entity and Capability must carry their object-level
 witnesses. Institutional eligibility reduces to Standing, an Order's placement
 of an Entity, rather than receiving a second predicate; Recognition is a record
 of that exact Standing and cannot replace it.
+
+It shadows Denotation (D102), Causal Contribution (D103), Evidential Bearing
+(D104), Capability's realization requirement (D038), Standing (D047), and
+Recognition (D048). Its finite witnesses establish only the named
+anti-entailments: Denotation need not be identity, supportive bearing need not
+be Truth, and a record alone supplies neither Standing nor Recognition. They do
+not encode the complete prose definitions.
 -/
 
 universe u v w x

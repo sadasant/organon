@@ -4,7 +4,11 @@ import AttentionLoveCare
 Generic Auto is deliberately not defined here: organizational production is not
 equivalent to causal triggering, selection, Body membership or activity onset.
 The Body-indexed structures are scoped witnesses, not necessary conditions for
-all canonical Sense, Perception, Agency or Self-perception instances. -/
+all canonical Sense, Perception, Agency or Self-perception instances.
+It is the positive local profile for the nonbinding Self/Auto candidates in
+`proposals/self-auto.md`: an inhabited internal-Governance-to-Agency profile and
+reflexive perception witnesses. It does not prove generic Auto, Autogovernance
+or universal Autonomy. -/
 universe u v w
 namespace DanielOntology.PR18Governance
 open EmbodiedConsciousnessProposal AttentionLoveCareProposal

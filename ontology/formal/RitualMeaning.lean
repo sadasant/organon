@@ -8,6 +8,10 @@ second recurrence term. A Ritual adds participant-bound causal access to a
 Flow; Meaning is the participant-indexed Relation sustained by that Ritual.
 Records and Memories produced by Ritual remain ordinary derived effects rather
 than a second container for Meaning.
+
+It shadows Flow (D041), Ritual (D105), and Meaning (D106) as promoted from
+`proposals/ritual-and-meaning.md`. That dossier's formalization gates RM-G1 to
+RM-G4 remain open.
 -/
 
 universe u v

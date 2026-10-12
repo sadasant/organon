@@ -27,6 +27,10 @@ identity-preserving Transformation and rejects one identity-breaking
 Transformation. Its institutional witness contains one Order-indexed Permission
 produced from a standing-aware Claim, scoped Authority, Grant, and Order
 admission, plus one action-level PermissionExercise under a concrete Context.
+
+The model shows that these structures are inhabited and that `ontology_check`
+evaluates them. It does not establish parity with the prose definitions or that
+this interpretation is the only one.
 -/
 
 namespace DanielOntology.Model
