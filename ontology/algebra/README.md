@@ -16,7 +16,9 @@ of those local definitions and fences instantiate a smaller calculus over typed
 participants, conserved indices, and explicit witnesses?
 
 The experiment does not shorten the binding term definitions. Version 0.20 is frozen by
-commit and source digest in [source-lock.json](./source-lock.json); v0.20
+commit and source digest in [source-lock.json](./source-lock.json). The registry must
+still match in the worktree because the builders read it; the prose sources are verified
+at the locked commit, so editing their presentation does not unfreeze the experiment; v0.20
 retains the definition-admission invariant and records the five embodiment definitions as positively underdetermined by this experiment, while the
 candidate disciplines and registry-reflection control remain nonbinding. The
 experiment is falsification-first: a candidate discipline is retained only
