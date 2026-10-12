@@ -44,7 +44,6 @@ export const strokes = {
   // Revision 2: term-specific signatures keep the semantic distinctions that
   // generic crowns, eyes, and tiny decorative additions obscured. These names
   // document design intent; combining paths still does not assert entailment.
-  absenceName: "M9 4 18 11 11 19 23 28M18 11 25 8M11 19 5 23",
   totality: "M3 9H11V4M11 9 20 16H29M20 16 12 25H4M20 16V5M12 25V29",
   ordered: "M4 7H9V13H20V24H27M4 4V10M17 10V16M24 21V27",
   denotes: "M5 8V24M5 16H17M22 11H28V21H22Z",
@@ -95,7 +94,8 @@ export const strokes = {
 };
 
 const alphabet = {
-  Absence: ["absenceName"],
+  // Conventional unmarked/marked pair, not an empty region and its contents.
+  Absence: ["ring"],
   Presence: ["ring", "dot"],
   Missingness: ["frame", "seed"],
   Reality: ["totality"],
