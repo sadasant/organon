@@ -3,8 +3,11 @@ import EmbodiedConsciousness
 /-!
 # Self-governance, attention, love, care, and respect
 
-This proposal-local shadow encodes five terms promoted after the
-embodiment foundation, with historical composites retained as nonbinding examples.
+This module retains the historical finite-channel Attention, Sustained Attention,
+Love, and Care constructions as nonbinding examples, plus the Respect shadow.
+Canonical Attention is now a persistent directed Relation; the old ratio and
+fixed focal/contrast pair do not define it. See AttentionRevision for bounded
+tests, not a complete canonical Perception/Interpretation/Causal Contribution bridge.
 It does not define Consciousness, benefit, consent,
 morality, reciprocity, understanding, possession, or complete Control.
 -/
@@ -177,6 +180,9 @@ theorem constantResponseCannotOrganize
   rintro ⟨_, _, _, focalResponse, contrastResponse⟩
   exact contrastResponse (constant.trans focalResponse)
 
+namespace NonbindingExamples
+
+/-- Historical finite measurement, not the current D114 definition. -/
 structure Attention
     (Part : Type u)
     {Feature : Type v} {Context : Type w}
@@ -257,9 +263,10 @@ structure SustainedAttention
     (attentionAt state).focalRepresentation = commonFocalRepresentation ∧
     (attentionAt state).contrastRepresentation = commonContrastRepresentation
 
-/-- Full coverage is a derived condition on the same Attention instance, not
-a new canonical term. It is relative to that instance's inventory and Scope. -/
-def Attention.fullCoverage
+end NonbindingExamples
+
+/-- Full coverage is a condition on the historical finite measurement only. -/
+def NonbindingExamples.Attention.fullCoverage
     {Part : Type u} {Feature : Type v} {Context : Type w}
     {entity : Entity (Feature × Context)} {body : Body Part entity}
     (attention : Attention Part body) : Prop :=
@@ -267,8 +274,7 @@ def Attention.fullCoverage
 
 namespace NonbindingExamples
 
-/-- Historical D116 wrapper retained only for existing example witnesses.
-Binding consequences use `Attention.fullCoverage` directly. -/
+/-- Historical D116 wrapper retained only for existing example witnesses. -/
 structure AbsoluteAttention
     (Part : Type u)
     {Feature : Type v} {Context : Type w}
@@ -348,6 +354,9 @@ theorem absoluteAttentionInhibitsFocusIndependentAction
     ∀ item, ¬ FocusIndependentAction absolute.attention item :=
   fullCoverageExcludesFocusIndependentAction absolute.attention absolute.allAvailableOrganized
 
+namespace NonbindingExamples
+
+/-- Retired D117. This construction no longer defines ordinary love. -/
 structure Love
     (Part : Type u)
     {Feature : Type v} {Context : Type w}
@@ -389,6 +398,8 @@ structure Care
   itemIsAction : attention.inventory.kind actionItem = .action
   actionAvailable : actionItem ∈ attention.available
   actionOrganizedByAttention : actionItem ∈ attention.organized
+
+end NonbindingExamples
 
 inductive RespectProtection
     {Carrier : Type u}

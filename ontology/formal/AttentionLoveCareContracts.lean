@@ -1,6 +1,10 @@
 import AttentionLoveCare
+import AttentionRevision
 
-/-! Proof-checked promotion contracts for the attention, love, care, and respect dossier. -/
+/-! Bounded promotion contracts and preserved historical example theorems.
+The old ratio does not prove revised Attention; Care's contract proves only
+the exact target joins in the historical projection, with revised Attention
+and canonical Action explicitly outside its formal boundary. -/
 
 universe u v w
 
@@ -9,6 +13,20 @@ namespace DanielOntology.AttentionLoveCarePromotionContracts
 open EmbodiedConsciousnessProposal
 open AttentionLoveCareProposal
 open AttentionLoveCareProposal.NonbindingExamples
+
+/-- organon:promotion-contract AC-D3 -/
+theorem directedAttentionContract {Participant TargetState Context Response : Type}
+    (state : Participant → Nat → TargetState) (context : Nat → Context)
+    (respond : Participant → Participant → Nat → TargetState → Context → Response)
+    (scope : Scope Nat) (observer target : Participant)
+    (attention : AttentionRevision.tracks state context respond scope observer target) :
+    observer ≠ target ∧
+    (∃ first second, scope.includes first ∧ scope.includes second ∧
+      first < second ∧ state target first ≠ state target second) ∧
+    ∀ step, scope.includes step → ∃ contrast,
+      respond observer target step (state target step) (context step) ≠
+        respond observer target step contrast (context step) :=
+  attention
 
 /-- Nonbinding historical D112 example; no promotion contract. -/
 theorem embodiedSelfGovernanceContract
@@ -35,7 +53,7 @@ theorem embodiedSelfGovernanceContract
     governance.governedWithinBody transformation member,
     governance.governedAdmitted transformation member⟩
 
-/-- organon:promotion-contract AC-D3 -/
+/-- Historical finite-measurement theorem; no current Attention contract. -/
 theorem attentionContract
     {Part : Type u} {Feature : Type v} {Context : Type w}
     {entity : Entity (Feature × Context)} {body : Body Part entity}
@@ -84,7 +102,7 @@ theorem attentionContract
   exact ⟨attention.organizedWithinAvailable item member,
     organizingContributionOrganizes attention item member⟩
 
-/-- organon:promotion-contract AC-D4 -/
+/-- Historical D115 example; no promotion contract. -/
 theorem sustainedAttentionContract
     {Part : Type u} {Feature : Type v} {Context : Type w}
     {entity : Entity (Feature × Context)} {body : Body Part entity}
@@ -122,7 +140,7 @@ theorem absoluteAttentionContract
   intro channel conforming
   exact absolute.allAvailableOrganized channel ((absolute.attention.availableExact channel).mpr conforming)
 
-/-- organon:promotion-contract AC-D6 -/
+/-- Historical D117 example; no definition or promotion of ordinary love. -/
 theorem loveContract
     {Part : Type u} {Feature : Type v} {Context : Type w}
     {entity : Entity (Feature × Context)} {body : Body Part entity}
@@ -178,7 +196,7 @@ theorem partialSelfGovernanceCountermodel :
     ¬ systemSelfGovernance.scope.includes returnLowTransform :=
   selfGovernanceCanBePartial
 
-/-- organon:promotion-contract AC-C3 -/
+/-- Historical partial-coverage countermodel, not a proof of revised C41. -/
 theorem partialAttentionCountermodel :
     ¬ systemAttention.fullCoverage ∧
     actionItem ∈ systemAttention.available ∧
@@ -189,7 +207,7 @@ theorem partialAttentionCountermodel :
     attentionDoesNotRequireAllAvailableItems.1,
     attentionDoesNotRequireAllAvailableItems.2, partialActionIsCausallyIndependent⟩
 
-/-- organon:promotion-contract AC-C4 -/
+/-- Historical C42 measurement consequence; no current promotion contract. -/
 theorem fullCoverageActionLimit
     {Part : Type u} {Feature : Type v} {Context : Type w}
     {entity : Entity (Feature × Context)} {body : Body Part entity}

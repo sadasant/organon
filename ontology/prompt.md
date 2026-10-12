@@ -27,8 +27,8 @@ binding_source: ontology.md
 
 - Mode: full
 - Requested: all registered terms
-- Terms carried: 117 of 117
-- Commitments carried: 55 of 55
+- Terms carried: 115 of 115
+- Commitments carried: 53 of 53
 
 ## Metalanguage boundary
 
@@ -862,35 +862,21 @@ Depends: organon:Configuration, organon:Difference, organon:Representation, orga
 
 ### `organon:Attention` · Attention
 
-**Attention** is the finite ratio of an Entity's currently available Perception, Interpretation, and Action channels causally organized by one Difference in one State of one Body, relative to a declared channel inventory and availability Specification. The inventory individuates channels independently of their kind and result. The Specification supplies the availability criterion and its Scope; the nonempty finite available enumeration covers exactly every conforming channel and counts each once. A different inventory or Specification defines a different measurement context, not a different degree within the same context. Each snapshot declares channel results and a collection of channel-specific response comparisons independently of the counted enumeration. Causal organization is evaluated at that snapshot, rather than by searching historical Causal Contributions: a qualifying comparison holds the snapshot's declared context fixed, produces the channel's current result under the focal Representation, and produces a different result under the contrast Representation. The result must belong to the indexed snapshot; neither earlier nor later States qualify. A channel is organized exactly when at least one declared comparison satisfies these conditions for the focal Difference. A selected witness must belong to that collection; selecting a nonfocal witness cannot hide a qualifying alternative. The organized enumeration covers exactly every available qualifying channel, counts each once, and supplies the numerator; the available enumeration supplies the denominator. Holding the snapshot and declared measurement data fixed fixes the ratio independently of any history. Attention alone makes no Claim about benefit, consent, morality, accuracy, Truth, or purpose.
+**Attention** is a directed Relation in which an Entity's Perception or Interpretation remains causally organized by Differences in another Entity across changes in that target's State, within a Scope.
 
 Claim: `D114` (definition).
-Depends: organon:Entity, organon:Body, organon:Difference, organon:Representation, organon:Perception, organon:Interpretation, organon:Action, organon:CausalContribution, organon:State, organon:Specification, organon:Scope.
-
-### `organon:SustainedAttention` · Sustained Attention
-
-**Sustained Attention** is Attention organized by the same Difference under one declared channel inventory across at least two ordered changing States of one Body. At every named State, Attention is evaluated independently at that exact State and at least one available channel is currently organized by that Difference. Ordering these snapshots establishes the temporal comparison; no snapshot inherits organization merely because a channel was organized at an earlier State. Repeated encounters qualify only when indexed to such ordered States rather than inferred from resemblance.
-
-Claim: `D115` (definition).
-Depends: organon:Attention, organon:Entity, organon:Body, organon:State, organon:Direction, organon:Persistence, organon:Difference.
-
-### `organon:Love` · Love
-
-**Love** is Sustained Attention directed toward another Entity, where the maintained focal Representation exactly Denotes that Entity across the indexed changing States. Different current States of one persistent Entity do not alone establish another Entity; distinct Entities need not have different identity criteria. Love does not imply reciprocity, understanding, consent, benefit, Care, Respect, possession, or moral approval.
-
-Claim: `D117` (definition).
-Depends: organon:Relation, organon:SustainedAttention, organon:Entity, organon:Representation, organon:Denotation, organon:State.
+Depends: organon:Relation, organon:Entity, organon:Perception, organon:Interpretation, organon:Difference, organon:State, organon:Scope, organon:Representation, organon:CausalContribution, organon:Claim, organon:Truth.
 
 ### `organon:Care` · Care
 
-**Care** is Action causally organized by Attention to another Entity's named State. The focal Representation exactly Denotes that Entity-State pair, the State belongs to the other Entity's Persistence history, and at least one available Action channel is organized by that Attention. Care may be competent or incompetent, wanted or unwanted, beneficial or harmful. Care does not imply Love.
+**Care** is Action causally organized by Attention to another Entity's named State. The focal Representation exactly Denotes that Entity-State pair, and the State belongs to the other Entity's Persistence history. The Action must be causally organized by that Attention, not merely occur alongside it. Care may be competent or incompetent, wanted or unwanted, beneficial or harmful.
 
 Claim: `D118` (definition).
 Depends: organon:Relation, organon:Attention, organon:Entity, organon:State, organon:Representation, organon:Denotation, organon:Action, organon:CausalContribution, organon:Persistence.
 
 ### `organon:Respect` · Respect
 
-**Respect** is a scoped Constraint upon an Entity's Action toward another Entity, where the Constraint admits the constrained Action and carries a typed witness that the Action is admitted by the other's Boundary, or that identity-preserving Agency options or at least two identity-preserving options for self-determination remain available from the Action's output. The protection concerns this exact Action rather than unrelated options. Respect does not require agreement, affection, obedience, or Love.
+**Respect** is a scoped Constraint upon an Entity's Action toward another Entity, where the Constraint admits the constrained Action and carries a typed witness that the Action is admitted by the other's Boundary, or that identity-preserving Agency options or at least two identity-preserving options for self-determination remain available from the Action's output. The protection concerns this exact Action rather than unrelated options. Respect does not require agreement, affection, or obedience.
 
 Claim: `D119` (definition).
 Depends: organon:Relation, organon:Constraint, organon:Action, organon:Entity, organon:Scope, organon:Boundary, organon:Agency, organon:Capability, organon:Transformation, organon:Invariant.
@@ -1163,15 +1149,9 @@ Depends: organon:Body, organon:EmbodiedPerspective, organon:RecurrentIntegration
 
 ### `C41` · binding_constraint
 
-**Attention need not cover every available channel:** Attention may organize only some available channels. Perception, Interpretation, Action, Difference, salience, exposure, or repeated occurrence alone does not establish Attention without the exact causal organization and finite availability denominator.
+**Attention need not be exhaustive:** Attention may concern only some Differences in the target Entity within its Scope. Perception, Interpretation, Action, salience, exposure, or repeated occurrence alone does not establish Attention without causal organization persisting across changes in that target's State.
 
-Depends: organon:Attention, organon:Perception, organon:Interpretation, organon:Action, organon:Difference, organon:CausalContribution.
-
-### `C42` · binding_constraint
-
-**Full coverage excludes focus-independent available Action:** When every available channel in an Attention instance is organized by the same Difference, no available Action channel remains independent of that Difference. This condition does not prohibit Action organized by the focus and does not entail benefit, consent, morality, accuracy, or purpose.
-
-Depends: organon:Attention, organon:Action, organon:Difference.
+Depends: organon:Attention, organon:Entity, organon:Scope, organon:State, organon:Perception, organon:Interpretation, organon:Action, organon:Difference, organon:CausalContribution.
 
 ### `C43` · binding_constraint
 
@@ -1179,23 +1159,17 @@ Depends: organon:Attention, organon:Action, organon:Difference.
 
 Depends: organon:Attention, organon:Claim, organon:Truth, organon:Consequence.
 
-### `C44` · binding_constraint
-
-**No love-care-respect collapse:** Love does not entail reciprocity, understanding, consent, benefit, Care, Respect, possession, or moral approval. Care or Respect does not itself establish Love without Sustained Attention exactly directed toward the other Entity.
-
-Depends: organon:Love, organon:Care, organon:Respect, organon:SustainedAttention, organon:Entity.
-
 ### `C45` · binding_constraint
 
-**No care-benefit-love collapse:** Care may be competent or incompetent, wanted or unwanted, beneficial or harmful. Favorable Consequence does not establish Care without Attention to the other Entity's State organizing an Action, and Care does not entail Love.
+**No care-benefit collapse:** Care may be competent or incompetent, wanted or unwanted, beneficial or harmful. Favorable Consequence does not establish Care without Attention to the other Entity's State organizing an Action.
 
-Depends: organon:Care, organon:Love, organon:Attention, organon:Action, organon:Consequence, organon:State.
+Depends: organon:Care, organon:Attention, organon:Action, organon:Consequence, organon:State.
 
 ### `C46` · binding_constraint
 
-**No respect-affection-agreement collapse:** Respect does not entail agreement, affection, obedience, Love, favorable Consequence, or complete noninterference. None establishes Respect without a scoped Constraint upon Action and a typed Boundary, Agency-option, or self-determination protection witness.
+**No respect-affection-agreement collapse:** Respect does not entail agreement, affection, obedience, favorable Consequence, or complete noninterference. None establishes Respect without a scoped Constraint upon Action and a typed Boundary, Agency-option, or self-determination protection witness.
 
-Depends: organon:Respect, organon:Love, organon:Constraint, organon:Action, organon:Boundary, organon:Agency, organon:Capability, organon:Consequence.
+Depends: organon:Respect, organon:Constraint, organon:Action, organon:Boundary, organon:Agency, organon:Capability, organon:Consequence.
 
 ## Declared omissions
 

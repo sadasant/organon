@@ -116,6 +116,6 @@
       "sources": ["proposal:embodied-consciousness", "formal:embodied-consciousness", "review:daniel"],
       "terms": ["organon:Body", "organon:BodilyOrganization", "organon:EmbodiedPerspective", "organon:RecurrentIntegration", "organon:InternalActivitySelection"]
     },
-    {"basis": "adopted-commitment", "sources": ["proposal:attention-love-care", "formal:attention-love-care", "review:daniel"], "terms": ["organon:Attention", "organon:SustainedAttention", "organon:Love", "organon:Care", "organon:Respect"]}
+    {"basis": "adopted-commitment", "sources": ["proposal:attention-love-care", "formal:attention-love-care", "review:daniel"], "terms": ["organon:Attention", "organon:Care", "organon:Respect"]}
   ]
 }

@@ -304,3 +304,38 @@ Daniel approved implementing the recommendation and pushing it to PR #18. This s
 - **D078/D095:** retained unchanged. Constituent Exercise is load-bearing for Constituent Power. Constituent Sovereignty remains a scoped, derived profile joining a Polity's persistent power to actual exercise, with C22 preserving the four sovereignty separations. It is not a primitive or an equivalence with exercise alone.
 
 Historical snapshots and exact-source promotion reviews are not rewritten. Those reviews remain stale; model-judged evaluations are not rerun. The temporal selection-ordering question remains unchanged and open. Passing Lean compilation is not a renewed promotion-readiness attestation.
+
+## Directed Attention and Love withdrawal (2026-10-12)
+
+Daniel approved persistent, directed Attention and removal of Sustained Attention,
+then withdrew Love rather than adding conditions to distinguish it. D115, D117,
+C42, C44 and corresponding AC-D4, AC-D6, AC-C4, AC-C6 are retired without
+reassignment. The registry now contains 115 terms, 112 definitions, and 53 commitments.
+This is an approved semantic revision, not a claim of full-Scope equivalence to
+the previous ratio definition. Ordinary love may have particular descriptions
+using Attention, Care, Meaning, or Ritual; no universal composition is stipulated.
+
+Care keeps its exact Entity-State Denotation and Attention-to-Action causal join,
+but no longer requires an enumerated Action channel. Its remaining normative
+limits and Respect's protection obligations survive without claims about Love.
+C41 allows narrow Attention; C42's full-coverage exclusion survives solely as
+a theorem of the historical finite measurement. No numerical denominator is
+constitutive of revised Attention.
+
+`AttentionLoveCareProposal.NonbindingExamples` now contains the old Attention,
+SustainedAttention, Love, and Care records. Their witnesses and countermodels are
+preserved, not used as contracts for the new definitions. `AttentionRevision.lean`
+adds eight bounded theorems: held-context sensitivity, unilateral and reciprocal
+cases, cessation, rejection of contextual covariation, rejection of one sample,
+and narrow tracking that ignores a second target component. The target persists
+while contrasts may vary by sample. Natural-number trace positions are local
+indices, not a proposed Time primitive.
+
+The new tests supply participant identity and response functions; they do not
+construct canonical Entity/Perception/Interpretation/Causal Contribution or prove
+continuity between samples. Revised Attention and Care have boundary-qualified
+contracts: the first projects the supplied tracking predicate, the second retains
+only the historical target joins while marking revised Attention and canonical
+Action/causality unproved. The four prose constraints remain outside the complete
+formal boundary. The Respect contract remains. Build evidence must not masquerade as canonical
+parity or as a renewed exact-source promotion review.

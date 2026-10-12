@@ -132,11 +132,9 @@
       ]
     },
     "attention-and-relation": {
-      "description": "Finite Attention, its sustained form and coverage conditions, and the distinct relations of Love, Care, and Respect.",
+      "description": "Persistent directed Attention, Attention-organized Care, and scoped Respect; ordinary love is not a registered term.",
       "roots": [
         "organon:Attention",
-        "organon:SustainedAttention",
-        "organon:Love",
         "organon:Care",
         "organon:Respect"
       ]

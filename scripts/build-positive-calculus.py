@@ -76,11 +76,11 @@ def run(*, check: bool) -> dict[str, int]:
 
     terms = registry.get("terms", [])
     by_id = {term["id"]: term for term in terms}
-    if len(terms) != 117 or len(by_id) != len(terms):
-        raise CalculusError("positive-calculus audit requires 117 unique terms")
+    if len(terms) != 115 or len(by_id) != len(terms):
+        raise CalculusError("positive-calculus audit requires 115 unique terms")
     definitions = [term for term in terms if term["claim_type"] == "definition"]
-    if len(definitions) != 114:
-        raise CalculusError("positive calculus requires exactly 114 registered definitions")
+    if len(definitions) != 112:
+        raise CalculusError("positive calculus requires exactly 112 registered definitions")
 
     entries = []
     mutation_count = 0

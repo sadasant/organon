@@ -8,9 +8,9 @@ The control compares no introduction rule with one universal wrapper:
 
 > **G1 — Degenerate definition reflection.** Given every lexical dependency as a positive fact over one candidate plus an opaque witness asserting conformity to the complete original definition, classify that candidate.
 
-With no positive-head wrapper, the annotation taxonomy derives zero definitions. G1 reflects all **114 definitions** because it is parameterized by every original definition. Removing G1 returns the reflected count to zero. This is not a search over constructor space or a sharp semantic lower bound.
+With no positive-head wrapper, the annotation taxonomy derives zero definitions. G1 reflects all **112 definitions** because it is parameterized by every original definition. Removing G1 returns the reflected count to zero. This is not a search over constructor space or a sharp semantic lower bound.
 
-The control records **938 dependency-removal fixtures**. Each is an extensional set-subtraction regression: the weakened query succeeds against its own facts while the complete wrapper fails because one exact fact is missing. This checks wrapper sensitivity, not ontological necessity.
+The control records **923 dependency-removal fixtures**. Each is an extensional set-subtraction regression: the weakened query succeeds against its own facts while the complete wrapper fails because one exact fact is missing. This checks wrapper sensitivity, not ontological necessity.
 
 ## Anti-vacuity result
 
@@ -21,7 +21,7 @@ The control records **938 dependency-removal fixtures**. Each is an extensional 
 | Question | Answer |
 |---|---|
 | Degenerate wrappers compared | **G0: none; G1: universal reflection** |
-| Definitions mechanically reflected by G1 | **114 of 114** |
+| Definitions mechanically reflected by G1 | **112 of 112** |
 | Definitions semantically eliminated | **0** |
 | Semantic anti-vacuity gate | **failed** |
 | Eligible for promotion | **No** |

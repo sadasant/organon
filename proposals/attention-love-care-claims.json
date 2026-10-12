@@ -5,310 +5,35 @@
   "binding": false,
   "markdown": "attention-love-care.md",
   "formal_shadow": "../ontology/formal/AttentionLoveCare.lean",
-  "formal_evidence": [
-    "../ontology/formal/EmbodiedConsciousness.lean"
-  ],
+  "formal_evidence": ["../ontology/formal/EmbodiedConsciousness.lean", "../ontology/formal/AttentionRevision.lean"],
   "promotion_contracts": "../ontology/formal/AttentionLoveCareContracts.lean",
   "promotion_review": "../reviews/promotion/attention-love-care.json",
-  "introduced_terms": [
-    "organon:Attention",
-    "organon:SustainedAttention",
-    "organon:Love",
-    "organon:Care",
-    "organon:Respect"
-  ],
-  "local_symbols": [
-    "local:AttentionChannel",
-    "local:FocusIndependentAction",
-    "local:RespectProtection",
-    "ordinary:benefit",
-    "ordinary:consent",
-    "ordinary:morality",
-    "ordinary:accuracy",
-    "ordinary:purpose",
-    "ordinary:reciprocity",
-    "ordinary:understanding",
-    "ordinary:possession",
-    "ordinary:agreement",
-    "ordinary:affection",
-    "ordinary:obedience",
-    "local:ChannelInventory",
-    "local:EntityIndividuation",
-    "local:ChannelOrganizedByDifference",
-    "local:ContributionOrganizesChannel",
-    "local:SnapshotCausalContribution"
-  ],
+  "introduced_terms": ["organon:Attention", "organon:Care", "organon:Respect"],
+  "local_symbols": ["local:RespectProtection", "local:EntityIndividuation"],
   "semantic_fields": [],
   "statements": [
     {
       "id": "AC-D3",
       "type": "proposed_definition",
       "subject": "Attention",
-      "depends_on": [
-        "organon:Entity",
-        "organon:Body",
-        "organon:Difference",
-        "organon:Representation",
-        "organon:Perception",
-        "organon:Interpretation",
-        "organon:Action",
-        "organon:CausalContribution",
-        "organon:State",
-        "organon:Specification",
-        "organon:Scope"
-      ],
+      "depends_on": ["organon:Relation", "organon:Entity", "organon:Perception", "organon:Interpretation", "organon:Difference", "organon:State", "organon:Scope", "organon:Representation", "organon:CausalContribution", "organon:Claim", "organon:Truth"],
       "formal_contract": {
-        "status": "proved",
-        "theorem": "attentionContract",
-        "shared_indices": [
-          "entity",
-          "body",
-          "attention"
-        ],
-        "subject_symbols": [
-          "Attention"
-        ],
+        "status": "proved_with_boundaries",
+        "theorem": "directedAttentionContract",
+        "shared_indices": ["observer", "target", "scope", "state", "respond"],
+        "subject_symbols": ["AttentionRevision", "tracks"],
         "dependency_dispositions": {
-          "organon:Entity": {
-            "status": "formalized",
-            "symbols": [
-              "entity"
-            ]
-          },
-          "organon:Body": {
-            "status": "formalized",
-            "symbols": [
-              "body"
-            ]
-          },
-          "organon:Difference": {
-            "status": "represented_by",
-            "symbols": [
-              "contrastRepresentation",
-              "focalRepresentation"
-            ],
-            "reason": "The unequal contrast and focal representations are the exact upstream difference shared by organized channels."
-          },
-          "organon:Representation": {
-            "status": "formalized",
-            "symbols": [
-              "contrastRepresentation",
-              "focalRepresentation"
-            ]
-          },
-          "organon:Perception": {
-            "status": "represented_by",
-            "symbols": [
-              "perception",
-              "kind"
-            ],
-            "reason": "The perception channel constructor is the declared local projection of canonical Perception."
-          },
-          "organon:Interpretation": {
-            "status": "represented_by",
-            "symbols": [
-              "interpretation",
-              "kind"
-            ],
-            "reason": "The interpretation channel constructor is the declared local projection of canonical Interpretation."
-          },
-          "organon:Action": {
-            "status": "represented_by",
-            "symbols": [
-              "action",
-              "kind"
-            ],
-            "reason": "The action channel constructor is the declared local projection of canonical Action."
-          },
-          "organon:CausalContribution": {
-            "status": "represented_by",
-            "symbols": [
-              "organizingContribution",
-              "contrast",
-              "focal",
-              "response",
-              "ChannelOrganizedByDifference",
-              "causalContributions",
-              "organizingContributionDeclared"
-            ],
-            "reason": "SnapshotCausalContribution is a local counterfactual projection, not canonical temporal CausalContribution. At the indexed State it holds context fixed, requires the focal response to match the current result and the contrast response to differ. Organization quantifies over all declared channel comparisons independently of enumeration or selected witness. No historical path is inspected; canonical causal parity and empirical fidelity remain open."
-          },
-          "organon:State": {
-            "status": "formalized",
-            "symbols": [
-              "result",
-              "value",
-              "moment"
-            ]
-          },
-          "organon:Specification": {
-            "status": "formalized",
-            "symbols": [
-              "inventory",
-              "availabilityAt",
-              "conforms"
-            ],
-            "reason": "The declared inventory supplies a constructive state-indexed Specification and exact conformity coverage."
-          },
-          "organon:Scope": {
-            "status": "formalized",
-            "symbols": [
-              "scope",
-              "includes"
-            ],
-            "reason": "Every available channel conforms and therefore lies within the indexed Specification Scope."
-          }
-        }
-      }
-    },
-    {
-      "id": "AC-D4",
-      "type": "proposed_definition",
-      "subject": "Sustained Attention",
-      "depends_on": [
-        "AC-D3",
-        "organon:Entity",
-        "organon:Body",
-        "organon:State",
-        "organon:Direction",
-        "organon:Persistence",
-        "organon:Difference"
-      ],
-      "formal_contract": {
-        "status": "proved",
-        "theorem": "sustainedAttentionContract",
-        "shared_indices": [
-          "entity",
-          "body",
-          "state"
-        ],
-        "subject_symbols": [
-          "SustainedAttention",
-          "commonInventory"
-        ],
-        "dependency_dispositions": {
-          "AC-D3": {
-            "status": "formalized",
-            "symbols": [
-              "attentionAt",
-              "moment"
-            ]
-          },
-          "organon:Entity": {
-            "status": "formalized",
-            "symbols": [
-              "entity"
-            ]
-          },
-          "organon:Body": {
-            "status": "formalized",
-            "symbols": [
-              "body",
-              "states"
-            ]
-          },
-          "organon:State": {
-            "status": "formalized",
-            "symbols": [
-              "state",
-              "states"
-            ]
-          },
-          "organon:Direction": {
-            "status": "formalized",
-            "symbols": [
-              "persistenceDirection",
-              "OrderedBy"
-            ]
-          },
-          "organon:Persistence": {
-            "status": "represented_by",
-            "symbols": [
-              "persistenceDirection",
-              "statesWithinBody"
-            ],
-            "reason": "Ordered Body states under the Entity persistence direction project the relevant Persistence history."
-          },
-          "organon:Difference": {
-            "status": "represented_by",
-            "symbols": [
-              "commonFocalRepresentation",
-              "commonContrastRepresentation"
-            ],
-            "reason": "The common focal and contrast representations preserve one Difference across the indexed states."
-          }
-        }
-      }
-    },
-    {
-      "id": "AC-D6",
-      "type": "proposed_definition",
-      "subject": "Love",
-      "depends_on": [
-        "organon:Relation",
-        "AC-D4",
-        "organon:Entity",
-        "organon:Representation",
-        "organon:Denotation",
-        "organon:State"
-      ],
-      "formal_contract": {
-        "status": "proved",
-        "theorem": "loveContract",
-        "shared_indices": [
-          "entity",
-          "love",
-          "state"
-        ],
-        "subject_symbols": [
-          "Love"
-        ],
-        "dependency_dispositions": {
-          "organon:Relation": {
-            "status": "represented_by",
-            "symbols": [
-              "belovedDenotation",
-              "attentionDirectedTowardBeloved"
-            ],
-            "reason": "Exact Denotation and the focal equality jointly represent the directed relation to the beloved."
-          },
-          "AC-D4": {
-            "status": "formalized",
-            "symbols": [
-              "attention",
-              "maintained"
-            ]
-          },
-          "organon:Entity": {
-            "status": "represented_by",
-            "symbols": [
-              "participant",
-              "individuation"
-            ],
-            "reason": "The local participant classifier receives only the identity Invariant and Boundary, so current-State and Persistence-record changes cannot affect classification. The finite witness distinguishes Boundary admission with the same identity criterion and full history. Equal classification does not entail one Entity; Boundary difference need not entail otherness under every classifier. Canonical numerical individuation, especially across Boundary changes, remains AC-G1."
-          },
-          "organon:Representation": {
-            "status": "formalized",
-            "symbols": [
-              "belovedRepresentation",
-              "commonFocalRepresentation"
-            ]
-          },
-          "organon:Denotation": {
-            "status": "formalized",
-            "symbols": [
-              "belovedDenotation",
-              "expression",
-              "target"
-            ]
-          },
-          "organon:State": {
-            "status": "formalized",
-            "symbols": [
-              "state",
-              "states"
-            ]
-          }
+          "organon:Relation": {"status": "represented_by", "symbols": ["tracks", "observer", "target"], "reason": "The directed predicate preserves observer and target roles, with no reciprocity premise."},
+          "organon:Entity": {"status": "outside_formal_boundary", "reason": "Supplied Participant indices stand for distinct Entities; canonical identity and Persistence are not constructed."},
+          "organon:Perception": {"status": "outside_formal_boundary", "reason": "The supplied response function is not a canonical Perception witness."},
+          "organon:Interpretation": {"status": "outside_formal_boundary", "reason": "The supplied response function is not a canonical Interpretation witness."},
+          "organon:Difference": {"status": "represented_by", "symbols": ["contrast", "respond"], "reason": "Each scoped sample carries a contrast producing an unequal response in the same context; the contrast may vary across samples."},
+          "organon:State": {"status": "represented_by", "symbols": ["state", "first", "second"], "reason": "A supplied target-state trace has two unequal ordered samples in Scope. No uninterrupted continuity between samples is proved."},
+          "organon:Scope": {"status": "formalized", "symbols": ["Scope", "scope", "includes"]},
+          "organon:Representation": {"status": "outside_formal_boundary", "reason": "Target-state alternatives are not joined to canonical Representation or Denotation."},
+          "organon:CausalContribution": {"status": "outside_formal_boundary", "reason": "Holding context fixed in a supplied response model does not construct canonical temporal Causal Contribution or establish a physical mechanism."},
+          "organon:Claim": {"status": "prose_only", "reason": "The limit on normative and epistemic Claims is not encoded by this sensitivity theorem."},
+          "organon:Truth": {"status": "prose_only", "reason": "No Truth predicate or truth anti-entailment is proved by the local response model."}
         }
       }
     },
@@ -316,91 +41,22 @@
       "id": "AC-D7",
       "type": "proposed_definition",
       "subject": "Care",
-      "depends_on": [
-        "organon:Relation",
-        "AC-D3",
-        "organon:Entity",
-        "organon:State",
-        "organon:Representation",
-        "organon:Denotation",
-        "organon:Action",
-        "organon:CausalContribution",
-        "organon:Persistence"
-      ],
+      "depends_on": ["organon:Relation", "AC-D3", "organon:Entity", "organon:State", "organon:Representation", "organon:Denotation", "organon:Action", "organon:CausalContribution", "organon:Persistence"],
       "formal_contract": {
         "status": "proved_with_boundaries",
         "theorem": "careContract",
-        "shared_indices": [
-          "entity",
-          "care"
-        ],
-        "subject_symbols": [
-          "Care"
-        ],
+        "shared_indices": ["entity", "care"],
+        "subject_symbols": ["Care"],
         "dependency_dispositions": {
-          "organon:Relation": {
-            "status": "represented_by",
-            "symbols": [
-              "targetDenotation",
-              "attentionTargetsState"
-            ],
-            "reason": "The target Denotation and focal equality represent Care directed to the exact Entity-State pair."
-          },
-          "AC-D3": {
-            "status": "formalized",
-            "symbols": [
-              "attention"
-            ]
-          },
-          "organon:Entity": {
-            "status": "represented_by",
-            "symbols": [
-              "participant",
-              "individuation"
-            ],
-            "reason": "The local participant classifier receives only the identity Invariant and Boundary, so current-State and Persistence-record changes cannot affect classification. The finite witness distinguishes Boundary admission with the same identity criterion and full history. Equal classification does not entail one Entity; Boundary difference need not entail otherness under every classifier. Canonical numerical individuation, especially across Boundary changes, remains AC-G1."
-          },
-          "organon:State": {
-            "status": "formalized",
-            "symbols": [
-              "attendedState",
-              "states"
-            ]
-          },
-          "organon:Representation": {
-            "status": "formalized",
-            "symbols": [
-              "targetRepresentation",
-              "focalRepresentation"
-            ]
-          },
-          "organon:Denotation": {
-            "status": "formalized",
-            "symbols": [
-              "targetDenotation",
-              "expression",
-              "target"
-            ]
-          },
-          "organon:Action": {
-            "status": "outside_formal_boundary",
-            "symbols": [],
-            "reason": "The local action channel proves organized action-selection; canonical boundary-crossing Action parity remains open."
-          },
-          "organon:CausalContribution": {
-            "status": "represented_by",
-            "symbols": [
-              "organized"
-            ],
-            "reason": "Membership in organized invokes Attention's snapshot-local counterfactual comparison at the current State, not a historical CausalContribution. Canonical causal parity remains open."
-          },
-          "organon:Persistence": {
-            "status": "formalized",
-            "symbols": [
-              "persistence",
-              "states"
-            ]
-          }
+          "organon:Relation": {"status": "represented_by", "symbols": ["targetDenotation", "attentionTargetsState"], "reason": "The exact Entity-State target relation remains in the historical finite-channel projection."},
+          "AC-D3": {"status": "outside_formal_boundary", "reason": "The historical finite Attention field does not establish revised persistent directed Attention. This contract proves only the preserved target and channel joins, not the revised Attention-to-Action mechanism."},
+          "organon:Entity": {"status": "represented_by", "symbols": ["participant", "individuation"], "reason": "The record-independent local classifier distinguishes participants; canonical numerical identity remains open."},
+          "organon:State": {"status": "formalized", "symbols": ["attendedState", "states"]},
+          "organon:Representation": {"status": "formalized", "symbols": ["targetRepresentation", "focalRepresentation"]},
+          "organon:Denotation": {"status": "formalized", "symbols": ["targetDenotation", "expression", "target"]},
+          "organon:Action": {"status": "outside_formal_boundary", "reason": "An organized local action channel does not construct canonical boundary-crossing Action."},
+          "organon:CausalContribution": {"status": "outside_formal_boundary", "reason": "Historical snapshot organization does not establish the revised canonical Attention-to-Action causal join."},
+          "organon:Persistence": {"status": "formalized", "symbols": ["persistence", "states"]}
         }
       }
     },
@@ -408,278 +64,67 @@
       "id": "AC-D8",
       "type": "proposed_definition",
       "subject": "Respect",
-      "depends_on": [
-        "organon:Relation",
-        "organon:Constraint",
-        "organon:Action",
-        "organon:Entity",
-        "organon:Scope",
-        "organon:Boundary",
-        "organon:Agency",
-        "organon:Capability",
-        "organon:Transformation",
-        "organon:Invariant"
-      ],
+      "depends_on": ["organon:Relation", "organon:Constraint", "organon:Action", "organon:Entity", "organon:Scope", "organon:Boundary", "organon:Agency", "organon:Capability", "organon:Transformation", "organon:Invariant"],
       "formal_contract": {
         "status": "proved",
         "theorem": "respectContract",
-        "shared_indices": [
-          "actor",
-          "target",
-          "respect"
-        ],
-        "subject_symbols": [
-          "Respect"
-        ],
+        "shared_indices": ["actor", "target", "respect"],
+        "subject_symbols": ["Respect"],
         "dependency_dispositions": {
-          "organon:Relation": {
-            "status": "represented_by",
-            "symbols": [
-              "targetIsOther",
-              "RespectProtection"
-            ],
-            "reason": "The actor-target inequality and typed protection witness represent the directed Respect relation."
-          },
-          "organon:Constraint": {
-            "status": "formalized",
-            "symbols": [
-              "constraint",
-              "permits"
-            ]
-          },
-          "organon:Action": {
-            "status": "represented_by",
-            "symbols": [
-              "constrainedAction"
-            ],
-            "reason": "The scoped constrained Transformation is the formal Action projection."
-          },
-          "organon:Entity": {
-            "status": "represented_by",
-            "symbols": [
-              "participant",
-              "individuation"
-            ],
-            "reason": "The local participant classifier receives only the identity Invariant and Boundary, so current-State and Persistence-record changes cannot affect classification. The finite witness distinguishes Boundary admission with the same identity criterion and full history. Equal classification does not entail one Entity; Boundary difference need not entail otherness under every classifier. Canonical numerical individuation, especially across Boundary changes, remains AC-G1."
-          },
-          "organon:Scope": {
-            "status": "formalized",
-            "symbols": [
-              "actionScope",
-              "includes"
-            ]
-          },
-          "organon:Boundary": {
-            "status": "represented_by",
-            "symbols": [
-              "RespectProtection"
-            ],
-            "reason": "The boundary constructor of RespectProtection carries the exact Boundary-preservation projection."
-          },
-          "organon:Agency": {
-            "status": "represented_by",
-            "symbols": [
-              "RespectProtection"
-            ],
-            "reason": "The agency constructor carries a nonempty admitted family of identity-preserving options."
-          },
-          "organon:Capability": {
-            "status": "represented_by",
-            "symbols": [
-              "RespectProtection"
-            ],
-            "reason": "The self-determination constructor carries two distinct admitted identity-preserving options."
-          },
-          "organon:Transformation": {
-            "status": "formalized",
-            "symbols": [
-              "constrainedAction"
-            ]
-          },
-          "organon:Invariant": {
-            "status": "represented_by",
-            "symbols": [
-              "RespectProtection"
-            ],
-            "reason": "Every protection branch carries target identity preservation obligations for the protected options."
-          }
+          "organon:Relation": {"status": "represented_by", "symbols": ["targetIsOther", "RespectProtection"], "reason": "The actor-target inequality and typed protection witness represent the directed Respect relation."},
+          "organon:Constraint": {"status": "formalized", "symbols": ["constraint", "permits"]},
+          "organon:Action": {"status": "represented_by", "symbols": ["constrainedAction"], "reason": "The scoped constrained Transformation is the formal Action projection."},
+          "organon:Entity": {"status": "represented_by", "symbols": ["participant", "individuation"], "reason": "The local participant classifier receives only the identity Invariant and Boundary, so current-State and Persistence-record changes cannot affect classification. The finite witness distinguishes Boundary admission with the same identity criterion and full history. Equal classification does not entail one Entity; Boundary difference need not entail otherness under every classifier. Canonical numerical individuation, especially across Boundary changes, remains AC-G1."},
+          "organon:Scope": {"status": "formalized", "symbols": ["actionScope", "includes"]},
+          "organon:Boundary": {"status": "represented_by", "symbols": ["RespectProtection"], "reason": "The boundary constructor of RespectProtection carries the exact Boundary-preservation projection."},
+          "organon:Agency": {"status": "represented_by", "symbols": ["RespectProtection"], "reason": "The agency constructor carries a nonempty admitted family of identity-preserving options."},
+          "organon:Capability": {"status": "represented_by", "symbols": ["RespectProtection"], "reason": "The self-determination constructor carries two distinct admitted identity-preserving options."},
+          "organon:Transformation": {"status": "formalized", "symbols": ["constrainedAction"]},
+          "organon:Invariant": {"status": "represented_by", "symbols": ["RespectProtection"], "reason": "Every protection branch carries target identity preservation obligations for the protected options."}
         }
       }
     },
     {
       "id": "AC-C3",
       "type": "anti_collapse_constraint",
-      "subject": "Attention need not cover every available channel",
-      "depends_on": [
-        "AC-D3",
-        "organon:Action"
-      ],
-      "formal_contract": {
-        "status": "proved",
-        "theorem": "partialAttentionCountermodel",
-        "shared_indices": [
-          "systemAttention"
-        ],
-        "subject_symbols": [
-          "systemAttention",
-          "fullCoverage"
-        ],
-        "dependency_dispositions": {
-          "AC-D3": {
-            "status": "formalized",
-            "symbols": [
-              "systemAttention"
-            ]
-          },
-          "organon:Action": {
-            "status": "represented_by",
-            "symbols": [
-              "actionItem",
-              "FocusIndependentAction"
-            ],
-            "reason": "The available omitted Action has an exact contribution to its result with a different upstream Difference, so it fails the independently evaluated causal-organization condition."
-          }
-        }
-      }
-    },
-    {
-      "id": "AC-C4",
-      "type": "anti_collapse_constraint",
-      "subject": "Full coverage excludes focus-independent Action",
-      "depends_on": [
-        "AC-D3",
-        "organon:Action",
-        "organon:Difference"
-      ],
-      "formal_contract": {
-        "status": "proved",
-        "theorem": "fullCoverageActionLimit",
-        "shared_indices": [
-          "attention",
-          "item"
-        ],
-        "subject_symbols": [
-          "Attention",
-          "fullCoverage"
-        ],
-        "dependency_dispositions": {
-          "AC-D3": {
-            "status": "formalized",
-            "symbols": [
-              "Attention",
-              "fullCoverage"
-            ]
-          },
-          "organon:Action": {
-            "status": "represented_by",
-            "symbols": [
-              "FocusIndependentAction"
-            ],
-            "reason": "The derived predicate requires an available local action channel with the exact current result and a nonempty declared response domain. Every declared response reproduces that result and is invariant under the attended contrast with the snapshot context fixed. Independence implies nonorganization; nonorganization alone does not establish independence."
-          },
-          "organon:Difference": {
-            "status": "represented_by",
-            "symbols": [
-              "attention"
-            ],
-            "reason": "The underlying Attention fixes the shared focal Difference for all organized channels."
-          }
-        }
-      }
+      "subject": "Attention need not be exhaustive",
+      "depends_on": ["AC-D3", "organon:Entity", "organon:Scope", "organon:State", "organon:Perception", "organon:Interpretation", "organon:Action", "organon:Difference", "organon:CausalContribution"],
+      "formal_contract": {"status": "outside_formal_boundary", "reason": "trackingNeedNotDetectEveryDifference gives a narrow-response countermodel; canonical Perception, Interpretation, and causal parity remain open. The old partial-ratio countermodel does not prove revised C41."}
     },
     {
       "id": "AC-C5",
       "type": "anti_collapse_constraint",
       "subject": "Attention is normatively and epistemically neutral",
-      "depends_on": [
-        "AC-D3",
-        "organon:Claim",
-        "organon:Truth",
-        "organon:Consequence"
-      ],
-      "formal_contract": {
-        "status": "outside_formal_boundary",
-        "reason": "Benefit, consent, morality, accuracy, and purpose lack closed-world predicates in the formal reduct."
-      }
-    },
-    {
-      "id": "AC-C6",
-      "type": "anti_collapse_constraint",
-      "subject": "Love does not collapse into Care or Respect",
-      "depends_on": [
-        "AC-D6",
-        "AC-D7",
-        "AC-D8"
-      ],
-      "formal_contract": {
-        "status": "outside_formal_boundary",
-        "reason": "Reciprocity, understanding, consent, possession, and moral approval lack formal negations in the reduct."
-      }
+      "depends_on": ["AC-D3", "organon:Claim", "organon:Truth", "organon:Consequence"],
+      "formal_contract": {"status": "outside_formal_boundary", "reason": "Benefit, consent, morality, accuracy, and purpose lack closed-world predicates in the formal reduct."}
     },
     {
       "id": "AC-C7",
       "type": "anti_collapse_constraint",
-      "subject": "Care is not benefit or Love",
-      "depends_on": [
-        "AC-D7",
-        "AC-D6",
-        "organon:Consequence"
-      ],
-      "formal_contract": {
-        "status": "outside_formal_boundary",
-        "reason": "Competence, wantedness, benefit, and harm lack formal predicates suitable for nonvacuous countermodels."
-      }
+      "subject": "Care is not benefit",
+      "depends_on": ["AC-D7", "AC-D3", "organon:Action", "organon:Consequence", "organon:State"],
+      "formal_contract": {"status": "outside_formal_boundary", "reason": "Competence, wantedness, benefit, and harm lack formal predicates suitable for nonvacuous countermodels."}
     },
     {
       "id": "AC-C8",
       "type": "anti_collapse_constraint",
       "subject": "Respect is not agreement or affection",
-      "depends_on": [
-        "AC-D8",
-        "AC-D6",
-        "organon:Consequence"
-      ],
-      "formal_contract": {
-        "status": "outside_formal_boundary",
-        "reason": "Agreement, affection, obedience, and noninterference remain outside the current formal vocabulary."
-      }
+      "depends_on": ["AC-D8", "organon:Constraint", "organon:Action", "organon:Boundary", "organon:Agency", "organon:Capability", "organon:Consequence"],
+      "formal_contract": {"status": "outside_formal_boundary", "reason": "Agreement, affection, obedience, and noninterference remain outside the current formal vocabulary."}
     },
     {
       "id": "AC-G1",
       "type": "open_formalization_gate",
-      "subject": "Canonical channel parity",
-      "depends_on": [
-        "AC-D3",
-        "AC-D7",
-        "AC-D8",
-        "organon:Perception",
-        "organon:Interpretation",
-        "organon:Action",
-        "organon:Agency",
-        "organon:Capability"
-      ],
-      "formal_contract": {
-        "status": "open_gate",
-        "reason": "Canonical Body-indexed channel structures and parity theorems remain to be built."
-      }
+      "subject": "Canonical causal and participant parity",
+      "depends_on": ["AC-D3", "AC-D7", "AC-D8", "organon:Perception", "organon:Interpretation", "organon:Action", "organon:Agency", "organon:Capability"],
+      "formal_contract": {"status": "open_gate", "reason": "Revised Attention and Care require canonical causal, participant, and perceptual/interpretive joins. Respect retains its local option and participant projections. Historical finite measurements do not discharge these gates."}
     },
     {
       "id": "AC-G2",
       "type": "open_evidence_gate",
       "subject": "Application",
-      "depends_on": [
-        "AC-D3",
-        "AC-D4",
-        "AC-D6",
-        "AC-D7",
-        "AC-D8",
-        "organon:Specification",
-        "organon:Evidence"
-      ],
-      "formal_contract": {
-        "status": "open_gate",
-        "reason": "No empirical application follows from the finite formal witness without a separate evidence-bearing Specification."
-      }
+      "depends_on": ["AC-D3", "AC-D7", "AC-D8", "organon:Specification", "organon:Evidence"],
+      "formal_contract": {"status": "open_gate", "reason": "No empirical application follows from the finite formal witnesses without a separate evidence-bearing Specification."}
     }
   ]
 }

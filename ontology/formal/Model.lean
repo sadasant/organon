@@ -16,6 +16,7 @@ import AttentionLoveCareContracts
 import PR18Governance
 import RepresentationActivityExample
 import InstitutionalRevision
+import AttentionRevision
 
 /-!
 # Daniel's Ontology: finite inhabited model
@@ -669,4 +670,4 @@ end PermissionCoverageExample
 end DanielOntology.Model
 
 def main : IO Unit :=
-  IO.println "OrganonCore v0.20-compatible reduct: hidden bridge relations, private ritual, ritual-dependent meaning, embodied integration, partial self-governance, nonbinding representation-activity example, finite attention, love, care, respect, an embodied recurrent consciousness candidate, downstream shadows, four preserved challenge classifiers, one pending Reality representation elaboration, and metalinguistic definition admission"
+  IO.println "OrganonCore v0.20-compatible reduct: hidden bridge relations, ritual-dependent meaning, embodied integration, directed Attention tests, historical finite attention and love examples, Care parity open, Respect shadow, institutional revision candidates, four preserved challenge classifiers, one pending Reality representation elaboration, and metalinguistic definition admission"

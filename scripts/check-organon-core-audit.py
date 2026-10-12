@@ -53,8 +53,7 @@ FORMAL_SHADOWS = {
     "organon:Meaning", "organon:Body", "organon:BodilyOrganization",
     "organon:EmbodiedPerspective", "organon:RecurrentIntegration",
     "organon:InternalActivitySelection",
-    "organon:Attention", "organon:SustainedAttention",
-    "organon:Love", "organon:Care", "organon:Respect",
+    "organon:Attention", "organon:Care", "organon:Respect",
 }
 
 
