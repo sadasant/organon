@@ -58,13 +58,23 @@ selection or adjustment under an operative criterion, not responsiveness alone.
 This is an approved revision, not an equivalence proof for the historical record.
 
 <!-- organon:proposal-statement AC-D8 type=proposed_definition -->
-**AC-D8 — Respect:** Respect is a scoped Constraint upon an Entity's Action toward
-another Entity, where the Constraint admits the constrained Action and carries a
-typed witness that the Action is admitted by the other's Boundary, or that
-identity-preserving Agency options or at least two identity-preserving options
-for self-determination remain available from the Action's output. The protection
-concerns this exact Action rather than unrelated options. Respect does not require
-agreement, affection, or obedience.
+**AC-D8 — Respect:** Respect is a Relation in which an Entity constrains its Action
+toward another Entity according to conditions expressed by that other Entity or
+interpreted from their shared Configuration, within a Scope.
+
+Conditions must operate as Constraints, not merely describe the Action. Contextual
+Interpretation supplies defaults; the other's expressed conditions take precedence
+for the same Action and Scope. Explicit negotiation and Ritual are unnecessary,
+and contextual convention alone does not establish the other's agreement. A
+bounded, accepted limitation of Agency need not violate Respect; its accepted
+extent and duration still constrain the intervention. An accidental violation
+fails to respect the conditions without establishing deliberate disregard.
+
+Daniel's proximity and temporary-Agency-loss examples reject identity protection
+or counting retained options as sufficient. This is a semantic revision, not an
+equivalence with the old record. Constraint alone omits whose conditions govern;
+agreement or a description alone omits their operative use. No elaborate contract,
+uninterrupted Agency, affection, obedience, or favorable Consequence is required.
 
 ## Remaining constraints
 
@@ -89,8 +99,11 @@ conformity or benefit to that Entity.
 <!-- organon:proposal-statement AC-C8 type=anti_collapse_constraint -->
 **AC-C8 — Respect is not agreement or affection:** Respect does not entail
 agreement, affection, obedience, favorable Consequence, or complete noninterference.
-None establishes Respect without a scoped Constraint upon Action and a typed
-Boundary, Agency-option, or self-determination protection witness.
+None establishes Respect without the other's expressed conditions or contextual
+Interpretation operating as Constraints upon Action within Scope. Contextual
+defaults do not override expressed contrary conditions; accidental conformity
+alone does not establish this organization, and accidental violation does not
+establish deliberate disregard.
 
 ## Formal evidence and limits
 
@@ -122,21 +135,24 @@ not construct canonical Attention, Action, Consequence, comparison Causal paths,
 or the join between the Specification's target and the attended Entity. The finite
 test uses the existing Specification type without defining benefit or harm.
 
-The Respect contract retains its exact-action protection and local participant
-classifier. That classifier receives only identity Invariant and Boundary, not
-current State or history length. The finite participants share an identity criterion
-and recorded history but differ in Boundary admission of an unrecorded alternative.
-Equal classes do not prove one Entity; different Boundaries do not necessarily
-force different classes. The option branches retain identity-preserving operations
-beginning at the constrained Action's output, not canonical Agency or freedom in general.
+[RespectRevision.lean](../ontology/formal/RespectRevision.lean) supplies seven
+bounded theorems on expressed-condition priority, implicit defaults, target-specific
+refusal, contextual variation without expression, Scope limits, bounded accepted
+limitation, and actual versus planned intrusion. `conditionRespectContract` checks
+the same participant, operation, and Scope through resolution. Neither admission
+alone nor a supplied condition proves canonical Respect, consent, expression
+provenance, contextual accuracy, or causal regulation of behavior. Local steps
+in the limitation example are not a Time primitive or a model of Agency recovery.
+The old `Respect` record and `respectContract` remain nonbinding historical
+identity/option protection examples, with their existing proofs unchanged.
 
 <!-- organon:proposal-statement AC-G1 type=open_formalization_gate -->
 **AC-G1 — Canonical causal and participant parity:** Full canonical joins for
-revised Attention and Attention-organized Action in Care remain open. Respect's
-local participant and option projections retain their parity limits. AC-D3 and
-AC-D7 have `proved_with_boundaries` contracts with explicit unproved dependencies;
+revised Attention, Care, and Respect remain open. Respect additionally needs
+condition provenance, contextual Interpretation, and actual regulation joins.
+AC-D3, AC-D7, and AC-D8 have `proved_with_boundaries` contracts with explicit unproved dependencies;
 the four prose constraints are outside the complete formal boundary. Historical
-ratio theorems cannot discharge these obligations.
+ratio and identity/option protection theorems cannot discharge these obligations.
 
 <!-- organon:proposal-statement AC-G2 type=open_evidence_gate -->
 **AC-G2 — Application:** No formal witness establishes that a biological,
@@ -149,7 +165,7 @@ Application requires a separate Specification and admissible Evidence.
 | --- | --- | --- | --- |
 | AC-D3 | Proposed definition | Directed persistent Attention | `directedAttentionContract`; canonical causal/perceptual parity open |
 | AC-D7 | Proposed definition | Criterion-governed Care | `criterionCareContract`; operative sensitivity only, canonical and target joins open |
-| AC-D8 | Proposed definition | Respect | `respectContract`; local participant and option projections |
+| AC-D8 | Proposed definition | Condition-governed Respect | `conditionRespectContract`; scoped condition resolution only, canonical and causal joins open |
 | AC-C3 | Anti-collapse constraint | Nonexhaustive Attention | Narrow-response countermodel; canonical parity open |
 | AC-C5 | Anti-collapse constraint | Attention neutrality | Outside current formal boundary |
 | AC-C7 | Anti-collapse constraint | Care is not benefit | Outside current formal boundary |

@@ -360,3 +360,32 @@ Action/Consequence, admissible causal comparisons, and the same-Entity target jo
 remain unproved. Neither the old finite-channel record nor these local response
 tests establish full canonical Care. Normative anti-entailments remain prose gates.
 Registry counts remain 115 terms, 112 definitions, and 53 commitments.
+
+## Condition-governed Respect (2026-10-12)
+
+Daniel's accepted temporary Agency limitation and implicit proximity examples
+replace the old identity/option-protection disjunction in D119. Respect concerns
+the other's conditions operating as Constraints upon Action in Scope. Contextual
+Interpretation supplies defaults, but expressed conditions take precedence over
+conflicting defaults for that Action and Scope. No elaborate agreement or Ritual
+is required. Accidentally violating a condition fails to respect it without
+establishing deliberate disregard. C46 also excludes accidental conformity alone.
+
+The rejected reduction to generic Constraint loses whose conditions govern;
+agreement alone loses their operative use. The old record cannot distinguish an
+intervention accepted under bounded conditions from one violating those conditions
+merely by preserving identity or unrelated options. Its proofs remain historical
+nonbinding examples, not evidence for revised Respect. No universal consent,
+blame, or contract primitive is introduced.
+
+`RespectRevision.lean` supplies seven bounded tests of priority, implicit defaults,
+target-specific conditions, contextual variation, Scope limits, a bounded accepted
+limitation, and actual versus planned intrusion. The limit test admits steps 0 and
+1 but excludes step 2 even against a permissive default; it does not prove Agency
+loss or restoration. `conditionRespectContract` replaces the old AC-D8 theorem
+and is `proved_with_boundaries`. Supplied participant indices and operation-level
+decisions do not establish canonical Entity, Action, Interpretation, expression
+provenance, contextual accuracy, consent, or causal regulation of actual behavior.
+Admission alone is deliberately not named a complete Respect witness. The seven
+tests and contract are included in the default build. Counts remain unchanged;
+historical reviews and model-judged evaluations are not silently renewed.

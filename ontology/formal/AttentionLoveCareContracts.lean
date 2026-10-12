@@ -1,11 +1,14 @@
 import AttentionLoveCare
 import AttentionRevision
 import CareRevision
+import RespectRevision
 
 /-! Bounded promotion contracts and preserved historical example theorems.
 The old ratio does not prove revised Attention. Care's current contract tests
 response and Specification sensitivity, not canonical Attention, Action,
-Consequence, or the same-Entity target join. Historical records remain examples. -/
+Consequence, or the same-Entity target join. Respect's contract tests scoped
+condition resolution, not the source of conditions or causal regulation.
+Historical records remain examples. -/
 
 universe u v w
 
@@ -186,6 +189,23 @@ theorem criterionCareContract {Response Outcome Operation : Type}
   care
 
 /-- organon:promotion-contract AC-D8 -/
+theorem conditionRespectContract {Participant Operation : Type}
+    (expressed : Participant → Operation → Option Bool)
+    (contextual : Participant → Participant → Operation → Bool)
+    (scope : Scope Operation) (actor target : Participant) (operation : Operation)
+    (admission : RespectRevision.admitted expressed contextual scope actor target operation) :
+    scope.includes operation ∧
+      (expressed target operation = some true ∨
+        (expressed target operation = none ∧ contextual actor target operation = true)) := by
+  obtain ⟨withinScope, allowed⟩ := admission
+  refine ⟨withinScope, ?_⟩
+  cases decision : expressed target operation with
+  | none => exact Or.inr ⟨rfl, by simpa [decision] using allowed⟩
+  | some value =>
+    have accepted : value = true := by simpa [decision] using allowed
+    exact Or.inl (congrArg some accepted)
+
+/-- Historical exact-action identity protection; no current Respect contract. -/
 theorem respectContract
     {Carrier : Type u} {actor target : Entity Carrier}
     (respect : Respect actor target) :

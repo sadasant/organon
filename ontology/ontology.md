@@ -844,7 +844,11 @@ Both the Attention and the Specification must causally condition the Action; an 
 <a id="organon-respect"></a>
 <!-- organon:term organon:Respect claim=D119 -->
 
-**Respect** is a scoped Constraint upon an Entity's Action toward another Entity, where the Constraint admits the constrained Action and carries a typed witness that the Action is admitted by the other's Boundary, or that identity-preserving Agency options or at least two identity-preserving options for self-determination remain available from the Action's output. The protection concerns this exact Action rather than unrelated options. Respect does not require agreement, affection, or obedience.
+**Respect** is a Relation in which an Entity constrains its Action toward another Entity according to conditions expressed by that other Entity or interpreted from their shared Configuration, within a Scope.
+
+The conditions must operate as Constraints upon Action, not merely accompany it as a description. Contextual Interpretation supplies defaults; a condition expressed by the other Entity takes precedence over a conflicting default for the same Action and Scope. Neither an explicit negotiation nor a Ritual is required, and a contextual Interpretation does not by itself establish the other's agreement. An Action that violates the applicable conditions fails to respect them even when the violation is accidental; this alone does not establish deliberate disregard or the absence of Respect in other Actions.
+
+Respect does not require uninterrupted Agency: a limitation accepted by the other Entity remains constrained by its accepted extent and duration, rather than authorizing further limitation outside that Scope. Respect does not require affection, agreement, obedience, favorable Consequence, or complete noninterference.
 
 ## Relation signatures
 
@@ -856,7 +860,7 @@ These signatures make the ontology operational. They are schemas, not executable
 | `governsEmbodiment` | Entity, Embodied Perspective, Internal Activity Selection, Body Transformations, Boundary Constraint, Scope | partial or complete Embodied Self-Governance over the named family; no entailment of complete Control |
 | `attends` | Entity, another Entity, Perception or Interpretation, target Differences across changing States, Scope, Causal Contribution | directed causal organization persists across the target's changes; reciprocity and exhaustive coverage are not required |
 | `caresFor` | Entity, another Entity's changing State, Attention, Action, Specification of Consequences concerning that same Entity, Scope | Attention and the Specification condition selection or adjustment of Action; neither success nor benefit is entailed |
-| `respects` | acting Entity, other Entity, constrained Action, Scope, Constraint, protection witness | the Constraint admits the Action while preserving Boundary, Agency options, or self-determination capacity |
+| `respects` | acting Entity, other Entity, Action, expressed conditions or Interpretation of shared Configuration, Constraint, Scope | the other's expressed conditions take precedence over conflicting contextual defaults and constrain Action within their Scope |
 | `directs` | Relation, input State, output State | forward ordering excludes reverse ordering under the same Relation |
 | `feeds` | output State, input State, Specification of contribution | part of one State supplies part of the other without requiring equality |
 | `contributesTo` | named input Difference, two matched nonempty Causal paths, named endpoint Change | contrastive Causal Contribution; occurrence, precedence, or correlation alone is insufficient |
@@ -1003,7 +1007,7 @@ These signatures make the ontology operational. They are schemas, not executable
 
 45. <!-- organon:claim C45 --> **No care-benefit collapse:** Care may be competent or incompetent, wanted or unwanted, beneficial or harmful. Neither favorable Consequence nor conformity to a Specification establishes Care without Attention and that Specification conditioning Action concerning the same Entity. Care does not entail successful conformity or benefit to that Entity.
 
-46. <!-- organon:claim C46 --> **No respect-affection-agreement collapse:** Respect does not entail agreement, affection, obedience, favorable Consequence, or complete noninterference. None establishes Respect without a scoped Constraint upon Action and a typed Boundary, Agency-option, or self-determination protection witness.
+46. <!-- organon:claim C46 --> **No respect-affection-agreement collapse:** Respect does not entail agreement, affection, obedience, favorable Consequence, or complete noninterference. None establishes Respect without the other's expressed conditions or contextual Interpretation operating as Constraints upon Action within Scope. Contextual defaults do not override expressed contrary conditions; accidental conformity alone does not establish this organization, and accidental violation does not establish deliberate disregard.
 
 ## Quarantined vocabulary
 

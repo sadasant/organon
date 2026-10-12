@@ -4,10 +4,12 @@ import EmbodiedConsciousness
 # Self-governance, attention, love, care, and respect
 
 This module retains the historical finite-channel Attention, Sustained Attention,
-Love, and Care constructions as nonbinding examples, plus the Respect shadow.
+Love, Care, and identity-protecting Respect constructions as nonbinding examples.
 Canonical Attention is now a persistent directed Relation; the old ratio and
 fixed focal/contrast pair do not define it. See AttentionRevision for bounded
 tests, not a complete canonical Perception/Interpretation/Causal Contribution bridge.
+RespectRevision tests expressed conditions overriding contextual defaults;
+the identity/option protection record below does not encode current Respect.
 It does not define Consciousness, benefit, consent,
 morality, reciprocity, understanding, possession, or complete Control.
 -/

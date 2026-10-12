@@ -2,7 +2,7 @@
   "schema_version": 1,
   "status": "generated-nonbinding-degenerate-registry-reflection-ledger",
   "source_sha256": {
-    "ontology/terms.yaml": "96cc8207d91376623d95e07d262e517337182465af491b6e58803fa972743387",
+    "ontology/terms.yaml": "48469a8a1a6f52837d428002b233701667bbebcb06c4d55457355303da38f937",
     "ontology/algebra/positive-calculus.yaml": "76c83651ae6d9ada317546a862450ec7940b5d1e12fb93b973f8bd6fd1abdd73",
     "scripts/build-positive-calculus.py": "d35504151ada0ba68c1ba8e804987f493235196a5042610e73c188b42729b8b6"
   },
@@ -4415,14 +4415,14 @@
       "declared_dependencies": [
         "organon:Action",
         "organon:Agency",
-        "organon:Boundary",
-        "organon:Capability",
+        "organon:Configuration",
+        "organon:Consequence",
         "organon:Constraint",
         "organon:Entity",
-        "organon:Invariant",
+        "organon:Interpretation",
         "organon:Relation",
-        "organon:Scope",
-        "organon:Transformation"
+        "organon:Ritual",
+        "organon:Scope"
       ],
       "conformity_witness": {
         "predicate": "Conforms",
@@ -4442,14 +4442,14 @@
       "one_step_mutations": [
         "G1-D119-remove-Action",
         "G1-D119-remove-Agency",
-        "G1-D119-remove-Boundary",
-        "G1-D119-remove-Capability",
+        "G1-D119-remove-Configuration",
+        "G1-D119-remove-Consequence",
         "G1-D119-remove-Constraint",
         "G1-D119-remove-Entity",
-        "G1-D119-remove-Invariant",
+        "G1-D119-remove-Interpretation",
         "G1-D119-remove-Relation",
+        "G1-D119-remove-Ritual",
         "G1-D119-remove-Scope",
-        "G1-D119-remove-Transformation",
         "G1-D119-remove-witness"
       ]
     }

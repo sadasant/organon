@@ -876,10 +876,10 @@ Depends: organon:Relation, organon:Attention, organon:Entity, organon:State, org
 
 ### `organon:Respect` · Respect
 
-**Respect** is a scoped Constraint upon an Entity's Action toward another Entity, where the Constraint admits the constrained Action and carries a typed witness that the Action is admitted by the other's Boundary, or that identity-preserving Agency options or at least two identity-preserving options for self-determination remain available from the Action's output. The protection concerns this exact Action rather than unrelated options. Respect does not require agreement, affection, or obedience.
+**Respect** is a Relation in which an Entity constrains its Action toward another Entity according to conditions expressed by that other Entity or interpreted from their shared Configuration, within a Scope.
 
 Claim: `D119` (definition).
-Depends: organon:Relation, organon:Constraint, organon:Action, organon:Entity, organon:Scope, organon:Boundary, organon:Agency, organon:Capability, organon:Transformation, organon:Invariant.
+Depends: organon:Relation, organon:Constraint, organon:Action, organon:Entity, organon:Scope, organon:Interpretation, organon:Configuration, organon:Ritual, organon:Agency, organon:Consequence.
 
 ## Other binding commitments
 
@@ -1167,9 +1167,9 @@ Depends: organon:Care, organon:Attention, organon:Action, organon:Consequence, o
 
 ### `C46` · binding_constraint
 
-**No respect-affection-agreement collapse:** Respect does not entail agreement, affection, obedience, favorable Consequence, or complete noninterference. None establishes Respect without a scoped Constraint upon Action and a typed Boundary, Agency-option, or self-determination protection witness.
+**No respect-affection-agreement collapse:** Respect does not entail agreement, affection, obedience, favorable Consequence, or complete noninterference. None establishes Respect without the other's expressed conditions or contextual Interpretation operating as Constraints upon Action within Scope. Contextual defaults do not override expressed contrary conditions; accidental conformity alone does not establish this organization, and accidental violation does not establish deliberate disregard.
 
-Depends: organon:Respect, organon:Constraint, organon:Action, organon:Boundary, organon:Agency, organon:Capability, organon:Consequence.
+Depends: organon:Respect, organon:Constraint, organon:Action, organon:Interpretation, organon:Scope, organon:Entity, organon:Consequence.
 
 ## Declared omissions
 

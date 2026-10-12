@@ -65,6 +65,9 @@ name = "AttentionRevision"
 [[lean_lib]]
 name = "CareRevision"
 
+[[lean_lib]]
+name = "RespectRevision"
+
 [[lean_exe]]
 name = "ontology_check"
 root = "Model"
