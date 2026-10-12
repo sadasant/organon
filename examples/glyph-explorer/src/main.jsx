@@ -19,13 +19,15 @@ import katex from "katex";
 import "katex/dist/katex.min.css";
 import "@fontsource-variable/inter";
 import "@fontsource-variable/newsreader";
+import "@fontsource/noto-sans-symbols-2";
 import "./style.css";
 import data from "./data.json";
 import { linkTerms, mathFor } from "./content.js";
 import Graph from "./Graph.jsx";
+import Glyph from "./Glyph.jsx";
 
 const Sky = lazy(() => import("./Sky.jsx"));
-const { terms, version } = data;
+const { terms } = data;
 const plugins = [linkTerms(terms)];
 const source = "https://github.com/sadasant/organon";
 const termBySlug = new Map(terms.map((t) => [t.slug, t]));
@@ -64,13 +66,7 @@ function Definition({ term, glyphs, search, full = false }) {
               aria-label={linked.label}
               className={glyphs ? "inline-glyph" : ""}
             >
-              {glyphs ? (
-                <span className={linked.glyph ? "" : "fallback-inline"}>
-                  {linked.glyph || `[${linked.claim_id}]`}
-                </span>
-              ) : (
-                children
-              )}
+              {glyphs ? <Glyph term={linked} /> : children}
             </Link>
           );
         },
@@ -101,33 +97,35 @@ function Formula({ term }) {
             : "Retained foundation"}
       </div>
       <div className="formula" dangerouslySetInnerHTML={{ __html: html }} />
-      <p className="math-note">
-        {term.form
-          ? "An existing nonbinding construction. All premises and witnesses share the variables below."
-          : term.depends_on.length
-            ? "Vocabulary required to state this definition. Not a logical equivalence; no complete algebraic form is supplied by the current experiment."
-            : "A foundational commitment, not an algebraic derivation."}
-      </p>
-      {term.form && (
-        <details className="variables">
-          <summary>Variables & limits</summary>
-          <dl>
-            {Object.entries(term.form.variables).map(([key, kind], index) => (
-              <div key={key}>
-                <dt>
-                  x<sub>{index + 1}</sub>
-                </dt>
-                <dd>
-                  {key} · {kind}
-                </dd>
-              </div>
+      <details className="notation-details" key={term.id}>
+        <summary>Notation</summary>
+        <p className="math-note">
+          {term.form
+            ? "An existing nonbinding construction. All premises and witnesses share the variables below."
+            : term.depends_on.length
+              ? "Vocabulary required to state this definition. Not a logical equivalence; no complete algebraic form is supplied by the current experiment."
+              : "A foundational commitment, not an algebraic derivation."}
+        </p>
+        {term.form && (
+          <div className="variables">
+            <dl>
+              {Object.entries(term.form.variables).map(([key, kind], index) => (
+                <div key={key}>
+                  <dt>
+                    x<sub>{index + 1}</sub>
+                  </dt>
+                  <dd>
+                    {key} · {kind}
+                  </dd>
+                </div>
+              ))}
+            </dl>
+            {term.form.anti_entailments.map((item, i) => (
+              <p key={i}>{item.statement}</p>
             ))}
-          </dl>
-          {term.form.anti_entailments.map((item, i) => (
-            <p key={i}>{item.statement}</p>
-          ))}
-        </details>
-      )}
+          </div>
+        )}
+      </details>
     </div>
   );
 }
@@ -155,6 +153,13 @@ function App() {
       ? `${selected.label} — Organon`
       : "Organon — a vocabulary of relations";
   }, [selected]);
+  useEffect(() => {
+    const previous = history.scrollRestoration;
+    history.scrollRestoration = "manual";
+    return () => {
+      history.scrollRestoration = previous;
+    };
+  }, []);
   useLayoutEffect(() => {
     if (!selected) return;
     setQuery("");
@@ -201,7 +206,7 @@ function App() {
             window.scrollTo(0, 0);
           }}
         >
-          Organon <span className="brand-divider">/</span>
+          Organon
         </Link>
         <span className="byline">
           by{" "}
@@ -210,43 +215,24 @@ function App() {
             target="_blank"
             rel="noreferrer"
           >
-            sadasant.ai ↗
+            sadasant.ai
           </a>
         </span>
         <nav>
-          <button onClick={goIndex}>
-            Index <span>↗</span>
-          </button>
+          <button onClick={goIndex}>Index</button>
           <a href={source} target="_blank" rel="noreferrer">
-            Repository ↗
+            Repo
           </a>
         </nav>
       </header>
       <main>
-        <section className="intro">
-          <div>
-            <p className="edition">An experimental atlas · v{version}</p>
-            <h1>
-              A vocabulary
-              <br />
-              of relations.
-            </h1>
-            <p className="intro-copy">
-              Every definition opens onto another.
-              <br />
-              Choose a mark. Follow the connections.
-            </p>
-          </div>
-          <div className="intro-end">
-            <span>115 terms</span>
-            <span>One connected vocabulary</span>
-          </div>
-        </section>
         <div id="atlas" className="atlas-toolbar">
-          <span>In the order of Organon</span>
           <label>
             <span className="sr-only">Find a term</span>
-            <span aria-hidden="true">⌕</span>
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="10" cy="10" r="6" />
+              <path d="m15 15 5 5" />
+            </svg>
             <input
               type="search"
               placeholder="Find a term"
@@ -255,7 +241,7 @@ function App() {
             />
           </label>
         </div>
-        <div className="glyph-grid">
+        <div className={`glyph-grid ${query ? "searching" : ""}`}>
           {unknown && (
             <section className="not-found">
               <h1>That term isn’t in this atlas.</h1>
@@ -268,7 +254,7 @@ function App() {
               <button onClick={() => setQuery("")}>Clear search</button>
             </p>
           )}
-          {visible.map((term, index) => (
+          {visible.map((term) => (
             <React.Fragment key={term.id}>
               <Link
                 to={
@@ -281,12 +267,7 @@ function App() {
                 aria-expanded={term.id === selected?.id}
                 title={term.label}
               >
-                <span className="tile-number">
-                  {String(terms.indexOf(term) + 1).padStart(3, "0")}
-                </span>
-                <span className={term.glyph ? "tile-glyph" : "tile-fallback"}>
-                  {term.glyph || term.claim_id}
-                </span>
+                <Glyph term={term} className="tile-glyph" />
                 <span className="tile-label">{term.label}</span>
               </Link>
               {selected?.id === term.id && (
@@ -295,29 +276,17 @@ function App() {
                   className="term-panel"
                   aria-label={`${term.label} definition`}
                 >
-                  <div className="panel-tools">
-                    <span>
-                      {term.claim_id} <span className="tool-divider">/</span>{" "}
-                      {String(terms.indexOf(term) + 1).padStart(3, "0")} of 115
-                    </span>
-                    <Link
-                      to={`/${location.search}`}
-                      aria-label="Close definition"
-                    >
-                      Close ×
-                    </Link>
-                  </div>
                   <div className="definition-block">
                     <div className="term-heading">
-                      <span
-                        className={
-                          term.glyph ? "heading-glyph" : "heading-fallback"
-                        }
-                        aria-hidden="true"
-                      >
-                        {term.glyph || term.claim_id}
-                      </span>
+                      <Glyph term={term} className="heading-glyph" />
                       <h1 tabIndex={-1}>{term.label}</h1>
+                      <Link
+                        className="close-definition"
+                        to={`/${location.search}`}
+                        aria-label="Close definition"
+                      >
+                        ×
+                      </Link>
                     </div>
                     <div className="definition-copy">
                       <Definition
@@ -335,11 +304,6 @@ function App() {
                       ]}
                       onChange={(value) => setOption("text", value)}
                     />
-                    {glyphs && (
-                      <p className="notation-note">
-                        Trial glyphs; bracketed IDs mark unassigned terms.
-                      </p>
-                    )}
                   </div>
                   <div className="representation">
                     <div className="representation-tools">
@@ -374,9 +338,7 @@ function App() {
                   </div>
                   <div className="entry-notes">
                     <details key={term.id}>
-                      <summary>
-                        Full entry & notation notes <span>+</span>
-                      </summary>
+                      <summary>Notes</summary>
                       <div className="full-entry">
                         <Definition
                           term={term}
@@ -386,7 +348,16 @@ function App() {
                         />
                       </div>
                       <p className="notation-note">
-                        {term.glyph ? "Trial glyph. " : "No glyph assigned. "}
+                        The rune is a provisional interface mark, not canonical
+                        notation.
+                        {term.glyph && (
+                          <>
+                            {" "}
+                            Unicode study candidate:{" "}
+                            <span className="unicode-candidate">{`${term.glyph}\uFE0E`}</span>
+                            .
+                          </>
+                        )}{" "}
                         {term.glyphNote}
                       </p>
                       <a
@@ -394,44 +365,15 @@ function App() {
                         target="_blank"
                         rel="noreferrer"
                       >
-                        Read the canonical source ↗
+                        Source
                       </a>
                     </details>
-                    <div className="term-pagination">
-                      {terms.indexOf(term) > 0 ? (
-                        <Link
-                          to={`/term/${terms[terms.indexOf(term) - 1].slug}${location.search}`}
-                        >
-                          ← {terms[terms.indexOf(term) - 1].label}
-                        </Link>
-                      ) : (
-                        <span />
-                      )}
-                      {terms.indexOf(term) < terms.length - 1 && (
-                        <Link
-                          to={`/term/${terms[terms.indexOf(term) + 1].slug}${location.search}`}
-                        >
-                          {terms[terms.indexOf(term) + 1].label} →
-                        </Link>
-                      )}
-                    </div>
                   </div>
                 </article>
               )}
             </React.Fragment>
           ))}
         </div>
-        <footer>
-          <p>A notation experiment, not a new ontology.</p>
-          <p>
-            Trial glyphs are provisional. IDs fill the gaps.
-            <br />
-            Definitions remain the source of meaning.
-          </p>
-          <a href={`${source}/pull/20`} target="_blank" rel="noreferrer">
-            About the glyph study ↗
-          </a>
-        </footer>
       </main>
     </div>
   );

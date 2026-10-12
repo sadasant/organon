@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { locality } from "./content.js";
+import Glyph from "./Glyph.jsx";
 
 function labelLines(label) {
   const lines = [""];
@@ -51,7 +52,7 @@ export default function Graph({ term, terms, search }) {
               : width * (i % 2 === 0 ? 0.24 : 0.76),
           y:
             side === "left"
-              ? 30 + Math.floor(i / 2) * 76
+              ? 42 + Math.floor(i / 2) * 76
               : center.y + 85 + Math.floor(i / 2) * 76,
         };
       return {
@@ -81,7 +82,6 @@ export default function Graph({ term, terms, search }) {
     <div className="graph-section">
       <div className="graph-key">
         <span>{dependencies.length} prerequisites</span>
-        <span>Vocabulary flows {narrow ? "↓" : "→"}</span>
         <span>{dependents.length} dependents</span>
       </div>
       <div
@@ -137,9 +137,7 @@ export default function Graph({ term, terms, search }) {
               aria-label={`Open ${n.term.label}`}
               className={n.center ? "star-node selected" : "star-node"}
             >
-              <title>
-                {n.term.label} — {n.term.claim_id}
-              </title>
+              <title>{n.term.label}</title>
               <circle
                 cx={n.x}
                 cy={n.y}
@@ -152,14 +150,14 @@ export default function Graph({ term, terms, search }) {
                 r={n.center ? 4 : 2}
                 className="node-star"
               />
-              <text
-                x={n.x}
-                y={n.y + (n.center ? -14 : -10)}
-                textAnchor="middle"
-                className={n.term.glyph ? "node-glyph" : "node-code"}
-              >
-                {n.term.glyph || n.term.claim_id}
-              </text>
+              <Glyph
+                term={n.term}
+                x={n.x - 13}
+                y={n.y - 39}
+                width={26}
+                height={26}
+                className="node-glyph"
+              />
               <text
                 x={n.x}
                 y={n.y + (n.center ? 32 : 24)}
@@ -176,11 +174,7 @@ export default function Graph({ term, terms, search }) {
           ))}
         </svg>
       </div>
-      <p className="graph-note">
-        One hop in either direction. Arrows mean “used to define,” not
-        causation.
-        <span className="mobile-hint"> Scroll to explore.</span>
-      </p>
+      <p className="graph-note">Arrows mean “used to define,” not causation.</p>
     </div>
   );
 }

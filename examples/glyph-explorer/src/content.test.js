@@ -2,6 +2,7 @@ import { test } from "node:test";
 import assert from "node:assert/strict";
 import fs from "node:fs";
 import { termMatcher, mathFor, locality } from "./content.js";
+import { runes } from "./runes.js";
 
 const { terms } = JSON.parse(
   fs.readFileSync(new URL("./data.json", import.meta.url)),
@@ -41,11 +42,21 @@ test("local graph has both incoming prerequisites and outgoing dependents", () =
   assert.ok(!graph.dependents.some((t) => t.id === "organon:Relation"));
 });
 
-test("all 115 definitions preserve source ordering and only trial glyphs display", () => {
+test("all 115 definitions preserve source ordering and trial Unicode candidates", () => {
   assert.equal(terms.length, 115);
   assert.equal(terms[0].id, "organon:Absence");
   assert.equal(terms.at(-1).id, "organon:Respect");
   assert.ok(terms.every((t) => t.statement.startsWith(`**${t.label}**`)));
   assert.ok(terms.every((t) => !t.glyph || t.glyphVerdict === "trial"));
   assert.equal(terms.filter((t) => t.form).length, 9);
+});
+
+test("every term has its own complete interface rune", () => {
+  assert.deepEqual(Object.keys(runes).sort(), terms.map((t) => t.id).sort());
+  assert.equal(new Set(Object.values(runes)).size, terms.length);
+  assert.ok(
+    Object.values(runes).every(
+      (path) => path.startsWith("M") && !path.includes("undefined"),
+    ),
+  );
 });
