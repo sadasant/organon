@@ -108,6 +108,8 @@ python3 scripts/check-adoption.py path/to/organon-adoption.json --repo-root path
 
 ## Verification
 
+The repository checks need only Python 3.11 or later. The Lean build needs [elan](https://github.com/leanprover/elan), which installs the toolchain pinned in `ontology/formal/lean-toolchain`. The [evaluation](./evals/README.md) and [glyph explorer](./examples/glyph-explorer/README.md) READMEs list their own dependencies.
+
 From the repository root:
 
 ```sh
