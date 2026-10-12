@@ -4,7 +4,7 @@ status: verified
 canonicality: noncanonical
 created: 2026-08-02
 updated: 2026-10-12
-repository_commit: "db978be8b2d02debff5e1d8850cd9882841a1e90"
+repository_commit: "b306c092cd5be6c3ec5ba9dce161c3d2ab46d309"
 ---
 # Lean Spike Build Receipt
 
@@ -26,13 +26,15 @@ lake build
 lake exe ontology_check
 ```
 
-Result: all 44 build jobs completed successfully. The executable printed:
+Result: all 46 build jobs completed successfully. The executable printed:
 
 ```text
 OrganonCore v0.20-compatible reduct: hidden bridge relations, ritual-dependent meaning, embodied integration, directed Attention tests, historical finite attention and love examples, Care parity open, Respect shadow, institutional revision candidates, four preserved challenge classifiers, one pending Reality representation elaboration, and metalinguistic definition admission
 ```
 
-The October 12 Attention revision withdraws Sustained Attention (D115), Love (D117), C42, and C44 without reassigning identifiers. The registry contains 115 terms and 53 commitments. Ordinary love is quarantined, not assigned a universal composite definition. `AttentionRevision.lean` supplies eight bounded theorems on target-sensitive response, unilateral and reciprocal cases, cessation, contextual covariation, isolated samples, and narrow focus. These use supplied participant and response models; they do not establish canonical Entity identity, Perception, Interpretation, Causal Contribution, or continuity between samples. The new Attention contract projects that bounded predicate; Care's partial contract preserves only historical target joins, with revised Attention and canonical Action/causality explicitly unproved. Historical finite Attention, Sustained Attention, Love, and Care records remain nonbinding examples. The Respect contract is retained.
+The October 12 Attention revision withdraws Sustained Attention (D115), Love (D117), C42, and C44 without reassigning identifiers. The registry contains 115 terms and 53 commitments. Ordinary love is quarantined, not assigned a universal composite definition. `AttentionRevision.lean` supplies eight bounded theorems on target-sensitive response, unilateral and reciprocal cases, cessation, contextual covariation, isolated samples, and narrow focus. These use supplied participant and response models; they do not establish canonical Entity identity, Perception, Interpretation, Causal Contribution, or continuity between samples. The Attention contract projects that bounded predicate. Historical finite Attention, Sustained Attention, Love, and Care records remain nonbinding examples. The Respect contract is retained.
+
+The subsequent Care revision retains D118 as criterion-governed responsiveness rather than requiring success or benefit. `CareRevision.lean` adds five bounded theorems covering opposite criteria, operative response and Specification inputs, mistaken represented conditions, ignored criteria, and accidental success. `criterionCareContract` replaces the historical target-only promotion contract. It tests the local operative criterion requirement using the existing Specification type; complete Attention, Action, Consequence, admissible causal comparison paths, and the same-Entity target join remain unproved. These tests neither formalize benefit/harm nor certify clinical or interrogative practice.
 
 The [approved institutional revision candidates](../../proposals/institutional-revision.md) remain a nonbinding proposal. `InstitutionalRevision.lean` contributes 17 named theorems to the default build: exact institutional joins, Recognition maintenance, broad conditioning versus operative represented choice, prediction boundaries, and actual further succession under a supplied continuity criterion. No finite history alone certifies unending survival. Those bounded tests do not replace canonical Authority or Standing.
 
@@ -41,7 +43,7 @@ The earlier Intention, permission-coverage, bodily-selection, and full-coverage 
 The integrated axiom audit was rerun after separately compiling `PR18ReviewDraft.lean`:
 
 ```text
-PROJECT_AXIOM_AUDIT: 2530 project theorems checked; 0 declared project axioms; allowed only propext, Classical.choice, Quot.sound.
+PROJECT_AXIOM_AUDIT: 2537 project theorems checked; 0 declared project axioms; allowed only propext, Classical.choice, Quot.sound.
 ```
 
 This is a build attestation, not promotion readiness. The incoming PR's exact-source promotion reviews were already stale and remain stale; the causal selection-ordering question and other declared semantic gates are not resolved by this withdrawal. Model-judged evaluations were not rerun.
@@ -99,15 +101,16 @@ The participant repair restricts the classifier's inputs to identity Invariant a
 - `IntelligenceKnowledge.lean`: `bc0ad1caa81adb25316f79aecd5011e32cf94cc73e1e046f7e13bcd10779aee8`
 - `QuarantineProfiles.lean`: `769a1fd2a8817476d55cefc7323da0837245783eb09a3dcc1e2657aa704d0509`
 - `AttentionLoveCare.lean`: `de095347d8b6dec43c24dbe9bcde3d8530e7595a163192accdff296eb2d44d45`
-- `AttentionLoveCareContracts.lean`: `d5523ddedfa5e92ff74661364f984f674a6b80315c19c0408788f36cac08c472`
+- `AttentionLoveCareContracts.lean`: `3cddddd29f9f93459f8ea24ccccd96eb9ffc375e02e74f5d64dd1974930849b3`
 - `Model.lean`: `fc704c2f6599642b69e7242efedb2f04c1ba3cf277417f412d251d9c5ef431c8`
-- `lakefile.toml`: `7148d16be2bb681ed91488d9cc41bb3f217f0eed7e7dd260f55d483a81de270c`
+- `lakefile.toml`: `ba784abcde0734a55d1508482dacd1f476be00eeea2c52db4a08e5b79b4d03ac`
 - `lean-toolchain`: `54727eec5cba149c18842e6deb5c41b369d66455c93ce135d7d5347c782b2325`
 - `PR18Governance.lean`: `cd26841c40ff8808bae91d0f31547a3fb0f1f693b049433ee4baa411bbdc5550`
 - `PR18ReviewDraft.lean`: `736485b4859be92602ef238c237033ab4d880489167e320488377cff1de786bc`
 - `RepresentationActivityExample.lean`: `e4dbab2ecfeba547f3ba9a3148c065e3bd7340897f3711a5aa55a7e10440af1d`
 - `InstitutionalRevision.lean`: `56bb2c4ee85f1617966beae97eb239f1d87d9c30c1cb36e13acdcad673b37e10`
 - `AttentionRevision.lean`: `5945b555eeee5b875fdaae2cf1021870dbc8d15050f1ee99c2c7785770d1e2aa`
+- `CareRevision.lean`: `24a85f0de2be128eae7b6b221dbb9ffa2e1af19d7f0a5d2cdb182f529c28e1e3`
 
 ## October 7 combined-source boundary
 

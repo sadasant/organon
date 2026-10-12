@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
   "suite": "project-ontologies",
-  "current_run": "results/2026-10-12-v0.20-attention-love-withdrawal",
-  "predecessor": "results/2026-10-11-v0.20-termhood-sweep",
+  "current_run": "results/2026-10-12-v0.20-care-revision",
+  "predecessor": "results/2026-10-12-v0.20-attention-love-withdrawal",
   "run_record": "run.json",
   "primary_artifact": "report.md",
   "evaluation_status": "incomplete",
   "promotion_status": "hold",
   "ontology_version": "0.20.0",
-  "ontology_sha256": "e7876b614c2cd51bc130e3b02065e3f5451de9ea331a0e66a42b2417e263051a",
-  "promotion_basis": "Attention revision and Love withdrawal source snapshot; no new model judgment or promotion-readiness attestation"
+  "ontology_sha256": "0e89e1082a2c0f42aa4698542b3245eda2058bb49a8e4ffddbd8355988aa0595",
+  "promotion_basis": "Care revision source snapshot; no new model judgment or promotion-readiness attestation"
 }

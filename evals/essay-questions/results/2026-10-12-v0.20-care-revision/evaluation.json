@@ -1,0 +1,19 @@
+{
+  "schema_version": 2,
+  "run": {
+    "evaluation": "essay-questions",
+    "methodology_version": "1.0",
+    "stages": ["snapshot", "deterministic-preflight"],
+    "generated_at": "2026-10-12",
+    "organon_commit": "b306c092cd5be6c3ec5ba9dce161c3d2ab46d309",
+    "committed_inputs_sha256": {
+      "ontology/ontology.md": "0e89e1082a2c0f42aa4698542b3245eda2058bb49a8e4ffddbd8355988aa0595"
+    },
+    "ontology_sha256": "0e89e1082a2c0f42aa4698542b3245eda2058bb49a8e4ffddbd8355988aa0595",
+    "complete": true,
+    "passed": false,
+    "incomplete_reason": "Care revision source snapshot only. Model generation and judgments were not rerun. Exact-source promotion reviews remain stale; no renewed promotion readiness is attested.",
+    "human_disposition": "hold"
+  },
+  "improvement_plans": []
+}
