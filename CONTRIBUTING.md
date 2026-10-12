@@ -73,7 +73,7 @@ Read the complete ontology as one document after the change. It must define itse
 
 ### 9. Update every governed surface
 
-Update the binding prose, `ontology/terms.yaml`, profiles, provenance, changelog, release note, adoption example, formal decision record, and build receipt wherever applicable. A formal receipt attests an implementation commit by exact source digests; commit the implementation first and the receipt second.
+Update the binding prose, `ontology/terms.yaml`, profiles, provenance, changelog, release note, adoption example, formal decision record, and build receipt wherever applicable. CI rebuilds the Lean shadow at every head; update the receipt when the toolchain changes or a local verification adds evidence CI does not run.
 
 ### 10. Record objections and gates
 
@@ -93,7 +93,13 @@ promotion-readiness executable. It pins the reviewed implementation commit,
 tree, and SHA-256 of every governed source, enumerates every proved contract,
 and records each adversarial finding as resolved or outside the formal boundary.
 The review record belongs in a later evidence commit, so it cannot attest
-uncommitted source or silently follow subsequent source changes.
+uncommitted source. Until the reviewed commit reaches `main`, every pinned source
+must stay byte-identical, so a pending review cannot silently follow later
+changes. Once it reaches `main`, the review is enacted: its pins must still match
+the reviewed commit, and CI freezes only the statements of its verified promotion
+contracts. Documentation, naming, and proof changes then need only a green build.
+Changing what a contract states needs a new review, and changing a binding
+definition follows the protocol above.
 
 ## Verification
 

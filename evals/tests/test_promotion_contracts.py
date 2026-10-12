@@ -176,3 +176,74 @@ def test_review_requires_and_checks_every_formal_evidence_pin(tmp_path, monkeypa
     (tmp_path / "Second.lean").write_text("Changed proof")
     assert any("reviewed source drift for Second.lean" in error
                for error in REVIEWS.check_review(manifest_path))
+
+
+def test_enacted_review_freezes_contract_statements_not_source_bytes(tmp_path, monkeypatch) -> None:
+    monkeypatch.setattr(REVIEWS, "ROOT", tmp_path)
+    contract = (
+        "/-- organon:promotion-contract EX-D1 -/\n"
+        "theorem exampleContract (n : Nat) :\n    n = n := by\n  rfl\n"
+    )
+    manifest = {
+        "schema_version": 2,
+        "proposal_id": "example",
+        "status": "promoted",
+        "markdown": "example.md",
+        "formal_shadow": "Shadow.lean",
+        "promotion_contracts": "Contracts.lean",
+        "promotion_review": "review.json",
+        "statements": [{"id": "EX-D1", "formal_contract": {"status": "proved"}}],
+    }
+    files = {
+        "claims.json": json.dumps(manifest),
+        "example.md": "dossier",
+        "Shadow.lean": "shadow",
+        "Contracts.lean": contract,
+        "scripts/check-proposals.py": "checker",
+        "scripts/check-promotion-review.py": "checker",
+    }
+    for relative, text in files.items():
+        path = tmp_path / relative
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text(text)
+
+    def git(*args):
+        return subprocess.check_output(
+            ["git", *args], cwd=tmp_path, text=True, stderr=subprocess.DEVNULL
+        ).strip()
+
+    git("init")
+    git("add", ".")
+    git("-c", "user.name=Test", "-c", "user.email=test@example.org",
+        "-c", "commit.gpgsign=false", "commit", "-m", "Reviewed sources")
+    review = {
+        "schema_version": 1,
+        "proposal_id": "example",
+        "status": "promotion-ready",
+        "reviewed_commit": git("rev-parse", "HEAD"),
+        "reviewed_tree": git("rev-parse", "HEAD^{tree}"),
+        "source_sha256": {
+            relative: REVIEWS.digest(tmp_path / relative) for relative in files
+        },
+        "verified_contracts": ["EX-D1"],
+        "findings": [{"id": "R1", "disposition": "resolved",
+                      "resolution": "The contract was challenged and its statement holds."}],
+    }
+    (tmp_path / "review.json").write_text(json.dumps(review))
+    manifest_path = tmp_path / "claims.json"
+    contracts = tmp_path / "Contracts.lean"
+
+    # Pending: the reviewed commit is not on the default branch, so bytes are frozen.
+    contracts.write_text("-- A later note.\n" + contract)
+    assert any("reviewed source drift for Contracts.lean" in error
+               for error in REVIEWS.check_review(manifest_path))
+
+    # Enacted: documentation and proof edits pass; a changed statement does not.
+    git("update-ref", "refs/remotes/origin/main", "HEAD")
+    contracts.write_text("-- A later note.\n" + contract.replace("  rfl\n", "  exact rfl\n"))
+    (tmp_path / "example.md").write_text("revised dossier")
+    assert REVIEWS.check_review(manifest_path) == []
+
+    contracts.write_text(contract.replace("n = n", "n + 0 = n"))
+    assert any("EX-D1 contract statement changed since review" in error
+               for error in REVIEWS.check_review(manifest_path))
