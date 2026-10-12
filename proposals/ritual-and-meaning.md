@@ -4,6 +4,9 @@ status: promoted
 binding: false
 created: 2026-08-04
 updated: 2026-08-04
+recommended_outcome: promoted-in-v0.17
+statement_manifest: "ritual-and-meaning-claims.json"
+formal_shadow: "../ontology/formal/RitualMeaning.lean"
 ---
 # Proposal: Ritual and ritual-dependent Meaning
 

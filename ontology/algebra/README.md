@@ -6,12 +6,16 @@ source_lock: source-lock.json
 ---
 # Candidate algebra experiment
 
+This directory holds a nonbinding experiment over Organon's definitions: its
+hand-authored ledgers and fixtures, the mutations, witnesses, countermodels, and
+reports its builders generate, and the source lock that freezes the v0.20 inputs.
+
 Organon currently states licensed joins in definitions and prohibited collapses
 in consistency rules. This experiment asks a second-order question: do several
 of those local definitions and fences instantiate a smaller calculus over typed
 participants, conserved indices, and explicit witnesses?
 
-It does not shorten the binding term definitions. Version 0.20 is frozen by
+The experiment does not shorten the binding term definitions. Version 0.20 is frozen by
 commit and source digest in [source-lock.json](./source-lock.json); v0.20
 retains the definition-admission invariant and records the five embodiment definitions as positively underdetermined by this experiment, while the
 candidate disciplines and registry-reflection control remain nonbinding. The
