@@ -1,7 +1,7 @@
 ---
 type: ontology-prompt-projection
 status: generated-noncanonical
-ontology_version: "0.19.0"
+ontology_version: "0.20.0"
 projection_mode: "full"
 binding_source: ontology.md
 ---
@@ -27,8 +27,8 @@ binding_source: ontology.md
 
 - Mode: full
 - Requested: all registered terms
-- Terms carried: 114 of 114
-- Commitments carried: 49 of 49
+- Terms carried: 115 of 115
+- Commitments carried: 53 of 53
 
 ## Metalanguage boundary
 
@@ -435,14 +435,14 @@ Depends: organon:Configuration, organon:Constraint, organon:Record, organon:Inte
 
 ### `organon:Standing` · Standing
 
-**Standing** is the Relation through which an Order, under a Rule, places an Entity within the domain of named institutional statuses or Actions in a specified Scope. “Institutional eligibility” is shorthand for the relevant Standing Relation, not an additional predicate. Standing in one Order supplies no Standing in another.
+**Standing** is the Relation through which an Order, under a Rule, places an Entity within the domain of named institutional statuses or Actions in a specified Scope. Placement is not recording: Standing does not require that the Order has recorded the placement, and a Record of a status without that placement supplies no Standing. “Institutional eligibility” is shorthand for the relevant Standing Relation, not an additional predicate. Standing in one Order supplies no Standing in another.
 
 Claim: `D047` (definition).
 Depends: organon:Relation, organon:Order, organon:Record, organon:Entity, organon:Rule, organon:Scope.
 
 ### `organon:Recognition` · Recognition
 
-**Recognition** is the Relation established when an Order records Standing for an Entity under a Rule and Scope.
+**Recognition** is the Relation established when an Order records Standing for an Entity under a Rule and Scope. The Standing must itself obtain at exactly the same Order, Rule, Entity, institutional status, and Scope; a record at different indices is not Recognition of that Standing.
 
 Claim: `D048` (definition).
 Depends: organon:Relation, organon:Order, organon:Standing, organon:Entity, organon:Rule, organon:Scope.
@@ -530,13 +530,6 @@ Depends: organon:Action, organon:Permission, organon:Agent, organon:Scope, organ
 
 Claim: `D060` (definition).
 Depends: organon:Relation, organon:Permission, organon:Action, organon:Configuration, organon:Constraint, organon:Scope, organon:Order, organon:Agent, organon:Capability.
-
-### `organon:FullyExercisablePermission` · Fully Exercisable Permission
-
-**Fully Exercisable Permission** is the condition in which every Action in a Permission's Scope satisfies Exercisability. A Permission may remain valid while no Action, or only some Actions, currently satisfies it.
-
-Claim: `D061` (definition).
-Depends: organon:Permission, organon:Action, organon:Scope, organon:Exercisability.
 
 ### `organon:Enforcement` · Enforcement
 
@@ -649,13 +642,6 @@ Depends: organon:Record, organon:Claim, organon:Permission, organon:Observation,
 
 Claim: `D076` (definition).
 Depends: organon:Agent, organon:Institution, organon:Action, organon:Order.
-
-### `organon:ConstitutedExercise` · Constituted exercise
-
-**Constituted exercise** is an exercise of Authority under the current Order.
-
-Claim: `D077` (definition).
-Depends: organon:Authority, organon:Order.
 
 ### `organon:ConstituentExercise` · Constituent exercise
 
@@ -869,10 +855,31 @@ Depends: organon:Configuration, organon:Transformation, organon:Direction, organ
 
 ### `organon:InternalActivitySelection` · Internal Activity Selection
 
-**Internal Activity Selection** is a Configuration in which the Difference between a Representation of an outcome and an admissible contrast Representation is the named upstream Difference of a Causal Contribution that discriminates among at least two available Transformations related by one Body. The outcome Representation denotes the selected Transformation's output, the contribution's downstream output equals that output, and the selected and excluded alternatives both occur within the Entity's Interior under the Body Relation's Scope and Specification. Selection may continue, inhibit, or revise internal activity without crossing the Entity's Boundary and therefore does not by itself constitute Action or Agency.
+**Internal Activity Selection** is a Configuration in which the Difference between a Representation of an outcome and an admissible contrast Representation is the named upstream Difference of a Causal Contribution that discriminates among at least two available Transformations related by one Body. The outcome Representation denotes the selected Transformation's output, and the contribution's downstream output equals that output. An availability Specification conforms exactly to the declared options within the Entity's Interior under the Body Relation's Scope. Selection and rejection describe one determination within the same represented condition; any Difference used to determine the outcome must be retained in that condition's Representation. A rejected alternative is a contrasting possibility, not a State the Entity must previously reach or a Transformation that must occur. Selection may continue, inhibit, or revise internal activity without crossing the Entity's Boundary and therefore does not by itself constitute Action or Agency.
 
 Claim: `D111` (definition).
 Depends: organon:Configuration, organon:Difference, organon:Representation, organon:Denotation, organon:CausalContribution, organon:Transformation, organon:Body, organon:Relation, organon:Entity, organon:Interior, organon:Scope, organon:Specification, organon:Boundary, organon:Action, organon:Agency, organon:State, organon:Constraint.
+
+### `organon:Attention` · Attention
+
+**Attention** is a directed Relation in which an Entity's Perception or Interpretation remains causally organized by Differences in another Entity across changes in that target's State, within a Scope.
+
+Claim: `D114` (definition).
+Depends: organon:Relation, organon:Entity, organon:Perception, organon:Interpretation, organon:Difference, organon:State, organon:Scope, organon:Representation, organon:CausalContribution, organon:Claim, organon:Truth.
+
+### `organon:Care` · Care
+
+**Care** is a Relation in which Attention to another Entity's changing State conditions the selection or adjustment of Action according to a Specification of Consequences concerning that Entity, within a Scope.
+
+Claim: `D118` (definition).
+Depends: organon:Relation, organon:Attention, organon:Entity, organon:State, organon:Action, organon:Specification, organon:Consequence, organon:Scope, organon:CausalContribution.
+
+### `organon:Respect` · Respect
+
+**Respect** is a Relation in which an Entity constrains its Action toward another Entity according to conditions expressed by that other Entity or interpreted from their shared Configuration, within a Scope.
+
+Claim: `D119` (definition).
+Depends: organon:Relation, organon:Constraint, organon:Action, organon:Entity, organon:Scope, organon:Interpretation, organon:Configuration, organon:Ritual, organon:Agency, organon:Consequence.
 
 ## Other binding commitments
 
@@ -1139,6 +1146,30 @@ Depends: organon:Body, organon:EmbodiedPerspective, organon:RecurrentIntegration
 **No embodied-structure-to-status collapse:** The complete embodied structural conjunction, Consciousness Attribution, Consciousness Designation, Standing, protection, and moral status do not entail one another. Every institutional consequence requires its own Rule, Order, and Scope; this rule does not promote or define Consciousness.
 
 Depends: organon:Body, organon:EmbodiedPerspective, organon:RecurrentIntegration, organon:InternalActivitySelection, organon:ConsciousnessAttribution, organon:ConsciousnessDesignation, organon:Standing, organon:Order, organon:Rule, organon:Scope, organon:MoralStatusAttribution, organon:MoralPersonhoodDesignation.
+
+### `C41` · binding_constraint
+
+**Attention need not be exhaustive:** Attention may concern only some Differences in the target Entity within its Scope. Perception, Interpretation, Action, salience, exposure, or repeated occurrence alone does not establish Attention without causal organization persisting across changes in that target's State.
+
+Depends: organon:Attention, organon:Entity, organon:Scope, organon:State, organon:Perception, organon:Interpretation, organon:Action, organon:Difference, organon:CausalContribution.
+
+### `C43` · binding_constraint
+
+**Attention is normatively and epistemically neutral:** Attention does not entail benefit, consent, morality, accuracy, Truth, purpose, or favorable Consequence, and none of those separately establishes Attention.
+
+Depends: organon:Attention, organon:Claim, organon:Truth, organon:Consequence.
+
+### `C45` · binding_constraint
+
+**No care-benefit collapse:** Care may be competent or incompetent, wanted or unwanted, beneficial or harmful. Neither favorable Consequence nor conformity to a Specification establishes Care without Attention and that Specification conditioning Action concerning the same Entity. Care does not entail successful conformity or benefit to that Entity.
+
+Depends: organon:Care, organon:Attention, organon:Action, organon:Consequence, organon:Specification, organon:Entity.
+
+### `C46` · binding_constraint
+
+**No respect-affection-agreement collapse:** Respect does not entail agreement, affection, obedience, favorable Consequence, or complete noninterference. None establishes Respect without the other's expressed conditions or contextual Interpretation operating as Constraints upon Action within Scope. Contextual defaults do not override expressed contrary conditions; accidental conformity alone does not establish this organization, and accidental violation does not establish deliberate disregard.
+
+Depends: organon:Respect, organon:Constraint, organon:Action, organon:Interpretation, organon:Scope, organon:Entity, organon:Consequence.
 
 ## Declared omissions
 

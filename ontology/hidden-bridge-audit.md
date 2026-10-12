@@ -4,7 +4,7 @@ status: adopted
 canonicality: supporting
 created: 2026-08-03
 updated: 2026-08-09
-ontology_version: "0.19.0"
+ontology_version: "0.20.0"
 ---
 # Hidden Bridge Audit
 
@@ -54,7 +54,7 @@ Standing already belongs to the Searlean institutional shadow documented in the 
 
 ## Formal evidence and boundary
 
-The Lean shadow contains an unequal Denotation witness; a Causal Contribution over two single-step paths whose inputs differ in one typed feature while sharing their typed context and whose endpoints are joined by a named Change; a Capability whose possibility predicate is definitionally the inhabitance of its declared realization type; a fully indexed Standing Relation recorded for one Entity, Rule, status, and Scope; and in-Scope supportive Evidential Bearing for a false Claim. Truth carries its exact claim-indexed Denotation. Trust now carries the canonical paired-path contribution rather than a separate one-path predicate. Warranted Knowledge carries the exact in-Scope supportive bearing rather than a free `supports` predicate.
+The Lean shadow contains an unequal Denotation witness; a Causal Contribution over two single-step paths whose inputs differ in one typed feature while sharing their typed context and whose endpoints are joined by a named Change; a Capability whose possibility predicate is definitionally the inhabitance of its declared realization type; a fully indexed Standing Relation for institutional placement, with Recognition separately requiring its same-index recording; and in-Scope supportive Evidential Bearing for a false Claim. Finite cases show unrecorded Standing and a record without Standing or Recognition. Truth carries its exact claim-indexed Denotation. Trust now carries the canonical paired-path contribution rather than a separate one-path predicate. Warranted Knowledge carries the exact in-Scope supportive bearing rather than a free `supports` predicate.
 
 The shadow does not prove that every natural-language expression has a unique Denotation, that the chosen comparison fixes every causally relevant variable, that a concrete Capability realization contains the binding Configuration and Action-producing Causal path, that every Capability procedure faithfully models its Environment, or that an Order's evaluation Rule is epistemically good. Those are evidence and parity gates, not hidden assumptions.
 

@@ -44,6 +44,30 @@ name = "EmbodiedConsciousness"
 [[lean_lib]]
 name = "PromotionContracts"
 
+[[lean_lib]]
+name = "AttentionLoveCare"
+
+[[lean_lib]]
+name = "AttentionLoveCareContracts"
+
+[[lean_lib]]
+name = "PR18Governance"
+
+[[lean_lib]]
+name = "RepresentationActivityExample"
+
+[[lean_lib]]
+name = "InstitutionalRevision"
+
+[[lean_lib]]
+name = "AttentionRevision"
+
+[[lean_lib]]
+name = "CareRevision"
+
+[[lean_lib]]
+name = "RespectRevision"
+
 [[lean_exe]]
 name = "ontology_check"
 root = "Model"

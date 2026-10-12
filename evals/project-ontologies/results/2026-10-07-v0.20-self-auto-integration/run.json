@@ -1,0 +1,22 @@
+{
+  "schema_version": 2,
+  "run": {
+    "evaluation": "project-ontologies",
+    "methodology_version": "1.0",
+    "stages": [
+      "snapshot",
+      "deterministic-preflight"
+    ],
+    "generated_at": "2026-10-07",
+    "organon_commit": "1a882da27fa4797b536ced4a3fd50fe39d2bc09d",
+    "committed_inputs_sha256": {
+      "ontology/ontology.md": "1e0e804e46b6887fbae74d3a89aa5f7109f63f03f0cc2542f9b47982fde9cb01"
+    },
+    "ontology_sha256": "1e0e804e46b6887fbae74d3a89aa5f7109f63f03f0cc2542f9b47982fde9cb01",
+    "complete": true,
+    "passed": false,
+    "incomplete_reason": "Deterministic combined-source snapshot only. Model judgments were not rerun; Self/Auto remains proposed, and changed promotion-source reviews require renewed exact-source review. Daniel authorized push for review, not a new semantic promotion.",
+    "human_disposition": "hold"
+  },
+  "improvement_plans": []
+}

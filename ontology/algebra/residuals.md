@@ -52,7 +52,7 @@ does not prove that the entire consciousness paragraph follows from that law.
   unresolved.
 - The taxonomy has not been tested against earlier ontology versions whose terms
   or claim boundaries differ.
-- The nine normal forms do not establish reconstruction of all 114 registered
+- The nine normal forms do not establish reconstruction of all 122 registered
   terms or all licensed joins.
 - No Lean encoding currently proves correspondence between these cards and the
   binding prose.
@@ -60,13 +60,13 @@ does not prove that the entire consciousness paragraph follows from that law.
   candidate calculus.
 
 The exhaustive [reduction ledger](./reduction-ledger.yaml) closes the accounting
-gap without pretending to close the semantic gap: all 114 terms and 49
+gap without pretending to close the semantic gap: all 122 terms and 57
 commitments have a disposition, but 102 definitions admit paired target-extension
 sketches that the registry alone cannot distinguish. These sketches are not
 finite models evaluated by the candidate disciplines.
 
-The registry-reflection follow-on replays all 111 definitions through one
-generic wrapper, but retains all 111 definition schemas as parameters and
+The registry-reflection follow-on replays all 119 definitions through one
+generic wrapper, but retains all 119 definition schemas as parameters and
 collapses lexical dependencies onto one candidate. Its opaque conformity
 witness fails the semantic anti-vacuity gate. No constructor minimum is proved;
 semantic minimality and interdefinability remain open.

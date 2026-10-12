@@ -2,26 +2,26 @@
   "schema_version": 1,
   "status": "generated-nonbinding-complete-reduction-audit",
   "source_sha256": {
-    "ontology/terms.yaml": "bc4c8641089d1f341e91f48d18f45296c18509191782ba74279e4dafbfc3b293",
-    "ontology/algebra/normal-forms.yaml": "e801315ee1104ee39aee834214c679a564cd3aac982980dc3b5b3a3a3fd29aa7",
+    "ontology/terms.yaml": "48469a8a1a6f52837d428002b233701667bbebcb06c4d55457355303da38f937",
+    "ontology/algebra/normal-forms.yaml": "1e4c8a950a920840f4e9966778fbdda625aec7d5560efe692e05ae4efac0bae0",
     "ontology/algebra/candidate-laws.yaml": "8d739e8c928f527ee8f66b28c4e3a8b696d0539333627bf26243d72073212550",
     "ontology/algebra/claim-coverage.yaml": "17c549d7193e680b126fd112eaa36053105eb00a9c5b4b72655444d16594637a",
-    "ontology/algebra/consistency-dispositions.yaml": "880f2703085370e756ee0596b65efefa7af2db4f8eb606e37684ed6564a071fc",
-    "scripts/build-reduction-audit.py": "62357d06297befeaaf1e1c3fac1698efe6932dc009ff45d15cb857dc4dc01d68"
+    "ontology/algebra/consistency-dispositions.yaml": "69166b8befd22188eb1ccab23048b3954898985ab6c40027a18d82437a813ffc",
+    "scripts/build-reduction-audit.py": "f640c686bb72a7f901d07feb36090d2083ef2d796192f4c2a12b6f02e0e41c2d"
   },
   "question": "Do the retained foundation, nine positive normal forms, and six candidate disciplines preserve every registered Organon classification?",
   "answer": "no",
   "reason": "Complete reduction requires positive construction as well as prohibition of invalid collapses.",
   "counts": {
-    "registered_terms": 114,
-    "registered_commitments": 49,
+    "registered_terms": 115,
+    "registered_commitments": 53,
     "candidate_laws": 6,
     "normal_forms": 9,
     "constructively_encoded": 9,
-    "positively_underdetermined": 102,
+    "positively_underdetermined": 103,
     "retained_foundation": 3,
     "consistency_candidate_clause_derived": 20,
-    "consistency_positive_schema_missing": 16,
+    "consistency_positive_schema_missing": 20,
     "consistency_retained_governance": 2
   },
   "terms": [
@@ -1773,34 +1773,6 @@
       "reason": "A typed normal-form query is encoded by NF-EXERCISABILITY and has a finite witness."
     },
     {
-      "term": "organon:FullyExercisablePermission",
-      "claim": "D061",
-      "claim_type": "definition",
-      "depends_on": [
-        "organon:Permission",
-        "organon:Action",
-        "organon:Scope",
-        "organon:Exercisability"
-      ],
-      "disposition": "positively_underdetermined",
-      "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
-      "paired_target_extension_sketch": {
-        "all_declared_dependencies_present": true,
-        "shared_dependency_extensions": [
-          "organon:Permission",
-          "organon:Action",
-          "organon:Scope",
-          "organon:Exercisability"
-        ],
-        "target_predicate": "organon:FullyExercisablePermission",
-        "model_without_target_extension": [],
-        "model_with_target_extension": [
-          "candidate"
-        ],
-        "classification_differs": true
-      }
-    },
-    {
       "term": "organon:Enforcement",
       "claim": "D062",
       "claim_type": "definition",
@@ -2291,30 +2263,6 @@
           "organon:Order"
         ],
         "target_predicate": "organon:Polity",
-        "model_without_target_extension": [],
-        "model_with_target_extension": [
-          "candidate"
-        ],
-        "classification_differs": true
-      }
-    },
-    {
-      "term": "organon:ConstitutedExercise",
-      "claim": "D077",
-      "claim_type": "definition",
-      "depends_on": [
-        "organon:Authority",
-        "organon:Order"
-      ],
-      "disposition": "positively_underdetermined",
-      "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
-      "paired_target_extension_sketch": {
-        "all_declared_dependencies_present": true,
-        "shared_dependency_extensions": [
-          "organon:Authority",
-          "organon:Order"
-        ],
-        "target_predicate": "organon:ConstitutedExercise",
         "model_without_target_extension": [],
         "model_with_target_extension": [
           "candidate"
@@ -3683,6 +3631,126 @@
         ],
         "classification_differs": true
       }
+    },
+    {
+      "term": "organon:Attention",
+      "claim": "D114",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Relation",
+        "organon:Entity",
+        "organon:Perception",
+        "organon:Interpretation",
+        "organon:Difference",
+        "organon:State",
+        "organon:Scope",
+        "organon:Representation",
+        "organon:CausalContribution",
+        "organon:Claim",
+        "organon:Truth"
+      ],
+      "disposition": "positively_underdetermined",
+      "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
+      "paired_target_extension_sketch": {
+        "all_declared_dependencies_present": true,
+        "shared_dependency_extensions": [
+          "organon:Relation",
+          "organon:Entity",
+          "organon:Perception",
+          "organon:Interpretation",
+          "organon:Difference",
+          "organon:State",
+          "organon:Scope",
+          "organon:Representation",
+          "organon:CausalContribution",
+          "organon:Claim",
+          "organon:Truth"
+        ],
+        "target_predicate": "organon:Attention",
+        "model_without_target_extension": [],
+        "model_with_target_extension": [
+          "candidate"
+        ],
+        "classification_differs": true
+      }
+    },
+    {
+      "term": "organon:Care",
+      "claim": "D118",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Relation",
+        "organon:Attention",
+        "organon:Entity",
+        "organon:State",
+        "organon:Action",
+        "organon:Specification",
+        "organon:Consequence",
+        "organon:Scope",
+        "organon:CausalContribution"
+      ],
+      "disposition": "positively_underdetermined",
+      "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
+      "paired_target_extension_sketch": {
+        "all_declared_dependencies_present": true,
+        "shared_dependency_extensions": [
+          "organon:Relation",
+          "organon:Attention",
+          "organon:Entity",
+          "organon:State",
+          "organon:Action",
+          "organon:Specification",
+          "organon:Consequence",
+          "organon:Scope",
+          "organon:CausalContribution"
+        ],
+        "target_predicate": "organon:Care",
+        "model_without_target_extension": [],
+        "model_with_target_extension": [
+          "candidate"
+        ],
+        "classification_differs": true
+      }
+    },
+    {
+      "term": "organon:Respect",
+      "claim": "D119",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Relation",
+        "organon:Constraint",
+        "organon:Action",
+        "organon:Entity",
+        "organon:Scope",
+        "organon:Interpretation",
+        "organon:Configuration",
+        "organon:Ritual",
+        "organon:Agency",
+        "organon:Consequence"
+      ],
+      "disposition": "positively_underdetermined",
+      "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
+      "paired_target_extension_sketch": {
+        "all_declared_dependencies_present": true,
+        "shared_dependency_extensions": [
+          "organon:Relation",
+          "organon:Constraint",
+          "organon:Action",
+          "organon:Entity",
+          "organon:Scope",
+          "organon:Interpretation",
+          "organon:Configuration",
+          "organon:Ritual",
+          "organon:Agency",
+          "organon:Consequence"
+        ],
+        "target_predicate": "organon:Respect",
+        "model_without_target_extension": [],
+        "model_with_target_extension": [
+          "candidate"
+        ],
+        "classification_differs": true
+      }
     }
   ],
   "consistency_rules": [
@@ -3855,6 +3923,26 @@
       "claim": "C38",
       "status": "positive_schema_missing",
       "reason": "The embodied recurrent candidate remains quarantined and has no complete binding consciousness circuit."
+    },
+    {
+      "claim": "C41",
+      "status": "positive_schema_missing",
+      "reason": "No complete persistent target-directed Attention circuit is encoded."
+    },
+    {
+      "claim": "C43",
+      "status": "positive_schema_missing",
+      "reason": "Benefit, consent, morality, accuracy, and purpose remain outside the candidate algebra."
+    },
+    {
+      "claim": "C45",
+      "status": "positive_schema_missing",
+      "reason": "No complete Care, benefit, and harm separation circuit is encoded."
+    },
+    {
+      "claim": "C46",
+      "status": "positive_schema_missing",
+      "reason": "No complete Respect, agreement, affection, and interference circuit is encoded."
     }
   ],
   "other_commitments": [

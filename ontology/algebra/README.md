@@ -1,7 +1,7 @@
 ---
 type: ontology-algebra-experiment
 status: nonbinding
-ontology_version: "0.19.0"
+ontology_version: "0.20.0"
 source_lock: source-lock.json
 ---
 # Candidate algebra experiment
@@ -11,8 +11,8 @@ in consistency rules. This experiment asks a second-order question: do several
 of those local definitions and fences instantiate a smaller calculus over typed
 participants, conserved indices, and explicit witnesses?
 
-It does not shorten the binding term definitions. Version 0.19 is frozen by
-commit and source digest in [source-lock.json](./source-lock.json); v0.19
+It does not shorten the binding term definitions. Version 0.20 is frozen by
+commit and source digest in [source-lock.json](./source-lock.json); v0.20
 retains the definition-admission invariant and records the five embodiment definitions as positively underdetermined by this experiment, while the
 candidate disciplines and registry-reflection control remain nonbinding. The
 experiment is falsification-first: a candidate discipline is retained only
@@ -171,8 +171,8 @@ states what this experiment has not established.
 ## Complete-registry result
 
 The [complete reduction audit](./complete-reduction-report.md) extends the
-experiment from its training surface to an exhaustive disposition of all 114
-registered terms and all 49 commitments. It answers the reduction question in
+experiment from its training surface to an exhaustive disposition of all 122
+registered terms and all 57 commitments. It answers the reduction question in
 the negative: the six disciplines are an annotation taxonomy, not a generative
 algebra. Nine definitions have typed normal forms, while 102 remain positively
 underdetermined by the current machinery. Twenty consistency clauses receive
@@ -187,7 +187,7 @@ models or proofs and add a nondegenerate positive constructor calculus; adding
 further prohibitions cannot suffice.
 
 The follow-on [degenerate registry-reflection control](./positive-calculus-report.md)
-tests whether a universal wrapper can replay the registry. It reflects all 111
+tests whether a universal wrapper can replay the registry. It reflects all 119
 definitions only when handed their complete schemas, every lexical dependency
 as a positive fact over one candidate, and an opaque conformity witness. Its
 882 dependency-removal fixtures show wrapper sensitivity, not ontological

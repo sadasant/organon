@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
   "suite": "essay-questions",
-  "current_run": "results/2026-09-30-answer-form-v0.19-adversarial-repair",
-  "predecessor": "results/2026-09-25-answer-form-v0.19-promotion",
+  "current_run": "results/2026-10-12-v0.20-readiness-review",
+  "predecessor": "results/2026-10-12-v0.20-respect-revision",
   "run_record": "evaluation.json",
   "primary_artifact": "evaluation.md",
   "evaluation_status": "incomplete",
-  "promotion_status": "adopted",
-  "ontology_version": "0.19.0",
-  "ontology_sha256": "02b518c93f42b236178b68e6bd911ae4dbea38905c5dd44a7de46654a435d284",
-  "promotion_basis": "human-maintainer-disposition"
+  "promotion_status": "hold",
+  "ontology_version": "0.20.0",
+  "ontology_sha256": "dc59b74da77899a5c446456ca447bc962bf60ec3b31308900aebf8b4aef1c4c6",
+  "promotion_basis": "Readiness-review source snapshot; ontology review is separate from downstream model evaluation, which remains incomplete"
 }

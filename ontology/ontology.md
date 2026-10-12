@@ -2,9 +2,9 @@
 type: editorial-ontology
 status: provisional-binding
 binding: true
-version: 0.19
+version: 0.20
 created: 2026-08-01
-updated: 2026-09-25
+updated: 2026-10-12
 evidence_scope: "Daniel's adopted commitments and the recovered essay corpus"
 corpus_audit: "../provenance/essays.md"
 term_registry: "terms.yaml"
@@ -387,12 +387,12 @@ The sequence contains at least two distinct Transformation occurrences joined by
 <a id="organon-standing"></a>
 <!-- organon:term organon:Standing claim=D047 -->
 
-**Standing** is the Relation through which an Order, under a Rule, places an Entity within the domain of named institutional statuses or Actions in a specified Scope. “Institutional eligibility” is shorthand for the relevant Standing Relation, not an additional predicate. Standing in one Order supplies no Standing in another.
+**Standing** is the Relation through which an Order, under a Rule, places an Entity within the domain of named institutional statuses or Actions in a specified Scope. Placement is not recording: Standing does not require that the Order has recorded the placement, and a Record of a status without that placement supplies no Standing. “Institutional eligibility” is shorthand for the relevant Standing Relation, not an additional predicate. Standing in one Order supplies no Standing in another.
 
 <a id="organon-recognition"></a>
 <!-- organon:term organon:Recognition claim=D048 -->
 
-**Recognition** is the Relation established when an Order records Standing for an Entity under a Rule and Scope.
+**Recognition** is the Relation established when an Order records Standing for an Entity under a Rule and Scope. The Standing must itself obtain at exactly the same Order, Rule, Entity, institutional status, and Scope; a record at different indices is not Recognition of that Standing.
 
 <a id="organon-principal"></a>
 <!-- organon:term organon:Principal claim=D049 -->
@@ -456,10 +456,7 @@ An assertion that a Permission is valid remains a Claim before an independent Ob
 
 **Exercisability** is a Relation among a Permission, one Action, a time, and a Configuration of environmental, technical, and temporal Constraints when the Action is in Scope, the time is in the interval, the governing Order still admits the Permission, and the Agent has the Capability to perform that Action under the stated Configuration.
 
-<a id="organon-fully-exercisable-permission"></a>
-<!-- organon:term organon:FullyExercisablePermission claim=D061 -->
-
-**Fully Exercisable Permission** is the condition in which every Action in a Permission's Scope satisfies Exercisability. A Permission may remain valid while no Action, or only some Actions, currently satisfies it.
+A Permission may remain valid while no Action, or only some Actions, currently satisfies Exercisability.
 
 <a id="organon-enforcement"></a>
 <!-- organon:term organon:Enforcement claim=D062 -->
@@ -566,10 +563,7 @@ A Ledger can preserve standing and history; it does not become Reality.
 
 **Polity** is the plurality of Agents and Institutions whose recurring Actions enact and contest a political Order.
 
-<a id="organon-constituted-exercise"></a>
-<!-- organon:term organon:ConstitutedExercise claim=D077 -->
-
-**Constituted exercise** is an exercise of Authority under the current Order.
+For example, an Agent issuing a Declaration exercises Authority under its Order. Merely holding Authority does not establish that the Declaration occurred. This is an example of existing terms, not a separate institutional category.
 
 <a id="organon-constituent-exercise"></a>
 <!-- organon:term organon:ConstituentExercise claim=D078 -->
@@ -826,9 +820,35 @@ Body does not duplicate Entity, Boundary, or Persistence and has no separate ide
 <a id="organon-internal-activity-selection"></a>
 <!-- organon:term organon:InternalActivitySelection claim=D111 -->
 
-**Internal Activity Selection** is a Configuration in which the Difference between a Representation of an outcome and an admissible contrast Representation is the named upstream Difference of a Causal Contribution that discriminates among at least two available Transformations related by one Body. The outcome Representation denotes the selected Transformation's output, the contribution's downstream output equals that output, and the selected and excluded alternatives both occur within the Entity's Interior under the Body Relation's Scope and Specification. Selection may continue, inhibit, or revise internal activity without crossing the Entity's Boundary and therefore does not by itself constitute Action or Agency.
+**Internal Activity Selection** is a Configuration in which the Difference between a Representation of an outcome and an admissible contrast Representation is the named upstream Difference of a Causal Contribution that discriminates among at least two available Transformations related by one Body. The outcome Representation denotes the selected Transformation's output, and the contribution's downstream output equals that output. An availability Specification conforms exactly to the declared options within the Entity's Interior under the Body Relation's Scope. Selection and rejection describe one determination within the same represented condition; any Difference used to determine the outcome must be retained in that condition's Representation. A rejected alternative is a contrasting possibility, not a State the Entity must previously reach or a Transformation that must occur. Selection may continue, inhibit, or revise internal activity without crossing the Entity's Boundary and therefore does not by itself constitute Action or Agency.
 
 Together, Body, Embodied Perspective, Recurrent Integration, and Internal Activity Selection specify one proposal-local candidate condition for consciousness only when they share the same Entity, Body Relation, Scope, Interior Specification, Direction, and Causal-path interpretation; every Transformation and Change in the recurrent families belongs to that Body Relation; and the perspective's condition Representation and exact Causal Contribution are the Representation and contribution that perform the selection or revision. This structural conjunction is the candidate's complete obtainment condition rather than evidence for a separately stipulated predicate. It is not a binding definition of Consciousness and remains distinct from Consciousness Attribution and Consciousness Designation.
+
+
+### 32. Attention, care, and respect
+
+<a id="organon-attention"></a>
+<!-- organon:term organon:Attention claim=D114 -->
+
+**Attention** is a directed Relation in which an Entity's Perception or Interpretation remains causally organized by Differences in another Entity across changes in that target's State, within a Scope.
+
+The target remains the same Entity; the attended Differences and their Representations need not remain unchanged. Directedness neither requires nor excludes reciprocity. Attention may concern only some Differences and may cease; it does not require exhaustive Perception, a finite channel inventory, or a numerical degree. Its causal organization requires Causal Contribution, not mere co-occurrence or resemblance. Attention alone makes no Claim about benefit, consent, morality, accuracy, Truth, or purpose.
+
+<a id="organon-care"></a>
+<!-- organon:term organon:Care claim=D118 -->
+
+**Care** is a Relation in which Attention to another Entity's changing State conditions the selection or adjustment of Action according to a Specification of Consequences concerning that Entity, within a Scope.
+
+Both the Attention and the Specification must causally condition the Action; an accompanying description or an after-the-fact classification is insufficient. The Specification concerns the same Entity attended to, not an unrelated target. Care does not require that the resulting Consequences conform to the Specification, benefit that Entity, or agree with its own assessment. Whose interests the Specification serves, whose interpretation supplies it, and what actually happens remain distinct. Care may be competent or incompetent, wanted or unwanted, beneficial or harmful; no verbal statement or conscious deliberation is required.
+
+<a id="organon-respect"></a>
+<!-- organon:term organon:Respect claim=D119 -->
+
+**Respect** is a Relation in which an Entity constrains its Action toward another Entity according to conditions expressed by that other Entity or interpreted from their shared Configuration, within a Scope.
+
+The conditions must operate as Constraints upon Action, not merely accompany it as a description. Contextual Interpretation supplies defaults; a condition expressed by the other Entity takes precedence over a conflicting default for the same Action and Scope. Neither an explicit negotiation nor a Ritual is required, and a contextual Interpretation does not by itself establish the other's agreement. An Action that violates the applicable conditions fails to respect them even when the violation is accidental; this alone does not establish deliberate disregard or the absence of Respect in other Actions.
+
+Respect does not require uninterrupted Agency: a limitation accepted by the other Entity remains constrained by its accepted extent and duration, rather than authorizing further limitation outside that Scope. Respect does not require affection, agreement, obedience, favorable Consequence, or complete noninterference.
 
 ## Relation signatures
 
@@ -837,6 +857,9 @@ These signatures make the ontology operational. They are schemas, not executable
 | Relation | Inputs | Result or constraint |
 | --- | --- | --- |
 | `denotes` | expression Presence, target Presence, Relation, or Configuration | Denotation with ordered expression and target positions; no entailment of fidelity, Truth, Interpretation, status, or causal use |
+| `attends` | Entity, another Entity, Perception or Interpretation, target Differences across changing States, Scope, Causal Contribution | directed causal organization persists across the target's changes; reciprocity and exhaustive coverage are not required |
+| `caresFor` | Entity, another Entity's changing State, Attention, Action, Specification of Consequences concerning that same Entity, Scope | Attention and the Specification condition selection or adjustment of Action; neither success nor benefit is entailed |
+| `respects` | acting Entity, other Entity, Action, expressed conditions or Interpretation of shared Configuration, Constraint, Scope | the other's expressed conditions take precedence over conflicting contextual defaults and constrain Action within their Scope |
 | `directs` | Relation, input State, output State | forward ordering excludes reverse ordering under the same Relation |
 | `feeds` | output State, input State, Specification of contribution | part of one State supplies part of the other without requiring equality |
 | `contributesTo` | named input Difference, two matched nonempty Causal paths, named endpoint Change | contrastive Causal Contribution; occurrence, precedence, or correlation alone is insufficient |
@@ -976,16 +999,27 @@ These signatures make the ontology operational. They are schemas, not executable
 
 38. <!-- organon:claim C38 --> **No embodied-structure-to-status collapse:** The complete embodied structural conjunction, Consciousness Attribution, Consciousness Designation, Standing, protection, and moral status do not entail one another. Every institutional consequence requires its own Rule, Order, and Scope; this rule does not promote or define Consciousness.
 
+
+41. <!-- organon:claim C41 --> **Attention need not be exhaustive:** Attention may concern only some Differences in the target Entity within its Scope. Perception, Interpretation, Action, salience, exposure, or repeated occurrence alone does not establish Attention without causal organization persisting across changes in that target's State.
+
+43. <!-- organon:claim C43 --> **Attention is normatively and epistemically neutral:** Attention does not entail benefit, consent, morality, accuracy, Truth, purpose, or favorable Consequence, and none of those separately establishes Attention.
+
+45. <!-- organon:claim C45 --> **No care-benefit collapse:** Care may be competent or incompetent, wanted or unwanted, beneficial or harmful. Neither favorable Consequence nor conformity to a Specification establishes Care without Attention and that Specification conditioning Action concerning the same Entity. Care does not entail successful conformity or benefit to that Entity.
+
+46. <!-- organon:claim C46 --> **No respect-affection-agreement collapse:** Respect does not entail agreement, affection, obedience, favorable Consequence, or complete noninterference. None establishes Respect without the other's expressed conditions or contextual Interpretation operating as Constraints upon Action within Scope. Contextual defaults do not override expressed contrary conditions; accidental conformity alone does not establish this organization, and accidental violation does not establish deliberate disregard.
+
 ## Quarantined vocabulary
 
 These terms occur in the corpus but have no binding definition yet. They may be used in ordinary or quoted language, but no argument may depend on their ontological meaning until they are defined and placed in the dependency order.
 
+- **Love:** ordinary love has no binding definition. Particular uses may be described through Configurations involving Attention, Care, Meaning, or Ritual; no one such combination is stipulated to be necessary or sufficient for love.
+- **Intention:** ordinary intention has no binding definition. A Representation participating in a bodily Causal Contribution does not by itself establish desire, endorsement, or goal pursuit.
 - **Consciousness:** the underlying condition remains quarantined and is not inferable from Entity, Agent, Memory, Model, Interior, Consciousness Attribution, or Consciousness Designation. The two discourse terms govern Claims and institutional status without defining consciousness itself.
 - **Knowledge:** bare knowledge has no binding genus. Use Operative Knowledge, Factive Operative Knowledge, or Warranted Knowledge only when the corresponding operative, truth, and evidence obligations obtain; acquaintance, collective knowledge, and practiced Capability remain unmapped ordinary uses.
 - **Moral personhood:** the underlying candidate condition and moral worth remain undefined. Moral Status Attribution and Moral Personhood Designation govern Claims and institutional status without deciding that condition or collapsing it into institutional Person.
 - **Sovereignty:** generic Sovereignty has no binding definition. Use Constituent, Constituted, Boundary, or External Sovereignty for the promoted profiles, or declare a Configuration joining them without treating that join as automatic.
 - **Value:** generic Value and moral worth remain undefined. Preference, Utility Measure, Price, and the institutional-valuation projection are distinct and may not substitute for one another.
-- **Beauty, Play, and Love:** these words have no binding genus here. They may be expressed, stabilized, or transformed through Ritual, but Meaning does not define them and their occurrence cannot be inferred from Meaning alone.
+- **Beauty and Play:** these words have no binding genus here. They may be expressed, stabilized, or transformed through Ritual, but Meaning does not define them and their occurrence cannot be inferred from Meaning alone.
 
 ## Intellectual shadows and contribution
 
@@ -1007,6 +1041,7 @@ This ontology does not claim that its local machinery is unprecedented. Nearly e
 | Epistemic, moral, sovereign, and valuation profiles | [Edmund Gettier, “Is Justified True Belief Knowledge?”](https://www.jstor.org/stable/3326922), [Immanuel Kant, *Groundwork of the Metaphysics of Morals*](https://www.gutenberg.org/ebooks/5682), [Thomas Hobbes, *Leviathan*](https://www.gutenberg.org/ebooks/3207), [Carl Schmitt, *Political Theology*](https://press.uchicago.edu/ucp/books/book/chicago/P/bo3643854.html), [Antonio Negri, *Insurgencies*](https://www.upress.umn.edu/9780816622740/insurgencies/), the [Montevideo Convention](https://www.oas.org/juridico/english/sigs/a-40.html), [Paul Samuelson, “A Note on the Pure Theory of Consumer's Behaviour”](https://www.jstor.org/stable/2548836), and [John von Neumann and Oskar Morgenstern, *Theory of Games and Economic Behavior*](https://press.princeton.edu/books/paperback/9780691130613/theory-of-games-and-economic-behavior) | Gettier blocks an easy justified-true-belief analysis; Kant separates moral consideration from price; Hobbes, Schmitt, Negri, and recognition practice expose distinct loci of sovereign power; Samuelson and von Neumann and Morgenstern discipline preference and utility representation. | Organon does not solve knowledge, moral worth, sovereignty, or value as generic concepts. It promotes narrower Configurations and Relations, keeps candidate conditions separate from institutional designation, and refuses silent composition among profiles. |
 | Flow, Ritual, and Meaning | Émile Durkheim, *The Elementary Forms of Religious Life*; Roy Rappaport, *Ritual and Religion in the Making of Humanity*; Catherine Bell, *Ritual Theory, Ritual Practice*; Randall Collins, *Interaction Ritual Chains*; Charles Sanders Peirce's triadic semiotics; and Ludwig Wittgenstein's account of meaning and use | Repetition and formalized performance, participation, effects carried through practice, and the refusal to locate significance as a substance inside an isolated sign or object. | Organon permits private Ritual rather than requiring collective assembly, makes every sustaining causal join explicit, and defines Meaning as a participant-indexed Relation rather than emotional energy, sacred status, Denotation, or linguistic use. It does not claim that these sources share one theory or that any tradition reduces to this schema. |
 | Body, Embodied Perspective, and Recurrent Integration | Maurice Merleau-Ponty, *Phenomenology of Perception*; Francisco Varela, Evan Thompson, and Eleanor Rosch, *The Embodied Mind*; Evan Thompson, *Mind in Life*; and Victor Lamme's recurrent-processing account | Bodily situation, organism-environment coupling, operational self-reference, and recurrent interaction as conditions for minded organization rather than detachable verbal report. | Organon does not adopt phenomenology, enactivism, autopoiesis, or recurrent-processing theory wholesale. It types Body through Entity identity and Boundary Constraints, requires contrastive Causal Contributions for recurrence, and retains the resulting consciousness formulation as one quarantined candidate rather than a settled universal definition. |
+| Attention, Care, and Respect; ordinary love | Simone Weil, *Waiting for God*; Iris Murdoch, *The Sovereignty of Good*; Harry Frankfurt, *The Reasons of Love*; and care-ethics traditions associated with Carol Gilligan and Joan Tronto | Attention as sustained orientation, diverse accounts of love, care as practice responsive to another, and respect as a limit on action. | Organon does not inherit Weil's theology, Murdoch's moral psychology, Frankfurt's volitional account, or a complete ethics of care. It types Attention causally, leaves ordinary love undefined, and leaves benefit, consent, morality, and goodness outside these definitions. |
 
 ### The originality boundary
 
@@ -1034,6 +1069,6 @@ For any essay, project narrative, or editorial evaluation:
 
 Internal closure does not establish metaphysical completeness. Absence is primitive; A3 defines Presence as its exhaustive and exclusive complement; A4 demonstrates that Presence obtains because the ontology's own statement is already a mark. Presence is not causally generated or logically derived from Absence alone.
 
-Ritual-dependent Meaning is one binding account of significance, not a complete aesthetics, ethics, theology, philosophy of mind, or anthropology. The embodiment terms specify identity-bearing bodily organization, operative perspective, recurrent integration, and internal selection without defining Consciousness universally or deciding which Entities satisfy the proposal-local candidate. Beauty, Play, Love, sacredness, grief, goodness, consent, consciousness, and moral worth remain outside those definitions. The noncanonical formal shadow proves finite participant-history access and exact causal joins, not complete Sense-to-Perception uptake, universal process individuation, or a universal law of temporal decay.
+Ritual-dependent Meaning is one binding account of significance, not a complete aesthetics, ethics, theology, philosophy of mind, or anthropology. The embodiment terms specify identity-bearing bodily organization, operative perspective, recurrent integration, and internal selection without defining Consciousness universally or deciding which Entities satisfy the proposal-local candidate. Beauty, Play, love, sacredness, grief, goodness, consent, consciousness, and moral worth remain outside those definitions. The noncanonical formal shadow proves finite participant-history access and selected causal joins, not complete Sense-to-Perception uptake, canonical Attention/Interpretation parity, universal process individuation, or a universal law of temporal decay.
 
 In the [Long-Form Editorial Grammar](../editorial/long-form.md), **Missingness** names the felt gap an article makes consequential. **Absence** remains reserved for the absolute primitive defined here.

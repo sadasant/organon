@@ -181,15 +181,16 @@ structure Scope (α : Type u) where
   includes : α → Prop
 
 /-!
-Standing is indexed by the Order's recording relation and by the exact Rule,
+Standing is indexed by the Order's placement relation and by the exact Rule,
 Entity, status or Action, and Scope. Eligibility is not a parallel predicate.
+Standing does not require that the Order has recorded the placement.
 -/
 structure StandingRelation
     {Order : Type u}
     {Entity : Type v}
     {Rule : Type w}
     {Status : Type x}
-    (records :
+    (places :
       Order → Rule → Entity → Status → Scope (Entity × Status) → Prop)
     (order : Order)
     (rule : Rule)
@@ -197,6 +198,28 @@ structure StandingRelation
     (status : Status)
     (scope : Scope (Entity × Status)) where
   inScope : scope.includes (entity, status)
+  placed : places order rule entity status scope
+
+/-!
+Recognition is the Order's record of Standing. It carries the Standing witness
+at exactly the same Order, Rule, Entity, status or Action, and Scope as the
+record; a record without that Standing does not constitute Recognition.
+-/
+structure RecognitionRelation
+    {Order : Type u}
+    {Entity : Type v}
+    {Rule : Type w}
+    {Status : Type x}
+    (places :
+      Order → Rule → Entity → Status → Scope (Entity × Status) → Prop)
+    (records :
+      Order → Rule → Entity → Status → Scope (Entity × Status) → Prop)
+    (order : Order)
+    (rule : Rule)
+    (entity : Entity)
+    (status : Status)
+    (scope : Scope (Entity × Status)) where
+  standing : StandingRelation places order rule entity status scope
   recorded : records order rule entity status scope
 
 /-!

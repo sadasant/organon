@@ -1,0 +1,23 @@
+{
+  "schema_version": 2,
+  "run": {
+    "evaluation": "project-ontologies",
+    "methodology_version": "1.0",
+    "stages": [
+      "snapshot",
+      "deterministic-preflight",
+      "human-promotion"
+    ],
+    "generated_at": "2026-10-03",
+    "organon_commit": "52bb3bf8e7051bbb705e9f1df94e5b9481b39b54",
+    "committed_inputs_sha256": {
+      "ontology/ontology.md": "9d6a5f90429c9b53a2e0b0cff1e1128783d373bf8a8689116e5f91523ce49b66"
+    },
+    "ontology_sha256": "9d6a5f90429c9b53a2e0b0cff1e1128783d373bf8a8689116e5f91523ce49b66",
+    "complete": true,
+    "passed": false,
+    "incomplete_reason": "The v0.20 deterministic snapshot includes scoped availability and participant-individuation review repairs; model-judged evaluation was not rerun. This is not a model-quality pass.",
+    "human_disposition": "adopted"
+  },
+  "improvement_plans": []
+}

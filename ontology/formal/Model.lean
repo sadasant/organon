@@ -11,6 +11,12 @@ import BridgeRelations
 import RitualMeaning
 import EmbodiedConsciousness
 import PromotionContracts
+import AttentionLoveCare
+import AttentionLoveCareContracts
+import PR18Governance
+import RepresentationActivityExample
+import InstitutionalRevision
+import AttentionRevision
 
 /-!
 # Daniel's Ontology: finite inhabited model
@@ -567,7 +573,101 @@ theorem exerciseModelIsInhabited :
     Nonempty (PermissionExercise ToyPrincipal ToyAgent ToyAction ToyContext) :=
   ⟨activationExercise⟩
 
+/-! ## Nonbinding example: individual coverage under fixed conditions
+
+This example replaces no canonical term. D061 is retired. The finite
+exercisability projection fixes one Permission, time, and resource configuration;
+it is not an execution trace or a complete formalization of D060.
+-/
+namespace PermissionCoverageExample
+
+def order : InstitutionalOrder Unit Unit where
+  recognizesPrincipal := fun _ => True
+  recognizesAgent := fun _ => True
+  admits := fun claim grant permission _ => claim = 1 ∧ grant = 2 ∧ permission = 3
+  revokes := fun _ _ => False
+
+def claim : PermissionClaim Unit Unit (fun _ => Bool) order where
+  claimId := 1
+  principal := ()
+  principalStanding := trivial
+  agent := ()
+  agentStanding := trivial
+  scope := ⟨fun _ => True⟩
+  interval := maintenanceWindow
+
+def permission : Permission Unit Unit (fun _ => Bool) where
+  order := order
+  claim := claim
+  grant := {
+    grantId := 2
+    authority := {
+      holder := ()
+      holderStanding := trivial
+      actionScope := ⟨fun _ => True⟩
+      interval := maintenanceWindow
+    }
+    grantAction := false
+    scopeCovered := fun _ _ => trivial
+    intervalCovered := fun _ included => included
+  }
+  permissionId := 3
+  admittedAt := 0
+  admitted := ⟨rfl, rfl, rfl⟩
+
+/-- Two alternative operations consume one and two resource units respectively. -/
+def cost (action : Bool) : Nat := if action then 2 else 1
+
+def capability : Capability Unit (fun _ => Bool) Nat () where
+  realization := fun resource action => { remaining : Nat // remaining + cost action = resource }
+  decideCan := fun resource action => decide (cost action ≤ resource)
+  decisionCorrect := by
+    intro resource action
+    simp only [decide_eq_true_eq]
+    constructor
+    · intro enough
+      exact ⟨⟨resource - cost action, by omega⟩⟩
+    · rintro ⟨⟨remaining, balance⟩⟩
+      omega
+
+def exercisable (time resource : Nat) (action : Bool) : Prop :=
+  permission.claim.scope.includes action ∧
+  permission.claim.interval.contains time ∧
+  permission.order.admits permission.claim.claimId permission.grant.grantId
+    permission.permissionId time ∧
+  (∀ revokedAt, permission.order.revokes permission.permissionId revokedAt → ¬ revokedAt ≤ time) ∧
+  capability.can resource action
+
+theorem exercisableIff (time resource : Nat) (action : Bool) :
+    exercisable time resource action ↔ time ≤ 10 ∧ cost action ≤ resource := by
+  simp only [exercisable, Capability.can, ← capability.decisionCorrect]
+  simp [permission, claim, order, maintenanceWindow, Interval.contains, capability]
+
+/-- Universal coverage at one fixed time and resource supply, not a new primitive. -/
+theorem eachAlternativeIsExercisable : ∀ action, exercisable 1 2 action := by
+  intro action
+  rw [exercisableIff]
+  cases action <;> decide
+
+theorem individualCoverageDoesNotSupplyBothExecutions :
+    ¬ exercisable 1 (2 - cost false) true ∧
+    ¬ exercisable 1 (2 - cost true) false := by
+  simp [exercisableIff, cost]
+
+theorem extraResourcePermitsBothOrders :
+    exercisable 1 3 false ∧ exercisable 1 (3 - cost false) true ∧
+    exercisable 1 3 true ∧ exercisable 1 (3 - cost true) false := by
+  simp [exercisableIff, cost]
+
+theorem permissionDoesNotSupplyResourcesOrTime :
+    (∀ action, ¬ exercisable 1 0 action) ∧
+    exercisable 1 1 false ∧ ¬ exercisable 1 1 true ∧
+    (∀ action, ¬ exercisable 11 3 action) := by
+  simp [exercisableIff, cost]
+
+end PermissionCoverageExample
+
 end DanielOntology.Model
 
 def main : IO Unit :=
-  IO.println "OrganonCore v0.19-compatible reduct: hidden bridge relations, private ritual, ritual-dependent meaning, embodied integration, an embodied recurrent consciousness candidate, downstream shadows, four preserved challenge classifiers, one pending Reality representation elaboration, and metalinguistic definition admission"
+  IO.println "OrganonCore v0.20-compatible reduct: hidden bridge relations, ritual-dependent meaning, embodied integration, directed Attention tests, historical finite attention and love examples, Care parity open, Respect shadow, institutional revision candidates, four preserved challenge classifiers, one pending Reality representation elaboration, and metalinguistic definition admission"

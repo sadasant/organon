@@ -1,0 +1,18 @@
+{
+  "schema_version": 2,
+  "run": {
+    "evaluation": "project-ontologies",
+    "methodology_version": "1.0",
+    "stages": ["snapshot", "deterministic-preflight"],
+    "generated_at": "2026-10-06",
+    "organon_commit": "cf786f3dde95eb461a8c9b207b445a6e5f64b364",
+    "committed_inputs_sha256": {
+      "ontology/ontology.md": "0efec67fe99f2c8b3a53e4570b398f648181fc310387cae90813662368d6aeff"
+    },
+    "ontology_sha256": "0efec67fe99f2c8b3a53e4570b398f648181fc310387cae90813662368d6aeff",
+    "complete": true,
+    "passed": false,
+    "incomplete_reason": "Deterministic snapshot of the current-state-only Attention repair. Model judgment was not rerun. Difference orientation and participant individuation remain unresolved; no promotion-readiness claim is made."
+  },
+  "improvement_plans": []
+}

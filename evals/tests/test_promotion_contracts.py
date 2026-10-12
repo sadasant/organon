@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import importlib.util
 import json
+import subprocess
 import sys
 from pathlib import Path
 
@@ -108,5 +109,70 @@ def test_unformalized_dependency_forces_boundary_qualified_status() -> None:
 
 
 def test_promoted_schema_v2_manifest_has_exact_source_review() -> None:
-    manifest = ROOT / "proposals" / "embodied-consciousness-claims.json"
-    assert REVIEWS.check_review(manifest) == []
+    manifests = [
+        ROOT / "proposals" / "embodied-consciousness-claims.json",
+        ROOT / "proposals" / "attention-love-care-claims.json",
+    ]
+    for manifest in manifests:
+        assert REVIEWS.check_review(manifest) == []
+
+
+def test_review_requires_and_checks_every_formal_evidence_pin(tmp_path, monkeypatch) -> None:
+    monkeypatch.setattr(REVIEWS, "ROOT", tmp_path)
+    manifest = {
+        "schema_version": 2,
+        "proposal_id": "example",
+        "status": "partially-promoted",
+        "markdown": "example.md",
+        "formal_shadow": "Shadow.lean",
+        "formal_evidence": ["First.lean", "Second.lean"],
+        "promotion_contracts": "Contracts.lean",
+        "promotion_review": "review.json",
+        "statements": [],
+    }
+    sources = [
+        "claims.json", "example.md", "Shadow.lean", "Contracts.lean",
+        "First.lean", "Second.lean", "scripts/check-proposals.py",
+        "scripts/check-promotion-review.py",
+    ]
+    for relative in sources:
+        path = tmp_path / relative
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text(json.dumps(manifest) if relative == "claims.json" else relative)
+
+    def git(*args):
+        return subprocess.check_output(
+            ["git", *args], cwd=tmp_path, text=True, stderr=subprocess.DEVNULL
+        ).strip()
+
+    git("init")
+    git("add", ".")
+    git("-c", "user.name=Test", "-c", "user.email=test@example.org",
+        "-c", "commit.gpgsign=false", "commit", "-m", "Reviewed sources")
+    pins = {relative: REVIEWS.digest(tmp_path / relative) for relative in sources}
+    review = {
+        "schema_version": 1,
+        "proposal_id": "example",
+        "status": "promotion-ready",
+        "reviewed_commit": git("rev-parse", "HEAD"),
+        "reviewed_tree": git("rev-parse", "HEAD^{tree}"),
+        "source_sha256": pins.copy(),
+        "verified_contracts": [],
+        "findings": [{"id": "R1", "disposition": "resolved",
+                      "resolution": "All declared evidence sources were reviewed."}],
+    }
+    review_path = tmp_path / "review.json"
+    manifest_path = tmp_path / "claims.json"
+    review_path.write_text(json.dumps(review))
+    assert REVIEWS.check_review(manifest_path) == []
+
+    del review["source_sha256"]["Second.lean"]
+    review_path.write_text(json.dumps(review))
+    assert any("missing required source pins ['Second.lean']" in error
+               for error in REVIEWS.check_review(manifest_path))
+
+    review["source_sha256"] = pins
+    review_path.write_text(json.dumps(review))
+    (tmp_path / "Second.lean").write_text("Changed proof")
+    assert any("reviewed source drift for Second.lean" in error
+               for error in REVIEWS.check_review(manifest_path))

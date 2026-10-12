@@ -15,6 +15,29 @@ namespace DanielOntology.EmbodiedConsciousnessProposal
 
 open ConsciousnessProposal
 
+instance stateDecidableEq {Carrier : Type u} [DecidableEq Carrier] :
+    DecidableEq (State Carrier) := fun first second =>
+  match first, second with
+  | ⟨first⟩, ⟨second⟩ =>
+    if equal : first = second then isTrue (by subst second; rfl)
+    else isFalse (by intro same; cases same; exact equal rfl)
+
+instance transformationDecidableEq {Carrier : Type u} [DecidableEq Carrier]
+    {direction : Direction Carrier} : DecidableEq (Transformation direction) :=
+  fun first second =>
+    if inputEqual : first.input = second.input then
+      if outputEqual : first.output = second.output then
+        isTrue (by
+          cases first with
+          | mk firstInput firstOutput firstAdvances =>
+            cases second with
+            | mk secondInput secondOutput secondAdvances =>
+              cases inputEqual
+              cases outputEqual
+              rfl)
+      else isFalse (by intro same; cases same; exact outputEqual rfl)
+    else isFalse (by intro same; cases same; exact inputEqual rfl)
+
 structure Body
     (Part : Type u)
     {Feature : Type v}
@@ -224,6 +247,10 @@ inductive RevisionMode where
   | select | continue | inhibit | revise
 deriving DecidableEq, Repr
 
+/-- Restricted temporal witness, not a characterization of canonical D111.
+Its endpoint joins order the rejected output before the selected output, and
+Body membership requires actual occurrences. Canonical rejection is instead a
+contrasting possibility; neither restriction is necessary there. -/
 structure InternalActivitySelection
     (Part : Type u)
     {Feature : Type v} {Context : Type w}
@@ -245,6 +272,11 @@ structure InternalActivitySelection
   options : List (Transformation entity.persistenceDirection)
   selected : Transformation entity.persistenceDirection
   rejected : Transformation entity.persistenceDirection
+  availability : Specification (Transformation entity.persistenceDirection)
+  availabilityExactlyOptions : ∀ transformation,
+    availability.conforms transformation ↔ transformation ∈ options
+  selectedIsChangedPathLast : selected = contribution.rightEndpoints.last
+  rejectedIsContrastPathLast : rejected = contribution.leftEndpoints.last
   selectedInOptions : selected ∈ options
   rejectedInOptions : rejected ∈ options
   optionsWithinBody : ∀ transformation,
@@ -256,6 +288,17 @@ structure InternalActivitySelection
   selectedIsInternal : body.interior.conforms selected.output
   rejectedIsInternal : body.interior.conforms rejected.output
   mode : RevisionMode
+
+/-- Exposes the extra ordering imposed by the restricted witness. This is not
+a promotion theorem about rejection in the binding ontology. -/
+theorem restrictedSelectionOrdersOutputs
+    {Part : Type u} {Feature : Type v} {Context : Type w}
+    {entity : Entity (Feature × Context)} {body : Body Part entity}
+    (selection : InternalActivitySelection Part body) :
+    entity.persistenceDirection.before selection.rejected.output selection.selected.output := by
+  rw [selection.rejectedIsContrastPathLast, selection.selectedIsChangedPathLast,
+    ← selection.contribution.changeStartsAt, ← selection.contribution.changeEndsAt]
+  exact selection.contribution.downstreamChange.transformation.advances
 
 structure EmbodiedRecurrentStructure
     (Part : Type u)
@@ -684,6 +727,15 @@ def systemSelection : InternalActivitySelection ToyPart systemBody where
   options := [forwardLowTransform, forwardHighTransform]
   selected := forwardHighTransform
   rejected := forwardLowTransform
+  availability := {
+    scope := ⟨fun transformation => transformation ∈ [forwardLowTransform, forwardHighTransform]⟩
+    conforms := fun transformation => transformation ∈ [forwardLowTransform, forwardHighTransform]
+    decideConformity := fun transformation => decide (transformation ∈ [forwardLowTransform, forwardHighTransform])
+    conformityCorrect := by simp
+    conformityWithinScope := by intro transformation member; exact member }
+  availabilityExactlyOptions := by intro transformation; rfl
+  selectedIsChangedPathLast := rfl
+  rejectedIsContrastPathLast := rfl
   selectedInOptions := by simp
   rejectedInOptions := by simp
   optionsWithinBody := by

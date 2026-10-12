@@ -1,0 +1,81 @@
+{
+  "schema_version": 1,
+  "proposal_id": "institutional-revision",
+  "status": "ready-for-review",
+  "binding": false,
+  "markdown": "institutional-revision.md",
+  "formal_shadow": "../ontology/formal/InstitutionalRevision.lean",
+  "formal_evidence": [],
+  "introduced_terms": ["organon:Standing", "organon:Authority", "organon:Power", "organon:Institution", "organon:SuccessfulSuccession"],
+  "local_symbols": ["local:SuccessionOccurrence", "local:ContinuityCriterion", "local:MaintenancePlan", "local:RequiredRecognition"],
+  "statements": [
+    {
+      "id": "IR-D1",
+      "type": "proposed_definition",
+      "subject": "Standing",
+      "depends_on": ["organon:Relation", "organon:Entity", "organon:Action", "organon:Order", "organon:Scope", "organon:Rule", "organon:Specification", "organon:Record"],
+      "formal_symbol": "standingIffConformity"
+    },
+    {
+      "id": "IR-D2",
+      "type": "proposed_definition",
+      "subject": "Authority",
+      "depends_on": ["organon:Relation", "organon:Scope", "organon:Entity", "organon:State", "organon:Transformation", "organon:Constraint", "organon:CausalContribution", "organon:Recognition", "organon:Rule", "organon:Order", "organon:Grant", "organon:Permission", "IR-D1"],
+      "formal_symbol": "conditioningWithoutSourceChoice"
+    },
+    {
+      "id": "IR-D3",
+      "type": "proposed_definition",
+      "subject": "Power",
+      "depends_on": ["organon:Action", "organon:Representation", "organon:Consequence", "organon:Constraint", "organon:Difference", "organon:Model", "organon:Interpretation", "organon:CausalContribution", "organon:Denotation", "organon:Entity"],
+      "formal_symbol": "operativeContrast"
+    },
+    {
+      "id": "IR-D4",
+      "type": "proposed_definition",
+      "subject": "Institution",
+      "depends_on": ["organon:Configuration", "organon:Persistence", "organon:Rule", "organon:Role", "organon:Order", "organon:Action", "organon:Representation", "organon:Record"]
+    },
+    {
+      "id": "IR-D5",
+      "type": "proposed_definition",
+      "subject": "Successful Succession",
+      "depends_on": ["IR-D4", "organon:Entity", "organon:Persistence", "organon:Invariant", "organon:Scope", "organon:Record", "organon:Rule", "organon:Role", "organon:OperativeKnowledge", "local:SuccessionOccurrence", "local:ContinuityCriterion"],
+      "formal_symbol": "successfulSuccessionAt"
+    },
+    {
+      "id": "IR-H1",
+      "type": "hypothesis",
+      "subject": "Recognition-dependent Authority maintenance",
+      "depends_on": ["IR-D2", "organon:Recognition", "organon:Action", "organon:Scope", "organon:Constraint", "local:RequiredRecognition", "local:MaintenancePlan"],
+      "formal_symbol": "moreRequirementsCannotAddPlans"
+    },
+    {
+      "id": "IR-C1",
+      "type": "anti_collapse_constraint",
+      "subject": "Capacity and replacement do not establish further succession",
+      "depends_on": ["IR-D4", "IR-D5", "organon:Record", "local:SuccessionOccurrence", "local:ContinuityCriterion"],
+      "formal_symbol": "capacityAndHandoffDoNotSupplyFurtherOccurrence"
+    },
+    {
+      "id": "IR-C2",
+      "type": "anti_collapse_constraint",
+      "subject": "Finite continuation does not certify unending survival",
+      "depends_on": ["IR-D4", "IR-D5", "organon:Persistence", "organon:Scope", "local:ContinuityCriterion"],
+      "formal_symbol": "finiteHistoryDoesNotCertifyUnendingContinuity"
+    },
+    {
+      "id": "IR-H2",
+      "type": "hypothesis",
+      "subject": "Power spending and predictive renewal",
+      "depends_on": ["IR-D3", "organon:Model", "organon:Observation", "organon:Constraint", "organon:Action", "organon:State"],
+      "formal_symbol": "fixedForecastCanRemainAdequate"
+    },
+    {
+      "id": "IR-G1",
+      "type": "open_formalization_gate",
+      "subject": "Termhood, canonical parity, and downstream migration",
+      "depends_on": ["IR-D1", "IR-D2", "IR-D3", "IR-D4", "IR-D5", "IR-H1", "IR-C1", "IR-C2", "IR-H2"]
+    }
+  ]
+}

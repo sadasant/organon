@@ -5,7 +5,7 @@
 ## Frozen training surface
 
 - Witness normal forms: 9
-- Generated one-step mutations: 138
+- Generated one-step mutations: 137
 - Explicit labeled inference fixtures: 10
 - Held-out challenges: 10
 - Joined positive circuits: 3
@@ -16,7 +16,7 @@
 | `NF-DENOTATION` / `organon:Denotation` | 8 |
 | `NF-CAUSAL-CONTRIBUTION` / `organon:CausalContribution` | 19 |
 | `NF-CAPABILITY` / `organon:Capability` | 15 |
-| `NF-STANDING` / `organon:Standing` | 14 |
+| `NF-STANDING` / `organon:Standing` | 13 |
 | `NF-EXERCISABILITY` / `organon:Exercisability` | 20 |
 | `NF-EVIDENCE` / `organon:Evidence` | 17 |
 | `NF-EVIDENTIAL-BEARING` / `organon:EvidentialBearing` | 14 |
@@ -29,7 +29,7 @@
 | `carrier_content_collapse` | 2 |
 | `index_change` | 49 |
 | `index_erasure` | 1 |
-| `premise_omission` | 50 |
+| `premise_omission` | 49 |
 | `projection_inversion` | 7 |
 | `role_reversal` | 5 |
 | `typed_substitution` | 11 |

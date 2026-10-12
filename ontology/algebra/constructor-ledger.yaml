@@ -2,29 +2,29 @@
   "schema_version": 1,
   "status": "generated-nonbinding-degenerate-registry-reflection-ledger",
   "source_sha256": {
-    "ontology/terms.yaml": "bc4c8641089d1f341e91f48d18f45296c18509191782ba74279e4dafbfc3b293",
-    "ontology/algebra/positive-calculus.yaml": "7f7d80d448071b25288347a8f72269496494fb2d715d7e988fd9c5ae13dbb38d",
-    "scripts/build-positive-calculus.py": "eca4c44367dda7dec73add0c98b5e887ad7d023b41a31cc479580d016c5a3396"
+    "ontology/terms.yaml": "48469a8a1a6f52837d428002b233701667bbebcb06c4d55457355303da38f937",
+    "ontology/algebra/positive-calculus.yaml": "76c83651ae6d9ada317546a862450ec7940b5d1e12fb93b973f8bd6fd1abdd73",
+    "scripts/build-positive-calculus.py": "d35504151ada0ba68c1ba8e804987f493235196a5042610e73c188b42729b8b6"
   },
   "counts": {
-    "registered_terms": 114,
+    "registered_terms": 115,
     "retained_foundation": 3,
-    "definitions_reflected": 111,
+    "definitions_reflected": 112,
     "constructors": 1,
-    "dependency_removal_fixtures": 898,
+    "dependency_removal_fixtures": 923,
     "unreflected_definitions": 0
   },
   "degenerate_control_comparison": {
     "zero_constructors_positive_heads": 0,
     "zero_constructors_definitions_derived": 0,
-    "one_constructor_definitions_derived": 111,
+    "one_constructor_definitions_derived": 112,
     "ablate_G1_definitions_derived": 0,
     "constructor_minimum_proved": false,
     "explanation": "The comparison covers only G0 and the hand-authored G1 wrapper; it is not an exhaustive search over nondegenerate constructor families."
   },
   "semantic_minimality": {
     "proved": false,
-    "binding_definition_schemas_retained": 111,
+    "binding_definition_schemas_retained": 112,
     "anti_vacuity_passes": false,
     "opaque_parameter": "Conforms(binding_definition_schema, candidate)",
     "eligible_for_promotion": false,
@@ -2162,39 +2162,6 @@
       ]
     },
     {
-      "term": "organon:FullyExercisablePermission",
-      "claim": "D061",
-      "constructor": "G1",
-      "declared_dependencies": [
-        "organon:Action",
-        "organon:Exercisability",
-        "organon:Permission",
-        "organon:Scope"
-      ],
-      "conformity_witness": {
-        "predicate": "Conforms",
-        "args": [
-          "D061",
-          "candidate"
-        ]
-      },
-      "result": {
-        "predicate": "Classified",
-        "args": [
-          "organon:FullyExercisablePermission",
-          "candidate"
-        ]
-      },
-      "derives": true,
-      "one_step_mutations": [
-        "G1-D061-remove-Action",
-        "G1-D061-remove-Exercisability",
-        "G1-D061-remove-Permission",
-        "G1-D061-remove-Scope",
-        "G1-D061-remove-witness"
-      ]
-    },
-    {
       "term": "organon:Enforcement",
       "claim": "D062",
       "constructor": "G1",
@@ -2808,35 +2775,6 @@
         "G1-D076-remove-Institution",
         "G1-D076-remove-Order",
         "G1-D076-remove-witness"
-      ]
-    },
-    {
-      "term": "organon:ConstitutedExercise",
-      "claim": "D077",
-      "constructor": "G1",
-      "declared_dependencies": [
-        "organon:Authority",
-        "organon:Order"
-      ],
-      "conformity_witness": {
-        "predicate": "Conforms",
-        "args": [
-          "D077",
-          "candidate"
-        ]
-      },
-      "result": {
-        "predicate": "Classified",
-        "args": [
-          "organon:ConstitutedExercise",
-          "candidate"
-        ]
-      },
-      "derives": true,
-      "one_step_mutations": [
-        "G1-D077-remove-Authority",
-        "G1-D077-remove-Order",
-        "G1-D077-remove-witness"
       ]
     },
     {
@@ -4378,6 +4316,141 @@
         "G1-D111-remove-State",
         "G1-D111-remove-Transformation",
         "G1-D111-remove-witness"
+      ]
+    },
+    {
+      "term": "organon:Attention",
+      "claim": "D114",
+      "constructor": "G1",
+      "declared_dependencies": [
+        "organon:CausalContribution",
+        "organon:Claim",
+        "organon:Difference",
+        "organon:Entity",
+        "organon:Interpretation",
+        "organon:Perception",
+        "organon:Relation",
+        "organon:Representation",
+        "organon:Scope",
+        "organon:State",
+        "organon:Truth"
+      ],
+      "conformity_witness": {
+        "predicate": "Conforms",
+        "args": [
+          "D114",
+          "candidate"
+        ]
+      },
+      "result": {
+        "predicate": "Classified",
+        "args": [
+          "organon:Attention",
+          "candidate"
+        ]
+      },
+      "derives": true,
+      "one_step_mutations": [
+        "G1-D114-remove-CausalContribution",
+        "G1-D114-remove-Claim",
+        "G1-D114-remove-Difference",
+        "G1-D114-remove-Entity",
+        "G1-D114-remove-Interpretation",
+        "G1-D114-remove-Perception",
+        "G1-D114-remove-Relation",
+        "G1-D114-remove-Representation",
+        "G1-D114-remove-Scope",
+        "G1-D114-remove-State",
+        "G1-D114-remove-Truth",
+        "G1-D114-remove-witness"
+      ]
+    },
+    {
+      "term": "organon:Care",
+      "claim": "D118",
+      "constructor": "G1",
+      "declared_dependencies": [
+        "organon:Action",
+        "organon:Attention",
+        "organon:CausalContribution",
+        "organon:Consequence",
+        "organon:Entity",
+        "organon:Relation",
+        "organon:Scope",
+        "organon:Specification",
+        "organon:State"
+      ],
+      "conformity_witness": {
+        "predicate": "Conforms",
+        "args": [
+          "D118",
+          "candidate"
+        ]
+      },
+      "result": {
+        "predicate": "Classified",
+        "args": [
+          "organon:Care",
+          "candidate"
+        ]
+      },
+      "derives": true,
+      "one_step_mutations": [
+        "G1-D118-remove-Action",
+        "G1-D118-remove-Attention",
+        "G1-D118-remove-CausalContribution",
+        "G1-D118-remove-Consequence",
+        "G1-D118-remove-Entity",
+        "G1-D118-remove-Relation",
+        "G1-D118-remove-Scope",
+        "G1-D118-remove-Specification",
+        "G1-D118-remove-State",
+        "G1-D118-remove-witness"
+      ]
+    },
+    {
+      "term": "organon:Respect",
+      "claim": "D119",
+      "constructor": "G1",
+      "declared_dependencies": [
+        "organon:Action",
+        "organon:Agency",
+        "organon:Configuration",
+        "organon:Consequence",
+        "organon:Constraint",
+        "organon:Entity",
+        "organon:Interpretation",
+        "organon:Relation",
+        "organon:Ritual",
+        "organon:Scope"
+      ],
+      "conformity_witness": {
+        "predicate": "Conforms",
+        "args": [
+          "D119",
+          "candidate"
+        ]
+      },
+      "result": {
+        "predicate": "Classified",
+        "args": [
+          "organon:Respect",
+          "candidate"
+        ]
+      },
+      "derives": true,
+      "one_step_mutations": [
+        "G1-D119-remove-Action",
+        "G1-D119-remove-Agency",
+        "G1-D119-remove-Configuration",
+        "G1-D119-remove-Consequence",
+        "G1-D119-remove-Constraint",
+        "G1-D119-remove-Entity",
+        "G1-D119-remove-Interpretation",
+        "G1-D119-remove-Relation",
+        "G1-D119-remove-Ritual",
+        "G1-D119-remove-Scope",
+        "G1-D119-remove-witness"
       ]
     }
   ]

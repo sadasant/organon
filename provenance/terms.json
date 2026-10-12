@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "ontology_version": "0.19.0",
+  "ontology_version": "0.20.0",
   "sources": {
     "essay:absence": {"kind": "published-corpus", "reference": "essays.md", "title": "Nothing Else Is So Exact As Absence"},
     "essay:shadow-world": {"kind": "published-corpus", "reference": "essays.md", "title": "The Shadow of the World"},
@@ -36,7 +36,9 @@
     "proposal:ritual-meaning": {"kind": "adopted-review", "reference": "../proposals/ritual-and-meaning.md", "title": "Ritual and ritual-dependent Meaning promotion dossier"},
     "formal:ritual-meaning": {"kind": "formalization", "reference": "../ontology/formal/decisions.md", "title": "Ritual and Meaning formalization findings"},
     "proposal:embodied-consciousness": {"kind": "adopted-review", "reference": "../proposals/embodied-consciousness.md", "title": "Embodiment and recurrent consciousness partial-promotion dossier"},
-    "formal:embodied-consciousness": {"kind": "formalization", "reference": "../ontology/formal/decisions.md", "title": "Embodiment and recurrent integration formalization findings"}
+    "formal:embodied-consciousness": {"kind": "formalization", "reference": "../ontology/formal/decisions.md", "title": "Embodiment and recurrent integration formalization findings"},
+    "proposal:attention-love-care": {"kind": "adopted-review", "reference": "../proposals/attention-love-care.md", "title": "Attention Love Care and Respect promotion dossier"},
+    "formal:attention-love-care": {"kind": "formalization", "reference": "../ontology/formal/decisions.md", "title": "Attention Love Care and Respect formalization findings"}
   },
   "groups": [
     {
@@ -62,12 +64,12 @@
     {
       "basis": "review-repair",
       "sources": ["essay:cryptoeconomic-justice", "essay:priced-ledger", "essay:forging-reality", "review:v0.9", "formal:lean-v0.9"],
-      "terms": ["organon:Claim", "organon:Witness", "organon:Control", "organon:Order", "organon:Standing", "organon:Recognition", "organon:Principal", "organon:ActsFor", "organon:CountsAs", "organon:Authority", "organon:PermissionClaim", "organon:Declaration", "organon:Grant", "organon:Admission", "organon:Permission", "organon:Revocation", "organon:PermissionExercise", "organon:Exercisability", "organon:FullyExercisablePermission", "organon:Enforcement", "organon:Role", "organon:AdmissibilityRule", "organon:IndependentFor", "organon:Evidence", "organon:Attestation"]
+      "terms": ["organon:Claim", "organon:Witness", "organon:Control", "organon:Order", "organon:Standing", "organon:Recognition", "organon:Principal", "organon:ActsFor", "organon:CountsAs", "organon:Authority", "organon:PermissionClaim", "organon:Declaration", "organon:Grant", "organon:Admission", "organon:Permission", "organon:Revocation", "organon:PermissionExercise", "organon:Exercisability", "organon:Enforcement", "organon:Role", "organon:AdmissibilityRule", "organon:IndependentFor", "organon:Evidence", "organon:Attestation"]
     },
     {
       "basis": "corpus-extraction",
       "sources": ["essay:invariants", "essay:forging-reality", "essay:artificial-persons", "essay:priced-ledger"],
-      "terms": ["organon:Institution", "organon:Center", "organon:Organ", "organon:CanonicalSystem", "organon:ShadowSystem", "organon:Person", "organon:Receipt", "organon:Ledger", "organon:Polity", "organon:ConstitutedExercise", "organon:ConstituentExercise", "organon:ConstituentPower"]
+      "terms": ["organon:Institution", "organon:Center", "organon:Organ", "organon:CanonicalSystem", "organon:ShadowSystem", "organon:Person", "organon:Receipt", "organon:Ledger", "organon:Polity", "organon:ConstituentExercise", "organon:ConstituentPower"]
     },
     {
       "basis": "review-repair",
@@ -113,6 +115,7 @@
       "basis": "adopted-commitment",
       "sources": ["proposal:embodied-consciousness", "formal:embodied-consciousness", "review:daniel"],
       "terms": ["organon:Body", "organon:BodilyOrganization", "organon:EmbodiedPerspective", "organon:RecurrentIntegration", "organon:InternalActivitySelection"]
-    }
+    },
+    {"basis": "adopted-commitment", "sources": ["proposal:attention-love-care", "formal:attention-love-care", "review:daniel"], "terms": ["organon:Attention", "organon:Care", "organon:Respect"]}
   ]
 }

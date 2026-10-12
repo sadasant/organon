@@ -7,7 +7,7 @@ prose_ontology: "../ontology.md"
 ---
 # Formalization Decisions
 
-These decisions belong to the Lean spike. They expose choices priced by formalization. They do not independently revise [Daniel's Ontology v0.19](../ontology.md); accepted findings flow into the binding, single-file Markdown ontology through its changelog.
+These decisions belong to the Lean spike. They expose choices priced by formalization. They do not independently revise [Daniel's Ontology v0.20](../ontology.md); accepted findings flow into the binding, single-file Markdown ontology through its changelog.
 
 ## Embodiment uses typed witnesses without promoting consciousness
 
@@ -62,9 +62,9 @@ Generic “use” does not survive termhood: each load-bearing occurrence resolv
 
 `OrganonCore.lean` contains relational Missingness and all downstream formal classifiers without declaring or importing `Absent`, `Present`, or the performative mark. `DanielOntology.lean` imports that module and adds the local Absence/Presence experiment without redefining core structures. Every classifier module and the complete finite witness executable compile against `OrganonCore` alone.
 
-`OrganonCorePreservation.classificationPreserved` is definitionally true because extension semantics cannot be inspected by a core classifier. This establishes classification preservation for the current formal shadow and refutes the claim that those classifiers require Absence merely because the declarations previously occupied one file. It does not establish preservation for unformalized prose terms. The binding ontology has 114 registered terms; term-for-term formal parity remains necessary before the result can be generalized to the complete ontology.
+`OrganonCorePreservation.classificationPreserved` is definitionally true because extension semantics cannot be inspected by a core classifier. This establishes classification preservation for the current formal shadow and refutes the claim that those classifiers require Absence merely because the declarations previously occupied one file. It does not establish preservation for unformalized prose terms. The binding ontology has 122 registered terms; term-for-term formal parity remains necessary before the result can be generalized to the complete ontology.
 
-The first falsification seam does more than inspect imports. `OrganonCoreChallenge` supplies challenge classifiers for Presence, Missingness, Persistence, and Entity. An adversarial identity-breaking history is rejected while a preserving ordered history is admitted. A local-Reality equivalence is proved but not promoted to preservation: one universe-relative carrier is not the totality of all Presence. Reality may instead remain ambient and metatheoretic or receive a universe-indexed projection; choosing between those representations belongs to the binding canonicalization follow-up. The generated registry audit therefore records four proved challenge classifications, one pending representation decision, one deliberately excluded primitive, and 108 unknowns. Unknown is binding: a compiled shadow without exact prose parity is not counted as a preserved term.
+The first falsification seam does more than inspect imports. `OrganonCoreChallenge` supplies challenge classifiers for Presence, Missingness, Persistence, and Entity. An adversarial identity-breaking history is rejected while a preserving ordered history is admitted. A local-Reality equivalence is proved but not promoted to preservation: one universe-relative carrier is not the totality of all Presence. Reality may instead remain ambient and metatheoretic or receive a universe-indexed projection; choosing between those representations belongs to the binding canonicalization follow-up. The generated registry audit therefore records four proved challenge classifications, one pending representation decision, one deliberately excluded primitive, and 116 unknowns. Unknown is binding: a compiled shadow without exact prose parity is not counted as a preserved term.
 
 ## Presence is type-relative
 
@@ -189,3 +189,233 @@ The false-Claim countermodel uses the exact Representation and Denotation assign
 ## Scope of the spike
 
 The spike formalizes A1-A5 and selected high-risk dependency regions. Its finite models construct one concrete Entity with an admitted preserving Transformation and a rejected identity-breaking Transformation, one standing-aware Permission and one contextual PermissionExercise, one Consciousness Designation whose candidate does not obtain, one discriminating Operationalization whose selected Transformation occurs in a Causal path, one scoped World with distinct access, one contextual Substrate with explicit feeding and constraint witnesses, one true Claim without modeled Agent access, one causally bound Trust, one profile-scoped Alignment, one joined adaptive Intelligence, three instances of Operative Knowledge, one inter-agent Knowledge Transmission, one self-transmission, factive and warranted operative profiles, moral Attribution and Designation, four noncomposing sovereignty profiles, and separate preference, utility, Price, and institutional-valuation witnesses. Silent or negative structures supply countermodels for the named anti-entailments. The spike does not yet cover all derived terms, relation signatures, anti-collapse rules, underlying quarantined conditions, or deterministic Markdown rendering. Those remain promotion gates rather than implicit Claims of completeness.
+
+## v0.20 attention and interpersonal-relation findings
+
+- Intention must join a represented and Denoted target to the upstream Difference of the guiding Causal Contribution without equating the target with the guided activity's output. That separation permits intention without achievement.
+- Attention counts a finite declared set of available perceptual, interpretive, and action channels and requires exact Causal Contributions for every organized member. The local channel enum is an explicit projection, not canonical parity.
+- Absolute Attention is complete organization of the available channel set by the same Difference. The derived limit excludes only available Action channels independent of the focus; it does not prohibit organized Action.
+- Love adds sustained exact target Denotation, Care adds an organized action channel aimed at another Entity's indexed State, and Respect adds a scoped admitted Action plus a typed Boundary, Agency-option, or self-determination protection witness.
+- The promotion contracts account for canonical Perception, Interpretation, Action, Agency, and Capability through the dependency-disposition ledger. Body-indexed canonical parity remains open rather than being inferred from similar field names.
+
+## PR #18 takeover audit (2026-10-03)
+
+The merged #17 dossier was integrated with a normal merge to preserve the original promotion evidence history. It remains nonbinding; its Interpretation/Understanding migration is not adopted as part of v0.20.
+
+Adversarial inspection found that list membership permitted duplicate counting, list equality made Absolute Attention depend on order, sustained snapshots could reuse future results at earlier States, and the other-Entity witness differed only in current State. Respect's option branches did not join retained options to the constrained Action, and its Boundary branch checked identity without admitting the Action under that Boundary. The revised structures enforce unique availability and a sublist of a permuted enumeration, derive numerator bounds and positive denominator, use membership coverage, index snapshots with no future organized results, and witness distinct identity Invariants. The governed family includes the selected Transformation. Respect admits the exact Action under the target Boundary or retains identity-preserving options starting at its output.
+
+Regression witnesses reject duplicate counting and identity-destroying Respect, accept reordered absolute channel lists, and show that different current States can still share one identity. The sampled histories, kind/result channel individuation, sufficient distinct-Invariant witness, and canonical Agency/Action parity remain declared boundaries rather than universal claims. Evidence records are refreshed only after the implementation commit exists.
+
+The final publication rebase flattened the local main merge and temporarily made the exact-source pins non-ancestors. The receipt checks detected this immediately. A normal merge restored the original attested implementation and merged-main histories without changing source content or force-pushing. Both ancestor and digest checks passed after restoration. Subsequent publication uses the current remote head as an ancestor and preserves merge commits.
+
+## PR #18 reviewer response: individuation, inventory, guidance, and entrainment
+
+The reviewer correctly identified that the first takeover repair made different identity Invariants constitutive, despite documenting them as merely sufficient finite evidence. Removed that requirement from all Love, Care, and Respect types. Local participant classifiers now explicitly ignore current-State updates; the history-length toy classifier distinguishes a short-history participant sharing the actor's identity criterion and inhabits all three relations. Canonical numerical individuation remains a declared parity gate, not a hidden complete theory.
+
+Attention now names an inventory with independent channel identities and a constructive availability Specification at each indexed State. The available enumeration covers exactly all conforming identities, with no repeats. Sustained snapshots retain the same inventory. Kind/result coincidence no longer collapses two channels; changing results does not create channel identities. The fixed-inventory omitted-Action countermodel cannot satisfy coverage. Changing the inventory or availability Specification changes the declared measurement context, and cannot be presented as a degree change within an unchanged context. Universal channel closure remains separate from this explicitly relative definition.
+
+Removed the semantically inert ActivityGuidance tag and narrowed Intention to causal guidance of an activity. The dossier explicitly chooses the entrainment limit over a universal paralysis law: all conforming channels are organized by the focus, and a focus-organized Action may still occur. These are internal definition repairs, independent of historical permission to use the terms.
+
+## PR #18 exact numerator repair
+
+The counted organized list previously required causal witnesses only in the membership-to-witness direction. The partial and absolute examples therefore differed in the numerator while keeping the channel causal data fixed. `ContributionOrganizesChannel` evaluates one contribution's upstream contrast/focus, exact downstream result, and at-or-before-State condition without inspecting an organized list or degree. `ChannelOrganizedByDifference` quantifies over every contribution in the channel's independently declared finite causal domain. `Attention.organizedExact` requires membership if and only if the channel is available and that existential condition holds. The separately selected `organizingContribution` must belong to the declared domain and satisfy the focal joins; changing that selected witness cannot hide a qualifying alternative. The exact definition contract includes both requirements, and `FocusIndependentAction` negates organization over the entire declared domain.
+
+The partial Action's declared domain contains an exact result-producing contribution whose upstream Difference runs from true to false while the Attention focus runs from false to true. It is therefore genuinely independent of that focal Difference. The absolute witness changes that domain to include the focal contribution, as well as selecting it. Proofs reject omission of any qualifying available channel, a truncated organized enumeration for the absolute witness, and a zero numerator when a qualifying channel exists. A mixed-domain regression keeps availability, moment, focus, result, and both the nonfocal and focal contributions fixed: the focal alternative must be counted even if the nonfocal contribution is selected. `fixedCausalDataDeterminesNumerator` proves that two unique exact enumerations over the same inventory, available list, moment, contrast/focus, results, and complete declared causal domains have the same numerator regardless of order.
+
+This closes the finite numerator under the declared causal situation. It does not establish that a declared collection exhausts a physical system's causal mechanisms, validate an empirical channel decomposition, or close canonical Body-indexed channel parity. Those remain the existing canonical-parity and application gates. Changing a declared causal domain changes the asserted causal situation; it is not evidence that the same physical situation changed. A claim about physical completeness requires separate empirical evidence.
+
+## PR #18 snapshot-local Attention (2026-10-06)
+
+The at-or-before-State condition admitted a single old contribution at multiple later snapshots, allowing Sustained Attention and Love without a present organization witness. The maintainer clarified that Attention must be a pure current-snapshot calculation. Requiring only a more recent historical event would not satisfy that requirement.
+
+`SnapshotCausalContribution` now declares a contrast, focus, and response function evaluated in the indexed State's context. `ContributionOrganizesChannel` requires the focal response to produce the current result and the contrast response to differ in that same context; the result equals the indexed State in this local encoding. It takes no Direction, historical State list, or Causal paths. Intention and embodied governance retain their canonical temporal Causal Contributions. Sustained Attention alone orders the separately evaluated Attention snapshots. Current effects of earlier events may participate if represented in the current causal situation; their historical occurrence alone is not an input.
+
+The response-function model is a local counterfactual projection rather than a proof of parity with canonical temporal Causal Contribution. The dependency ledger records that distinction. Physical applications still need evidence that the declared responses describe the channel; the finite proof cannot supply it. Exact numerator coverage, independent channel identities, snapshot availability, selected-witness membership, and order-independent counting are preserved.
+
+Regression theorems reject past-only and future results, correctly labelled constant responses, and comparisons that mix contexts. Two sustained histories with different earlier snapshots share the same current Attention and numerator. Current sensor and action organization, Sustained Attention, Love, and Care remain inhabited.
+
+The orientation-sensitive partial-Action witness and the history-length participant classifier remain unresolved review findings. Their existing proofs compile, but neither compilation nor this snapshot repair establishes the stronger semantic claims previously attributed to them. The promotion review must not be marked ready until those findings receive their own dispositions.
+
+## PR #18 behavioral Action independence (2026-10-07)
+
+The earlier exact-numerator repair incorrectly described the reversed true/false witness as genuinely independent. Ordered-label mismatch proves only failed organization under that ordering. A negating response still depends on the attended input. This repair supersedes that claim and resolves the orientation finding left open by the snapshot repair.
+
+`ChannelIndependentOfDifference` now requires a nonempty declared response domain, an exact current result, and response invariance under the attended contrast in one fixed context. Every declared response must reproduce the result and satisfy invariance; a selected invariant response cannot conceal a sensitive alternative. `FocusIndependentAction` combines that positive condition with Action kind and current availability. Independence implies non-organization, but non-organization alone no longer establishes independence. Absolute Attention still excludes independent available Action through its organizing witness's changed response.
+
+The partial witness uses two separately variable Boolean inputs. Its Action follows the other input and ignores the attended one; the snapshot fixes the other input to true without consulting history. Proofs cover both values of each input and join that response to the partial Attention's actual declared contribution. Regression proofs reject the old reversed-label example even when its focal response reproduces the current result, a mixed domain with a sensitive alternative, an empty domain, and wrong or stale results.
+
+The claim remains relative to the named contrast and declared response models. Physical fidelity and canonical channel parity remain open. The history-length participant classifier is unchanged and still blocks promotion readiness.
+
+## PR #18 record-independent participant classification (2026-10-07)
+
+The earlier shared-criterion witness copied a three-State prefix of the actor's six-State history and called it another participant using history length. Ignoring current-State updates did not prevent this record/participant conflation. The classifier now receives only an identity Invariant and its Boundary, not the full Entity record. `ignoresRecords` proves that all admitted classifiers agree across different Persistence records, Directions, and current States when those two inputs are fixed. No new core Entity primitive is introduced.
+
+The old prefix is retained as `truncatedSystemRecord`. Universal regression proofs show unchanged classification and reject Love, Care, or Respect toward it as another participant. The replacement `sharedCriterionEntity` shares the actor's full history, current State, identity criterion, and single-constraint count. Its Boundary differs behaviorally: it rejects an unrecorded alternative that the actor's Boundary admits. Both Boundaries admit every Transformation whose output occurs in the shared history. The finite behavioral classifier supports inhabited Love, Care, and Respect witnesses without reading record length or constraint count.
+
+This closes the local counterexample, not canonical numerical identity. A classifier may ignore Boundary differences, and equal classification does not imply equal Entities; both limits are proved. Duplicating a constraint does not change the finite behavioral classification. The classifier uses classical proposition decidability to assign two class labels, not an executable physical identity detector. Continuity across changing Boundaries and universal participant individuation remain AC-G1. The review finding is resolved within that explicit projection boundary.
+
+## PR #18 Self/Auto integration (2026-10-07)
+
+Daniel authorized pushing the preserved Self/Auto proposal and audited repair work while retaining his changes and leaving combined conceptual effects for his review. Integration starts at `7a7afa21d6bbc8ecf2008c562425abeac0e51574`. The original October 5 worktree is preserved. The current `AttentionLoveCare.lean` and its contracts are retained byte-for-byte, including snapshot-local organization, positive Action invariance, and record-independent participant classification. No generic Self-to-Auto replacement occurs.
+
+D112 changes Capability to Configuration because the governed internal Transformations need not construct Agent/Action Capability. D111 adds exact changed/contrast last-occurrence joins and executable availability exactly matching the option list. EC-D5 exposes these joins. The new default-build `PR18Governance.lean` supplies general internal-selection lifts, actual Sense uptake, same-Entity/own-condition perception examples and an inhabited internal-selection-to-Interpretation-to-Action profile. All governing, processing, interpretation-comparison and action-comparison occurrences are admitted by the same Boundary and lie in the common Scope. The Scope requirement repairs the independently demonstrated out-of-scope governing detour.
+
+`proposals/self-auto.md` retains the proposed Self, Auto, Governance, Self-governance, Autogovernance, Autonomy and Self-perception definitions without promotion. The full historical reading packet, candidate ontology/registry, original shadow and baseline sources remain in `reviews/local/`. Their October 5 reports and locators are historical, not exact-source evidence for this integrated branch. The arbitrary operator-classifier realization, trigger-versus-organizer distinction, general participant identity and generic Auto source criterion remain open. The positive internal profile is not a universal Auto or Autonomy theorem. Consciousness is deferred. No site/PDF change or merge is included.
+
+The existing promotion-review records refer to earlier sources. They must not be silently marked promotion-ready for this integrated source. The retained packet validator intentionally targets the old baseline; its old no-push declaration is a historical snapshot statement. Current validation and remaining stale records are reported separately.
+
+## Intention withdrawal and termhood sweep (2026-10-11)
+
+Daniel rejected adding desire or endorsement to the construction and authorized withdrawing Intention rather than replacing it with a longer composite primitive. D113 and C40, and proposal statements AC-D2 and AC-C2, are retired without reassignment. No other registered definition depends on Intention; C40 was its only dependent commitment. Active profiles, provenance and generated projections drop the term; historical snapshots remain unchanged.
+
+[`RepresentationActivityExample.lean`](./RepresentationActivityExample.lean) retains the exact historical record and a reduced, nonbinding example with three fields: an existing Causal Contribution, proof that its downstream Transformation belongs to the Body, and a State referent. `reduceExpand` and `expandReduce` prove inverse conversions for arbitrary admitted carriers and Bodies, not just the toy witness. `changingReferentPreservesMechanism` proves that the referent can vary without altering the represented feature, contribution, or bodily activity. Finite examples permit both the activity's result and a different State as referent. The correspondence preserves the formal record; it does not prove psychological intention, empirical fidelity, or universal parity with ordinary language. The retained temporal Causal Contribution encoding and the separate selection-ordering question are unchanged.
+
+### Screening the remaining 121 terms
+
+The sweep compared the readable definitions, registry dependencies, commitments, adopted profile roots, and available formal shadows against the updated contribution protocol. This is a termhood screening, not a proof that all remaining definitions are irreducible. The generated algebra audit accounts for the vocabulary but constructively encodes only nine definitions; its underdetermined extension sketches cannot certify semantic independence.
+
+| Priority / disposition | Term or family | Evidence and remaining question |
+| --- | --- | --- |
+| Next withdrawal candidate | Fully Exercisable Permission (D061) | Universal closure of Exercisability over a Permission's Scope; no registered term, commitment, or profile root consumes it. D060 requires a time and Constraint Configuration which D061 does not explicitly fix. Specify those indices and test the universal construction before deciding whether any distinction needs a canonical name. |
+| Next withdrawal candidate | Constituted Exercise (D077) | Defined only as exercise of Authority under the current Order; no registered term, commitment, or profile root consumes it. Is there any additional condition beyond an actual authorized Action? “Exercise” must be made exact; its contrast with Constituent Exercise alone is not an equivalence proof. |
+| Derived-limit candidate; retain pending review | Absolute Attention (D116) | Adds complete coverage to Attention, with no new causal mechanism. Existing counting and coverage theorems expose this as the full-coverage limit. C41 and C42 use the distinction, so removing its name requires preserving those governed uses, not merely noticing a wrapper record. |
+| Composite candidate; retain pending review | Embodied Self-Governance (D112) | Joins perspective and selection, then names a nonempty scoped family admitted by a chosen Boundary Constraint. A singleton family cannot preserve an arbitrary larger governed family; a Boundary may also have no Constraint to choose. C39 uses the distinction. Establish the exact family-preserving reduction before demoting it. |
+| Encoding tension, not proven redundancy | Standing / Recognition (D047/D048) | Prose distinguishes placement in an institutional domain from recording that placement. `StandingRelation` already requires a record. Decide whether unrecorded Standing is allowed before consolidating terms; an overstrong shadow is not proof that the prose definitions are equivalent. Both have downstream consumers. |
+| Composite candidate; retain pending review | Constituent Sovereignty / Constituent Exercise (D095/D078) | D095 permits transformation as well as founding and refounding, so founding alone cannot distinguish it. Its explicit Polity, persistent Constituent Power, and Scope must survive a proposed reduction to Constituent Exercise. C22 governs the profile's separations; no full correspondence was established. |
+| Retain indexed constructions | Consciousness and moral Attribution/Designation; factive and warranted knowledge; sovereignty and valuation profiles | Similar record shapes do not erase candidate domains, institutional purposes, same-Claim joins, evidence obligations, or the anti-entailments in C10 and C20-C23. These distinctions are load-bearing even when compositional. |
+| Retain; no further withdrawal justified by this pass | Foundations; causal, representational, entity, agency, institutional, evidence, world, ritual and embodiment machinery; remaining editorial terms and attention relations | No full-Scope, role- and commitment-preserving equivalence was established. Core joins have downstream uses; terminal/editorial terms still require an individual reduction and corpus-use check. Short names and low dependency counts are neither exemptions nor sufficient grounds for removal. |
+
+Recommended discussion order: D061's missing indices, D077's actual-exercise condition, D116's named limit, D112's governed-family information, then D047/D048's record boundary. No additional term is withdrawn by this sweep. Promotion-source reviews were already stale on the incoming PR and remain an explicit gate; a refreshed build receipt does not renew them. Model-judged evaluations are not rerun by this cleanup.
+
+## Fully Exercisable Permission withdrawal (2026-10-11)
+
+Following the sweep, Daniel authorized withdrawing `organon:FullyExercisablePermission` (D061) and keeping only a nonbinding example. D061 is retired without reassignment or replacement. No registered definition, commitment, or adopted profile root depends on it; Permission, Exercisability, and Permission Exercise retain their meanings. The warning that authorization does not supply Capability remains beside D060.
+
+The example in [`Model.lean`](./Model.lean), namespace `PermissionCoverageExample`, fixes one admitted Permission, time, and resource Configuration before quantifying over its two scoped Actions. Their constructive Capability witnesses account for remaining resources after costs of one and two units. With two units both Actions individually qualify, but neither order can fund both. With three units both orders are resource-feasible. Under the same authorization, neither Action is exercisable with zero units, only the cheaper Action with one unit, and neither outside the interval. These are finite possibility checks, not actual execution traces or proof of complete D060 parity. The example deliberately introduces no general `FullyExercisablePermission` predicate. The active registry now contains 120 terms, 117 definitions, and 56 commitments. The next discussion candidate is Constituted Exercise (D077); it is unchanged.
+
+## Approved sweep implementation (2026-10-11)
+
+Daniel approved implementing the recommendation and pushing it to PR #18. This supersedes the pending dispositions above. D077, D112, D116, C39, and proposal statements AC-D1, AC-D5, AC-C1 are retired without reassignment or replacement. The registry contains 117 terms, 114 definitions, and 55 commitments.
+
+- **D077:** an actual Declaration is an example of exercising existing Authority; Authority alone does not attest occurrence. No new execution predicate or primitive is introduced. The local Authority/Grant shadow does not establish complete canonical actual-execution parity.
+- **D112:** the entire former record moves under `AttentionLoveCareProposal.NonbindingExamples`, preserving its arbitrary nonempty family, Scope, perspective-selection join, and named Boundary Constraint. It is not reduced to one selected Transformation. Its existing partial-family witness and the nonbinding Self/Auto lifts still compile. Admission of family members is not proof of causal regulation of them all; no such proof is claimed or additional governance premise invented.
+- **D116:** `Attention.fullCoverage` is a universal condition on the existing Attention instance. `fullCoverageIffHistoricalWrapper` proves general equivalence with inhabiting the old wrapper for that exact instance. C41 retains a partial-coverage counterexample; C42 now has a general theorem excluding focus-independent Action under coverage. The historical wrapper and reordered/full-action witnesses remain nonbinding. No claim of empirical channel-inventory completeness is added.
+- **D047/D048:** `StandingRelation` requires same-index institutional placement, not recording. `RecognitionRelation` joins exact Standing and a record at the same Order, Rule, Entity, status, and Scope. General projection and finite counterexamples show that Recognition entails Standing, Standing need not be recorded, and a record alone supplies neither. The algebra's Standing normal form likewise requires placement, without the formerly excessive record premise. Sovereignty witnesses retain their placements and separation results; complete institutional parity is still outside the shadow.
+- **D078/D095:** retained unchanged. Constituent Exercise is load-bearing for Constituent Power. Constituent Sovereignty remains a scoped, derived profile joining a Polity's persistent power to actual exercise, with C22 preserving the four sovereignty separations. It is not a primitive or an equivalence with exercise alone.
+
+Historical snapshots and exact-source promotion reviews are not rewritten. Those reviews remain stale; model-judged evaluations are not rerun. The temporal selection-ordering question remains unchanged and open. Passing Lean compilation is not a renewed promotion-readiness attestation.
+
+## Directed Attention and Love withdrawal (2026-10-12)
+
+Daniel approved persistent, directed Attention and removal of Sustained Attention,
+then withdrew Love rather than adding conditions to distinguish it. D115, D117,
+C42, C44 and corresponding AC-D4, AC-D6, AC-C4, AC-C6 are retired without
+reassignment. The registry now contains 115 terms, 112 definitions, and 53 commitments.
+This is an approved semantic revision, not a claim of full-Scope equivalence to
+the previous ratio definition. Ordinary love may have particular descriptions
+using Attention, Care, Meaning, or Ritual; no universal composition is stipulated.
+
+Care keeps its exact Entity-State Denotation and Attention-to-Action causal join,
+but no longer requires an enumerated Action channel. Its remaining normative
+limits and Respect's protection obligations survive without claims about Love.
+C41 allows narrow Attention; C42's full-coverage exclusion survives solely as
+a theorem of the historical finite measurement. No numerical denominator is
+constitutive of revised Attention.
+
+`AttentionLoveCareProposal.NonbindingExamples` now contains the old Attention,
+SustainedAttention, Love, and Care records. Their witnesses and countermodels are
+preserved, not used as contracts for the new definitions. `AttentionRevision.lean`
+adds eight bounded theorems: held-context sensitivity, unilateral and reciprocal
+cases, cessation, rejection of contextual covariation, rejection of one sample,
+and narrow tracking that ignores a second target component. The target persists
+while contrasts may vary by sample. Natural-number trace positions are local
+indices, not a proposed Time primitive.
+
+The new tests supply participant identity and response functions; they do not
+construct canonical Entity/Perception/Interpretation/Causal Contribution or prove
+continuity between samples. Revised Attention and Care have boundary-qualified
+contracts: the first projects the supplied tracking predicate, the second retains
+only the historical target joins while marking revised Attention and canonical
+Action/causality unproved. The four prose constraints remain outside the complete
+formal boundary. The Respect contract remains. Build evidence must not masquerade as canonical
+parity or as a renewed exact-source promotion review.
+
+## Criterion-governed Care (2026-10-12)
+
+Daniel approved retaining Care (D118) as a Relation of Attention-conditioned
+selection or adjustment of Action under a Specification of Consequences concerning
+the same target Entity. A nurse and an interrogator can both qualify. Benefit,
+whose interests the criterion serves, the source of its interpretation, and actual
+success remain separate. The rejected reduction to “Attention-organized Action”
+omits the operative consequence criterion. No new Intention or benevolence premise
+is introduced. C45 now distinguishes actual conformity from this organization.
+
+`CareRevision.lean` preserves the discussion's finite criterion tests using the
+existing Specification type. Both the response and the criterion must affect the
+same selection function. Five theorems cover opposite criteria, operative inputs,
+mistaken state representation, ignored criteria, and accidental success. The new
+`criterionCareContract` replaces the historical channel contract as AC-D7 evidence.
+It is explicitly boundary-qualified: complete Attention, Entity identity,
+Action/Consequence, admissible causal comparisons, and the same-Entity target join
+remain unproved. Neither the old finite-channel record nor these local response
+tests establish full canonical Care. Normative anti-entailments remain prose gates.
+Registry counts remain 115 terms, 112 definitions, and 53 commitments.
+
+## Condition-governed Respect (2026-10-12)
+
+Daniel's accepted temporary Agency limitation and implicit proximity examples
+replace the old identity/option-protection disjunction in D119. Respect concerns
+the other's conditions operating as Constraints upon Action in Scope. Contextual
+Interpretation supplies defaults, but expressed conditions take precedence over
+conflicting defaults for that Action and Scope. No elaborate agreement or Ritual
+is required. Accidentally violating a condition fails to respect it without
+establishing deliberate disregard. C46 also excludes accidental conformity alone.
+
+The rejected reduction to generic Constraint loses whose conditions govern;
+agreement alone loses their operative use. The old record cannot distinguish an
+intervention accepted under bounded conditions from one violating those conditions
+merely by preserving identity or unrelated options. Its proofs remain historical
+nonbinding examples, not evidence for revised Respect. No universal consent,
+blame, or contract primitive is introduced.
+
+`RespectRevision.lean` supplies seven bounded tests of priority, implicit defaults,
+target-specific conditions, contextual variation, Scope limits, a bounded accepted
+limitation, and actual versus planned intrusion. The limit test admits steps 0 and
+1 but excludes step 2 even against a permissive default; it does not prove Agency
+loss or restoration. `conditionRespectContract` replaces the old AC-D8 theorem
+and is `proved_with_boundaries`. Supplied participant indices and operation-level
+decisions do not establish canonical Entity, Action, Interpretation, expression
+provenance, contextual accuracy, consent, or causal regulation of actual behavior.
+Admission alone is deliberately not named a complete Respect witness. The seven
+tests and contract are included in the default build. Counts remain unchanged;
+historical reviews and model-judged evaluations are not silently renewed.
+
+## PR18 readiness review (2026-10-12)
+
+The final review found that D111 still prescribed the exact contrast-path endpoint
+join despite Daniel's approved distinction between rejection and prior occurrence.
+Canonical selection now retains declared availability and the exact selected output,
+but rejection is a contrasting possibility within the represented condition, not
+a required historical event. The obsolete `governsEmbodiment` signature is removed
+with its already withdrawn term.
+
+The existing Lean construction remains a restricted witness. The new general
+`restrictedSelectionOrdersOutputs` theorem exposes its additional ordering instead
+of presenting that restriction as necessary for canonical selection. EC-D5's dossier
+and dependency ledger now describe the occurrence/ordering boundary and exact
+availability membership. EC-D6 inherits the same boundary. The revision-mode enum
+does not prove continuation, inhibition, or revision semantics; a general
+contrast-only selection model and its complete shared represented condition remain
+open. This preserves the core Causal Contribution contract rather than weakening it
+to solve a downstream encoding problem.
+
+The review also found that auxiliary `formal_evidence` files were not required in
+exact-source attestations. The checker now requires every declared evidence pin.
+A temporary-repository regression fails on the old checker when its second evidence
+file is omitted, then passes after the fix and also detects source drift.
+
+The renewed reviews attest current contracts, not the retired eight-term proposal.
+Historical findings remain in Git; their conclusions are not transferred to the
+new definitions. Attention, Care, Respect, selection, institutional parity, and
+empirical application retain their explicit formal limits. Model generation and
+judgments have not been rerun, so downstream evaluations remain incomplete/hold.

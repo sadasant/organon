@@ -1,0 +1,5 @@
+# Preserved PR18 local work
+
+The October 5 packet is a historical, nonbinding proposal snapshot based on `5d2cad619ad4c17d6aa0fe40918c2be9dccdfe4b`. Its source digests, line locators, verification reports, unchanged-definition labels and no-push statement describe that snapshot, not the integrated October 7 branch. The original validator likewise validates the October 5 baseline and must not be treated as a current-branch test. Exact old source is embedded in the packet JSON. No historical pass is reattributed to current source.
+
+Read [the current proposal entry](../../proposals/self-auto.md) for the preserved definitions and current qualifications. Canonical Attention and participant changes from Daniel's current PR18 are retained. `PR18Governance.lean` is the repaired positive local profile; `PR18ReviewDraft.lean` preserves the earlier, limited shadow and is not promotion evidence. The historical classifier/source, Scope detour and empty-environment counterexamples are not solved merely by compiling that earlier shadow.

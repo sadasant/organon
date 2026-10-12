@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "ontology_version": "0.19.0",
+  "ontology_version": "0.20.0",
   "profiles": {
     "agent": {
       "description": "Entities, boundaries, interpretation, action, tools, and contextual capability.",
@@ -129,6 +129,14 @@
         "organon:EmbodiedPerspective",
         "organon:RecurrentIntegration",
         "organon:InternalActivitySelection"
+      ]
+    },
+    "attention-and-relation": {
+      "description": "Persistent directed Attention, criterion-governed Care, and Respect constrained by expressed conditions or contextual defaults within Scope; ordinary love is not a registered term.",
+      "roots": [
+        "organon:Attention",
+        "organon:Care",
+        "organon:Respect"
       ]
     }
   }

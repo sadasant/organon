@@ -216,6 +216,9 @@ theorem internalActivitySelectionContract
     selection.outcomeDenotation.target = selection.representedOutcome ∧
     selection.selected ∈ body.recurringTransformations ∧
     selection.rejected ∈ body.recurringTransformations ∧
+    selection.selected = selection.contribution.rightEndpoints.last ∧
+    selection.rejected = selection.contribution.leftEndpoints.last ∧
+    (∀ transformation, selection.availability.conforms transformation ↔ transformation ∈ selection.options) ∧
     selection.selected ≠ selection.rejected ∧
     selection.representedOutcome = selection.selected.output ∧
     selection.contribution.downstreamChange.transformation.output =
@@ -234,6 +237,8 @@ theorem internalActivitySelectionContract
     selection.denotationNamesOutcome.2,
     selection.optionsWithinBody selection.selected selection.selectedInOptions,
     selection.optionsWithinBody selection.rejected selection.rejectedInOptions,
+    selection.selectedIsChangedPathLast, selection.rejectedIsContrastPathLast,
+    selection.availabilityExactlyOptions,
     selection.discriminates, selection.representedOutcomeIsSelectedOutput,
     selection.contributionSelects,
     selection.selectedIsInternal,

@@ -35,7 +35,7 @@ FORMAL_SHADOWS = {
     "organon:Transformation", "organon:Change", "organon:Feeds", "organon:CausalPath",
     "organon:Invariant", "organon:Persistence", "organon:Constraint",
     "organon:Entity", "organon:Boundary", "organon:Scope", "organon:Standing",
-    "organon:Specification", "organon:Capability",
+    "organon:Recognition", "organon:Specification", "organon:Capability",
     "organon:PermissionClaim", "organon:Authority", "organon:Grant",
     "organon:Permission", "organon:PermissionExercise",
     "organon:IndependentFor", "organon:ConsciousnessAttribution",
@@ -53,6 +53,7 @@ FORMAL_SHADOWS = {
     "organon:Meaning", "organon:Body", "organon:BodilyOrganization",
     "organon:EmbodiedPerspective", "organon:RecurrentIntegration",
     "organon:InternalActivitySelection",
+    "organon:Attention", "organon:Care", "organon:Respect",
 }
 
 

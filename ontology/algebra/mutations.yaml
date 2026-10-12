@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
   "status": "generated-nonbinding-syntactic-constructor-mutations",
-  "source_normal_forms_sha256": "e801315ee1104ee39aee834214c679a564cd3aac982980dc3b5b3a3a3fd29aa7",
+  "source_normal_forms_sha256": "1e4c8a950a920840f4e9966778fbdda625aec7d5560efe692e05ae4efac0bae0",
   "generator_sha256": "af2a52203fd554cf9b3098f7d3c30d538392d80d3d81c4a520ae0a79bd9da602",
-  "mutation_count": 138,
+  "mutation_count": 137,
   "mutations": [
     {
       "id": "M-ENTITY-remove-configuration",
@@ -3071,17 +3071,6 @@
             "rule",
             "scope"
           ]
-        },
-        {
-          "predicate": "RecordedStanding",
-          "args": [
-            "record",
-            "order",
-            "entity",
-            "status",
-            "rule",
-            "scope"
-          ]
         }
       ],
       "mutated_derives": true,
@@ -3125,17 +3114,6 @@
         {
           "predicate": "PlacesWithinDomain",
           "args": [
-            "order",
-            "entity",
-            "status",
-            "rule",
-            "scope"
-          ]
-        },
-        {
-          "predicate": "RecordedStanding",
-          "args": [
-            "record",
             "order",
             "entity",
             "status",
@@ -3192,17 +3170,6 @@
             "rule",
             "scope"
           ]
-        },
-        {
-          "predicate": "RecordedStanding",
-          "args": [
-            "record",
-            "order",
-            "entity",
-            "status",
-            "rule",
-            "scope"
-          ]
         }
       ],
       "mutated_derives": true,
@@ -3246,17 +3213,6 @@
         {
           "predicate": "PlacesWithinDomain",
           "args": [
-            "order",
-            "entity",
-            "status",
-            "rule",
-            "scope"
-          ]
-        },
-        {
-          "predicate": "RecordedStanding",
-          "args": [
-            "record",
             "order",
             "entity",
             "status",
@@ -3312,17 +3268,6 @@
             "rule",
             "scope"
           ]
-        },
-        {
-          "predicate": "RecordedStanding",
-          "args": [
-            "record",
-            "order",
-            "entity",
-            "status",
-            "rule",
-            "scope"
-          ]
         }
       ],
       "mutated_derives": true,
@@ -3330,63 +3275,6 @@
     },
     {
       "id": "M-STANDING-remove-placement",
-      "card": "NF-STANDING",
-      "operator": "remove_premise",
-      "failure_shapes": [
-        "premise_omission"
-      ],
-      "outcome": "countermodel",
-      "mutated_atoms": [
-        {
-          "predicate": "Order",
-          "args": [
-            "order"
-          ]
-        },
-        {
-          "predicate": "RuleOfOrder",
-          "args": [
-            "rule",
-            "order"
-          ]
-        },
-        {
-          "predicate": "Entity",
-          "args": [
-            "entity"
-          ]
-        },
-        {
-          "predicate": "InstitutionalStatus",
-          "args": [
-            "status",
-            "order"
-          ]
-        },
-        {
-          "predicate": "ScopeOfOrder",
-          "args": [
-            "scope",
-            "order"
-          ]
-        },
-        {
-          "predicate": "RecordedStanding",
-          "args": [
-            "record",
-            "order",
-            "entity",
-            "status",
-            "rule",
-            "scope"
-          ]
-        }
-      ],
-      "mutated_derives": true,
-      "original_derives": false
-    },
-    {
-      "id": "M-STANDING-remove-standing-record",
       "card": "NF-STANDING",
       "operator": "remove_witness",
       "failure_shapes": [
@@ -3425,16 +3313,6 @@
           "args": [
             "scope",
             "order"
-          ]
-        },
-        {
-          "predicate": "PlacesWithinDomain",
-          "args": [
-            "order",
-            "entity",
-            "status",
-            "rule",
-            "scope"
           ]
         }
       ],
@@ -3486,17 +3364,6 @@
         {
           "predicate": "PlacesWithinDomain",
           "args": [
-            "order",
-            "entity",
-            "status",
-            "rule",
-            "scope"
-          ]
-        },
-        {
-          "predicate": "RecordedStanding",
-          "args": [
-            "record",
             "order__split",
             "entity",
             "status",
@@ -3556,17 +3423,6 @@
             "order",
             "entity",
             "status",
-            "rule",
-            "scope"
-          ]
-        },
-        {
-          "predicate": "RecordedStanding",
-          "args": [
-            "record",
-            "order",
-            "entity",
-            "status",
             "rule__split",
             "scope"
           ]
@@ -3620,17 +3476,6 @@
         {
           "predicate": "PlacesWithinDomain",
           "args": [
-            "order",
-            "entity",
-            "status",
-            "rule",
-            "scope"
-          ]
-        },
-        {
-          "predicate": "RecordedStanding",
-          "args": [
-            "record",
             "order",
             "entity__split",
             "status",
@@ -3689,17 +3534,6 @@
           "args": [
             "order",
             "entity",
-            "status",
-            "rule",
-            "scope"
-          ]
-        },
-        {
-          "predicate": "RecordedStanding",
-          "args": [
-            "record",
-            "order",
-            "entity",
             "status__split",
             "rule",
             "scope"
@@ -3754,17 +3588,6 @@
         {
           "predicate": "PlacesWithinDomain",
           "args": [
-            "order",
-            "entity",
-            "status",
-            "rule",
-            "scope"
-          ]
-        },
-        {
-          "predicate": "RecordedStanding",
-          "args": [
-            "record",
             "order",
             "entity",
             "status",
@@ -3827,24 +3650,13 @@
             "rule",
             "scope"
           ]
-        },
-        {
-          "predicate": "RecordedStanding",
-          "args": [
-            "record",
-            "order",
-            "entity",
-            "status",
-            "rule",
-            "scope"
-          ]
         }
       ],
       "mutated_derives": true,
       "original_derives": false
     },
     {
-      "id": "M-STANDING-substitute-standing-record-standingclaim",
+      "id": "M-STANDING-substitute-placement-standingclaim",
       "card": "NF-STANDING",
       "operator": "substitute_relation",
       "failure_shapes": [
@@ -3886,19 +3698,8 @@
           ]
         },
         {
-          "predicate": "PlacesWithinDomain",
-          "args": [
-            "order",
-            "entity",
-            "status",
-            "rule",
-            "scope"
-          ]
-        },
-        {
           "predicate": "StandingClaim",
           "args": [
-            "record",
             "order",
             "entity",
             "status",

@@ -1,0 +1,130 @@
+{
+  "schema_version": 2,
+  "proposal_id": "attention-love-care",
+  "status": "partially-promoted",
+  "binding": false,
+  "markdown": "attention-love-care.md",
+  "formal_shadow": "../ontology/formal/AttentionLoveCare.lean",
+  "formal_evidence": ["../ontology/formal/EmbodiedConsciousness.lean", "../ontology/formal/AttentionRevision.lean", "../ontology/formal/CareRevision.lean", "../ontology/formal/RespectRevision.lean"],
+  "promotion_contracts": "../ontology/formal/AttentionLoveCareContracts.lean",
+  "promotion_review": "../reviews/promotion/attention-love-care.json",
+  "introduced_terms": ["organon:Attention", "organon:Care", "organon:Respect"],
+  "local_symbols": ["local:RespectProtection", "local:EntityIndividuation"],
+  "semantic_fields": [],
+  "statements": [
+    {
+      "id": "AC-D3",
+      "type": "proposed_definition",
+      "subject": "Attention",
+      "depends_on": ["organon:Relation", "organon:Entity", "organon:Perception", "organon:Interpretation", "organon:Difference", "organon:State", "organon:Scope", "organon:Representation", "organon:CausalContribution", "organon:Claim", "organon:Truth"],
+      "formal_contract": {
+        "status": "proved_with_boundaries",
+        "theorem": "directedAttentionContract",
+        "shared_indices": ["observer", "target", "scope", "state", "respond"],
+        "subject_symbols": ["AttentionRevision", "tracks"],
+        "dependency_dispositions": {
+          "organon:Relation": {"status": "represented_by", "symbols": ["tracks", "observer", "target"], "reason": "The directed predicate preserves observer and target roles, with no reciprocity premise."},
+          "organon:Entity": {"status": "outside_formal_boundary", "reason": "Supplied Participant indices stand for distinct Entities; canonical identity and Persistence are not constructed."},
+          "organon:Perception": {"status": "outside_formal_boundary", "reason": "The supplied response function is not a canonical Perception witness."},
+          "organon:Interpretation": {"status": "outside_formal_boundary", "reason": "The supplied response function is not a canonical Interpretation witness."},
+          "organon:Difference": {"status": "represented_by", "symbols": ["contrast", "respond"], "reason": "Each scoped sample carries a contrast producing an unequal response in the same context; the contrast may vary across samples."},
+          "organon:State": {"status": "represented_by", "symbols": ["state", "first", "second"], "reason": "A supplied target-state trace has two unequal ordered samples in Scope. No uninterrupted continuity between samples is proved."},
+          "organon:Scope": {"status": "formalized", "symbols": ["Scope", "scope", "includes"]},
+          "organon:Representation": {"status": "outside_formal_boundary", "reason": "Target-state alternatives are not joined to canonical Representation or Denotation."},
+          "organon:CausalContribution": {"status": "outside_formal_boundary", "reason": "Holding context fixed in a supplied response model does not construct canonical temporal Causal Contribution or establish a physical mechanism."},
+          "organon:Claim": {"status": "prose_only", "reason": "The limit on normative and epistemic Claims is not encoded by this sensitivity theorem."},
+          "organon:Truth": {"status": "prose_only", "reason": "No Truth predicate or truth anti-entailment is proved by the local response model."}
+        }
+      }
+    },
+    {
+      "id": "AC-D7",
+      "type": "proposed_definition",
+      "subject": "Care",
+      "depends_on": ["organon:Relation", "AC-D3", "organon:Entity", "organon:State", "organon:Action", "organon:Specification", "organon:Consequence", "organon:Scope", "organon:CausalContribution"],
+      "formal_contract": {
+        "status": "proved_with_boundaries",
+        "theorem": "criterionCareContract",
+        "shared_indices": ["select", "response", "spec"],
+        "subject_symbols": ["CareRevision", "responsive"],
+        "dependency_dispositions": {
+          "organon:Relation": {"status": "represented_by", "symbols": ["responsive", "select", "response", "spec"], "reason": "The predicate joins one response and one operative Specification through the same selection function."},
+          "AC-D3": {"status": "outside_formal_boundary", "reason": "Response sensitivity alone does not construct directed persistent Attention or its causal join to selection."},
+          "organon:Entity": {"status": "outside_formal_boundary", "reason": "Canonical participant identity and the join between the Specification target and the attended Entity remain unproved."},
+          "organon:State": {"status": "outside_formal_boundary", "reason": "A supplied response is not a canonical changing target-State history."},
+          "organon:Action": {"status": "outside_formal_boundary", "reason": "The operation returned by the supplied selection function is not canonical boundary-crossing Action."},
+          "organon:Specification": {"status": "formalized", "symbols": ["Specification", "spec", "alternative"]},
+          "organon:Consequence": {"status": "outside_formal_boundary", "reason": "Outcome is a supplied carrier, not a canonical Action-to-Change causal endpoint."},
+          "organon:Scope": {"status": "outside_formal_boundary", "reason": "Specification carries a Scope, but the complete Care relation and contrast admissibility are not joined to one canonical Scope."},
+          "organon:CausalContribution": {"status": "outside_formal_boundary", "reason": "Contrasts in a supplied selection function do not construct canonical comparison paths or establish a physical mechanism."}
+        }
+      }
+    },
+    {
+      "id": "AC-D8",
+      "type": "proposed_definition",
+      "subject": "Respect",
+      "depends_on": ["organon:Relation", "organon:Constraint", "organon:Action", "organon:Entity", "organon:Scope", "organon:Interpretation", "organon:Configuration", "organon:Ritual", "organon:Agency", "organon:Consequence"],
+      "formal_contract": {
+        "status": "proved_with_boundaries",
+        "theorem": "conditionRespectContract",
+        "shared_indices": ["actor", "target", "operation", "expressed", "contextual", "scope"],
+        "subject_symbols": ["RespectRevision", "admitted"],
+        "dependency_dispositions": {
+          "organon:Relation": {"status": "represented_by", "symbols": ["admitted", "actor", "target", "operation"], "reason": "One scoped admission predicate retains the same actor, target, and operation throughout condition resolution; it is not complete Respect."},
+          "organon:Constraint": {"status": "outside_formal_boundary", "reason": "Resolved admission alone does not establish persistent or causally operative constraints upon actual behavior."},
+          "organon:Action": {"status": "outside_formal_boundary", "reason": "The supplied operation is not canonical boundary-crossing Action."},
+          "organon:Entity": {"status": "outside_formal_boundary", "reason": "Participant indices do not construct canonical Entity identity, otherness, or the origin of expressed conditions."},
+          "organon:Scope": {"status": "formalized", "symbols": ["Scope", "scope", "includes"]},
+          "organon:Interpretation": {"status": "outside_formal_boundary", "reason": "The supplied contextual function does not establish canonical Interpretation or its accuracy."},
+          "organon:Configuration": {"status": "outside_formal_boundary", "reason": "No shared Configuration or derivation of contextual defaults is constructed."},
+          "organon:Ritual": {"status": "prose_only", "reason": "The absence of a Ritual premise does not prove the canonical anti-entailment."},
+          "organon:Agency": {"status": "outside_formal_boundary", "reason": "The finite accepted-limitation test checks admission through local steps, not Agency loss or restoration."},
+          "organon:Consequence": {"status": "prose_only", "reason": "No canonical Consequence or favorable-outcome predicate is constructed."}
+        }
+      }
+    },
+    {
+      "id": "AC-C3",
+      "type": "anti_collapse_constraint",
+      "subject": "Attention need not be exhaustive",
+      "depends_on": ["AC-D3", "organon:Entity", "organon:Scope", "organon:State", "organon:Perception", "organon:Interpretation", "organon:Action", "organon:Difference", "organon:CausalContribution"],
+      "formal_contract": {"status": "outside_formal_boundary", "reason": "trackingNeedNotDetectEveryDifference gives a narrow-response countermodel; canonical Perception, Interpretation, and causal parity remain open. The old partial-ratio countermodel does not prove revised C41."}
+    },
+    {
+      "id": "AC-C5",
+      "type": "anti_collapse_constraint",
+      "subject": "Attention is normatively and epistemically neutral",
+      "depends_on": ["AC-D3", "organon:Claim", "organon:Truth", "organon:Consequence"],
+      "formal_contract": {"status": "outside_formal_boundary", "reason": "Benefit, consent, morality, accuracy, and purpose lack closed-world predicates in the formal reduct."}
+    },
+    {
+      "id": "AC-C7",
+      "type": "anti_collapse_constraint",
+      "subject": "Care is not benefit",
+      "depends_on": ["AC-D7", "AC-D3", "organon:Action", "organon:Consequence", "organon:Specification", "organon:Entity"],
+      "formal_contract": {"status": "outside_formal_boundary", "reason": "Finite tests separate responsiveness and actual conformity; canonical Care, benefit, harm, competence, and wantedness are not established by those tests."}
+    },
+    {
+      "id": "AC-C8",
+      "type": "anti_collapse_constraint",
+      "subject": "Respect is not agreement or affection",
+      "depends_on": ["AC-D8", "organon:Constraint", "organon:Action", "organon:Interpretation", "organon:Scope", "organon:Entity", "organon:Consequence"],
+      "formal_contract": {"status": "outside_formal_boundary", "reason": "Condition precedence and actual-versus-planned admission are tested locally. Agreement, affection, obedience, motive, and causal organization remain outside the complete formal boundary."}
+    },
+    {
+      "id": "AC-G1",
+      "type": "open_formalization_gate",
+      "subject": "Canonical causal and participant parity",
+      "depends_on": ["AC-D3", "AC-D7", "AC-D8", "organon:Perception", "organon:Interpretation", "organon:Action", "organon:Agency", "organon:Capability"],
+      "formal_contract": {"status": "open_gate", "reason": "Revised Attention, Care, and Respect require canonical causal, participant, and perceptual/interpretive joins. Respect's supplied conditions do not establish expression provenance, consent, contextual accuracy, or causal regulation. Historical identity/option protection and finite measurements do not discharge these gates."}
+    },
+    {
+      "id": "AC-G2",
+      "type": "open_evidence_gate",
+      "subject": "Application",
+      "depends_on": ["AC-D3", "AC-D7", "AC-D8", "organon:Specification", "organon:Evidence"],
+      "formal_contract": {"status": "open_gate", "reason": "No empirical application follows from the finite formal witnesses without a separate evidence-bearing Specification."}
+    }
+  ]
+}

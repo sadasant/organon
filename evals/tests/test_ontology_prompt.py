@@ -20,10 +20,22 @@ def load_builder():
 def test_full_projection_covers_registry_and_is_current():
     registry = json.loads((ROOT / "ontology" / "terms.yaml").read_text())
     prompt, manifest = load_builder().build([])
-    assert manifest["term_count"] == len(registry["terms"]) == 114
-    assert manifest["commitment_count"] == len(registry["commitments"]) == 49
+    assert manifest["term_count"] == len(registry["terms"]) == 115
+    assert manifest["commitment_count"] == len(registry["commitments"]) == 53
+    assert "`organon:Intention`" not in prompt
+    assert "`organon:FullyExercisablePermission`" not in prompt
+    assert "`organon:ConstitutedExercise`" not in prompt
+    assert "`organon:EmbodiedSelfGovernance`" not in prompt
+    assert "`organon:AbsoluteAttention`" not in prompt
+    assert "`organon:SustainedAttention`" not in prompt
+    assert "`organon:Love`" not in prompt
+    assert "`C39`" not in prompt
+    assert "`C40`" not in prompt
+    assert "`C42`" not in prompt
+    assert "`C44`" not in prompt
     assert "`organon:Absence`" in prompt
     assert "`C38`" in prompt
+    assert "`C46`" in prompt
     assert "Do not infer a term when any named dependency" not in prompt
     assert (
         "Treat every named dependency as lexical vocabulary required to state the complete definition; "

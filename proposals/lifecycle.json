@@ -2,6 +2,22 @@
   "schema_version": 1,
   "entries": [
     {
+      "manifest": "institutional-revision-claims.json",
+      "dossier": "institutional-revision.md",
+      "status": "ready-for-review",
+      "binding_release": null,
+      "remaining_quarantine": [
+        "approved candidate wording; termhood, canonical joins, and downstream Authority/Standing migration remain open"
+      ]
+    },
+    {
+      "manifest": "attention-love-care-claims.json",
+      "dossier": "attention-love-care.md",
+      "status": "partially-promoted",
+      "binding_release": "0.20.0",
+      "remaining_quarantine": ["Intention and Love withdrawn; historical constructions are nonbinding examples. Revised Attention and Care canonical parity remains open; Sustained Attention is retired."]
+    },
+    {
       "manifest": "embodied-consciousness-claims.json",
       "dossier": "embodied-consciousness.md",
       "status": "partially-promoted",
