@@ -84,6 +84,41 @@ sets:
         text: There are no fallback paths for files, layouts, or options the repository no longer has.
         recommendation: Delete the fallback and keep only the current path.
 
+  web-citizen:
+    name: Static web application
+    guidelines:
+      - id: accessible-controls
+        extensions: [.jsx]
+        text: Every interactive element is a native control or carries an equivalent role, is reachable and operable by keyboard, and has an accessible name; decorative graphics are hidden from assistive technology.
+        recommendation: Use a native button or link, or add the role, keyboard handling, and accessible name the control needs.
+      - id: focused-components
+        extensions: [.jsx]
+        text: Each component renders one coherent part of the interface; state lives in the component that owns it, and side effects run in effects or event handlers rather than during render.
+        recommendation: Extract the unrelated part into its own component, or move the side effect into an effect or handler.
+      - id: shared-design-tokens
+        extensions: [.css]
+        text: Colors, spacing, type sizes, and motion durations come from a small set of named custom properties rather than repeated literal values.
+        recommendation: Define a custom property for the repeated value and use it everywhere.
+      - id: motion-respects-preferences
+        extensions: [.jsx, .css]
+        text: Animation and smooth scrolling stop or reduce under prefers-reduced-motion, and continuous animation pauses when the page is hidden.
+        recommendation: Gate the animation on prefers-reduced-motion and the page visibility state.
+        instructions: Judge only animation this file starts. A file that starts none, or gates its only smooth scroll on prefers-reduced-motion, meets this guideline.
+
+  organon-web:
+    name: Organon projections on the web
+    guidelines:
+      - id: projection-not-authority
+        priority: 1
+        text: The interface presents glyphs, algebra cards, and graph edges with their actual status, such as provisional marks, candidate inference forms, and depends_on prerequisites, and never as binding definitions, canonical equivalences, or causal claims.
+        instructions: Judge only what this file renders or labels. A file that renders none of these meets this guideline.
+        recommendation: Label the element with its status and link to the source that governs it.
+      - id: generated-from-sources
+        priority: 1
+        text: Ontology content shown in the interface is generated from the repository's sources by a build step, not copied or paraphrased by hand.
+        instructions: A file that holds no ontology content meets this guideline.
+        recommendation: Move the content into the generated data and read it from there.
+
   infra-citizen:
     name: CI workflows and orb lifecycle scripts
     guidelines:
@@ -312,6 +347,18 @@ rules:
       - id: unix/composable
         instructions: Command-line entry points may default to the repository's own paths when arguments can override them, and repository checkers and generators read and write the repository's own files by design. Judge whether library functions take their inputs as arguments.
 
+  - name: Glyph explorer
+    match: [examples/glyph-explorer/**]
+    exclude: [examples/glyph-explorer/package-lock.json]
+    extends: [unix, kiss, web-citizen, organon-web]
+    override:
+      - id: unix/composable
+        instructions: The data build reads repository sources by design, and components may import the shared glyph catalog. Judge whether components take what they render as props.
+
+  - name: Glyph catalog
+    match: [proposals/glyph-catalog.mjs]
+    extends: [unix, kiss]
+
   - name: Evaluation machinery
     match: [evals/**]
     content: [code]
@@ -323,7 +370,7 @@ rules:
     extends: [organon-checkers]
 
   - name: Registries, manifests, and ledgers
-    match: [ontology/terms.yaml, ontology/*.json, ontology/algebra/*.yaml, ontology/algebra/*.json, ontology/algebra/fixtures/*.yaml, proposals/*.json, schemas/**, organon-structure.json, examples/**, reviews/promotion/*.json, reviews/*.json, provenance/*.json, evals/*/inputs/*.json, evals/*/current.json, evals/methodology/*.json]
+    match: [ontology/terms.yaml, ontology/*.json, ontology/algebra/*.yaml, ontology/algebra/*.json, ontology/algebra/fixtures/*.yaml, proposals/*.json, schemas/**, organon-structure.json, examples/*.json, reviews/promotion/*.json, reviews/*.json, provenance/*.json, evals/*/inputs/*.json, evals/*/current.json, evals/methodology/*.json]
     applies_to: [file]
     extends: [organon-data]
 
