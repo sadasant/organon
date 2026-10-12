@@ -12,8 +12,8 @@
   "sources_sha256": {
     "ontology/ontology.md": "4fdf0d4687fbc88612c6f48ea84a750314d4154e32b831243aa8f7d8a4189a32",
     "ontology/terms.yaml": "48469a8a1a6f52837d428002b233701667bbebcb06c4d55457355303da38f937",
-    "editorial/long-form.md": "fb8f21b7dc03e2e44737fef723d94abdbb62a044ead89a6a7579d07d23b55d68",
-    "editorial/short-form.md": "7ac9254f6f8964a1776f2eeacbfe36fdaad591701174116c0527c1f2c1b472be"
+    "editorial/long-form.md": "3557df87d22d027a524dc8f0add9c94e1801319f210fb9ca62893792c413870e",
+    "editorial/short-form.md": "b509d8cd4146a998e5e02350b40a931ba5a8b90f0e06895576d8a64acc24ccc9"
   },
   "generator_sha256": "691d1533ed9d3fa3b6d6ad0d5a652fa68ed96810ec74d23cfaddcf0a4318d40a",
   "prompt_sha256": "d2b3a34694a93d08d08f40a98813caa31f4e98b0e951953821f13128fbe054f3",

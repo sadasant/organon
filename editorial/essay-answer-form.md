@@ -10,9 +10,22 @@ provenance: "../provenance/editorial.md"
 ---
 # Essay-Answer Form
 
+*Proposed August 5, 2026 (v0.2).*
+
 An essay answer is a response to a particular question from a provisionally imagined reader. It is neither a standalone short-form publication nor a small essay. The question has already supplied a subject, a pressure, and part of the context. The answer should not rebuild that context merely to become independently defensible.
 
 The governing problem is proportionality: say enough to discharge the question's actual pressure for this reader, then stop.
+
+## Contents
+
+- [The interlocutor hypothesis](#the-interlocutor-hypothesis)
+- [Invisible shape](#invisible-shape)
+- [Disposition shapes](#disposition-shapes)
+- [Proportionality rules](#proportionality-rules)
+- [Evaluation](#evaluation)
+- [Contrast](#contrast)
+- [Calibration finding](#calibration-finding)
+- [Related entries](#related-entries)
 
 ## The interlocutor hypothesis
 
@@ -85,3 +98,9 @@ The second answer is not less true. It has decided which truth this question pre
 ## Calibration finding
 
 Version 0.1 improved reader fit but produced answers roughly seventeen percent longer than the short-form-governed baseline. The interlocutor hypothesis had become permission to anticipate more needs. Version 0.2 therefore makes proportionality observable: the visible answer receives a tighter ceiling, while the hypothesis, source anchors, limitations, and judge evidence remain available outside it.
+
+## Related entries
+
+- [Short Form](./short-form.md) and [Long-Form Editorial Grammar](./long-form.md).
+- [Essay-question evaluations](../evals/essay-questions/README.md), which calibrate this form.
+- [Editorial provenance](../provenance/editorial.md).

@@ -15,6 +15,8 @@ applies_to:
 ---
 # Long-Form Editorial Grammar
 
+*First published August 1, 2026 (v0.2, provisional).*
+
 Companion model of recurring entities and relations: [Daniel's Ontology](../ontology/ontology.md).
 
 > [!note] Working status
@@ -33,6 +35,35 @@ In Daniel's formulation:
 > Each article mints a new frame of reference from which to see the world.
 
 The minted frame is not merely a conclusion. It is a conceptual instrument the reader can use somewhere else.
+
+## Contents
+
+- [Founding proposition](#founding-proposition)
+- [The social grammar of an article](#the-social-grammar-of-an-article)
+- [The central movement](#the-central-movement)
+- [The six functions](#the-six-functions)
+  - [1. Hospitality](#1-hospitality)
+  - [2. Disturbance](#2-disturbance)
+  - [3. Negotiation](#3-negotiation)
+  - [4. Delivery](#4-delivery)
+  - [5. Revaluation](#5-revaluation)
+  - [6. Inheritance](#6-inheritance)
+- [Reader-state transitions](#reader-state-transitions)
+- [Local and global deliveries](#local-and-global-deliveries)
+- [Delivery tests](#delivery-tests)
+- [Persona as a long-form instrument](#persona-as-a-long-form-instrument)
+- [Anti-formula constraints](#anti-formula-constraints)
+- [Revision passes](#revision-passes)
+  - [The missingness pass](#the-missingness-pass)
+  - [The reader pass](#the-reader-pass)
+  - [The structure pass](#the-structure-pass)
+  - [The delivery pass](#the-delivery-pass)
+  - [The mechanism pass](#the-mechanism-pass)
+  - [The desire pass](#the-desire-pass)
+  - [The residue pass](#the-residue-pass)
+- [Evaluation sentence](#evaluation-sentence)
+- [Next use](#next-use)
+- [Related entries](#related-entries)
 
 ## The social grammar of an article
 
@@ -259,3 +290,10 @@ The most useful verdict for a long-form draft is:
 ## Next use
 
 Create one persona document for each long-form sample family, beginning with Essay Openings, Technical Prose, Project Narratives, and Fiction and Myth. Treat Spanish as a cultural and relational register rather than a genre; define its persona without assuming that every Spanish text has the same structure or audience.
+
+## Related entries
+
+- [Short Form](./short-form.md), which governs delivery at sentence scale.
+- [Essay-Answer Form](./essay-answer-form.md), for answering one reader's question.
+- [Daniel's Ontology](../ontology/ontology.md), which governs what the argument says exists.
+- [Editorial provenance](../provenance/editorial.md) and the [editorial-artifact evaluations](../evals/editorial-artifacts/README.md).
