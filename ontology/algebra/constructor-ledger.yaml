@@ -4,7 +4,7 @@
   "source_sha256": {
     "ontology/terms.yaml": "48469a8a1a6f52837d428002b233701667bbebcb06c4d55457355303da38f937",
     "ontology/algebra/positive-calculus.yaml": "76c83651ae6d9ada317546a862450ec7940b5d1e12fb93b973f8bd6fd1abdd73",
-    "scripts/build-positive-calculus.py": "d35504151ada0ba68c1ba8e804987f493235196a5042610e73c188b42729b8b6"
+    "scripts/build-positive-calculus.py": "bedb359a6cca55cf18695af039c8ddaf299673f5cd341197333525de2d769b82"
   },
   "counts": {
     "registered_terms": 115,
