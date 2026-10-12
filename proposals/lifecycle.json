@@ -2,6 +2,15 @@
   "schema_version": 1,
   "entries": [
     {
+      "manifest": "unicode-vocabulary-claims.json",
+      "dossier": "unicode-vocabulary.md",
+      "status": "ready-for-review",
+      "binding_release": null,
+      "remaining_quarantine": [
+        "glyph assignments, compositional grammar, semantic interpretation, and reader/rendering/accessibility validation remain unadopted"
+      ]
+    },
+    {
       "manifest": "institutional-revision-claims.json",
       "dossier": "institutional-revision.md",
       "status": "ready-for-review",
