@@ -5,6 +5,11 @@
 # ///
 """Build the nonbinding Organon symbol font and Markdown study from one catalog.
 
+Contract: proposals/unicode-vocabulary.md, with geometry from
+proposals/glyph-geometry.json and per-term judgments from
+proposals/glyph-semantic-review.json. Writes proposals/glyph-assets/ and
+proposals/glyph-atlas.md; --check fails when any of them is stale.
+
 Run with: uv run scripts/build-glyph-font.py
 No font tools are needed to build the website from the checked-in font.
 """
@@ -75,7 +80,7 @@ class StrokePen(BasePen):
             self.lines.append(LineString(self.points))
 
 
-def outline(path):
+def outline(path: str):
     numbers = re.findall(r"[-+]?(?:\d*\.\d+|\d+)(?:[eE][-+]?\d+)?", path)
     assert all(float(n) % GEOMETRY["coordinate_grid"] == 0 for n in numbers), "Off-grid glyph coordinate"
     stroke = StrokePen()
@@ -102,7 +107,7 @@ def outline(path):
     return pen.glyph()
 
 
-def build(output_root):
+def build(output_root: Path) -> None:
     catalog = json.loads(subprocess.check_output([
         "node", "--input-type=module", "-e",
         "import {glyphs} from './proposals/glyph-catalog.mjs'; "
@@ -192,7 +197,7 @@ def build(output_root):
     (output_root / "proposals/glyph-atlas.md").write_text("\n".join(rows) + "\n")
 
 
-def main():
+def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--check", action="store_true", help="Fail if generated artifacts are stale; write nothing to the repository")
     args = parser.parse_args()
@@ -203,7 +208,10 @@ def main():
             for path in temporary.rglob("*"):
                 if path.is_file():
                     target = ROOT / path.relative_to(temporary)
-                    assert target.exists() and target.read_bytes() == path.read_bytes(), f"Stale glyph artifact: {target}"
+                    assert target.exists() and target.read_bytes() == path.read_bytes(), (
+                        f"Stale glyph artifact: {target}; "
+                        "run uv run scripts/build-glyph-font.py to regenerate it"
+                    )
         print("PASS: shared catalog, reviewed sources, fonts and study artifacts agree.")
     else:
         build(ROOT)

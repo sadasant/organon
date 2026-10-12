@@ -88,6 +88,7 @@ export default function Graph({ term, terms, search }) {
         className="graph-viewport"
         ref={viewport}
         tabIndex={0}
+        role="region"
         aria-label="Local dependency graph. Scroll to explore all nodes."
       >
         <svg
