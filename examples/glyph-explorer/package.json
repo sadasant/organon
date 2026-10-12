@@ -1,0 +1,24 @@
+{
+  "name": "organon-glyph-explorer",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "data": "python3 build-data.py",
+    "dev": "npm run data && vite --host 0.0.0.0",
+    "build": "npm run data && vite build",
+    "preview": "vite preview --host 0.0.0.0",
+    "test": "node --test src/content.test.js"
+  },
+  "dependencies": {
+    "@fontsource-variable/inter": "^5.2.8",
+    "@fontsource-variable/newsreader": "^5.2.8",
+    "katex": "^0.19.0",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "react-markdown": "^10.1.0",
+    "react-router-dom": "^7.9.4",
+    "three": "^0.180.0",
+    "vite": "^7.1.9"
+  }
+}
