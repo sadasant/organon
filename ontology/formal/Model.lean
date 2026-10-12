@@ -15,6 +15,7 @@ import AttentionLoveCare
 import AttentionLoveCareContracts
 import PR18Governance
 import RepresentationActivityExample
+import InstitutionalRevision
 
 /-!
 # Daniel's Ontology: finite inhabited model

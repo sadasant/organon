@@ -56,6 +56,9 @@ name = "PR18Governance"
 [[lean_lib]]
 name = "RepresentationActivityExample"
 
+[[lean_lib]]
+name = "InstitutionalRevision"
+
 [[lean_exe]]
 name = "ontology_check"
 root = "Model"

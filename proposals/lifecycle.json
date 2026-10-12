@@ -2,6 +2,15 @@
   "schema_version": 1,
   "entries": [
     {
+      "manifest": "institutional-revision-claims.json",
+      "dossier": "institutional-revision.md",
+      "status": "ready-for-review",
+      "binding_release": null,
+      "remaining_quarantine": [
+        "approved candidate wording; termhood, canonical joins, and downstream Authority/Standing migration remain open"
+      ]
+    },
+    {
       "manifest": "attention-love-care-claims.json",
       "dossier": "attention-love-care.md",
       "status": "partially-promoted",
