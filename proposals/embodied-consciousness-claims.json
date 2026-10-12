@@ -1,5 +1,6 @@
 {
   "schema_version": 2,
+  "description": "Typed statement manifest for embodied-consciousness.md. Statement types, formal-contract statuses, and dependency dispositions are defined in proposals/README.md and CONTRIBUTING.md and checked by scripts/check-proposals.py.",
   "proposal_id": "embodied-consciousness",
   "status": "partially-promoted",
   "binding": false,

@@ -1,5 +1,6 @@
 {
   "schema_version": 1,
+  "description": "Resolution of the connective words used in load-bearing definitions for the nonbinding candidate algebra described in ontology/algebra/README.md, validated by scripts/build-algebra.py.",
   "status": "nonbinding-scoped-connective-audit",
   "scope": "connective verbs named by the reduction procedure, checked against the training cards and held-out challenges",
   "required_connectives": ["means", "corresponds", "conditions", "carries", "preserves", "supports", "classifies", "constitutes", "maintains", "propagates", "applies", "counts"],

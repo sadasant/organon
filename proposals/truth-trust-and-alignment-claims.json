@@ -1,5 +1,6 @@
 {
   "schema_version": 1,
+  "description": "Typed statement manifest for truth-trust-and-alignment.md. Statement types, formal-contract statuses, and dependency dispositions are defined in proposals/README.md and CONTRIBUTING.md and checked by scripts/check-proposals.py.",
   "proposal_id": "truth-trust-and-alignment",
   "status": "promoted",
   "binding": false,

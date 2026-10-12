@@ -1,5 +1,6 @@
 {
   "schema_version": 1,
+  "description": "Labeled logical challenges for the nonbinding candidate algebra described in ontology/algebra/README.md, validated by scripts/build-algebra.py.",
   "status": "nonbinding-typed-labeled-inference-fixtures",
   "cases": [
     {

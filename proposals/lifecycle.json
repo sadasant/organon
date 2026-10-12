@@ -1,5 +1,6 @@
 {
   "schema_version": 1,
+  "description": "Lifecycle of every retained proposal dossier, as described in proposals/README.md: its Claims manifest, current status, binding release, and any condition that remains quarantined. Checked by scripts/check-structure.py.",
   "entries": [
     {
       "manifest": "unicode-vocabulary-claims.json",
