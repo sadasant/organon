@@ -254,6 +254,9 @@ rules:
     override:
       - id: readme/states-purpose
         text: The README opens with the component's name and a short statement of what it contains and why it exists.
+      - id: readme/usage
+        instructions: If the component is something a reader runs, the README shows the command. An index or explanatory component meets this guideline.
+    disable: [readme/conventional-structure]
 
   - name: Methodology is an instrument, not a component README
     match: [evals/methodology/README.md]
@@ -339,6 +342,9 @@ files:
   exclude:
     # Generated projections. Their generators in scripts/ are judged instead.
     - ontology/prompt.md
+    - proposals/glyph-atlas.md
+    - proposals/unicode-vocabulary-atlas.md
+    - proposals/glyph-assets/**
     - ontology/prompt-manifest.json
     - ontology/algebra/coverage.md
     - ontology/algebra/mutations.yaml
