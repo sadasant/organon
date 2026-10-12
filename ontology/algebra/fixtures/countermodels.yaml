@@ -2,7 +2,7 @@
   "schema_version": 1,
   "status": "generated-nonbinding-structural-near-miss-models",
   "source_normal_forms_sha256": "1e4c8a950a920840f4e9966778fbdda625aec7d5560efe692e05ae4efac0bae0",
-  "source_challenges_sha256": "5c12cd232027303d9a0b48c68c2766afd91f19846f7f7487f37ba9464ba0e6d4",
+  "source_challenges_sha256": "57c6915b04d7293c421137d4009cfaae7e4bf7065722690dc8c1fe1cb4331422",
   "generator_sha256": "474a9b7cbc3ee66f180723d50fa35e34ef48539f8daa3678349543de07b27ab8",
   "structural_mutations": [
     {

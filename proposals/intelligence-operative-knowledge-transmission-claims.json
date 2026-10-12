@@ -1,5 +1,6 @@
 {
   "schema_version": 1,
+  "description": "Typed statement manifest for intelligence-operative-knowledge-transmission.md. Statement types, formal-contract statuses, and dependency dispositions are defined in proposals/README.md and CONTRIBUTING.md and checked by scripts/check-proposals.py.",
   "proposal_id": "intelligence-operative-knowledge-transmission",
   "status": "promoted",
   "binding": false,
