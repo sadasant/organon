@@ -239,7 +239,7 @@ Martin Heidegger, *Being and Time*, §31, [pp. 184–185 in Macquarrie–Robinso
 
 ## Gate: canonical realization and promotion
 
-Full Configuration/Representation/Rule/Constraint realization, category targets as Presences, complete semantic contexts, canonical Perception/Memory/Model-to-Understanding joins and Constraint-relative Action possibilities, actual allocation constraints, conditioned probability-to-process joins, Entity emergence, and source-signal Causal paths remain open. Binding promotion additionally requires termhood decisions, schema-v2 theorem contracts with complete dependency and semantic-field ledgers, adversarial review, exact-source receipts, and coordinated changes to the ontology and projections. This PR is ready for proposal review, not certified promotion-ready.
+Full Configuration/Representation/Rule/Constraint realization, category targets as Presences, complete semantic contexts, canonical Perception/Memory/Model-to-Understanding joins and Constraint-relative Action possibilities, actual allocation constraints, conditioned probability-to-process joins, Entity emergence, and source-signal Causal paths remain open. Binding promotion additionally requires termhood decisions, schema-v2 theorem contracts with complete dependency and semantic-field ledgers, adversarial review with an exact-source review record, and coordinated changes to the ontology and projections. This PR is ready for proposal review, not certified promotion-ready.
 
 <!-- organon:proposal-statement OF-G2 type=open_evidence_gate -->
 
