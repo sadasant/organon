@@ -1,5 +1,9 @@
 #!/usr/bin/env python3
-"""Build the exhaustive, nonbinding completeness audit for the candidate algebra."""
+"""Build the exhaustive, nonbinding completeness audit for the candidate algebra.
+
+Contract: ontology/algebra/README.md. Writes reduction-ledger.yaml and
+complete-reduction-report.md; --check fails when either is stale.
+"""
 
 from __future__ import annotations
 
@@ -44,7 +48,10 @@ def digest(path: Path) -> str:
 def write_or_check(path: Path, content: str, *, check: bool) -> None:
     if check:
         if not path.is_file() or path.read_text(encoding="utf-8") != content:
-            raise AuditError(f"generated reduction artifact is stale: {path.relative_to(ROOT)}")
+            raise AuditError(
+                f"generated reduction artifact is stale: {path.relative_to(ROOT)}; "
+                "run python3 scripts/build-reduction-audit.py to regenerate it"
+            )
         return
     path.write_text(content, encoding="utf-8")
 
@@ -240,9 +247,9 @@ def main() -> int:
     except AuditError as error:
         print(f"Reduction audit failed: {error}", file=sys.stderr)
         return 1
-    action = "verified" if args.check else "generated"
+    action = "are current" if args.check else "written"
     print(
-        f"Complete reduction audit {action}: {result['terms']} terms, "
+        f"Reduction audit artifacts {action}: {result['terms']} terms, "
         f"{result['commitments']} commitments, {result['encoded']} typed normal forms, "
         f"{result['underdetermined']} underdetermined definitions, "
         f"{result['missing_rules']} missing positive circuits."

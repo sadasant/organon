@@ -1,5 +1,9 @@
 #!/usr/bin/env python3
-"""Generate or verify the complete OrganonCore reduct term audit."""
+"""Generate or verify the complete OrganonCore reduct term audit.
+
+Contract: ontology/formal/organon-core-reduct-report.md. Writes
+ontology/formal/organon-core-term-audit.md with --write and fails when it is stale.
+"""
 
 from __future__ import annotations
 

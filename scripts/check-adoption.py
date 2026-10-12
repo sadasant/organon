@@ -1,5 +1,9 @@
 #!/usr/bin/env python3
-"""Validate an Organon adoption manifest with standard-library Python."""
+"""Validate an Organon adoption manifest with standard-library Python.
+
+Contract: schemas/organon-adoption-schema.json, with profiles expanded from
+ontology/profiles.json through the dependency closure in ontology/terms.yaml.
+"""
 
 from __future__ import annotations
 
@@ -11,16 +15,8 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parent.parent
-TERMS = next(
-    path
-    for path in (ROOT / "ontology" / "terms.yaml", ROOT / "Ontology" / "terms.yaml")
-    if path.exists()
-)
-PROFILES = next(
-    path
-    for path in (ROOT / "ontology" / "profiles.json", ROOT / "Ontology" / "profiles.json")
-    if path.exists()
-)
+TERMS = ROOT / "ontology" / "terms.yaml"
+PROFILES = ROOT / "ontology" / "profiles.json"
 
 
 def dependency_closure(roots: list[str], dependencies: dict[str, list[str]]) -> set[str]:

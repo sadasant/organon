@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
-"""Verify the Lean build receipt against files, Git history, and compiler."""
+"""Verify the Lean build receipt against files, Git history, and compiler.
+
+Contract: ontology/formal/build-receipt.md.
+"""
 
 from __future__ import annotations
 
