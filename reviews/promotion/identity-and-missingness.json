@@ -2,10 +2,10 @@
   "schema_version": 1,
   "proposal_id": "identity-and-missingness",
   "status": "promotion-ready",
-  "reviewed_commit": "65eb88c8d63fa7af56d241184374c5cc2c60555a",
-  "reviewed_tree": "e00b87f84a2eae0f5662c70c8380325025860140",
+  "reviewed_commit": "556e18a8b7989ddd6c53140549161a6dff3a3f28",
+  "reviewed_tree": "39974c6265c3907e52a4b64be3db6976ecddb37b",
   "reviewed_at": "2026-10-13",
-  "reviewer": "Amp local source and counterexample review; not independent external review",
+  "reviewer": "Amp local source and counterexample review, with a focused Oracle consultation on Identity versus Entity reidentification; not independent external review",
   "review_scope": "D120, the A5 and D002 revisions, D014 clarification, dependency closure, four typed contracts, local-carrier equality laws and asymmetric finite witnesses. Review readiness applies to these bounded claims, not empirical individuation or a complete formalization of Presence. The existing embodiment and attention contracts retain their statements.",
   "source_sha256": {
     "proposals/identity-and-missingness.md": "92a416944b22d65b340d74e2a78d79a12354006d2353bf28f7208ec7db5017c9",
@@ -17,7 +17,7 @@
     "ontology/formal/lean-toolchain": "54727eec5cba149c18842e6deb5c41b369d66455c93ce135d7d5347c782b2325",
     "scripts/check-proposals.py": "87f26905ba0450b92a9f38c6ee63a144e5973fd424a971622b42f6a9eb03fb24",
     "scripts/check-promotion-review.py": "cef84a92bb95bb43734b16941f4a957ad77f9d117d4e1401f93460ff155afda9",
-    "ontology/ontology.md": "7fa04a6d08cec3cdbc64e48f6d62c0528e72e63588f072933aa34dc83560054b",
+    "ontology/ontology.md": "273b4ce33570c27d2d1b9a35e27f8cefc0562f7385f3eed3c5c08f69f38750d3",
     "ontology/terms.yaml": "de52d028048e28f3367e1a37a9a22fee466ebfd04a9fd31e0c5dbf0f6c6f7bf5",
     "ontology/profiles.json": "0e17e24c11ab11f86a69377a884763518fcea9a7d5ab68f76d4d7c114ce42ecc",
     "ontology/changelog.md": "0ad629ce1bf317c5ce30560dc0568b905e67797596a9168c8df9f231af95be64",
@@ -63,7 +63,7 @@
       "id": "IM-R6",
       "severity": "high",
       "disposition": "outside-formal-boundary",
-      "resolution": "The existing Entity model allows one Invariant across unequal States, proved from its ordered non-singleton history. It does not establish a complete canonical individuation criterion; sharing an Invariant is not enough to identify two Entities. Prose and dossier distinguish exact Identity, cross-State reidentification and similarity."
+      "resolution": "The existing Entity model allows one Invariant across unequal States, proved from its ordered non-singleton history. It does not establish a complete canonical individuation criterion; sharing an Invariant is not enough to identify two Entities. A focused Oracle consultation found no contradiction but recommended making the one-relation reading explicit. D014 now states that reidentification asserts this same Identity, not a second sameness relation; the Invariant and Persistence witness must justify that assertion. D002 clarifies that a changed comparison criterion changes which items are denoted, not equality itself. Lean Entity records remain snapshots; record equality is not claimed to capture canonical reidentification. No primary statement or formal contract changed."
     },
     {
       "id": "IM-R7",
