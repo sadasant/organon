@@ -176,7 +176,7 @@ The definitions below are dependency-ordered. A definition may depend on the met
 
 **Difference** is the failure of Identity between two compared Presences or two compared ordered configurations of Presence. Difference is inside Reality; the defining departure of Presence from Absence belongs to the metalanguage and must not be mistaken for an ontological relation involving Absence.
 
-Under the same comparison and identity criteria, exactly one of Identity and Difference obtains. This partition uses the declared classical logic; it does not establish that an observer knows which condition obtains. Difference is symmetric and irreflexive, but need not be transitive: two items can each differ from a third while being identical to one another. Changing the compared items, their ordered configuration, or the identity criterion changes the question rather than contradicting the partition.
+For the same compared items, exactly one of Identity and Difference obtains. This partition uses the declared classical logic; it does not establish that an observer knows which condition obtains. Difference is symmetric and irreflexive, but need not be transitive: two items can each differ from a third while being identical to one another. Changing the compared items, their ordered configuration, or the criterion fixing which items the comparison positions denote changes the question rather than contradicting the partition.
 
 ### 3. Relation
 
@@ -264,7 +264,7 @@ This is one definition, not two. A prohibition constrains possible action. A pri
 
 **Entity** is a Configuration that retains identity through the Persistence of an Invariant named as its object-language identity criterion. The Entity claim must identify the ordered States and Persistence witness that realize the criterion supplied by the metalanguage.
 
-Identity of an Entity does not assert Identity of its successive States. Different States may belong to the same Entity when the named criterion and Persistence witness justify its reidentification. Conversely, sharing an Invariant does not by itself establish Identity of two Entities; the criterion must distinguish the particular Entity, not merely a common property.
+Reidentifying an Entity across ordered States asserts Identity of that Entity, not a second relation of sameness. Its successive States need not be identical. The named Invariant and Persistence witness are the object-language criterion that must justify that assertion; sharing an Invariant alone does not establish Identity of two Entities. The criterion must distinguish the particular Entity, not merely a common property.
 
 <a id="organon-boundary"></a>
 <!-- organon:term organon:Boundary claim=D015 -->
