@@ -204,7 +204,7 @@ Membership remains supplied by the metalanguage; this definition names its exten
 <a id="organon-mathematical-order"></a>
 <!-- organon:term organon:MathematicalOrder claim=D122 -->
 
-**Order** is a Set together with a reflexive, antisymmetric, and transitive binary relation on its members.
+**Order** pairs a member Set with a reflexive, antisymmetric, and transitive binary relation on that Set's members. The pair, not the member Set alone, is the Order.
 
 The binary relation is metalinguistic: it is fixed by its extension, a set of ordered pairs of members of the Set. It is not a new definition of the registered Relation, does not require that each pair be realized as a Relation, and does not claim that any ordering event happens. For all members *a*, *b*, and *c* of the Set, writing *a* ≤ *b* when the ordered pair (*a*, *b*) is in the extension:
 
@@ -219,7 +219,7 @@ Order is derived mathematical structure in the same sense as Set: it names an ex
 <a id="organon-configuration"></a>
 <!-- organon:term organon:Configuration claim=D004 -->
 
-**Configuration** is a Set of Presences together with specified relational structure.
+**Configuration** pairs a member Set of Presences with specified relational structure. The pair, not the member Set alone, is the Configuration.
 
 The structure specifies which Relations are included and the participants occupying each Relation's ordered positions. Each specified Relation is itself a member or has at least one member as a participant. Its other participants need not be members. Specifying a Relation does not create it or license changing its participants.
 
@@ -230,7 +230,7 @@ A Configuration may specify no Relations, and its member Set may be empty. Neith
 <a id="organon-state"></a>
 <!-- organon:term organon:State claim=D005 -->
 
-**State** is a Configuration indexed at a position in the metalanguage's ordering. That position distinguishes States without adding a Relation to Reality.
+**State** pairs a Configuration with a position in the metalanguage's ordering. Two States have Identity exactly when they have the same position and their Configurations have Identity. One Configuration at two different positions gives two States; the position does not add a Relation to that Configuration.
 
 <a id="organon-direction"></a>
 <!-- organon:term organon:Direction claim=D006 -->
@@ -239,7 +239,7 @@ A Configuration may specify no Relations, and its member Set may be empty. Neith
 
 Direction internalizes as Presence an asymmetry that the metalanguage can state without adding it to Reality; it does not duplicate the metalanguage's indexing order.
 
-Asymmetry alone does not make a Direction the strict part of an Order. A strict Order is also transitive, and a Direction need not be: a Direction may order one State before a second and the second before a third without ordering the first before the third. Nor is a Direction required to agree with the indexing order of the States it relates.
+Asymmetry alone does not make a Direction's ordered-pair extension the strict part of an Order. The strict part of an Order is also transitive, and a Direction need not be: a Direction may order one State before a second and the second before a third without ordering the first before the third. Nor is a Direction required to agree with the indexing order of the States it relates.
 
 ### 5. Transformation and change
 
@@ -280,7 +280,7 @@ Asymmetry alone does not make a Direction the strict part of an Order. A strict 
 
 **Persistence** is the preservation of an Invariant across an ordered sequence of States.
 
-Where a later definition calls a Configuration persistent, it means Configurations indexed at an ordered sequence of States and joined by a named preserved Invariant and Persistence witness. It does not assert Identity of every indexed Configuration: their members and specified structure may differ wherever the named Invariant does not fix them. This reading applies only to Configurations.
+Where a later definition calls a Configuration persistent, it means one Configuration at each State of an ordered sequence of States, joined by a named preserved Invariant and Persistence witness. It does not assert Identity of those Configurations: their members and specified structure may differ wherever the named Invariant does not fix them. Statements about such a Configuration's member Set, specified structure, or Identity compare Configurations at a given State; reidentification across States instead requires the named Invariant and Persistence witness. This reading applies only to Configurations.
 
 ### 7. Constraint
 
@@ -298,7 +298,7 @@ This is one definition, not two. A prohibition constrains possible action. A pri
 
 **Entity** is a Presence reidentified across ordered States through a named Invariant and Persistence witness that serve as its object-language identity criterion. The Entity claim must identify the ordered States and Persistence witness that realize the criterion supplied by the metalanguage.
 
-Each State is an indexed Configuration; the Entity is not identified with any one of those Configurations or treated as a single Configuration that changes its members or specified structure. Reidentifying an Entity across ordered States asserts Identity of that Entity, not a second relation of sameness. Its successive States need not be identical. The named Invariant and Persistence witness are the object-language criterion that must justify that assertion; sharing an Invariant alone does not establish Identity of two Entities, and a State's satisfying the Invariant alone does not place that State in the Entity's history. The criterion must distinguish the particular Entity, not merely a common property. This definition adds no new sufficient condition for Entity identity.
+Each State carries a Configuration at its position; the Entity is not identified with any one of those Configurations or treated as a single Configuration that changes its members or specified structure. Reidentifying an Entity across ordered States asserts Identity of that Entity, not a second relation of sameness. Its successive States need not be identical. The named Invariant and Persistence witness are the object-language criterion that must justify that assertion; sharing an Invariant alone does not establish Identity of two Entities, and a State's satisfying the Invariant alone does not place that State in the Entity's history. The criterion must distinguish the particular Entity, not merely a common property. This definition adds no new sufficient condition for Entity identity.
 
 <a id="organon-boundary"></a>
 <!-- organon:term organon:Boundary claim=D015 -->

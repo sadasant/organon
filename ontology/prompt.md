@@ -141,21 +141,21 @@ Depends: organon:Presence, organon:Identity, organon:Absence, organon:Relation, 
 
 ### `organon:MathematicalOrder` · Order
 
-**Order** is a Set together with a reflexive, antisymmetric, and transitive binary relation on its members.
+**Order** pairs a member Set with a reflexive, antisymmetric, and transitive binary relation on that Set's members. The pair, not the member Set alone, is the Order.
 
 Claim: `D122` (definition).
 Depends: organon:Set, organon:Identity, organon:Relation, organon:Presence.
 
 ### `organon:Configuration` · Configuration
 
-**Configuration** is a Set of Presences together with specified relational structure.
+**Configuration** pairs a member Set of Presences with specified relational structure. The pair, not the member Set alone, is the Configuration.
 
 Claim: `D004` (definition).
 Depends: organon:Set, organon:Presence, organon:Relation, organon:Identity.
 
 ### `organon:State` · State
 
-**State** is a Configuration indexed at a position in the metalanguage's ordering. That position distinguishes States without adding a Relation to Reality.
+**State** pairs a Configuration with a position in the metalanguage's ordering. Two States have Identity exactly when they have the same position and their Configurations have Identity. One Configuration at two different positions gives two States; the position does not add a Relation to that Configuration.
 
 Claim: `D005` (definition).
 Depends: organon:Configuration.
