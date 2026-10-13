@@ -27,7 +27,7 @@ binding_source: ontology.md
 
 - Mode: full
 - Requested: all registered terms
-- Terms carried: 117 of 117
+- Terms carried: 118 of 118
 - Commitments carried: 53 of 53
 
 ## Metalanguage boundary
@@ -139,6 +139,13 @@ Depends: organon:Presence, organon:Relation.
 Claim: `D121` (definition).
 Depends: organon:Presence, organon:Identity, organon:Absence, organon:Relation, organon:Reality.
 
+### `organon:MathematicalOrder` · Order
+
+**Order** is a Set together with a reflexive, antisymmetric, and transitive binary relation on its members.
+
+Claim: `D122` (definition).
+Depends: organon:Set, organon:Identity, organon:Relation, organon:Presence.
+
 ### `organon:Configuration` · Configuration
 
 **Configuration** is a Set of Presences together with specified relational structure.
@@ -158,7 +165,7 @@ Depends: organon:Configuration.
 **Direction** is a Relation between States such that, when it orders one State before another, the same Relation does not order the second State before the first.
 
 Claim: `D006` (definition).
-Depends: organon:Relation, organon:State.
+Depends: organon:Relation, organon:State, organon:MathematicalOrder.
 
 ### `organon:Transformation` · Transformation
 
@@ -207,7 +214,7 @@ Depends: organon:Relation, organon:Configuration, organon:Transformation.
 **Persistence** is the preservation of an Invariant across an ordered sequence of States.
 
 Claim: `D012` (definition).
-Depends: organon:Invariant, organon:State.
+Depends: organon:Invariant, organon:State, organon:Configuration, organon:Identity.
 
 ### `organon:Constraint` · Constraint
 
@@ -218,17 +225,17 @@ Depends: organon:Persistence, organon:Relation, organon:Transformation.
 
 ### `organon:Entity` · Entity
 
-**Entity** is a Configuration that retains identity through the Persistence of an Invariant named as its object-language identity criterion. The Entity claim must identify the ordered States and Persistence witness that realize the criterion supplied by the metalanguage.
+**Entity** is a Presence reidentified across ordered States through a named Invariant and Persistence witness that serve as its object-language identity criterion. The Entity claim must identify the ordered States and Persistence witness that realize the criterion supplied by the metalanguage.
 
 Claim: `D014` (definition).
-Depends: organon:Identity, organon:Configuration, organon:State, organon:Persistence, organon:Invariant.
+Depends: organon:Presence, organon:Identity, organon:Configuration, organon:State, organon:Persistence, organon:Invariant.
 
 ### `organon:Boundary` · Boundary
 
 **Boundary** is a Configuration of Constraints indexed to the Invariant whose Persistence constitutes an Entity's identity. Those Constraints determine which Transformations preserve that identity and which cross the distinction between the Entity and other Presence.
 
 Claim: `D015` (definition).
-Depends: organon:Configuration, organon:Constraint, organon:Invariant, organon:Persistence, organon:Entity.
+Depends: organon:Configuration, organon:Constraint, organon:Invariant, organon:Persistence, organon:Entity, organon:Relation.
 
 ### `organon:Environment` · Environment
 
@@ -340,7 +347,7 @@ Depends: organon:Record, organon:Persistence, organon:State, organon:Entity.
 **Model** is an organized Configuration of Representations and Transformations that relates Perception and Memory to later States under its stated Constraints.
 
 Claim: `D031` (definition).
-Depends: organon:Configuration, organon:Representation, organon:Transformation, organon:Perception, organon:Memory, organon:State, organon:Constraint.
+Depends: organon:Configuration, organon:Representation, organon:Transformation, organon:Perception, organon:Memory, organon:State, organon:Constraint, organon:Relation.
 
 ### `organon:Action` · Action
 
@@ -440,65 +447,65 @@ Depends: organon:Entity, organon:Agent, organon:Claim, organon:Observation.
 Claim: `D045` (definition).
 Depends: organon:Relation, organon:Agent, organon:Constraint, organon:Rule, organon:Interface, organon:Observation, organon:Action, organon:CausalPath.
 
-### `organon:Order` · Order
+### `organon:Order` · Coordination Order
 
-**Order** is a persistent Configuration of Constraints, Records, Interfaces, Rules, and recurring Relations through which a plurality of Agents coordinate Action.
+**Coordination Order** is a persistent Configuration of Constraints, Records, Interfaces, Rules, and recurring Relations through which a plurality of Agents coordinate Action.
 
 Claim: `D046` (definition).
-Depends: organon:Configuration, organon:Constraint, organon:Record, organon:Interface, organon:Rule, organon:Relation, organon:Agent, organon:Action.
+Depends: organon:Configuration, organon:Set, organon:MathematicalOrder, organon:Constraint, organon:Record, organon:Interface, organon:Rule, organon:Relation, organon:Agent, organon:Action.
 
 ### `organon:Standing` · Standing
 
-**Standing** is the Relation through which an Order, under a Rule, places an Entity within the domain of named institutional statuses or Actions in a specified Scope. Placement is not recording: Standing does not require that the Order has recorded the placement, and a Record of a status without that placement supplies no Standing. “Institutional eligibility” is shorthand for the relevant Standing Relation, not an additional predicate. Standing in one Order supplies no Standing in another.
+**Standing** is the Relation through which a Coordination Order, under a Rule, places an Entity within the domain of named institutional statuses or Actions in a specified Scope. Placement is not recording: Standing does not require that the Coordination Order has recorded the placement, and a Record of a status without that placement supplies no Standing. “Institutional eligibility” is shorthand for the relevant Standing Relation, not an additional predicate. Standing in one Coordination Order supplies no Standing in another.
 
 Claim: `D047` (definition).
 Depends: organon:Relation, organon:Order, organon:Record, organon:Entity, organon:Rule, organon:Scope.
 
 ### `organon:Recognition` · Recognition
 
-**Recognition** is the Relation established when an Order records Standing for an Entity under a Rule and Scope. The Standing must itself obtain at exactly the same Order, Rule, Entity, institutional status, and Scope; a record at different indices is not Recognition of that Standing.
+**Recognition** is the Relation established when a Coordination Order records Standing for an Entity under a Rule and Scope. The Standing must itself obtain at exactly the same Coordination Order, Rule, Entity, institutional status, and Scope; a record at different indices is not Recognition of that Standing.
 
 Claim: `D048` (definition).
 Depends: organon:Relation, organon:Order, organon:Standing, organon:Entity, organon:Rule, organon:Scope.
 
 ### `organon:Principal` · Principal
 
-**Principal** is an Entity with Standing in an Order to serve as the party on whose behalf Actions may count. Principalhood is indexed by that Order.
+**Principal** is an Entity with Standing in a Coordination Order to serve as the party on whose behalf Actions may count. Principalhood is indexed by that Coordination Order.
 
 Claim: `D049` (definition).
 Depends: organon:Entity, organon:Standing, organon:Order, organon:Action.
 
 ### `organon:ActsFor` · ActsFor
 
-**ActsFor** is the Relation an Order recognizes between an Agent and a Principal within a Scope.
+**ActsFor** is the Relation a Coordination Order recognizes between an Agent and a Principal within a Scope.
 
 Claim: `D050` (definition).
 Depends: organon:Relation, organon:Order, organon:Recognition, organon:Agent, organon:Principal, organon:Scope.
 
 ### `organon:CountsAs` · CountsAs
 
-**CountsAs** is the Relation by which an Order, under a Rule, records a Presence, Action, Claim, or Record as having an institutional status within a Scope.
+**CountsAs** is the Relation by which a Coordination Order, under a Rule, records a Presence, Action, Claim, or Record as having an institutional status within a Scope.
 
 Claim: `D051` (definition).
 Depends: organon:Relation, organon:Order, organon:Rule, organon:Presence, organon:Action, organon:Claim, organon:Record, organon:Scope.
 
 ### `organon:Authority` · Authority
 
-**Authority** is the Order-indexed Relation through which an Agent's Action may enter the CountsAs Relation as binding on a Principal or within that Order and Scope.
+**Authority** is the Coordination Order-indexed Relation through which an Agent's Action may enter the CountsAs Relation as binding on a Principal or within that Coordination Order and Scope.
 
 Claim: `D052` (definition).
 Depends: organon:Relation, organon:Order, organon:Agent, organon:Action, organon:CountsAs, organon:Principal, organon:Scope.
 
 ### `organon:PermissionClaim` · Permission Claim
 
-**Permission Claim** is a Claim that a named Order allows a named Agent to perform Actions in a Scope on a Principal's behalf during a stated interval.
+**Permission Claim** is a Claim that a named Coordination Order allows a named Agent to perform Actions in a Scope on a Principal's behalf during a stated interval.
 
 Claim: `D053` (definition).
 Depends: organon:Claim, organon:Order, organon:Agent, organon:Action, organon:Scope, organon:Principal.
 
 ### `organon:Declaration` · Declaration
 
-**Declaration** is an Action by an Agent under Authority that submits a Claim and Specification to an Order for institutional counting within a Scope.
+**Declaration** is an Action by an Agent under Authority that submits a Claim and Specification to a Coordination Order for institutional counting within a Scope.
 
 Claim: `D054` (definition).
 Depends: organon:Action, organon:Agent, organon:Authority, organon:Claim, organon:Specification, organon:Order, organon:Scope.
@@ -512,91 +519,91 @@ Depends: organon:Declaration, organon:Claim, organon:PermissionClaim, organon:Au
 
 ### `organon:Admission` · Admission
 
-**Admission** is the CountsAs Relation established when an Order applies a Rule to accept a Claim, Observation, or Record for an institutional purpose.
+**Admission** is the CountsAs Relation established when a Coordination Order applies a Rule to accept a Claim, Observation, or Record for an institutional purpose.
 
 Claim: `D056` (definition).
 Depends: organon:CountsAs, organon:Order, organon:Rule, organon:Claim, organon:Observation, organon:Record.
 
 ### `organon:Permission` · Permission
 
-**Permission** is the Record by which an Order admits a Permission Claim as the result of a valid Grant. It carries the Order, Principal, Agent, Scope, interval, Grant, and Admission that make it institutionally valid. A permission-shaped Claim or Record without that chain is not a Permission.
+**Permission** is the Record by which a Coordination Order admits a Permission Claim as the result of a valid Grant. It carries the Coordination Order, Principal, Agent, Scope, interval, Grant, and Admission that make it institutionally valid. A permission-shaped Claim or Record without that chain is not a Permission.
 
 Claim: `D057` (definition).
 Depends: organon:Record, organon:Order, organon:PermissionClaim, organon:Grant, organon:Admission, organon:Principal, organon:Agent, organon:Scope.
 
 ### `organon:Revocation` · Revocation
 
-**Revocation** is a Declaration under Authority that causes an Order to cease admitting a Permission from a stated time or State.
+**Revocation** is a Declaration under Authority that causes a Coordination Order to cease admitting a Permission from a stated time or State.
 
 Claim: `D058` (definition).
 Depends: organon:Declaration, organon:Authority, organon:Order, organon:Permission, organon:State.
 
 ### `organon:PermissionExercise` · Permission Exercise
 
-**Permission Exercise** is an Action by the Permission's Agent, within its Scope and interval, performed under that Permission before its Revocation in the governing Order.
+**Permission Exercise** is an Action by the Permission's Agent, within its Scope and interval, performed under that Permission before its Revocation in the governing Coordination Order.
 
 Claim: `D059` (definition).
 Depends: organon:Action, organon:Permission, organon:Agent, organon:Scope, organon:Revocation, organon:Order.
 
 ### `organon:Exercisability` · Exercisability
 
-**Exercisability** is a Relation among a Permission, one Action, a time, and a Configuration of environmental, technical, and temporal Constraints when the Action is in Scope, the time is in the interval, the governing Order still admits the Permission, and the Agent has the Capability to perform that Action under the stated Configuration.
+**Exercisability** is a Relation among a Permission, one Action, a time, and a Configuration of environmental, technical, and temporal Constraints when the Action is in Scope, the time is in the interval, the governing Coordination Order still admits the Permission, and the Agent has the Capability to perform that Action under the stated Configuration.
 
 Claim: `D060` (definition).
 Depends: organon:Relation, organon:Permission, organon:Action, organon:Configuration, organon:Constraint, organon:Scope, organon:Order, organon:Agent, organon:Capability.
 
 ### `organon:Enforcement` · Enforcement
 
-**Enforcement** is the Relation through which an Order couples a Rule to Constraints, Records, or Consequences that alter what happens when the Rule is satisfied or violated.
+**Enforcement** is the Relation through which a Coordination Order couples a Rule to Constraints, Records, or Consequences that alter what happens when the Rule is satisfied or violated.
 
 Claim: `D062` (definition).
 Depends: organon:Relation, organon:Order, organon:Rule, organon:Constraint, organon:Record, organon:Consequence.
 
 ### `organon:Role` · Role
 
-**Role** is a persistent Order-indexed Configuration of Actions, Permissions, Authority, and Consequences assigned to an Agent under Standing.
+**Role** is a persistent Coordination Order-indexed Configuration of Actions, Permissions, Authority, and Consequences assigned to an Agent under Standing.
 
 Claim: `D063` (definition).
 Depends: organon:Configuration, organon:Order, organon:Action, organon:Permission, organon:Authority, organon:Consequence, organon:Agent, organon:Standing.
 
 ### `organon:AdmissibilityRule` · Admissibility Rule
 
-**Admissibility Rule** is a Rule whose Specification, institutional purpose, authorizing Declaration, and governing Order are recorded so that why the Rule CountsAs valid for admission is inspectable.
+**Admissibility Rule** is a Rule whose Specification, institutional purpose, authorizing Declaration, and governing Coordination Order are recorded so that why the Rule CountsAs valid for admission is inspectable.
 
 Claim: `D064` (definition).
 Depends: organon:Rule, organon:Specification, organon:Declaration, organon:Order, organon:CountsAs, organon:Admission.
 
 ### `organon:IndependentFor` · IndependentFor
 
-**IndependentFor** is a scoped Relation among a Witness, claimant, Claim, Observation, and Order. It requires mechanical independence—a load-bearing Constraint in the Observation's Causal path is outside the claimant's Control—and institutional independence—the claimant lacks Authority over the Witness's relevant Observation process and the Admissibility Rule applied to it. IndependentFor makes no universal claim about the Witness outside that Scope.
+**IndependentFor** is a scoped Relation among a Witness, claimant, Claim, Observation, and Coordination Order. It requires mechanical independence—a load-bearing Constraint in the Observation's Causal path is outside the claimant's Control—and institutional independence—the claimant lacks Authority over the Witness's relevant Observation process and the Admissibility Rule applied to it. IndependentFor makes no universal claim about the Witness outside that Scope.
 
 Claim: `D065` (definition).
 Depends: organon:Relation, organon:Witness, organon:Agent, organon:Claim, organon:Observation, organon:Order, organon:Constraint, organon:CausalPath, organon:Control, organon:Authority, organon:AdmissibilityRule, organon:Scope.
 
 ### `organon:Evidence` · Evidence
 
-**Evidence** is an Observation produced by a Witness IndependentFor the claimant and Claim, then admitted by the governing Order under an Admissibility Rule whose Scope includes the Observation and Claim.
+**Evidence** is an Observation produced by a Witness IndependentFor the claimant and Claim, then admitted by the governing Coordination Order under an Admissibility Rule whose Scope includes the Observation and Claim.
 
 Claim: `D066` (definition).
 Depends: organon:Observation, organon:Witness, organon:IndependentFor, organon:Agent, organon:Claim, organon:Order, organon:AdmissibilityRule, organon:Scope, organon:Admission.
 
 ### `organon:EvidentialBearing` · Evidential Bearing
 
-**Evidential Bearing** is the Order-indexed Relation among Evidence, a Claim, an evaluation Rule, and a Scope in which the Rule's constructive procedure returns one declared disposition—supporting, defeating, or underdetermining—and the Order records that result. Supporting and defeating are therefore typed results of this Relation, not unexplained properties of Evidence. Evidential Bearing does not entail Truth, and the same Evidence may bear differently under another Rule or Scope.
+**Evidential Bearing** is the Coordination Order-indexed Relation among Evidence, a Claim, an evaluation Rule, and a Scope in which the Rule's constructive procedure returns one declared disposition—supporting, defeating, or underdetermining—and the Coordination Order records that result. Supporting and defeating are therefore typed results of this Relation, not unexplained properties of Evidence. Evidential Bearing does not entail Truth, and the same Evidence may bear differently under another Rule or Scope.
 
 Claim: `D104` (definition).
 Depends: organon:Relation, organon:Evidence, organon:Claim, organon:Order, organon:Rule, organon:Scope, organon:Record.
 
 ### `organon:Attestation` · Attestation
 
-**Attestation** is a Claim made by a Witness about an Observation or Evidence under a Specification of the Witness's identity, Scope, Order, and relevant independence.
+**Attestation** is a Claim made by a Witness about an Observation or Evidence under a Specification of the Witness's identity, Scope, Coordination Order, and relevant independence.
 
 Claim: `D067` (definition).
 Depends: organon:Claim, organon:Witness, organon:Observation, organon:Evidence, organon:Specification, organon:Scope, organon:Order, organon:IndependentFor.
 
 ### `organon:Institution` · Institution
 
-**Institution** is an Order that persists through Roles, Records, Interfaces, and recurring Flows despite changes in its participating Agents.
+**Institution** is a Coordination Order that persists through Roles, Records, Interfaces, and recurring Flows despite changes in its participating Agents.
 
 Claim: `D068` (definition).
 Depends: organon:Order, organon:Role, organon:Record, organon:Interface, organon:Flow, organon:Agent, organon:Persistence.
@@ -631,7 +638,7 @@ Depends: organon:Persistence, organon:Configuration, organon:Record, organon:Rel
 
 ### `organon:Person` · Person
 
-**Person** is an Entity for which an Order records Standing to serve as a Principal or bear Consequences.
+**Person** is an Entity for which a Coordination Order records Standing to serve as a Principal or bear Consequences.
 
 Claim: `D073` (definition).
 Depends: organon:Entity, organon:Order, organon:Standing, organon:Principal, organon:Consequence.
@@ -652,14 +659,14 @@ Depends: organon:Record, organon:Claim, organon:Permission, organon:Observation,
 
 ### `organon:Polity` · Polity
 
-**Polity** is the plurality of Agents and Institutions whose recurring Actions enact and contest a political Order.
+**Polity** is the plurality of Agents and Institutions whose recurring Actions enact and contest a political Coordination Order.
 
 Claim: `D076` (definition).
 Depends: organon:Agent, organon:Institution, organon:Action, organon:Order.
 
 ### `organon:ConstituentExercise` · Constituent exercise
 
-**Constituent exercise** is Agency whose Actions transform the Order that defines Authority, Roles, Persons, admissible Claims, or institutional Boundaries.
+**Constituent exercise** is Agency whose Actions transform the Coordination Order that defines Authority, Roles, Persons, admissible Claims, or institutional Boundaries.
 
 Claim: `D078` (definition).
 Depends: organon:Agency, organon:Action, organon:Order, organon:Authority, organon:Role, organon:Person, organon:Claim, organon:Boundary.
@@ -680,7 +687,7 @@ Depends: organon:Agent, organon:Claim, organon:Entity, organon:State, organon:Co
 
 ### `organon:ConsciousnessDesignation` · Consciousness Designation
 
-**Consciousness Designation** is the CountsAs Relation established when an Order, under a Rule and for a stated institutional purpose, admits a Consciousness Attribution and records the target Entity as carrying a consciousness status within an institutional Scope.
+**Consciousness Designation** is the CountsAs Relation established when a Coordination Order, under a Rule and for a stated institutional purpose, admits a Consciousness Attribution and records the target Entity as carrying a consciousness status within an institutional Scope.
 
 Claim: `D081` (definition).
 Depends: organon:Relation, organon:CountsAs, organon:Order, organon:Rule, organon:Admission, organon:Scope, organon:Entity, organon:State, organon:ConsciousnessAttribution.
@@ -757,7 +764,7 @@ Depends: organon:OperativeKnowledge, organon:Record, organon:Claim, organon:Trut
 
 ### `organon:WarrantedKnowledge` · Warranted Knowledge
 
-**Warranted Knowledge** is Factive Operative Knowledge for which an Order admits Evidence bearing supportively on the same Claim under an Admissibility Rule and evaluation Rule, where the Evidence is joined to an Observation and a Witness that is IndependentFor that claimant, Claim, Observation, and Order.
+**Warranted Knowledge** is Factive Operative Knowledge for which a Coordination Order admits Evidence bearing supportively on the same Claim under an Admissibility Rule and evaluation Rule, where the Evidence is joined to an Observation and a Witness that is IndependentFor that claimant, Claim, Observation, and Coordination Order.
 
 Claim: `D092` (definition).
 Depends: organon:FactiveOperativeKnowledge, organon:Evidence, organon:EvidentialBearing, organon:Admission, organon:IndependentFor, organon:Observation, organon:Witness, organon:AdmissibilityRule, organon:Order, organon:Rule, organon:Scope, organon:Claim.
@@ -771,35 +778,35 @@ Depends: organon:Claim, organon:Agent, organon:Entity, organon:State, organon:Co
 
 ### `organon:MoralPersonhoodDesignation` · Moral Personhood Designation
 
-**Moral Personhood Designation** is the CountsAs Relation established when an Order, under a Rule and stated institutional purpose, admits a Moral Status Attribution and records its target Entity as carrying moral-personhood status within an institutional Scope.
+**Moral Personhood Designation** is the CountsAs Relation established when a Coordination Order, under a Rule and stated institutional purpose, admits a Moral Status Attribution and records its target Entity as carrying moral-personhood status within an institutional Scope.
 
 Claim: `D094` (definition).
 Depends: organon:Relation, organon:CountsAs, organon:Order, organon:Rule, organon:Admission, organon:Scope, organon:Entity, organon:State, organon:MoralStatusAttribution.
 
 ### `organon:ConstituentSovereignty` · Constituent Sovereignty
 
-**Constituent Sovereignty** is a scoped Configuration in which a Polity's persistent Constituent Power is realized through a Constituent Exercise that creates, refounds, or transforms the categories, Rules, or Boundaries of an Order. Capability, rhetoric, or a Claim of founding power without a witnessed Constituent Exercise is insufficient.
+**Constituent Sovereignty** is a scoped Configuration in which a Polity's persistent Constituent Power is realized through a Constituent Exercise that creates, refounds, or transforms the categories, Rules, or Boundaries of a Coordination Order. Capability, rhetoric, or a Claim of founding power without a witnessed Constituent Exercise is insufficient.
 
 Claim: `D095` (definition).
 Depends: organon:Configuration, organon:Polity, organon:ConstituentPower, organon:ConstituentExercise, organon:Order, organon:Rule, organon:Boundary, organon:Scope.
 
 ### `organon:ConstitutedSovereignty` · Constituted Sovereignty
 
-**Constituted Sovereignty** is an Order-indexed profile in which an Entity has Standing and Authority for a declared family of Actions within a Scope and no Entity recognized by that Order has superior Authority for that family under the declared superiority Rule. Maximality is relative to that Order, Rule, family, and Scope; it is neither universal nor constituent.
+**Constituted Sovereignty** is a Coordination Order-indexed profile in which an Entity has Standing and Authority for a declared family of Actions within a Scope and no Entity recognized by that Coordination Order has superior Authority for that family under the declared superiority Rule. Maximality is relative to that Coordination Order, Rule, family, and Scope; it is neither universal nor constituent.
 
 Claim: `D096` (definition).
 Depends: organon:Order, organon:Entity, organon:Standing, organon:Authority, organon:Action, organon:Scope, organon:Recognition, organon:Rule.
 
 ### `organon:BoundarySovereignty` · Boundary Sovereignty
 
-**Boundary Sovereignty** is a scoped Configuration in which a Polity or other Entity Controls the Constraints governing a declared family of Transformations across its Boundary and an Order Enforces those Constraints. The profile requires at least one admitted and one blocked Transformation and a witnessed Difference in Consequence or later State when Enforcement applies.
+**Boundary Sovereignty** is a scoped Configuration in which a Polity or other Entity Controls the Constraints governing a declared family of Transformations across its Boundary and a Coordination Order Enforces those Constraints. The profile requires at least one admitted and one blocked Transformation and a witnessed Difference in Consequence or later State when Enforcement applies.
 
 Claim: `D097` (definition).
 Depends: organon:Configuration, organon:Polity, organon:Entity, organon:Control, organon:Constraint, organon:Transformation, organon:Boundary, organon:Order, organon:Enforcement, organon:Difference, organon:Consequence, organon:State, organon:Scope.
 
 ### `organon:ExternalSovereignty` · External Sovereignty
 
-**External Sovereignty** is an Order-indexed Relation in which an Order distinct from the target's internal Order recognizes an Entity or Polity as having Standing to participate in declared inter-Order Actions as its own Principal, rather than through an ActsFor Relation to another recognized Principal, under a Rule and Scope. It records external institutional status, not effective Control, internal Authority, or Constituent Power.
+**External Sovereignty** is a Coordination Order-indexed Relation in which a Coordination Order distinct from the target's internal Coordination Order recognizes an Entity or Polity as having Standing to participate in declared Actions between Coordination Orders as its own Principal, rather than through an ActsFor Relation to another recognized Principal, under a Rule and Scope. It records external institutional status, not effective Control, internal Authority, or Constituent Power.
 
 Claim: `D098` (definition).
 Depends: organon:Relation, organon:Order, organon:Entity, organon:Polity, organon:Recognition, organon:Standing, organon:Principal, organon:ActsFor, organon:Action, organon:Rule, organon:Scope.
@@ -820,7 +827,7 @@ Depends: organon:Map, organon:Relation, organon:Rule, organon:Specification, org
 
 ### `organon:Price` · Price
 
-**Price** is a scoped exchange Relation recorded in a Ledger and admitted by an Order under a Rule, in which a Representation of consideration CountsAs the stated exchange condition for another Presence at a State. A Price is a Record of an offered, required, or recognized condition; it does not entail an exchange, Preference, Utility Measure, institutional valuation, or moral worth.
+**Price** is a scoped exchange Relation recorded in a Ledger and admitted by a Coordination Order under a Rule, in which a Representation of consideration CountsAs the stated exchange condition for another Presence at a State. A Price is a Record of an offered, required, or recognized condition; it does not entail an exchange, Preference, Utility Measure, institutional valuation, or moral worth.
 
 Claim: `D101` (definition).
 Depends: organon:Relation, organon:Ledger, organon:Record, organon:Order, organon:Admission, organon:Rule, organon:Representation, organon:CountsAs, organon:Presence, organon:State, organon:Scope.
@@ -905,13 +912,13 @@ Depends: organon:Agency, organon:Role, organon:Permission, organon:Authority, or
 
 ### `Pj1` · authorized_projection
 
-A **mechanical projection** describes the Agent through its Sense, Memory, Model, Interpretation, Tools, Capabilities, and Actions. -  An **institutional projection** describes the same Agent through its Roles, Permissions, Authority, obligations, and Standing in an Order.
+A **mechanical projection** describes the Agent through its Sense, Memory, Model, Interpretation, Tools, Capabilities, and Actions. -  An **institutional projection** describes the same Agent through its Roles, Permissions, Authority, obligations, and Standing in a Coordination Order.
 
 Depends: U1, organon:Agent, organon:Sense, organon:Memory, organon:Model, organon:Interpretation, organon:Tool, organon:Capability, organon:Action.
 
 ### `Pj2` · authorized_projection
 
-An **institutional projection** describes the same Agent through its Roles, Permissions, Authority, obligations, and Standing in an Order.
+An **institutional projection** describes the same Agent through its Roles, Permissions, Authority, obligations, and Standing in a Coordination Order.
 
 Depends: U1, organon:Agent, organon:Role, organon:Permission, organon:Authority, organon:Standing, organon:Order.
 
@@ -923,7 +930,7 @@ Depends: organon:Missingness, organon:Presence.
 
 ### `Pj4` · authorized_projection
 
-An **institutional valuation** is an authorized projection of CountsAs in which an Order, under a Rule and Scope, assigns a valuation status to a Presence, Claim, Action, or Record. It is not a new term. Institutional valuation does not entail Preference, Utility Measure, Price, Truth, or moral worth.
+An **institutional valuation** is an authorized projection of CountsAs in which a Coordination Order, under a Rule and Scope, assigns a valuation status to a Presence, Claim, Action, or Record. It is not a new term. Institutional valuation does not entail Preference, Utility Measure, Price, Truth, or moral worth.
 
 Depends: organon:CountsAs, organon:Order, organon:Rule, organon:Scope, organon:Presence, organon:Claim, organon:Action, organon:Record.
 
@@ -989,7 +996,7 @@ Depends: organon:Relation, organon:Entity, organon:Invariant.
 
 ### `C10` · binding_constraint
 
-**No consciousness discourse collapse:** A Consciousness Attribution does not establish its candidate condition; a Consciousness Designation does not establish that condition or independently alter Standing, Personhood, Permissions, protections, Interfaces, or Consequences; and failure to attribute or designate establishes neither Absence nor negation. Missingness obtains only in a field or Order that represents or expects the relevant Attribution or Designation.
+**No consciousness discourse collapse:** A Consciousness Attribution does not establish its candidate condition; a Consciousness Designation does not establish that condition or independently alter Standing, Personhood, Permissions, protections, Interfaces, or Consequences; and failure to attribute or designate establishes neither Absence nor negation. Missingness obtains only in a field or Coordination Order that represents or expects the relevant Attribution or Designation.
 
 Depends: organon:ConsciousnessAttribution, organon:ConsciousnessDesignation, organon:Missingness, organon:Absence, organon:Evidence, organon:Standing, organon:Person, organon:Permission, organon:Interface, organon:Consequence, organon:Rule.
 
@@ -1055,7 +1062,7 @@ Depends: organon:FactiveOperativeKnowledge, organon:WarrantedKnowledge, organon:
 
 ### `C21` · binding_constraint
 
-**No moral-discourse-status collapse:** Moral Status Attribution and Moral Personhood Designation do not establish their candidate condition; non-attribution and non-designation do not establish its negation. Designation does not independently alter Personhood, Standing, protections, duties, Permissions, Interfaces, prohibited Actions, or Consequences; every downstream effect requires a separate Rule in a named Order and Scope.
+**No moral-discourse-status collapse:** Moral Status Attribution and Moral Personhood Designation do not establish their candidate condition; non-attribution and non-designation do not establish its negation. Designation does not independently alter Personhood, Standing, protections, duties, Permissions, Interfaces, prohibited Actions, or Consequences; every downstream effect requires a separate Rule in a named Coordination Order and Scope.
 
 Depends: organon:MoralStatusAttribution, organon:MoralPersonhoodDesignation, organon:Person, organon:Standing, organon:Permission, organon:Interface, organon:Consequence, organon:Rule.
 
@@ -1073,7 +1080,7 @@ Depends: organon:Preference, organon:UtilityMeasure, organon:Price, organon:Coun
 
 ### `C24` · binding_constraint
 
-**No hidden-bridge substitution:** An Entity identity Claim must name its Invariant and Persistence witness; a Representation must name its Denotation; causal efficacy must name a Causal Contribution comparison; Capability must name the Constraint interpretation and constructive possibility witness; evidential support or defeat must name Evidential Bearing; and institutional eligibility must resolve to Standing in a named Order, Rule, and Scope. None of these bridges follows from resemblance, assertion, co-occurrence, or an untyped predicate.
+**No hidden-bridge substitution:** An Entity identity Claim must name its Invariant and Persistence witness; a Representation must name its Denotation; causal efficacy must name a Causal Contribution comparison; Capability must name the Constraint interpretation and constructive possibility witness; evidential support or defeat must name Evidential Bearing; and institutional eligibility must resolve to Standing in a named Coordination Order, Rule, and Scope. None of these bridges follows from resemblance, assertion, co-occurrence, or an untyped predicate.
 
 Depends: organon:Entity, organon:Invariant, organon:Persistence, organon:Representation, organon:Denotation, organon:CausalContribution, organon:Capability, organon:Constraint, organon:EvidentialBearing, organon:Standing, organon:Order, organon:Rule, organon:Scope.
 
@@ -1157,7 +1164,7 @@ Depends: organon:Body, organon:EmbodiedPerspective, organon:RecurrentIntegration
 
 ### `C38` · binding_constraint
 
-**No embodied-structure-to-status collapse:** The complete embodied structural conjunction, Consciousness Attribution, Consciousness Designation, Standing, protection, and moral status do not entail one another. Every institutional consequence requires its own Rule, Order, and Scope; this rule does not promote or define Consciousness.
+**No embodied-structure-to-status collapse:** The complete embodied structural conjunction, Consciousness Attribution, Consciousness Designation, Standing, protection, and moral status do not entail one another. Every institutional consequence requires its own Rule, Coordination Order, and Scope; this rule does not promote or define Consciousness.
 
 Depends: organon:Body, organon:EmbodiedPerspective, organon:RecurrentIntegration, organon:InternalActivitySelection, organon:ConsciousnessAttribution, organon:ConsciousnessDesignation, organon:Standing, organon:Order, organon:Rule, organon:Scope, organon:MoralStatusAttribution, organon:MoralPersonhoodDesignation.
 

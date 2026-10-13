@@ -48,7 +48,19 @@
     "status": "projection",
     "note": "A member Set plus specified Relation/ordered-participant associations, validated by a supplied interpretation. Equal members need not fix equal Configurations. The finite-tuple projection requires neither nonemptiness nor participant closure; generic State carriers remain unchanged."
   },
-  "State": { "module": "OrganonCore", "name": "State" },
+  "MathematicalOrder": {
+    "module": "MathematicalOrder",
+    "name": "MemberOrder",
+    "status": "projection",
+    "note": "A partial order on a declared member Set: reflexive, antisymmetric and transitive. Total comparability is separate. The relation is a supplied ordered-pair extension, not a claim of causation, numeric rank or coordination."
+  },
+  "State": {
+    "module": "ConfigurationIntegration",
+    "name": "ConfigState",
+    "status": "projection",
+    "support": [["ConfigurationIntegration", "IndexedConfiguration"], ["OrganonCore", "State"]],
+    "note": "The generic State carrier now explicitly retains both a metalinguistic index and a structured Configuration. Equal inventories with different associations, or equal Configurations at distinct indices, give different States."
+  },
   "Direction": { "module": "OrganonCore", "name": "Direction" },
   "Transformation": { "module": "OrganonCore", "name": "Transformation" },
   "Change": { "module": "OrganonCore", "name": "Change" },
@@ -80,8 +92,15 @@
     "note": "This witness requires at least two States and an ordered history preserving one Invariant."
   },
   "Constraint": { "module": "OrganonCore", "name": "Constraint" },
-  "Entity": { "module": "OrganonCore", "name": "Entity" },
-  "Boundary": { "module": "OrganonCore", "name": "Boundary" },
+  "Entity": {
+    "module": "ConfigurationIntegration", "name": "ConfiguredEntity", "status": "projection",
+    "support": [["OrganonCore", "Entity"]],
+    "note": "A witness bundle retaining an Entity's structured Boundary and its exact projection. The generic State carrier can retain indexed Configurations; an inhabited history preserves an Invariant across different structures. Record equality and a shared Invariant do not decide empirical Entity identity."
+  },
+  "Boundary": {
+    "module": "ConfigurationIntegration", "name": "ConfiguredBoundary", "status": "projection",
+    "note": "Retains the Constraint Configuration and its preservation obligation, including external participants. The finite projection to the older core Boundary forgets structure; two different Configurations can project to the same Constraint list. Constraint interpretation remains supplied."
+  },
   "Environment": {
     "module": "EmbodiedConsciousness",
     "name": "Body",
@@ -162,7 +181,8 @@
     "module": "EmbodiedConsciousness",
     "name": "PerspectiveModel",
     "status": "projection",
-    "note": "Body- and perspective-indexed Model joining represented Perception and Memory to subsequent States."
+    "support": [["ConfigurationIntegration", "StructuredModel"]],
+    "note": "Body- and perspective-indexed Model joining represented Perception and Memory to subsequent States. The supporting StructuredModel retains member and association data, a representation/transformation join, and supplied Constraints; its generic pipeline witness does not replace the fuller Body/Memory conditions."
   },
   "Action": {
     "module": "PR18Governance",

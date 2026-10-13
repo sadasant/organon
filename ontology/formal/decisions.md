@@ -13,6 +13,7 @@ These decisions belong to the Lean spike. They expose choices priced by formaliz
 
 ## Contents
 
+- [Order and structured Configuration integration](#order-and-structured-configuration-integration)
 - [Identity names equality; Missingness retains an assigned target](#identity-names-equality-missingness-retains-an-assigned-target)
 - [Embodiment uses typed witnesses without promoting consciousness](#embodiment-uses-typed-witnesses-without-promoting-consciousness)
 - [Flow absorbs recurrence; Ritual and Meaning retain distinct burdens](#flow-absorbs-recurrence-ritual-and-meaning-retain-distinct-burdens)
@@ -136,6 +137,12 @@ Exclusivity is constructive. Exhaustiveness for an arbitrary type requires exclu
 ## A5 represents Missingness positively
 
 `Missingness α` contains a Field, an expected inhabitant, and proof that the Field omits it. A value of this structure is itself present. Missingness therefore cannot collapse into the uninhabited-type predicate used as Absence's local shadow.
+
+## Order and structured Configuration integration
+
+The October 13 follow-up separates mathematical partial Order from Coordination Order without reassigning the legacy identifier or Lean indices. `MemberOrder` carries members and a bounded ordered-pair extension. Its strict part is transitive; an arbitrary core Direction need not be. Incomparability, a cyclic Direction and empty domains are checked counterexamples, not merely exclusions in prose.
+
+Entity names the reidentified Presence rather than a mutable snapshot or a growing history record. One witness record spans unequal indexed Configurations; satisfying its Invariant alone does not admit another State into its history. `ConfiguredBoundary` retains selected associations that its finite core projection loses. `StructuredModel` requires a selected Representation/Transformation join, with a concrete pipeline retaining that join. Existing generic APIs compile unchanged, but this is not full Perception/Memory parity or an empirical identity detector. The [typed dossier](../../proposals/order-and-configuration-integration.md) states the exact nine contracts and their remaining gates.
 
 ## Identity names equality; Missingness retains an assigned target
 

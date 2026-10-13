@@ -1,7 +1,7 @@
 name = "daniel-ontology"
 version = "0.1.0"
 license = "Apache-2.0"
-defaultTargets = ["ontology_check", "DanielOntology"]
+defaultTargets = ["ontology_check", "DanielOntology", "ConfigurationIntegration", "MathematicalOrder", "OrderConfigurationContracts"]
 
 [[lean_lib]]
 name = "OrganonCore"
@@ -74,6 +74,15 @@ name = "IdentityMissingness"
 
 [[lean_lib]]
 name = "SetConfiguration"
+
+[[lean_lib]]
+name = "ConfigurationIntegration"
+
+[[lean_lib]]
+name = "MathematicalOrder"
+
+[[lean_lib]]
+name = "OrderConfigurationContracts"
 
 [[lean_exe]]
 name = "ontology_check"

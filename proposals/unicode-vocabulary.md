@@ -8,7 +8,7 @@ binding: false
 
 *Proposed October 12, 2026. Ready for review; nonbinding.*
 
-**Current direction: one provisional typeface shared by the study and website.** The [Organon Symbols catalog](./glyph-catalog.mjs) now supplies all 116 marks, including Identity's equals sign, the installable font, and the website. The [symbol review](./glyph-atlas.md) shows the same marks with per-term judgments: **50 revised trials and 66 other trials**. None is certified as semantically equivalent to its definition. The earlier 115-term Unicode assessment below remains a record of alternatives, not a second active assignment system. **Publication accepts this experimental vocabulary for use with labels; it does not promote the glyphs into binding definitions or close the reader-testing gates.**
+**Current direction: one provisional typeface shared by the study and website.** The [Organon Symbols catalog](./glyph-catalog.mjs) now supplies all 118 marks, including Identity, Set and mathematical Order, the installable font, and the website. The [symbol review](./glyph-atlas.md) shows the same marks with per-term judgments: **50 revised trials and 68 other trials**. None is certified as semantically equivalent to its definition. The earlier 115-term Unicode assessment below remains a record of alternatives, not a second active assignment system. **Publication accepts this experimental vocabulary for use with labels; it does not promote the glyphs into binding definitions or close the reader-testing gates.** The [geometric vocabulary](./glyph-design-vocabulary.md) records permitted cues and unsupported reuse, not a compositional semantics.
 
 ## Contents
 

@@ -26,7 +26,7 @@
       ]
     },
     "governance": {
-      "description": "Order-relative standing, authority, grants, permissions, exercise, revocation, and enforcement.",
+      "description": "Coordination Order-relative standing, authority, grants, permissions, exercise, revocation, and enforcement.",
       "roots": [
         "organon:Order",
         "organon:Standing",
@@ -48,7 +48,7 @@
       ]
     },
     "consciousness-discourse": {
-      "description": "Claims about candidate consciousness conditions and Order-indexed institutional designation, without defining consciousness itself.",
+      "description": "Claims about candidate consciousness conditions and Coordination Order-indexed institutional designation, without defining consciousness itself.",
       "roots": [
         "organon:ConsciousnessAttribution",
         "organon:ConsciousnessDesignation"
@@ -91,7 +91,7 @@
       ]
     },
     "moral-status-discourse": {
-      "description": "Claims and Order-indexed designations concerning candidate moral status without defining moral worth or underlying moral personhood.",
+      "description": "Claims and Coordination Order-indexed designations concerning candidate moral status without defining moral worth or underlying moral personhood.",
       "roots": [
         "organon:MoralStatusAttribution",
         "organon:MoralPersonhoodDesignation"

@@ -3,6 +3,13 @@
   "description": "Lifecycle of every retained proposal dossier, as described in proposals/README.md: its Claims manifest, current status, binding release, and any condition that remains quarantined. Checked by scripts/check-structure.py.",
   "entries": [
     {
+      "manifest": "order-and-configuration-integration-claims.json",
+      "dossier": "order-and-configuration-integration.md",
+      "status": "promoted",
+      "binding_release": "0.21.0",
+      "remaining_quarantine": ["actual Order membership and ordered pairs, actual Relations joining Boundary Constraints or Model members, and empirical Entity individuation remain application gates; Perception/Memory parity and full State, Entity, Boundary and Model prose/shadow parity are unproved; Coordination Order (D046) is not formalized as an Order"]
+    },
+    {
       "manifest": "set-and-configuration-claims.json",
       "dossier": "set-and-configuration.md",
       "status": "promoted",

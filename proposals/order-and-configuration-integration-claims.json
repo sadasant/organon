@@ -1,0 +1,215 @@
+{
+  "schema_version": 2,
+  "description": "Typed contracts for order-and-configuration-integration.md; statuses and dependency dispositions follow CONTRIBUTING.md and proposals/README.md.",
+  "proposal_id": "order-and-configuration-integration",
+  "status": "promoted",
+  "binding": false,
+  "markdown": "order-and-configuration-integration.md",
+  "formal_shadow": "../ontology/formal/MathematicalOrder.lean",
+  "formal_evidence": [
+    "../ontology/formal/ConfigurationIntegration.lean",
+    "../ontology/formal/SetConfiguration.lean",
+    "../ontology/formal/OrganonCore.lean",
+    "../ontology/formal/IntelligenceKnowledge.lean",
+    "../ontology/formal/EmbodiedConsciousness.lean"
+  ],
+  "promotion_contracts": "../ontology/formal/OrderConfigurationContracts.lean",
+  "promotion_review": "../reviews/promotion/order-and-configuration-integration.json",
+  "introduced_terms": ["organon:MathematicalOrder"],
+  "local_symbols": [],
+  "semantic_fields": [
+    {
+      "symbol": "MemberOrder.relation",
+      "status": "canonical",
+      "reason": "The ordered-pair extension is, with the member Set, the whole defining datum of an Order; OC-D1 proves Order Identity is Identity of members and extension. It is a supplied metalinguistic extension, not the registered Relation and not an empirical classifier of which Presences precede others; OC-G1 keeps that application question open."
+    }
+  ],
+  "statements": [
+    {
+      "id": "OC-D1",
+      "type": "proposed_definition",
+      "subject": "Order",
+      "depends_on": ["organon:Set", "organon:Identity", "organon:Relation", "organon:Presence"],
+      "formal_contract": {
+        "status": "proved_with_boundaries",
+        "theorem": "orderDefinitionContract",
+        "subject_symbols": ["MemberOrder", "relation", "strict", "Total", "Difference"],
+        "shared_indices": ["o", "p", "a", "b"],
+        "dependency_dispositions": {
+          "organon:Set": {"status": "formalized", "symbols": ["Set", "members", "contains"]},
+          "organon:Identity": {"status": "formalized", "symbols": ["Identity"]},
+          "organon:Relation": {"status": "prose_only", "reason": "The binary relation is a metalinguistic extension of ordered pairs of members. The contract neither requires each pair to be realized as a registered Relation nor uses Relation as an empirical classifier; that contrast is a prose boundary."},
+          "organon:Presence": {"status": "represented_by", "symbols": ["α", "a", "b"], "reason": "The supplied carrier and its values stand for member Presences of one declared local domain; carrier values outside the member Set are never related, and no ordering of all Presence is constructed."}
+        }
+      }
+    },
+    {
+      "id": "OC-C1",
+      "type": "anti_collapse_constraint",
+      "subject": "Finite Order and Direction countermodels",
+      "depends_on": ["OC-D1", "organon:Direction"],
+      "formal_contract": {
+        "status": "proved",
+        "theorem": "orderCountermodelContract",
+        "subject_symbols": ["chainWithSide", "chainOnly", "cycleDirection", "emptyOrder", "Incomparable"],
+        "shared_indices": ["chainWithSide", "chainOnly", "cycleDirection", "emptyOrder"],
+        "dependency_dispositions": {
+          "OC-D1": {"status": "formalized", "symbols": ["MemberOrder", "strict", "Total", "relation"]},
+          "organon:Direction": {"status": "formalized", "symbols": ["before", "asymmetric", "State"]}
+        }
+      }
+    },
+    {
+      "id": "OC-D2",
+      "type": "proposed_definition",
+      "subject": "State",
+      "depends_on": ["organon:Configuration", "organon:Identity", "organon:Difference", "organon:Relation"],
+      "formal_contract": {
+        "status": "proved_with_boundaries",
+        "theorem": "indexedStateContract",
+        "subject_symbols": ["ConfigState", "atIndex", "indexOf", "configurationOf"],
+        "shared_indices": ["s", "t", "i", "c", "d"],
+        "dependency_dispositions": {
+          "organon:Configuration": {"status": "formalized", "symbols": ["Configuration", "members", "associations"]},
+          "organon:Identity": {"status": "formalized", "symbols": ["Identity"]},
+          "organon:Difference": {"status": "formalized", "symbols": ["Difference"]},
+          "organon:Relation": {"status": "prose_only", "reason": "The contract proves only that placing a Configuration at an index leaves its selected associations unchanged. That the metalinguistic position adds no Relation to Reality, and that Index carries the metalanguage's ordering, remain prose; Index is any supplied type."}
+        }
+      }
+    },
+    {
+      "id": "OC-D3",
+      "type": "proposed_definition",
+      "subject": "Entity",
+      "depends_on": ["organon:Presence", "organon:Identity", "organon:Configuration", "organon:State", "organon:Persistence", "organon:Invariant"],
+      "formal_contract": {
+        "status": "proved_with_boundaries",
+        "theorem": "entityPresenceContract",
+        "subject_symbols": ["Entity", "persistenceDirection", "current", "OrderedBy"],
+        "shared_indices": ["entity", "first", "second"],
+        "dependency_dispositions": {
+          "organon:Presence": {"status": "prose_only", "reason": "The core Entity record is the witness bundle of an Entity claim, not the reidentified Presence or any one snapshot Configuration. Record equality is not empirical individuation; the Presence/record distinction is a prose boundary."},
+          "organon:Identity": {"status": "formalized", "symbols": ["Identity"]},
+          "organon:Configuration": {"status": "formalized", "symbols": ["IndexedConfiguration", "configurationOf"]},
+          "organon:State": {"status": "formalized", "symbols": ["ConfigState", "indexOf"]},
+          "organon:Persistence": {"status": "formalized", "symbols": ["persistence", "states"]},
+          "organon:Invariant": {"status": "formalized", "symbols": ["invariant", "identity", "holds"]}
+        }
+      }
+    },
+    {
+      "id": "OC-D4",
+      "type": "proposed_definition",
+      "subject": "Boundary",
+      "depends_on": ["organon:Configuration", "organon:Constraint", "organon:Invariant", "organon:Persistence", "organon:Entity", "organon:Relation"],
+      "formal_contract": {
+        "status": "proved_with_boundaries",
+        "theorem": "configuredBoundaryContract",
+        "subject_symbols": ["ConfiguredBoundary", "ConfiguredEntity", "toBoundary", "FiniteListing"],
+        "shared_indices": ["e", "first", "second", "b", "c"],
+        "dependency_dispositions": {
+          "organon:Configuration": {"status": "formalized", "symbols": ["configuration", "members"]},
+          "organon:Constraint": {"status": "formalized", "symbols": ["constraintOf", "constraints", "permits"]},
+          "organon:Invariant": {"status": "formalized", "symbols": ["Invariant", "identity", "holds"]},
+          "organon:Persistence": {"status": "prose_only", "reason": "The preservation obligation is checked one Transformation at a time; Persistence of the identity Invariant across an ordered sequence of States is not quantified in this contract."},
+          "organon:Entity": {"status": "formalized", "symbols": ["entity", "boundary"]},
+          "organon:Relation": {"status": "prose_only", "reason": "The general contract proves that the core projection depends only on the Constraint interpretation and the finite listing, so it cannot see selected associations. Which Relations actually join Constraints is supplied; OC-C2 witnesses a retained association concretely."}
+        }
+      }
+    },
+    {
+      "id": "OC-D5",
+      "type": "proposed_definition",
+      "subject": "Model",
+      "depends_on": ["organon:Configuration", "organon:Representation", "organon:Transformation", "organon:Perception", "organon:Memory", "organon:State", "organon:Constraint", "organon:Relation"],
+      "formal_contract": {
+        "status": "proved_with_boundaries",
+        "theorem": "structuredModelContract",
+        "subject_symbols": ["StructuredModel", "joinRelation", "discrete"],
+        "shared_indices": ["model", "b", "c"],
+        "dependency_dispositions": {
+          "organon:Configuration": {"status": "formalized", "symbols": ["configuration", "members", "associations"]},
+          "organon:Representation": {"status": "represented_by", "symbols": ["denotationOf", "denotation", "expression", "representation"], "reason": "A Representation member is represented by a supplied core Denotation whose expression is that member; the fuller canonical Representation conditions are not reconstructed."},
+          "organon:Transformation": {"status": "formalized", "symbols": ["transformationOf", "joinedTransformation", "Direction"]},
+          "organon:Perception": {"status": "outside_formal_boundary", "reason": "Perception is not typed canonically here. The concrete pipeline supplies its perceived State as a function value; no Perception conditions are proved."},
+          "organon:Memory": {"status": "outside_formal_boundary", "reason": "Memory is not typed canonically here. The concrete pipeline supplies its remembered State as a function value; no Record or Persistence conditions for Memory are proved."},
+          "organon:State": {"status": "prose_only", "reason": "The general Model structure does not require relating its joined Transformation to a later State; OC-C4 checks that relation only for one concrete pipeline."},
+          "organon:Constraint": {"status": "formalized", "symbols": ["constraints", "permits"]},
+          "organon:Relation": {"status": "represented_by", "symbols": ["joinRelation", "associations"], "reason": "The required join is a selected association pairing a Relation member with an ordered Representation/Transformation participant tuple under the supplied realization predicate, not an empirically verified Relation."}
+        }
+      }
+    },
+    {
+      "id": "OC-C2",
+      "type": "anti_collapse_constraint",
+      "subject": "Finite indexed State and configured Boundary witnesses",
+      "depends_on": ["OC-D2", "OC-D4"],
+      "formal_contract": {
+        "status": "proved",
+        "theorem": "stateBoundaryWitnessContract",
+        "subject_symbols": ["plainAt", "linkedAt", "coupledBoundary", "looseBoundary", "guardListing"],
+        "shared_indices": ["plainAt", "linkedAt", "coupledBoundary", "looseBoundary", "guardListing"],
+        "dependency_dispositions": {
+          "OC-D2": {"status": "formalized", "symbols": ["configurationOf", "indexOf", "Difference"]},
+          "OC-D4": {"status": "formalized", "symbols": ["toBoundary", "constraintOf", "constraints", "associations"]}
+        }
+      }
+    },
+    {
+      "id": "OC-C3",
+      "type": "anti_collapse_constraint",
+      "subject": "One Entity witness across different structured States",
+      "depends_on": ["OC-D2", "OC-D3", "OC-D4", "organon:Presence"],
+      "formal_contract": {
+        "status": "proved_with_boundaries",
+        "theorem": "entityWitnessContract",
+        "subject_symbols": ["linkEntity", "linkConfiguredEntity"],
+        "shared_indices": ["linkEntity", "plainAt", "linkedAt"],
+        "dependency_dispositions": {
+          "OC-D2": {"status": "formalized", "symbols": ["indexOf", "configurationOf"]},
+          "OC-D3": {"status": "formalized", "symbols": ["persistence", "persistenceDirection", "holds", "current"]},
+          "OC-D4": {"status": "formalized", "symbols": ["toBoundary", "boundary"]},
+          "organon:Presence": {"status": "prose_only", "reason": "linkEntity is one witness record over token States. It shows the record shape can span unequal structured States; it does not individuate any actual Presence or supply an empirical identity criterion."}
+        }
+      }
+    },
+    {
+      "id": "OC-C4",
+      "type": "anti_collapse_constraint",
+      "subject": "Structured Model retained in a concrete pipeline",
+      "depends_on": ["OC-D5", "OC-C3", "organon:Perception", "organon:Memory"],
+      "formal_contract": {
+        "status": "proved_with_boundaries",
+        "theorem": "pipelineModelWitnessContract",
+        "subject_symbols": ["structuredPipeline", "linkModel", "modelFor", "interpretationFor"],
+        "shared_indices": ["structuredPipeline", "linkedAt"],
+        "dependency_dispositions": {
+          "OC-D5": {"status": "formalized", "symbols": ["joinedTransformation", "constraints", "denotation", "discrete"]},
+          "OC-C3": {"status": "formalized", "symbols": ["linkEntity", "boundary"]},
+          "organon:Perception": {"status": "prose_only", "reason": "perceive is a constant supplied function returning the earlier token State; the witness proves no Perception conditions and claims no Perception parity."},
+          "organon:Memory": {"status": "prose_only", "reason": "remember is the same constant supplied function; the witness proves no Record, Persistence or Entity conditions for Memory and claims no Memory parity."}
+        }
+      }
+    },
+    {
+      "id": "OC-C5",
+      "type": "anti_collapse_constraint",
+      "subject": "Coordination Order is not mathematical Order",
+      "depends_on": ["OC-D1", "organon:Order"],
+      "formal_contract": {
+        "status": "outside_formal_boundary",
+        "reason": "The legacy identifier organon:Order (D046) keeps its definition under the label Coordination Order; it is a persistent structured Configuration through which Agents coordinate, not a reflexive, antisymmetric and transitive relation on members. No contract here models Coordination Order as a MemberOrder, and none of the existing institutional Order shadows is reinterpreted."
+      }
+    },
+    {
+      "id": "OC-G1",
+      "type": "open_evidence_gate",
+      "subject": "Application adequacy and downstream parity",
+      "depends_on": ["OC-D1", "OC-D2", "OC-D3", "OC-D4", "OC-D5"],
+      "formal_contract": {
+        "status": "open_gate",
+        "reason": "Applications must justify which Presences are members, which pairs are ordered, which actual Relations join Constraints or Model members, and the empirical individuation of any Entity. Full Perception, Memory and prose/shadow parity for State, Entity, Boundary and Model remain unproved."
+      }
+    }
+  ]
+}

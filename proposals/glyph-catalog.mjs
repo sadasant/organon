@@ -60,7 +60,9 @@ export const strokes = {
     ).join(" ") + ` M${x} ${y-1}V${y+1}`,
   ).join(" "),
   memberLinks: "M16 6 6 24H26Z",
-  index: "M2 19H10",
+  // Detached index: the position does not become a Configuration association.
+  index: "M2 16H6",
+  partialOrder: "M24 4 14 14 24 24M10 28H24",
   portFrame: "M8 2H2V30H8M24 2H30V30H24",
   surroundings: "M9 10V22H23M3 6H7M16 3V7M26 5 29 8M25 16H30M17 27V30",
   partialMap: "M6 6H26V12M26 20V26H6V6M6 20H13V13H21",
@@ -115,7 +117,7 @@ const alphabet = {
   Relation: ["bars", "association"],
   Denotation: ["denotes"],
   Configuration: ["members", "memberLinks"],
-  State: ["grouping", "index"],
+  State: ["members", "memberLinks", "index"],
   Direction: ["up", "foot"],
   Transformation: ["step", "dot"],
   Change: ["triangle", "slash"],
@@ -226,6 +228,8 @@ const alphabet = {
   Identity: ["bars"],
   // Append the slot; the registry places Set before Configuration.
   Set: ["members"],
+  // The legacy Order key/slot still denotes Coordination Order.
+  MathematicalOrder: ["partialOrder"],
 };
 
 // Private-use slots are font-local, not Unicode assignments. Preserve this

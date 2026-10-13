@@ -16,7 +16,7 @@
         "local": "LocalLease",
         "term": "organon:Permission",
         "relation": "refinement",
-        "note": "Example only: the local term must preserve the Order, Grant, Admission, Scope, interval, and revocation chain."
+        "note": "Example only: the local term must preserve the Coordination Order, Grant, Admission, Scope, interval, and revocation chain."
       },
       {
         "local": "CompletionReceipt",

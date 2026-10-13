@@ -20,7 +20,11 @@ current definitions.
 - Commit: `d024af099ca4bf2c86f649261ebf59565dc8c622`
 - Project pin: `leanprover/lean4:v4.30.0`
 
-## Last local verification
+## Current integration verification
+
+On October 13, the Order/Configuration integration working sources passed `lake build` (**58 jobs**) and `lake exe ontology_check`. This adds three modules and nine promotion contracts. Exact reviewed sources and validation boundaries are recorded in the [integration review](../../reviews/promotion/order-and-configuration-integration.json); the earlier receipt below remains historical evidence, not a claim about current theorem counts.
+
+## Previous local verification
 
 On 2026-10-13, for the sources committed at `a253e0118e394220d2e5e444f85a159b0f70b884`, from `ontology/formal/`:
 
@@ -45,9 +49,13 @@ prose parity, empirical applicability, or downstream model quality.
 
 ## Current contracts and limits
 
-- The registry contains **116 terms, 113 definitions and 53 commitments**.
+- The registry contains **118 terms, 115 definitions and 53 commitments**.
   Current attention-dossier contracts are AC-D3, AC-D7 and AC-D8. The embodiment
   dossier retains eleven contracts with their dependency dispositions.
+- Order has strict-part, identity and finite-countermodel contracts. Structured
+  Configuration is retained in indexed States, an Entity history, configured
+  Boundaries and a concrete Model pipeline. Supplied interpretation and empirical
+  Entity identity remain gates; full Perception/Memory parity is not claimed.
 - The Identity dossier adds four contracts: equality, the Identity/Difference
   partition, exact-target Missingness, and finite anti-collapse witnesses.
   Empirical individuation, carrier adequacy and actual expectation provenance

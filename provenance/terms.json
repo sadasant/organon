@@ -2,6 +2,7 @@
   "schema_version": 1,
   "ontology_version": "0.21.0",
   "sources": {
+    "proposal:order-configuration-integration": {"kind": "adopted-review", "reference": "../proposals/order-and-configuration-integration.md", "title": "Mathematical Order, Coordination Order relabeling, and Configuration integration review"},
     "proposal:set-configuration": {"kind": "adopted-review", "reference": "../proposals/set-and-configuration.md", "title": "Set membership and structured Configuration correction with formal boundaries"},
     "proposal:identity-missingness": {"kind": "adopted-review", "reference": "../proposals/identity-and-missingness.md", "title": "Identity and exact-target Missingness review and formal boundaries"},
     "essay:absence": {"kind": "published-corpus", "reference": "essays.md", "title": "Nothing Else Is So Exact As Absence"},
@@ -50,6 +51,11 @@
     },
     {
       "basis": "review-repair",
+      "sources": ["proposal:order-configuration-integration", "review:daniel"],
+      "terms": ["organon:MathematicalOrder"]
+    },
+    {
+      "basis": "review-repair",
       "sources": ["proposal:set-configuration", "essay:absence", "essay:shadow-world", "review:daniel"],
       "terms": ["organon:Configuration"]
     },
@@ -66,7 +72,12 @@
     {
       "basis": "formalization-finding",
       "sources": ["essay:invariants", "formal:lean-v0.9", "review:v0.9"],
-      "terms": ["organon:State", "organon:Direction", "organon:Transformation", "organon:Change", "organon:Feeds", "organon:CausalPath", "organon:Invariant", "organon:Persistence", "organon:Constraint", "organon:Entity", "organon:Boundary", "organon:Environment"]
+      "terms": ["organon:State", "organon:Transformation", "organon:Change", "organon:Feeds", "organon:CausalPath", "organon:Invariant", "organon:Constraint", "organon:Environment"]
+    },
+    {
+      "basis": "review-repair",
+      "sources": ["proposal:order-configuration-integration", "essay:invariants", "formal:lean-v0.9", "review:v0.9", "review:daniel"],
+      "terms": ["organon:Direction", "organon:Persistence", "organon:Entity", "organon:Boundary"]
     },
     {
       "basis": "corpus-extraction",
@@ -81,7 +92,12 @@
     {
       "basis": "review-repair",
       "sources": ["essay:cryptoeconomic-justice", "essay:priced-ledger", "essay:forging-reality", "review:v0.9", "formal:lean-v0.9"],
-      "terms": ["organon:Claim", "organon:Witness", "organon:Control", "organon:Order", "organon:Standing", "organon:Recognition", "organon:Principal", "organon:ActsFor", "organon:CountsAs", "organon:Authority", "organon:PermissionClaim", "organon:Declaration", "organon:Grant", "organon:Admission", "organon:Permission", "organon:Revocation", "organon:PermissionExercise", "organon:Exercisability", "organon:Enforcement", "organon:Role", "organon:AdmissibilityRule", "organon:IndependentFor", "organon:Evidence", "organon:Attestation"]
+      "terms": ["organon:Claim", "organon:Witness", "organon:Control", "organon:Standing", "organon:Recognition", "organon:Principal", "organon:ActsFor", "organon:CountsAs", "organon:Authority", "organon:PermissionClaim", "organon:Declaration", "organon:Grant", "organon:Admission", "organon:Permission", "organon:Revocation", "organon:PermissionExercise", "organon:Exercisability", "organon:Enforcement", "organon:Role", "organon:AdmissibilityRule", "organon:IndependentFor", "organon:Evidence", "organon:Attestation"]
+    },
+    {
+      "basis": "review-repair",
+      "sources": ["proposal:order-configuration-integration", "essay:cryptoeconomic-justice", "essay:priced-ledger", "essay:forging-reality", "review:v0.9", "formal:lean-v0.9", "review:daniel"],
+      "terms": ["organon:Order"]
     },
     {
       "basis": "corpus-extraction",
