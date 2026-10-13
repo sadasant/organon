@@ -2,29 +2,29 @@
   "schema_version": 1,
   "status": "generated-nonbinding-degenerate-registry-reflection-ledger",
   "source_sha256": {
-    "ontology/terms.yaml": "de52d028048e28f3367e1a37a9a22fee466ebfd04a9fd31e0c5dbf0f6c6f7bf5",
+    "ontology/terms.yaml": "6d8bd075877581509befad49076921aeeb1ddea6858b8c5dcedd3251922c6fab",
     "ontology/algebra/positive-calculus.yaml": "76c83651ae6d9ada317546a862450ec7940b5d1e12fb93b973f8bd6fd1abdd73",
     "scripts/build-positive-calculus.py": "6bf02fc31616d2771320841951275e61988fb73f7df1302329f6c28e5ddff863"
   },
   "counts": {
-    "registered_terms": 116,
+    "registered_terms": 117,
     "retained_foundation": 3,
-    "definitions_reflected": 113,
+    "definitions_reflected": 114,
     "constructors": 1,
-    "dependency_removal_fixtures": 930,
+    "dependency_removal_fixtures": 938,
     "unreflected_definitions": 0
   },
   "degenerate_control_comparison": {
     "zero_constructors_positive_heads": 0,
     "zero_constructors_definitions_derived": 0,
-    "one_constructor_definitions_derived": 113,
+    "one_constructor_definitions_derived": 114,
     "ablate_G1_definitions_derived": 0,
     "constructor_minimum_proved": false,
     "explanation": "The comparison covers only G0 and the hand-authored G1 wrapper; it is not an exhaustive search over nondegenerate constructor families."
   },
   "semantic_minimality": {
     "proved": false,
-    "binding_definition_schemas_retained": 113,
+    "binding_definition_schemas_retained": 114,
     "anti_vacuity_passes": false,
     "opaque_parameter": "Conforms(binding_definition_schema, candidate)",
     "eligible_for_promotion": false,
@@ -177,12 +177,49 @@
       ]
     },
     {
+      "term": "organon:Set",
+      "claim": "D121",
+      "constructor": "G1",
+      "declared_dependencies": [
+        "organon:Absence",
+        "organon:Identity",
+        "organon:Presence",
+        "organon:Reality",
+        "organon:Relation"
+      ],
+      "conformity_witness": {
+        "predicate": "Conforms",
+        "args": [
+          "D121",
+          "candidate"
+        ]
+      },
+      "result": {
+        "predicate": "Classified",
+        "args": [
+          "organon:Set",
+          "candidate"
+        ]
+      },
+      "derives": true,
+      "one_step_mutations": [
+        "G1-D121-remove-Absence",
+        "G1-D121-remove-Identity",
+        "G1-D121-remove-Presence",
+        "G1-D121-remove-Reality",
+        "G1-D121-remove-Relation",
+        "G1-D121-remove-witness"
+      ]
+    },
+    {
       "term": "organon:Configuration",
       "claim": "D004",
       "constructor": "G1",
       "declared_dependencies": [
+        "organon:Identity",
         "organon:Presence",
-        "organon:Relation"
+        "organon:Relation",
+        "organon:Set"
       ],
       "conformity_witness": {
         "predicate": "Conforms",
@@ -200,8 +237,10 @@
       },
       "derives": true,
       "one_step_mutations": [
+        "G1-D004-remove-Identity",
         "G1-D004-remove-Presence",
         "G1-D004-remove-Relation",
+        "G1-D004-remove-Set",
         "G1-D004-remove-witness"
       ]
     },

@@ -36,9 +36,17 @@
     "reference": "ontology/formal/decisions.md"
   },
   "Denotation": { "module": "OrganonCore", "name": "Denotation" },
+  "Set": {
+    "module": "SetConfiguration",
+    "name": "Set",
+    "status": "projection",
+    "note": "Extensional membership on one supplied local carrier. This does not construct all Presence or decide actual membership."
+  },
   "Configuration": {
-    "status": "unencoded",
-    "note": "No standalone Configuration declaration exists in the audited Lean sources. Context carriers and structured records do not by themselves define canonical Configuration."
+    "module": "SetConfiguration",
+    "name": "Configuration",
+    "status": "projection",
+    "note": "A local alias of Set, without a nonempty or participant-closure requirement. Generic State carriers have not been retyped to this projection."
   },
   "State": { "module": "OrganonCore", "name": "State" },
   "Direction": { "module": "OrganonCore", "name": "Direction" },

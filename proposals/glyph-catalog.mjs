@@ -53,6 +53,13 @@ export const strokes = {
   ordered: "M4 7H9V13H20V24H27M4 4V10M17 10V16M24 21V27",
   denotes: "M5 8V24M5 16H27M20 9 27 16 20 23",
   grouping: "M10 4H4V10M22 4H28V10M4 22V28H10M28 22V28H22M9 10V16M15 20H21M21 9H25",
+  // Concentric strokes and a short core fill three solid, circular dots.
+  members: [[16, 6], [6, 24], [26, 24]].map(([x, y]) =>
+    [1, 2].map((r) =>
+      `M${x} ${y-r}a${r} ${r} 0 1 1 0 ${2*r}a${r} ${r} 0 1 1 0 ${-2*r}`,
+    ).join(" ") + ` M${x} ${y-1}V${y+1}`,
+  ).join(" "),
+  memberLinks: "M16 6 6 24H26Z",
   index: "M2 19H10",
   portFrame: "M8 2H2V30H8M24 2H30V30H24",
   surroundings: "M9 10V22H23M3 6H7M16 3V7M26 5 29 8M25 16H30M17 27V30",
@@ -107,7 +114,7 @@ const alphabet = {
   Difference: ["bars", "slash"],
   Relation: ["bars", "association"],
   Denotation: ["denotes"],
-  Configuration: ["grouping"],
+  Configuration: ["members", "memberLinks"],
   State: ["grouping", "index"],
   Direction: ["up", "foot"],
   Transformation: ["step", "dot"],
@@ -217,6 +224,8 @@ const alphabet = {
   Respect: ["constrainedAction"],
   // Append the slot; the registry places Identity immediately after Presence.
   Identity: ["bars"],
+  // Append the slot; the registry places Set before Configuration.
+  Set: ["members"],
 };
 
 // Private-use slots are font-local, not Unicode assignments. Preserve this

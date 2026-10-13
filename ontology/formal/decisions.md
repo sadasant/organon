@@ -483,6 +483,21 @@ new definitions. Attention, Care, Respect, selection, institutional parity, and
 empirical application retain their explicit formal limits. Model generation and
 judgments have not been rerun, so downstream evaluations remain incomplete/hold.
 
+## Explicit Set and Configuration (v0.21)
+
+`SetConfiguration.lean` makes membership extensional on a supplied local carrier.
+It proves order/repetition invariance, empty-set inhabitation, and Configuration's
+reduction to Set. Relation-like finite tokens need not bring their participants
+into the containing Set. Requiring closure would silently strengthen downstream
+definitions, including Configurations of Constraints, so it is not imposed.
+
+This is a local shadow, not a canonical classifier of all Presence. The generic
+State carrier and downstream records are unchanged. The retained Configuration
+identifier names no independently proved distinction; its consolidation requires
+a governed-use migration review, recorded at SC-G1 in the
+[dossier](../../proposals/set-and-configuration.md). No mathematical Order redesign
+is enacted by this change.
+
 ## Bibliography
 
 - de Moura, Leonardo, and Sebastian Ullrich. "The Lean 4 Theorem Prover and Programming Language." In *Automated Deduction – CADE 28*, 2021. [DOI](https://doi.org/10.1007/978-3-030-79876-5_37).

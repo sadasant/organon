@@ -27,7 +27,7 @@ binding_source: ontology.md
 
 - Mode: full
 - Requested: all registered terms
-- Terms carried: 116 of 116
+- Terms carried: 117 of 117
 - Commitments carried: 53 of 53
 
 ## Metalanguage boundary
@@ -132,12 +132,19 @@ Depends: organon:Presence.
 Claim: `D102` (definition).
 Depends: organon:Presence, organon:Relation.
 
+### `organon:Set` · Set
+
+**Set** is a Presence fixed by which Presences are its members within a declared domain.
+
+Claim: `D121` (definition).
+Depends: organon:Presence, organon:Identity, organon:Absence, organon:Relation, organon:Reality.
+
 ### `organon:Configuration` · Configuration
 
-**Configuration** is a set of Presences and Relations considered together.
+**Configuration** is a Set of Presences and Relations considered together.
 
 Claim: `D004` (definition).
-Depends: organon:Presence, organon:Relation.
+Depends: organon:Set, organon:Presence, organon:Relation, organon:Identity.
 
 ### `organon:State` · State
 

@@ -18,6 +18,7 @@ import RepresentationActivityExample
 import InstitutionalRevision
 import AttentionRevision
 import IdentityMissingness
+import SetConfiguration
 
 /-!
 # Daniel's Ontology: finite inhabited model

@@ -72,6 +72,9 @@ name = "RespectRevision"
 [[lean_lib]]
 name = "IdentityMissingness"
 
+[[lean_lib]]
+name = "SetConfiguration"
+
 [[lean_exe]]
 name = "ontology_check"
 root = "Model"

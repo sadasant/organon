@@ -2,6 +2,7 @@
   "schema_version": 1,
   "ontology_version": "0.21.0",
   "sources": {
+    "proposal:set-configuration": {"kind": "adopted-review", "reference": "../proposals/set-and-configuration.md", "title": "Set and Configuration membership review and formal boundaries"},
     "proposal:identity-missingness": {"kind": "adopted-review", "reference": "../proposals/identity-and-missingness.md", "title": "Identity and exact-target Missingness review and formal boundaries"},
     "essay:absence": {"kind": "published-corpus", "reference": "essays.md", "title": "Nothing Else Is So Exact As Absence"},
     "essay:shadow-world": {"kind": "published-corpus", "reference": "essays.md", "title": "The Shadow of the World"},
@@ -42,6 +43,11 @@
     "formal:attention-love-care": {"kind": "formalization", "reference": "../ontology/formal/decisions.md", "title": "Attention Love Care and Respect formalization findings"}
   },
   "groups": [
+    {
+      "basis": "review-repair",
+      "sources": ["proposal:set-configuration", "review:daniel"],
+      "terms": ["organon:Set"]
+    },
     {
       "basis": "review-repair",
       "sources": ["proposal:identity-missingness", "essay:absence", "review:daniel"],

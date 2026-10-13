@@ -13,9 +13,9 @@ delivery_language: "../editorial/short-form.md"
 ---
 # Daniel's Ontology
 
-*First published August 1, 2026; substantive revision October 12, 2026 (v0.21).*
+*First published August 1, 2026; substantive revision October 13, 2026 (v0.21).*
 
-Daniel's Ontology defines the vocabulary through which Organon reviews a body of work. It begins from one primitive, Absence, and its axioms, and orders 113 definitions by declared dependency, each with a stable `organon:*` identifier in the [registry](./terms.yaml). Typed Relation signatures and 42 binding constraints govern how the terms combine. The definitions run from Identity, Reality, Difference, and Relation through the representational, perceptual, and agentic regions to an Order-indexed institutional kernel, and on to the regions on Evidence, political order, valuation, Ritual and Meaning, embodiment, and Attention, Care, and Respect.
+Daniel's Ontology defines the vocabulary through which Organon reviews a body of work. It begins from one primitive, Absence, and its axioms, and orders 114 definitions by declared dependency, each with a stable `organon:*` identifier in the [registry](./terms.yaml). Typed Relation signatures and 42 binding constraints govern how the terms combine. The definitions run from Identity, Reality, Difference, and Relation through the representational, perceptual, and agentic regions to an Order-indexed institutional kernel, and on to the regions on Evidence, political order, valuation, Ritual and Meaning, embodiment, and Attention, Care, and Respect.
 
 Its claimed contribution is a unification constraint: metaphysical, perceptual, agentic, evidentiary, and institutional terms share one dependency chain, and no term's definition changes at the border between regions. The [intellectual shadows](#intellectual-shadows-and-contribution) state where each region borrows rigor from prior work and where the resemblance stops. Version 0.21 is provisional and binds only a repository that adopts named terms through an adoption manifest; the Lean shadow and the candidate algebra test it without replacing it.
 
@@ -32,7 +32,7 @@ Its claimed contribution is a unification constraint: metaphysical, perceptual, 
   - [1. Reality](#1-reality)
   - [2. Difference](#2-difference)
   - [3. Relation](#3-relation)
-  - [4. Configuration and state](#4-configuration-and-state)
+  - [4. Set, configuration, and state](#4-set-configuration-and-state)
   - [5. Transformation and change](#5-transformation-and-change)
   - [6. Invariant and persistence](#6-invariant-and-persistence)
   - [7. Constraint](#7-constraint)
@@ -190,12 +190,23 @@ For the same compared items, exactly one of Identity and Difference obtains. Thi
 
 **Denotation** is an ordered Relation whose first participant occupies an expression position and whose later participant is the Presence, Relation, or Configuration that is its target. A Denotation must name both participants and their ordered positions. It establishes neither fidelity, Truth, Interpretation, institutional status, nor participation in a Causal path.
 
-### 4. Configuration and state
+### 4. Set, configuration, and state
+
+<a id="organon-set"></a>
+<!-- organon:term organon:Set claim=D121 -->
+
+**Set** is a Presence fixed by which Presences are its members within a declared domain.
+
+Two Sets in the same domain have Identity exactly when they have the same members. Listing order and repetition do not change a Set. A Set may have no members; the empty Set is still Presence, not Absence. Membership does not by itself order the members or assert any further Relation among them. Relations may themselves be members, since they are Presences.
+
+Membership remains supplied by the metalanguage; this definition names its extensional construction within Presence rather than deriving set theory from Absence. It supplies no unrestricted comprehension principle, no empirical membership decision procedure, and no license to identify a declared local domain with Reality. A list or description does not establish that its purported members exist. Lowercase “set” elsewhere continues to use metalinguistic membership unless a dependency on Set is explicitly registered.
 
 <a id="organon-configuration"></a>
 <!-- organon:term organon:Configuration claim=D004 -->
 
-**Configuration** is a set of Presences and Relations considered together.
+**Configuration** is a Set of Presences and Relations considered together.
+
+Configuration is the relational-use name for this Set construction, not an additional primitive or an extensionally distinct kind. It inherits Identity by membership, may be empty, and need not contain a Relation. An included Relation retains its specified participant positions; including it does not require all its participants to be members too. “Considered together” adds no further Relation.
 
 <a id="organon-state"></a>
 <!-- organon:term organon:State claim=D005 -->

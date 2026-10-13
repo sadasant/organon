@@ -2,7 +2,7 @@
   "schema_version": 1,
   "status": "generated-nonbinding-complete-reduction-audit",
   "source_sha256": {
-    "ontology/terms.yaml": "de52d028048e28f3367e1a37a9a22fee466ebfd04a9fd31e0c5dbf0f6c6f7bf5",
+    "ontology/terms.yaml": "6d8bd075877581509befad49076921aeeb1ddea6858b8c5dcedd3251922c6fab",
     "ontology/algebra/normal-forms.yaml": "1e4c8a950a920840f4e9966778fbdda625aec7d5560efe692e05ae4efac0bae0",
     "ontology/algebra/candidate-laws.yaml": "8d739e8c928f527ee8f66b28c4e3a8b696d0539333627bf26243d72073212550",
     "ontology/algebra/claim-coverage.yaml": "17c549d7193e680b126fd112eaa36053105eb00a9c5b4b72655444d16594637a",
@@ -13,12 +13,12 @@
   "answer": "no",
   "reason": "Complete reduction requires positive construction as well as prohibition of invalid collapses.",
   "counts": {
-    "registered_terms": 116,
+    "registered_terms": 117,
     "registered_commitments": 53,
     "candidate_laws": 6,
     "normal_forms": 9,
     "constructively_encoded": 9,
-    "positively_underdetermined": 104,
+    "positively_underdetermined": 105,
     "retained_foundation": 3,
     "consistency_candidate_clause_derived": 20,
     "consistency_positive_schema_missing": 20,
@@ -163,12 +163,15 @@
       "reason": "A typed normal-form query is encoded by NF-DENOTATION and has a finite witness."
     },
     {
-      "term": "organon:Configuration",
-      "claim": "D004",
+      "term": "organon:Set",
+      "claim": "D121",
       "claim_type": "definition",
       "depends_on": [
         "organon:Presence",
-        "organon:Relation"
+        "organon:Identity",
+        "organon:Absence",
+        "organon:Relation",
+        "organon:Reality"
       ],
       "disposition": "positively_underdetermined",
       "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
@@ -176,7 +179,38 @@
         "all_declared_dependencies_present": true,
         "shared_dependency_extensions": [
           "organon:Presence",
-          "organon:Relation"
+          "organon:Identity",
+          "organon:Absence",
+          "organon:Relation",
+          "organon:Reality"
+        ],
+        "target_predicate": "organon:Set",
+        "model_without_target_extension": [],
+        "model_with_target_extension": [
+          "candidate"
+        ],
+        "classification_differs": true
+      }
+    },
+    {
+      "term": "organon:Configuration",
+      "claim": "D004",
+      "claim_type": "definition",
+      "depends_on": [
+        "organon:Set",
+        "organon:Presence",
+        "organon:Relation",
+        "organon:Identity"
+      ],
+      "disposition": "positively_underdetermined",
+      "reason": "Dependencies declare vocabulary prerequisites, not a sufficient constructor; the six prohibitive laws have no positive head for this predicate.",
+      "paired_target_extension_sketch": {
+        "all_declared_dependencies_present": true,
+        "shared_dependency_extensions": [
+          "organon:Set",
+          "organon:Presence",
+          "organon:Relation",
+          "organon:Identity"
         ],
         "target_predicate": "organon:Configuration",
         "model_without_target_extension": [],

@@ -11,9 +11,10 @@ This note records how [Daniel's Ontology](./ontology.md) changed. Historical arg
 
 ## Version history
 
-### v0.21 - Identity and exact-target Missingness
+### v0.21 - Identity, exact-target Missingness, and explicit Set
 
-- Registered Identity (D120) as logical equality restricted to Presence, immediately after Presence in dependency order. It does not replace metalinguistic equality or supply empirical individuation. No existing identifier is reassigned: the registry has 116 terms, 113 definitions and 53 commitments.
+- Registered Identity (D120) as logical equality restricted to Presence, immediately after Presence in dependency order. It does not replace metalinguistic equality or supply empirical individuation. No existing identifier is reassigned: with Set the registry has 117 terms, 114 definitions and 53 commitments.
+- October 13: registered Set (D121) before Configuration, exposing the extensional membership previously borrowed from the metalanguage. Empty Sets are permitted; ordering and repetition do not affect membership. Configuration remains the relational-use name, without participant closure or mandatory Relations. The [Set dossier](../proposals/set-and-configuration.md) proves the local reduction, rather than inventing a distinction; full governed-use consolidation and identifier migration remain open. Three-dot and connected-three-dot glyphs are mnemonics, not cardinality or closure axioms. Order and State's glyph remain unchanged.
 - Made Difference explicitly negate Identity for the same compared items. Clarified A5's specified target and exact noncontainment, separating wrong-target, empty-field, class-expectation and fictional-reference cases. Clarified that Identity of an Entity is not equality of successive States or a shared preservation property.
 - Added general Lean equality laws, the classical Identity/Difference partition, an exact-target Missingness equivalence preserving the existing record, and asymmetric finite counterexamples. The [dossier](../proposals/identity-and-missingness.md) and source-pinned review separate proved local-carrier properties from actual expectation and individuation gates.
 - Refreshed the registry projections and made canonical presentation order independent of append-only glyph slots. The historical Unicode study remains pinned to its original definitions; the glyph review is nonbinding.

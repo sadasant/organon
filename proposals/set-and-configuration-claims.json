@@ -1,0 +1,83 @@
+{
+  "schema_version": 2,
+  "description": "Typed contracts for set-and-configuration.md; statuses and dependency dispositions follow CONTRIBUTING.md and proposals/README.md.",
+  "proposal_id": "set-and-configuration",
+  "status": "promoted",
+  "binding": false,
+  "markdown": "set-and-configuration.md",
+  "formal_shadow": "../ontology/formal/SetConfiguration.lean",
+  "formal_evidence": ["../ontology/formal/OrganonCore.lean"],
+  "promotion_contracts": "../ontology/formal/SetConfiguration.lean",
+  "promotion_review": "../reviews/promotion/set-and-configuration.json",
+  "introduced_terms": ["organon:Set"],
+  "local_symbols": [],
+  "semantic_fields": [
+    {
+      "symbol": "Set.contains",
+      "status": "canonical",
+      "reason": "Membership is the whole defining datum of a Set over its declared local domain; which actual Presences realize a supplied predicate and carrier remains the application question recorded at SC-G1."
+    }
+  ],
+  "statements": [
+    {
+      "id": "SC-D1",
+      "type": "proposed_definition",
+      "subject": "Set",
+      "depends_on": ["organon:Presence", "organon:Identity", "organon:Absence", "organon:Relation", "organon:Reality"],
+      "formal_contract": {
+        "status": "proved_with_boundaries",
+        "theorem": "setExtensionality",
+        "subject_symbols": ["Set", "contains", "emptySet"],
+        "shared_indices": ["s", "t", "a"],
+        "dependency_dispositions": {
+          "organon:Presence": {"status": "represented_by", "symbols": ["α", "a", "s", "t"], "reason": "The supplied carrier stands for a declared local domain of member Presences and each Set value stands for the Presence those members fix; no global carrier or membership classifier is constructed."},
+          "organon:Identity": {"status": "formalized", "symbols": ["Identity"]},
+          "organon:Absence": {"status": "prose_only", "reason": "The empty Set is an inhabited Set value, a Presence with no member; the exclusion of Absence is a prose boundary and no Absence symbol is imported."},
+          "organon:Relation": {"status": "prose_only", "reason": "The contrast with ordered association stays in prose: membership imposes no order on members, while the theorem neither asserts nor denies that membership can be modeled as a Relation."},
+          "organon:Reality": {"status": "outside_formal_boundary", "reason": "The theorem quantifies over every supplied local carrier and builds no carrier of all Presence; it neither asserts nor refutes that Reality is a set, and licenses no local Set as exhaustive of Reality."}
+        }
+      }
+    },
+    {
+      "id": "SC-D2",
+      "type": "proposed_definition",
+      "subject": "Configuration",
+      "depends_on": ["SC-D1", "organon:Presence", "organon:Relation", "organon:Identity"],
+      "formal_contract": {
+        "status": "proved_with_boundaries",
+        "theorem": "configurationReduction",
+        "subject_symbols": ["Configuration"],
+        "shared_indices": ["c", "d", "k"],
+        "dependency_dispositions": {
+          "SC-D1": {"status": "formalized", "symbols": ["Set", "setExtensionality", "contains"]},
+          "organon:Presence": {"status": "represented_by", "symbols": ["α", "a"], "reason": "Carrier values stand for the Presences, including any Relations, that a supplied interpretation places in the local domain; no canonical carrier is constructed."},
+          "organon:Relation": {"status": "prose_only", "reason": "Relations enter only as possible carrier values; the general theorem imposes no Relation classifier, no requirement that a Relation be a member, and no participant closure. SC-C1 exercises a relation-like witness."},
+          "organon:Identity": {"status": "formalized", "symbols": ["Identity"]}
+        }
+      }
+    },
+    {
+      "id": "SC-C1",
+      "type": "anti_collapse_constraint",
+      "subject": "Finite Set and Configuration witnesses",
+      "depends_on": ["SC-D1", "SC-D2"],
+      "formal_contract": {
+        "status": "proved",
+        "theorem": "finiteAntiCollapse",
+        "subject_symbols": ["Token", "ofList", "emptyConfiguration", "ringOnly", "linkOnly"],
+        "shared_indices": ["ringOnly", "linkOnly"],
+        "dependency_dispositions": {
+          "SC-D1": {"status": "formalized", "symbols": ["Identity", "setExtensionality", "emptySet", "contains"]},
+          "SC-D2": {"status": "represented_by", "symbols": ["Configuration", "participants", "link"], "reason": "A relation-like token carries designated witness participants; this exercises the absence of endpoint closure on a finite carrier, not a canonical Relation classifier or empirical Configuration."}
+        }
+      }
+    },
+    {
+      "id": "SC-G1",
+      "type": "open_evidence_gate",
+      "subject": "Carrier adequacy and Configuration consolidation",
+      "depends_on": ["SC-D1", "SC-D2"],
+      "formal_contract": {"status": "open_gate", "reason": "Applications must justify their declared domain, membership assignments, Relation tokens and identity criteria. Configuration is extensionally a Set; whether its retained role name and identifier should be consolidated under the collapse rule remains an explicit review question that the formal reduction does not decide."}
+    }
+  ]
+}
