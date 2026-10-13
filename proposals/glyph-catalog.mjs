@@ -1,5 +1,12 @@
 // Shared, nonbinding source for the study, symbol font, and website.
 // Motif combinations are mnemonics, NOT a compositional semantic grammar.
+// Derive heights rather than snapping equilateral vertices to the integer grid.
+const equilateralHeight = (side) => side * Math.sqrt(3) / 2;
+const memberTop = 24 - equilateralHeight(20);
+const stateTop = 24 - equilateralHeight(16);
+// Trim 2.5 units along a 60-degree edge to preserve hollow node centers.
+const stateTrimY = equilateralHeight(2.5);
+
 export const strokes = {
   ring: "M16 8a8 8 0 1 1 0 16a8 8 0 1 1 0-16",
   // Overlapping concentric strokes form solid ink, leaving a small clear center.
@@ -14,7 +21,7 @@ export const strokes = {
   frame: "M11 5H5V27H11M21 5H27V27H21",
   vessel: "M6 9V16Q6 24 16 24Q26 24 26 16V9",
   arch: "M6 25V15Q6 5 16 5Q26 5 26 15V25",
-  triangle: "M16 5 27 26H5Z",
+  triangle: `M16 ${26-equilateralHeight(22)} 27 26H5Z`,
   gate: "M6 26V6H26V26",
   eye: "M3 16Q16 0 29 16Q16 32 3 16Z",
   wave: "M3 19Q9 7 16 16T29 13",
@@ -54,29 +61,41 @@ export const strokes = {
   denotes: "M5 8V24M5 16H27M20 9 27 16 20 23",
   grouping: "M10 4H4V10M22 4H28V10M4 22V28H10M28 22V28H22M9 10V16M15 20H21M21 9H25",
   // Concentric strokes and a short core fill three solid, circular dots.
-  members: [[16, 6], [6, 24], [26, 24]].map(([x, y]) =>
+  members: [[16, memberTop], [6, 24], [26, 24]].map(([x, y]) =>
     [1, 2].map((r) =>
       `M${x} ${y-r}a${r} ${r} 0 1 1 0 ${2*r}a${r} ${r} 0 1 1 0 ${-2*r}`,
     ).join(" ") + ` M${x} ${y-1}V${y+1}`,
   ).join(" "),
-  memberLinks: "M16 6 6 24H26Z",
+  memberLinks: `M16 ${memberTop} 6 24H26Z`,
   // Retired State marker, retained for the historical design inventory.
   index: "M2 16H6",
   // Equal triangles shifted by half a base: baseline x=4,12,20,28;
   // apices x=12,20. Stop edges outside hollow centers; no opaque masks.
   stateOverlap: [
-    "M5 22 11 10M13 10 19 22M12 24 20 8 28 24M6 24H18M22 24H28",
-    ...[[4, 24], [12, 8], [20, 24]].map(([x, y]) =>
+    `M5.25 ${24-stateTrimY} 10.75 ${stateTop+stateTrimY}M13.25 ${stateTop+stateTrimY} 18.75 ${24-stateTrimY}M12 24 20 ${stateTop} 28 24M6.5 24H17.5M22.5 24H28`,
+    ...[[4, 24], [12, stateTop], [20, 24]].map(([x, y]) =>
       `M${x} ${y-2}a2 2 0 1 1 0 4a2 2 0 1 1 0-4`,
     ),
-    ...[[12, 24], [20, 8], [28, 24]].map(([x, y]) =>
+    ...[[12, 24], [20, stateTop], [28, 24]].map(([x, y]) =>
       [1, 2].map((r) =>
         `M${x} ${y-r}a${r} ${r} 0 1 1 0 ${2*r}a${r} ${r} 0 1 1 0 ${-2*r}`,
       ).join(" ") + ` M${x} ${y-1}V${y+1}`,
     ),
   ].join(" "),
+  // Same side length as State; a 60-degree turn shares the ghost's right edge.
+  // Keep all three ghost nodes hollow, including the two shared vertices.
+  transformationEdge: [
+    `M5.25 ${24-stateTrimY} 10.75 ${stateTop+stateTrimY}M6.5 24H17.5M13.25 ${stateTop+stateTrimY} 18.75 ${24-stateTrimY}M14.5 ${stateTop}H28M21.25 ${24-stateTrimY} 28 ${stateTop}`,
+    ...[[4, 24], [12, stateTop], [20, 24]].map(([x, y]) =>
+      `M${x} ${y-2}a2 2 0 1 1 0 4a2 2 0 1 1 0-4`,
+    ),
+    ...[1, 2].map((r) =>
+      `M28 ${stateTop-r}a${r} ${r} 0 1 1 0 ${2*r}a${r} ${r} 0 1 1 0 ${-2*r}`,
+    ),
+    `M28 ${stateTop-1}V${stateTop+1}`,
+  ].join(" "),
   // Hasse cover edges, read upward; the lower members are incomparable.
-  partialOrder: "M6 24 16 6 26 24",
+  partialOrder: `M6 24 16 ${memberTop} 26 24`,
   portFrame: "M8 2H2V30H8M24 2H30V30H24",
   surroundings: "M9 10V22H23M3 6H7M16 3V7M26 5 29 8M25 16H30M17 27V30",
   partialMap: "M6 6H26V12M26 20V26H6V6M6 20H13V13H21",
@@ -133,7 +152,7 @@ const alphabet = {
   Configuration: ["members", "memberLinks"],
   State: ["stateOverlap"],
   Direction: ["up", "foot"],
-  Transformation: ["step", "dot"],
+  Transformation: ["transformationEdge"],
   Change: ["triangle", "slash"],
   Feeds: ["wave", "down"],
   CausalPath: ["step", "arrow"],

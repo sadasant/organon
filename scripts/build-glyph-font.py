@@ -20,7 +20,6 @@ import html
 import importlib.util
 import json
 from pathlib import Path
-import re
 import subprocess
 import tempfile
 
@@ -82,8 +81,8 @@ class StrokePen(BasePen):
 
 
 def outline(path: str):
-    numbers = re.findall(r"[-+]?(?:\d*\.\d+|\d+)(?:[eE][-+]?\d+)?", path)
-    assert all(float(n) % GEOMETRY["coordinate_grid"] == 0 for n in numbers), "Off-grid glyph coordinate"
+    # Derived equilateral vertices must not be snapped to an integer grid.
+    # Quantize only the final expanded outlines to the font's units per em.
     stroke = StrokePen()
     parse_path(path, stroke)
     shape = unary_union([
@@ -228,7 +227,7 @@ def build(output_root: Path) -> None:
             *([f"Reviewed against earlier definitions: {', '.join(changed)}. Their entries may not match the current definitions.", ""] if changed else []),
             "![All shared glyphs, in registry order](./glyph-assets/specimen.svg)", "",
             "[Installable TTF](./glyph-assets/OrganonSymbols.ttf) · [Webfont](./glyph-assets/OrganonSymbols.woff2) · [Source catalog](./glyph-catalog.mjs) · [Method](./unicode-vocabulary.md)", "",
-            "[Geometric rules](./glyph-geometry.json): 32-unit grid, uniform 1.1-unit stroke, 1-unit ink margins, square caps and bounded miter joins. Golden-section guides at 12/20 are advisory, not a claim of semantic or aesthetic correctness.", "",
+            "[Geometric rules](./glyph-geometry.json): 32-unit cell, equilateral triangle geometry, uniform 1.1-unit stroke, 1-unit ink margins, square caps and bounded miter joins. The integer grid and golden-section guides at 12/20 are advisory; derived vertices remain unsnapped until font-outline quantization.", "",
             "Private-use characters work only with this font. Labels and Organon IDs remain authoritative; component shapes do not imply compositional meaning. Earlier Unicode candidates are historical alternatives, not a second active alphabet.", "",
             "| Term | Font slot | Verdict | Cue | Risk | Recommendation |",
             "| --- | --- | --- | --- | --- | --- |"]

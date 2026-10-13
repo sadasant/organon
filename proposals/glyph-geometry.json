@@ -3,7 +3,7 @@
   "binding": false,
   "canvas": 32,
   "units_per_em": 1024,
-  "coordinate_grid": 1,
+  "triangle_geometry": "Equilateral, measured between vertex centers (or path vertices without nodes). Derive height as side * sqrt(3) / 2; do not snap derived coordinates. Font outlines are quantized to units_per_em.",
   "stroke_width": 1.1,
   "ink_inset": 1,
   "linecap": "square",
@@ -11,11 +11,12 @@
   "miter_limit": 4,
   "proportion_guides": {
     "enforcement": "advisory",
+    "coordinate_grid": 1,
     "center": 16,
     "golden_sections_snapped": [12, 20],
     "preferred_clear_gap": 2,
     "preferred_axes_degrees": [0, 45, 90, 135],
-    "note": "The golden divisions of a 32-unit cell are approximately 12.22 and 19.78. Snap to the integer grid when useful; do not distort a semantic distinction to meet a ratio. Two-unit clear gaps and axial strokes are design-review targets, not universal constraints on curved or joined glyphs."
+    "note": "The golden divisions of a 32-unit cell are approximately 12.22 and 19.78. Snap to the integer grid when useful, except derived equilateral geometry. Triangle edges use 60-degree angles. Two-unit clear gaps and axial strokes are design-review targets, not universal constraints on curved or joined glyphs."
   },
   "semantic_constraints": [
     "A glyph is a learned name, not a proof or an instance of its referent.",

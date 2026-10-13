@@ -21,7 +21,7 @@ This document names the few geometric cues that may carry a stable, learned read
 ## Source pin and counts
 
 > [!NOTE]
-> Inventory counts below describe the catalog at [81aad87](https://github.com/sadasant/organon/commit/81aad87daa679378d54cde7c3d5ce2da61d37e08), sha256 `dffbc37d1b493a78a06f7cad5b14cd6ab70586fb99a7a27c6d01895998bc2e6e`: 117 glyphs, 89 named strokes, three unused. The current follow-up has 118 glyphs and 91 strokes: State uses `stateOverlap`, leaving `grouping` and `index` unused; MathematicalOrder reuses `members` with `partialOrder` cover edges. Thus `members` now has three uses and `memberLinks` one. The command below measures the current catalog, not the historical counts.
+> Inventory counts below describe the catalog at [81aad87](https://github.com/sadasant/organon/commit/81aad87daa679378d54cde7c3d5ce2da61d37e08), sha256 `dffbc37d1b493a78a06f7cad5b14cd6ab70586fb99a7a27c6d01895998bc2e6e`: 117 glyphs, 89 named strokes, three unused. The current follow-up has 118 glyphs and 92 strokes: State uses `stateOverlap`, leaving `grouping` and `index` unused; MathematicalOrder reuses `members` with `partialOrder` cover edges. Transformation uses `transformationEdge` instead of `step` and `dot`. Thus `members` now has three uses and `memberLinks` one. The command below measures the current catalog, not the historical counts.
 
 Run from the repository root:
 
@@ -29,7 +29,7 @@ Run from the repository root:
 node --input-type=module <<'EOF'
 import { glyphs, strokes } from "./proposals/glyph-catalog.mjs";
 const ops = {
-  dot: ["dot", "seed", "members", "inversePresence", "stateOverlap"],
+  dot: ["dot", "seed", "members", "inversePresence", "stateOverlap", "transformationEdge"],
   parallelBars: ["bars"],
   shortStroke: ["bar", "cap", "foot", "wings", "ticks", "index"],
   vertical: ["axis", "rails", "echo", "association", "comparison", "party", "factive"],
@@ -37,7 +37,7 @@ const ops = {
   angleTag: ["chevron", "conditionI", "conditionII"],
   turningPath: ["step", "ordered", "endpoint", "realizable", "placement", "statusAssignment", "binding", "permittedRealization", "ruleCoupling", "continuingOrder", "portableRecord", "tracedRecord", "partialMap", "structuredModel", "recordedExchange", "scopedWorld", "feedingSource", "correspondence", "knowledgePath", "constituents", "tracking", "adjustedAction"],
   branching: ["tree", "fork", "routing", "feedingSource", "ruleCoupling", "tracking", "interpretedAction", "constituents", "enforcedBoundary", "partialOrder"],
-  contour: ["ring", "inversePresence", "square", "gate", "vessel", "frame", "portFrame", "open", "arch", "eye", "diamond", "double", "triangle", "memberLinks", "grouping", "personRecord", "partialMap", "tracedRecord", "portableRecord", "recordedPlacement", "recordedExchange", "structuredModel", "knowledgePath", "assertion", "registration", "endpoint", "statusAssignment", "placement", "admittedRecord", "constituents", "constrainedAction", "factive", "stateOverlap"],
+  contour: ["ring", "inversePresence", "square", "gate", "vessel", "frame", "portFrame", "open", "arch", "eye", "diamond", "double", "triangle", "memberLinks", "grouping", "personRecord", "partialMap", "tracedRecord", "portableRecord", "recordedPlacement", "recordedExchange", "structuredModel", "knowledgePath", "assertion", "registration", "endpoint", "statusAssignment", "placement", "admittedRecord", "constituents", "constrainedAction", "factive", "stateOverlap", "transformationEdge"],
   cornerMark: ["grouping", "warranted", "hooks", "participants", "surroundings", "scopedWorld", "permittedRealization", "issuedPermission"],
   strike: ["slash", "cross", "routing", "enforcedBoundary"],
   wave: ["wave"],
@@ -72,6 +72,8 @@ Most repetition in the current catalog falls in the third class. That is the fin
 
 Daniel approved these drawings in the review sections named below. Approval covers a design direction for the listed terms. It is not semantic equivalence or reader-test evidence.
 
+All triangle motifs use equilateral geometry, recorded in `equilateral_review` and `transformation_edge_review`: Set, Configuration, Order, State and Transformation use equal sides between vertex centers; Change, Agent and ActsFor use equal sides between path vertices. Heights are derived, not grid-snapped. State retains exact half-base overlap. Font-outline quantization introduces only rounding, not a different intended proportion. This drawing rule adds no ontological entailment.
+
 | Cue | Glyphs | Learned reading | Does not mean | Review |
 | --- | --- | --- | --- | --- |
 | Circular contour | [Presence](../ontology/ontology.md#organon-presence) (ring and dot), [Missingness](../ontology/ontology.md#organon-missingness) (ring), [Reality](../ontology/ontology.md#organon-reality) (filled disk, clear center) | The three field terms share one outer contour, so they read as a set of companions. | A Boundary, an Entity or a container. Reality's clear center is negative space in the inscription, not Absence inside Reality. An empty ring does not establish Missingness without a specified target. | `pair_review`, `field_review` |
@@ -83,6 +85,8 @@ Daniel approved these drawings in the review sections named below. Approval cove
 State now uses two equal, upright Configuration-like triangles with exactly half-base overlap, approved in `state_overlap_review`. Four equally spaced baseline nodes alternate hollow, solid, hollow, solid; each apex sits directly above the other triangle's inner base node. The left triangle has hollow vertices and the right has solid vertices. The shared baseline is drawn once and the diagonal crossing has no node. Edges stop outside hollow centers, so the font keeps actual negative space rather than background-colored masks.
 
 This is a term-specific mnemonic for an indexed Configuration, not a diagram of two required States or a Transformation. Hollow/solid does not mean Missingness/Presence, past/present, possible/actual or less/more real. The drawing does not establish an index domain or its ordering; the distinction between an index and an ordered position remains a separate definition/formalization question. Retain labels and test the hollow centers at text size.
+
+Transformation uses two equilateral triangles joined along the upright ghost triangle's right edge, approved as option A in `transformation_edge_review`. The three ghost vertices remain hollow, including the two shared nodes; only the new rightmost vertex is solid. This preserves the ghost intact rather than reproducing a fully solid Configuration for the result. The shared edge is drawn once, and edges stop outside hollow centers. The 60-degree turn cues input-to-output orientation, not required spatial rotation, rigid motion, reversibility, shared participants or structure preservation. Compare its shared-edge silhouette with State's half-overlap; retain labels and check the hollow centers at inline sizes.
 
 Order extends the approved member-dot family with a Hasse-diagram mnemonic, approved in `order_hasse_review`: Set's three dots joined along the two sloping sides, without Configuration's bottom edge. Read upward, each lower member precedes the upper member and the lower pair is incomparable. In a Hasse diagram, edges show cover relationships; reflexive loops and edges implied by transitivity are omitted. This borrows a [mathematical drawing convention](https://mathworld.wolfram.com/HasseDiagram.html), not a new comparison sign or a compositional operation on Configuration. It does not require three members, a greatest member, branching, finiteness or incomparability in every Order; empty and total Orders remain permitted. Upward means order here, not causation, authority or improvement. Labels remain necessary.
 

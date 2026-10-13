@@ -33,9 +33,9 @@ Priority concerns include Absence/partial missingness, Relation/ordered roles, A
 
 ### A constrained drawing system, not a semantic grammar
 
-The [geometric rules](./glyph-geometry.json) specify a 32-unit cell, integer path parameters, a uniform 1.1-unit stroke, square caps, miter joins limited to four stroke radii, and at least one unit of ink margin on every side. The font build enforces these bounds after stroke expansion and rejects duplicate outlines. The font and specimen use the same settings.
+The [geometric rules](./glyph-geometry.json) specify a 32-unit cell, equilateral triangle geometry, a uniform 1.1-unit stroke, square caps, miter joins limited to four stroke radii, and at least one unit of ink margin on every side. Triangle heights are derived as side × √3 / 2, measured between vertex centers (or path vertices without nodes). Do not snap these coordinates to an integer grid; only expanded font outlines are quantized to 1024 units per em. The font build enforces ink bounds after stroke expansion and rejects duplicate outlines. The font and specimen use the same settings.
 
-Within that envelope, prefer centered axes, two-unit clear gaps, and 0°/45°/90°/135° strokes where appropriate. The golden divisions of 32 are approximately 12.22 and 19.78; the snapped guides at 12 and 20 offer a repeatable proportion. These are **advisory composition guides**, not universal requirements: curves, joins, and semantic distinctions may need other proportions. The system does not claim that the golden ratio guarantees beauty or meaning.
+Within that envelope, prefer centered axes, two-unit clear gaps, and 0°/45°/90°/135° strokes where appropriate; equilateral triangles use 60° edges. The integer grid and snapped golden-section guides at 12 and 20 offer repeatable proportions. These are **advisory composition guides**, not universal requirements: curves, joins, and semantic distinctions may need other proportions. The system does not claim that the golden ratio guarantees beauty or meaning.
 
 Motif reuse may suggest a family but does not prove ontological inclusion. Do not distinguish opposing meanings only by rotation, scale, or a tiny dot. Inspect related marks at actual text sizes: distinct outlines alone are insufficient. These editorial rules constrain future revisions without changing the ontology's definitions.
 
