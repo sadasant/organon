@@ -3,10 +3,10 @@
   "binding": false,
   "ontology_version": "0.21.0",
   "source": {
-    "commit": "6ddfcab7ae58ee6fd38fc0c54fd8ed9f16c69410",
-    "commit_role": "Exact source of the v0.21 definitions, registry, catalog and geometry assessed by the cumulative review. set_configuration_review covers Set and Configuration; identity_review, relation_review and denotation_review retain their earlier scope. Other primary definitions and judgments are retained. The runes.js hash and migration_note are historical, not files or claims about this commit.",
+    "commit": "46565c9bd855bd9adeda7c81b615bd6e2ef8accf",
+    "commit_role": "Exact source of the current definitions and unchanged drawings. structured_configuration_correction supersedes the earlier Configuration alias assessment; set_configuration_review is historical for that claim. Other primary definitions and judgments are unchanged. The supersedes reference preserves the previous complete review and source pins. The runes.js hash and migration_note remain historical.",
     "sha256": {
-      "ontology/ontology.md": "22eaa28d35f0280d60131bd97ba8b2e7bbb3aeb21a0adb5d0a1494399b8726b0",
+      "ontology/ontology.md": "537ba7b69fb166af030f652a4d208d9f1b5daa7dfb763e59bc9805dc2e079d10",
       "ontology/terms.yaml": "6d8bd075877581509befad49076921aeeb1ddea6858b8c5dcedd3251922c6fab",
       "examples/glyph-explorer/src/runes.js": "eb507b17ded15a079b39450d88ac1d70aa02f362b168dd311a6a4a1ff08d7c4b",
       "proposals/glyph-catalog.mjs": "dffbc37d1b493a78a06f7cad5b14cd6ab70586fb99a7a27c6d01895998bc2e6e",

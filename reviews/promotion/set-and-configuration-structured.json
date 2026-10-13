@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "proposal_id": "set-and-configuration",
+  "status": "promotion-ready",
+  "reviewed_commit": "46565c9bd855bd9adeda7c81b615bd6e2ef8accf",
+  "reviewed_tree": "645a4b38de20e0bcb7c3312bfb3d5e9b01fe0f25",
+  "reviewed_at": "2026-10-13",
+  "reviewer": "Amp local source and counterexample review; not independent external review",
+  "review_scope": "The correction from a Set alias to members plus specified relational structure. Readiness covers the stated local contracts, not empirical interpretation, infinite arity or full downstream canonical parity.",
+  "supersedes": "reviews/promotion/set-and-configuration.json",
+  "source_sha256": {
+    "proposals/set-and-configuration.md": "ba3b6b79148277982f376107eb95343577a9e187d60bd17c2fda56533d71da7f",
+    "proposals/set-and-configuration-claims.json": "7431806140a5f03a702132f8576234b5cc98a5dab51735f630b1f5415c335833",
+    "ontology/formal/SetConfiguration.lean": "60b4fa126d57835c642cdd9b3a7e18fd4e9ac17db94ee169852dabe5ea3f47e6",
+    "ontology/formal/OrganonCore.lean": "a9edb8d75ea6486da764b813b8261f67fa18604341bae9d278a6fb76404d26f9",
+    "ontology/formal/Model.lean": "87c1ccb622cd6b96ab25192ddd26881d774d96250d6d8000b7f830dfe1e6a946",
+    "ontology/formal/lakefile.toml": "5f8c3e20a91236fc37d8bb05784b6c98c5669a92032be7bffa1633021b5d89f3",
+    "ontology/formal/lean-toolchain": "54727eec5cba149c18842e6deb5c41b369d66455c93ce135d7d5347c782b2325",
+    "scripts/check-proposals.py": "87f26905ba0450b92a9f38c6ee63a144e5973fd424a971622b42f6a9eb03fb24",
+    "scripts/check-promotion-review.py": "cef84a92bb95bb43734b16941f4a957ad77f9d117d4e1401f93460ff155afda9",
+    "ontology/ontology.md": "537ba7b69fb166af030f652a4d208d9f1b5daa7dfb763e59bc9805dc2e079d10",
+    "ontology/terms.yaml": "6d8bd075877581509befad49076921aeeb1ddea6858b8c5dcedd3251922c6fab",
+    "ontology/profiles.json": "0e17e24c11ab11f86a69377a884763518fcea9a7d5ab68f76d4d7c114ce42ecc",
+    "ontology/changelog.md": "95df69a376a3ef39b57c4320846bdd919fa687ac7e30f61a0c60dc5f21f0ee75",
+    "ontology/prompt.md": "9735417348b1e83f79b6ebba1abee98d2b3b274209ecd5e741434779643cb7cd",
+    "provenance/terms.json": "80dba72820cc1a9bd44fe21b054f53aeb056efe6041a70581de4ace86e660e07",
+    "examples/organon-adoption.json": "45fe9647bb623cec2998c20d9c47bbad26c32323c8bdd25019cd69ad442e7754",
+    "releases/v0-21-0.md": "bcbdf2fe2a8f64ae68a5784e7e7e03c8c1e53d92b33c61516decb3def221f72e"
+  },
+  "verified_contracts": ["SC-D1", "SC-D2", "SC-C1"],
+  "findings": [
+    {
+      "id": "SC-S1",
+      "severity": "high",
+      "disposition": "resolved",
+      "resolution": "The old alias made its reduction theorem tautological. Configuration now retains members and selected Relation/ordered-participant associations. SC-D2 proves extensional identity over both components. SC-C1 exhibits identical member Sets with unequal Configurations, so forgetting structure is not an equivalence. Set remains derived extensional membership; Configuration is derived relational structure, not a new primitive."
+    },
+    {
+      "id": "SC-S2",
+      "severity": "high",
+      "disposition": "resolved",
+      "resolution": "Selected associations require realization, at least two participant positions, and incidence through a member Relation or participant. The finite interpretation rejects reversed unrealized roles for every valid Configuration. A selected Relation may have external participants, and members may be isolated. Discrete structure exists on every Set, including the empty Set. Neither complete connectivity nor participant closure is imposed."
+    },
+    {
+      "id": "SC-S3",
+      "severity": "high",
+      "disposition": "outside-formal-boundary",
+      "resolution": "The supplied carrier and realizes predicate remain interpretation, not a canonical classifier of actual Presences and fixed Relation roles. Lists cover finite arity only. SC-D2 is proved for this represented interpretation; SC-G1 explicitly retains adequacy, infinite-arity coverage and full downstream parity as unproved."
+    },
+    {
+      "id": "SC-S4",
+      "severity": "high",
+      "disposition": "resolved",
+      "resolution": "The State wrapper can retain the unequal structured values, proved by structuredStatesDiffer. Generic State and all existing downstream core structures are byte-unchanged. The full 52-job Lean build and finite executable pass; 74 evaluation tests and all 10 explorer tests pass. Their success establishes compatibility of these implementations, not full canonical parity."
+    },
+    {
+      "id": "SC-S5",
+      "severity": "medium",
+      "disposition": "resolved",
+      "resolution": "Historical promotion records remain unchanged. The dossier, changelog and decision record explicitly supersede the alias claim. Stable identifiers, term counts, glyph paths, private-use slots, State's drawing and institutional Order are unchanged. The corrected explorer definition and members/associations/valid projection were rendered and inspected at desktop and narrow widths, including glyph mode."
+    }
+  ]
+}
