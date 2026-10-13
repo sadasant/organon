@@ -1,0 +1,88 @@
+{
+  "schema_version": 1,
+  "proposal_id": "order-and-configuration-integration",
+  "status": "promotion-ready",
+  "reviewed_commit": "2baa8164bb94158de67d657a899f6185ce3e000a",
+  "reviewed_tree": "9574c6cf7085b90260594fb6af978fdb7073f137",
+  "reviewed_at": "2026-10-13",
+  "reviewer": "Amp local source and counterexample review; not independent external review",
+  "review_scope": "Current Order and structured Configuration integration, limited to the exact typed contracts and explicitly retained application gates.",
+  "source_sha256": {
+    "examples/organon-adoption.json": "c50d839a9db10c32631b61d604cbc10768adc4a405e49ca27266658861e1a433",
+    "ontology/changelog.md": "3ba23bf4481d6dc801e7b955a1b1e218ec848e70f9f5c3c3d69878a1e9e20e8b",
+    "ontology/formal/ConfigurationIntegration.lean": "98c739e5a1bf4956ea61faba15fdd4fa98901c6691585b549b4af966ba43154a",
+    "ontology/formal/EmbodiedConsciousness.lean": "10f3d176bfcfbc27305def3a33bb470dfa1e1d1036f8a605c9e17643bfd8fc4b",
+    "ontology/formal/IntelligenceKnowledge.lean": "bc0ad1caa81adb25316f79aecd5011e32cf94cc73e1e046f7e13bcd10779aee8",
+    "ontology/formal/MathematicalOrder.lean": "f19bb60d672ed877f095923d33e3b1c41219c14afd32c922358705a1975ca3c5",
+    "ontology/formal/OrderConfigurationContracts.lean": "7ddce99a5cd2c146416ac32bed84ff1c59e65cff1ad1a335180074023e77d7ac",
+    "ontology/formal/OrganonCore.lean": "a9edb8d75ea6486da764b813b8261f67fa18604341bae9d278a6fb76404d26f9",
+    "ontology/formal/SetConfiguration.lean": "60b4fa126d57835c642cdd9b3a7e18fd4e9ac17db94ee169852dabe5ea3f47e6",
+    "ontology/formal/lakefile.toml": "bf6bb660bed71d6e6a4c6de92976507fd41b88aa616ebb6bba44a4bac1a8eec7",
+    "ontology/formal/lean-toolchain": "54727eec5cba149c18842e6deb5c41b369d66455c93ce135d7d5347c782b2325",
+    "ontology/ontology.md": "753c6824ec3c15d643ffc404c673eb252a57db46765a87bb13fab6f29c54dbba",
+    "ontology/profiles.json": "d0203677dc964a9b0e902749f43572c71f8395ec076e4006043db6abdf4bca8c",
+    "ontology/prompt.md": "cf6a5c44190cca0dbbecd1aee43bb11119c19070e4308e9b70e31a969414b9ae",
+    "ontology/terms.yaml": "fecc6f8d9123b97decbaff8d3681198b9c88ef206ed03118088c076f0e7dc0a0",
+    "proposals/order-and-configuration-integration-claims.json": "805047652c26800e5193ca1e747f578af40ec5e70b5fcf27e20765b063135008",
+    "proposals/order-and-configuration-integration.md": "0b86d54e329c9f7aa806e7ed0c89ea7736ad2e95c9a532239aa6fafb78d6eaf7",
+    "provenance/terms.json": "f8b596674e730a69ab32eb53d95d5dd7d3879bd20401a41378b7b400360d3f50",
+    "releases/v0-21-0.md": "b61cb3f12d12f1e632133a752f1e7ba0d1dc478d296c6e59b49a9df52f7b23ce",
+    "scripts/check-promotion-review.py": "cef84a92bb95bb43734b16941f4a957ad77f9d117d4e1401f93460ff155afda9",
+    "scripts/check-proposals.py": "87f26905ba0450b92a9f38c6ee63a144e5973fd424a971622b42f6a9eb03fb24"
+  },
+  "verified_contracts": [
+    "OC-D1",
+    "OC-C1",
+    "OC-D2",
+    "OC-D3",
+    "OC-D4",
+    "OC-D5",
+    "OC-C2",
+    "OC-C3",
+    "OC-C4"
+  ],
+  "findings": [
+    {
+      "id": "OC-R1",
+      "severity": "high",
+      "disposition": "resolved",
+      "resolution": "Order is a member Set plus a bounded metalinguistic pair extension, not a classifier asserting every pair is an actual Relation. OC-D1 proves extensional identity, partial-order laws, strict-part recovery and converse construction. OC-C1 separates partial from total orders, excludes nonmembers, inhabits empty orders and exhibits an asymmetric nontransitive Direction."
+    },
+    {
+      "id": "OC-R2",
+      "severity": "high",
+      "disposition": "resolved",
+      "resolution": "D046 retains organon:Order under Coordination Order; D122 uses organon:MathematicalOrder. Canonical institutional references use the new label, existing anchors and glyph slots retain their meaning, and legacy Lean Order indices are not repurposed."
+    },
+    {
+      "id": "OC-R3",
+      "severity": "high",
+      "disposition": "resolved",
+      "resolution": "Entity is the Presence reidentified across ordered States, not an extensionally fixed snapshot or a growing history record. OC-D3 and OC-C3 show one witness across unequal structured States; an additional State satisfies the same Invariant but is not in its history. This blocks the inference from common invariant to history membership."
+    },
+    {
+      "id": "OC-R4",
+      "severity": "high",
+      "disposition": "resolved",
+      "resolution": "OC-D2 and OC-C2 distinguish State index and structure. OC-D4 and OC-C2 retain Boundary associations with an external non-Constraint participant, while equal finite Constraint projections lose those associations. OC-D5 and OC-C4 retain the Model join, Denotation, actual Transformation endpoints and permitted Constraints in one concrete pipeline."
+    },
+    {
+      "id": "OC-R5",
+      "severity": "high",
+      "disposition": "outside-formal-boundary",
+      "resolution": "Interpretation predicates are supplied. The core Constraint is still a predicate shadow; the Model pipeline uses supplied Perception/Memory functions and Constraints rather than deriving canonical conditions. Empirical Entity Identity, actual ordered pairs and full downstream parity remain OC-G1, not claims established by Lean."
+    },
+    {
+      "id": "OC-R6",
+      "severity": "high",
+      "disposition": "resolved",
+      "resolution": "The source and typed manifests explicitly mark nonbinding shadows and local proof boundaries. The full 58-job build and finite executable passed. Existing APIs remain unchanged. Current counts and build receipt distinguish current verification from historical evidence; no passing check is treated as empirical or glyph-reader certification."
+    },
+    {
+      "id": "OC-R7",
+      "severity": "high",
+      "disposition": "resolved",
+      "resolution": "The three prior Aesthetics failures are adjudicated in the dossier against downloaded logs and source history. Persistent-Configuration ambiguity is corrected; append-only and calibrated-status judgments lack a specific supported violation in the retained evidence, whose whole-PR input was truncated. Historical reviews are preserved, and no CI rule or threshold is relaxed. A new CI result remains separate evidence."
+    }
+  ]
+}

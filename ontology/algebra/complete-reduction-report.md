@@ -8,7 +8,7 @@
 
 It is a compact annotation taxonomy for admissibility failures: it organizes why many proposed joins fail and why several indices and witnesses must be conserved. It is not an executable law engine or a generative algebra. Its disciplines have no positive predicate heads, so they cannot reconstruct a classification merely by rejecting malformed alternatives.
 
-The exhaustive ledger accounts for all **117 terms** and **53 commitments**. It retains 3 foundational terms, encodes typed normal-form queries for 9 definitions, and exhibits paired target-extension sketches for the remaining 105 definitions. It accounts for all 42 consistency rules: 20 have candidate clause-level annotations, 2 remain governance constraints, and 20 still require positive domain circuits.
+The exhaustive ledger accounts for all **118 terms** and **53 commitments**. It retains 3 foundational terms, encodes typed normal-form queries for 9 definitions, and exhibits paired target-extension sketches for the remaining 106 definitions. It accounts for all 42 consistency rules: 20 have candidate clause-level annotations, 2 remain governance constraints, and 20 still require positive domain circuits.
 
 ## Why dependency closure is insufficient
 
@@ -50,7 +50,7 @@ The next candidate is a two-part architecture:
 1. a small generative calculus of positive constructors for persistence, representation, causation, agency, institution, epistemic status, situated world, adaptive knowledge, and ritual meaning; and
 2. an executable admissibility semantics governing how those constructors may compose.
 
-A future completeness claim must reconstruct all 114 definitions from that combined system and eliminate every paired target-extension sketch with genuine models or proofs. Adding more prohibitions alone cannot do it.
+A future completeness claim must reconstruct all 115 definitions from that combined system and eliminate every paired target-extension sketch with genuine models or proofs. Adding more prohibitions alone cannot do it.
 
 ## Follow-on constructor result
 
@@ -62,7 +62,7 @@ The [degenerate registry-reflection control](./positive-calculus-report.md) test
 |---|---:|
 | Retained primitive or axiom | 3 |
 | Definition with typed normal-form query | 9 |
-| Positively underdetermined definition | 105 |
+| Positively underdetermined definition | 106 |
 | Candidate-derived consistency clause | 20 |
 | Retained governance constraint | 2 |
 | Consistency rule missing a positive circuit | 20 |

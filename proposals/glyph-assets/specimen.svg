@@ -18,225 +18,227 @@
 <text x="1125" y="100" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Denotation</text>
 <g transform="translate(55,152) scale(1.25)"><path d="M16 5a1 1 0 1 1 0 2a1 1 0 1 1 0 -2 M16 4a2 2 0 1 1 0 4a2 2 0 1 1 0 -4 M16 5V7 M6 23a1 1 0 1 1 0 2a1 1 0 1 1 0 -2 M6 22a2 2 0 1 1 0 4a2 2 0 1 1 0 -4 M6 23V25 M26 23a1 1 0 1 1 0 2a1 1 0 1 1 0 -2 M26 22a2 2 0 1 1 0 4a2 2 0 1 1 0 -4 M26 23V25" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
 <text x="75" y="210" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Set</text>
-<g transform="translate(205,152) scale(1.25)"><path d="M16 5a1 1 0 1 1 0 2a1 1 0 1 1 0 -2 M16 4a2 2 0 1 1 0 4a2 2 0 1 1 0 -4 M16 5V7 M6 23a1 1 0 1 1 0 2a1 1 0 1 1 0 -2 M6 22a2 2 0 1 1 0 4a2 2 0 1 1 0 -4 M6 23V25 M26 23a1 1 0 1 1 0 2a1 1 0 1 1 0 -2 M26 22a2 2 0 1 1 0 4a2 2 0 1 1 0 -4 M26 23V25 M16 6 6 24H26Z" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
-<text x="225" y="210" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Configuration</text>
-<g transform="translate(355,152) scale(1.25)"><path d="M10 4H4V10M22 4H28V10M4 22V28H10M28 22V28H22M9 10V16M15 20H21M21 9H25 M2 19H10" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
-<text x="375" y="210" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">State</text>
-<g transform="translate(505,152) scale(1.25)"><path d="M16 29V4M10 10 16 4 22 10 M9 29H23" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
-<text x="525" y="210" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Direction</text>
-<g transform="translate(655,152) scale(1.25)"><path d="M4 23H11V16H21V9H28 M16 14a2 2 0 1 1 0 4a2 2 0 1 1 0-4" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
-<text x="675" y="210" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Transformation</text>
-<g transform="translate(805,152) scale(1.25)"><path d="M16 5 27 26H5Z M5 27 27 5" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
-<text x="825" y="210" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Change</text>
-<g transform="translate(955,152) scale(1.25)"><path d="M3 19Q9 7 16 16T29 13 M16 3V28M10 22 16 28 22 22" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
-<text x="975" y="210" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Feeds</text>
-<g transform="translate(1105,152) scale(1.25)"><path d="M4 23H11V16H21V9H28 M3 16H28M21 9 28 16 21 23" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
-<text x="1125" y="210" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Causal path</text>
-<g transform="translate(55,262) scale(1.25)"><path d="M16 29V15L5 4M16 15 27 4 M3 16H29" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
-<text x="75" y="320" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Causal Contribution</text>
-<g transform="translate(205,262) scale(1.25)"><path d="M11 3V29M21 3V29 M8 12H24M8 20H24" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
-<text x="225" y="320" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Invariant</text>
-<g transform="translate(355,262) scale(1.25)"><path d="M16 8a8 8 0 1 1 0 16a8 8 0 1 1 0-16 M11 3V29M21 3V29" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
-<text x="375" y="320" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Persistence</text>
-<g transform="translate(505,262) scale(1.25)"><path d="M11 5H5V27H11M21 5H27V27H21 M3 16H29" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
-<text x="525" y="320" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Constraint</text>
-<g transform="translate(655,262) scale(1.25)"><path d="M16 8a8 8 0 1 1 0 16a8 8 0 1 1 0-16 M16 2V30" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
-<text x="675" y="320" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Entity</text>
-<g transform="translate(805,262) scale(1.25)"><path d="M16 5 27 16 16 27 5 16Z M3 5V27M29 5V27" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
-<text x="825" y="320" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Boundary</text>
-<g transform="translate(955,262) scale(1.25)"><path d="M9 10V22H23M3 6H7M16 3V7M26 5 29 8M25 16H30M17 27V30" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
-<text x="975" y="320" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Environment</text>
-<g transform="translate(1105,262) scale(1.25)"><path d="M7 7H25V25H7Z M16 14a2 2 0 1 1 0 4a2 2 0 1 1 0-4" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
-<text x="1125" y="320" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Representation</text>
-<g transform="translate(55,372) scale(1.25)"><path d="M11 5H5V27H11M21 5H27V27H21 M10 3H22 M9 29H23" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
-<text x="75" y="430" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Scope</text>
-<g transform="translate(205,372) scale(1.25)"><path d="M7 7H25V25H7Z M8 12H24M8 20H24" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
-<text x="225" y="430" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Specification</text>
-<g transform="translate(355,372) scale(1.25)"><path d="M6 26V6H26V26 M3 16H29 M9 29H23" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
-<text x="375" y="430" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Rule</text>
-<g transform="translate(505,372) scale(1.25)"><path d="M16 2V30 M16 14a2 2 0 1 1 0 4a2 2 0 1 1 0-4 M3 11H8M24 11H29" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
-<text x="525" y="430" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Sign</text>
-<g transform="translate(655,372) scale(1.25)"><path d="M16 5 27 16 16 27 5 16Z M16 10V22M10 16H22M12 12 20 20M20 12 12 20" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
-<text x="675" y="430" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Symbol</text>
-<g transform="translate(805,372) scale(1.25)"><path d="M11 3V29M21 3V29 M10 10 22 22M22 10 10 22 M10 3H22" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
-<text x="825" y="430" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Language</text>
-<g transform="translate(955,372) scale(1.25)"><path d="M6 6H26V12M26 20V26H6V6M6 20H13V13H21" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
-<text x="975" y="430" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Map</text>
-<g transform="translate(1105,372) scale(1.25)"><path d="M6 6H26V12M26 20V26H6V6M6 20H13V13H21 M2 11V21M30 11V21" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
-<text x="1125" y="430" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Reference</text>
-<g transform="translate(55,482) scale(1.25)"><path d="M14 4V11M14 21V28M3 16H22L27 11M22 16 27 21M9 11 14 16 9 21" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
-<text x="75" y="540" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Sense</text>
-<g transform="translate(205,482) scale(1.25)"><path d="M3 16Q16 0 29 16Q16 32 3 16Z M16 14a2 2 0 1 1 0 4a2 2 0 1 1 0-4" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
-<text x="225" y="540" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Perception</text>
-<g transform="translate(355,482) scale(1.25)"><path d="M7 7H25V25H7Z M4 23H11V16H21V9H28" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
-<text x="375" y="540" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Record</text>
-<g transform="translate(505,482) scale(1.25)"><path d="M10 5H27V27H10V17M3 8V13H17V21H23" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
-<text x="525" y="540" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Observation</text>
-<g transform="translate(655,482) scale(1.25)"><path d="M6 9V16Q6 24 16 24Q26 24 26 16V9 M8 12H24M8 20H24" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
-<text x="675" y="540" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Memory</text>
-<g transform="translate(805,482) scale(1.25)"><path d="M3 5H13V15H3ZM19 17H29V27H19ZM13 10H24V17M8 15V23H19" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
-<text x="825" y="540" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Model</text>
-<g transform="translate(955,482) scale(1.25)"><path d="M3 16H28M21 9 28 16 21 23 M16 23 7 30M16 23 25 30" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
-<text x="975" y="540" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Action</text>
-<g transform="translate(1105,482) scale(1.25)"><path d="M4 7H13V16H26V23M22 19 26 23 30 19M22 23H30V29H22Z" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
-<text x="1125" y="540" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Consequence</text>
-<g transform="translate(55,592) scale(1.25)"><path d="M3 16Q16 0 29 16Q16 32 3 16Z M10 12 16 18 22 12" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
-<text x="75" y="650" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Interpretation</text>
-<g transform="translate(205,592) scale(1.25)"><path d="M16 5 27 26H5Z M16 2V30" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
-<text x="225" y="650" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Agent</text>
-<g transform="translate(355,592) scale(1.25)"><path d="M4 6 11 13 4 20M11 13H23M18 8 23 13 18 18M11 13V27H26" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
-<text x="375" y="650" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Agency</text>
-<g transform="translate(505,592) scale(1.25)"><path d="M11 3V29M21 3V29 M3 16H29 M4 5V11H10M28 27V21H22" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
-<text x="525" y="650" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Tool</text>
-<g transform="translate(655,592) scale(1.25)"><path d="M3 26H10V17H18V7H28M3 22V29M24 4 28 7 24 10M15 26H28" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
-<text x="675" y="650" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Capability</text>
-<g transform="translate(805,592) scale(1.25)"><path d="M6 9V16Q6 24 16 24Q26 24 26 16V9 M16 14a2 2 0 1 1 0 4a2 2 0 1 1 0-4" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
-<text x="825" y="650" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Interior</text>
-<g transform="translate(955,592) scale(1.25)"><path d="M24 9a11 11 0 1 0 0 14 M3 11H8M24 11H29" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
-<text x="975" y="650" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Exposure</text>
-<g transform="translate(1105,592) scale(1.25)"><path d="M3 19Q9 7 16 16T29 13 M11 3V29M21 3V29" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
-<text x="1125" y="650" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Flow</text>
-<g transform="translate(55,702) scale(1.25)"><path d="M8 2H2V30H8M24 2H30V30H24 M4 7H9V13H20V24H27M4 4V10M17 10V16M24 21V27" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
-<text x="75" y="760" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Interface</text>
-<g transform="translate(205,702) scale(1.25)"><path d="M6 26V6H26V26 M16 14a2 2 0 1 1 0 4a2 2 0 1 1 0-4" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
-<text x="225" y="760" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Claim</text>
-<g transform="translate(355,702) scale(1.25)"><path d="M3 16Q16 0 29 16Q16 32 3 16Z M9 29H23" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
-<text x="375" y="760" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Witness</text>
-<g transform="translate(505,702) scale(1.25)"><path d="M4 6V25M4 15H17L27 6M17 15 27 24M20 4 29 13" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
-<text x="525" y="760" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Control</text>
-<g transform="translate(655,702) scale(1.25)"><path d="M11 3V29M21 3V29 M3 16H29 M10 3H22 M9 29H23" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
-<text x="675" y="760" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Order</text>
-<g transform="translate(805,702) scale(1.25)"><path d="M4 4V28M4 9H14V19H21M21 13H29V25H21Z" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
-<text x="825" y="760" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Standing</text>
-<g transform="translate(955,702) scale(1.25)"><path d="M4 4H28V28H4ZM10 9V23M10 16H18M18 12H24V20H18Z" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
-<text x="975" y="760" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Recognition</text>
-<g transform="translate(1105,702) scale(1.25)"><path d="M16 8a8 8 0 1 1 0 16a8 8 0 1 1 0-16 M16 2V30 M27 3V29M24 6H30M24 26H30" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
-<text x="1125" y="760" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Principal</text>
-<g transform="translate(55,812) scale(1.25)"><path d="M16 5 27 26H5Z M3 16H28M21 9 28 16 21 23" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
-<text x="75" y="870" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">ActsFor</text>
-<g transform="translate(205,812) scale(1.25)"><path d="M3 9V23M3 16H15V7H26V19M22 15 26 19 30 15M21 19V28H30V19" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
-<text x="225" y="870" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">CountsAs</text>
-<g transform="translate(355,812) scale(1.25)"><path d="M5 27V5H15M10 11H22V22H28M18 18 22 22 26 18M10 27H20" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
-<text x="375" y="870" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Authority</text>
-<g transform="translate(505,812) scale(1.25)"><path d="M6 26V6H26V26 M16 14a2 2 0 1 1 0 4a2 2 0 1 1 0-4 M3 11H8M24 11H29" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
-<text x="525" y="870" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Permission Claim</text>
-<g transform="translate(655,812) scale(1.25)"><path d="M16 3V29M5 7 16 15 27 7 M10 3H22" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
-<text x="675" y="870" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Declaration</text>
-<g transform="translate(805,812) scale(1.25)"><path d="M4 5H14V27M4 13H14M14 20H27M23 16 27 20 23 24M22 5H28V11" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
-<text x="825" y="870" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Grant</text>
-<g transform="translate(955,812) scale(1.25)"><path d="M6 26V6H26V26 M10 12 16 18 22 12" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
-<text x="975" y="870" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Admission</text>
-<g transform="translate(1105,812) scale(1.25)"><path d="M6 26V6H26V26 M16 29V4M10 10 16 4 22 10" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
-<text x="1125" y="870" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Permission</text>
-<g transform="translate(55,922) scale(1.25)"><path d="M6 26V6H26V26 M5 27 27 5" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
-<text x="75" y="980" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Revocation</text>
-<g transform="translate(205,922) scale(1.25)"><path d="M6 26V6H26V26 M3 16H28M21 9 28 16 21 23" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
-<text x="225" y="980" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Permission Exercise</text>
-<g transform="translate(355,922) scale(1.25)"><path d="M3 5H10M3 5V15M3 26H10V17H18V7H28M24 4 28 7 24 10M24 18H29V29H18" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
-<text x="375" y="980" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Exercisability</text>
-<g transform="translate(505,922) scale(1.25)"><path d="M4 5V27M4 8H12V15H21M4 24H12V15M21 9V21M21 15H29" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
-<text x="525" y="980" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Enforcement</text>
-<g transform="translate(655,922) scale(1.25)"><path d="M4 5H28M7 5V25H12M16 5V18H21M25 5V28" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
-<text x="675" y="980" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Role</text>
-<g transform="translate(805,922) scale(1.25)"><path d="M6 26V6H26V26 M10 12 16 18 22 12 M9 29H23" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
-<text x="825" y="980" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Admissibility Rule</text>
-<g transform="translate(955,922) scale(1.25)"><path d="M11 3V29M21 3V29 M16 14a2 2 0 1 1 0 4a2 2 0 1 1 0-4 M3 11H8M24 11H29" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
-<text x="975" y="980" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">IndependentFor</text>
-<g transform="translate(1105,922) scale(1.25)"><path d="M10 5H27V27H10V17M3 8V13H17V21H23 M2 20H7V27H2Z" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
-<text x="1125" y="980" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Evidence</text>
-<g transform="translate(55,1032) scale(1.25)"><path d="M3 16Q16 0 29 16Q16 32 3 16Z M3 16H28M21 9 28 16 21 23" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
-<text x="75" y="1090" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Evidential Bearing</text>
-<g transform="translate(205,1032) scale(1.25)"><path d="M3 16Q16 0 29 16Q16 32 3 16Z M10 3H22 M9 29H23" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
-<text x="225" y="1090" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Attestation</text>
-<g transform="translate(355,1032) scale(1.25)"><path d="M7 3V29M25 3V29M3 10H12V16H20V23H29M3 23H12M20 10H29" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
-<text x="375" y="1090" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Institution</text>
-<g transform="translate(505,1032) scale(1.25)"><path d="M16 8a8 8 0 1 1 0 16a8 8 0 1 1 0-16 M16 10V22M10 16H22M12 12 20 20M20 12 12 20" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
-<text x="525" y="1090" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Center</text>
-<g transform="translate(655,1032) scale(1.25)"><path d="M16 8a8 8 0 1 1 0 16a8 8 0 1 1 0-16 M10 10 22 22M22 10 10 22 M3 10H8M3 22H8M24 10H29M24 22H29" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
-<text x="675" y="1090" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Organ</text>
-<g transform="translate(805,1032) scale(1.25)"><path d="M7 7H25V25H7Z M16 3V29M5 7 16 15 27 7" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
-<text x="825" y="1090" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Canonical system</text>
-<g transform="translate(955,1032) scale(1.25)"><path d="M11 5H5V27H11M21 5H27V27H21 M16 3V29M5 7 16 15 27 7" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
-<text x="975" y="1090" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Shadow system</text>
-<g transform="translate(1105,1032) scale(1.25)"><path d="M16 8a8 8 0 1 1 0 16a8 8 0 1 1 0-16 M16 2V30 M5 5V27H27V5M5 5H10M22 5H27" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
-<text x="1125" y="1090" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Person</text>
-<g transform="translate(55,1142) scale(1.25)"><path d="M7 3H25V25L20 29 16 25 11 29 7 25ZM2 12H12V18H21M12 8V12" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
-<text x="75" y="1200" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Receipt</text>
-<g transform="translate(205,1142) scale(1.25)"><path d="M7 7H25V25H7Z M11 3V29M21 3V29 M8 12H24M8 20H24" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
-<text x="225" y="1200" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Ledger</text>
-<g transform="translate(355,1142) scale(1.25)"><path d="M6 25V15Q6 5 16 5Q26 5 26 15V25 M16 3V29M5 7 16 15 27 7 M9 29H23" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
-<text x="375" y="1200" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Polity</text>
-<g transform="translate(505,1142) scale(1.25)"><path d="M6 26V6H26V26 M3 16H28M21 9 28 16 21 23 M16 23 7 30M16 23 25 30" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
-<text x="525" y="1200" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Constituent exercise</text>
-<g transform="translate(655,1142) scale(1.25)"><path d="M3 26H10V17H18V7H28M3 22V29M24 4 28 7 24 10M15 26H28 M3 5V27M29 5V27" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
-<text x="675" y="1200" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Constituent power</text>
-<g transform="translate(805,1142) scale(1.25)"><path d="M4 27V7H12M4 17H12M16 7H27V18H16Z M19 9 24 12 19 16" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
-<text x="825" y="1200" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Consciousness</text>
-<text x="825" y="1212" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Attribution</text>
-<g transform="translate(955,1142) scale(1.25)"><path d="M3 7H9V24H29M13 4H28V18H13ZM9 12H13 M19 9 24 12 19 16" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
+<g transform="translate(205,152) scale(1.25)"><path d="M24 4 14 14 24 24M10 28H24" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
+<text x="225" y="210" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Order</text>
+<g transform="translate(355,152) scale(1.25)"><path d="M16 5a1 1 0 1 1 0 2a1 1 0 1 1 0 -2 M16 4a2 2 0 1 1 0 4a2 2 0 1 1 0 -4 M16 5V7 M6 23a1 1 0 1 1 0 2a1 1 0 1 1 0 -2 M6 22a2 2 0 1 1 0 4a2 2 0 1 1 0 -4 M6 23V25 M26 23a1 1 0 1 1 0 2a1 1 0 1 1 0 -2 M26 22a2 2 0 1 1 0 4a2 2 0 1 1 0 -4 M26 23V25 M16 6 6 24H26Z" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
+<text x="375" y="210" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Configuration</text>
+<g transform="translate(505,152) scale(1.25)"><path d="M16 5a1 1 0 1 1 0 2a1 1 0 1 1 0 -2 M16 4a2 2 0 1 1 0 4a2 2 0 1 1 0 -4 M16 5V7 M6 23a1 1 0 1 1 0 2a1 1 0 1 1 0 -2 M6 22a2 2 0 1 1 0 4a2 2 0 1 1 0 -4 M6 23V25 M26 23a1 1 0 1 1 0 2a1 1 0 1 1 0 -2 M26 22a2 2 0 1 1 0 4a2 2 0 1 1 0 -4 M26 23V25 M16 6 6 24H26Z M2 16H6" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
+<text x="525" y="210" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">State</text>
+<g transform="translate(655,152) scale(1.25)"><path d="M16 29V4M10 10 16 4 22 10 M9 29H23" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
+<text x="675" y="210" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Direction</text>
+<g transform="translate(805,152) scale(1.25)"><path d="M4 23H11V16H21V9H28 M16 14a2 2 0 1 1 0 4a2 2 0 1 1 0-4" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
+<text x="825" y="210" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Transformation</text>
+<g transform="translate(955,152) scale(1.25)"><path d="M16 5 27 26H5Z M5 27 27 5" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
+<text x="975" y="210" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Change</text>
+<g transform="translate(1105,152) scale(1.25)"><path d="M3 19Q9 7 16 16T29 13 M16 3V28M10 22 16 28 22 22" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
+<text x="1125" y="210" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Feeds</text>
+<g transform="translate(55,262) scale(1.25)"><path d="M4 23H11V16H21V9H28 M3 16H28M21 9 28 16 21 23" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
+<text x="75" y="320" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Causal path</text>
+<g transform="translate(205,262) scale(1.25)"><path d="M16 29V15L5 4M16 15 27 4 M3 16H29" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
+<text x="225" y="320" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Causal Contribution</text>
+<g transform="translate(355,262) scale(1.25)"><path d="M11 3V29M21 3V29 M8 12H24M8 20H24" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
+<text x="375" y="320" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Invariant</text>
+<g transform="translate(505,262) scale(1.25)"><path d="M16 8a8 8 0 1 1 0 16a8 8 0 1 1 0-16 M11 3V29M21 3V29" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
+<text x="525" y="320" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Persistence</text>
+<g transform="translate(655,262) scale(1.25)"><path d="M11 5H5V27H11M21 5H27V27H21 M3 16H29" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
+<text x="675" y="320" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Constraint</text>
+<g transform="translate(805,262) scale(1.25)"><path d="M16 8a8 8 0 1 1 0 16a8 8 0 1 1 0-16 M16 2V30" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
+<text x="825" y="320" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Entity</text>
+<g transform="translate(955,262) scale(1.25)"><path d="M16 5 27 16 16 27 5 16Z M3 5V27M29 5V27" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
+<text x="975" y="320" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Boundary</text>
+<g transform="translate(1105,262) scale(1.25)"><path d="M9 10V22H23M3 6H7M16 3V7M26 5 29 8M25 16H30M17 27V30" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
+<text x="1125" y="320" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Environment</text>
+<g transform="translate(55,372) scale(1.25)"><path d="M7 7H25V25H7Z M16 14a2 2 0 1 1 0 4a2 2 0 1 1 0-4" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
+<text x="75" y="430" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Representation</text>
+<g transform="translate(205,372) scale(1.25)"><path d="M11 5H5V27H11M21 5H27V27H21 M10 3H22 M9 29H23" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
+<text x="225" y="430" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Scope</text>
+<g transform="translate(355,372) scale(1.25)"><path d="M7 7H25V25H7Z M8 12H24M8 20H24" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
+<text x="375" y="430" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Specification</text>
+<g transform="translate(505,372) scale(1.25)"><path d="M6 26V6H26V26 M3 16H29 M9 29H23" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
+<text x="525" y="430" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Rule</text>
+<g transform="translate(655,372) scale(1.25)"><path d="M16 2V30 M16 14a2 2 0 1 1 0 4a2 2 0 1 1 0-4 M3 11H8M24 11H29" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
+<text x="675" y="430" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Sign</text>
+<g transform="translate(805,372) scale(1.25)"><path d="M16 5 27 16 16 27 5 16Z M16 10V22M10 16H22M12 12 20 20M20 12 12 20" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
+<text x="825" y="430" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Symbol</text>
+<g transform="translate(955,372) scale(1.25)"><path d="M11 3V29M21 3V29 M10 10 22 22M22 10 10 22 M10 3H22" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
+<text x="975" y="430" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Language</text>
+<g transform="translate(1105,372) scale(1.25)"><path d="M6 6H26V12M26 20V26H6V6M6 20H13V13H21" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
+<text x="1125" y="430" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Map</text>
+<g transform="translate(55,482) scale(1.25)"><path d="M6 6H26V12M26 20V26H6V6M6 20H13V13H21 M2 11V21M30 11V21" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
+<text x="75" y="540" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Reference</text>
+<g transform="translate(205,482) scale(1.25)"><path d="M14 4V11M14 21V28M3 16H22L27 11M22 16 27 21M9 11 14 16 9 21" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
+<text x="225" y="540" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Sense</text>
+<g transform="translate(355,482) scale(1.25)"><path d="M3 16Q16 0 29 16Q16 32 3 16Z M16 14a2 2 0 1 1 0 4a2 2 0 1 1 0-4" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
+<text x="375" y="540" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Perception</text>
+<g transform="translate(505,482) scale(1.25)"><path d="M7 7H25V25H7Z M4 23H11V16H21V9H28" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
+<text x="525" y="540" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Record</text>
+<g transform="translate(655,482) scale(1.25)"><path d="M10 5H27V27H10V17M3 8V13H17V21H23" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
+<text x="675" y="540" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Observation</text>
+<g transform="translate(805,482) scale(1.25)"><path d="M6 9V16Q6 24 16 24Q26 24 26 16V9 M8 12H24M8 20H24" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
+<text x="825" y="540" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Memory</text>
+<g transform="translate(955,482) scale(1.25)"><path d="M3 5H13V15H3ZM19 17H29V27H19ZM13 10H24V17M8 15V23H19" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
+<text x="975" y="540" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Model</text>
+<g transform="translate(1105,482) scale(1.25)"><path d="M3 16H28M21 9 28 16 21 23 M16 23 7 30M16 23 25 30" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
+<text x="1125" y="540" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Action</text>
+<g transform="translate(55,592) scale(1.25)"><path d="M4 7H13V16H26V23M22 19 26 23 30 19M22 23H30V29H22Z" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
+<text x="75" y="650" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Consequence</text>
+<g transform="translate(205,592) scale(1.25)"><path d="M3 16Q16 0 29 16Q16 32 3 16Z M10 12 16 18 22 12" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
+<text x="225" y="650" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Interpretation</text>
+<g transform="translate(355,592) scale(1.25)"><path d="M16 5 27 26H5Z M16 2V30" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
+<text x="375" y="650" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Agent</text>
+<g transform="translate(505,592) scale(1.25)"><path d="M4 6 11 13 4 20M11 13H23M18 8 23 13 18 18M11 13V27H26" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
+<text x="525" y="650" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Agency</text>
+<g transform="translate(655,592) scale(1.25)"><path d="M11 3V29M21 3V29 M3 16H29 M4 5V11H10M28 27V21H22" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
+<text x="675" y="650" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Tool</text>
+<g transform="translate(805,592) scale(1.25)"><path d="M3 26H10V17H18V7H28M3 22V29M24 4 28 7 24 10M15 26H28" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
+<text x="825" y="650" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Capability</text>
+<g transform="translate(955,592) scale(1.25)"><path d="M6 9V16Q6 24 16 24Q26 24 26 16V9 M16 14a2 2 0 1 1 0 4a2 2 0 1 1 0-4" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
+<text x="975" y="650" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Interior</text>
+<g transform="translate(1105,592) scale(1.25)"><path d="M24 9a11 11 0 1 0 0 14 M3 11H8M24 11H29" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
+<text x="1125" y="650" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Exposure</text>
+<g transform="translate(55,702) scale(1.25)"><path d="M3 19Q9 7 16 16T29 13 M11 3V29M21 3V29" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
+<text x="75" y="760" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Flow</text>
+<g transform="translate(205,702) scale(1.25)"><path d="M8 2H2V30H8M24 2H30V30H24 M4 7H9V13H20V24H27M4 4V10M17 10V16M24 21V27" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
+<text x="225" y="760" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Interface</text>
+<g transform="translate(355,702) scale(1.25)"><path d="M6 26V6H26V26 M16 14a2 2 0 1 1 0 4a2 2 0 1 1 0-4" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
+<text x="375" y="760" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Claim</text>
+<g transform="translate(505,702) scale(1.25)"><path d="M3 16Q16 0 29 16Q16 32 3 16Z M9 29H23" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
+<text x="525" y="760" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Witness</text>
+<g transform="translate(655,702) scale(1.25)"><path d="M4 6V25M4 15H17L27 6M17 15 27 24M20 4 29 13" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
+<text x="675" y="760" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Control</text>
+<g transform="translate(805,702) scale(1.25)"><path d="M11 3V29M21 3V29 M3 16H29 M10 3H22 M9 29H23" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
+<text x="825" y="760" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Coordination Order</text>
+<g transform="translate(955,702) scale(1.25)"><path d="M4 4V28M4 9H14V19H21M21 13H29V25H21Z" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
+<text x="975" y="760" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Standing</text>
+<g transform="translate(1105,702) scale(1.25)"><path d="M4 4H28V28H4ZM10 9V23M10 16H18M18 12H24V20H18Z" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
+<text x="1125" y="760" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Recognition</text>
+<g transform="translate(55,812) scale(1.25)"><path d="M16 8a8 8 0 1 1 0 16a8 8 0 1 1 0-16 M16 2V30 M27 3V29M24 6H30M24 26H30" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
+<text x="75" y="870" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Principal</text>
+<g transform="translate(205,812) scale(1.25)"><path d="M16 5 27 26H5Z M3 16H28M21 9 28 16 21 23" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
+<text x="225" y="870" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">ActsFor</text>
+<g transform="translate(355,812) scale(1.25)"><path d="M3 9V23M3 16H15V7H26V19M22 15 26 19 30 15M21 19V28H30V19" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
+<text x="375" y="870" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">CountsAs</text>
+<g transform="translate(505,812) scale(1.25)"><path d="M5 27V5H15M10 11H22V22H28M18 18 22 22 26 18M10 27H20" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
+<text x="525" y="870" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Authority</text>
+<g transform="translate(655,812) scale(1.25)"><path d="M6 26V6H26V26 M16 14a2 2 0 1 1 0 4a2 2 0 1 1 0-4 M3 11H8M24 11H29" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
+<text x="675" y="870" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Permission Claim</text>
+<g transform="translate(805,812) scale(1.25)"><path d="M16 3V29M5 7 16 15 27 7 M10 3H22" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
+<text x="825" y="870" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Declaration</text>
+<g transform="translate(955,812) scale(1.25)"><path d="M4 5H14V27M4 13H14M14 20H27M23 16 27 20 23 24M22 5H28V11" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
+<text x="975" y="870" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Grant</text>
+<g transform="translate(1105,812) scale(1.25)"><path d="M6 26V6H26V26 M10 12 16 18 22 12" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
+<text x="1125" y="870" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Admission</text>
+<g transform="translate(55,922) scale(1.25)"><path d="M6 26V6H26V26 M16 29V4M10 10 16 4 22 10" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
+<text x="75" y="980" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Permission</text>
+<g transform="translate(205,922) scale(1.25)"><path d="M6 26V6H26V26 M5 27 27 5" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
+<text x="225" y="980" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Revocation</text>
+<g transform="translate(355,922) scale(1.25)"><path d="M6 26V6H26V26 M3 16H28M21 9 28 16 21 23" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
+<text x="375" y="980" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Permission Exercise</text>
+<g transform="translate(505,922) scale(1.25)"><path d="M3 5H10M3 5V15M3 26H10V17H18V7H28M24 4 28 7 24 10M24 18H29V29H18" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
+<text x="525" y="980" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Exercisability</text>
+<g transform="translate(655,922) scale(1.25)"><path d="M4 5V27M4 8H12V15H21M4 24H12V15M21 9V21M21 15H29" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
+<text x="675" y="980" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Enforcement</text>
+<g transform="translate(805,922) scale(1.25)"><path d="M4 5H28M7 5V25H12M16 5V18H21M25 5V28" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
+<text x="825" y="980" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Role</text>
+<g transform="translate(955,922) scale(1.25)"><path d="M6 26V6H26V26 M10 12 16 18 22 12 M9 29H23" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
+<text x="975" y="980" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Admissibility Rule</text>
+<g transform="translate(1105,922) scale(1.25)"><path d="M11 3V29M21 3V29 M16 14a2 2 0 1 1 0 4a2 2 0 1 1 0-4 M3 11H8M24 11H29" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
+<text x="1125" y="980" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">IndependentFor</text>
+<g transform="translate(55,1032) scale(1.25)"><path d="M10 5H27V27H10V17M3 8V13H17V21H23 M2 20H7V27H2Z" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
+<text x="75" y="1090" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Evidence</text>
+<g transform="translate(205,1032) scale(1.25)"><path d="M3 16Q16 0 29 16Q16 32 3 16Z M3 16H28M21 9 28 16 21 23" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
+<text x="225" y="1090" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Evidential Bearing</text>
+<g transform="translate(355,1032) scale(1.25)"><path d="M3 16Q16 0 29 16Q16 32 3 16Z M10 3H22 M9 29H23" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
+<text x="375" y="1090" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Attestation</text>
+<g transform="translate(505,1032) scale(1.25)"><path d="M7 3V29M25 3V29M3 10H12V16H20V23H29M3 23H12M20 10H29" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
+<text x="525" y="1090" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Institution</text>
+<g transform="translate(655,1032) scale(1.25)"><path d="M16 8a8 8 0 1 1 0 16a8 8 0 1 1 0-16 M16 10V22M10 16H22M12 12 20 20M20 12 12 20" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
+<text x="675" y="1090" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Center</text>
+<g transform="translate(805,1032) scale(1.25)"><path d="M16 8a8 8 0 1 1 0 16a8 8 0 1 1 0-16 M10 10 22 22M22 10 10 22 M3 10H8M3 22H8M24 10H29M24 22H29" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
+<text x="825" y="1090" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Organ</text>
+<g transform="translate(955,1032) scale(1.25)"><path d="M7 7H25V25H7Z M16 3V29M5 7 16 15 27 7" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
+<text x="975" y="1090" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Canonical system</text>
+<g transform="translate(1105,1032) scale(1.25)"><path d="M11 5H5V27H11M21 5H27V27H21 M16 3V29M5 7 16 15 27 7" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
+<text x="1125" y="1090" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Shadow system</text>
+<g transform="translate(55,1142) scale(1.25)"><path d="M16 8a8 8 0 1 1 0 16a8 8 0 1 1 0-16 M16 2V30 M5 5V27H27V5M5 5H10M22 5H27" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
+<text x="75" y="1200" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Person</text>
+<g transform="translate(205,1142) scale(1.25)"><path d="M7 3H25V25L20 29 16 25 11 29 7 25ZM2 12H12V18H21M12 8V12" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
+<text x="225" y="1200" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Receipt</text>
+<g transform="translate(355,1142) scale(1.25)"><path d="M7 7H25V25H7Z M11 3V29M21 3V29 M8 12H24M8 20H24" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
+<text x="375" y="1200" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Ledger</text>
+<g transform="translate(505,1142) scale(1.25)"><path d="M6 25V15Q6 5 16 5Q26 5 26 15V25 M16 3V29M5 7 16 15 27 7 M9 29H23" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
+<text x="525" y="1200" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Polity</text>
+<g transform="translate(655,1142) scale(1.25)"><path d="M6 26V6H26V26 M3 16H28M21 9 28 16 21 23 M16 23 7 30M16 23 25 30" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
+<text x="675" y="1200" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Constituent exercise</text>
+<g transform="translate(805,1142) scale(1.25)"><path d="M3 26H10V17H18V7H28M3 22V29M24 4 28 7 24 10M15 26H28 M3 5V27M29 5V27" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
+<text x="825" y="1200" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Constituent power</text>
+<g transform="translate(955,1142) scale(1.25)"><path d="M4 27V7H12M4 17H12M16 7H27V18H16Z M19 9 24 12 19 16" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
 <text x="975" y="1200" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Consciousness</text>
-<text x="975" y="1212" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Designation</text>
-<g transform="translate(1105,1142) scale(1.25)"><path d="M7 7H25V25H7Z M3 16H28M21 9 28 16 21 23 M16 27a1 1 0 1 1 0 2a1 1 0 1 1 0-2" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
-<text x="1125" y="1200" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Operationalization</text>
-<g transform="translate(55,1252) scale(1.25)"><path d="M3 11V28H28M8 8H15V18H25V5M8 22V18H15M25 18V24" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
-<text x="75" y="1310" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">World</text>
-<g transform="translate(205,1252) scale(1.25)"><path d="M3 5H13M3 12H13M3 19H13M3 26H13M13 5V26M13 12H21L28 6M21 12V23H28" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
-<text x="225" y="1310" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Substrate</text>
-<g transform="translate(355,1252) scale(1.25)"><path d="M16 5 27 16 16 27 5 16Z M16 2V30 M16 14a2 2 0 1 1 0 4a2 2 0 1 1 0-4" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
-<text x="375" y="1310" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Truth</text>
-<g transform="translate(505,1252) scale(1.25)"><path d="M3 7V25M3 16H12M17 4V11M17 21V28M12 16H25M22 13 25 16 22 19" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
-<text x="525" y="1310" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Trust</text>
-<g transform="translate(655,1252) scale(1.25)"><path d="M3 24H11V17H19M23 4V12H29M15 8H23M19 17 23 12" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
-<text x="675" y="1310" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Alignment</text>
-<g transform="translate(805,1252) scale(1.25)"><path d="M3 16Q16 0 29 16Q16 32 3 16Z M16 29V15L5 4M16 15 27 4" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
-<text x="825" y="1310" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Intelligence</text>
-<g transform="translate(955,1252) scale(1.25)"><path d="M3 5H17V27H3ZM7 20V12H13M13 20H27M22 15 27 20 22 25" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
-<text x="975" y="1310" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Operative Knowledge</text>
-<g transform="translate(1105,1252) scale(1.25)"><path d="M7 7H25V25H7Z M3 19Q9 7 16 16T29 13 M3 16H28M21 9 28 16 21 23" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
-<text x="1125" y="1310" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Knowledge Transmission</text>
-<g transform="translate(55,1362) scale(1.25)"><path d="M3 5H17V27H3ZM7 20V12H13M13 20H27M22 15 27 20 22 25 M25 3 29 7 25 11 21 7ZM25 2V12M17 7H21" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
-<text x="75" y="1420" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Factive Operative</text>
-<text x="75" y="1432" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Knowledge</text>
-<g transform="translate(205,1362) scale(1.25)"><path d="M3 5H17V27H3ZM7 20V12H13M13 20H27M22 15 27 20 22 25 M25 3 29 7 25 11 21 7ZM25 2V12M17 7H21 M20 28H30V14" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
-<text x="225" y="1420" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Warranted Knowledge</text>
-<g transform="translate(355,1362) scale(1.25)"><path d="M4 27V7H12M4 17H12M16 7H27V18H16Z M19 10Q27 8 24 16" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
-<text x="375" y="1420" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Moral Status Attribution</text>
-<g transform="translate(505,1362) scale(1.25)"><path d="M3 7H9V24H29M13 4H28V18H13ZM9 12H13 M19 10Q27 8 24 16" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
-<text x="525" y="1420" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Moral Personhood</text>
-<text x="525" y="1432" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Designation</text>
-<g transform="translate(655,1362) scale(1.25)"><path d="M6 26V6H26V26 M5 7V3M16 7V2M27 7V3 M16 23 7 30M16 23 25 30" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
-<text x="675" y="1420" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Constituent Sovereignty</text>
-<g transform="translate(805,1362) scale(1.25)"><path d="M6 26V6H26V26 M5 7V3M16 7V2M27 7V3 M9 29H23" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
-<text x="825" y="1420" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Constituted Sovereignty</text>
-<g transform="translate(955,1362) scale(1.25)"><path d="M3 3V29M29 3V29M3 16H14M14 16 23 7M14 16 23 25M17 5 25 13M18 25H23V20" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
-<text x="975" y="1420" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Boundary Sovereignty</text>
-<g transform="translate(1105,1362) scale(1.25)"><path d="M24 9a11 11 0 1 0 0 14 M5 7V3M16 7V2M27 7V3 M3 11H8M24 11H29" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
-<text x="1125" y="1420" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">External Sovereignty</text>
-<g transform="translate(55,1472) scale(1.25)"><path d="M10 12 16 18 22 12 M16 2V30 M3 11H8M24 11H29" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
-<text x="75" y="1530" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Preference</text>
-<g transform="translate(205,1472) scale(1.25)"><path d="M11 3V29M21 3V29 M4 23H11V16H21V9H28 M9 29H23" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
-<text x="225" y="1530" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Utility Measure</text>
-<g transform="translate(355,1472) scale(1.25)"><path d="M4 4H28V28H4ZM8 9H14V15H8ZM20 18H25V24H20ZM14 12H22V18" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
-<text x="375" y="1530" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Price</text>
-<g transform="translate(505,1472) scale(1.25)"><path d="M16 4a6 6 0 1 1 0 12a6 6 0 1 1 0-12M16 16a6 6 0 1 1 0 12a6 6 0 1 1 0-12 M16 2V30" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
-<text x="525" y="1530" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Ritual</text>
-<g transform="translate(655,1472) scale(1.25)"><path d="M16 4a6 6 0 1 1 0 12a6 6 0 1 1 0-12M16 16a6 6 0 1 1 0 12a6 6 0 1 1 0-12 M3 5V12H10M22 20H29V28" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
-<text x="675" y="1530" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Meaning</text>
-<g transform="translate(805,1472) scale(1.25)"><path d="M5 3V29M5 7H13V12H22M5 17H15M15 14H22V20H15ZM5 27H27V24" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
-<text x="825" y="1530" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Body</text>
-<g transform="translate(955,1472) scale(1.25)"><path d="M6 9V16Q6 24 16 24Q26 24 26 16V9 M16 3V29M5 7 16 15 27 7 M8 12H24M8 20H24" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
-<text x="975" y="1530" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Bodily Organization</text>
-<g transform="translate(1105,1472) scale(1.25)"><path d="M6 9V16Q6 24 16 24Q26 24 26 16V9 M3 16Q16 0 29 16Q16 32 3 16Z M16 2V30" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
-<text x="1125" y="1530" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Embodied Perspective</text>
-<g transform="translate(55,1582) scale(1.25)"><path d="M16 4a6 6 0 1 1 0 12a6 6 0 1 1 0-12M16 16a6 6 0 1 1 0 12a6 6 0 1 1 0-12 M3 16H29 M3 5V27M29 5V27" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
-<text x="75" y="1640" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Recurrent Integration</text>
-<g transform="translate(205,1582) scale(1.25)"><path d="M6 9V16Q6 24 16 24Q26 24 26 16V9 M16 29V15L5 4M16 15 27 4 M16 14a2 2 0 1 1 0 4a2 2 0 1 1 0-4" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
-<text x="225" y="1640" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Internal Activity</text>
-<text x="225" y="1652" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Selection</text>
-<g transform="translate(355,1582) scale(1.25)"><path d="M4 7H11V14H21M4 25H11V18H21M25 9V23" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
-<text x="375" y="1640" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Attention</text>
-<g transform="translate(505,1582) scale(1.25)"><path d="M4 7H11V14H21M4 25H11V18H21M25 9V23 M11 18V26H28M24 22 28 26 24 30" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
-<text x="525" y="1640" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Care</text>
-<g transform="translate(655,1582) scale(1.25)"><path d="M23 5H29V12H23ZM23 9H15V28M3 23H26M22 19 26 23 22 27" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
-<text x="675" y="1640" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Respect</text>
+<text x="975" y="1212" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Attribution</text>
+<g transform="translate(1105,1142) scale(1.25)"><path d="M3 7H9V24H29M13 4H28V18H13ZM9 12H13 M19 9 24 12 19 16" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
+<text x="1125" y="1200" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Consciousness</text>
+<text x="1125" y="1212" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Designation</text>
+<g transform="translate(55,1252) scale(1.25)"><path d="M7 7H25V25H7Z M3 16H28M21 9 28 16 21 23 M16 27a1 1 0 1 1 0 2a1 1 0 1 1 0-2" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
+<text x="75" y="1310" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Operationalization</text>
+<g transform="translate(205,1252) scale(1.25)"><path d="M3 11V28H28M8 8H15V18H25V5M8 22V18H15M25 18V24" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
+<text x="225" y="1310" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">World</text>
+<g transform="translate(355,1252) scale(1.25)"><path d="M3 5H13M3 12H13M3 19H13M3 26H13M13 5V26M13 12H21L28 6M21 12V23H28" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
+<text x="375" y="1310" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Substrate</text>
+<g transform="translate(505,1252) scale(1.25)"><path d="M16 5 27 16 16 27 5 16Z M16 2V30 M16 14a2 2 0 1 1 0 4a2 2 0 1 1 0-4" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
+<text x="525" y="1310" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Truth</text>
+<g transform="translate(655,1252) scale(1.25)"><path d="M3 7V25M3 16H12M17 4V11M17 21V28M12 16H25M22 13 25 16 22 19" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
+<text x="675" y="1310" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Trust</text>
+<g transform="translate(805,1252) scale(1.25)"><path d="M3 24H11V17H19M23 4V12H29M15 8H23M19 17 23 12" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
+<text x="825" y="1310" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Alignment</text>
+<g transform="translate(955,1252) scale(1.25)"><path d="M3 16Q16 0 29 16Q16 32 3 16Z M16 29V15L5 4M16 15 27 4" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
+<text x="975" y="1310" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Intelligence</text>
+<g transform="translate(1105,1252) scale(1.25)"><path d="M3 5H17V27H3ZM7 20V12H13M13 20H27M22 15 27 20 22 25" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
+<text x="1125" y="1310" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Operative Knowledge</text>
+<g transform="translate(55,1362) scale(1.25)"><path d="M7 7H25V25H7Z M3 19Q9 7 16 16T29 13 M3 16H28M21 9 28 16 21 23" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
+<text x="75" y="1420" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Knowledge Transmission</text>
+<g transform="translate(205,1362) scale(1.25)"><path d="M3 5H17V27H3ZM7 20V12H13M13 20H27M22 15 27 20 22 25 M25 3 29 7 25 11 21 7ZM25 2V12M17 7H21" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
+<text x="225" y="1420" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Factive Operative</text>
+<text x="225" y="1432" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Knowledge</text>
+<g transform="translate(355,1362) scale(1.25)"><path d="M3 5H17V27H3ZM7 20V12H13M13 20H27M22 15 27 20 22 25 M25 3 29 7 25 11 21 7ZM25 2V12M17 7H21 M20 28H30V14" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
+<text x="375" y="1420" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Warranted Knowledge</text>
+<g transform="translate(505,1362) scale(1.25)"><path d="M4 27V7H12M4 17H12M16 7H27V18H16Z M19 10Q27 8 24 16" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
+<text x="525" y="1420" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Moral Status Attribution</text>
+<g transform="translate(655,1362) scale(1.25)"><path d="M3 7H9V24H29M13 4H28V18H13ZM9 12H13 M19 10Q27 8 24 16" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
+<text x="675" y="1420" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Moral Personhood</text>
+<text x="675" y="1432" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Designation</text>
+<g transform="translate(805,1362) scale(1.25)"><path d="M6 26V6H26V26 M5 7V3M16 7V2M27 7V3 M16 23 7 30M16 23 25 30" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
+<text x="825" y="1420" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Constituent Sovereignty</text>
+<g transform="translate(955,1362) scale(1.25)"><path d="M6 26V6H26V26 M5 7V3M16 7V2M27 7V3 M9 29H23" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
+<text x="975" y="1420" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Constituted Sovereignty</text>
+<g transform="translate(1105,1362) scale(1.25)"><path d="M3 3V29M29 3V29M3 16H14M14 16 23 7M14 16 23 25M17 5 25 13M18 25H23V20" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
+<text x="1125" y="1420" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Boundary Sovereignty</text>
+<g transform="translate(55,1472) scale(1.25)"><path d="M24 9a11 11 0 1 0 0 14 M5 7V3M16 7V2M27 7V3 M3 11H8M24 11H29" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
+<text x="75" y="1530" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">External Sovereignty</text>
+<g transform="translate(205,1472) scale(1.25)"><path d="M10 12 16 18 22 12 M16 2V30 M3 11H8M24 11H29" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
+<text x="225" y="1530" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Preference</text>
+<g transform="translate(355,1472) scale(1.25)"><path d="M11 3V29M21 3V29 M4 23H11V16H21V9H28 M9 29H23" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
+<text x="375" y="1530" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Utility Measure</text>
+<g transform="translate(505,1472) scale(1.25)"><path d="M4 4H28V28H4ZM8 9H14V15H8ZM20 18H25V24H20ZM14 12H22V18" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
+<text x="525" y="1530" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Price</text>
+<g transform="translate(655,1472) scale(1.25)"><path d="M16 4a6 6 0 1 1 0 12a6 6 0 1 1 0-12M16 16a6 6 0 1 1 0 12a6 6 0 1 1 0-12 M16 2V30" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
+<text x="675" y="1530" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Ritual</text>
+<g transform="translate(805,1472) scale(1.25)"><path d="M16 4a6 6 0 1 1 0 12a6 6 0 1 1 0-12M16 16a6 6 0 1 1 0 12a6 6 0 1 1 0-12 M3 5V12H10M22 20H29V28" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
+<text x="825" y="1530" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Meaning</text>
+<g transform="translate(955,1472) scale(1.25)"><path d="M5 3V29M5 7H13V12H22M5 17H15M15 14H22V20H15ZM5 27H27V24" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
+<text x="975" y="1530" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Body</text>
+<g transform="translate(1105,1472) scale(1.25)"><path d="M6 9V16Q6 24 16 24Q26 24 26 16V9 M16 3V29M5 7 16 15 27 7 M8 12H24M8 20H24" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
+<text x="1125" y="1530" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Bodily Organization</text>
+<g transform="translate(55,1582) scale(1.25)"><path d="M6 9V16Q6 24 16 24Q26 24 26 16V9 M3 16Q16 0 29 16Q16 32 3 16Z M16 2V30" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
+<text x="75" y="1640" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Embodied Perspective</text>
+<g transform="translate(205,1582) scale(1.25)"><path d="M16 4a6 6 0 1 1 0 12a6 6 0 1 1 0-12M16 16a6 6 0 1 1 0 12a6 6 0 1 1 0-12 M3 16H29 M3 5V27M29 5V27" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
+<text x="225" y="1640" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Recurrent Integration</text>
+<g transform="translate(355,1582) scale(1.25)"><path d="M6 9V16Q6 24 16 24Q26 24 26 16V9 M16 29V15L5 4M16 15 27 4 M16 14a2 2 0 1 1 0 4a2 2 0 1 1 0-4" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
+<text x="375" y="1640" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Internal Activity</text>
+<text x="375" y="1652" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Selection</text>
+<g transform="translate(505,1582) scale(1.25)"><path d="M4 7H11V14H21M4 25H11V18H21M25 9V23" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
+<text x="525" y="1640" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Attention</text>
+<g transform="translate(655,1582) scale(1.25)"><path d="M4 7H11V14H21M4 25H11V18H21M25 9V23 M11 18V26H28M24 22 28 26 24 30" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
+<text x="675" y="1640" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Care</text>
+<g transform="translate(805,1582) scale(1.25)"><path d="M23 5H29V12H23ZM23 9H15V28M3 23H26M22 19 26 23 22 27" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
+<text x="825" y="1640" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Respect</text>
 </svg>

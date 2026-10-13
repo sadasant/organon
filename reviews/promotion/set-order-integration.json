@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "proposal_id": "set-and-configuration",
+  "status": "promotion-ready",
+  "reviewed_commit": "2baa8164bb94158de67d657a899f6185ce3e000a",
+  "reviewed_tree": "9574c6cf7085b90260594fb6af978fdb7073f137",
+  "reviewed_at": "2026-10-13",
+  "reviewer": "Amp local source and counterexample review; not independent external review",
+  "review_scope": "Current Order and structured Configuration integration, limited to the exact typed contracts and explicitly retained application gates.",
+  "source_sha256": {
+    "examples/organon-adoption.json": "c50d839a9db10c32631b61d604cbc10768adc4a405e49ca27266658861e1a433",
+    "ontology/changelog.md": "3ba23bf4481d6dc801e7b955a1b1e218ec848e70f9f5c3c3d69878a1e9e20e8b",
+    "ontology/formal/OrganonCore.lean": "a9edb8d75ea6486da764b813b8261f67fa18604341bae9d278a6fb76404d26f9",
+    "ontology/formal/SetConfiguration.lean": "60b4fa126d57835c642cdd9b3a7e18fd4e9ac17db94ee169852dabe5ea3f47e6",
+    "ontology/formal/lakefile.toml": "bf6bb660bed71d6e6a4c6de92976507fd41b88aa616ebb6bba44a4bac1a8eec7",
+    "ontology/formal/lean-toolchain": "54727eec5cba149c18842e6deb5c41b369d66455c93ce135d7d5347c782b2325",
+    "ontology/ontology.md": "753c6824ec3c15d643ffc404c673eb252a57db46765a87bb13fab6f29c54dbba",
+    "ontology/profiles.json": "d0203677dc964a9b0e902749f43572c71f8395ec076e4006043db6abdf4bca8c",
+    "ontology/prompt.md": "cf6a5c44190cca0dbbecd1aee43bb11119c19070e4308e9b70e31a969414b9ae",
+    "ontology/terms.yaml": "fecc6f8d9123b97decbaff8d3681198b9c88ef206ed03118088c076f0e7dc0a0",
+    "proposals/set-and-configuration-claims.json": "4c1d53e6fe09ae3e489942f3f2222a3461efc83b50c25b48b6913fe823a3e483",
+    "proposals/set-and-configuration.md": "ba3b6b79148277982f376107eb95343577a9e187d60bd17c2fda56533d71da7f",
+    "provenance/terms.json": "f8b596674e730a69ab32eb53d95d5dd7d3879bd20401a41378b7b400360d3f50",
+    "releases/v0-21-0.md": "b61cb3f12d12f1e632133a752f1e7ba0d1dc478d296c6e59b49a9df52f7b23ce",
+    "scripts/check-promotion-review.py": "cef84a92bb95bb43734b16941f4a957ad77f9d117d4e1401f93460ff155afda9",
+    "scripts/check-proposals.py": "87f26905ba0450b92a9f38c6ee63a144e5973fd424a971622b42f6a9eb03fb24"
+  },
+  "verified_contracts": [
+    "SC-D1",
+    "SC-D2",
+    "SC-C1"
+  ],
+  "findings": [
+    {
+      "id": "SC-O1",
+      "severity": "high",
+      "disposition": "resolved",
+      "resolution": "SetConfiguration is unchanged from the structured correction. Its three contracts still prove extensional membership, full Configuration Identity and finite non-collapse witnesses. The new integration consumes members plus associations rather than replacing Configuration by Set."
+    },
+    {
+      "id": "SC-O2",
+      "severity": "high",
+      "disposition": "resolved",
+      "resolution": "OC-D2, OC-C2 and OC-C3 retain selected structure in indexed States and an Entity history. Equal members with distinct associations give distinct States at one index, while equal Configurations at distinct indices also differ. The Boundary projection demonstrably loses structure and is labelled as such."
+    },
+    {
+      "id": "SC-O3",
+      "severity": "high",
+      "disposition": "outside-formal-boundary",
+      "resolution": "Actual Relation realization, carrier adequacy, infinite arity and full downstream canonical parity remain unproved. The StructuredModel pipeline preserves one selected join and supplied Constraints, not full Perception or Memory conditions."
+    }
+  ],
+  "supersedes": "reviews/promotion/set-and-configuration-structured.json"
+}

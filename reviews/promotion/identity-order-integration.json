@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "proposal_id": "identity-and-missingness",
+  "status": "promotion-ready",
+  "reviewed_commit": "2baa8164bb94158de67d657a899f6185ce3e000a",
+  "reviewed_tree": "9574c6cf7085b90260594fb6af978fdb7073f137",
+  "reviewed_at": "2026-10-13",
+  "reviewer": "Amp local source and counterexample review; not independent external review",
+  "review_scope": "Current Order and structured Configuration integration, limited to the exact typed contracts and explicitly retained application gates.",
+  "source_sha256": {
+    "examples/organon-adoption.json": "c50d839a9db10c32631b61d604cbc10768adc4a405e49ca27266658861e1a433",
+    "ontology/changelog.md": "3ba23bf4481d6dc801e7b955a1b1e218ec848e70f9f5c3c3d69878a1e9e20e8b",
+    "ontology/formal/IdentityMissingness.lean": "8a79b37c93a1e72700b29124baf5003aab5718835b2b1d8fad58b057e3ff19b4",
+    "ontology/formal/OrganonCore.lean": "a9edb8d75ea6486da764b813b8261f67fa18604341bae9d278a6fb76404d26f9",
+    "ontology/formal/lakefile.toml": "bf6bb660bed71d6e6a4c6de92976507fd41b88aa616ebb6bba44a4bac1a8eec7",
+    "ontology/formal/lean-toolchain": "54727eec5cba149c18842e6deb5c41b369d66455c93ce135d7d5347c782b2325",
+    "ontology/ontology.md": "753c6824ec3c15d643ffc404c673eb252a57db46765a87bb13fab6f29c54dbba",
+    "ontology/profiles.json": "d0203677dc964a9b0e902749f43572c71f8395ec076e4006043db6abdf4bca8c",
+    "ontology/prompt.md": "cf6a5c44190cca0dbbecd1aee43bb11119c19070e4308e9b70e31a969414b9ae",
+    "ontology/terms.yaml": "fecc6f8d9123b97decbaff8d3681198b9c88ef206ed03118088c076f0e7dc0a0",
+    "proposals/identity-and-missingness-claims.json": "bca437a43a46027ba82d5d02bc0cb346a8b1fd15d60aa28546739e46c71a8375",
+    "proposals/identity-and-missingness.md": "c2048c86aee88d4df61d7accc0d1386c36e2d69094939042bf8fc548367bd5ea",
+    "provenance/terms.json": "f8b596674e730a69ab32eb53d95d5dd7d3879bd20401a41378b7b400360d3f50",
+    "releases/v0-21-0.md": "b61cb3f12d12f1e632133a752f1e7ba0d1dc478d296c6e59b49a9df52f7b23ce",
+    "scripts/check-promotion-review.py": "cef84a92bb95bb43734b16941f4a957ad77f9d117d4e1401f93460ff155afda9",
+    "scripts/check-proposals.py": "87f26905ba0450b92a9f38c6ee63a144e5973fd424a971622b42f6a9eb03fb24"
+  },
+  "verified_contracts": [
+    "IM-D1",
+    "IM-D2",
+    "IM-A5",
+    "IM-C1"
+  ],
+  "findings": [
+    {
+      "id": "IM-O1",
+      "severity": "high",
+      "disposition": "resolved",
+      "resolution": "IdentityMissingness and OrganonCore are unchanged from the prior source review. The four contracts retain their statements. The revised Entity definition names the reidentified Presence, not a snapshot or witness record; neither a shared Invariant nor a State satisfying it suffices for Entity Identity or history membership."
+    },
+    {
+      "id": "IM-O2",
+      "severity": "high",
+      "disposition": "resolved",
+      "resolution": "Exact-source pins renew the shared ontology surfaces after the Order integration. Historical Identity review records remain unchanged. The full Lean build and finite executable passed; these establish local mathematical compatibility, not empirical individuation."
+    },
+    {
+      "id": "IM-O3",
+      "severity": "high",
+      "disposition": "outside-formal-boundary",
+      "resolution": "Actual expectation, domain adequacy and empirical individuation remain application premises. No new sufficient criterion is inferred from equality of records or preservation of a property."
+    }
+  ],
+  "supersedes": "reviews/promotion/identity-structured-configuration.json"
+}

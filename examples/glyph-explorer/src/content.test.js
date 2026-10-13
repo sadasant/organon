@@ -26,6 +26,18 @@ test("longest term wins; plurals link without matching word fragments", () => {
   );
 });
 
+test("current labels outrank legacy IDs and lowercase metalanguage stays literal", () => {
+  const source = "Order, Orders, Coordination Order, Coordination Orders; binary relation on a set, not Relation or Set.";
+  for (const catalog of [terms, [...terms].reverse()]) {
+    const parts = termMatcher(catalog)(source);
+    assert.equal(parts.map((p) => p.text).join(""), source);
+    assert.deepEqual(parts.filter((p) => p.term).map((p) => p.term.id), [
+      "organon:MathematicalOrder", "organon:MathematicalOrder",
+      "organon:Order", "organon:Order", "organon:Relation", "organon:Set",
+    ]);
+  }
+});
+
 test("every catalog expression renders, with full signatures and source excerpts", () => {
   for (const term of terms) {
     const math = term.math;

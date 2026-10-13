@@ -3,13 +3,13 @@
   "binding": false,
   "ontology_version": "0.21.0",
   "source": {
-    "commit": "46565c9bd855bd9adeda7c81b615bd6e2ef8accf",
+    "commit": "2baa8164bb94158de67d657a899f6185ce3e000a",
     "commit_role": "Exact source of the current definitions and drawings. order_state_integration records the changed State drawing, new mathematical Order and Coordination Order label, and supersedes the previous complete review at 81aad87. structured_configuration_correction still supersedes the earlier Configuration alias assessment. Earlier dated decisions, the runes.js hash, migration_note and method describe historical review stages, not current counts or an assertion that this follow-up changed no drawings.",
     "sha256": {
-      "ontology/ontology.md": "537ba7b69fb166af030f652a4d208d9f1b5daa7dfb763e59bc9805dc2e079d10",
-      "ontology/terms.yaml": "6d8bd075877581509befad49076921aeeb1ddea6858b8c5dcedd3251922c6fab",
+      "ontology/ontology.md": "753c6824ec3c15d643ffc404c673eb252a57db46765a87bb13fab6f29c54dbba",
+      "ontology/terms.yaml": "fecc6f8d9123b97decbaff8d3681198b9c88ef206ed03118088c076f0e7dc0a0",
       "examples/glyph-explorer/src/runes.js": "eb507b17ded15a079b39450d88ac1d70aa02f362b168dd311a6a4a1ff08d7c4b",
-      "proposals/glyph-catalog.mjs": "dffbc37d1b493a78a06f7cad5b14cd6ab70586fb99a7a27c6d01895998bc2e6e",
+      "proposals/glyph-catalog.mjs": "41292425f78caacbba29fa6b944f9824d788e7f3db18f53687c55cc5c1d3d395",
       "proposals/glyph-geometry.json": "65d3a3c0cae77aaa9affd8289e53577107ae6d3eb56b8059110573180b453a39"
     },
     "migration_note": "The runes.js hash is historical: it pins the original SVG module as it existed at b8ea7233 (the original review's source commit); that file is no longer in the tree. glyph-catalog.mjs was the shared-source migration of that module with unchanged paths (sha256 60c2bb24…, committed in ae6cce9). This review describes the revised catalog pinned above, including refinements made to revised paths after the previous write of this file; entries were reconciled to those actual paths, which is a factual correction, not a new semantic approval. Clearance remarks use glyph-geometry.json: 32-unit canvas, stroke width 1.1, square caps, miter joins. Exactly 49 glyph paths differ from ae6cce9: the 43 entries previously marked revise plus six linked family members (State, Interface, ConstituentPower, OperativeKnowledge, WarrantedKnowledge, Attention). The other 66 paths are byte-identical; their entries were edited only to remove statements about counterparts' old paths and to record remaining concerns. Codepoints are unchanged. Ontology hashes are unchanged. Cross-catalog collision findings about historical Unicode candidates describe the pre-migration site. Risk wording records possible reader inferences, not entailments established by graphic composition.",
