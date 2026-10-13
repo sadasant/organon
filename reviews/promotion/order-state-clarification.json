@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "proposal_id": "order-and-configuration-integration",
+  "status": "promotion-ready",
+  "reviewed_commit": "3da2e1b6c6f6eb732346cff6b83f2d675d3362f5",
+  "reviewed_tree": "1270c030abb3dd290f42de98d8b184b3546906bf",
+  "reviewed_at": "2026-10-13",
+  "reviewer": "Amp local source review with focused Oracle consultation; not independent external review",
+  "review_scope": "Clarify Order, Configuration and indexed State without changing their contracts; distinguish persistent Configuration comparisons from cross-State reidentification. Aesthetics results are separate evidence, not asserted green here.",
+  "source_sha256": {
+    "examples/organon-adoption.json": "c50d839a9db10c32631b61d604cbc10768adc4a405e49ca27266658861e1a433",
+    "ontology/changelog.md": "a838f62ef090432c3cea12c27bfb1b70627b983d7fd82c340efa31090a0f256d",
+    "ontology/formal/ConfigurationIntegration.lean": "98c739e5a1bf4956ea61faba15fdd4fa98901c6691585b549b4af966ba43154a",
+    "ontology/formal/EmbodiedConsciousness.lean": "10f3d176bfcfbc27305def3a33bb470dfa1e1d1036f8a605c9e17643bfd8fc4b",
+    "ontology/formal/IntelligenceKnowledge.lean": "bc0ad1caa81adb25316f79aecd5011e32cf94cc73e1e046f7e13bcd10779aee8",
+    "ontology/formal/MathematicalOrder.lean": "f19bb60d672ed877f095923d33e3b1c41219c14afd32c922358705a1975ca3c5",
+    "ontology/formal/OrderConfigurationContracts.lean": "7ddce99a5cd2c146416ac32bed84ff1c59e65cff1ad1a335180074023e77d7ac",
+    "ontology/formal/OrganonCore.lean": "a9edb8d75ea6486da764b813b8261f67fa18604341bae9d278a6fb76404d26f9",
+    "ontology/formal/SetConfiguration.lean": "60b4fa126d57835c642cdd9b3a7e18fd4e9ac17db94ee169852dabe5ea3f47e6",
+    "ontology/formal/lakefile.toml": "bf6bb660bed71d6e6a4c6de92976507fd41b88aa616ebb6bba44a4bac1a8eec7",
+    "ontology/formal/lean-toolchain": "54727eec5cba149c18842e6deb5c41b369d66455c93ce135d7d5347c782b2325",
+    "ontology/ontology.md": "911e396777a311d419b3ae0ad84c601254469b2ba288306a3b14731a3282f144",
+    "ontology/profiles.json": "d0203677dc964a9b0e902749f43572c71f8395ec076e4006043db6abdf4bca8c",
+    "ontology/prompt.md": "4d19d94b63b9e448adf55a52b4675b5d85d9a21d458095d0a8a2866421bc819d",
+    "ontology/terms.yaml": "fecc6f8d9123b97decbaff8d3681198b9c88ef206ed03118088c076f0e7dc0a0",
+    "proposals/order-and-configuration-integration-claims.json": "ee51699155c8f430b7ac1c5bf3a53f04fab8c1ec6e692f6ca410f25fb4d33501",
+    "proposals/order-and-configuration-integration.md": "ded02e65177468311a9deee7944b033e7cf5203cb8103f9168f221c34905da4c",
+    "provenance/terms.json": "f8b596674e730a69ab32eb53d95d5dd7d3879bd20401a41378b7b400360d3f50",
+    "releases/v0-21-0.md": "b61cb3f12d12f1e632133a752f1e7ba0d1dc478d296c6e59b49a9df52f7b23ce",
+    "scripts/check-promotion-review.py": "cef84a92bb95bb43734b16941f4a957ad77f9d117d4e1401f93460ff155afda9",
+    "scripts/check-proposals.py": "87f26905ba0450b92a9f38c6ee63a144e5973fd424a971622b42f6a9eb03fb24"
+  },
+  "verified_contracts": ["OC-D1", "OC-C1", "OC-D2", "OC-D3", "OC-D4", "OC-D5", "OC-C2", "OC-C3", "OC-C4"],
+  "findings": [
+    {"id": "OC-S1", "severity": "high", "disposition": "resolved", "resolution": "Order is explicitly the member-Set/extension pair, not the member Set. Direction's extension need not be the strict part of an Order; the contradictory phrase strict Order is removed. OC-D1 and OC-C1 retain the same partial-order laws, strict-part laws and asymmetric nontransitive counterexample."},
+    {"id": "OC-S2", "severity": "high", "disposition": "resolved", "resolution": "State is a Configuration-position pair whose Identity compares both components. Configuration Identity still compares members and selected associations. One Configuration at two positions therefore gives different States, matching OC-D2 and OC-C2 rather than contradicting extensional Configuration Identity."},
+    {"id": "OC-S3", "severity": "high", "disposition": "resolved", "resolution": "Persistence now assigns a Configuration to each State rather than indexing Configurations by States. Its pointwise member/structure/Identity statements do not determine cross-State reidentification. Entity carries State Configurations without becoming any one of them. All Lean sources and nine OC contracts are unchanged; the 58-job build and finite executable pass."},
+    {"id": "OC-S4", "severity": "high", "disposition": "outside-formal-boundary", "resolution": "Interpretation predicates, empirical identity criteria, actual ordered-pair applications, finite-arity coverage and full Perception/Memory parity remain the existing OC-G1 application gates. Neither these prose clarifications nor Aesthetics judgments discharge them."}
+  ],
+  "supersedes": "reviews/promotion/order-and-configuration-integration.json"
+}
