@@ -22,7 +22,7 @@ current definitions.
 
 ## Last local verification
 
-On 2026-10-12, at commit `e4acf50bd2ff6cf06aab0eb64a5cc6c6f7970480`, from `ontology/formal/`:
+On 2026-10-13, for the sources committed at `a253e0118e394220d2e5e444f85a159b0f70b884`, from `ontology/formal/`:
 
 ```sh
 lake build
@@ -31,11 +31,11 @@ lake env lean -o .lake/build/lib/lean/PR18ReviewDraft.olean PR18ReviewDraft.lean
 lake env lean ../../reviews/local/2026-10-07-integrated-axiom-audit.lean
 ```
 
-The build completed successfully: **48 jobs**. The finite executable completed.
+The build completed successfully: **50 jobs**. The finite executable completed.
 The separate historical draft was rebuilt before the integrated audit:
 
 ```text
-PROJECT_AXIOM_AUDIT: 2549 project theorems checked; 0 declared project axioms; allowed only propext, Classical.choice, Quot.sound.
+PROJECT_AXIOM_AUDIT: 2582 project theorems checked; 0 declared project axioms; allowed only propext, Classical.choice, Quot.sound.
 ```
 
 From the repository root, `python3 scripts/check-ontology-frameworks.py` passed
@@ -45,9 +45,13 @@ prose parity, empirical applicability, or downstream model quality.
 
 ## Current contracts and limits
 
-- The registry contains **115 terms, 112 definitions and 53 commitments**.
+- The registry contains **116 terms, 113 definitions and 53 commitments**.
   Current attention-dossier contracts are AC-D3, AC-D7 and AC-D8. The embodiment
   dossier retains eleven contracts with their dependency dispositions.
+- The Identity dossier adds four contracts: equality, the Identity/Difference
+  partition, exact-target Missingness, and finite anti-collapse witnesses.
+  Empirical individuation, carrier adequacy and actual expectation provenance
+  remain outside the proofs. Existing Missingness constructors are unchanged.
 - Attention has eight bounded response-model tests. Canonical Entity identity,
   Perception, Interpretation, Causal Contribution and continuity between samples
   remain unproved; no mandatory finite channel ratio is promoted.

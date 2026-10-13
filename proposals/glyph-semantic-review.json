@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
   "binding": false,
-  "ontology_version": "0.20.0",
+  "ontology_version": "0.21.0",
   "source": {
-    "commit": "ae6cce98df5e90f05e4282e1eec25cbfe5cbe84f",
-    "commit_role": "Base of revision, not the assessed catalog. This commit contains the previous review and the unrevised glyph-catalog.mjs (sha256 60c2bb24…). The assessed sources are a revision made atop this base commit: the revised glyph-catalog.mjs and the glyph-geometry.json drawing specification (not present at the base commit). They are identified by the sha256 values below, not by this commit.",
+    "commit": "a253e0118e394220d2e5e444f85a159b0f70b884",
+    "commit_role": "Exact source of the v0.21 definitions, registry, catalog and geometry assessed by the cumulative review. identity_review covers the new term and the changed definitions; other primary definitions and their judgments are retained. The runes.js hash and migration_note are historical, not files or claims about this commit.",
     "sha256": {
-      "ontology/ontology.md": "dc59b74da77899a5c446456ca447bc962bf60ec3b31308900aebf8b4aef1c4c6",
-      "ontology/terms.yaml": "48469a8a1a6f52837d428002b233701667bbebcb06c4d55457355303da38f937",
+      "ontology/ontology.md": "a15604824508e7754ab6d3b9c1b6cd70c16df2290494a04b14c859b3cd897a6f",
+      "ontology/terms.yaml": "de52d028048e28f3367e1a37a9a22fee466ebfd04a9fd31e0c5dbf0f6c6f7bf5",
       "examples/glyph-explorer/src/runes.js": "eb507b17ded15a079b39450d88ac1d70aa02f362b168dd311a6a4a1ff08d7c4b",
       "proposals/glyph-catalog.mjs": "012f2d6b4995e36b6ad4a6b175b01017155576343fd6b32c054b2cd05015133b",
       "proposals/glyph-geometry.json": "65d3a3c0cae77aaa9affd8289e53577107ae6d3eb56b8059110573180b453a39"

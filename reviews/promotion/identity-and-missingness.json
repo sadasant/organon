@@ -1,0 +1,81 @@
+{
+  "schema_version": 1,
+  "proposal_id": "identity-and-missingness",
+  "status": "promotion-ready",
+  "reviewed_commit": "a253e0118e394220d2e5e444f85a159b0f70b884",
+  "reviewed_tree": "88be7c6c957984e429ccd626e8f8716a7c877dff",
+  "reviewed_at": "2026-10-13",
+  "reviewer": "Amp local source and counterexample review; not independent external review",
+  "review_scope": "D120, the A5 and D002 revisions, D014 clarification, dependency closure, four typed contracts, local-carrier equality laws and asymmetric finite witnesses. Review readiness applies to these bounded claims, not empirical individuation or a complete formalization of Presence. The existing embodiment and attention contracts retain their statements.",
+  "source_sha256": {
+    "proposals/identity-and-missingness.md": "92a416944b22d65b340d74e2a78d79a12354006d2353bf28f7208ec7db5017c9",
+    "proposals/identity-and-missingness-claims.json": "332b4ec67fec6f142e029530a3c6b510be3c720e4e16850b95cee9bfb32a10cb",
+    "ontology/formal/OrganonCore.lean": "a9edb8d75ea6486da764b813b8261f67fa18604341bae9d278a6fb76404d26f9",
+    "ontology/formal/IdentityMissingness.lean": "8a79b37c93a1e72700b29124baf5003aab5718835b2b1d8fad58b057e3ff19b4",
+    "ontology/formal/Model.lean": "7c7183e5df95018b3da41d84a58bf5489ea1be52d92f2f8ad752b87c309e893d",
+    "ontology/formal/lakefile.toml": "8045bc7e0a0d799fff492921c0e5e94bac33fae2a22a31def1212db3a2378786",
+    "ontology/formal/lean-toolchain": "54727eec5cba149c18842e6deb5c41b369d66455c93ce135d7d5347c782b2325",
+    "scripts/check-proposals.py": "87f26905ba0450b92a9f38c6ee63a144e5973fd424a971622b42f6a9eb03fb24",
+    "scripts/check-promotion-review.py": "cef84a92bb95bb43734b16941f4a957ad77f9d117d4e1401f93460ff155afda9",
+    "ontology/ontology.md": "a15604824508e7754ab6d3b9c1b6cd70c16df2290494a04b14c859b3cd897a6f",
+    "ontology/terms.yaml": "de52d028048e28f3367e1a37a9a22fee466ebfd04a9fd31e0c5dbf0f6c6f7bf5",
+    "ontology/profiles.json": "0e17e24c11ab11f86a69377a884763518fcea9a7d5ab68f76d4d7c114ce42ecc",
+    "ontology/changelog.md": "0ad629ce1bf317c5ce30560dc0568b905e67797596a9168c8df9f231af95be64",
+    "ontology/prompt.md": "0a67cf40b97edcb2eaf5888203152c5f4eb2645d3b247605773a9735a815ad2d",
+    "ontology/hidden-bridge-audit.md": "7fbe861077fe59a6b5f4106df425e4cad84a8f681bd8ace7d536bb220077011e",
+    "provenance/terms.json": "674512d007e5152820daefeed6f26bac7e204d73d4f78f2bb8f494d1d602ff3e",
+    "examples/organon-adoption.json": "45fe9647bb623cec2998c20d9c47bbad26c32323c8bdd25019cd69ad442e7754",
+    "releases/v0-21-0.md": "96b30fb29016b77762507a4c5078abd12722f2ccf15530938d360ec732e5d762"
+  },
+  "verified_contracts": ["IM-D1", "IM-D2", "IM-A5", "IM-C1"],
+  "findings": [
+    {
+      "id": "IM-R1",
+      "severity": "high",
+      "disposition": "resolved",
+      "resolution": "Logical equality was already explicit metalanguage. The dossier accepts that exact reduction: Identity names its restriction to Presence for Difference and Missingness, without claiming a new irreducible primitive. Similarity and selected-property equality are rejected reductions, witnessed by same-appearance tokens with distinct serials."
+    },
+    {
+      "id": "IM-R2",
+      "severity": "high",
+      "disposition": "resolved",
+      "resolution": "Identity is placed after Presence, before A5, with stable new identifier D120. Ordered configurations here are metalinguistic, not a circular invocation of the later Configuration term. Absence appears only as an exclusion reference, never as a local-carrier participant."
+    },
+    {
+      "id": "IM-R3",
+      "severity": "high",
+      "disposition": "resolved",
+      "resolution": "The Missingness theorem proves both directions and exact field/target inhabitation, preserving the original record. A wrong-target nonempty field witnesses Missingness; the correct target defeats it; swapping targets reverses the result. Two targets on an empty field show why emptiness cannot select an expectation."
+    },
+    {
+      "id": "IM-R4",
+      "severity": "high",
+      "disposition": "outside-formal-boundary",
+      "resolution": "The field has containment only; expected is externally assigned. The proofs cannot establish actual representation or expectation, empirical individuation, carrier adequacy or a universal type of all Presence. IM-G1 keeps those application gates open; the first three contracts are qualified accordingly. IM-C1 proves only its explicitly stated local witness facts."
+    },
+    {
+      "id": "IM-R5",
+      "severity": "medium",
+      "disposition": "resolved",
+      "resolution": "Classical exhaustiveness does not provide computable equality or make failure to establish Identity a Difference. General equality laws and Difference symmetry/irreflexivity are proved; a finite counterexample defeats transitivity. Reversed lists and pairs differ despite equal unordered membership. The witness carrier is genuinely finite: two appearances times Fin 2 serials."
+    },
+    {
+      "id": "IM-R6",
+      "severity": "high",
+      "disposition": "outside-formal-boundary",
+      "resolution": "The existing Entity model allows one Invariant across unequal States, proved from its ordered non-singleton history. It does not establish a complete canonical individuation criterion; sharing an Invariant is not enough to identify two Entities. Prose and dossier distinguish exact Identity, cross-State reidentification and similarity."
+    },
+    {
+      "id": "IM-R7",
+      "severity": "medium",
+      "disposition": "resolved",
+      "resolution": "Specific-item and class-valued expectations are not interchangeable. A description's existence does not establish its fictional referent. Those limits are explicit rather than manufacturing formal witnesses for uninstantiated objects. Existing Missingness constructors and enacted contract statements remain unchanged."
+    },
+    {
+      "id": "IM-R8",
+      "severity": "medium",
+      "disposition": "resolved",
+      "resolution": "The default 50-job Lean build and finite executable pass. The integrated audit checks 2582 project theorems, zero declared project axioms, with only propext, Classical.choice and Quot.sound allowed. The framework experiment checks 30 theorems. These checks establish formal consequences, not semantic completeness or downstream evaluation quality."
+    }
+  ]
+}
