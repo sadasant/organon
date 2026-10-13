@@ -138,7 +138,7 @@ Absence and Presence exhaust the ontology. Presence necessarily obtains given th
 
 **Identity** obtains when two compared items are one and the same Presence, or one and the same ordered configuration of Presence.
 
-The comparison positions belong to the metalanguage. They need not denote two distinct things, and making a comparison does not produce Identity. Identity is logical equality restricted to Presence, not likeness, agreement in selected properties, indistinguishability to an observer, or equality after discarding order. The same ordered configuration has the same constituents in the same positions, under the declared metalinguistic identity criteria.
+Here, “ordered configuration” means a tuple in the metalanguage, not an application of a later object-language definition. The comparison positions also belong to the metalanguage. They need not denote two distinct things, and making a comparison does not produce Identity. Identity is logical equality restricted to Presence, not likeness, agreement in selected properties, indistinguishability to an observer, or equality after discarding order. The same tuple has the same constituents in the same positions, under the declared metalinguistic identity criteria.
 
 Identity is reflexive, symmetric, transitive, and permits substitution in predicates about the same compared items. Matching selected properties does not establish Identity; failure to establish Identity does not establish non-identity. These are logical conditions, not a procedure guaranteed to decide every comparison. The exactness of Absence still uses metalinguistic identity, not this predicate inside Presence.
 

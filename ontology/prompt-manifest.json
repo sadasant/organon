@@ -10,7 +10,7 @@
   "commitment_count": 53,
   "registry_commitment_count": 53,
   "sources_sha256": {
-    "ontology/ontology.md": "a15604824508e7754ab6d3b9c1b6cd70c16df2290494a04b14c859b3cd897a6f",
+    "ontology/ontology.md": "7fa04a6d08cec3cdbc64e48f6d62c0528e72e63588f072933aa34dc83560054b",
     "ontology/terms.yaml": "de52d028048e28f3367e1a37a9a22fee466ebfd04a9fd31e0c5dbf0f6c6f7bf5",
     "editorial/long-form.md": "2fbf38429feb74b8047132c5690c4b6a4510ad5a89a4647e27bcb012eeefbffd",
     "editorial/short-form.md": "15d81f625b7cd239d7aeb93b871cf464444ec13d74b02ebffb5c3afa48b245ed"
