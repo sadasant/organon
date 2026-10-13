@@ -20,7 +20,7 @@ def load_builder():
 def test_full_projection_covers_registry_and_is_current():
     registry = json.loads((ROOT / "ontology" / "terms.yaml").read_text())
     prompt, manifest = load_builder().build([])
-    assert manifest["term_count"] == len(registry["terms"]) == 116
+    assert manifest["term_count"] == len(registry["terms"]) == 117
     assert manifest["commitment_count"] == len(registry["commitments"]) == 53
     assert "`organon:Intention`" not in prompt
     assert "`organon:FullyExercisablePermission`" not in prompt
@@ -35,6 +35,7 @@ def test_full_projection_covers_registry_and_is_current():
     assert "`C44`" not in prompt
     assert "`organon:Absence`" in prompt
     assert "`organon:Identity`" in prompt
+    assert prompt.index("`organon:Set`") < prompt.index("`organon:Configuration`")
     assert "`C38`" in prompt
     assert "`C46`" in prompt
     assert "Do not infer a term when any named dependency" not in prompt
