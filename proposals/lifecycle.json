@@ -7,7 +7,7 @@
       "dossier": "set-and-configuration.md",
       "status": "promoted",
       "binding_release": "0.21.0",
-      "remaining_quarantine": ["actual membership and carrier adequacy; consolidation of the existing Configuration identifier requires a governed-use migration review"]
+      "remaining_quarantine": ["actual membership, carrier adequacy and Relation realization; infinite arity and full downstream prose/shadow parity remain outside the finite-tuple projection"]
     },
     {
       "manifest": "identity-and-missingness-claims.json",

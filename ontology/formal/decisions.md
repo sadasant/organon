@@ -498,6 +498,26 @@ a governed-use migration review, recorded at SC-G1 in the
 [dossier](../../proposals/set-and-configuration.md). No mathematical Order redesign
 is enacted by this change.
 
+## Correction: Configuration retains relational structure (v0.21)
+
+The preceding entry records the initial implementation, not the current contract.
+Its alias made the reduction tautological and erased the intended distinction.
+`SetConfiguration.lean` now retains both members and specified associations of
+Relations with ordered participant tuples. Equal members do not imply equal
+Configurations. Selection requires a supplied realization witness; it cannot
+rewire a Relation. An association involves the member Set through its Relation
+or a participant, without requiring every participant to be a member.
+
+SC-D2 proves identity for this structured projection; SC-C1 supplies unequal
+Configurations over equal members, rejected reversed roles, external participants,
+isolated members and empty structure. `structuredStatesDiffer` checks the existing
+State wrapper preserves the difference. Generic State and downstream structures
+remain unchanged; compilation does not prove their full canonical parity.
+Finite tuples, carrier adequacy and actual Relation realization remain explicit
+limits. SC-G1 no longer proposes identifier consolidation: forgetting structure
+is not an equivalence. The original review is retained and superseded by the
+[structured review](../../reviews/promotion/set-and-configuration-structured.json).
+
 ## Bibliography
 
 - de Moura, Leonardo, and Sebastian Ullrich. "The Lean 4 Theorem Prover and Programming Language." In *Automated Deduction – CADE 28*, 2021. [DOI](https://doi.org/10.1007/978-3-030-79876-5_37).

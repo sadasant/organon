@@ -8,7 +8,7 @@
   "formal_shadow": "../ontology/formal/SetConfiguration.lean",
   "formal_evidence": ["../ontology/formal/OrganonCore.lean"],
   "promotion_contracts": "../ontology/formal/SetConfiguration.lean",
-  "promotion_review": "../reviews/promotion/set-and-configuration.json",
+  "promotion_review": "../reviews/promotion/set-and-configuration-structured.json",
   "introduced_terms": ["organon:Set"],
   "local_symbols": [],
   "semantic_fields": [
@@ -44,14 +44,14 @@
       "subject": "Configuration",
       "depends_on": ["SC-D1", "organon:Presence", "organon:Relation", "organon:Identity"],
       "formal_contract": {
-        "status": "proved_with_boundaries",
-        "theorem": "configurationReduction",
-        "subject_symbols": ["Configuration"],
+        "status": "proved",
+        "theorem": "configurationIdentity",
+        "subject_symbols": ["Configuration", "members", "associations", "valid"],
         "shared_indices": ["c", "d", "k"],
         "dependency_dispositions": {
-          "SC-D1": {"status": "formalized", "symbols": ["Set", "setExtensionality", "contains"]},
+          "SC-D1": {"status": "formalized", "symbols": ["Set", "contains"]},
           "organon:Presence": {"status": "represented_by", "symbols": ["α", "a"], "reason": "Carrier values stand for the Presences, including any Relations, that a supplied interpretation places in the local domain; no canonical carrier is constructed."},
-          "organon:Relation": {"status": "prose_only", "reason": "Relations enter only as possible carrier values; the general theorem imposes no Relation classifier, no requirement that a Relation be a member, and no participant closure. SC-C1 exercises a relation-like witness."},
+          "organon:Relation": {"status": "represented_by", "symbols": ["realizes", "r", "ps", "length"], "reason": "A supplied predicate validates Relation Presences with finite ordered participant tuples of at least two positions. Actual realization, fixed-role adequacy, and infinite arity remain outside this projection; selection itself cannot manufacture a witness."},
           "organon:Identity": {"status": "formalized", "symbols": ["Identity"]}
         }
       }
@@ -64,20 +64,20 @@
       "formal_contract": {
         "status": "proved",
         "theorem": "finiteAntiCollapse",
-        "subject_symbols": ["Token", "ofList", "emptyConfiguration", "ringOnly", "linkOnly"],
-        "shared_indices": ["ringOnly", "linkOnly"],
+        "subject_symbols": ["Token", "ofList", "plain", "linked", "external", "discrete"],
+        "shared_indices": ["plain", "linked"],
         "dependency_dispositions": {
-          "SC-D1": {"status": "formalized", "symbols": ["Identity", "setExtensionality", "emptySet", "contains"]},
-          "SC-D2": {"status": "represented_by", "symbols": ["Configuration", "participants", "link"], "reason": "A relation-like token carries designated witness participants; this exercises the absence of endpoint closure on a finite carrier, not a canonical Relation classifier or empirical Configuration."}
+          "SC-D1": {"status": "formalized", "symbols": ["Identity", "emptySet", "contains"]},
+          "SC-D2": {"status": "represented_by", "symbols": ["Configuration", "configurationIdentity", "members", "associations", "realizes", "link"], "reason": "The finite realization fixes a link's ordered participants. Equal member Sets with different selected associations, rejected reversed roles, external participants, isolated members and empty structure are checked directly; these are local facts, not an empirical classifier."}
         }
       }
     },
     {
       "id": "SC-G1",
       "type": "open_evidence_gate",
-      "subject": "Carrier adequacy and Configuration consolidation",
+      "subject": "Carrier adequacy, Relation realization and downstream parity",
       "depends_on": ["SC-D1", "SC-D2"],
-      "formal_contract": {"status": "open_gate", "reason": "Applications must justify their declared domain, membership assignments, Relation tokens and identity criteria. Configuration is extensionally a Set; whether its retained role name and identifier should be consolidated under the collapse rule remains an explicit review question that the formal reduction does not decide."}
+      "formal_contract": {"status": "open_gate", "reason": "Applications must justify their domain, membership, identity criteria and actual Relations with fixed participant roles. The finite-tuple shadow does not cover infinite arity or prove full downstream canonical parity. Forgetting structure is not an equivalence with the underlying member Set, as SC-C1 witnesses."}
     }
   ]
 }

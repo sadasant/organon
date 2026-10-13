@@ -141,7 +141,7 @@ Depends: organon:Presence, organon:Identity, organon:Absence, organon:Relation, 
 
 ### `organon:Configuration` · Configuration
 
-**Configuration** is a Set of Presences and Relations considered together.
+**Configuration** is a Set of Presences together with specified relational structure.
 
 Claim: `D004` (definition).
 Depends: organon:Set, organon:Presence, organon:Relation, organon:Identity.

@@ -3,14 +3,13 @@ import OrganonCore
 /-!
 # Set and Configuration over a declared local domain
 
-`Set α` is a membership predicate on one caller-supplied carrier `α`, read as a
-declared local domain of Presence. A Set is fixed by its members: two Sets are
-identical exactly when they contain the same members (SC-D1). `Configuration α`
-is an abbreviation for `Set α`; it adds no membership condition, no Relation
-requirement, and no closure under the participants of contained Relations
-(SC-D2). Finite witnesses separate Sets from ordered or repeated listings and
-show that a Configuration may contain a relation-like token without containing
-its participants (SC-C1).
+`Set α` is extensional membership on a supplied local carrier (SC-D1).
+`Configuration α realizes` retains a member Set AND a Set of specified
+Relation/participant-tuple associations (SC-D2). The ambient `realizes` predicate
+validates an association; selecting it cannot manufacture or rewire a Relation.
+Every selected association has at least two participant positions and is tied to
+the member Set by its Relation or at least one participant. Full participant
+closure is not required. SC-C1 separates membership from relational structure.
 
 Boundaries:
 
@@ -25,12 +24,14 @@ Boundaries:
 * Empty Set. The Set with no members is an inhabited value of `Set α`; it is a
   Presence fixed by having no member, not Absence. This module imports no
   Absence symbol.
-* Membership and Relation. Nothing here claims or refutes that membership can
-  be modeled as a Relation. Relation-like tokens in the witness carry a
-  designated participant list; they are not a canonical Relation classifier.
-* Reduction. `Configuration` is definitionally `Set`. The retained role name and
-  any identifier consolidation are open review questions (SC-G1), not a
-  formal distinction.
+* Relation. `realizes` is supplied interpretation, not a canonical classifier.
+  Its adequacy, including the fixed participant roles of each actual Relation,
+  remains an application gate. Lists encode finite ordered positions only;
+  the canonical definition is not restricted to finite arity. Repeated values
+  in different positions are allowed; a tuple is not a Set.
+* Structure. Forgetting selected associations loses information. Re-encoding
+  the complete structure as tagged sets would retain it, not identify the
+  Configuration with its underlying member Set.
 * Logic. Extensionality uses Lean's standard `propext` and `funext` (from
   `Quot.sound`); no `Classical.choice`, `sorry`, or project axiom is used. The finite witness derives `DecidableEq` only
   for its own comparisons.
@@ -53,9 +54,14 @@ open DanielOntology
 structure Set (α : Type u) where
   contains : α → Prop
 
-/-- A Configuration is a Set of carrier values, which may stand for Presences
-and Relations considered together. It adds no further condition. -/
-abbrev Configuration (α : Type u) := Set α
+/-- A local relational structure. Each selected association is realized and
+involves a member, but may have participants outside the member Set. -/
+structure Configuration (α : Type u) (realizes : α → List α → Prop) where
+  members : Set α
+  associations : Set (α × List α)
+  valid : ∀ r ps, associations.contains (r, ps) →
+    realizes r ps ∧ 2 ≤ ps.length ∧
+      (members.contains r ∨ ∃ a, a ∈ ps ∧ members.contains a)
 
 /-- The Set with no members over a declared local domain. -/
 def emptySet (α : Type u) : Set α := ⟨fun _ => False⟩
@@ -102,74 +108,125 @@ theorem ofListIdentity {α : Type u} (first second : List α)
 
 /-! ## Configuration -/
 
+/-- No associations are selected; this does not assert that none obtain. -/
+def discrete {α : Type u} {realizes : α → List α → Prop}
+    (members : Set α) : Configuration α realizes :=
+  ⟨members, emptySet _, fun _ _ impossible => False.elim impossible⟩
+
+theorem configurationExt {α : Type u} {realizes : α → List α → Prop}
+    {c d : Configuration α realizes}
+    (members : ∀ a, c.members.contains a ↔ d.members.contains a)
+    (associations : ∀ r ps,
+      c.associations.contains (r, ps) ↔ d.associations.contains (r, ps)) : c = d := by
+  have hm := setExt members
+  have ha := setExt (fun (p : α × List α) => associations p.1 p.2)
+  cases c
+  cases d
+  cases hm
+  cases ha
+  rfl
+
 -- organon:contract SC-D2 begin
 /-- organon:promotion-contract SC-D2 -/
-theorem configurationReduction {α : Type u} (c d : Configuration α) :
-    Configuration α = Set α ∧
-    (Identity c d ↔ ∀ a : α, (c.contains a ↔ d.contains a)) ∧
-    (∀ s : Set α, ∃ k : Configuration α, Identity k s) ∧
-    Nonempty {k : Configuration α // ∀ a : α, ¬ k.contains a} :=
-  ⟨rfl, (setExtensionality c d).1, fun s => ⟨s, rfl⟩, emptySetInhabited α⟩
+theorem configurationIdentity {α : Type u} {realizes : α → List α → Prop}
+    (c d : Configuration α realizes) :
+    (Identity c d ↔
+      (∀ a : α, c.members.contains a ↔ d.members.contains a) ∧
+      (∀ r ps, c.associations.contains (r, ps) ↔ d.associations.contains (r, ps))) ∧
+    (∀ r ps, c.associations.contains (r, ps) →
+      realizes r ps ∧ 2 ≤ ps.length ∧
+        (c.members.contains r ∨ ∃ a, a ∈ ps ∧ c.members.contains a)) ∧
+    (∀ s : Set α, ∃ k : Configuration α realizes,
+      Identity k.members s ∧ ∀ r ps, ¬ k.associations.contains (r, ps)) := by
+  refine ⟨⟨?_, fun h => configurationExt h.1 h.2⟩, c.valid, ?_⟩
+  · intro same
+    cases same
+    exact ⟨fun _ => Iff.rfl, fun _ _ => Iff.rfl⟩
+  · intro s
+    exact ⟨discrete s, rfl, fun _ _ impossible => impossible⟩
 -- organon:contract SC-D2 end
 
 /-! ## Finite witness carrier
 
-Two plain tokens and one relation-like token whose designated participants are
-the two plain tokens. -/
+Three plain tokens and a Relation with two ordered participant positions. -/
 
 inductive Token where
   | ring
   | bar
+  | spare
   | link
 deriving DecidableEq
 
-/-- Designated participants of a relation-like token; plain tokens have none.
-This is witness data, not a canonical Relation classifier. -/
-def participants : Token → List Token
-  | .link => [.ring, .bar]
-  | _ => []
+/-- One realized association; the reversed tuple is not realized. -/
+def realizes (r : Token) (ps : List Token) : Prop :=
+  r = .link ∧ ps = [.ring, .bar]
 
-abbrev emptyConfiguration : Configuration Token := ofList []
-abbrev ringOnly : Configuration Token := ofList [.ring]
-abbrev linkOnly : Configuration Token := ofList [.link]
+def plain : Configuration Token realizes := discrete (ofList [.ring, .bar, .spare])
+
+def linked : Configuration Token realizes where
+  members := ofList [.ring, .bar, .spare]
+  associations := ofList [(.link, [.ring, .bar])]
+  valid := by
+    intro r ps selected
+    have h : (r, ps) = (Token.link, [Token.ring, Token.bar]) := by
+      simpa [ofList] using selected
+    cases h
+    exact ⟨⟨rfl, rfl⟩, by decide, Or.inr ⟨.ring, by simp, by simp [ofList]⟩⟩
+
+/-- The member is the Relation itself; both participants are external. -/
+def external : Configuration Token realizes where
+  members := ofList [.link]
+  associations := ofList [(.link, [.ring, .bar])]
+  valid := by
+    intro r ps selected
+    have h : (r, ps) = (Token.link, [Token.ring, Token.bar]) := by
+      simpa [ofList] using selected
+    cases h
+    exact ⟨⟨rfl, rfl⟩, by decide, Or.inl (by simp [ofList])⟩
 
 -- organon:contract SC-C1 begin
 /-- organon:promotion-contract SC-C1 -/
 theorem finiteAntiCollapse :
     (Identity (ofList [Token.ring, Token.bar]) (ofList [Token.bar, Token.ring]) ∧
       ¬ Identity [Token.ring, Token.bar] [Token.bar, Token.ring]) ∧
-    (Identity (ofList [Token.ring, Token.ring]) ringOnly ∧
-      ¬ Identity [Token.ring, Token.ring] [Token.ring]) ∧
-    ((∀ a : Token, ¬ emptyConfiguration.contains a) ∧
-      Identity emptyConfiguration (emptySet Token) ∧
-      ¬ Identity emptyConfiguration ringOnly) ∧
-    (∀ a : Token, ringOnly.contains a → participants a = []) ∧
-    ((linkOnly : Configuration Token).contains Token.link ∧ Token.ring ∈ participants Token.link ∧
-      ¬ linkOnly.contains Token.ring ∧ ¬ linkOnly.contains Token.bar) := by
-  have emptyNone : ∀ a : Token, ¬ emptyConfiguration.contains a := by
-    intro a member
-    cases member
-  refine ⟨⟨?_, ?_⟩, ⟨?_, ?_⟩, ⟨emptyNone, ?_, ?_⟩, ?_, ?_⟩
+    Identity (ofList [Token.ring, Token.ring]) (ofList [Token.ring]) ∧
+    (Identity plain.members linked.members ∧ ¬ Identity plain linked) ∧
+    (linked.associations.contains (.link, [.ring, .bar]) ∧
+      ¬ linked.associations.contains (.link, [.bar, .ring])) ∧
+    (∀ c : Configuration Token realizes,
+      ¬ c.associations.contains (.link, [.bar, .ring])) ∧
+    (external.associations.contains (.link, [.ring, .bar]) ∧
+      ¬ external.members.contains .ring ∧ ¬ external.members.contains .bar) ∧
+    (linked.members.contains .spare ∧
+      ∀ r ps, linked.associations.contains (r, ps) → Token.spare ∉ ps) ∧
+    (∀ a : Token, ¬ (discrete (realizes := realizes) (emptySet Token)).members.contains a) := by
+  refine ⟨⟨?_, ?_⟩, ?_, ⟨rfl, ?_⟩, ?_, ?_, ?_, ?_, ?_⟩
   · exact ofListIdentity _ _ fun a => by cases a <;> simp
   · simp [Identity]
-  · exact ofListIdentity _ _ fun a => by cases a <;> simp
-  · simp [Identity]
-  · exact ((setExtensionality emptyConfiguration (emptySet Token)).2.2).mp emptyNone
+  · exact ofListIdentity _ _ fun a => by simp
   · intro same
-    have ringIn : ringOnly.contains Token.ring := by simp [ringOnly, ofList]
-    exact emptyNone Token.ring
-      (((setExtensionality emptyConfiguration ringOnly).1.mp same Token.ring).mpr ringIn)
-  · intro a member
-    cases a <;> simp_all [ringOnly, ofList, participants]
-  · simp [linkOnly, ofList, participants]
+    have selected : linked.associations.contains (.link, [.ring, .bar]) := by
+      simp [linked, ofList]
+    have absent := ((configurationIdentity plain linked).1.mp same).2 .link [.ring, .bar]
+    exact (absent.mpr selected : False)
+  · simp [linked, ofList]
+  · intro c selected
+    have h := (c.valid _ _ selected).1.2
+    cases h
+  · simp [external, ofList]
+  · refine ⟨by simp [linked, ofList], ?_⟩
+    intro r ps selected
+    have h : (r, ps) = (Token.link, [Token.ring, Token.bar]) := by
+      simpa [linked, ofList] using selected
+    cases h
+    simp
+  · exact fun _ impossible => impossible
+-- organon:contract SC-C1 end
 
-/-! ## Contract use on the witness -/
-
-/-- A Configuration containing a relation-like token is not thereby closed
-under that token's participants. -/
-example : ∃ k : Configuration Token, ∃ r : Token,
-    k.contains r ∧ ∃ p, p ∈ participants r ∧ ¬ k.contains p :=
-  ⟨linkOnly, .link, finiteAntiCollapse.2.2.2.2.1, .ring,
-    finiteAntiCollapse.2.2.2.2.2.1, finiteAntiCollapse.2.2.2.2.2.2.1⟩
+/-- The existing State wrapper retains structure, not just the member Set. -/
+theorem structuredStatesDiffer :
+    ¬ Identity (State.mk plain) (State.mk linked) := by
+  intro same
+  exact finiteAntiCollapse.2.2.1.2 (congrArg State.value same)
 
 end DanielOntology.SetConfiguration

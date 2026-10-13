@@ -2,7 +2,7 @@
   "schema_version": 1,
   "ontology_version": "0.21.0",
   "sources": {
-    "proposal:set-configuration": {"kind": "adopted-review", "reference": "../proposals/set-and-configuration.md", "title": "Set and Configuration membership review and formal boundaries"},
+    "proposal:set-configuration": {"kind": "adopted-review", "reference": "../proposals/set-and-configuration.md", "title": "Set membership and structured Configuration correction with formal boundaries"},
     "proposal:identity-missingness": {"kind": "adopted-review", "reference": "../proposals/identity-and-missingness.md", "title": "Identity and exact-target Missingness review and formal boundaries"},
     "essay:absence": {"kind": "published-corpus", "reference": "essays.md", "title": "Nothing Else Is So Exact As Absence"},
     "essay:shadow-world": {"kind": "published-corpus", "reference": "essays.md", "title": "The Shadow of the World"},
@@ -50,13 +50,18 @@
     },
     {
       "basis": "review-repair",
+      "sources": ["proposal:set-configuration", "essay:absence", "essay:shadow-world", "review:daniel"],
+      "terms": ["organon:Configuration"]
+    },
+    {
+      "basis": "review-repair",
       "sources": ["proposal:identity-missingness", "essay:absence", "review:daniel"],
       "terms": ["organon:Identity", "organon:Missingness", "organon:Difference"]
     },
     {
       "basis": "adopted-commitment",
       "sources": ["essay:absence", "essay:shadow-world", "review:daniel"],
-      "terms": ["organon:Absence", "organon:Presence", "organon:Reality", "organon:Relation", "organon:Configuration"]
+      "terms": ["organon:Absence", "organon:Presence", "organon:Reality", "organon:Relation"]
     },
     {
       "basis": "formalization-finding",

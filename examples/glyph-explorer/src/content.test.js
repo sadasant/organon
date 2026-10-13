@@ -107,6 +107,10 @@ test("math preserves exact joins and current revision predicates rather than his
   const parameter = declarationMath(language.declarations[0], language);
   assert.ok(parameter.includes(leanTex("Language : Type v")));
   assert.ok(!parameter.includes("\\coloneqq"));
+  const configuration = terms.find((t) => t.id === "organon:Configuration").math;
+  const structure = declarationMath(configuration.declarations[0], configuration);
+  for (const datum of ["members", "associations", "realizes"])
+    assert.ok(structure.includes(leanTex(datum)), `Configuration must display ${datum}`);
   assert.throws(() => leanTex("x ⊗ y"), /Unreviewed/);
 });
 

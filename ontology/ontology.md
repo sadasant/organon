@@ -204,9 +204,13 @@ Membership remains supplied by the metalanguage; this definition names its exten
 <a id="organon-configuration"></a>
 <!-- organon:term organon:Configuration claim=D004 -->
 
-**Configuration** is a Set of Presences and Relations considered together.
+**Configuration** is a Set of Presences together with specified relational structure.
 
-Configuration is the relational-use name for this Set construction, not an additional primitive or an extensionally distinct kind. It inherits Identity by membership, may be empty, and need not contain a Relation. An included Relation retains its specified participant positions; including it does not require all its participants to be members too. “Considered together” adds no further Relation.
+The structure specifies which Relations are included and the participants occupying each Relation's ordered positions. Each specified Relation is itself a member or has at least one member as a participant. Its other participants need not be members. Specifying a Relation does not create it or license changing its participants.
+
+Two Configurations have Identity exactly when they have the same member Set and the same specified Relations with the same participants in the same positions. The same members alone do not establish Identity of Configurations. A Relation's membership in the Set and its inclusion in the specified structure are separate: membership alone does not select a structural role.
+
+A Configuration may specify no Relations, and its member Set may be empty. Neither nonemptiness nor complete connectivity is required. Listing order and repetition do not change the member Set or the family of specified Relations; the participant positions within each Relation remain significant. Forgetting the relational structure leaves the member Set, not the complete Configuration.
 
 <a id="organon-state"></a>
 <!-- organon:term organon:State claim=D005 -->

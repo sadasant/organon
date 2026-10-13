@@ -95,5 +95,5 @@ Schema-v2 contracts record each dependency's formal disposition; the later exact
 
 - [Binding ontology](../ontology/ontology.md#organon-identity) and [registry](../ontology/terms.yaml).
 - [Core definitions](../ontology/formal/OrganonCore.lean) and [proofs and counterexamples](../ontology/formal/IdentityMissingness.lean).
-- [Typed claims](./identity-and-missingness-claims.json) and [promotion review](../reviews/promotion/identity-and-missingness.json).
+- [Typed claims](./identity-and-missingness-claims.json), [original promotion review](../reviews/promotion/identity-and-missingness.json), and [integration review after the Configuration correction](../reviews/promotion/identity-structured-configuration.json).
 - [v0.21 release note](../releases/v0-21-0.md) and [glyph study](./glyph-atlas.md).

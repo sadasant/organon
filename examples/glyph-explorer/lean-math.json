@@ -46,7 +46,7 @@
     "module": "SetConfiguration",
     "name": "Configuration",
     "status": "projection",
-    "note": "A local alias of Set, without a nonempty or participant-closure requirement. Generic State carriers have not been retyped to this projection."
+    "note": "A member Set plus specified Relation/ordered-participant associations, validated by a supplied interpretation. Equal members need not fix equal Configurations. The finite-tuple projection requires neither nonemptiness nor participant closure; generic State carriers remain unchanged."
   },
   "State": { "module": "OrganonCore", "name": "State" },
   "Direction": { "module": "OrganonCore", "name": "Direction" },
