@@ -3,10 +3,10 @@
   "binding": false,
   "ontology_version": "0.21.0",
   "source": {
-    "commit": "a253e0118e394220d2e5e444f85a159b0f70b884",
+    "commit": "65eb88c8d63fa7af56d241184374c5cc2c60555a",
     "commit_role": "Exact source of the v0.21 definitions, registry, catalog and geometry assessed by the cumulative review. identity_review covers the new term and the changed definitions; other primary definitions and their judgments are retained. The runes.js hash and migration_note are historical, not files or claims about this commit.",
     "sha256": {
-      "ontology/ontology.md": "a15604824508e7754ab6d3b9c1b6cd70c16df2290494a04b14c859b3cd897a6f",
+      "ontology/ontology.md": "7fa04a6d08cec3cdbc64e48f6d62c0528e72e63588f072933aa34dc83560054b",
       "ontology/terms.yaml": "de52d028048e28f3367e1a37a9a22fee466ebfd04a9fd31e0c5dbf0f6c6f7bf5",
       "examples/glyph-explorer/src/runes.js": "eb507b17ded15a079b39450d88ac1d70aa02f362b168dd311a6a4a1ff08d7c4b",
       "proposals/glyph-catalog.mjs": "012f2d6b4995e36b6ad4a6b175b01017155576343fd6b32c054b2cd05015133b",

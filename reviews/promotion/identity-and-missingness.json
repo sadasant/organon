@@ -2,8 +2,8 @@
   "schema_version": 1,
   "proposal_id": "identity-and-missingness",
   "status": "promotion-ready",
-  "reviewed_commit": "a253e0118e394220d2e5e444f85a159b0f70b884",
-  "reviewed_tree": "88be7c6c957984e429ccd626e8f8716a7c877dff",
+  "reviewed_commit": "65eb88c8d63fa7af56d241184374c5cc2c60555a",
+  "reviewed_tree": "e00b87f84a2eae0f5662c70c8380325025860140",
   "reviewed_at": "2026-10-13",
   "reviewer": "Amp local source and counterexample review; not independent external review",
   "review_scope": "D120, the A5 and D002 revisions, D014 clarification, dependency closure, four typed contracts, local-carrier equality laws and asymmetric finite witnesses. Review readiness applies to these bounded claims, not empirical individuation or a complete formalization of Presence. The existing embodiment and attention contracts retain their statements.",
@@ -17,7 +17,7 @@
     "ontology/formal/lean-toolchain": "54727eec5cba149c18842e6deb5c41b369d66455c93ce135d7d5347c782b2325",
     "scripts/check-proposals.py": "87f26905ba0450b92a9f38c6ee63a144e5973fd424a971622b42f6a9eb03fb24",
     "scripts/check-promotion-review.py": "cef84a92bb95bb43734b16941f4a957ad77f9d117d4e1401f93460ff155afda9",
-    "ontology/ontology.md": "a15604824508e7754ab6d3b9c1b6cd70c16df2290494a04b14c859b3cd897a6f",
+    "ontology/ontology.md": "7fa04a6d08cec3cdbc64e48f6d62c0528e72e63588f072933aa34dc83560054b",
     "ontology/terms.yaml": "de52d028048e28f3367e1a37a9a22fee466ebfd04a9fd31e0c5dbf0f6c6f7bf5",
     "ontology/profiles.json": "0e17e24c11ab11f86a69377a884763518fcea9a7d5ab68f76d4d7c114ce42ecc",
     "ontology/changelog.md": "0ad629ce1bf317c5ce30560dc0568b905e67797596a9168c8df9f231af95be64",
@@ -39,7 +39,7 @@
       "id": "IM-R2",
       "severity": "high",
       "disposition": "resolved",
-      "resolution": "Identity is placed after Presence, before A5, with stable new identifier D120. Ordered configurations here are metalinguistic, not a circular invocation of the later Configuration term. Absence appears only as an exclusion reference, never as a local-carrier participant."
+      "resolution": "Identity is placed after Presence, before A5, with stable new identifier D120. Ordered configurations here are metalinguistic, not a circular invocation of the later Configuration term. The follow-up makes the dossier's tuple interpretation explicit in the binding entry itself; no primary statement or formal contract changes. Absence appears only as an exclusion reference, never as a local-carrier participant."
     },
     {
       "id": "IM-R3",
