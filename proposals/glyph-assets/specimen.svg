@@ -12,7 +12,7 @@
 <text x="675" y="100" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Reality</text>
 <g transform="translate(805,42) scale(1.25)"><path d="M8 12H24M8 20H24 M5 27 27 5" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
 <text x="825" y="100" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Difference</text>
-<g transform="translate(955,42) scale(1.25)"><path d="M4 7H9V13H20V24H27M4 4V10M17 10V16M24 21V27" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
+<g transform="translate(955,42) scale(1.25)"><path d="M8 12H24M8 20H24 M16 8V24" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
 <text x="975" y="100" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Relation</text>
 <g transform="translate(1105,42) scale(1.25)"><path d="M5 8V24M5 16H17M22 11H28V21H22Z" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
 <text x="1125" y="100" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Denotation</text>
