@@ -21,7 +21,7 @@ This document names the few geometric cues that may carry a stable, learned read
 ## Source pin and counts
 
 > [!NOTE]
-> Inventory counts below describe the catalog at [81aad87](https://github.com/sadasant/organon/commit/81aad87daa679378d54cde7c3d5ce2da61d37e08), sha256 `dffbc37d1b493a78a06f7cad5b14cd6ab70586fb99a7a27c6d01895998bc2e6e`: 117 glyphs, 89 named strokes, three unused. The current follow-up has 118 glyphs and 90 strokes: State now reuses `members` and `memberLinks` with a detached `index`, leaving `grouping` unused; MathematicalOrder reuses `members` with `partialOrder` cover edges. Thus `members` now has four uses and `memberLinks` two. The command below measures the current catalog, not the historical counts.
+> Inventory counts below describe the catalog at [81aad87](https://github.com/sadasant/organon/commit/81aad87daa679378d54cde7c3d5ce2da61d37e08), sha256 `dffbc37d1b493a78a06f7cad5b14cd6ab70586fb99a7a27c6d01895998bc2e6e`: 117 glyphs, 89 named strokes, three unused. The current follow-up has 118 glyphs and 91 strokes: State uses `stateOverlap`, leaving `grouping` and `index` unused; MathematicalOrder reuses `members` with `partialOrder` cover edges. Thus `members` now has three uses and `memberLinks` one. The command below measures the current catalog, not the historical counts.
 
 Run from the repository root:
 
@@ -29,7 +29,7 @@ Run from the repository root:
 node --input-type=module <<'EOF'
 import { glyphs, strokes } from "./proposals/glyph-catalog.mjs";
 const ops = {
-  dot: ["dot", "seed", "members", "inversePresence"],
+  dot: ["dot", "seed", "members", "inversePresence", "stateOverlap"],
   parallelBars: ["bars"],
   shortStroke: ["bar", "cap", "foot", "wings", "ticks", "index"],
   vertical: ["axis", "rails", "echo", "association", "comparison", "party", "factive"],
@@ -37,7 +37,7 @@ const ops = {
   angleTag: ["chevron", "conditionI", "conditionII"],
   turningPath: ["step", "ordered", "endpoint", "realizable", "placement", "statusAssignment", "binding", "permittedRealization", "ruleCoupling", "continuingOrder", "portableRecord", "tracedRecord", "partialMap", "structuredModel", "recordedExchange", "scopedWorld", "feedingSource", "correspondence", "knowledgePath", "constituents", "tracking", "adjustedAction"],
   branching: ["tree", "fork", "routing", "feedingSource", "ruleCoupling", "tracking", "interpretedAction", "constituents", "enforcedBoundary", "partialOrder"],
-  contour: ["ring", "inversePresence", "square", "gate", "vessel", "frame", "portFrame", "open", "arch", "eye", "diamond", "double", "triangle", "memberLinks", "grouping", "personRecord", "partialMap", "tracedRecord", "portableRecord", "recordedPlacement", "recordedExchange", "structuredModel", "knowledgePath", "assertion", "registration", "endpoint", "statusAssignment", "placement", "admittedRecord", "constituents", "constrainedAction", "factive"],
+  contour: ["ring", "inversePresence", "square", "gate", "vessel", "frame", "portFrame", "open", "arch", "eye", "diamond", "double", "triangle", "memberLinks", "grouping", "personRecord", "partialMap", "tracedRecord", "portableRecord", "recordedPlacement", "recordedExchange", "structuredModel", "knowledgePath", "assertion", "registration", "endpoint", "statusAssignment", "placement", "admittedRecord", "constituents", "constrainedAction", "factive", "stateOverlap"],
   cornerMark: ["grouping", "warranted", "hooks", "participants", "surroundings", "scopedWorld", "permittedRealization", "issuedPermission"],
   strike: ["slash", "cross", "routing", "enforcedBoundary"],
   wave: ["wave"],
@@ -80,7 +80,9 @@ Daniel approved these drawings in the review sections named below. Approval cove
 | Member dots and straight edges | [Set](../ontology/ontology.md#organon-set) (three solid dots), [Configuration](../ontology/ontology.md#organon-configuration) (the same dots joined) | Shared dots cue the member Set; edges cue additional specified structure. | Three members, member order, complete connectivity, causation or binary-only Relations. | `set_configuration_review`, `structured_configuration_correction` |
 | Maps-to | [Denotation](../ontology/ontology.md#organon-denotation) | Expression side (tail) to target side (arrowhead). | A function's uniqueness condition, causation, fidelity or Truth. | `denotation_review` |
 
-State now extends the member-dot cue with a detached left dash. Its index is metalinguistic, not an object-level timestamp or extra Relation (D005).
+State now uses two equal, upright Configuration-like triangles with exactly half-base overlap, approved in `state_overlap_review`. Four equally spaced baseline nodes alternate hollow, solid, hollow, solid; each apex sits directly above the other triangle's inner base node. The left triangle has hollow vertices and the right has solid vertices. The shared baseline is drawn once and the diagonal crossing has no node. Edges stop outside hollow centers, so the font keeps actual negative space rather than background-colored masks.
+
+This is a term-specific mnemonic for an indexed Configuration, not a diagram of two required States or a Transformation. Hollow/solid does not mean Missingness/Presence, past/present, possible/actual or less/more real. The drawing does not establish an index domain or its ordering; the distinction between an index and an ordered position remains a separate definition/formalization question. Retain labels and test the hollow centers at text size.
 
 Order extends the approved member-dot family with a Hasse-diagram mnemonic, approved in `order_hasse_review`: Set's three dots joined along the two sloping sides, without Configuration's bottom edge. Read upward, each lower member precedes the upper member and the lower pair is incomparable. In a Hasse diagram, edges show cover relationships; reflexive loops and edges implied by transitivity are omitted. This borrows a [mathematical drawing convention](https://mathworld.wolfram.com/HasseDiagram.html), not a new comparison sign or a compositional operation on Configuration. It does not require three members, a greatest member, branching, finiteness or incomparability in every Order; empty and total Orders remain permitted. Upward means order here, not causation, authority or improvement. Labels remain necessary.
 
@@ -131,6 +133,7 @@ Every named stroke appears below. Counts are glyphs at the pinned source.
 | --- | --- | --- | --- |
 | `dot` | 11 | Conflicting | Approved only as part of Presence. Elsewhere arbitrary. |
 | `members` | 2 | Approved family cue | Set and Configuration. |
+| `stateOverlap` | 1 in the current follow-up | Approved, term-specific | State's half-overlapping triangles extend the geometric family without making hollow/solid a general semantic operator. |
 | `inversePresence` | 1 | Approved, term-specific | Reality. Overlapping construction strokes are not layers of Reality. |
 | `seed` | 1 | Term-specific, arbitrary | Operationalization. |
 
@@ -141,7 +144,7 @@ Every named stroke appears below. Counts are glyphs at the pinned source.
 | `bars` | 8 | Approved for Identity, Difference, Relation; conflicting elsewhere | See [Identity's bars are not an operator](#identitys-bars-are-not-an-operator). |
 | `foot` | 11 | Conflicting | Approved only as standalone Absence. Elsewhere an arbitrary differentiator, for example between Admission and Admissibility Rule. |
 | `bar`, `cap`, `wings` | 6, 5, 6 | Conflicting | Arbitrary differentiators. A cap is not Authority; wings are not extension. |
-| `ticks`, `index` | 1 each | Term-specific | Organ; State's index formerly entered corner brackets and is now detached beside Configuration. |
+| `ticks`, `index` | 1 each at the historical pin | Term-specific | Organ; State's former index is now unused. |
 
 ### Vertical strokes
 
@@ -223,8 +226,8 @@ Ordered by priority. Approved marks come first because readers will learn them f
 
 1. **Presence, Missingness and Reality at text size.** Only a dot separates Presence from Missingness, and Reality's clear center can fill in to a solid disk. Test pairwise discrimination in inline text, tiles and graphs.
 2. **The bars family.** Test Identity, Difference and Relation side by side at text size, Relation against the double-dagger, and whether readers read Identity into Invariant, Specification, Memory or Ledger.
-3. **The member-dot family after State's redraw.** A connected triangle with an index tick differs from Configuration only by a short stroke. Test it against Configuration, Change's slashed triangle and Agent's triangle, and check that the tick does not read as a timestamp.
-4. **MathematicalOrder's Hasse fork.** Test it against Set's unconnected dots, Configuration's closed triangle and State's indexed triangle at text size. Check that the missing bottom edge remains visible, that readers learn the upward convention, and that the fork does not imply a greatest member, authority, causation or an incomplete Configuration.
+3. **State's overlapping triangles.** Check the three hollow centers, four-node baseline and unmarked diagonal crossing at text size. Compare with Configuration, Order and Change; ask whether the pair suggests a transition, two required States or a past/present contrast. Exact midpoint alignment is geometric, not an identity or ordering proof.
+4. **MathematicalOrder's Hasse fork.** Test it against Set's unconnected dots, Configuration's closed triangle and State's overlapping triangles at text size. Check that the missing bottom edge remains visible, that readers learn the upward convention, and that the fork does not imply a greatest member, authority, causation or an incomplete Configuration.
 5. **Arrowheads read as causation.** Causal path against the Capability family; Denotation's maps-to against a generic arrow; Consequence against CountsAs.
 6. **Template collisions recorded in the semantic review.** Sense against Trust; the post-stem-box template in Standing, Recognition, the Designations and Body; Map and Reference against Observation and Evidence; Attention and Care against Enforcement; Control, Boundary Sovereignty and Substrate; Model against Price.
 7. **Imported imagery.** The eye, crown, legs, Admission's checkbox and the gate's institutional reading.

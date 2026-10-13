@@ -60,8 +60,21 @@ export const strokes = {
     ).join(" ") + ` M${x} ${y-1}V${y+1}`,
   ).join(" "),
   memberLinks: "M16 6 6 24H26Z",
-  // Detached index: the position does not become a Configuration association.
+  // Retired State marker, retained for the historical design inventory.
   index: "M2 16H6",
+  // Equal triangles shifted by half a base: baseline x=4,12,20,28;
+  // apices x=12,20. Stop edges outside hollow centers; no opaque masks.
+  stateOverlap: [
+    "M5 22 11 10M13 10 19 22M12 24 20 8 28 24M6 24H18M22 24H28",
+    ...[[4, 24], [12, 8], [20, 24]].map(([x, y]) =>
+      `M${x} ${y-2}a2 2 0 1 1 0 4a2 2 0 1 1 0-4`,
+    ),
+    ...[[12, 24], [20, 8], [28, 24]].map(([x, y]) =>
+      [1, 2].map((r) =>
+        `M${x} ${y-r}a${r} ${r} 0 1 1 0 ${2*r}a${r} ${r} 0 1 1 0 ${-2*r}`,
+      ).join(" ") + ` M${x} ${y-1}V${y+1}`,
+    ),
+  ].join(" "),
   // Hasse cover edges, read upward; the lower members are incomparable.
   partialOrder: "M6 24 16 6 26 24",
   portFrame: "M8 2H2V30H8M24 2H30V30H24",
@@ -118,7 +131,7 @@ const alphabet = {
   Relation: ["bars", "association"],
   Denotation: ["denotes"],
   Configuration: ["members", "memberLinks"],
-  State: ["members", "memberLinks", "index"],
+  State: ["stateOverlap"],
   Direction: ["up", "foot"],
   Transformation: ["step", "dot"],
   Change: ["triangle", "slash"],
