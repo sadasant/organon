@@ -214,6 +214,8 @@ const alphabet = {
   Attention: ["tracking"],
   Care: ["tracking", "adjustedAction"],
   Respect: ["constrainedAction"],
+  // Append the slot; the registry places Identity immediately after Presence.
+  Identity: ["bars"],
 };
 
 // Private-use slots are font-local, not Unicode assignments. Preserve this

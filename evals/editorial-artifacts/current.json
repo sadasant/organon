@@ -7,7 +7,7 @@
   "primary_artifact": "report.md",
   "evaluation_status": "incomplete",
   "promotion_status": "hold",
-  "ontology_version": "0.20.0",
+  "ontology_version": "0.21.0",
   "ontology_sha256": "dc59b74da77899a5c446456ca447bc962bf60ec3b31308900aebf8b4aef1c4c6",
-  "promotion_basis": "Readiness-review source snapshot; ontology review is separate from downstream model evaluation, which remains incomplete"
+  "promotion_basis": "No downstream model evaluation of v0.21 has run. Retains the v0.20 source snapshot and its hash as incomplete/hold; the Identity promotion review does not supply editorial-quality evidence."
 }

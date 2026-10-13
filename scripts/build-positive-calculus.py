@@ -83,11 +83,11 @@ def run(*, check: bool) -> dict[str, int]:
 
     terms = registry.get("terms", [])
     by_id = {term["id"]: term for term in terms}
-    if len(terms) != 115 or len(by_id) != len(terms):
-        raise CalculusError("positive-calculus audit requires 115 unique terms")
+    if not terms or len(by_id) != len(terms):
+        raise CalculusError("positive-calculus audit requires a nonempty registry of unique terms")
     definitions = [term for term in terms if term["claim_type"] == "definition"]
-    if len(definitions) != 112:
-        raise CalculusError("positive calculus requires exactly 112 registered definitions")
+    if not definitions:
+        raise CalculusError("positive calculus requires registered definitions")
 
     entries = []
     mutation_count = 0
@@ -183,7 +183,7 @@ def run(*, check: bool) -> dict[str, int]:
 
     report = f"""# Degenerate registry-reflection control
 
-> Generated from the complete v0.20 registry. This is a deliberately degenerate control, not a positive constructor calculus or a replacement for the binding definitions.
+> Generated from the complete v{registry['ontology_version']} registry. This is a deliberately degenerate control, not a positive constructor calculus or a replacement for the binding definitions.
 
 ## Control result
 

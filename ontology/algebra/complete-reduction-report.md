@@ -1,6 +1,6 @@
 # Complete reduction audit
 
-> Generated from the complete v0.20 registry. This audits the candidate algebra after v0.18 promoted definition admission into C1, the v0.19 embodiment promotion, and the v0.20 attention-and-relation promotion.
+> Generated from the complete v0.21.0 registry. This audits the candidate algebra against the current registered vocabulary; new definitions are not silently treated as new normal-form queries.
 
 ## Result
 
@@ -8,7 +8,7 @@
 
 It is a compact annotation taxonomy for admissibility failures: it organizes why many proposed joins fail and why several indices and witnesses must be conserved. It is not an executable law engine or a generative algebra. Its disciplines have no positive predicate heads, so they cannot reconstruct a classification merely by rejecting malformed alternatives.
 
-The exhaustive ledger accounts for all **115 terms** and **53 commitments**. It retains 3 foundational terms, encodes typed normal-form queries for 9 definitions, and exhibits paired target-extension sketches for the remaining 103 definitions. It accounts for all 42 consistency rules: 20 have candidate clause-level annotations, 2 remain governance constraints, and 20 still require positive domain circuits.
+The exhaustive ledger accounts for all **116 terms** and **53 commitments**. It retains 3 foundational terms, encodes typed normal-form queries for 9 definitions, and exhibits paired target-extension sketches for the remaining 104 definitions. It accounts for all 42 consistency rules: 20 have candidate clause-level annotations, 2 remain governance constraints, and 20 still require positive domain circuits.
 
 ## Why dependency closure is insufficient
 
@@ -50,11 +50,11 @@ The next candidate is a two-part architecture:
 1. a small generative calculus of positive constructors for persistence, representation, causation, agency, institution, epistemic status, situated world, adaptive knowledge, and ritual meaning; and
 2. an executable admissibility semantics governing how those constructors may compose.
 
-A future completeness claim must reconstruct all 112 definitions from that combined system and eliminate every paired target-extension sketch with genuine models or proofs. Adding more prohibitions alone cannot do it.
+A future completeness claim must reconstruct all 113 definitions from that combined system and eliminate every paired target-extension sketch with genuine models or proofs. Adding more prohibitions alone cannot do it.
 
 ## Follow-on constructor result
 
-The [degenerate registry-reflection control](./positive-calculus-report.md) tests one generic witnessed-introduction wrapper. It reflects all 112 definitions only after receiving each complete binding definition schema, every lexical dependency as a positive fact over one candidate, and an opaque conformity witness. It therefore fails the semantic anti-vacuity gate and does not semantically eliminate any definition schema or close the positive-constructor question.
+The [degenerate registry-reflection control](./positive-calculus-report.md) tests one generic witnessed-introduction wrapper. It reflects every registered definition only after receiving each complete binding definition schema, every lexical dependency as a positive fact over one candidate, and an opaque conformity witness. It therefore fails the semantic anti-vacuity gate and does not semantically eliminate any definition schema or close the positive-constructor question.
 
 ## Complete disposition
 
@@ -62,7 +62,7 @@ The [degenerate registry-reflection control](./positive-calculus-report.md) test
 |---|---:|
 | Retained primitive or axiom | 3 |
 | Definition with typed normal-form query | 9 |
-| Positively underdetermined definition | 103 |
+| Positively underdetermined definition | 104 |
 | Candidate-derived consistency clause | 20 |
 | Retained governance constraint | 2 |
 | Consistency rule missing a positive circuit | 20 |

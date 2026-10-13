@@ -1,7 +1,7 @@
 ---
 type: ontology-prompt-projection
 status: generated-noncanonical
-ontology_version: "0.20.0"
+ontology_version: "0.21.0"
 projection_mode: "full"
 binding_source: ontology.md
 ---
@@ -27,14 +27,14 @@ binding_source: ontology.md
 
 - Mode: full
 - Requested: all registered terms
-- Terms carried: 115 of 115
+- Terms carried: 116 of 116
 - Commitments carried: 53 of 53
 
 ## Metalanguage boundary
 
 No ontology can define every word using only itself. Definition requires a metalanguage. This document therefore states its boundary instead of hiding it.
 
-The metalanguage supplies classical logic, including excluded middle, together with identity, negation, logical consequence, quantification, ordering, set membership, statements and marks, and the ability to distinguish an expression from what it denotes. Identity includes criteria for reidentifying what a statement treats as the same across ordered positions. An Entity claim must project that criterion into the object language by naming an Invariant, ordered States, and a Persistence witness; metalinguistic identity does not supply that witness.
+The metalanguage supplies classical logic, including excluded middle, together with identity, negation, logical consequence, quantification, ordering, set membership, statements and marks, and the ability to distinguish an expression from what it denotes. Metalinguistic identity includes criteria for reidentifying what a statement treats as the same across ordered positions. The registered Identity below restricts logical equality to Presence; it neither defines logical equality from scratch nor supplies those criteria. An Entity claim must project its reidentification criterion into the object language by naming an Invariant, ordered States, and a Persistence witness; logical equality alone does not supply that witness.
 
 The metalanguage also supplies relative possibility as satisfiability under stated Constraints: a candidate is possible only when at least one declared interpretation of those Constraints admits it. Every binding use of “can” or “possible” must name that Constraint context and a constructive witness. Relative possibility is not an additional Presence, a prediction that an event will occur, or unrestricted metaphysical modality.
 
@@ -70,9 +70,9 @@ Depends: organon:Presence, A3.
 
 ### `A5` · axiom
 
-**Missingness** is a relation inside Presence: a field represents or expects a Presence that it does not contain. Gaps, omissions, zeros, shadows, exceptions, refusals, and silences can be present signs of Missingness. They are not Absence itself.
+**Missingness** is a relation within Presence in which a field represents or expects a specified Presence but contains nothing identical to that Presence.
 
-Depends: organon:Presence.
+Depends: organon:Absence, organon:Presence, organon:Identity.
 
 ## Registered terms
 
@@ -90,12 +90,19 @@ Depends: none.
 Claim: `A3` (axiom).
 Depends: organon:Absence.
 
+### `organon:Identity` · Identity
+
+**Identity** obtains when two compared items are one and the same Presence, or one and the same ordered configuration of Presence.
+
+Claim: `D120` (definition).
+Depends: organon:Absence, organon:Presence.
+
 ### `organon:Missingness` · Missingness
 
-**Missingness** is a relation inside Presence: a field represents or expects a Presence that it does not contain. Gaps, omissions, zeros, shadows, exceptions, refusals, and silences can be present signs of Missingness. They are not Absence itself.
+**Missingness** is a relation within Presence in which a field represents or expects a specified Presence but contains nothing identical to that Presence.
 
 Claim: `A5` (axiom).
-Depends: organon:Presence.
+Depends: organon:Absence, organon:Presence, organon:Identity.
 
 ### `organon:Reality` · Reality
 
@@ -106,10 +113,10 @@ Depends: organon:Presence.
 
 ### `organon:Difference` · Difference
 
-**Difference** is the non-identity of two Presences or two ordered configurations of Presence. Difference is inside Reality; the defining departure of Presence from Absence belongs to the metalanguage and must not be mistaken for an ontological relation involving Absence.
+**Difference** is the failure of Identity between two compared Presences or two compared ordered configurations of Presence. Difference is inside Reality; the defining departure of Presence from Absence belongs to the metalanguage and must not be mistaken for an ontological relation involving Absence.
 
 Claim: `D002` (definition).
-Depends: organon:Presence, organon:Reality.
+Depends: organon:Absence, organon:Presence, organon:Identity, organon:Reality.
 
 ### `organon:Relation` · Relation
 
@@ -207,7 +214,7 @@ Depends: organon:Persistence, organon:Relation, organon:Transformation.
 **Entity** is a Configuration that retains identity through the Persistence of an Invariant named as its object-language identity criterion. The Entity claim must identify the ordered States and Persistence witness that realize the criterion supplied by the metalanguage.
 
 Claim: `D014` (definition).
-Depends: organon:Configuration, organon:Persistence, organon:Invariant.
+Depends: organon:Identity, organon:Configuration, organon:State, organon:Persistence, organon:Invariant.
 
 ### `organon:Boundary` · Boundary
 

@@ -11,6 +11,12 @@
     "status": "projection",
     "note": "The existing local encoding uses type inhabitation."
   },
+  "Identity": {
+    "module": "OrganonCore",
+    "name": "Identity",
+    "status": "projection",
+    "note": "Lean equality on one supplied carrier α. Identity holds only between members of that carrier; the encoding gives no criterion for individuating empirical things or reidentifying them across States."
+  },
   "Missingness": { "module": "OrganonCore", "name": "Missingness" },
   "Reality": {
     "module": "DanielOntology",
@@ -20,9 +26,9 @@
   },
   "Difference": {
     "module": "OrganonCore",
-    "name": "Change",
-    "fields": ["differs"],
-    "note": "A difference of Transformation endpoints. This field is one use of inequality, not a general definition of Difference."
+    "name": "Difference",
+    "status": "projection",
+    "note": "Negated Identity on the same supplied carrier α. It distinguishes members of that carrier only; it does not decide which empirical things are distinct. Change.differs uses this inequality for Transformation endpoints."
   },
   "Relation": {
     "status": "unencoded",

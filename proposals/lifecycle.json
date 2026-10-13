@@ -3,6 +3,13 @@
   "description": "Lifecycle of every retained proposal dossier, as described in proposals/README.md: its Claims manifest, current status, binding release, and any condition that remains quarantined. Checked by scripts/check-structure.py.",
   "entries": [
     {
+      "manifest": "identity-and-missingness-claims.json",
+      "dossier": "identity-and-missingness.md",
+      "status": "promoted",
+      "binding_release": "0.21.0",
+      "remaining_quarantine": ["empirical carrier adequacy, individuation and expectation provenance are application gates, not supplied by local equality proofs"]
+    },
+    {
       "manifest": "unicode-vocabulary-claims.json",
       "dossier": "unicode-vocabulary.md",
       "status": "ready-for-review",

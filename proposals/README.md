@@ -34,6 +34,7 @@ coverage and exact agreement with the individual manifests.
 
 ## Current dossiers
 
+- [Identity and exact-target Missingness](./identity-and-missingness.md): implemented for v0.21 in the working ontology; local equality and noncontainment contracts are proved, while empirical individuation and expectation provenance remain application gates.
 - [Unicode symbolic vocabulary study](./unicode-vocabulary.md): nonbinding feasibility assessment of all 115 active entries, with a [candidate atlas](./unicode-vocabulary-atlas.md), normalization audit, and explicit usability gates; no glyph assignments adopted.
 - [Ontological frameworks, distinctions, and source-relative novelty](./ontological-frameworks.md): ready for proposal review; eight original candidate profiles plus the Interpretation/Understanding split, with Lean witnesses and explicit realization gates.
 

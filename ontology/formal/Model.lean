@@ -17,6 +17,7 @@ import PR18Governance
 import RepresentationActivityExample
 import InstitutionalRevision
 import AttentionRevision
+import IdentityMissingness
 
 /-!
 # Daniel's Ontology: finite inhabited model

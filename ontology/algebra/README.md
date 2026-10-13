@@ -1,7 +1,7 @@
 ---
 type: ontology-algebra-experiment
 status: nonbinding
-ontology_version: "0.20.0"
+ontology_version: "0.21.0"
 source_lock: source-lock.json
 ---
 # Candidate algebra experiment
@@ -10,18 +10,18 @@ source_lock: source-lock.json
 
 This directory holds a nonbinding experiment over Organon's definitions: its
 hand-authored ledgers and fixtures, the mutations, witnesses, countermodels, and
-reports its builders generate, and the source lock that freezes the v0.20 inputs.
+reports its builders generate, and the source lock that freezes the v0.21 inputs.
 
 Organon currently states licensed joins in definitions and prohibited collapses
 in consistency rules. This experiment asks a second-order question: do several
 of those local definitions and fences instantiate a smaller calculus over typed
 participants, conserved indices, and explicit witnesses?
 
-The experiment does not shorten the binding term definitions. Version 0.20 is frozen by
+The experiment does not shorten the binding term definitions. Version 0.21 is frozen by
 commit and source digest in [source-lock.json](./source-lock.json). The registry must
 still match in the worktree because the builders read it; the prose sources are verified
-at the locked commit, so editing their presentation does not unfreeze the experiment; v0.20
-retains the definition-admission invariant and records the five embodiment definitions as positively underdetermined by this experiment, while the
+at the locked commit, so editing their presentation does not unfreeze the experiment; v0.21
+retains the definition-admission invariant and records Identity and the five embodiment definitions as positively underdetermined by this experiment, while the
 candidate disciplines and registry-reflection control remain nonbinding. The
 experiment is falsification-first: a candidate discipline is retained only
 when it uniquely annotates an isolating fixture, and a weakened definition

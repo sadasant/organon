@@ -2,7 +2,7 @@
 type: editorial-ontology
 status: provisional-binding
 binding: true
-version: 0.20
+version: 0.21
 created: 2026-08-01
 updated: 2026-10-12
 evidence_scope: "Daniel's adopted commitments and the recovered essay corpus"
@@ -13,11 +13,11 @@ delivery_language: "../editorial/short-form.md"
 ---
 # Daniel's Ontology
 
-*First published August 1, 2026; substantive revision October 12, 2026 (v0.20).*
+*First published August 1, 2026; substantive revision October 12, 2026 (v0.21).*
 
-Daniel's Ontology defines the vocabulary through which Organon reviews a body of work. It begins from one primitive, Absence, and its axioms, then orders 112 definitions by declared dependency, each with a stable `organon:*` identifier in the [registry](./terms.yaml). Typed Relation signatures and 42 binding constraints govern how the terms combine. The definitions run from Reality, Difference, and Relation through the representational, perceptual, and agentic regions to an Order-indexed institutional kernel, and on to the regions on Evidence, political order, valuation, Ritual and Meaning, embodiment, and Attention, Care, and Respect.
+Daniel's Ontology defines the vocabulary through which Organon reviews a body of work. It begins from one primitive, Absence, and its axioms, and orders 113 definitions by declared dependency, each with a stable `organon:*` identifier in the [registry](./terms.yaml). Typed Relation signatures and 42 binding constraints govern how the terms combine. The definitions run from Identity, Reality, Difference, and Relation through the representational, perceptual, and agentic regions to an Order-indexed institutional kernel, and on to the regions on Evidence, political order, valuation, Ritual and Meaning, embodiment, and Attention, Care, and Respect.
 
-Its claimed contribution is a unification constraint: metaphysical, perceptual, agentic, evidentiary, and institutional terms share one dependency chain, and no term's definition changes at the border between regions. The [intellectual shadows](#intellectual-shadows-and-contribution) state where each region borrows rigor from prior work and where the resemblance stops. Version 0.20 is provisional and binds only a repository that adopts named terms through an adoption manifest; the Lean shadow and the candidate algebra test it without replacing it.
+Its claimed contribution is a unification constraint: metaphysical, perceptual, agentic, evidentiary, and institutional terms share one dependency chain, and no term's definition changes at the border between regions. The [intellectual shadows](#intellectual-shadows-and-contribution) state where each region borrows rigor from prior work and where the resemblance stops. Version 0.21 is provisional and binds only a repository that adopts named terms through an adoption manifest; the Lean shadow and the candidate algebra test it without replacing it.
 
 > [!important] Binding ontology
 > For work governed by Organon, a term explicitly mapped to a stable `organon:*` identifier retains the meaning defined here. Capitalization is presentation, not adoption. A quarantined term carries no binding ontological meaning.
@@ -27,6 +27,7 @@ Its claimed contribution is a unification constraint: metaphysical, perceptual, 
 - [The closure boundary](#the-closure-boundary)
 - [Claim typing and stable identity](#claim-typing-and-stable-identity)
 - [Primitive and axioms](#primitive-and-axioms)
+  - [Identity within Presence](#identity-within-presence)
 - [Dependency-ordered definitions and commitments](#dependency-ordered-definitions-and-commitments)
   - [1. Reality](#1-reality)
   - [2. Difference](#2-difference)
@@ -74,7 +75,7 @@ Its claimed contribution is a unification constraint: metaphysical, perceptual, 
 
 No ontology can define every word using only itself. Definition requires a metalanguage. This document therefore states its boundary instead of hiding it.
 
-The metalanguage supplies classical logic, including excluded middle, together with identity, negation, logical consequence, quantification, ordering, set membership, statements and marks, and the ability to distinguish an expression from what it denotes. Identity includes criteria for reidentifying what a statement treats as the same across ordered positions. An Entity claim must project that criterion into the object language by naming an Invariant, ordered States, and a Persistence witness; metalinguistic identity does not supply that witness.
+The metalanguage supplies classical logic, including excluded middle, together with identity, negation, logical consequence, quantification, ordering, set membership, statements and marks, and the ability to distinguish an expression from what it denotes. Metalinguistic identity includes criteria for reidentifying what a statement treats as the same across ordered positions. The registered Identity below restricts logical equality to Presence; it neither defines logical equality from scratch nor supplies those criteria. An Entity claim must project its reidentification criterion into the object language by naming an Invariant, ordered States, and a Persistence witness; logical equality alone does not supply that witness.
 
 The metalanguage also supplies relative possibility as satisfiability under stated Constraints: a candidate is possible only when at least one declared interpretation of those Constraints admits it. Every binding use of “can” or “possible” must name that Constraint context and a constructive witness. Relative possibility is not an additional Presence, a prediction that an event will occur, or unrestricted metaphysical modality.
 
@@ -130,13 +131,28 @@ The ontology does not derive a mark from Absence. The occurrence of the mark wit
 
 Absence and Presence exhaust the ontology. Presence necessarily obtains given that anything is stated at all.
 
+### Identity within Presence
+
+<a id="organon-identity"></a>
+<!-- organon:term organon:Identity claim=D120 -->
+
+**Identity** obtains when two compared items are one and the same Presence, or one and the same ordered configuration of Presence.
+
+The comparison positions belong to the metalanguage. They need not denote two distinct things, and making a comparison does not produce Identity. Identity is logical equality restricted to Presence, not likeness, agreement in selected properties, indistinguishability to an observer, or equality after discarding order. The same ordered configuration has the same constituents in the same positions, under the declared metalinguistic identity criteria.
+
+Identity is reflexive, symmetric, transitive, and permits substitution in predicates about the same compared items. Matching selected properties does not establish Identity; failure to establish Identity does not establish non-identity. These are logical conditions, not a procedure guaranteed to decide every comparison. The exactness of Absence still uses metalinguistic identity, not this predicate inside Presence.
+
 <!-- organon:claim A5 -->
 ### Axiom A5: Missingness is not Absence
 
 <a id="organon-missingness"></a>
 <!-- organon:term organon:Missingness claim=A5 -->
 
-**Missingness** is a relation inside Presence: a field represents or expects a Presence that it does not contain. Gaps, omissions, zeros, shadows, exceptions, refusals, and silences can be present signs of Missingness. They are not Absence itself.
+**Missingness** is a relation within Presence in which a field represents or expects a specified Presence but contains nothing identical to that Presence.
+
+Here, “identical” invokes Identity. The field, its represented or expected target, and the target's noncontainment must all be specified; noncontainment alone does not establish that the field represents or expects that target. A field need not be empty: a drawer containing a lookalike key still exhibits Missingness of the particular key expected. Conversely, an empty drawer does not by itself specify any expected key. If the expectation concerns any member of a class rather than a particular item, that different target condition must be stated; an arbitrary representative must not silently replace it.
+
+Gaps, omissions, zeros, shadows, exceptions, refusals, and silences can be present signs of Missingness. They are not Absence itself. A represented target does not establish that a fictional referent exists: the Presence used as the target must be identified, rather than an uninstantiated description silently treated as its instance.
 
 Missingness is relational. Presence is contrastively defined. Absence is absolute.
 
@@ -158,7 +174,9 @@ The definitions below are dependency-ordered. A definition may depend on the met
 <a id="organon-difference"></a>
 <!-- organon:term organon:Difference claim=D002 -->
 
-**Difference** is the non-identity of two Presences or two ordered configurations of Presence. Difference is inside Reality; the defining departure of Presence from Absence belongs to the metalanguage and must not be mistaken for an ontological relation involving Absence.
+**Difference** is the failure of Identity between two compared Presences or two compared ordered configurations of Presence. Difference is inside Reality; the defining departure of Presence from Absence belongs to the metalanguage and must not be mistaken for an ontological relation involving Absence.
+
+Under the same comparison and identity criteria, exactly one of Identity and Difference obtains. This partition uses the declared classical logic; it does not establish that an observer knows which condition obtains. Difference is symmetric and irreflexive, but need not be transitive: two items can each differ from a third while being identical to one another. Changing the compared items, their ordered configuration, or the identity criterion changes the question rather than contradicting the partition.
 
 ### 3. Relation
 
@@ -245,6 +263,8 @@ This is one definition, not two. A prohibition constrains possible action. A pri
 <!-- organon:term organon:Entity claim=D014 -->
 
 **Entity** is a Configuration that retains identity through the Persistence of an Invariant named as its object-language identity criterion. The Entity claim must identify the ordered States and Persistence witness that realize the criterion supplied by the metalanguage.
+
+Identity of an Entity does not assert Identity of its successive States. Different States may belong to the same Entity when the named criterion and Persistence witness justify its reidentification. Conversely, sharing an Invariant does not by itself establish Identity of two Entities; the criterion must distinguish the particular Entity, not merely a common property.
 
 <a id="organon-boundary"></a>
 <!-- organon:term organon:Boundary claim=D015 -->
@@ -1194,4 +1214,4 @@ The shadows table also names traditions rather than single works: Peirce's triad
 
 ## How to cite
 
-Rodríguez, Daniel. "Daniel's Ontology," version 0.20. In *Organon*, 2026. https://github.com/sadasant/organon/blob/main/ontology/ontology.md. Citation metadata for the repository is in [CITATION.cff](../CITATION.cff).
+Rodríguez, Daniel. "Daniel's Ontology," version 0.21. In *Organon*, 2026. https://github.com/sadasant/organon/blob/main/ontology/ontology.md. Citation metadata for the repository is in [CITATION.cff](../CITATION.cff).

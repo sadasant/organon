@@ -178,9 +178,10 @@ test("the full view is one acyclic connected graph within Presence; Absence stay
   );
 });
 
-test("all 115 definitions preserve source ordering and carry a glyph assessment", () => {
-  assert.equal(terms.length, 115);
+test("all definitions preserve source ordering and carry a glyph assessment", () => {
+  assert.equal(terms.length, 116);
   assert.equal(terms[0].id, "organon:Absence");
+  assert.equal(terms[2].id, "organon:Identity");
   assert.equal(terms.at(-1).id, "organon:Respect");
   assert.ok(terms.every((t) => t.statement.startsWith(`**${t.label}**`)));
   assert.ok(terms.every((t) => `organon:${t.glyphReview.term}` === t.id));
@@ -194,9 +195,12 @@ test("all 115 definitions preserve source ordering and carry a glyph assessment"
 
 test("every term has its own shared glyph and private-use font slot", () => {
   assert.deepEqual(
-    glyphs.map((g) => g.id),
-    terms.map((t) => t.id),
+    glyphs.map((g) => g.id).sort(),
+    terms.map((t) => t.id).sort(),
   );
+  // New terms in canonical order must not shift already published font slots.
+  for (const [name, codepoint] of [["Presence", 0xe001], ["Missingness", 0xe002], ["Respect", 0xe072], ["Identity", 0xe073]])
+    assert.equal(glyphs.find((g) => g.term === name).codepoint, codepoint);
   assert.equal(new Set(glyphs.map((g) => g.path)).size, terms.length);
   assert.equal(new Set(glyphs.map((g) => g.codepoint)).size, terms.length);
   assert.ok(

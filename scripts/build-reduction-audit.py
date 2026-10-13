@@ -66,8 +66,8 @@ def audit(*, check: bool) -> dict[str, int]:
     terms = registry.get("terms", [])
     commitments = registry.get("commitments", [])
     term_ids = [term["id"] for term in terms]
-    if len(term_ids) != 115 or len(term_ids) != len(set(term_ids)):
-        raise AuditError("complete audit requires exactly 115 unique registered terms")
+    if not term_ids or len(term_ids) != len(set(term_ids)):
+        raise AuditError("complete audit requires a nonempty registry of unique terms")
 
     card_by_term = {card["term_id"]: card["id"] for card in cards}
     if len(card_by_term) != len(cards):
@@ -170,7 +170,7 @@ def audit(*, check: bool) -> dict[str, int]:
     report = [
         "# Complete reduction audit",
         "",
-        "> Generated from the complete v0.20 registry. This audits the candidate algebra after v0.18 promoted definition admission into C1, the v0.19 embodiment promotion, and the v0.20 attention-and-relation promotion.",
+        f"> Generated from the complete v{registry['ontology_version']} registry. This audits the candidate algebra against the current registered vocabulary; new definitions are not silently treated as new normal-form queries.",
         "",
         "## Result",
         "",
@@ -205,11 +205,11 @@ def audit(*, check: bool) -> dict[str, int]:
             "1. a small generative calculus of positive constructors for persistence, representation, causation, agency, institution, epistemic status, situated world, adaptive knowledge, and ritual meaning; and",
             "2. an executable admissibility semantics governing how those constructors may compose.",
             "",
-            "A future completeness claim must reconstruct all 112 definitions from that combined system and eliminate every paired target-extension sketch with genuine models or proofs. Adding more prohibitions alone cannot do it.",
+            f"A future completeness claim must reconstruct all {sum(t['claim_type'] == 'definition' for t in terms)} definitions from that combined system and eliminate every paired target-extension sketch with genuine models or proofs. Adding more prohibitions alone cannot do it.",
             "",
             "## Follow-on constructor result",
             "",
-            "The [degenerate registry-reflection control](./positive-calculus-report.md) tests one generic witnessed-introduction wrapper. It reflects all 112 definitions only after receiving each complete binding definition schema, every lexical dependency as a positive fact over one candidate, and an opaque conformity witness. It therefore fails the semantic anti-vacuity gate and does not semantically eliminate any definition schema or close the positive-constructor question.",
+            "The [degenerate registry-reflection control](./positive-calculus-report.md) tests one generic witnessed-introduction wrapper. It reflects every registered definition only after receiving each complete binding definition schema, every lexical dependency as a positive fact over one candidate, and an opaque conformity witness. It therefore fails the semantic anti-vacuity gate and does not semantically eliminate any definition schema or close the positive-constructor question.",
             "",
             "## Complete disposition",
             "",

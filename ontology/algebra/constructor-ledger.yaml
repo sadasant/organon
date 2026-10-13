@@ -2,35 +2,64 @@
   "schema_version": 1,
   "status": "generated-nonbinding-degenerate-registry-reflection-ledger",
   "source_sha256": {
-    "ontology/terms.yaml": "48469a8a1a6f52837d428002b233701667bbebcb06c4d55457355303da38f937",
+    "ontology/terms.yaml": "de52d028048e28f3367e1a37a9a22fee466ebfd04a9fd31e0c5dbf0f6c6f7bf5",
     "ontology/algebra/positive-calculus.yaml": "76c83651ae6d9ada317546a862450ec7940b5d1e12fb93b973f8bd6fd1abdd73",
-    "scripts/build-positive-calculus.py": "bedb359a6cca55cf18695af039c8ddaf299673f5cd341197333525de2d769b82"
+    "scripts/build-positive-calculus.py": "6bf02fc31616d2771320841951275e61988fb73f7df1302329f6c28e5ddff863"
   },
   "counts": {
-    "registered_terms": 115,
+    "registered_terms": 116,
     "retained_foundation": 3,
-    "definitions_reflected": 112,
+    "definitions_reflected": 113,
     "constructors": 1,
-    "dependency_removal_fixtures": 923,
+    "dependency_removal_fixtures": 930,
     "unreflected_definitions": 0
   },
   "degenerate_control_comparison": {
     "zero_constructors_positive_heads": 0,
     "zero_constructors_definitions_derived": 0,
-    "one_constructor_definitions_derived": 112,
+    "one_constructor_definitions_derived": 113,
     "ablate_G1_definitions_derived": 0,
     "constructor_minimum_proved": false,
     "explanation": "The comparison covers only G0 and the hand-authored G1 wrapper; it is not an exhaustive search over nondegenerate constructor families."
   },
   "semantic_minimality": {
     "proved": false,
-    "binding_definition_schemas_retained": 112,
+    "binding_definition_schemas_retained": 113,
     "anti_vacuity_passes": false,
     "opaque_parameter": "Conforms(binding_definition_schema, candidate)",
     "eligible_for_promotion": false,
     "explanation": "G1 is parametric in each complete binding definition, and the evaluator does not derive the conformity witness from prose; no term meaning has been erased or proved interdefinable."
   },
   "entries": [
+    {
+      "term": "organon:Identity",
+      "claim": "D120",
+      "constructor": "G1",
+      "declared_dependencies": [
+        "organon:Absence",
+        "organon:Presence"
+      ],
+      "conformity_witness": {
+        "predicate": "Conforms",
+        "args": [
+          "D120",
+          "candidate"
+        ]
+      },
+      "result": {
+        "predicate": "Classified",
+        "args": [
+          "organon:Identity",
+          "candidate"
+        ]
+      },
+      "derives": true,
+      "one_step_mutations": [
+        "G1-D120-remove-Absence",
+        "G1-D120-remove-Presence",
+        "G1-D120-remove-witness"
+      ]
+    },
     {
       "term": "organon:Reality",
       "claim": "D001",
@@ -63,6 +92,8 @@
       "claim": "D002",
       "constructor": "G1",
       "declared_dependencies": [
+        "organon:Absence",
+        "organon:Identity",
         "organon:Presence",
         "organon:Reality"
       ],
@@ -82,6 +113,8 @@
       },
       "derives": true,
       "one_step_mutations": [
+        "G1-D002-remove-Absence",
+        "G1-D002-remove-Identity",
         "G1-D002-remove-Presence",
         "G1-D002-remove-Reality",
         "G1-D002-remove-witness"
@@ -488,8 +521,10 @@
       "constructor": "G1",
       "declared_dependencies": [
         "organon:Configuration",
+        "organon:Identity",
         "organon:Invariant",
-        "organon:Persistence"
+        "organon:Persistence",
+        "organon:State"
       ],
       "conformity_witness": {
         "predicate": "Conforms",
@@ -508,8 +543,10 @@
       "derives": true,
       "one_step_mutations": [
         "G1-D014-remove-Configuration",
+        "G1-D014-remove-Identity",
         "G1-D014-remove-Invariant",
         "G1-D014-remove-Persistence",
+        "G1-D014-remove-State",
         "G1-D014-remove-witness"
       ]
     },

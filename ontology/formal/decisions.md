@@ -9,10 +9,11 @@ prose_ontology: "../ontology.md"
 
 *First published August 2, 2026; last revised October 12, 2026. Noncanonical.*
 
-These decisions belong to the Lean spike. They expose choices priced by formalization. They do not independently revise [Daniel's Ontology v0.20](../ontology.md); accepted findings flow into the binding, single-file Markdown ontology through its changelog.
+These decisions belong to the Lean spike. They expose choices priced by formalization. They do not independently revise [Daniel's Ontology v0.21](../ontology.md); accepted findings flow into the binding, single-file Markdown ontology through its changelog.
 
 ## Contents
 
+- [Identity names equality; Missingness retains an assigned target](#identity-names-equality-missingness-retains-an-assigned-target)
 - [Embodiment uses typed witnesses without promoting consciousness](#embodiment-uses-typed-witnesses-without-promoting-consciousness)
 - [Flow absorbs recurrence; Ritual and Meaning retain distinct burdens](#flow-absorbs-recurrence-ritual-and-meaning-retain-distinct-burdens)
 - [Hidden bridges divide into metalanguage, derivation, and object Relations](#hidden-bridges-divide-into-metalanguage-derivation-and-object-relations)
@@ -135,6 +136,14 @@ Exclusivity is constructive. Exhaustiveness for an arbitrary type requires exclu
 ## A5 represents Missingness positively
 
 `Missingness α` contains a Field, an expected inhabitant, and proof that the Field omits it. A value of this structure is itself present. Missingness therefore cannot collapse into the uninhabited-type predicate used as Absence's local shadow.
+
+## Identity names equality; Missingness retains an assigned target
+
+The v0.21 [Identity and Missingness review](../../proposals/identity-and-missingness.md) adds `Identity a b := a = b` and `Difference a b := ¬ Identity a b` to the reduct. The strongest reduction to logical equality is accepted; registration makes its restriction to Presence explicit rather than claiming a novel mechanism. This does not make canonical Entity individuation identical to record equality, nor does a shared property identify two objects.
+
+`IdentityMissingness.missingnessExactTarget` proves both directions between the existing nonmembership condition and the absence of any contained item equal to the specified target. It preserves record constructors and existing contracts. The field contains only a membership predicate; the `expected` value remains externally assigned. Thus the construction does not prove that a real field expects that item. It is a local mathematical model with an application premise, not a complete representation/expectation theory.
+
+The asymmetric token witnesses retain the same appearance while changing identity, membership and target independently. Reversed pairs and lists distinguish order from membership. Equality laws are general; exhaustiveness uses classical excluded middle without supplying an executable equality test. `entityHistoryContainsDifference` connects the distinction to the current non-singleton Entity shadow: its own ordered history includes unequal States preserving one Invariant. This does not close the existing canonical individuation gap or require every prose history to contain a transition.
 
 ## Direction internalizes ordering
 
