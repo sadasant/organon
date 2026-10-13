@@ -51,7 +51,7 @@ export const strokes = {
   // generic crowns, eyes, and tiny decorative additions obscured. These names
   // document design intent; combining paths still does not assert entailment.
   ordered: "M4 7H9V13H20V24H27M4 4V10M17 10V16M24 21V27",
-  denotes: "M5 8V24M5 16H17M22 11H28V21H22Z",
+  denotes: "M5 8V24M5 16H27M20 9 27 16 20 23",
   grouping: "M10 4H4V10M22 4H28V10M4 22V28H10M28 22V28H22M9 10V16M15 20H21M21 9H25",
   index: "M2 19H10",
   portFrame: "M8 2H2V30H8M24 2H30V30H24",
