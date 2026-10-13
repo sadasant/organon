@@ -62,7 +62,8 @@ export const strokes = {
   memberLinks: "M16 6 6 24H26Z",
   // Detached index: the position does not become a Configuration association.
   index: "M2 16H6",
-  partialOrder: "M24 4 14 14 24 24M10 28H24",
+  // Hasse cover edges, read upward; the lower members are incomparable.
+  partialOrder: "M6 24 16 6 26 24",
   portFrame: "M8 2H2V30H8M24 2H30V30H24",
   surroundings: "M9 10V22H23M3 6H7M16 3V7M26 5 29 8M25 16H30M17 27V30",
   partialMap: "M6 6H26V12M26 20V26H6V6M6 20H13V13H21",
@@ -229,7 +230,7 @@ const alphabet = {
   // Append the slot; the registry places Set before Configuration.
   Set: ["members"],
   // The legacy Order key/slot still denotes Coordination Order.
-  MathematicalOrder: ["partialOrder"],
+  MathematicalOrder: ["members", "partialOrder"],
 };
 
 // Private-use slots are font-local, not Unicode assignments. Preserve this
