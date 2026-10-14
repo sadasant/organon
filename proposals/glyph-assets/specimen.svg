@@ -116,19 +116,19 @@
 <text x="75" y="870" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Principal</text>
 <g transform="translate(205,812) scale(1.25)"><path d="M16 6.94744111674235 27 26H5Z M3 16H28M21 9 28 16 21 23" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
 <text x="225" y="870" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">ActsFor</text>
-<g transform="translate(355,812) scale(1.25)"><path d="M3 9V23M3 16H15V7H26V19M22 15 26 19 30 15M21 19V28H30V19" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
+<g transform="translate(355,812) scale(1.25)"><path d="M4 4H28V28H4Z M10 12a2 2 0 1 1 0 4a2 2 0 1 1 0-4 M19 10H25V18H19Z M12.5 14H19M10 24H22" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
 <text x="375" y="870" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">CountsAs</text>
-<g transform="translate(505,812) scale(1.25)"><path d="M5 27V5H15M10 11H22V22H28M18 18 22 22 26 18M10 27H20" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
+<g transform="translate(505,812) scale(1.25)"><path d="M4 4V28M28 4V28 M16 11.87564434701786L23 24H9Z M16 6V28" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
 <text x="525" y="870" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Authority</text>
-<g transform="translate(655,812) scale(1.25)"><path d="M6 26V6H26V26 M16 14a2 2 0 1 1 0 4a2 2 0 1 1 0-4 M3 11H8M24 11H29" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
+<g transform="translate(655,812) scale(1.25)"><path d="M3 4V28M29 4V28M9 24V8H23V24M3 16H9M23 16H29 M16 14a2 2 0 1 1 0 4a2 2 0 1 1 0-4" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
 <text x="675" y="870" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Permission Claim</text>
-<g transform="translate(805,812) scale(1.25)"><path d="M16 3V29M5 7 16 15 27 7 M10 3H22" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
+<g transform="translate(805,812) scale(1.25)"><path d="M4 25V7H18V25 M11 13a2 2 0 1 1 0 4a2 2 0 1 1 0-4 M18 16H29M26.523993155270965 17.693927420185105L29 16L26.523993155270965 14.306072579814893" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
 <text x="825" y="870" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Declaration</text>
 <g transform="translate(955,812) scale(1.25)"><path d="M4 5H14V27M4 13H14M14 20H27M23 16 27 20 23 24M22 5H28V11" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
 <text x="975" y="870" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Grant</text>
 <g transform="translate(1105,812) scale(1.25)"><path d="M6 26V6H26V26 M10 12 16 18 22 12" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
 <text x="1125" y="870" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Admission</text>
-<g transform="translate(55,922) scale(1.25)"><path d="M6 26V6H26V26 M16 29V4M10 10 16 4 22 10" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
+<g transform="translate(55,922) scale(1.25)"><path d="M6 5H26V27H6Z M9 16H23M20.523993155270965 17.693927420185105L23 16L20.523993155270965 14.306072579814893 M10 23H22" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
 <text x="75" y="980" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Permission</text>
 <g transform="translate(205,922) scale(1.25)"><path d="M6 26V6H26V26 M5 27 27 5" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
 <text x="225" y="980" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Revocation</text>

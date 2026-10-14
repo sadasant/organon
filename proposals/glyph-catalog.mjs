@@ -274,6 +274,12 @@ export const strokes = {
       [16+7*Math.cos(i*Math.PI/3), 16+7*Math.sin(i*Math.PI/3)])],
     Array.from({ length: 6 }, (_, i) => [0, i+1]), [0]),
   ].join(" "),
+  // Approved institutional study; Grant and the proposed V extension wait.
+  pairedStatusRecord: `M4 4H28V28H4Z ${hollowNode([10, 14])} M19 10H25V18H19Z M12.5 14H19M10 24H22`,
+  agentInDomain: `M4 4V28M28 4V28 M16 ${24-equilateralHeight(14)}L23 24H9Z M16 6V28`,
+  scopedAssertion: `M3 4V28M29 4V28M9 24V8H23V24M3 16H9M23 16H29 ${hollowNode([16, 16])}`,
+  submittedClaim: `M4 25V7H18V25 ${hollowNode([11, 15])} M18 16H29${arrowHead([18, 16], [29, 16])}`,
+  recordedPassage: `M6 5H26V27H6Z M9 16H23${arrowHead([9, 16], [23, 16])} M10 23H22`,
 };
 
 const alphabet = {
@@ -334,13 +340,13 @@ const alphabet = {
   Recognition: ["scopedPlacement", "standingSheet"],
   Principal: ["standingEntity"],
   ActsFor: ["triangle", "arrow"],
-  CountsAs: ["statusAssignment"],
-  Authority: ["binding"],
-  PermissionClaim: ["gate", "dot", "wings"],
-  Declaration: ["tree", "cap"],
+  CountsAs: ["pairedStatusRecord"],
+  Authority: ["agentInDomain"],
+  PermissionClaim: ["scopedAssertion"],
+  Declaration: ["submittedClaim"],
   Grant: ["issuedPermission"],
   Admission: ["gate", "chevron"],
-  Permission: ["gate", "up"],
+  Permission: ["recordedPassage"],
   Revocation: ["gate", "slash"],
   PermissionExercise: ["gate", "arrow"],
   Exercisability: ["permittedRealization"],
