@@ -11,18 +11,19 @@ const stateTrimY = equilateralHeight(2.5);
 // hollow nodes are r=2 rings; solid nodes are concentric strokes with a core.
 // Every connection stops 2.5 units from a node center, outside hollow centers.
 const nodeTrim = 2.5;
-const hollowNode = ([x, y]) => `M${x} ${y-2}a2 2 0 1 1 0 4a2 2 0 1 1 0-4`;
-const solidNode = ([x, y]) =>
-  [1, 2].map((r) =>
+const hollowNode = ([x, y], radius = 2) => `M${x} ${y-radius}a${radius} ${radius} 0 1 1 0 ${2*radius}a${radius} ${radius} 0 1 1 0${-2*radius}`;
+const solidNode = ([x, y], radius = 2) =>
+  [radius/2, radius].map((r) =>
     `M${x} ${y-r}a${r} ${r} 0 1 1 0 ${2*r}a${r} ${r} 0 1 1 0 ${-2*r}`,
-  ).join(" ") + ` M${x} ${y-1}V${y+1}`;
-const graph = (nodes, edges, solid = []) => [
+  ).join(" ") + ` M${x} ${y-radius/2}V${y+radius/2}`;
+// Reviewed miniatures preserve their node radii and edge trims at full stroke weight.
+const graph = (nodes, edges, solid = [], trim = nodeTrim, radius = 2) => [
   ...edges.map(([a, b]) => {
     const [[x, y], [u, v]] = [nodes[a], nodes[b]];
-    const t = nodeTrim / Math.hypot(u - x, v - y);
+    const t = trim / Math.hypot(u - x, v - y);
     return `M${x+(u-x)*t} ${y+(v-y)*t} ${u-(u-x)*t} ${v-(v-y)*t}`;
   }),
-  ...nodes.map((node, i) => (solid.includes(i) ? solidNode : hollowNode)(node)),
+  ...nodes.map((node, i) => (solid.includes(i) ? solidNode : hollowNode)(node, radius)),
 ].join(" ");
 // The point where a segment from outside reaches nodeTrim from a node center.
 const stopOutside = ([x, y], [u, v], [cx, cy]) => {
@@ -227,10 +228,10 @@ export const strokes = {
     "M3 10H15V22H3Z",
     solidNode([9, 16]),
     "M15 16H24.5M21 6V26M21 6H24.5M21 26H24.5",
-    ...[[27, 6], [27, 16], [27, 26]].map(hollowNode),
+    ...[[27, 6], [27, 16], [27, 26]].map(point => hollowNode(point)),
   ].join(" "),
   // Upper and lower spans over three solid member dots.
-  coverageSpan: ["M4 10V5H28V10M4 22V27H28V22", ...[[7, 16], [16, 16], [25, 16]].map(solidNode)].join(" "),
+  coverageSpan: ["M4 10V5H28V10M4 22V27H28V22", ...[[7, 16], [16, 16], [25, 16]].map(point => solidNode(point))].join(" "),
   // A sheet with a condition line, a route and a transverse result mark.
   testSheet: `${sheet}M9 10H23M9 16H16M16 16L23 22M20 25L26 19`,
   // A sheet containing a maps-to expression.
@@ -289,6 +290,28 @@ export const strokes = {
   ruleForAdmission: `M4 3H28V29H4Z M9 7V15M9 11H23${arrowHead([9, 11], [23, 11])} M10 20L16 26L22 20`,
   witnessBeyondControl: `M2 25V7H13V25M17 4V28 M7.5 14.5a1.5 1.5 0 1 1 0 3a1.5 1.5 0 1 1 0-3 ${compactEye(19, 16, 11)}`,
   admittedObservation: `M4 3H28V29H4Z ${compactEye(8, 12, 16)} M10 20L16 26L22 20`,
+  evaluatedObservation: `${sheet} ${compactEye(8, 10, 16)} M16 15V23M8 23V19H24V23 ${[8, 16, 24].map(x => hollowNode([x, 26])).join(" ")}`,
+  witnessingClaim: `M4 27V5H28V27 ${compactEye(8, 16, 16)}`,
+  centeredCoordination: `M3 4V28M29 4V28 ${graph([[7.16, 16], [16, 16], [24.84, 16], [16, 7.84], [16, 24.16]], [[0, 1], [1, 2], [3, 1], [1, 4]], [1], 2.8*0.68, 2*0.68)}`,
+  // Center and Shadow are inset 4% about (16,16) to preserve the ink margin.
+  flowHub: graph([[3, 16], [16, 16], [29, 16], [16, 4], [16, 28]].map(point => point.map(c => 16+0.96*(c-16))), [[0, 1], [1, 2], [3, 1], [1, 4]], [1], 2.8*0.96, 2*0.96),
+  transformationInWhole: [
+    "M3 10V3H10M22 3H29V10M3 22V29H10M22 29H29V22",
+    `M7.9375 ${22-equilateralHeight(1.875)}L12.0625 ${22-equilateralHeight(10.125)}M8.875 22H17.125M13.9375 ${22-equilateralHeight(10.125)}L18.0625 ${22-equilateralHeight(1.875)}M14.875 ${22-equilateralHeight(12)}H25M19.9375 ${22-equilateralHeight(1.875)}L25 ${22-equilateralHeight(12)}`,
+    hollowNode([7, 22], 1.5), hollowNode([13, 22-equilateralHeight(12)], 1.5),
+    hollowNode([19, 22], 1.5), solidNode([25, 22-equilateralHeight(12)], 1.5),
+  ].join(" "),
+  recognizedMap: "M2 2H30V30H2Z M5 4V28M27 4V28M5 16H8.3M23 16H27 M9.95 11.05L20.95 9.4L22.6 21.5L8.85 19.85ZM9.95 11.05L22.6 21.5M20.95 9.4L8.85 19.85M9.4 15.45H21.775",
+  excludedCoordination: [
+    "M1.5616 9.5488H14.464V22.4512H1.5616Z M2.944 10.4704V21.5296M13.0816 10.4704V21.5296M2.944 16H4.46464M11.2384 16H13.0816 M5.22496 13.71904L10.29376 12.95872L11.05408 18.5344L4.71808 17.77408ZM5.22496 13.71904L11.05408 18.5344M10.29376 12.95872L4.71808 17.77408M4.97152 15.74656H10.67392",
+    graph([[22, 5], [28, 16], [22, 27]].map(point => point.map(c => 16+0.96*(c-16))), [[0, 1], [1, 2]], [], 2.8*0.96, 2*0.96),
+  ].join(" "),
+  recordedEntityStanding: [
+    "M2 2H30V30H2Z M5 4V28M27 4V28M5 16H6.5M25.5 16H27",
+    graph([[16, 16], ...Array.from({ length: 6 }, (_, i) =>
+      [16+7*Math.cos(i*Math.PI/3), 16+7*Math.sin(i*Math.PI/3)])],
+    Array.from({ length: 6 }, (_, i) => [0, i+1]), [0], 2.8),
+  ].join(" "),
 };
 
 const alphabet = {
@@ -364,14 +387,14 @@ const alphabet = {
   AdmissibilityRule: ["ruleForAdmission"],
   IndependentFor: ["witnessBeyondControl"],
   Evidence: ["admittedObservation"],
-  EvidentialBearing: ["eye", "arrow"],
-  Attestation: ["eye", "cap", "foot"],
-  Institution: ["continuingOrder"],
-  Center: ["ring", "star"],
-  Organ: ["ring", "cross", "ticks"],
-  CanonicalSystem: ["square", "tree"],
-  ShadowSystem: ["frame", "tree"],
-  Person: ["ring", "axis", "personRecord"],
+  EvidentialBearing: ["evaluatedObservation"],
+  Attestation: ["witnessingClaim"],
+  Institution: ["centeredCoordination"],
+  Center: ["flowHub"],
+  Organ: ["transformationInWhole"],
+  CanonicalSystem: ["recognizedMap"],
+  ShadowSystem: ["excludedCoordination"],
+  Person: ["recordedEntityStanding"],
   Receipt: ["portableRecord"],
   Ledger: ["square", "rails", "bars"],
   Polity: ["arch", "tree", "foot"],
