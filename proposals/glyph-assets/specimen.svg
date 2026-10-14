@@ -60,9 +60,9 @@
 <text x="675" y="430" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Sign</text>
 <g transform="translate(805,372) scale(1.25)"><path d="M16 5 27 16 16 27 5 16Z M16 10V22M10 16H22M12 12 20 20M20 12 12 20" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
 <text x="825" y="430" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Symbol</text>
-<g transform="translate(955,372) scale(1.25)"><path d="M11 3V29M21 3V29 M10 10 22 22M22 10 10 22 M10 3H22" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
+<g transform="translate(955,372) scale(1.25)"><path d="M3 12H11V20H3Z M23 3H30V10H23Z M23 22H30V29H23Z M11 16H16L21 7M21.278303757884032 9.98706327658917L21 7L18.31678579873084 8.341775521504063 M16 16L21 25M18.31678579873084 23.658224478495935L21 25L21.278303757884032 22.01293672341083" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
 <text x="975" y="430" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Language</text>
-<g transform="translate(1105,372) scale(1.25)"><path d="M6 6H26V12M26 20V26H6V6M6 20H13V13H21" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
+<g transform="translate(1105,372) scale(1.25)"><path d="M5 7L25 4L28 26L3 23ZM5 7L28 26M25 4L3 23M4 15L26.5 15" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
 <text x="1125" y="430" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Map</text>
 <g transform="translate(55,482) scale(1.25)"><path d="M6 6H26V12M26 20V26H6V6M6 20H13V13H21 M2 11V21M30 11V21" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
 <text x="75" y="540" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Reference</text>
@@ -70,9 +70,9 @@
 <text x="225" y="540" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Sense</text>
 <g transform="translate(355,482) scale(1.25)"><path d="M3 16Q16 0 29 16Q16 32 3 16Z M16 14a2 2 0 1 1 0 4a2 2 0 1 1 0-4" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
 <text x="375" y="540" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Perception</text>
-<g transform="translate(505,482) scale(1.25)"><path d="M7 7H25V25H7Z M4 23H11V16H21V9H28" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
+<g transform="translate(505,482) scale(1.25)"><path d="M6 5H26V27H6Z M16 12a2 2 0 1 1 0 4a2 2 0 1 1 0-4 M10 23H22" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
 <text x="525" y="540" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Record</text>
-<g transform="translate(655,482) scale(1.25)"><path d="M10 5H27V27H10V17M3 8V13H17V21H23" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
+<g transform="translate(655,482) scale(1.25)"><path d="M4 4H28V28H4Z M8 16Q16 6 24 16Q16 26 8 16Z M16 14a2 2 0 1 1 0 4a2 2 0 1 1 0-4" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
 <text x="675" y="540" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Observation</text>
 <g transform="translate(805,482) scale(1.25)"><path d="M6 9V16Q6 24 16 24Q26 24 26 16V9 M8 12H24M8 20H24" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
 <text x="825" y="540" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Memory</text>

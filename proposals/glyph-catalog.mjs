@@ -234,6 +234,12 @@ export const strokes = {
   mappingSheet: `${sheet} M8 10V22M8 16H23${arrowHead([8, 16], [23, 16])}`,
   // A trace from a hollow target node into a separate token box.
   traceToken: `${hollowNode([4, 16])} M7 16H21${arrowHead([7, 16], [21, 16])} M22 9H29V23H22Z`,
+  // Approved expression and recording batch; the mesh's irregular cells are
+  // deliberate, not members of the equilateral Configuration triangle family.
+  rewriteNetwork: `M3 12H11V20H3Z M23 3H30V10H23Z M23 22H30V29H23Z M11 16H16L21 7${arrowHead([16, 16], [21, 7])} M16 16L21 25${arrowHead([16, 16], [21, 25])}`,
+  unevenMesh: "M5 7L25 4L28 26L3 23ZM5 7L28 26M25 4L3 23M4 15L26.5 15",
+  retainedToken: `M6 5H26V27H6Z ${hollowNode([16, 14])} M10 23H22`,
+  witnessedRecord: `M4 4H28V28H4Z M8 16Q16 6 24 16Q16 26 8 16Z ${hollowNode([16, 16])}`,
 };
 
 const alphabet = {
@@ -266,13 +272,13 @@ const alphabet = {
   Rule: ["mappingSheet"],
   Sign: ["traceToken"],
   Symbol: ["diamond", "star"],
-  Language: ["rails", "cross", "cap"],
-  Map: ["partialMap"],
+  Language: ["rewriteNetwork"],
+  Map: ["unevenMesh"],
   Reference: ["partialMap", "comparison"],
   Sense: ["uptake"],
   Perception: ["eye", "dot"],
-  Record: ["square", "step"],
-  Observation: ["tracedRecord"],
+  Record: ["retainedToken"],
+  Observation: ["witnessedRecord"],
   Memory: ["vessel", "bars"],
   Model: ["structuredModel"],
   Action: ["arrow", "roots"],

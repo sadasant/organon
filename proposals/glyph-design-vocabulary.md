@@ -23,21 +23,23 @@ This document names the few geometric cues that may carry a stable, learned read
 > [!NOTE]
 > Inventory counts below describe the catalog at [81aad87](https://github.com/sadasant/organon/commit/81aad87daa679378d54cde7c3d5ce2da61d37e08), sha256 `dffbc37d1b493a78a06f7cad5b14cd6ab70586fb99a7a27c6d01895998bc2e6e`: 117 glyphs, 89 named strokes, three unused. The current follow-up has 118 glyphs and 92 strokes: State uses `stateOverlap`, leaving `grouping` and `index` unused; MathematicalOrder reuses `members` with `partialOrder` cover edges. Transformation uses `transformationEdge` instead of `step` and `dot`. Thus `members` now has three uses and `memberLinks` one. The approved process and preservation batch adds six strokes, for 98: Change drops `slash` and keeps only `triangle`; Feeds uses `memberBridge`, Causal path `directedChain`, Causal Contribution `comparisonLanes`, Invariant `twoPivotSectors`, Persistence `threePivotSectors` and Constraint `selectiveBranch`. Their former `wave`, `down`, `step`, `arrow`, `fork`, `bar`, `rails`, `bars`, `ring` and `frame` uses are gone, leaving `down` unused alongside `crescent`, `link`, `orbit`, `grouping` and `index`. The identity and expression batch (`identity_expression_review`) adds six more, for 104: Entity uses `sixPivotSectors`, Environment `externalSet`, Scope `coverageSpan`, Specification `testSheet`, Rule `mappingSheet` and Sign `traceToken`. Their former `ring`, `axis`, `surroundings`, `frame`, `cap`, `foot`, `square`, `bars`, `gate`, `bar`, `dot` and `wings` uses are gone, leaving `surroundings` unused as well. Counts in the tables below remain pinned to 81aad87 unless a row says otherwise. The command below measures the current catalog, not the historical counts.
 
+The expression and recording batch (`expression_recording_review`) adds four strokes, for 108: Language uses `rewriteNetwork`, Map `unevenMesh`, Record `retainedToken` and Observation `witnessedRecord`. Reference and Evidence keep `partialMap` and `tracedRecord` respectively; those older drawings are not changed by cascade. Boundary and Symbol are explicitly retained, with the diamond question deferred.
+
 Run from the repository root:
 
 ```sh
 node --input-type=module <<'EOF'
 import { glyphs, strokes } from "./proposals/glyph-catalog.mjs";
 const ops = {
-  dot: ["dot", "seed", "members", "inversePresence", "stateOverlap", "transformationEdge", "memberBridge", "directedChain", "comparisonLanes", "twoPivotSectors", "threePivotSectors", "sixPivotSectors", "externalSet", "coverageSpan", "traceToken"],
+  dot: ["dot", "seed", "members", "inversePresence", "stateOverlap", "transformationEdge", "memberBridge", "directedChain", "comparisonLanes", "twoPivotSectors", "threePivotSectors", "sixPivotSectors", "externalSet", "coverageSpan", "traceToken", "retainedToken", "witnessedRecord"],
   parallelBars: ["bars"],
-  shortStroke: ["bar", "cap", "foot", "wings", "ticks", "index"],
+  shortStroke: ["bar", "cap", "foot", "wings", "ticks", "index", "retainedToken"],
   vertical: ["axis", "rails", "echo", "association", "comparison", "party", "factive"],
-  arrowhead: ["arrow", "up", "down", "denotes", "endpoint", "interpretedAction", "realizable", "statusAssignment", "binding", "issuedPermission", "permittedRealization", "admittedOther", "knowledgePath", "enforcedBoundary", "uptake", "adjustedAction", "constrainedAction", "directedChain", "comparisonLanes", "selectiveBranch", "mappingSheet", "traceToken"],
+  arrowhead: ["arrow", "up", "down", "denotes", "endpoint", "interpretedAction", "realizable", "statusAssignment", "binding", "issuedPermission", "permittedRealization", "admittedOther", "knowledgePath", "enforcedBoundary", "uptake", "adjustedAction", "constrainedAction", "directedChain", "comparisonLanes", "selectiveBranch", "mappingSheet", "traceToken", "rewriteNetwork"],
   angleTag: ["chevron", "conditionI", "conditionII"],
   turningPath: ["step", "ordered", "endpoint", "realizable", "placement", "statusAssignment", "binding", "permittedRealization", "ruleCoupling", "continuingOrder", "portableRecord", "tracedRecord", "partialMap", "structuredModel", "recordedExchange", "scopedWorld", "feedingSource", "correspondence", "knowledgePath", "constituents", "tracking", "adjustedAction", "testSheet"],
-  branching: ["tree", "fork", "routing", "feedingSource", "ruleCoupling", "tracking", "interpretedAction", "constituents", "enforcedBoundary", "partialOrder", "twoPivotSectors", "threePivotSectors", "selectiveBranch", "sixPivotSectors", "externalSet"],
-  contour: ["ring", "inversePresence", "square", "gate", "vessel", "frame", "portFrame", "open", "arch", "eye", "diamond", "double", "triangle", "memberLinks", "grouping", "personRecord", "partialMap", "tracedRecord", "portableRecord", "recordedPlacement", "recordedExchange", "structuredModel", "knowledgePath", "assertion", "registration", "endpoint", "statusAssignment", "placement", "admittedRecord", "constituents", "constrainedAction", "factive", "stateOverlap", "transformationEdge", "memberBridge", "externalSet", "testSheet", "mappingSheet", "traceToken"],
+  branching: ["tree", "fork", "routing", "feedingSource", "ruleCoupling", "tracking", "interpretedAction", "constituents", "enforcedBoundary", "partialOrder", "twoPivotSectors", "threePivotSectors", "selectiveBranch", "sixPivotSectors", "externalSet", "rewriteNetwork"],
+  contour: ["ring", "inversePresence", "square", "gate", "vessel", "frame", "portFrame", "open", "arch", "eye", "diamond", "double", "triangle", "memberLinks", "grouping", "personRecord", "partialMap", "tracedRecord", "portableRecord", "recordedPlacement", "recordedExchange", "structuredModel", "knowledgePath", "assertion", "registration", "endpoint", "statusAssignment", "placement", "admittedRecord", "constituents", "constrainedAction", "factive", "stateOverlap", "transformationEdge", "memberBridge", "externalSet", "testSheet", "mappingSheet", "traceToken", "rewriteNetwork", "unevenMesh", "retainedToken", "witnessedRecord"],
   cornerMark: ["grouping", "warranted", "hooks", "participants", "surroundings", "scopedWorld", "permittedRealization", "issuedPermission", "externalSet", "coverageSpan"],
   strike: ["slash", "cross", "routing", "enforcedBoundary", "testSheet"],
   wave: ["wave"],
@@ -112,6 +114,13 @@ Six identity, applicability and expression drawings are approved in `identity_ex
 
 Daniel retained Boundary (diamond with echo bars) and Representation (square with dot), superseding the study's tentative selective-perimeter and expression-stem proposals, and kept Perception, Witness and Agent. Principal and Person were not redrawn, so their ring and axis no longer match Entity: the former Entity family is broken, recorded below rather than repaired by cascade.
 
+Four expression and recording drawings are approved in `expression_recording_review`:
+
+- **Language** is the *rewrite network*: token boxes connected by branching directed paths. It cues transformations of expressions, not a causal proof, deterministic rule or required input/output count.
+- **Map** is the *uneven mesh*: a skew quadrilateral with diagonals and a crossbar. The irregular cells are deliberate, not Configuration triangles; the existing triangle-based family remains equilateral. Distortion need not be geometric.
+- **Record** is the *retained token*: a sheet with a hollow circle and one short lower line. This extends Representation's square-and-circle resemblance. The line is local to Record, not Absence or a universal Persistence operator.
+- **Observation** is the *witnessed record*: an eye with a hollow pupil inside a sheet. The study name does not require a Witness, vision or consciousness. The drawing asserts neither Truth nor independence and does not show the specified production path. It deliberately does not inherit Record's retention line.
+
 These cues are term-specific, except the pivot fan and the shared Specification–Rule sheet. Their reuse elsewhere needs the review steps in the [incremental policy](#incremental-policy).
 
 ## Candidate family cues
@@ -120,8 +129,8 @@ These reuses follow a definitional dependency and help a reader find a family. A
 
 | Shared drawing | Glyphs | Why reuse is supported | Open risk |
 | --- | --- | --- | --- |
-| `partialMap` | Map, Reference | Reference visibly contains Map. | Map collapses toward Observation and Evidence at small sizes. |
-| `tracedRecord` | Observation, Evidence | Evidence is an admitted Observation. | The `admittedRecord` marker is tiny and resembles Consequence's endpoint box. |
+| `partialMap` | Reference (formerly also Map) | Reference is a Map by definition. | Broken family: Map now uses the uneven mesh. Reference stays unchanged pending approval. |
+| `tracedRecord` | Evidence (formerly also Observation) | Evidence is an admitted Observation. | Broken family: Observation now uses the enclosed eye. The tiny `admittedRecord` marker still resembles Consequence's endpoint box. |
 | `realizable` | Capability, Constituent Power | Constituent Power is a Capability. | The ascent reads as progress and as a Causal path. |
 | `knowledgePath`, `factive` | Operative Knowledge, Factive Operative Knowledge, Warranted Knowledge | Each successive term adds a condition to the previous one. | The `warranted` corner is a generic frame, not an Evidence cue. |
 | `tracking` | Attention, Care | Care is Attention conditioning Action. | Converging pair aimed at a bar resembles Enforcement. |
@@ -207,8 +216,8 @@ Every named stroke appears below. Counts are glyphs at the pinned source.
 
 | Strokes | Glyphs | Class | Note |
 | --- | --- | --- | --- |
-| `step` | 4 | Conflicting | Transformation, Causal path, Record, Utility Measure. Record and Utility Measure are not Transformations. Only Record and Utility Measure keep it in the current follow-up. |
-| `partialMap`, `tracedRecord`, `tracking` | 2 each | Candidate family cues | |
+| `step` | 4 | Conflicting | Transformation, Causal path, Record, Utility Measure at the pin. Only Utility Measure keeps it in the current follow-up. |
+| `partialMap`, `tracedRecord`, `tracking` | 2 each at the pin | Candidate family cues | The first two now have one use each, pending Reference and Evidence review. |
 | `ordered`, `placement`, `ruleCoupling`, `continuingOrder`, `portableRecord`, `structuredModel`, `recordedExchange`, `scopedWorld`, `feedingSource`, `correspondence`, `constituents` | 1 each | Term-specific | Stepped connectors now recur in 30 glyphs, so the step itself carries no family meaning. |
 
 ### Branching junctions
@@ -244,7 +253,7 @@ Every named stroke appears below. Counts are glyphs at the pinned source.
 | --- | --- | --- | --- |
 | `warranted`, `hooks`, `participants`, `surroundings` | 1 each | Term-specific | A generic corner reads as Scope or a frame. Environment's `surroundings` is unused in the current follow-up. |
 | `slash` | 3 | Approved within Difference; conflicting in Revocation | Change no longer uses the slash in the current follow-up. |
-| `cross` | 2 | Conflicting | Language and Organ. |
+| `cross` | 2 | Conflicting | Language and Organ at the pin; only Organ retains it in the current follow-up. |
 | `wave` | 3 | Conflicting | Feeds, Flow, Knowledge Transmission. Periodicity is not implied. Feeds uses `memberBridge` in the current follow-up. |
 | `crown` | 3 | Conflicting | The sovereignty profiles do not entail one another, and the crown imports monarchy. |
 | `roots` | 3 | Conflicting | Legs import bodily locomotion and crowds. |
