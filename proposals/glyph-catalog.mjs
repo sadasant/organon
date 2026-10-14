@@ -52,6 +52,9 @@ const arrowHead = ([x, y], [u, v]) => {
 };
 // Shared Representation sheet for Specification and Rule.
 const sheet = "M4 3H28V29H4Z";
+// Compact study eyes retain their smaller, hollow r=1.5 pupil.
+const compactEye = (x, y, width) =>
+  `M${x} ${y}Q${x+width/2} ${y-width*0.6} ${x+width} ${y}Q${x+width/2} ${y+width*0.6} ${x} ${y}Z M${x+width/2} ${y-1.5}a1.5 1.5 0 1 1 0 3a1.5 1.5 0 1 1 0-3`;
 // Feeds study geometry scaled by 0.95 about the cell center, so r=2 rings
 // at its outer vertices stay inside the 1-unit ink margin. Similarity
 // preserves the equilateral triangles and the bridge angle.
@@ -240,6 +243,22 @@ export const strokes = {
   unevenMesh: "M5 7L25 4L28 26L3 23ZM5 7L28 26M25 4L3 23M4 15L26.5 15",
   retainedToken: `M6 5H26V27H6Z ${hollowNode([16, 14])} M10 23H22`,
   witnessedRecord: `M4 4H28V28H4Z M8 16Q16 6 24 16Q16 26 8 16Z ${hollowNode([16, 16])}`,
+  // Approved action study: preserve the selected coordinates, including
+  // Model's 2.8-unit edge trim rather than the graph helper's 2.5-unit trim.
+  organizedSurface: `M4 4H28V28H4Z ${hollowNode([10, 11])} ${hollowNode([22, 11])} ${hollowNode([16, 11+equilateralHeight(12)])} M12.8 11H19.2M11.4 ${11+1.4*Math.sqrt(3)}L14.6 ${11+4.6*Math.sqrt(3)}M20.6 ${11+1.4*Math.sqrt(3)}L17.4 ${11+4.6*Math.sqrt(3)}`,
+  outwardCrossing: `${hollowNode([6, 16])} M15 4V28M9 16H29${arrowHead([9, 16], [29, 16])}`,
+  changeAfterTurn: `M4 5H16V12M16 12V16${arrowHead([16, 12], [16, 16])} M16 ${29-equilateralHeight(12)}L22 29H10Z`,
+  perceptualFork: `${compactEye(2, 16, 13)} M15 16H19L27 7M19 16L27 25`,
+  interpretationAction: `${compactEye(2, 16, 12)} M14 16H29${arrowHead([14, 16], [29, 16])}`,
+  sideCoupledParticipant: `M10 3H22V15H10Z ${hollowNode([16, 9])} M16 15V24M3 24H29${arrowHead([3, 24], [29, 24])}`,
+  actionSpecification: `${sheet} M9 9H23M9 20H23${arrowHead([9, 20], [23, 20])}`,
+  // These five contents reuse the unchanged vessel contour in the alphabet.
+  // A solid endpoint designates one alternative locally, not Truth or Presence.
+  internalInfluence: `${hollowNode([11, 16])} M13.5 16H21V10${arrowHead([21, 16], [21, 10])}`,
+  outwardExposure: `${hollowNode([16, 17])} M16 14.5V3${arrowHead([16, 14.5], [16, 3])}`,
+  internalNetwork: graph([[11, 11], [21, 11], [16, 11+equilateralHeight(10)]], [[0, 1], [1, 2], [2, 0]]),
+  internalPerspective: compactEye(9, 15, 14),
+  internalSelection: graph([[16, 11+equilateralHeight(10)], [11, 11], [21, 11]], [[0, 1], [0, 2]], [1]),
 };
 
 const alphabet = {
@@ -279,17 +298,17 @@ const alphabet = {
   Perception: ["eye", "dot"],
   Record: ["retainedToken"],
   Observation: ["witnessedRecord"],
-  Memory: ["vessel", "bars"],
-  Model: ["structuredModel"],
-  Action: ["arrow", "roots"],
-  Consequence: ["endpoint"],
-  Interpretation: ["eye", "chevron"],
+  Memory: ["vessel", "internalInfluence"],
+  Model: ["organizedSurface"],
+  Action: ["outwardCrossing"],
+  Consequence: ["changeAfterTurn"],
+  Interpretation: ["perceptualFork"],
   Agent: ["triangle", "axis"],
-  Agency: ["interpretedAction"],
-  Tool: ["rails", "bar", "hooks"],
-  Capability: ["realizable"],
+  Agency: ["interpretationAction"],
+  Tool: ["sideCoupledParticipant"],
+  Capability: ["actionSpecification"],
   Interior: ["vessel", "dot"],
-  Exposure: ["open", "wings"],
+  Exposure: ["vessel", "outwardExposure"],
   Flow: ["wave", "rails"],
   Interface: ["portFrame", "ordered"],
   Claim: ["gate", "dot"],
@@ -353,10 +372,10 @@ const alphabet = {
   Ritual: ["double", "axis"],
   Meaning: ["double", "participants"],
   Body: ["constituents"],
-  BodilyOrganization: ["vessel", "tree", "bars"],
-  EmbodiedPerspective: ["vessel", "eye", "axis"],
+  BodilyOrganization: ["vessel", "internalNetwork"],
+  EmbodiedPerspective: ["vessel", "internalPerspective"],
   RecurrentIntegration: ["double", "bar", "echo"],
-  InternalActivitySelection: ["vessel", "fork", "dot"],
+  InternalActivitySelection: ["vessel", "internalSelection"],
   Attention: ["tracking"],
   Care: ["tracking", "adjustedAction"],
   Respect: ["constrainedAction"],
