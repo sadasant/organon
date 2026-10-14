@@ -7,6 +7,46 @@ const stateTop = 24 - equilateralHeight(16);
 // Trim 2.5 units along a 60-degree edge to preserve hollow node centers.
 const stateTrimY = equilateralHeight(2.5);
 
+// Node-graph conventions shared by the process and preservation glyphs:
+// hollow nodes are r=2 rings; solid nodes are concentric strokes with a core.
+// Every connection stops 2.5 units from a node center, outside hollow centers.
+const nodeTrim = 2.5;
+const hollowNode = ([x, y]) => `M${x} ${y-2}a2 2 0 1 1 0 4a2 2 0 1 1 0-4`;
+const solidNode = ([x, y]) =>
+  [1, 2].map((r) =>
+    `M${x} ${y-r}a${r} ${r} 0 1 1 0 ${2*r}a${r} ${r} 0 1 1 0 ${-2*r}`,
+  ).join(" ") + ` M${x} ${y-1}V${y+1}`;
+const graph = (nodes, edges, solid = []) => [
+  ...edges.map(([a, b]) => {
+    const [[x, y], [u, v]] = [nodes[a], nodes[b]];
+    const t = nodeTrim / Math.hypot(u - x, v - y);
+    return `M${x+(u-x)*t} ${y+(v-y)*t} ${u-(u-x)*t} ${v-(v-y)*t}`;
+  }),
+  ...nodes.map((node, i) => (solid.includes(i) ? solidNode : hollowNode)(node)),
+].join(" ");
+// The point where a segment from outside reaches nodeTrim from a node center.
+const stopOutside = ([x, y], [u, v], [cx, cy]) => {
+  const [dx, dy, fx, fy] = [u - x, v - y, x - cx, y - cy];
+  const [a, b, c] = [dx*dx + dy*dy, 2*(fx*dx + fy*dy), fx*fx + fy*fy - nodeTrim**2];
+  const t = (-b - Math.sqrt(b*b - 4*a*c)) / (2*a);
+  return `${x+dx*t} ${y+dy*t}`;
+};
+// Three horizontal nodes joined in sequence, as in the approved study sketches.
+const graphRow = (y, solid = []) => graph([[4, y], [16, y], [28, y]], [[0, 1], [1, 2]], solid);
+// Equal 12-unit spokes from a solid pivot at (16,10), 60 degrees apart.
+// Outer triangle edges are omitted: the sectors stay open.
+const pivotSectors = (sectors) => {
+  const ends = Array.from({ length: sectors + 1 }, (_, i) =>
+    [16 + 12*Math.cos(i*Math.PI/3), 10 + 12*Math.sin(i*Math.PI/3)]);
+  return graph([[16, 10], ...ends], ends.map((_, i) => [0, i + 1]), [0]);
+};
+// Feeds study geometry scaled by 0.95 about the cell center, so r=2 rings
+// at its outer vertices stay inside the 1-unit ink margin. Similarity
+// preserves the equilateral triangles and the bridge angle.
+const feedsNodes = [[3, 14], [8, 14 - equilateralHeight(10)], [13, 14],
+  [19, 27], [24, 27 - equilateralHeight(10)], [29, 27]]
+  .map((point) => point.map((c) => 16 + 0.95*(c - 16)));
+
 export const strokes = {
   ring: "M16 8a8 8 0 1 1 0 16a8 8 0 1 1 0-16",
   // Overlapping concentric strokes form solid ink, leaving a small clear center.
@@ -43,6 +83,7 @@ export const strokes = {
   step: "M4 23H11V16H21V9H28",
   arrow: "M3 16H28M21 9 28 16 21 23",
   up: "M16 29V4M10 10 16 4 22 10",
+  // Retired Feeds arrow, retained for the historical design inventory.
   down: "M16 3V28M10 22 16 28 22 22",
   chevron: "M10 12 16 18 22 12",
   crown: "M5 7V3M16 7V2M27 7V3",
@@ -138,6 +179,27 @@ export const strokes = {
   tracking: "M4 7H11V14H21M4 25H11V18H21M25 9V23",
   adjustedAction: "M11 18V26H28M24 22 28 26 24 30",
   constrainedAction: "M23 5H29V12H23ZM23 9H15V28M3 23H26M22 19 26 23 22 27",
+  // Approved process and preservation drawings. Node motifs are mnemonics,
+  // not abbreviated State, Transformation or Configuration glyphs.
+  // Two disjoint equilateral node triangles; one bridge joins the first's
+  // right base node to the second's apex.
+  memberBridge: graph(feedsNodes, [[0, 1], [1, 2], [2, 0], [3, 4], [4, 5], [5, 3], [2, 4]]),
+  // Three horizontal nodes, the last solid, with a rightward arrowhead.
+  directedChain: `${graphRow(16, [2])} M23 12 27 16 23 20`,
+  // Two parallel same-direction chains: the upper hollow throughout, the
+  // lower with solid first and last nodes. The upper arrowhead stops outside
+  // its hollow end node.
+  comparisonLanes: [
+    graphRow(8),
+    graphRow(24, [0, 2]),
+    `M23 5 ${stopOutside([23, 5], [27, 8], [28, 8])}M23 11 ${stopOutside([23, 11], [27, 8], [28, 8])}`,
+    "M23 21 27 24 23 27",
+  ].join(" "),
+  // Two and three open 60-degree sectors around one filled pivot.
+  twoPivotSectors: pivotSectors(2),
+  threePivotSectors: pivotSectors(3),
+  // One input continues to a corner arrowhead; the other meets a transverse stop.
+  selectiveBranch: "M3 16H12L24 6M12 16 24 26M21 29 27 23M19 6H24V11",
 };
 
 const alphabet = {
@@ -153,13 +215,14 @@ const alphabet = {
   State: ["stateOverlap"],
   Direction: ["up", "foot"],
   Transformation: ["transformationEdge"],
-  Change: ["triangle", "slash"],
-  Feeds: ["wave", "down"],
-  CausalPath: ["step", "arrow"],
-  CausalContribution: ["fork", "bar"],
-  Invariant: ["rails", "bars"],
-  Persistence: ["ring", "rails"],
-  Constraint: ["frame", "bar"],
+  // Plain delta: the conventional finite-change cue, without a slash.
+  Change: ["triangle"],
+  Feeds: ["memberBridge"],
+  CausalPath: ["directedChain"],
+  CausalContribution: ["comparisonLanes"],
+  Invariant: ["twoPivotSectors"],
+  Persistence: ["threePivotSectors"],
+  Constraint: ["selectiveBranch"],
   Entity: ["ring", "axis"],
   Boundary: ["diamond", "echo"],
   Environment: ["surroundings"],

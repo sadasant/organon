@@ -21,7 +21,7 @@ This document names the few geometric cues that may carry a stable, learned read
 ## Source pin and counts
 
 > [!NOTE]
-> Inventory counts below describe the catalog at [81aad87](https://github.com/sadasant/organon/commit/81aad87daa679378d54cde7c3d5ce2da61d37e08), sha256 `dffbc37d1b493a78a06f7cad5b14cd6ab70586fb99a7a27c6d01895998bc2e6e`: 117 glyphs, 89 named strokes, three unused. The current follow-up has 118 glyphs and 92 strokes: State uses `stateOverlap`, leaving `grouping` and `index` unused; MathematicalOrder reuses `members` with `partialOrder` cover edges. Transformation uses `transformationEdge` instead of `step` and `dot`. Thus `members` now has three uses and `memberLinks` one. The command below measures the current catalog, not the historical counts.
+> Inventory counts below describe the catalog at [81aad87](https://github.com/sadasant/organon/commit/81aad87daa679378d54cde7c3d5ce2da61d37e08), sha256 `dffbc37d1b493a78a06f7cad5b14cd6ab70586fb99a7a27c6d01895998bc2e6e`: 117 glyphs, 89 named strokes, three unused. The current follow-up has 118 glyphs and 92 strokes: State uses `stateOverlap`, leaving `grouping` and `index` unused; MathematicalOrder reuses `members` with `partialOrder` cover edges. Transformation uses `transformationEdge` instead of `step` and `dot`. Thus `members` now has three uses and `memberLinks` one. The approved process and preservation batch adds six strokes, for 98: Change drops `slash` and keeps only `triangle`; Feeds uses `memberBridge`, Causal path `directedChain`, Causal Contribution `comparisonLanes`, Invariant `twoPivotSectors`, Persistence `threePivotSectors` and Constraint `selectiveBranch`. Their former `wave`, `down`, `step`, `arrow`, `fork`, `bar`, `rails`, `bars`, `ring` and `frame` uses are gone, leaving `down` unused alongside `crescent`, `link`, `orbit`, `grouping` and `index`. Counts in the tables below remain pinned to 81aad87 unless a row says otherwise. The command below measures the current catalog, not the historical counts.
 
 Run from the repository root:
 
@@ -29,15 +29,15 @@ Run from the repository root:
 node --input-type=module <<'EOF'
 import { glyphs, strokes } from "./proposals/glyph-catalog.mjs";
 const ops = {
-  dot: ["dot", "seed", "members", "inversePresence", "stateOverlap", "transformationEdge"],
+  dot: ["dot", "seed", "members", "inversePresence", "stateOverlap", "transformationEdge", "memberBridge", "directedChain", "comparisonLanes", "twoPivotSectors", "threePivotSectors"],
   parallelBars: ["bars"],
   shortStroke: ["bar", "cap", "foot", "wings", "ticks", "index"],
   vertical: ["axis", "rails", "echo", "association", "comparison", "party", "factive"],
-  arrowhead: ["arrow", "up", "down", "denotes", "endpoint", "interpretedAction", "realizable", "statusAssignment", "binding", "issuedPermission", "permittedRealization", "admittedOther", "knowledgePath", "enforcedBoundary", "uptake", "adjustedAction", "constrainedAction"],
+  arrowhead: ["arrow", "up", "down", "denotes", "endpoint", "interpretedAction", "realizable", "statusAssignment", "binding", "issuedPermission", "permittedRealization", "admittedOther", "knowledgePath", "enforcedBoundary", "uptake", "adjustedAction", "constrainedAction", "directedChain", "comparisonLanes", "selectiveBranch"],
   angleTag: ["chevron", "conditionI", "conditionII"],
   turningPath: ["step", "ordered", "endpoint", "realizable", "placement", "statusAssignment", "binding", "permittedRealization", "ruleCoupling", "continuingOrder", "portableRecord", "tracedRecord", "partialMap", "structuredModel", "recordedExchange", "scopedWorld", "feedingSource", "correspondence", "knowledgePath", "constituents", "tracking", "adjustedAction"],
-  branching: ["tree", "fork", "routing", "feedingSource", "ruleCoupling", "tracking", "interpretedAction", "constituents", "enforcedBoundary", "partialOrder"],
-  contour: ["ring", "inversePresence", "square", "gate", "vessel", "frame", "portFrame", "open", "arch", "eye", "diamond", "double", "triangle", "memberLinks", "grouping", "personRecord", "partialMap", "tracedRecord", "portableRecord", "recordedPlacement", "recordedExchange", "structuredModel", "knowledgePath", "assertion", "registration", "endpoint", "statusAssignment", "placement", "admittedRecord", "constituents", "constrainedAction", "factive", "stateOverlap", "transformationEdge"],
+  branching: ["tree", "fork", "routing", "feedingSource", "ruleCoupling", "tracking", "interpretedAction", "constituents", "enforcedBoundary", "partialOrder", "twoPivotSectors", "threePivotSectors", "selectiveBranch"],
+  contour: ["ring", "inversePresence", "square", "gate", "vessel", "frame", "portFrame", "open", "arch", "eye", "diamond", "double", "triangle", "memberLinks", "grouping", "personRecord", "partialMap", "tracedRecord", "portableRecord", "recordedPlacement", "recordedExchange", "structuredModel", "knowledgePath", "assertion", "registration", "endpoint", "statusAssignment", "placement", "admittedRecord", "constituents", "constrainedAction", "factive", "stateOverlap", "transformationEdge", "memberBridge"],
   cornerMark: ["grouping", "warranted", "hooks", "participants", "surroundings", "scopedWorld", "permittedRealization", "issuedPermission"],
   strike: ["slash", "cross", "routing", "enforcedBoundary"],
   wave: ["wave"],
@@ -72,7 +72,7 @@ Most repetition in the current catalog falls in the third class. That is the fin
 
 Daniel approved these drawings in the review sections named below. Approval covers a design direction for the listed terms. It is not semantic equivalence or reader-test evidence.
 
-All triangle motifs use equilateral geometry, recorded in `equilateral_review` and `transformation_edge_review`: Set, Configuration, Order, State and Transformation use equal sides between vertex centers; Change, Agent and ActsFor use equal sides between path vertices. Heights are derived, not grid-snapped. State retains exact half-base overlap. Font-outline quantization introduces only rounding, not a different intended proportion. This drawing rule adds no ontological entailment.
+All triangle motifs use equilateral geometry, recorded in `equilateral_review` and `transformation_edge_review`: Set, Configuration, Order, State and Transformation use equal sides between vertex centers; Change, Agent and ActsFor use equal sides between path vertices. Feeds' two node triangles are equilateral, and the Invariant and Persistence spokes are equal radii exactly 60 degrees apart (`process_preservation_review`). Heights are derived, not grid-snapped. State retains exact half-base overlap. Font-outline quantization introduces only rounding, not a different intended proportion. This drawing rule adds no ontological entailment.
 
 | Cue | Glyphs | Learned reading | Does not mean | Review |
 | --- | --- | --- | --- | --- |
@@ -81,6 +81,7 @@ All triangle motifs use equilateral geometry, recorded in `equilateral_review` a
 | Two equal parallel bars | [Identity](../ontology/ontology.md#organon-identity) (`=`), [Difference](../ontology/ontology.md#organon-difference) (bars with slash), [Relation](../ontology/ontology.md#organon-relation) (bars joined by a vertical) | Identity and Difference form the classical equals / not-equals pair. Relation borrows the proportions. | An operator. Relation does not require Identity, and two bars do not limit Relation to two participants. | `identity_review`, `relation_review` |
 | Member dots and straight edges | [Set](../ontology/ontology.md#organon-set) (three solid dots), [Configuration](../ontology/ontology.md#organon-configuration) (the same dots joined) | Shared dots cue the member Set; edges cue additional specified structure. | Three members, member order, complete connectivity, causation or binary-only Relations. | `set_configuration_review`, `structured_configuration_correction` |
 | Maps-to | [Denotation](../ontology/ontology.md#organon-denotation) | Expression side (tail) to target side (arrowhead). | A function's uniqueness condition, causation, fidelity or Truth. | `denotation_review` |
+| Open pivot fan | [Invariant](../ontology/ontology.md#organon-invariant) (two sectors, three spokes), [Persistence](../ontology/ontology.md#organon-persistence) (three sectors, four spokes) | A filled pivot held while equal spokes reach hollow nodes; Persistence carries Invariant's pivot through one more sector, following D012's dependency on Invariant. | Pointwise or geometric invariance, rotation, a fixed number of Transformations or States, or a Center. The missing outer edges are not omitted Relations or negation. | `process_preservation_review` |
 
 State now uses two equal, upright Configuration-like triangles with exactly half-base overlap, approved in `state_overlap_review`. Four equally spaced baseline nodes alternate hollow, solid, hollow, solid; each apex sits directly above the other triangle's inner base node. The left triangle has hollow vertices and the right has solid vertices. The shared baseline is drawn once and the diagonal crossing has no node. Edges stop outside hollow centers, so the font keeps actual negative space rather than background-colored masks.
 
@@ -89,6 +90,17 @@ This is a term-specific mnemonic for an indexed Configuration, not a diagram of 
 Transformation uses two equilateral triangles joined along the upright ghost triangle's right edge, approved as option A in `transformation_edge_review`. The three ghost vertices remain hollow, including the two shared nodes; only the new rightmost vertex is solid. This preserves the ghost intact rather than reproducing a fully solid Configuration for the result. The shared edge is drawn once, and edges stop outside hollow centers. The 60-degree turn cues input-to-output orientation, not required spatial rotation, rigid motion, reversibility, shared participants or structure preservation. Compare its shared-edge silhouette with State's half-overlap; retain labels and check the hollow centers at inline sizes.
 
 Order extends the approved member-dot family with a Hasse-diagram mnemonic, approved in `order_hasse_review`: Set's three dots joined along the two sloping sides, without Configuration's bottom edge. Read upward, each lower member precedes the upper member and the lower pair is incomparable. In a Hasse diagram, edges show cover relationships; reflexive loops and edges implied by transitivity are omitted. This borrows a [mathematical drawing convention](https://mathworld.wolfram.com/HasseDiagram.html), not a new comparison sign or a compositional operation on Configuration. It does not require three members, a greatest member, branching, finiteness or incomparability in every Order; empty and total Orders remain permitted. Upward means order here, not causation, authority or improvement. Labels remain necessary.
+
+Seven process and preservation drawings are approved in `process_preservation_review`. Node glyphs reuse the font's stroke-only node convention: hollow nodes are r=2 rings, solid nodes are concentric disks, and every connection stops 2.5 units from a node center, so hollow centers remain transparent negative space without masks. Hollow/solid marks drawing roles only, never Missingness/Presence, past/present, possible/actual or truth.
+
+- **Change** is the plain equilateral delta, without Difference's slash: a borrowed conventional name for finite change, not a numerical restriction. The joining Transformation is not drawn, and Agent and ActsFor still contain the same triangle, pending a separate Agent redesign.
+- **Feeds** introduces the *part-to-part bridge*: two disjoint equilateral node triangles, with one bridge from the first triangle's right base node to the second triangle's apex. The connector ends at selected members, not whole groups; it does not assert their equality, and the groups are not full State glyphs. The study geometry is uniformly scaled by 0.95 about the cell center to keep its outer rings inside the ink margin.
+- **Causal path** is a *directed chain*: three horizontal nodes, the last solid, ending in a rightward arrowhead. It borrows the directed-path convention and still does not show the Feeds joins.
+- **Causal Contribution** introduces *comparison lanes*: two parallel same-direction chains rather than a fork. The upper chain is hollow; the lower chain's first and last nodes are solid, a local contrast between the two witnesses. The upper arrowhead stops outside its hollow end node.
+- **Invariant** and **Persistence** form the open pivot fan in the table above.
+- **Constraint** introduces *stop versus passage*: one input branches into a route ending in a corner arrowhead and a route meeting a transverse stop. The stop is not Absence or Revocation, and the branch does not require an Agent's choice.
+
+These cues are term-specific, except the pivot fan's Invariant–Persistence pairing. Their reuse elsewhere needs the review steps in the [incremental policy](#incremental-policy).
 
 ## Candidate family cues
 
@@ -107,7 +119,6 @@ These reuses follow a definitional dependency and help a reader find a family. A
 | `assertion`, `registration` with `conditionI` / `conditionII` | The two Attributions and the two Designations | Flag marks Attribution, form marks Designation, tag marks the domain. | Only a 5–6 unit tag separates consciousness from moral status. |
 | gate with arrow, slash or up | Permission, Revocation, Permission Exercise | All three concern one governed passage. | The same gate also appears in Claim, Rule, Admission and the sovereignty glyphs. |
 | routing template | Control, Boundary Sovereignty | Boundary Sovereignty requires Control. | Substrate's split resembles it with no such dependency. |
-| `slash` on a shape | Difference, Change | Change is defined as a Difference (D008). | Revocation uses the same slash for cancellation. |
 
 ## Four readings the vocabulary refuses
 
@@ -117,7 +128,7 @@ Presence is ring and dot. The dot alone is drawn in 11 glyphs at the pinned sour
 
 ### A line is not causation
 
-At the pinned source, 28 glyphs carry an arrowhead and 30 carry a stepped or right-angled path. Configuration's edges, Relation's vertical and Denotation's stem are lines too. Arrowheads and paths are order or attention cues. They do not assert a Causal path (D010), a Feeds join, transfer of possession, or command. Even the Causal path glyph does not show the Feeds joins its definition requires. An ascending path does not mean improvement.
+At the pinned source, 28 glyphs carry an arrowhead and 30 carry a stepped or right-angled path. Configuration's edges, Relation's vertical and Denotation's stem are lines too. Arrowheads and paths are order or attention cues. They do not assert a Causal path (D010), a Feeds join, transfer of possession, or command. Even the current Causal path glyph, a directed node chain, does not show the Feeds joins its definition requires. An ascending path does not mean improvement.
 
 ### An enclosure is not a boundary
 
@@ -138,6 +149,8 @@ Every named stroke appears below. Counts are glyphs at the pinned source.
 | `dot` | 11 | Conflicting | Approved only as part of Presence. Elsewhere arbitrary. |
 | `members` | 2 | Approved family cue | Set and Configuration. |
 | `stateOverlap` | 1 in the current follow-up | Approved, term-specific | State's half-overlapping triangles extend the geometric family without making hollow/solid a general semantic operator. |
+| `memberBridge`, `directedChain`, `comparisonLanes` | 1 each in the current follow-up | Approved, term-specific | Feeds' part-to-part bridge, Causal path's directed chain and Causal Contribution's comparison lanes. Hollow and solid nodes are drawing roles; connections stop outside hollow centers. |
+| `twoPivotSectors`, `threePivotSectors` | 1 each in the current follow-up | Approved family cue | Invariant and Persistence. See the open pivot fan in [the approved vocabulary](#the-approved-vocabulary). |
 | `inversePresence` | 1 | Approved, term-specific | Reality. Overlapping construction strokes are not layers of Reality. |
 | `seed` | 1 | Term-specific, arbitrary | Operationalization. |
 
@@ -145,9 +158,9 @@ Every named stroke appears below. Counts are glyphs at the pinned source.
 
 | Strokes | Glyphs | Class | Note |
 | --- | --- | --- | --- |
-| `bars` | 8 | Approved for Identity, Difference, Relation; conflicting elsewhere | See [Identity's bars are not an operator](#identitys-bars-are-not-an-operator). |
+| `bars` | 8 | Approved for Identity, Difference, Relation; conflicting elsewhere | See [Identity's bars are not an operator](#identitys-bars-are-not-an-operator). Invariant no longer uses them in the current follow-up. |
 | `foot` | 11 | Conflicting | Approved only as standalone Absence. Elsewhere an arbitrary differentiator, for example between Admission and Admissibility Rule. |
-| `bar`, `cap`, `wings` | 6, 5, 6 | Conflicting | Arbitrary differentiators. A cap is not Authority; wings are not extension. |
+| `bar`, `cap`, `wings` | 6, 5, 6 | Conflicting | Arbitrary differentiators. A cap is not Authority; wings are not extension. Causal Contribution and Constraint no longer use `bar` in the current follow-up. |
 | `ticks`, `index` | 1 each at the historical pin | Term-specific | Organ; State's former index is now unused. |
 
 ### Vertical strokes
@@ -155,7 +168,7 @@ Every named stroke appears below. Counts are glyphs at the pinned source.
 | Strokes | Glyphs | Class | Note |
 | --- | --- | --- | --- |
 | `axis` | 9 | Candidate family cue with Entity's ring or Truth's diamond; unsupported in Sign, Preference, Ritual, Embodied Perspective; unclear in Agent | An axis is not identity through States unless the glyph belongs to the Entity family. Agent's triangle-on-axis shares nothing else with Entity. |
-| `rails` | 9 | Conflicting | The review recommends restricting rails to persistence-bearing terms. The nine current uses have not been audited against that rule. |
+| `rails` | 9 | Conflicting | Invariant and Persistence no longer use rails in the current follow-up, leaving seven uses in terms that do not require Persistence. Rails carry no persistence reading. |
 | `echo` | 3 | Conflicting | Boundary, Constituent Power and Recurrent Integration share outer bars with no shared meaning. `comparison` (Reference) resembles them. |
 | `association`, `comparison`, `party` | 1 each | Term-specific | Relation (approved), Reference, Principal. |
 | `factive` | 2 | Candidate family cue | Truth's diamond-on-axis, reduced. |
@@ -164,8 +177,8 @@ Every named stroke appears below. Counts are glyphs at the pinned source.
 
 | Strokes | Glyphs | Class | Note |
 | --- | --- | --- | --- |
-| `arrow` | 8 | Conflicting | Generic arrow in Causal path, Action, ActsFor, Permission Exercise, Evidential Bearing, Constituent Exercise, Operationalization, Knowledge Transmission. |
-| `up`, `down` | 2, 1 | Conflicting, term-specific | Up in Direction and Permission may read as increase. Down is Feeds only. |
+| `arrow` | 8 | Conflicting | Generic arrow in Causal path, Action, ActsFor, Permission Exercise, Evidential Bearing, Constituent Exercise, Operationalization, Knowledge Transmission. Causal path uses `directedChain` in the current follow-up. |
+| `up`, `down` | 2, 1 | Conflicting, term-specific | Up in Direction and Permission may read as increase. Down was Feeds only and is unused in the current follow-up. |
 | `denotes` | 1 | Approved, term-specific | Denotation. |
 | `realizable`, `knowledgePath` | 2, 3 | Candidate family cues | See [Candidate family cues](#candidate-family-cues). |
 | `endpoint`, `interpretedAction`, `statusAssignment`, `binding`, `issuedPermission`, `permittedRealization`, `admittedOther`, `uptake`, `enforcedBoundary`, `adjustedAction`, `constrainedAction` | 1 each | Term-specific | Order mnemonics. Several still collide by template; see [Unresolved collisions](#unresolved-collisions-and-reader-tests). |
@@ -181,7 +194,7 @@ Every named stroke appears below. Counts are glyphs at the pinned source.
 
 | Strokes | Glyphs | Class | Note |
 | --- | --- | --- | --- |
-| `step` | 4 | Conflicting | Transformation, Causal path, Record, Utility Measure. Record and Utility Measure are not Transformations. |
+| `step` | 4 | Conflicting | Transformation, Causal path, Record, Utility Measure. Record and Utility Measure are not Transformations. Only Record and Utility Measure keep it in the current follow-up. |
 | `partialMap`, `tracedRecord`, `tracking` | 2 each | Candidate family cues | |
 | `ordered`, `placement`, `ruleCoupling`, `continuingOrder`, `portableRecord`, `structuredModel`, `recordedExchange`, `scopedWorld`, `feedingSource`, `correspondence`, `constituents` | 1 each | Term-specific | Stepped connectors now recur in 30 glyphs, so the step itself carries no family meaning. |
 
@@ -190,7 +203,8 @@ Every named stroke appears below. Counts are glyphs at the pinned source.
 | Strokes | Glyphs | Class | Note |
 | --- | --- | --- | --- |
 | `tree` | 5 | Conflicting | Declaration, Canonical and Shadow system, Polity, Bodily Organization. |
-| `fork` | 3 | Conflicting | Causal Contribution, Intelligence, Internal Activity Selection. Reads as choice. |
+| `fork` | 3 | Conflicting | Causal Contribution, Intelligence, Internal Activity Selection. Reads as choice. Causal Contribution uses comparison lanes in the current follow-up. |
+| `selectiveBranch` | 1 in the current follow-up | Approved, term-specific | Constraint's stop versus passage. The transverse stop is not Absence or Revocation; the branch resembles `routing` and `fork`. |
 | `routing`, `enforcedBoundary` | 1 each | Candidate template family | Control and Boundary Sovereignty. |
 | `feedingSource`, `ruleCoupling`, `interpretedAction`, `constituents` | 1 each | Term-specific | Substrate, Enforcement, Agency, Body. Splits and merges still resemble one another. |
 
@@ -198,16 +212,16 @@ Every named stroke appears below. Counts are glyphs at the pinned source.
 
 | Strokes | Glyphs | Class | Note |
 | --- | --- | --- | --- |
-| `ring` | 8 | Approved for Presence and Missingness; candidate family cue for Entity, Principal, Person; conflicting in Persistence, Center, Organ | |
+| `ring` | 8 | Approved for Presence and Missingness; candidate family cue for Entity, Principal, Person; conflicting in Persistence, Center, Organ | Persistence no longer uses it in the current follow-up. |
 | `memberLinks` | 1 | Approved, term-specific | Configuration's edges, not an enclosed region. |
 | `square` | 7 | Conflicting | Proposed anchor for Representation, but also Specification, Record, Canonical system, Ledger, Operationalization, Knowledge Transmission. |
 | `gate` | 11 | Candidate family cue for Permission, Revocation, Permission Exercise; conflicting elsewhere | Claim, Rule, Admission and the sovereignty glyphs make the gate read as institutional. |
 | `eye` | 7 | Conflicting | Imports visual seeing into terms that do not require it. |
 | `vessel` | 5 | Conflicting | Enclosure-as-interior is stipulated; Bodily Organization contains Memory's drawing. |
 | `diamond` | 3 | Conflicting | Boundary, Symbol, Truth. |
-| `triangle` | 3 | Conflicting | Agent and ActsFor versus Change. |
+| `triangle` | 3 | Approved alone for Change; conflicting in Agent and ActsFor | Change is now the plain delta, so Agent and ActsFor contain the whole Change glyph. |
 | `double` | 3 | Candidate family cue for Ritual and Meaning; conflicting in Recurrent Integration | |
-| `frame`, `open` | 3, 2 | Conflicting | Frame in Constraint, Scope, Shadow system; Exposure's open arc is inherited by External Sovereignty. |
+| `frame`, `open` | 3, 2 | Conflicting | Frame in Constraint, Scope, Shadow system; Exposure's open arc is inherited by External Sovereignty. Constraint no longer uses the frame in the current follow-up. |
 | `arch`, `portFrame`, `grouping`, `personRecord`, `recordedPlacement`, `assertion`, `registration`, `admittedRecord` | 1–2 each at the historical pin | Term-specific or candidate pairs | `recordedPlacement` and `registration` share a post-stem-box template with `placement` and `constituents` that remains a collision. State's redraw leaves `grouping` unused in the current catalog. |
 
 ### Corner marks, strikes, waves and figures
@@ -215,27 +229,28 @@ Every named stroke appears below. Counts are glyphs at the pinned source.
 | Strokes | Glyphs | Class | Note |
 | --- | --- | --- | --- |
 | `warranted`, `hooks`, `participants`, `surroundings` | 1 each | Term-specific | A generic corner reads as Scope or a frame. |
-| `slash` | 3 | Approved within Difference; candidate in Change; conflicting in Revocation | |
+| `slash` | 3 | Approved within Difference; conflicting in Revocation | Change no longer uses the slash in the current follow-up. |
 | `cross` | 2 | Conflicting | Language and Organ. |
-| `wave` | 3 | Conflicting | Feeds, Flow, Knowledge Transmission. Periodicity is not implied. |
+| `wave` | 3 | Conflicting | Feeds, Flow, Knowledge Transmission. Periodicity is not implied. Feeds uses `memberBridge` in the current follow-up. |
 | `crown` | 3 | Conflicting | The sovereignty profiles do not entail one another, and the crown imports monarchy. |
 | `roots` | 3 | Conflicting | Legs import bodily locomotion and crowds. |
 | `star` | 2 | Conflicting | Symbol and Center. |
 | `assignedBundle` | 1 | Term-specific | Role. |
-| `crescent`, `link`, `orbit` | 0 | Unused | Retired drawings kept in the catalog. Not part of the vocabulary. |
+| `crescent`, `link`, `orbit` | 0 | Unused | Retired drawings kept in the catalog. Not part of the vocabulary. `grouping`, `index` and `down` are also unused in the current follow-up. |
 
 ## Unresolved collisions and reader tests
 
 Ordered by priority. Approved marks come first because readers will learn them first.
 
 1. **Presence, Missingness and Reality at text size.** Only a dot separates Presence from Missingness, and Reality's clear center can fill in to a solid disk. Test pairwise discrimination in inline text, tiles and graphs.
-2. **The bars family.** Test Identity, Difference and Relation side by side at text size, Relation against the double-dagger, and whether readers read Identity into Invariant, Specification, Memory or Ledger.
+2. **The bars family.** Test Identity, Difference and Relation side by side at text size, Relation against the double-dagger, and whether readers read Identity into Specification, Memory or Ledger.
 3. **State's overlapping triangles.** Check the three hollow centers, four-node baseline and unmarked diagonal crossing at text size. Compare with Configuration, Order and Change; ask whether the pair suggests a transition, two required States or a past/present contrast. Exact midpoint alignment is geometric, not an identity or ordering proof.
 4. **MathematicalOrder's Hasse fork.** Test it against Set's unconnected dots, Configuration's closed triangle and State's overlapping triangles at text size. Check that the missing bottom edge remains visible, that readers learn the upward convention, and that the fork does not imply a greatest member, authority, causation or an incomplete Configuration.
-5. **Arrowheads read as causation.** Causal path against the Capability family; Denotation's maps-to against a generic arrow; Consequence against CountsAs.
+5. **Arrowheads read as causation.** Causal path's directed chain against Causal Contribution's lanes and the Capability family; Denotation's maps-to against a generic arrow; Consequence against CountsAs.
 6. **Template collisions recorded in the semantic review.** Sense against Trust; the post-stem-box template in Standing, Recognition, the Designations and Body; Map and Reference against Observation and Evidence; Attention and Care against Enforcement; Control, Boundary Sovereignty and Substrate; Model against Price.
 7. **Imported imagery.** The eye, crown, legs, Admission's checkbox and the gate's institutional reading.
 8. **Domain tags.** Small-size discrimination of `conditionI` from `conditionII`.
+9. **Process and preservation drawings.** Check every hollow center in Feeds, Causal path, Causal Contribution, Invariant and Persistence at text size; Invariant against Persistence, one spoke apart, and both against Center; Change's plain delta against Configuration and the Agent family; Constraint's selective branch against Control and the remaining forks.
 
 Each test should ask for a spontaneous reading without labels, then for pairwise discrimination with labels, at the sizes the site actually uses. Record results as reader evidence, separate from design approval.
 
@@ -250,7 +265,7 @@ The vocabulary grows one reviewed cue at a time. Nothing in it licenses reading 
 5. **Every addition gets a collision check.** Append a font slot for a new term; preserve it when redrawing an existing glyph. Rerun the count command, compare the new glyph against every glyph sharing one of its operation groups, and record the nearest collisions in its review entry.
 6. **Counts travel with their pin.** Quote a count only with the catalog hash it came from, and update the pin when the catalog changes.
 7. **Failed cues are demoted, not defended.** If reader testing shows a family cue misleads, reclassify it as term-specific or conflicting before redrawing. Approved drawings change only with Daniel's approval.
-8. **Unused strokes stay out.** `crescent`, `link` and `orbit` re-enter only through step 1.
+8. **Unused strokes stay out.** `crescent`, `link`, `orbit`, `grouping`, `index` and `down` re-enter only through step 1.
 
 ## Related entries
 
