@@ -259,6 +259,21 @@ export const strokes = {
   internalNetwork: graph([[11, 11], [21, 11], [16, 11+equilateralHeight(10)]], [[0, 1], [1, 2], [2, 0]]),
   internalPerspective: compactEye(9, 15, 14),
   internalSelection: graph([[16, 11+equilateralHeight(10)], [11, 11], [21, 11]], [[0, 1], [0, 2]], [1]),
+  // Approved coordination refinements; keep the selected study coordinates.
+  // Open equilateral turns, with only the final endpoint filled.
+  openSequence: graph([[4, 23], [10, 23-equilateralHeight(12)], [16, 23], [22, 23-equilateralHeight(12)], [28, 23]], [[0, 1], [1, 2], [2, 3], [3, 4]], [4]),
+  // Interface adds this compact Representation to the unchanged Boundary.
+  compactToken: "M12 12H20V20H12Z M16 14.5a1.5 1.5 0 1 1 0 3a1.5 1.5 0 1 1 0-3",
+  adjustedRule: `${hollowNode([5, 16])} M7.5 16H14M18 11V21M14 4H29V28H14Z M18 16H25${arrowHead([18, 16], [25, 16])}`,
+  scopedPlacement: `M5 4V28M27 4V28M5 16H13.5M18.5 16H27 ${hollowNode([16, 16])}`,
+  // Recognition adds a record sheet without scaling or changing Standing.
+  standingSheet: "M2 2H30V30H2Z",
+  standingEntity: [
+    "M5 4V28M27 4V28M5 16H6.5M25.5 16H27",
+    graph([[16, 16], ...Array.from({ length: 6 }, (_, i) =>
+      [16+7*Math.cos(i*Math.PI/3), 16+7*Math.sin(i*Math.PI/3)])],
+    Array.from({ length: 6 }, (_, i) => [0, i+1]), [0]),
+  ].join(" "),
 };
 
 const alphabet = {
@@ -309,15 +324,15 @@ const alphabet = {
   Capability: ["actionSpecification"],
   Interior: ["vessel", "dot"],
   Exposure: ["vessel", "outwardExposure"],
-  Flow: ["wave", "rails"],
-  Interface: ["portFrame", "ordered"],
+  Flow: ["openSequence"],
+  Interface: ["diamond", "echo", "compactToken"],
   Claim: ["gate", "dot"],
   Witness: ["eye", "foot"],
-  Control: ["routing"],
+  Control: ["adjustedRule"],
   Order: ["rails", "bar", "cap", "foot"],
-  Standing: ["placement"],
-  Recognition: ["recordedPlacement"],
-  Principal: ["ring", "axis", "party"],
+  Standing: ["scopedPlacement"],
+  Recognition: ["scopedPlacement", "standingSheet"],
+  Principal: ["standingEntity"],
   ActsFor: ["triangle", "arrow"],
   CountsAs: ["statusAssignment"],
   Authority: ["binding"],

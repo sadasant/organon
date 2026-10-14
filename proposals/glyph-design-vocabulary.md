@@ -27,6 +27,8 @@ The expression and recording batch (`expression_recording_review`) adds four str
 
 The action and Interior batch (`action_interior_review`) adds twelve strokes, for 120: Model uses `organizedSurface`, Action `outwardCrossing`, Consequence `changeAfterTurn`, Interpretation `perceptualFork`, Agency `interpretationAction`, Tool `sideCoupledParticipant` and Capability `actionSpecification`; Memory, Exposure, Bodily Organization, Embodied Perspective and Internal Activity Selection keep the unchanged `vessel` and add `internalInfluence`, `outwardExposure`, `internalNetwork`, `internalPerspective` and `internalSelection` respectively. Interior is retained unchanged. Their former `structuredModel`, `endpoint`, `interpretedAction` and `hooks` strokes are now unused, and the former `bars`, `arrow`, `roots`, `eye`, `chevron`, `rails`, `bar`, `open`, `wings`, `tree`, `axis`, `fork` and `dot` uses are gone from these terms. Exercisability, Constituent Power and External Sovereignty keep the old Capability staircase and Exposure arc; they are not changed by cascade. Reference and Sense remain pending with their older drawings.
 
+The coordination batch (`coordination_review`) adds six strokes, for **126 strokes and 118 glyphs**: Flow uses `openSequence`, Interface adds `compactToken` to the retained Boundary, Control uses `adjustedRule`, Standing uses `scopedPlacement`, Recognition adds `standingSheet` to that exact Standing, and Principal uses `standingEntity`. Claim and ActsFor are explicitly retained. The former `portFrame`, `ordered`, `routing`, `placement`, `recordedPlacement` and `party` strokes are now unused. Historical inventory rows below retain their pins; this paragraph and the coordination review supersede their former-shape comparisons.
+
 Run from the repository root:
 
 ```sh
@@ -47,6 +49,12 @@ const ops = {
   wave: ["wave"],
   figurative: ["crown", "roots", "star", "assignedBundle"],
 };
+ops.dot.push("openSequence", "compactToken", "adjustedRule", "scopedPlacement", "standingEntity");
+ops.vertical.push("scopedPlacement", "standingEntity");
+ops.arrowhead.push("adjustedRule");
+ops.turningPath.push("openSequence");
+ops.branching.push("standingEntity");
+ops.contour.push("compactToken", "adjustedRule", "standingSheet");
 const use = {};
 for (const g of glyphs) for (const m of g.motifs) (use[m] ??= []).push(g.term);
 console.log(`glyphs ${glyphs.length}; named strokes ${Object.keys(strokes).length}`);
@@ -140,6 +148,16 @@ Twelve action and Interior-family drawings are approved in `action_interior_revi
 - **Internal Activity Selection** is the *emphasized alternative*: an open equilateral sector whose upper-left endpoint is solid and upper-right endpoint stays hollow as a retained contrast. The solid endpoint locally designates the selected alternative; it does not mean Truth, Permission, Presence or a past State, and the hollow contrast is not Missingness.
 
 These cues are term-specific, except the pivot fan, the shared Specification sheet (Specification, Rule, Capability) and the vessel. Their reuse elsewhere needs the review steps in the [incremental policy](#incremental-policy).
+
+The coordination batch adds two approved family relationships and one local metaphor:
+
+- **Standing, Recognition and Principal:** Standing C is a hollow role between two posts. Recognition B encloses that exact geometry in a record sheet; Standing itself does not require recording (D047–D048). Principal A replaces the role with Entity's six equal-angle spokes at radius 7, keeping the posts. This follows Principal being an Entity with Standing (D049), without implying Agency. The sheet does not establish exact-index matching, and the fan does not show the special on-whose-behalf role. Check Recognition's close parallel edges and Principal's six hollow centers at text size.
+- **Boundary and Interface:** Interface C contains the exact retained Boundary plus a compact Representation square with a hollow r=1.5 node, following D042's explicit representation condition. The diamond question remains deferred; adding a token does not prove permitted Transformations or coordination.
+- **Control:** D uses a hollow adjustment knob joined to a narrow mapping sheet. This is a local adjustment metaphor, justified by configuring a Rule being one form of Control (D045), not a new universal operator or Authority. Bypass and prevention remain implicit. Compare with Rule and Sign.
+
+Flow C is an open sequence of four equal 12-unit edges at 60 degrees, with five nodes and only the final node solid. Equal geometry does not mean periodic timing, and the final fill is not Presence, Truth or actual rather than possible State. It recalls the equilateral family without containing Transformation's whole glyph. Compare it with a waveform and Causal path.
+
+Claim keeps its open-bottom frame and hollow circle: the frame is a **candidate assertion cue**, not yet universal grammar. ActsFor keeps its triangle and arrow without Agent's vertical axis. Person keeps the old Entity ring and axis; Boundary Sovereignty keeps the old Control routing template; Body and the Designations keep the old placement template; Knowledge Transmission keeps the old Flow wave. None is changed by cascade. These family breaks supersede their older descriptions below.
 
 ## Candidate family cues
 
