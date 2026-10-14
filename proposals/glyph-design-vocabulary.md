@@ -21,7 +21,7 @@ This document names the few geometric cues that may carry a stable, learned read
 ## Source pin and counts
 
 > [!NOTE]
-> Inventory counts below describe the catalog at [81aad87](https://github.com/sadasant/organon/commit/81aad87daa679378d54cde7c3d5ce2da61d37e08), sha256 `dffbc37d1b493a78a06f7cad5b14cd6ab70586fb99a7a27c6d01895998bc2e6e`: 117 glyphs, 89 named strokes, three unused. The current follow-up has 118 glyphs and 92 strokes: State uses `stateOverlap`, leaving `grouping` and `index` unused; MathematicalOrder reuses `members` with `partialOrder` cover edges. Transformation uses `transformationEdge` instead of `step` and `dot`. Thus `members` now has three uses and `memberLinks` one. The approved process and preservation batch adds six strokes, for 98: Change drops `slash` and keeps only `triangle`; Feeds uses `memberBridge`, Causal path `directedChain`, Causal Contribution `comparisonLanes`, Invariant `twoPivotSectors`, Persistence `threePivotSectors` and Constraint `selectiveBranch`. Their former `wave`, `down`, `step`, `arrow`, `fork`, `bar`, `rails`, `bars`, `ring` and `frame` uses are gone, leaving `down` unused alongside `crescent`, `link`, `orbit`, `grouping` and `index`. Counts in the tables below remain pinned to 81aad87 unless a row says otherwise. The command below measures the current catalog, not the historical counts.
+> Inventory counts below describe the catalog at [81aad87](https://github.com/sadasant/organon/commit/81aad87daa679378d54cde7c3d5ce2da61d37e08), sha256 `dffbc37d1b493a78a06f7cad5b14cd6ab70586fb99a7a27c6d01895998bc2e6e`: 117 glyphs, 89 named strokes, three unused. The current follow-up has 118 glyphs and 92 strokes: State uses `stateOverlap`, leaving `grouping` and `index` unused; MathematicalOrder reuses `members` with `partialOrder` cover edges. Transformation uses `transformationEdge` instead of `step` and `dot`. Thus `members` now has three uses and `memberLinks` one. The approved process and preservation batch adds six strokes, for 98: Change drops `slash` and keeps only `triangle`; Feeds uses `memberBridge`, Causal path `directedChain`, Causal Contribution `comparisonLanes`, Invariant `twoPivotSectors`, Persistence `threePivotSectors` and Constraint `selectiveBranch`. Their former `wave`, `down`, `step`, `arrow`, `fork`, `bar`, `rails`, `bars`, `ring` and `frame` uses are gone, leaving `down` unused alongside `crescent`, `link`, `orbit`, `grouping` and `index`. The identity and expression batch (`identity_expression_review`) adds six more, for 104: Entity uses `sixPivotSectors`, Environment `externalSet`, Scope `coverageSpan`, Specification `testSheet`, Rule `mappingSheet` and Sign `traceToken`. Their former `ring`, `axis`, `surroundings`, `frame`, `cap`, `foot`, `square`, `bars`, `gate`, `bar`, `dot` and `wings` uses are gone, leaving `surroundings` unused as well. Counts in the tables below remain pinned to 81aad87 unless a row says otherwise. The command below measures the current catalog, not the historical counts.
 
 Run from the repository root:
 
@@ -29,17 +29,17 @@ Run from the repository root:
 node --input-type=module <<'EOF'
 import { glyphs, strokes } from "./proposals/glyph-catalog.mjs";
 const ops = {
-  dot: ["dot", "seed", "members", "inversePresence", "stateOverlap", "transformationEdge", "memberBridge", "directedChain", "comparisonLanes", "twoPivotSectors", "threePivotSectors"],
+  dot: ["dot", "seed", "members", "inversePresence", "stateOverlap", "transformationEdge", "memberBridge", "directedChain", "comparisonLanes", "twoPivotSectors", "threePivotSectors", "sixPivotSectors", "externalSet", "coverageSpan", "traceToken"],
   parallelBars: ["bars"],
   shortStroke: ["bar", "cap", "foot", "wings", "ticks", "index"],
   vertical: ["axis", "rails", "echo", "association", "comparison", "party", "factive"],
-  arrowhead: ["arrow", "up", "down", "denotes", "endpoint", "interpretedAction", "realizable", "statusAssignment", "binding", "issuedPermission", "permittedRealization", "admittedOther", "knowledgePath", "enforcedBoundary", "uptake", "adjustedAction", "constrainedAction", "directedChain", "comparisonLanes", "selectiveBranch"],
+  arrowhead: ["arrow", "up", "down", "denotes", "endpoint", "interpretedAction", "realizable", "statusAssignment", "binding", "issuedPermission", "permittedRealization", "admittedOther", "knowledgePath", "enforcedBoundary", "uptake", "adjustedAction", "constrainedAction", "directedChain", "comparisonLanes", "selectiveBranch", "mappingSheet", "traceToken"],
   angleTag: ["chevron", "conditionI", "conditionII"],
-  turningPath: ["step", "ordered", "endpoint", "realizable", "placement", "statusAssignment", "binding", "permittedRealization", "ruleCoupling", "continuingOrder", "portableRecord", "tracedRecord", "partialMap", "structuredModel", "recordedExchange", "scopedWorld", "feedingSource", "correspondence", "knowledgePath", "constituents", "tracking", "adjustedAction"],
-  branching: ["tree", "fork", "routing", "feedingSource", "ruleCoupling", "tracking", "interpretedAction", "constituents", "enforcedBoundary", "partialOrder", "twoPivotSectors", "threePivotSectors", "selectiveBranch"],
-  contour: ["ring", "inversePresence", "square", "gate", "vessel", "frame", "portFrame", "open", "arch", "eye", "diamond", "double", "triangle", "memberLinks", "grouping", "personRecord", "partialMap", "tracedRecord", "portableRecord", "recordedPlacement", "recordedExchange", "structuredModel", "knowledgePath", "assertion", "registration", "endpoint", "statusAssignment", "placement", "admittedRecord", "constituents", "constrainedAction", "factive", "stateOverlap", "transformationEdge", "memberBridge"],
-  cornerMark: ["grouping", "warranted", "hooks", "participants", "surroundings", "scopedWorld", "permittedRealization", "issuedPermission"],
-  strike: ["slash", "cross", "routing", "enforcedBoundary"],
+  turningPath: ["step", "ordered", "endpoint", "realizable", "placement", "statusAssignment", "binding", "permittedRealization", "ruleCoupling", "continuingOrder", "portableRecord", "tracedRecord", "partialMap", "structuredModel", "recordedExchange", "scopedWorld", "feedingSource", "correspondence", "knowledgePath", "constituents", "tracking", "adjustedAction", "testSheet"],
+  branching: ["tree", "fork", "routing", "feedingSource", "ruleCoupling", "tracking", "interpretedAction", "constituents", "enforcedBoundary", "partialOrder", "twoPivotSectors", "threePivotSectors", "selectiveBranch", "sixPivotSectors", "externalSet"],
+  contour: ["ring", "inversePresence", "square", "gate", "vessel", "frame", "portFrame", "open", "arch", "eye", "diamond", "double", "triangle", "memberLinks", "grouping", "personRecord", "partialMap", "tracedRecord", "portableRecord", "recordedPlacement", "recordedExchange", "structuredModel", "knowledgePath", "assertion", "registration", "endpoint", "statusAssignment", "placement", "admittedRecord", "constituents", "constrainedAction", "factive", "stateOverlap", "transformationEdge", "memberBridge", "externalSet", "testSheet", "mappingSheet", "traceToken"],
+  cornerMark: ["grouping", "warranted", "hooks", "participants", "surroundings", "scopedWorld", "permittedRealization", "issuedPermission", "externalSet", "coverageSpan"],
+  strike: ["slash", "cross", "routing", "enforcedBoundary", "testSheet"],
   wave: ["wave"],
   figurative: ["crown", "roots", "star", "assignedBundle"],
 };
@@ -72,7 +72,7 @@ Most repetition in the current catalog falls in the third class. That is the fin
 
 Daniel approved these drawings in the review sections named below. Approval covers a design direction for the listed terms. It is not semantic equivalence or reader-test evidence.
 
-All triangle motifs use equilateral geometry, recorded in `equilateral_review` and `transformation_edge_review`: Set, Configuration, Order, State and Transformation use equal sides between vertex centers; Change, Agent and ActsFor use equal sides between path vertices. Feeds' two node triangles are equilateral, and the Invariant and Persistence spokes are equal radii exactly 60 degrees apart (`process_preservation_review`). Heights are derived, not grid-snapped. State retains exact half-base overlap. Font-outline quantization introduces only rounding, not a different intended proportion. This drawing rule adds no ontological entailment.
+All triangle motifs use equilateral geometry, recorded in `equilateral_review` and `transformation_edge_review`: Set, Configuration, Order, State and Transformation use equal sides between vertex centers; Change, Agent and ActsFor use equal sides between path vertices. Feeds' two node triangles are equilateral, and the Invariant and Persistence spokes are equal radii exactly 60 degrees apart (`process_preservation_review`); Entity's six spokes follow the same rule around a pivot at the cell center (`identity_expression_review`). Heights are derived, not grid-snapped. State retains exact half-base overlap. Font-outline quantization introduces only rounding, not a different intended proportion. This drawing rule adds no ontological entailment.
 
 | Cue | Glyphs | Learned reading | Does not mean | Review |
 | --- | --- | --- | --- | --- |
@@ -81,7 +81,8 @@ All triangle motifs use equilateral geometry, recorded in `equilateral_review` a
 | Two equal parallel bars | [Identity](../ontology/ontology.md#organon-identity) (`=`), [Difference](../ontology/ontology.md#organon-difference) (bars with slash), [Relation](../ontology/ontology.md#organon-relation) (bars joined by a vertical) | Identity and Difference form the classical equals / not-equals pair. Relation borrows the proportions. | An operator. Relation does not require Identity, and two bars do not limit Relation to two participants. | `identity_review`, `relation_review` |
 | Member dots and straight edges | [Set](../ontology/ontology.md#organon-set) (three solid dots), [Configuration](../ontology/ontology.md#organon-configuration) (the same dots joined) | Shared dots cue the member Set; edges cue additional specified structure. | Three members, member order, complete connectivity, causation or binary-only Relations. | `set_configuration_review`, `structured_configuration_correction` |
 | Maps-to | [Denotation](../ontology/ontology.md#organon-denotation) | Expression side (tail) to target side (arrowhead). | A function's uniqueness condition, causation, fidelity or Truth. | `denotation_review` |
-| Open pivot fan | [Invariant](../ontology/ontology.md#organon-invariant) (two sectors, three spokes), [Persistence](../ontology/ontology.md#organon-persistence) (three sectors, four spokes) | A filled pivot held while equal spokes reach hollow nodes; Persistence carries Invariant's pivot through one more sector, following D012's dependency on Invariant. | Pointwise or geometric invariance, rotation, a fixed number of Transformations or States, or a Center. The missing outer edges are not omitted Relations or negation. | `process_preservation_review` |
+| Open pivot fan | [Invariant](../ontology/ontology.md#organon-invariant) (two sectors, three spokes), [Persistence](../ontology/ontology.md#organon-persistence) (three sectors, four spokes), [Entity](../ontology/ontology.md#organon-entity) (six sectors, six spokes, centered pivot) | A filled pivot held while equal spokes reach hollow nodes; Persistence carries Invariant's pivot through one more sector, following D012's dependency on Invariant, and Entity completes the turn, following D014's dependency on both. | Pointwise or geometric invariance, rotation, a fixed number of Transformations or States, completeness, causality or a Center. Entity's six endpoints are not six States. The missing outer edges are not omitted Relations or negation. | `process_preservation_review`, `identity_expression_review` |
+| Shared sheet | [Specification](../ontology/ontology.md#organon-specification) (test sheet), [Rule](../ontology/ontology.md#organon-rule) (mapping sheet) | The same full-height sheet; Rule, a Specification by D020, carries a maps-to inside it. | Composition, a document or text, an inferable constructive procedure, or a function. Representation keeps its own square and dot. | `identity_expression_review` |
 
 State now uses two equal, upright Configuration-like triangles with exactly half-base overlap, approved in `state_overlap_review`. Four equally spaced baseline nodes alternate hollow, solid, hollow, solid; each apex sits directly above the other triangle's inner base node. The left triangle has hollow vertices and the right has solid vertices. The shared baseline is drawn once and the diagonal crossing has no node. Edges stop outside hollow centers, so the font keeps actual negative space rather than background-colored masks.
 
@@ -100,7 +101,18 @@ Seven process and preservation drawings are approved in `process_preservation_re
 - **Invariant** and **Persistence** form the open pivot fan in the table above.
 - **Constraint** introduces *stop versus passage*: one input branches into a route ending in a corner arrowhead and a route meeting a transverse stop. The stop is not Absence or Revocation, and the branch does not require an Agent's choice.
 
-These cues are term-specific, except the pivot fan's Invariant–Persistence pairing. Their reuse elsewhere needs the review steps in the [incremental policy](#incremental-policy).
+Six identity, applicability and expression drawings are approved in `identity_expression_review`. They reuse the same node helpers, stroke width, square caps and miter joins; Rule's and Sign's arrowheads are symmetric 3-unit strokes at 0.6 radians from the shaft.
+
+- **Entity** joins the open pivot fan: six equal spokes every 60 degrees from a solid pivot at the cell center, six distinct hollow endpoints and no outer hexagon. The full turn is a family resemblance, not completeness, six States or causality.
+- **Environment** introduces the *external set* (option C): a box with a solid node, an unarrowed connector and a separate bracket of three hollow outside members. Inclusion is not spatial, three members are not required and the connector asserts no flow.
+- **Scope** introduces the *coverage span*: open upper and lower spans over three solid member dots. Neither three members nor a nonempty Scope is required, and Scope need not be ordered or spatial.
+- **Specification** is the *test sheet*: a sheet with a condition line and a route meeting a transverse result mark. Constructivity cannot be inferred from the drawing.
+- **Rule** is the *mapping sheet*: the same sheet with a maps-to expression. It imposes no function, determinism or unique output.
+- **Sign** is *trace into token*: a hollow target node, an arrow and a separate token box. The arrow runs target to token, the causal trace direction, not Denotation's expression-to-target orientation.
+
+Daniel retained Boundary (diamond with echo bars) and Representation (square with dot), superseding the study's tentative selective-perimeter and expression-stem proposals, and kept Perception, Witness and Agent. Principal and Person were not redrawn, so their ring and axis no longer match Entity: the former Entity family is broken, recorded below rather than repaired by cascade.
+
+These cues are term-specific, except the pivot fan and the shared Specification–Rule sheet. Their reuse elsewhere needs the review steps in the [incremental policy](#incremental-policy).
 
 ## Candidate family cues
 
@@ -113,7 +125,7 @@ These reuses follow a definitional dependency and help a reader find a family. A
 | `realizable` | Capability, Constituent Power | Constituent Power is a Capability. | The ascent reads as progress and as a Causal path. |
 | `knowledgePath`, `factive` | Operative Knowledge, Factive Operative Knowledge, Warranted Knowledge | Each successive term adds a condition to the previous one. | The `warranted` corner is a generic frame, not an Evidence cue. |
 | `tracking` | Attention, Care | Care is Attention conditioning Action. | Converging pair aimed at a bar resembles Enforcement. |
-| ring with axis | Entity, Principal, Person | Principal and Person are Entities. | Any ring and axis may be read as a Principal or Person. |
+| ring with axis | Principal, Person (formerly also Entity) | Principal and Person are Entities. | Broken family: Entity now uses the six-sector pivot fan (`identity_expression_review`), so the shared ring and axis no longer show Entity status. Any ring and axis may be read as a Principal or Person. |
 | diamond with axis | Truth, and the `factive` mark | The Factive and Warranted terms involve Truth. | The diamond is also Boundary's and Symbol's. Reserve diamond-on-axis for Truth-involving terms. |
 | `double` | Ritual, Meaning | Meaning is constituted by Ritual. | Recurrent Integration also uses `double` without that dependency. |
 | `assertion`, `registration` with `conditionI` / `conditionII` | The two Attributions and the two Designations | Flag marks Attribution, form marks Designation, tag marks the domain. | Only a 5–6 unit tag separates consciousness from moral status. |
@@ -146,11 +158,12 @@ Every named stroke appears below. Counts are glyphs at the pinned source.
 
 | Strokes | Glyphs | Class | Note |
 | --- | --- | --- | --- |
-| `dot` | 11 | Conflicting | Approved only as part of Presence. Elsewhere arbitrary. |
+| `dot` | 11 | Conflicting | Approved only as part of Presence. Elsewhere arbitrary. Sign no longer uses it in the current follow-up; Representation keeps it. |
 | `members` | 2 | Approved family cue | Set and Configuration. |
 | `stateOverlap` | 1 in the current follow-up | Approved, term-specific | State's half-overlapping triangles extend the geometric family without making hollow/solid a general semantic operator. |
 | `memberBridge`, `directedChain`, `comparisonLanes` | 1 each in the current follow-up | Approved, term-specific | Feeds' part-to-part bridge, Causal path's directed chain and Causal Contribution's comparison lanes. Hollow and solid nodes are drawing roles; connections stop outside hollow centers. |
-| `twoPivotSectors`, `threePivotSectors` | 1 each in the current follow-up | Approved family cue | Invariant and Persistence. See the open pivot fan in [the approved vocabulary](#the-approved-vocabulary). |
+| `twoPivotSectors`, `threePivotSectors`, `sixPivotSectors` | 1 each in the current follow-up | Approved family cue | Invariant, Persistence and Entity. See the open pivot fan in [the approved vocabulary](#the-approved-vocabulary). |
+| `externalSet`, `coverageSpan`, `traceToken` | 1 each in the current follow-up | Approved, term-specific | Environment's external set, Scope's coverage span and Sign's trace into token. Hollow and solid nodes are drawing roles. |
 | `inversePresence` | 1 | Approved, term-specific | Reality. Overlapping construction strokes are not layers of Reality. |
 | `seed` | 1 | Term-specific, arbitrary | Operationalization. |
 
@@ -158,16 +171,16 @@ Every named stroke appears below. Counts are glyphs at the pinned source.
 
 | Strokes | Glyphs | Class | Note |
 | --- | --- | --- | --- |
-| `bars` | 8 | Approved for Identity, Difference, Relation; conflicting elsewhere | See [Identity's bars are not an operator](#identitys-bars-are-not-an-operator). Invariant no longer uses them in the current follow-up. |
-| `foot` | 11 | Conflicting | Approved only as standalone Absence. Elsewhere an arbitrary differentiator, for example between Admission and Admissibility Rule. |
-| `bar`, `cap`, `wings` | 6, 5, 6 | Conflicting | Arbitrary differentiators. A cap is not Authority; wings are not extension. Causal Contribution and Constraint no longer use `bar` in the current follow-up. |
+| `bars` | 8 | Approved for Identity, Difference, Relation; conflicting elsewhere | See [Identity's bars are not an operator](#identitys-bars-are-not-an-operator). Invariant and Specification no longer use them in the current follow-up. |
+| `foot` | 11 | Conflicting | Approved only as standalone Absence. Elsewhere an arbitrary differentiator, for example between Admission and Admissibility Rule. Scope and Rule no longer use it in the current follow-up. |
+| `bar`, `cap`, `wings` | 6, 5, 6 | Conflicting | Arbitrary differentiators. A cap is not Authority; wings are not extension. Causal Contribution, Constraint and Rule no longer use `bar`, Scope no longer uses `cap` and Sign no longer uses `wings` in the current follow-up. |
 | `ticks`, `index` | 1 each at the historical pin | Term-specific | Organ; State's former index is now unused. |
 
 ### Vertical strokes
 
 | Strokes | Glyphs | Class | Note |
 | --- | --- | --- | --- |
-| `axis` | 9 | Candidate family cue with Entity's ring or Truth's diamond; unsupported in Sign, Preference, Ritual, Embodied Perspective; unclear in Agent | An axis is not identity through States unless the glyph belongs to the Entity family. Agent's triangle-on-axis shares nothing else with Entity. |
+| `axis` | 9 | Candidate family cue with Entity's ring or Truth's diamond; unsupported in Sign, Preference, Ritual, Embodied Perspective; unclear in Agent | An axis is not identity through States unless the glyph belongs to the Entity family. Agent's triangle-on-axis shares nothing else with Entity. Entity and Sign no longer use the axis in the current follow-up, so it no longer marks Entity at all. |
 | `rails` | 9 | Conflicting | Invariant and Persistence no longer use rails in the current follow-up, leaving seven uses in terms that do not require Persistence. Rails carry no persistence reading. |
 | `echo` | 3 | Conflicting | Boundary, Constituent Power and Recurrent Integration share outer bars with no shared meaning. `comparison` (Reference) resembles them. |
 | `association`, `comparison`, `party` | 1 each | Term-specific | Relation (approved), Reference, Principal. |
@@ -212,23 +225,24 @@ Every named stroke appears below. Counts are glyphs at the pinned source.
 
 | Strokes | Glyphs | Class | Note |
 | --- | --- | --- | --- |
-| `ring` | 8 | Approved for Presence and Missingness; candidate family cue for Entity, Principal, Person; conflicting in Persistence, Center, Organ | Persistence no longer uses it in the current follow-up. |
+| `ring` | 8 | Approved for Presence and Missingness; broken family cue for Principal and Person; conflicting in Persistence, Center, Organ | Persistence and Entity no longer use it in the current follow-up. |
 | `memberLinks` | 1 | Approved, term-specific | Configuration's edges, not an enclosed region. |
-| `square` | 7 | Conflicting | Proposed anchor for Representation, but also Specification, Record, Canonical system, Ledger, Operationalization, Knowledge Transmission. |
-| `gate` | 11 | Candidate family cue for Permission, Revocation, Permission Exercise; conflicting elsewhere | Claim, Rule, Admission and the sovereignty glyphs make the gate read as institutional. |
+| `square` | 7 | Conflicting | Retained for Representation (`identity_expression_review`), but also Record, Canonical system, Ledger, Operationalization, Knowledge Transmission. Specification no longer uses it in the current follow-up. |
+| `testSheet`, `mappingSheet` | 1 each in the current follow-up | Approved family cue | Specification and Rule share the full-height sheet. Its route, result mark and maps-to are term-specific. |
+| `gate` | 11 | Candidate family cue for Permission, Revocation, Permission Exercise; conflicting elsewhere | Claim, Rule, Admission and the sovereignty glyphs make the gate read as institutional. Rule no longer uses it in the current follow-up. |
 | `eye` | 7 | Conflicting | Imports visual seeing into terms that do not require it. |
 | `vessel` | 5 | Conflicting | Enclosure-as-interior is stipulated; Bodily Organization contains Memory's drawing. |
 | `diamond` | 3 | Conflicting | Boundary, Symbol, Truth. |
 | `triangle` | 3 | Approved alone for Change; conflicting in Agent and ActsFor | Change is now the plain delta, so Agent and ActsFor contain the whole Change glyph. |
 | `double` | 3 | Candidate family cue for Ritual and Meaning; conflicting in Recurrent Integration | |
-| `frame`, `open` | 3, 2 | Conflicting | Frame in Constraint, Scope, Shadow system; Exposure's open arc is inherited by External Sovereignty. Constraint no longer uses the frame in the current follow-up. |
+| `frame`, `open` | 3, 2 | Conflicting | Frame in Constraint, Scope, Shadow system; Exposure's open arc is inherited by External Sovereignty. Constraint and Scope no longer use the frame in the current follow-up. |
 | `arch`, `portFrame`, `grouping`, `personRecord`, `recordedPlacement`, `assertion`, `registration`, `admittedRecord` | 1–2 each at the historical pin | Term-specific or candidate pairs | `recordedPlacement` and `registration` share a post-stem-box template with `placement` and `constituents` that remains a collision. State's redraw leaves `grouping` unused in the current catalog. |
 
 ### Corner marks, strikes, waves and figures
 
 | Strokes | Glyphs | Class | Note |
 | --- | --- | --- | --- |
-| `warranted`, `hooks`, `participants`, `surroundings` | 1 each | Term-specific | A generic corner reads as Scope or a frame. |
+| `warranted`, `hooks`, `participants`, `surroundings` | 1 each | Term-specific | A generic corner reads as Scope or a frame. Environment's `surroundings` is unused in the current follow-up. |
 | `slash` | 3 | Approved within Difference; conflicting in Revocation | Change no longer uses the slash in the current follow-up. |
 | `cross` | 2 | Conflicting | Language and Organ. |
 | `wave` | 3 | Conflicting | Feeds, Flow, Knowledge Transmission. Periodicity is not implied. Feeds uses `memberBridge` in the current follow-up. |
@@ -236,7 +250,7 @@ Every named stroke appears below. Counts are glyphs at the pinned source.
 | `roots` | 3 | Conflicting | Legs import bodily locomotion and crowds. |
 | `star` | 2 | Conflicting | Symbol and Center. |
 | `assignedBundle` | 1 | Term-specific | Role. |
-| `crescent`, `link`, `orbit` | 0 | Unused | Retired drawings kept in the catalog. Not part of the vocabulary. `grouping`, `index` and `down` are also unused in the current follow-up. |
+| `crescent`, `link`, `orbit` | 0 | Unused | Retired drawings kept in the catalog. Not part of the vocabulary. `grouping`, `index`, `down` and `surroundings` are also unused in the current follow-up. |
 
 ## Unresolved collisions and reader tests
 
@@ -251,6 +265,7 @@ Ordered by priority. Approved marks come first because readers will learn them f
 7. **Imported imagery.** The eye, crown, legs, Admission's checkbox and the gate's institutional reading.
 8. **Domain tags.** Small-size discrimination of `conditionI` from `conditionII`.
 9. **Process and preservation drawings.** Check every hollow center in Feeds, Causal path, Causal Contribution, Invariant and Persistence at text size; Invariant against Persistence, one spoke apart, and both against Center; Change's plain delta against Configuration and the Agent family; Constraint's selective branch against Control and the remaining forks.
+10. **Identity and expression drawings.** Check Entity's six hollow centers and its asterisk, Center and Symbol readings; Environment against Feeds and Scope; Specification's result mark near the sheet edge; Rule against Denotation; Sign's arrow direction against Denotation; and whether readers still take Principal and Person's ring and axis as Entity.
 
 Each test should ask for a spontaneous reading without labels, then for pairwise discrimination with labels, at the sizes the site actually uses. Record results as reader evidence, separate from design approval.
 
@@ -265,7 +280,7 @@ The vocabulary grows one reviewed cue at a time. Nothing in it licenses reading 
 5. **Every addition gets a collision check.** Append a font slot for a new term; preserve it when redrawing an existing glyph. Rerun the count command, compare the new glyph against every glyph sharing one of its operation groups, and record the nearest collisions in its review entry.
 6. **Counts travel with their pin.** Quote a count only with the catalog hash it came from, and update the pin when the catalog changes.
 7. **Failed cues are demoted, not defended.** If reader testing shows a family cue misleads, reclassify it as term-specific or conflicting before redrawing. Approved drawings change only with Daniel's approval.
-8. **Unused strokes stay out.** `crescent`, `link`, `orbit`, `grouping`, `index` and `down` re-enter only through step 1.
+8. **Unused strokes stay out.** `crescent`, `link`, `orbit`, `grouping`, `index`, `down` and `surroundings` re-enter only through step 1.
 
 ## Related entries
 

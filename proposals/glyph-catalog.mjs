@@ -40,6 +40,18 @@ const pivotSectors = (sectors) => {
     [16 + 12*Math.cos(i*Math.PI/3), 10 + 12*Math.sin(i*Math.PI/3)]);
   return graph([[16, 10], ...ends], ends.map((_, i) => [0, i + 1]), [0]);
 };
+// Six equal 12-unit spokes from a solid pivot at the cell center, every
+// 60 degrees, each ending in its own hollow node. No outer hexagon is drawn.
+const sixSpokeEnds = Array.from({ length: 6 }, (_, i) =>
+  [16 + 12*Math.cos(i*Math.PI/3), 16 + 12*Math.sin(i*Math.PI/3)]);
+// Symmetric open arrowhead: two 3-unit strokes at +/-0.6 rad from the shaft,
+// meeting at the tip, as in the reviewed study sketches.
+const arrowHead = ([x, y], [u, v]) => {
+  const a = Math.atan2(v - y, u - x);
+  return `M${u-3*Math.cos(a-0.6)} ${v-3*Math.sin(a-0.6)}L${u} ${v}L${u-3*Math.cos(a+0.6)} ${v-3*Math.sin(a+0.6)}`;
+};
+// Shared Representation sheet for Specification and Rule.
+const sheet = "M4 3H28V29H4Z";
 // Feeds study geometry scaled by 0.95 about the cell center, so r=2 rings
 // at its outer vertices stay inside the 1-unit ink margin. Similarity
 // preserves the equilateral triangles and the bridge angle.
@@ -138,6 +150,7 @@ export const strokes = {
   // Hasse cover edges, read upward; the lower members are incomparable.
   partialOrder: `M6 24 16 ${memberTop} 26 24`,
   portFrame: "M8 2H2V30H8M24 2H30V30H24",
+  // Retired Environment corner, retained for the historical design inventory.
   surroundings: "M9 10V22H23M3 6H7M16 3V7M26 5 29 8M25 16H30M17 27V30",
   partialMap: "M6 6H26V12M26 20V26H6V6M6 20H13V13H21",
   comparison: "M2 11V21M30 11V21",
@@ -200,6 +213,27 @@ export const strokes = {
   threePivotSectors: pivotSectors(3),
   // One input continues to a corner arrowhead; the other meets a transverse stop.
   selectiveBranch: "M3 16H12L24 6M12 16 24 26M21 29 27 23M19 6H24V11",
+  // Approved identity, applicability and expression drawings. These are
+  // term-specific mnemonics, not a compositional grammar.
+  // Entity completes the open pivot fan: six sectors, six distinct hollow
+  // endpoints, no closing edges.
+  sixPivotSectors: graph([[16, 16], ...sixSpokeEnds], sixSpokeEnds.map((_, i) => [0, i + 1]), [0]),
+  // A box with a solid node, an unarrowed connector, and a separate bracket
+  // grouping three hollow outside members.
+  externalSet: [
+    "M3 10H15V22H3Z",
+    solidNode([9, 16]),
+    "M15 16H24.5M21 6V26M21 6H24.5M21 26H24.5",
+    ...[[27, 6], [27, 16], [27, 26]].map(hollowNode),
+  ].join(" "),
+  // Upper and lower spans over three solid member dots.
+  coverageSpan: ["M4 10V5H28V10M4 22V27H28V22", ...[[7, 16], [16, 16], [25, 16]].map(solidNode)].join(" "),
+  // A sheet with a condition line, a route and a transverse result mark.
+  testSheet: `${sheet}M9 10H23M9 16H16M16 16L23 22M20 25L26 19`,
+  // A sheet containing a maps-to expression.
+  mappingSheet: `${sheet} M8 10V22M8 16H23${arrowHead([8, 16], [23, 16])}`,
+  // A trace from a hollow target node into a separate token box.
+  traceToken: `${hollowNode([4, 16])} M7 16H21${arrowHead([7, 16], [21, 16])} M22 9H29V23H22Z`,
 };
 
 const alphabet = {
@@ -223,14 +257,14 @@ const alphabet = {
   Invariant: ["twoPivotSectors"],
   Persistence: ["threePivotSectors"],
   Constraint: ["selectiveBranch"],
-  Entity: ["ring", "axis"],
+  Entity: ["sixPivotSectors"],
   Boundary: ["diamond", "echo"],
-  Environment: ["surroundings"],
+  Environment: ["externalSet"],
   Representation: ["square", "dot"],
-  Scope: ["frame", "cap", "foot"],
-  Specification: ["square", "bars"],
-  Rule: ["gate", "bar", "foot"],
-  Sign: ["axis", "dot", "wings"],
+  Scope: ["coverageSpan"],
+  Specification: ["testSheet"],
+  Rule: ["mappingSheet"],
+  Sign: ["traceToken"],
   Symbol: ["diamond", "star"],
   Language: ["rails", "cross", "cap"],
   Map: ["partialMap"],
