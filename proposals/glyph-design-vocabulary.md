@@ -31,6 +31,8 @@ The coordination batch (`coordination_review`) adds six strokes, for **126 strok
 
 The institutional batch (`institutional_review`) adds five strokes, for **131 strokes and 118 glyphs**: CountsAs uses `pairedStatusRecord`, Authority `agentInDomain`, Permission Claim `scopedAssertion`, Declaration `submittedClaim` and Permission `recordedPassage`. Admission and Revocation are explicitly retained; Grant remains unresolved with its current drawing, and the proposed V extension to Permission was not approved. The former `statusAssignment` and `binding` strokes are now unused, and the former `gate`, `dot`, `wings`, `tree`, `cap` and `up` uses are gone from these terms. This paragraph and the institutional review supersede former-shape comparisons for these five terms below.
 
+The permission and evidence batch (`permission_evidence_review`) adds eight strokes, for **139 strokes and 118 glyphs**: Grant uses `scopedSubmission`, Permission Exercise `actionUnderRecord`, Exercisability `actionWithinWindow`, Enforcement `ruleCoupledAction`, Role `configurationInStanding`, Admissibility Rule `ruleForAdmission`, IndependentFor `witnessBeyondControl` and Evidence `admittedObservation`. Grant is no longer unresolved. Grant's 0.8-scaled Permission Claim and Enforcement's 0.6-scaled Rule are flattened into path coordinates, keeping their coordinates and arrowhead sizes but drawn at the font-wide 1.1 stroke width; every other drawing follows the study exactly. The former `issuedPermission`, `permittedRealization`, `ruleCoupling`, `assignedBundle`, `tracedRecord` and `admittedRecord` strokes are now unused, and the former `gate`, `arrow`, `chevron`, `foot`, `rails`, `dot` and `wings` uses are gone from these terms. This paragraph and the permission and evidence review supersede former-shape comparisons for these eight terms below.
+
 Run from the repository root:
 
 ```sh
@@ -61,6 +63,12 @@ ops.dot.push("pairedStatusRecord", "scopedAssertion", "submittedClaim");
 ops.vertical.push("agentInDomain", "scopedAssertion");
 ops.arrowhead.push("submittedClaim", "recordedPassage");
 ops.contour.push("pairedStatusRecord", "agentInDomain", "scopedAssertion", "submittedClaim", "recordedPassage");
+ops.dot.push("scopedSubmission", "actionUnderRecord", "configurationInStanding", "witnessBeyondControl", "admittedObservation");
+ops.vertical.push("scopedSubmission", "actionUnderRecord", "ruleCoupledAction", "configurationInStanding", "ruleForAdmission", "witnessBeyondControl");
+ops.arrowhead.push("scopedSubmission", "actionUnderRecord", "actionWithinWindow", "ruleCoupledAction", "ruleForAdmission");
+ops.angleTag.push("ruleForAdmission", "admittedObservation");
+ops.contour.push("scopedSubmission", "actionUnderRecord", "ruleCoupledAction", "configurationInStanding", "ruleForAdmission", "witnessBeyondControl", "admittedObservation");
+ops.cornerMark.push("actionWithinWindow");
 const use = {};
 for (const g of glyphs) for (const m of g.motifs) (use[m] ??= []).push(g.term);
 console.log(`glyphs ${glyphs.length}; named strokes ${Object.keys(strokes).length}`);
@@ -102,6 +110,7 @@ All triangle motifs use equilateral geometry, recorded in `equilateral_review` a
 | Open pivot fan | [Invariant](../ontology/ontology.md#organon-invariant) (two sectors, three spokes), [Persistence](../ontology/ontology.md#organon-persistence) (three sectors, four spokes), [Entity](../ontology/ontology.md#organon-entity) (six sectors, six spokes, centered pivot) | A filled pivot held while equal spokes reach hollow nodes; Persistence carries Invariant's pivot through one more sector, following D012's dependency on Invariant, and Entity completes the turn, following D014's dependency on both. | Pointwise or geometric invariance, rotation, a fixed number of Transformations or States, completeness, causality or a Center. Entity's six endpoints are not six States. The missing outer edges are not omitted Relations or negation. | `process_preservation_review`, `identity_expression_review` |
 | Shared sheet | [Specification](../ontology/ontology.md#organon-specification) (test sheet), [Rule](../ontology/ontology.md#organon-rule) (mapping sheet), [Capability](../ontology/ontology.md#organon-capability) (action specification) | The same full-height sheet; Rule, a Specification by D020, carries a maps-to inside it, and Capability, a Specification of Actions by D038, carries a condition line above an action arrow. | Composition, a document or text, an inferable constructive procedure, or a function. Capability's arrow is not an actual or completed Action. Representation keeps its own square and dot. | `identity_expression_review`, `action_interior_review` |
 | Vessel (U) | [Interior](../ontology/ontology.md#organon-interior) (vessel and dot), [Memory](../ontology/ontology.md#organon-memory), [Exposure](../ontology/ontology.md#organon-exposure), [Bodily Organization](../ontology/ontology.md#organon-bodily-organization), [Embodied Perspective](../ontology/ontology.md#organon-embodied-perspective), [Internal Activity Selection](../ontology/ontology.md#organon-internal-activity-selection) | A learned internality cue: each definition is stated through an Entity's Interior, and the exact unchanged contour holds a term-specific content. | A universal container, a physical cavity, a drawing of the Boundary, consciousness or inclusion by depiction. The open top is a drawing convention, not a gap in a Boundary; Exposure's arrow through it is only a crossing mnemonic. Other enclosures are not Interiors. | `action_interior_review` |
+| Admission's V | [Admission](../ontology/ontology.md#organon-admission) (chevron in its gate), [Admissibility Rule](../ontology/ontology.md#organon-admissibility-rule) (V below Rule's maps-to on a sheet), [Evidence](../ontology/ontology.md#organon-evidence) (V below a compact eye on a sheet) | Admissibility Rule's admission purpose and Evidence's admission (D064, D066). | Truth, correctness, approval, that every candidate passes, or Permission; the V is not added to Permission or to any other term without review. | `permission_evidence_review` |
 
 State now uses two equal, upright Configuration-like triangles with exactly half-base overlap, approved in `state_overlap_review`. Four equally spaced baseline nodes alternate hollow, solid, hollow, solid; each apex sits directly above the other triangle's inner base node. The left triangle has hollow vertices and the right has solid vertices. The shared baseline is drawn once and the diagonal crossing has no node. Edges stop outside hollow centers, so the font keeps actual negative space rather than background-colored masks.
 
@@ -146,7 +155,7 @@ Twelve action and Interior-family drawings are approved in `action_interior_revi
 - **Interpretation** is the *perceptual fork*: a compact eye whose stem splits in two. The fork marks a distinction among available Actions, not a choice, and resembles Intelligence.
 - **Agency** is *interpretation to action*: a compact eye followed by an arrow. Both links are partial: the fork and Action's barrier are not drawn.
 - **Tool** is the *side-coupled participant*: a box with a hollow node, joined by a stem to the side of an action arrow. Side coupling is a mnemonic for non-identity with the Agent; it resembles Respect.
-- **Capability** is the *action specification*: the shared Specification sheet with a condition line above an action arrow. Exercisability and Constituent Power keep the old staircase.
+- **Capability** is the *action specification*: the shared Specification sheet with a condition line above an action arrow. Constituent Power keeps the old staircase; Exercisability now uses an action window (`permission_evidence_review`).
 - **Memory** is *internal influence*: a hollow node whose line turns up to an arrowhead inside the vessel. The upward arrow is not increase or causation.
 - **Exposure** is *through the opening*: a hollow node near Interior's dot with an arrow rising out of the vessel. It nearly contains Interior's drawing; External Sovereignty keeps the old open arc.
 - **Bodily Organization** is the *internal network*: an equilateral triangle of hollow nodes in the vessel. It does not show Organs, their feeds or the required inter-Organ join.
@@ -171,7 +180,16 @@ The institutional batch (`institutional_review`) approves five term-specific dra
 - **Authority** B places Agent's triangle and axis, reduced to side 14, between two full-height posts. It follows Authority being an Agent's Action entering CountsAs within an Order and Scope (D052) without drawing the Principal or bindingness. The posts recall Standing but are not its exact geometry.
 - **Permission Claim** D places a smaller open Claim frame between posts, and **Declaration** B sends an arrow out of a smaller open Claim frame. Both follow their definitions as a Claim and a Claim submission (D053, D054), which strengthens Claim's frame as a candidate assertion cue without making it universal grammar. Declaration's arrow is submission, not causation, transfer or announcement.
 
-Admission and Revocation keep their gates. Permission no longer uses the gate, so the gate family below has lost its namesake. Grant remains unresolved and shares no element with the current Declaration, Permission Claim or Permission drawings. Approval is a design direction, not ontology adoption or reader evidence.
+Admission and Revocation keep their gates. Permission no longer uses the gate, so the gate family below has lost its namesake. Grant, unresolved in that batch, is resolved below. Approval is a design direction, not ontology adoption or reader evidence.
+
+The permission and evidence batch (`permission_evidence_review`) approves eight term-specific drawings:
+
+- **Grant** A reduces the exact Permission Claim drawing and adds Declaration's outgoing arrow through the right post, following D055. Covering Authority is not drawn, and the arrow is submission, not transfer or scope-crossing. A Grant need not be admitted, so it has no V.
+- **Permission Exercise** D hangs a small record token above Action's hollow node and arrow, its stem standing where Action's barrier stands. The token is not the full Permission glyph and does not cause the Action. **Exercisability** D places an action arrow in an open upper and lower window; the window is not necessarily time, Permission and Capability are not drawn, and it nearly repeats Scope's coverage spans.
+- **Enforcement** C couples Rule's reduced mapping sheet to an action path. It is not punishment, and the Order and the satisfied and violated outcomes are not drawn. **Role** B places an equilateral triangle of hollow nodes between Standing-like posts; three nodes are not three members or the four named categories, and it is close to Authority.
+- **Admissibility Rule** B puts Rule's maps-to above Admission's V on one sheet, and **Evidence** B puts a compact eye above the same V. The V marks admission purpose and admission, not Truth; Evidence's sheet and eye are a near Observation link, not its exact drawing. **IndependentFor** B separates a small open Claim frame from a compact eye by a post; the separation is a spatial mnemonic and cannot certify either independence condition.
+
+Admission, Revocation, Permission and every other approved drawing are unchanged. Revocation is now the only Permission-family term on the gate; Constituent Exercise keeps Permission Exercise's former gate and arrow, and Constituent Power the old staircase. Selection is a design direction, not semantic certification or reader evidence.
 
 ## Candidate family cues
 
@@ -180,15 +198,15 @@ These reuses follow a definitional dependency and help a reader find a family. A
 | Shared drawing | Glyphs | Why reuse is supported | Open risk |
 | --- | --- | --- | --- |
 | `partialMap` | Reference (formerly also Map) | Reference is a Map by definition. | Broken family: Map now uses the uneven mesh. Reference stays unchanged pending approval. |
-| `tracedRecord` | Evidence (formerly also Observation) | Evidence is an admitted Observation. | Broken family: Observation now uses the enclosed eye. The tiny `admittedRecord` marker no longer resembles Consequence, which now ends in a delta. |
-| old Capability staircase (`realizable`, `permittedRealization`) | Constituent Power, Exercisability (formerly also Capability) | Constituent Power is a Capability; Exercisability involves Capability. | Broken family: Capability now uses the action-specification sheet (`action_interior_review`), not cascaded here. The old ascent still reads as progress and as a Causal path. |
+| `tracedRecord` | None in the current follow-up (formerly Evidence and Observation) | Evidence is an admitted Observation. | Retired: Evidence now uses `admittedObservation`, a compact eye and Admission's V on a sheet (`permission_evidence_review`); `tracedRecord` and `admittedRecord` are unused. |
+| old Capability staircase (`realizable`, `permittedRealization`) | Constituent Power (formerly also Capability and Exercisability) | Constituent Power is a Capability. | Broken family: Capability now uses the action-specification sheet (`action_interior_review`), not cascaded here, and Exercisability uses an action window (`permission_evidence_review`). The old ascent still reads as progress and as a Causal path. |
 | `knowledgePath`, `factive` | Operative Knowledge, Factive Operative Knowledge, Warranted Knowledge | Each successive term adds a condition to the previous one. | The `warranted` corner is a generic frame, not an Evidence cue. |
-| `tracking` | Attention, Care | Care is Attention conditioning Action. | Converging pair aimed at a bar resembles Enforcement. |
+| `tracking` | Attention, Care | Care is Attention conditioning Action. | Enforcement no longer uses a converging pair (`permission_evidence_review`). |
 | ring with axis | Principal, Person (formerly also Entity) | Principal and Person are Entities. | Broken family: Entity now uses the six-sector pivot fan (`identity_expression_review`), so the shared ring and axis no longer show Entity status. Any ring and axis may be read as a Principal or Person. |
 | diamond with axis | Truth, and the `factive` mark | The Factive and Warranted terms involve Truth. | The diamond is also Boundary's and Symbol's. Reserve diamond-on-axis for Truth-involving terms. |
 | `double` | Ritual, Meaning | Meaning is constituted by Ritual. | Recurrent Integration also uses `double` without that dependency. |
 | `assertion`, `registration` with `conditionI` / `conditionII` | The two Attributions and the two Designations | Flag marks Attribution, form marks Designation, tag marks the domain. | Only a 5–6 unit tag separates consciousness from moral status. |
-| gate with arrow or slash (formerly also up) | Revocation, Permission Exercise (formerly also Permission) | Both concern one governed passage. | Broken family: Permission now uses the recorded-passage sheet (`institutional_review`). The same gate also appears in Claim, Admission and the sovereignty glyphs. |
+| gate with arrow or slash (formerly also up) | Revocation (formerly also Permission and Permission Exercise) | Revocation concerns a governed passage. | Broken family: Permission now uses the recorded-passage sheet (`institutional_review`) and Permission Exercise an action under a record (`permission_evidence_review`). The same gate also appears in Claim, Admission, Constituent Exercise and the sovereignty glyphs. |
 | routing template | Control, Boundary Sovereignty | Boundary Sovereignty requires Control. | Substrate's split resembles it with no such dependency. |
 
 ## Four readings the vocabulary refuses
@@ -217,7 +235,7 @@ Every named stroke appears below. Counts are glyphs at the pinned source.
 
 | Strokes | Glyphs | Class | Note |
 | --- | --- | --- | --- |
-| `dot` | 11 | Conflicting | Approved only as part of Presence. Elsewhere arbitrary. Sign no longer uses it in the current follow-up, nor does Permission Claim; Representation keeps it. |
+| `dot` | 11 | Conflicting | Approved only as part of Presence. Elsewhere arbitrary. Sign no longer uses it in the current follow-up, nor do Permission Claim and IndependentFor; Representation keeps it. |
 | `members` | 2 | Approved family cue | Set and Configuration. |
 | `stateOverlap` | 1 in the current follow-up | Approved, term-specific | State's half-overlapping triangles extend the geometric family without making hollow/solid a general semantic operator. |
 | `memberBridge`, `directedChain`, `comparisonLanes` | 1 each in the current follow-up | Approved, term-specific | Feeds' part-to-part bridge, Causal path's directed chain and Causal Contribution's comparison lanes. Hollow and solid nodes are drawing roles; connections stop outside hollow centers. |
@@ -232,8 +250,8 @@ Every named stroke appears below. Counts are glyphs at the pinned source.
 | Strokes | Glyphs | Class | Note |
 | --- | --- | --- | --- |
 | `bars` | 8 | Approved for Identity, Difference, Relation; conflicting elsewhere | See [Identity's bars are not an operator](#identitys-bars-are-not-an-operator). Invariant and Specification no longer use them in the current follow-up, nor do Memory and Bodily Organization. |
-| `foot` | 11 | Conflicting | Approved only as standalone Absence. Elsewhere an arbitrary differentiator, for example between Admission and Admissibility Rule. Scope and Rule no longer use it in the current follow-up. |
-| `bar`, `cap`, `wings` | 6, 5, 6 | Conflicting | Arbitrary differentiators. A cap is not Authority; wings are not extension. Causal Contribution, Constraint and Rule no longer use `bar`, Scope no longer uses `cap` and Sign no longer uses `wings` in the current follow-up; Tool no longer uses `bar` and Exposure no longer uses `wings`; Declaration no longer uses `cap` and Permission Claim no longer uses `wings`. |
+| `foot` | 11 | Conflicting | Approved only as standalone Absence. Elsewhere an arbitrary differentiator, for example between Admission and Admissibility Rule at the pin. Scope, Rule and Admissibility Rule no longer use it in the current follow-up. |
+| `bar`, `cap`, `wings` | 6, 5, 6 | Conflicting | Arbitrary differentiators. A cap is not Authority; wings are not extension. Causal Contribution, Constraint and Rule no longer use `bar`, Scope no longer uses `cap` and Sign no longer uses `wings` in the current follow-up; Tool no longer uses `bar` and Exposure no longer uses `wings`; Declaration no longer uses `cap` and Permission Claim no longer uses `wings`; IndependentFor no longer uses `wings`. |
 | `ticks`, `index` | 1 each at the historical pin | Term-specific | Organ; State's former index is now unused. |
 
 ### Vertical strokes
@@ -241,7 +259,7 @@ Every named stroke appears below. Counts are glyphs at the pinned source.
 | Strokes | Glyphs | Class | Note |
 | --- | --- | --- | --- |
 | `axis` | 9 | Candidate family cue with Entity's ring or Truth's diamond; unsupported in Sign, Preference, Ritual, Embodied Perspective; unclear in Agent | An axis is not identity through States unless the glyph belongs to the Entity family. Agent's triangle-on-axis shares nothing else with Entity. Entity and Sign no longer use the axis in the current follow-up, so it no longer marks Entity at all; Embodied Perspective no longer uses it either. |
-| `rails` | 9 | Conflicting | Invariant and Persistence no longer use rails in the current follow-up, and Tool no longer uses them, leaving five uses in terms that do not require Persistence. Rails carry no persistence reading. |
+| `rails` | 9 | Conflicting | Invariant and Persistence no longer use rails in the current follow-up, and Tool no longer uses them, leaving five uses in terms that do not require Persistence; IndependentFor no longer uses them either (`permission_evidence_review`). Rails carry no persistence reading. |
 | `outwardCrossing`, `outwardExposure` | 1 each in the current follow-up | Approved, term-specific | Action's vertical barrier and Exposure's rising shaft. The barrier is not Boundary's glyph; upward is not increase. |
 | `echo` | 3 | Conflicting | Boundary, Constituent Power and Recurrent Integration share outer bars with no shared meaning. `comparison` (Reference) resembles them. |
 | `association`, `comparison`, `party` | 1 each | Term-specific | Relation (approved), Reference, Principal. |
@@ -251,18 +269,18 @@ Every named stroke appears below. Counts are glyphs at the pinned source.
 
 | Strokes | Glyphs | Class | Note |
 | --- | --- | --- | --- |
-| `arrow` | 8 | Conflicting | Generic arrow in Causal path, Action, ActsFor, Permission Exercise, Evidential Bearing, Constituent Exercise, Operationalization, Knowledge Transmission. Causal path uses `directedChain` and Action `outwardCrossing` in the current follow-up. |
+| `arrow` | 8 | Conflicting | Generic arrow in Causal path, Action, ActsFor, Permission Exercise, Evidential Bearing, Constituent Exercise, Operationalization, Knowledge Transmission. Causal path uses `directedChain` and Action `outwardCrossing` in the current follow-up; Permission Exercise uses `actionUnderRecord`. |
 | `up`, `down` | 2, 1 | Conflicting, term-specific | Up in Direction and Permission may read as increase; Permission no longer uses it in the current follow-up. Down was Feeds only and is unused in the current follow-up. |
 | `denotes` | 1 | Approved, term-specific | Denotation. |
 | `realizable`, `knowledgePath` | 2, 3 | Candidate family cues | See [Candidate family cues](#candidate-family-cues). Capability no longer uses `realizable` in the current follow-up; only Constituent Power keeps it. |
-| `endpoint`, `interpretedAction`, `statusAssignment`, `binding`, `issuedPermission`, `permittedRealization`, `admittedOther`, `uptake`, `enforcedBoundary`, `adjustedAction`, `constrainedAction` | 1 each | Term-specific | Order mnemonics. Several still collide by template; see [Unresolved collisions](#unresolved-collisions-and-reader-tests). `endpoint`, `interpretedAction`, `statusAssignment` and `binding` are unused in the current follow-up. |
+| `endpoint`, `interpretedAction`, `statusAssignment`, `binding`, `issuedPermission`, `permittedRealization`, `admittedOther`, `uptake`, `enforcedBoundary`, `adjustedAction`, `constrainedAction` | 1 each | Term-specific | Order mnemonics. Several still collide by template; see [Unresolved collisions](#unresolved-collisions-and-reader-tests). `endpoint`, `interpretedAction`, `statusAssignment`, `binding`, `issuedPermission` and `permittedRealization` are unused in the current follow-up. |
 | `outwardCrossing`, `changeAfterTurn`, `interpretationAction`, `sideCoupledParticipant`, `actionSpecification`, `internalInfluence`, `outwardExposure` | 1 each in the current follow-up | Approved, term-specific (`action_interior_review`) | Action, Consequence, Agency, Tool, Capability, Memory and Exposure use the symmetric 3-unit arrowhead helper. Arrowheads are order cues, not causal proofs; upward arrows are not increase. |
 
 ### Angles and domain tags
 
 | Strokes | Glyphs | Class | Note |
 | --- | --- | --- | --- |
-| `chevron` | 4 | Conflicting | Interpretation, Admission, Admissibility Rule, Preference. Checkmark and down-arrow readings. Interpretation no longer uses it in the current follow-up. |
+| `chevron` | 4 | Conflicting | Interpretation, Admission, Admissibility Rule, Preference. Checkmark and down-arrow readings. Interpretation and Admissibility Rule no longer use the stroke in the current follow-up; Admissibility Rule and Evidence redraw the same V inside `ruleForAdmission` and `admittedObservation`. |
 | `conditionI`, `conditionII` | 2 each | Candidate family cue | Domain tags only. They depict neither consciousness nor morality. |
 
 ### Turning paths
@@ -270,8 +288,8 @@ Every named stroke appears below. Counts are glyphs at the pinned source.
 | Strokes | Glyphs | Class | Note |
 | --- | --- | --- | --- |
 | `step` | 4 | Conflicting | Transformation, Causal path, Record, Utility Measure at the pin. Only Utility Measure keeps it in the current follow-up. |
-| `partialMap`, `tracedRecord`, `tracking` | 2 each at the pin | Candidate family cues | The first two now have one use each, pending Reference and Evidence review. |
-| `ordered`, `placement`, `ruleCoupling`, `continuingOrder`, `portableRecord`, `structuredModel`, `recordedExchange`, `scopedWorld`, `feedingSource`, `correspondence`, `constituents` | 1 each | Term-specific | Stepped connectors now recur in 30 glyphs, so the step itself carries no family meaning. `structuredModel` is unused in the current follow-up. |
+| `partialMap`, `tracedRecord`, `tracking` | 2 each at the pin | Candidate family cues | `partialMap` now has one use, pending Reference review; `tracedRecord` is unused in the current follow-up. |
+| `ordered`, `placement`, `ruleCoupling`, `continuingOrder`, `portableRecord`, `structuredModel`, `recordedExchange`, `scopedWorld`, `feedingSource`, `correspondence`, `constituents` | 1 each | Term-specific | Stepped connectors now recur in 30 glyphs, so the step itself carries no family meaning. `structuredModel` and `ruleCoupling` are unused in the current follow-up. |
 | `changeAfterTurn`, `internalInfluence` | 1 each in the current follow-up | Approved, term-specific | Consequence's elbow arrow and Memory's upturned line. Neither is a staircase or a causal proof. |
 
 ### Branching junctions
@@ -283,7 +301,7 @@ Every named stroke appears below. Counts are glyphs at the pinned source.
 | `perceptualFork`, `internalSelection` | 1 each in the current follow-up | Approved, term-specific | Interpretation's split stem and Internal Activity Selection's open equilateral sector. They may read as choice; Interpretation's fork resembles Intelligence. |
 | `selectiveBranch` | 1 in the current follow-up | Approved, term-specific | Constraint's stop versus passage. The transverse stop is not Absence or Revocation; the branch resembles `routing` and `fork`. |
 | `routing`, `enforcedBoundary` | 1 each | Candidate template family | Control and Boundary Sovereignty. |
-| `feedingSource`, `ruleCoupling`, `interpretedAction`, `constituents` | 1 each | Term-specific | Substrate, Enforcement, Agency, Body. Splits and merges still resemble one another. `interpretedAction` is unused in the current follow-up. |
+| `feedingSource`, `ruleCoupling`, `interpretedAction`, `constituents` | 1 each | Term-specific | Substrate, Enforcement, Agency, Body. Splits and merges still resemble one another. `interpretedAction` and `ruleCoupling` are unused in the current follow-up. |
 
 ### Closed and near-closed contours
 
@@ -296,15 +314,16 @@ Every named stroke appears below. Counts are glyphs at the pinned source.
 | `organizedSurface`, `internalNetwork` | 1 each in the current follow-up | Approved, term-specific | Model's framed node triangle and Bodily Organization's node triangle in the vessel. They nearly repeat each other and resemble Configuration; three nodes are not three members. |
 | `perceptualFork`, `interpretationAction`, `internalPerspective` | 1 each in the current follow-up | Approved, term-specific | Compact eyes with hollow r=1.5 pupils in Interpretation, Agency and Embodied Perspective. They import seeing but require neither vision nor consciousness. |
 | `changeAfterTurn`, `sideCoupledParticipant` | 1 each in the current follow-up | Approved, term-specific | Consequence's small delta echoing Change; Tool's box with a hollow node, close to Respect's condition box. |
-| `gate` | 11 | Candidate family cue for Permission, Revocation, Permission Exercise; conflicting elsewhere | Claim, Rule, Admission and the sovereignty glyphs make the gate read as institutional. Rule, Permission and Permission Claim no longer use it in the current follow-up. |
+| `gate` | 11 | Candidate family cue for Permission, Revocation, Permission Exercise; conflicting elsewhere | Claim, Rule, Admission and the sovereignty glyphs make the gate read as institutional. Rule, Permission, Permission Claim, Permission Exercise and Admissibility Rule no longer use it in the current follow-up, leaving Revocation as the only Permission-family gate. |
 | `eye` | 7 | Conflicting | Imports visual seeing into terms that do not require it. Interpretation and Embodied Perspective use compact eyes inside their new strokes in the current follow-up. |
 | `vessel` | 5; 6 in the current follow-up | Approved family cue (`action_interior_review`) | Interior, Memory, Exposure, Bodily Organization, Embodied Perspective and Internal Activity Selection share the exact unchanged contour as a learned internality cue, not a universal container, Boundary drawing or consciousness. Bodily Organization no longer contains Memory's drawing; Exposure nearly contains Interior's. |
 | `pairedStatusRecord`, `agentInDomain`, `scopedAssertion`, `submittedClaim`, `recordedPassage` | 1 each in the current follow-up | Approved, term-specific (`institutional_review`) | CountsAs, Authority, Permission Claim, Declaration and Permission. CountsAs and Permission share a closed sheet and bottom retention line; Permission Claim and Declaration reuse a smaller open Claim frame; Authority reuses Agent's triangle and axis between posts. None is a compositional operator. |
+| `scopedSubmission`, `actionUnderRecord`, `actionWithinWindow`, `ruleCoupledAction`, `configurationInStanding`, `ruleForAdmission`, `witnessBeyondControl`, `admittedObservation` | 1 each in the current follow-up | Approved, term-specific (`permission_evidence_review`) | Grant, Permission Exercise, Exercisability, Enforcement, Role, Admissibility Rule, IndependentFor and Evidence. Grant reduces Permission Claim, Enforcement reduces Rule, Permission Exercise reuses Action's node and arrow, and Admissibility Rule and Evidence share Admission's V on a sheet; IndependentFor and Evidence use compact eyes. None is a compositional operator. |
 | `diamond` | 3 | Conflicting | Boundary, Symbol, Truth. |
 | `triangle` | 3 | Approved alone for Change; conflicting in Agent and ActsFor | Change is now the plain delta, so Agent and ActsFor contain the whole Change glyph. |
 | `double` | 3 | Candidate family cue for Ritual and Meaning; conflicting in Recurrent Integration | |
 | `frame`, `open` | 3, 2 | Conflicting | Frame in Constraint, Scope, Shadow system; the open arc was Exposure's and External Sovereignty's. Constraint and Scope no longer use the frame in the current follow-up, and Exposure now uses the vessel, so External Sovereignty keeps the old Exposure arc alone. |
-| `arch`, `portFrame`, `grouping`, `personRecord`, `recordedPlacement`, `assertion`, `registration`, `admittedRecord` | 1–2 each at the historical pin | Term-specific or candidate pairs | `recordedPlacement` and `registration` share a post-stem-box template with `placement` and `constituents` that remains a collision. State's redraw leaves `grouping` unused in the current catalog. |
+| `arch`, `portFrame`, `grouping`, `personRecord`, `recordedPlacement`, `assertion`, `registration`, `admittedRecord` | 1–2 each at the historical pin | Term-specific or candidate pairs | `recordedPlacement` and `registration` share a post-stem-box template with `placement` and `constituents` that remains a collision. State's redraw leaves `grouping` unused in the current catalog, and Evidence's redraw leaves `admittedRecord` unused. |
 
 ### Corner marks, strikes, waves and figures
 
@@ -317,8 +336,8 @@ Every named stroke appears below. Counts are glyphs at the pinned source.
 | `crown` | 3 | Conflicting | The sovereignty profiles do not entail one another, and the crown imports monarchy. |
 | `roots` | 3 | Conflicting | Legs import bodily locomotion and crowds. Action no longer uses them in the current follow-up. |
 | `star` | 2 | Conflicting | Symbol and Center. |
-| `assignedBundle` | 1 | Term-specific | Role. |
-| `crescent`, `link`, `orbit` | 0 | Unused | Retired drawings kept in the catalog. Not part of the vocabulary. `grouping`, `index`, `down`, `surroundings`, `structuredModel`, `endpoint`, `interpretedAction`, `hooks`, `statusAssignment` and `binding` are also unused in the current follow-up. |
+| `assignedBundle` | 1 | Term-specific | Role at the pin; unused in the current follow-up. |
+| `crescent`, `link`, `orbit` | 0 | Unused | Retired drawings kept in the catalog. Not part of the vocabulary. `grouping`, `index`, `down`, `surroundings`, `structuredModel`, `endpoint`, `interpretedAction`, `hooks`, `statusAssignment`, `binding`, `issuedPermission`, `permittedRealization`, `ruleCoupling`, `assignedBundle`, `tracedRecord` and `admittedRecord` are also unused in the current follow-up. |
 
 ## Unresolved collisions and reader tests
 
@@ -328,14 +347,15 @@ Ordered by priority. Approved marks come first because readers will learn them f
 2. **The bars family.** Test Identity, Difference and Relation side by side at text size, Relation against the double-dagger, and whether readers read Identity into Ledger.
 3. **State's overlapping triangles.** Check the three hollow centers, four-node baseline and unmarked diagonal crossing at text size. Compare with Configuration, Order and Change; ask whether the pair suggests a transition, two required States or a past/present contrast. Exact midpoint alignment is geometric, not an identity or ordering proof.
 4. **MathematicalOrder's Hasse fork.** Test it against Set's unconnected dots, Configuration's closed triangle and State's overlapping triangles at text size. Check that the missing bottom edge remains visible, that readers learn the upward convention, and that the fork does not imply a greatest member, authority, causation or an incomplete Configuration.
-5. **Arrowheads read as causation.** Causal path's directed chain against Causal Contribution's lanes and the old Capability staircase kept by Exercisability and Constituent Power; Denotation's maps-to against a generic arrow; the arrowheads added in Action, Consequence, Agency, Tool, Capability, Memory and Exposure, including upward arrows read as increase or upload.
-6. **Template collisions recorded in the semantic review.** Sense and Trust against each other and against Action's barrier crossing; the post-stem-box template in Standing, Recognition, the Designations and Body; Tool against Respect; Map and Reference against Observation and Evidence; Attention and Care against Enforcement; Control, Boundary Sovereignty and Substrate; Interpretation against Intelligence; Model against Bodily Organization and Configuration; Capability against Rule.
+5. **Arrowheads read as causation.** Causal path's directed chain against Causal Contribution's lanes and the old Capability staircase kept by Constituent Power; Denotation's maps-to against a generic arrow; the arrowheads added in Action, Consequence, Agency, Tool, Capability, Memory and Exposure, including upward arrows read as increase or upload.
+6. **Template collisions recorded in the semantic review.** Sense and Trust against each other and against Action's barrier crossing; the post-stem-box template in Standing, Recognition, the Designations and Body; Tool against Respect and Permission Exercise; Map and Reference against Observation; Scope against Exercisability; Control, Boundary Sovereignty and Substrate; Interpretation against Intelligence; Model against Bodily Organization and Configuration; Capability against Rule.
 7. **Imported imagery.** The eye, crown, legs, Admission's checkbox and the gate's institutional reading.
 8. **Domain tags.** Small-size discrimination of `conditionI` from `conditionII`.
 9. **Process and preservation drawings.** Check every hollow center in Feeds, Causal path, Causal Contribution, Invariant and Persistence at text size; Invariant against Persistence, one spoke apart, and both against Center; Change's plain delta against Configuration and the Agent family; Constraint's selective branch against Control and the remaining forks.
 10. **Identity and expression drawings.** Check Entity's six hollow centers and its asterisk, Center and Symbol readings; Environment against Feeds and Scope; Specification's result mark near the sheet edge; Rule against Denotation; Sign's arrow direction against Denotation; and whether readers still take Principal and Person's ring and axis as Entity.
-11. **Action and Interior drawings.** Check every r=1.5 pupil and hollow node; Exposure against Interior; whether readers take the vessel as a container or consciousness rather than a learned internality cue; Internal Activity Selection's solid and hollow endpoints, and whether the solid one reads as Truth, Permission, Presence or a past State; and whether Exercisability, Constituent Power and External Sovereignty still read as Capability or Exposure.
-12. **Institutional drawings.** Check CountsAs against Recognition, Record, Tool and Price; Permission against Capability, Rule and CountsAs; Authority against Agent, Standing and Principal and warning-sign or tent readings; Permission Claim and Declaration against Claim, Principal and send or export icons; every hollow node; and whether Grant, still unresolved, reads as part of the Declaration or Permission family.
+11. **Action and Interior drawings.** Check every r=1.5 pupil and hollow node; Exposure against Interior; whether readers take the vessel as a container or consciousness rather than a learned internality cue; Internal Activity Selection's solid and hollow endpoints, and whether the solid one reads as Truth, Permission, Presence or a past State; and whether Constituent Power and External Sovereignty still read as Capability or Exposure.
+12. **Institutional drawings.** Check CountsAs against Recognition, Record, Tool and Price; Permission against Capability, Rule and CountsAs; Authority against Agent, Standing and Principal and warning-sign or tent readings; Permission Claim and Declaration against Claim, Principal and send or export icons; every hollow node.
+13. **Permission and evidence drawings.** Check Grant against Permission Claim, Declaration and Principal, its arrow through the post and its reduced circle; Permission Exercise against Tool, Respect and Action; Exercisability against Scope; Enforcement's reduced Rule against Rule, Capability and Tool; Role against Authority, Principal and Configuration; Admissibility Rule and Evidence against Rule, Capability, Observation and Admission; IndependentFor against Claim, Witness and Action; and whether the V reads as a check mark, approval or Truth.
 
 Each test should ask for a spontaneous reading without labels, then for pairwise discrimination with labels, at the sizes the site actually uses. Record results as reader evidence, separate from design approval.
 
