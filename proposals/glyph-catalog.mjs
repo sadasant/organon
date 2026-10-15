@@ -349,6 +349,27 @@ export const strokes = {
     hollowNode([19.6, 18.6], 0.8), hollowNode([22.8, 18.6-equilateralHeight(6.4)], 0.8),
     hollowNode([26, 18.6], 0.8), solidNode([29.2, 18.6-equilateralHeight(6.4)], 0.8),
   ].join(" "),
+  // Approved knowledge/status study: half-size Truth keeps full stroke weight.
+  factiveRecord: [
+    "M3 3H21V29H3Z M5.5 6H9.5V14H5.5M18.5 6H14.5V14H18.5M9.5 8H14.5M9.5 12H14.5",
+    hollowNode([6.5, 10], 1), hollowNode([17.5, 10], 1),
+    compactEye(7, 21, 10), `M17 21H29${arrowHead([17, 21], [29, 21])} M7 26H16`,
+  ].join(" "),
+  warrantAdmission: "M24 25L27 29L30 25",
+  moralCondition: "M12 12Q24 8 18 22",
+  moralStatusRecord: `M3 3H29V29H3Z ${hollowNode([9, 14])} M11.5 14H17M17 8H26V20H17Z M20 12Q26 10 23 18M9 25H23`,
+  // Shared visual family only: the four sovereignty profiles do not entail one another.
+  sovereigntyShoulders: "M4 28V4H8M24 4H28V28",
+  sovereignChange: `M9 24L16 ${24-equilateralHeight(14)}L23 24Z`,
+  maximalAuthority: `M10 8H22M16 11V27M10 24L16 ${24-equilateralHeight(12)}L22 24Z`,
+  admittedBlockedRoutes: `M8 12H24${arrowHead([8, 12], [24, 12])} M8 23H20M20 20V26`,
+  externalPrincipal: [
+    "M4.3 12.1V19.9M7.3 12.1V19.9M1.9 16H9.7M4 12.1H7.6M3.7 19.9H7.9",
+    "M12 28V4H16M26 4H30V28M10 16H12M12 16H14M28 16H30",
+    graph([[21, 16], ...Array.from({ length: 6 }, (_, i) =>
+      [21+5*Math.cos(i*Math.PI/3), 16+5*Math.sin(i*Math.PI/3)])],
+    Array.from({ length: 6 }, (_, i) => [0, i+1]), [0], 1.7, 1.2),
+  ].join(" "),
 };
 
 const alphabet = {
@@ -448,14 +469,14 @@ const alphabet = {
   Intelligence: ["revisingStructure"],
   OperativeKnowledge: ["interpretedRecord"],
   KnowledgeTransmission: ["reconstructedFunction"],
-  FactiveOperativeKnowledge: ["knowledgePath", "factive"],
-  WarrantedKnowledge: ["knowledgePath", "factive", "warranted"],
-  MoralStatusAttribution: ["assertion", "conditionII"],
-  MoralPersonhoodDesignation: ["registration", "conditionII"],
-  ConstituentSovereignty: ["gate", "crown", "roots"],
-  ConstitutedSovereignty: ["gate", "crown", "foot"],
-  BoundarySovereignty: ["enforcedBoundary"],
-  ExternalSovereignty: ["open", "crown", "wings"],
+  FactiveOperativeKnowledge: ["factiveRecord"],
+  WarrantedKnowledge: ["factiveRecord", "warrantAdmission"],
+  MoralStatusAttribution: ["gate", "moralCondition"],
+  MoralPersonhoodDesignation: ["moralStatusRecord"],
+  ConstituentSovereignty: ["sovereigntyShoulders", "sovereignChange"],
+  ConstitutedSovereignty: ["sovereigntyShoulders", "maximalAuthority"],
+  BoundarySovereignty: ["sovereigntyShoulders", "admittedBlockedRoutes"],
+  ExternalSovereignty: ["externalPrincipal"],
   Preference: ["chevron", "axis", "wings"],
   UtilityMeasure: ["rails", "step", "foot"],
   Price: ["recordedExchange"],
