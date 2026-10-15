@@ -370,6 +370,17 @@ export const strokes = {
       [21+5*Math.cos(i*Math.PI/3), 16+5*Math.sin(i*Math.PI/3)])],
     Array.from({ length: 6 }, (_, i) => [0, i+1]), [0], 1.7, 1.2),
   ].join(" "),
+  orderedCandidates: `${hollowNode([5, 16])} ${hollowNode([27, 16])} M12 8L21 16L12 24`,
+  measureSheet: `M4 3H28V29H4Z ${hollowNode([9, 9])} M11.5 9H20M20 6V23M20 12H25M20 18H23M8 25H24`,
+  exchangeConditionRecord: `M3 3H29V29H3Z ${hollowNode([9, 12])} M11.5 12H19M19 8H26V16H19Z M7 22L10 19M12 21H25M7 26L10 23M12 25H25`,
+  interpretedRecurrence: `${compactEye(7, 9, 18)} ${hollowNode([8, 24])} ${hollowNode([24, 24])} M8 21.5V15M24 21.5V15M10.5 24H21.5M7 9H3V28H29V9H25`,
+  // Meaning C: the approved Ritual at half scale, retaining full stroke weight.
+  ritualRelation: [
+    `${hollowNode([5, 16])} ${hollowNode([27, 16])} M7.5 16H24.5`,
+    "M11.5 4.5Q16 -0.9 20.5 4.5Q16 9.9 11.5 4.5Z",
+    hollowNode([16, 4.5], 0.75), hollowNode([12, 12], 1), hollowNode([20, 12], 1),
+    "M12 10.75V7.5M20 10.75V7.5M13.25 12H18.75M11.5 4.5H9.5V14H22.5V4.5H20.5M16 14V19",
+  ].join(" "),
 };
 
 const alphabet = {
@@ -477,11 +488,11 @@ const alphabet = {
   ConstitutedSovereignty: ["sovereigntyShoulders", "maximalAuthority"],
   BoundarySovereignty: ["sovereigntyShoulders", "admittedBlockedRoutes"],
   ExternalSovereignty: ["externalPrincipal"],
-  Preference: ["chevron", "axis", "wings"],
-  UtilityMeasure: ["rails", "step", "foot"],
-  Price: ["recordedExchange"],
-  Ritual: ["double", "axis"],
-  Meaning: ["double", "participants"],
+  Preference: ["orderedCandidates"],
+  UtilityMeasure: ["measureSheet"],
+  Price: ["exchangeConditionRecord"],
+  Ritual: ["interpretedRecurrence"],
+  Meaning: ["ritualRelation"],
   Body: ["constituents"],
   BodilyOrganization: ["vessel", "internalNetwork"],
   EmbodiedPerspective: ["vessel", "internalPerspective"],
