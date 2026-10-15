@@ -56,6 +56,13 @@ const sheet = "M4 3H28V29H4Z";
 // Compact study eyes retain their smaller, hollow r=1.5 pupil.
 const compactEye = (x, y, width) =>
   `M${x} ${y}Q${x+width/2} ${y-width*0.6} ${x+width} ${y}Q${x+width/2} ${y+width*0.6} ${x} ${y}Z M${x+width/2} ${y-1.5}a1.5 1.5 0 1 1 0 3a1.5 1.5 0 1 1 0-3`;
+// Explicit quarter-circle endpoints avoid microscopic closing segments from
+// floating-point SVG arc conversion, which can create square-cap/miter spikes.
+// Used only by the final review batch; older approved drawings stay unchanged.
+const closedRing = ([x, y], r = 2) => {
+  const k = r * 4 * (Math.sqrt(2) - 1) / 3;
+  return `M${x} ${y-r}C${x+k} ${y-r} ${x+r} ${y-k} ${x+r} ${y}C${x+r} ${y+k} ${x+k} ${y+r} ${x} ${y+r}C${x-k} ${y+r} ${x-r} ${y+k} ${x-r} ${y}C${x-r} ${y-k} ${x-k} ${y-r} ${x} ${y-r}Z`;
+};
 // Feeds study geometry scaled by 0.95 about the cell center, so r=2 rings
 // at its outer vertices stay inside the 1-unit ink margin. Similarity
 // preserves the equilateral triangles and the bridge angle.
@@ -381,6 +388,25 @@ export const strokes = {
     hollowNode([16, 4.5], 0.75), hollowNode([12, 12], 1), hollowNode([20, 12], 1),
     "M12 10.75V7.5M20 10.75V7.5M13.25 12H18.75M11.5 4.5H9.5V14H22.5V4.5H20.5M16 14V19",
   ].join(" "),
+  identityConfigurations: [
+    ...Array.from({ length: 6 }, (_, i) => {
+      const a = i*Math.PI/3;
+      return `M${16+1.4*Math.cos(a)} ${8+1.4*Math.sin(a)}L${16+3.6*Math.cos(a)} ${8+3.6*Math.sin(a)} ${closedRing([16+5*Math.cos(a), 8+5*Math.sin(a)], 0.9)}`;
+    }),
+    // The study hub is a filled r=1 disk without a stroke: 0.45 + 0.55 ink radius.
+    solidNode([16, 8], 0.45),
+    `M16 14V17M9 17H23M9 17V20M23 17V20 M5 27L9 ${27-equilateralHeight(8)}L13 27Z M19 27L23 ${27-equilateralHeight(8)}L27 27Z`,
+  ].join(" "),
+  contributionReturn: `M3 11H11V21H3Z M21 11H29V21H21Z M7 11V5H25V8M25 21V27H7 M7 27V23${arrowHead([7, 27], [7, 23])} M22.5 5L25 8L27.5 5M6 15H8M24 17H26`,
+  targetHistory: `${compactEye(3, 16, 14)}Z ${hollowNode([26, 8])}Z ${hollowNode([26, 24])}Z M26 10.5V21.5M17 16H20M20 8V24M20 8H23.5M20 24H23.5`,
+  // Care preserves Attention B at 0.65 scale and the full 1.1 stroke weight.
+  specifiedAttentiveAction: [
+    "M1.95 10.4Q6.5 4.94 11.05 10.4Q6.5 15.86 1.95 10.4Z",
+    `${closedRing([6.5, 10.4], 0.975)} ${closedRing([16.9, 5.2], 1.3)} ${closedRing([16.9, 15.6], 1.3)}`,
+    "M16.9 6.825V13.975M11.05 10.4H13M13 5.2V15.6M13 5.2H15.275M13 15.6H15.275",
+    `M23 3H30V14H23Z M25 7H28M25 10H27M6.5 13.5V26M26.5 14V26M4 26H29${arrowHead([4, 26], [29, 26])}`,
+  ].join(" "),
+  otherConditionedAction: `${closedRing([25, 5])} M25 7.5V10M18 10H29V19H18Z M21 14H26M22 19V28 ${closedRing([5, 25])} M7.5 25H29${arrowHead([7.5, 25], [29, 25])}`,
 };
 
 const alphabet = {
@@ -493,14 +519,14 @@ const alphabet = {
   Price: ["exchangeConditionRecord"],
   Ritual: ["interpretedRecurrence"],
   Meaning: ["ritualRelation"],
-  Body: ["constituents"],
+  Body: ["identityConfigurations"],
   BodilyOrganization: ["vessel", "internalNetwork"],
   EmbodiedPerspective: ["vessel", "internalPerspective"],
-  RecurrentIntegration: ["double", "bar", "echo"],
+  RecurrentIntegration: ["contributionReturn"],
   InternalActivitySelection: ["vessel", "internalSelection"],
-  Attention: ["tracking"],
-  Care: ["tracking", "adjustedAction"],
-  Respect: ["constrainedAction"],
+  Attention: ["targetHistory"],
+  Care: ["specifiedAttentiveAction"],
+  Respect: ["otherConditionedAction"],
   // Append the slot; the registry places Identity immediately after Presence.
   Identity: ["bars"],
   // Append the slot; the registry places Set before Configuration.
