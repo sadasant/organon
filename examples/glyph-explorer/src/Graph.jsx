@@ -297,9 +297,7 @@ export default function Graph({ term, terms, search }) {
                 >
                   <title>{n.term.label}</title>
                   <circle r={22} className="node-hit" />
-                  {!absence && (
-                    <circle r={selected ? 4 : 2} className="node-star" />
-                  )}
+                  <circle r={selected ? 4 : 2} className="node-star" />
                   <Glyph
                     term={n.term}
                     x={-8.5}

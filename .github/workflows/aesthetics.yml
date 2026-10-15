@@ -68,7 +68,7 @@ jobs:
             read -ra args <<< "$AUDIT_PATHS"
           fi
           set +e
-          aesthetics check "${args[@]}" --color never --record aesthetics-record.json | tee aesthetics.txt
+          python3 scripts/check-aesthetics.py "${args[@]}" | tee aesthetics.txt
           status=${PIPESTATUS[0]}
           set -e
           { echo '```text'; cat aesthetics.txt; echo '```'; } >> "$GITHUB_STEP_SUMMARY"
@@ -82,4 +82,5 @@ jobs:
           path: |
             aesthetics.txt
             aesthetics-record.json
+            aesthetics-plan.json
           if-no-files-found: ignore

@@ -14,7 +14,7 @@
     "../ontology/formal/EmbodiedConsciousness.lean"
   ],
   "promotion_contracts": "../ontology/formal/OrderConfigurationContracts.lean",
-  "promotion_review": "../reviews/promotion/order-review-resolution.json",
+  "promotion_review": "../reviews/promotion/order-tuple-clarification.json",
   "introduced_terms": ["organon:MathematicalOrder"],
   "local_symbols": [],
   "semantic_fields": [

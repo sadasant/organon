@@ -238,10 +238,6 @@ export default function App() {
   const unknown = location.pathname !== "/" && !selected;
   const graph = params.get("view") === "graph";
   const glyphs = params.get("text") === "glyphs";
-  // Canonical position, not the filtered wall or the selected graph extent.
-  const starDensity = selected
-    ? terms.indexOf(selected) / (terms.length - 1)
-    : 0;
   const setOption = (key, value) => {
     const next = new URLSearchParams(params);
     next.set(key, value);
@@ -291,9 +287,9 @@ export default function App() {
   };
   return (
     <div className={`app ${graph && selected ? "graph-mode" : ""}`}>
-      {graph && starDensity > 0 && (
+      {graph && selected && (
         <Suspense fallback={null}>
-          <Sky paused={paused} density={starDensity} />
+          <Sky paused={paused} />
         </Suspense>
       )}
       <header className="topbar">
@@ -415,7 +411,7 @@ export default function App() {
                         ]}
                         onChange={(value) => setOption("view", value)}
                       />
-                      {graph && starDensity > 0 && (
+                      {graph && (
                         <button
                           className="motion-toggle"
                           aria-pressed={paused}

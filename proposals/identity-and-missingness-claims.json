@@ -8,7 +8,7 @@
   "formal_shadow": "../ontology/formal/IdentityMissingness.lean",
   "formal_evidence": ["../ontology/formal/OrganonCore.lean"],
   "promotion_contracts": "../ontology/formal/IdentityMissingness.lean",
-  "promotion_review": "../reviews/promotion/identity-condition-targets.json",
+  "promotion_review": "../reviews/promotion/identity-tuple-clarification.json",
   "introduced_terms": ["organon:Identity"],
   "local_symbols": [],
   "semantic_fields": [],

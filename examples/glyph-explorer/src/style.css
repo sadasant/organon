@@ -426,8 +426,8 @@ summary {
     radial-gradient(1px 1px at 30% 35%, var(--ink-600), transparent),
     radial-gradient(1px 1px at 70% 15%, var(--ink-600), transparent);
   background-size:
-    calc(167px * var(--star-spacing)) calc(231px * var(--star-spacing)),
-    calc(213px * var(--star-spacing)) calc(177px * var(--star-spacing));
+    167px 231px,
+    213px 177px;
 }
 .graph-mode .definition-block {
   text-shadow:

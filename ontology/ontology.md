@@ -138,7 +138,7 @@ Absence and Presence exhaust the ontology. Presence necessarily obtains given th
 
 **Identity** obtains when two compared items are one and the same Presence, or one and the same ordered configuration of Presence.
 
-Here, “ordered configuration” means a tuple in the metalanguage, not an application of a later object-language definition. The comparison positions also belong to the metalanguage. They need not denote two distinct things, and making a comparison does not produce Identity. Identity is logical equality restricted to Presence, not likeness, agreement in selected properties, indistinguishability to an observer, or equality after discarding order. The same tuple has the same constituents in the same positions, under the declared metalinguistic identity criteria.
+Here, “ordered configuration” means a tuple in the metalanguage, not an application of a later object-language definition. A tuple compared under Identity must itself be included in the declared domain of Presence; equality of metalinguistic objects outside that domain remains metalinguistic equality, not Identity. The comparison positions also belong to the metalanguage. They need not denote two distinct things, and making a comparison does not produce Identity. Identity is logical equality restricted to Presence, not likeness, agreement in selected properties, indistinguishability to an observer, or equality after discarding order. The same tuple has the same constituents in the same positions, under the declared metalinguistic identity criteria.
 
 Identity is reflexive, symmetric, transitive, and permits substitution in predicates about the same compared items. Matching selected properties does not establish Identity; failure to establish Identity does not establish non-identity. These are logical conditions, not a procedure guaranteed to decide every comparison. The exactness of Absence still uses metalinguistic identity, not this predicate inside Presence.
 
@@ -204,7 +204,7 @@ Membership remains supplied by the metalanguage; this definition names its exten
 <a id="organon-mathematical-order"></a>
 <!-- organon:term organon:MathematicalOrder claim=D122 -->
 
-**Order** pairs a member Set with a reflexive, antisymmetric, and transitive binary relation on that Set's members. The pair, not the member Set alone, is the Order.
+**Order** is a Presence that pairs a member Set with a reflexive, antisymmetric, and transitive binary relation on that Set's members. The pair, not the member Set alone, is the Order.
 
 The binary relation is metalinguistic: it is fixed by its extension, a set of ordered pairs of members of the Set. It is not a new definition of the registered Relation, does not require that each pair be realized as a Relation, and does not claim that any ordering event happens. For all members *a*, *b*, and *c* of the Set, writing *a* ≤ *b* when the ordered pair (*a*, *b*) is in the extension:
 
@@ -219,7 +219,7 @@ Order is derived mathematical structure in the same sense as Set: it names an ex
 <a id="organon-configuration"></a>
 <!-- organon:term organon:Configuration claim=D004 -->
 
-**Configuration** pairs a member Set of Presences with specified relational structure. The pair, not the member Set alone, is the Configuration.
+**Configuration** is a Presence that pairs a member Set of Presences with specified relational structure. The pair, not the member Set alone, is the Configuration.
 
 The structure specifies which Relations are included and the participants occupying each Relation's ordered positions. Each specified Relation is itself a member or has at least one member as a participant. Its other participants need not be members. Specifying a Relation does not create it or license changing its participants.
 
@@ -230,7 +230,7 @@ A Configuration may specify no Relations, and its member Set may be empty. Neith
 <a id="organon-state"></a>
 <!-- organon:term organon:State claim=D005 -->
 
-**State** pairs a Configuration with a position in the metalanguage's ordering. Two States have Identity exactly when they have the same position and their Configurations have Identity. One Configuration at two different positions gives two States; the position does not add a Relation to that Configuration.
+**State** is a Presence that pairs a Configuration with a position in the metalanguage's ordering. Two States have Identity exactly when they have the same position and their Configurations have Identity. One Configuration at two different positions gives two States; the position does not add a Relation to that Configuration.
 
 <a id="organon-direction"></a>
 <!-- organon:term organon:Direction claim=D006 -->
