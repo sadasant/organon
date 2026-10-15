@@ -2,35 +2,64 @@
   "schema_version": 1,
   "status": "generated-nonbinding-degenerate-registry-reflection-ledger",
   "source_sha256": {
-    "ontology/terms.yaml": "48469a8a1a6f52837d428002b233701667bbebcb06c4d55457355303da38f937",
+    "ontology/terms.yaml": "016cd42a2eeeb5bcabc27eb1dda5ea3e8e93d56e8f78e55a22e3230330b05f59",
     "ontology/algebra/positive-calculus.yaml": "76c83651ae6d9ada317546a862450ec7940b5d1e12fb93b973f8bd6fd1abdd73",
-    "scripts/build-positive-calculus.py": "bedb359a6cca55cf18695af039c8ddaf299673f5cd341197333525de2d769b82"
+    "scripts/build-positive-calculus.py": "6bf02fc31616d2771320841951275e61988fb73f7df1302329f6c28e5ddff863"
   },
   "counts": {
-    "registered_terms": 115,
+    "registered_terms": 118,
     "retained_foundation": 3,
-    "definitions_reflected": 112,
+    "definitions_reflected": 115,
     "constructors": 1,
-    "dependency_removal_fixtures": 923,
+    "dependency_removal_fixtures": 952,
     "unreflected_definitions": 0
   },
   "degenerate_control_comparison": {
     "zero_constructors_positive_heads": 0,
     "zero_constructors_definitions_derived": 0,
-    "one_constructor_definitions_derived": 112,
+    "one_constructor_definitions_derived": 115,
     "ablate_G1_definitions_derived": 0,
     "constructor_minimum_proved": false,
     "explanation": "The comparison covers only G0 and the hand-authored G1 wrapper; it is not an exhaustive search over nondegenerate constructor families."
   },
   "semantic_minimality": {
     "proved": false,
-    "binding_definition_schemas_retained": 112,
+    "binding_definition_schemas_retained": 115,
     "anti_vacuity_passes": false,
     "opaque_parameter": "Conforms(binding_definition_schema, candidate)",
     "eligible_for_promotion": false,
     "explanation": "G1 is parametric in each complete binding definition, and the evaluator does not derive the conformity witness from prose; no term meaning has been erased or proved interdefinable."
   },
   "entries": [
+    {
+      "term": "organon:Identity",
+      "claim": "D120",
+      "constructor": "G1",
+      "declared_dependencies": [
+        "organon:Absence",
+        "organon:Presence"
+      ],
+      "conformity_witness": {
+        "predicate": "Conforms",
+        "args": [
+          "D120",
+          "candidate"
+        ]
+      },
+      "result": {
+        "predicate": "Classified",
+        "args": [
+          "organon:Identity",
+          "candidate"
+        ]
+      },
+      "derives": true,
+      "one_step_mutations": [
+        "G1-D120-remove-Absence",
+        "G1-D120-remove-Presence",
+        "G1-D120-remove-witness"
+      ]
+    },
     {
       "term": "organon:Reality",
       "claim": "D001",
@@ -63,6 +92,8 @@
       "claim": "D002",
       "constructor": "G1",
       "declared_dependencies": [
+        "organon:Absence",
+        "organon:Identity",
         "organon:Presence",
         "organon:Reality"
       ],
@@ -82,6 +113,8 @@
       },
       "derives": true,
       "one_step_mutations": [
+        "G1-D002-remove-Absence",
+        "G1-D002-remove-Identity",
         "G1-D002-remove-Presence",
         "G1-D002-remove-Reality",
         "G1-D002-remove-witness"
@@ -144,12 +177,82 @@
       ]
     },
     {
+      "term": "organon:Set",
+      "claim": "D121",
+      "constructor": "G1",
+      "declared_dependencies": [
+        "organon:Absence",
+        "organon:Identity",
+        "organon:Presence",
+        "organon:Reality",
+        "organon:Relation"
+      ],
+      "conformity_witness": {
+        "predicate": "Conforms",
+        "args": [
+          "D121",
+          "candidate"
+        ]
+      },
+      "result": {
+        "predicate": "Classified",
+        "args": [
+          "organon:Set",
+          "candidate"
+        ]
+      },
+      "derives": true,
+      "one_step_mutations": [
+        "G1-D121-remove-Absence",
+        "G1-D121-remove-Identity",
+        "G1-D121-remove-Presence",
+        "G1-D121-remove-Reality",
+        "G1-D121-remove-Relation",
+        "G1-D121-remove-witness"
+      ]
+    },
+    {
+      "term": "organon:MathematicalOrder",
+      "claim": "D122",
+      "constructor": "G1",
+      "declared_dependencies": [
+        "organon:Identity",
+        "organon:Presence",
+        "organon:Relation",
+        "organon:Set"
+      ],
+      "conformity_witness": {
+        "predicate": "Conforms",
+        "args": [
+          "D122",
+          "candidate"
+        ]
+      },
+      "result": {
+        "predicate": "Classified",
+        "args": [
+          "organon:MathematicalOrder",
+          "candidate"
+        ]
+      },
+      "derives": true,
+      "one_step_mutations": [
+        "G1-D122-remove-Identity",
+        "G1-D122-remove-Presence",
+        "G1-D122-remove-Relation",
+        "G1-D122-remove-Set",
+        "G1-D122-remove-witness"
+      ]
+    },
+    {
       "term": "organon:Configuration",
       "claim": "D004",
       "constructor": "G1",
       "declared_dependencies": [
+        "organon:Identity",
         "organon:Presence",
-        "organon:Relation"
+        "organon:Relation",
+        "organon:Set"
       ],
       "conformity_witness": {
         "predicate": "Conforms",
@@ -167,8 +270,10 @@
       },
       "derives": true,
       "one_step_mutations": [
+        "G1-D004-remove-Identity",
         "G1-D004-remove-Presence",
         "G1-D004-remove-Relation",
+        "G1-D004-remove-Set",
         "G1-D004-remove-witness"
       ]
     },
@@ -177,7 +282,8 @@
       "claim": "D005",
       "constructor": "G1",
       "declared_dependencies": [
-        "organon:Configuration"
+        "organon:Configuration",
+        "organon:Identity"
       ],
       "conformity_witness": {
         "predicate": "Conforms",
@@ -196,6 +302,7 @@
       "derives": true,
       "one_step_mutations": [
         "G1-D005-remove-Configuration",
+        "G1-D005-remove-Identity",
         "G1-D005-remove-witness"
       ]
     },
@@ -204,6 +311,7 @@
       "claim": "D006",
       "constructor": "G1",
       "declared_dependencies": [
+        "organon:MathematicalOrder",
         "organon:Relation",
         "organon:State"
       ],
@@ -223,6 +331,7 @@
       },
       "derives": true,
       "one_step_mutations": [
+        "G1-D006-remove-MathematicalOrder",
         "G1-D006-remove-Relation",
         "G1-D006-remove-State",
         "G1-D006-remove-witness"
@@ -427,6 +536,8 @@
       "claim": "D012",
       "constructor": "G1",
       "declared_dependencies": [
+        "organon:Configuration",
+        "organon:Identity",
         "organon:Invariant",
         "organon:State"
       ],
@@ -446,6 +557,8 @@
       },
       "derives": true,
       "one_step_mutations": [
+        "G1-D012-remove-Configuration",
+        "G1-D012-remove-Identity",
         "G1-D012-remove-Invariant",
         "G1-D012-remove-State",
         "G1-D012-remove-witness"
@@ -488,8 +601,11 @@
       "constructor": "G1",
       "declared_dependencies": [
         "organon:Configuration",
+        "organon:Identity",
         "organon:Invariant",
-        "organon:Persistence"
+        "organon:Persistence",
+        "organon:Presence",
+        "organon:State"
       ],
       "conformity_witness": {
         "predicate": "Conforms",
@@ -508,8 +624,11 @@
       "derives": true,
       "one_step_mutations": [
         "G1-D014-remove-Configuration",
+        "G1-D014-remove-Identity",
         "G1-D014-remove-Invariant",
         "G1-D014-remove-Persistence",
+        "G1-D014-remove-Presence",
+        "G1-D014-remove-State",
         "G1-D014-remove-witness"
       ]
     },
@@ -522,7 +641,8 @@
         "organon:Constraint",
         "organon:Entity",
         "organon:Invariant",
-        "organon:Persistence"
+        "organon:Persistence",
+        "organon:Relation"
       ],
       "conformity_witness": {
         "predicate": "Conforms",
@@ -545,6 +665,7 @@
         "G1-D015-remove-Entity",
         "G1-D015-remove-Invariant",
         "G1-D015-remove-Persistence",
+        "G1-D015-remove-Relation",
         "G1-D015-remove-witness"
       ]
     },
@@ -1060,6 +1181,7 @@
         "organon:Constraint",
         "organon:Memory",
         "organon:Perception",
+        "organon:Relation",
         "organon:Representation",
         "organon:State",
         "organon:Transformation"
@@ -1084,6 +1206,7 @@
         "G1-D031-remove-Constraint",
         "G1-D031-remove-Memory",
         "G1-D031-remove-Perception",
+        "G1-D031-remove-Relation",
         "G1-D031-remove-Representation",
         "G1-D031-remove-State",
         "G1-D031-remove-Transformation",
@@ -1598,9 +1721,11 @@
         "organon:Configuration",
         "organon:Constraint",
         "organon:Interface",
+        "organon:MathematicalOrder",
         "organon:Record",
         "organon:Relation",
-        "organon:Rule"
+        "organon:Rule",
+        "organon:Set"
       ],
       "conformity_witness": {
         "predicate": "Conforms",
@@ -1623,9 +1748,11 @@
         "G1-D046-remove-Configuration",
         "G1-D046-remove-Constraint",
         "G1-D046-remove-Interface",
+        "G1-D046-remove-MathematicalOrder",
         "G1-D046-remove-Record",
         "G1-D046-remove-Relation",
         "G1-D046-remove-Rule",
+        "G1-D046-remove-Set",
         "G1-D046-remove-witness"
       ]
     },

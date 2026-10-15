@@ -20,7 +20,6 @@ import html
 import importlib.util
 import json
 from pathlib import Path
-import re
 import subprocess
 import tempfile
 
@@ -82,8 +81,8 @@ class StrokePen(BasePen):
 
 
 def outline(path: str):
-    numbers = re.findall(r"[-+]?(?:\d*\.\d+|\d+)(?:[eE][-+]?\d+)?", path)
-    assert all(float(n) % GEOMETRY["coordinate_grid"] == 0 for n in numbers), "Off-grid glyph coordinate"
+    # Derived equilateral vertices must not be snapped to an integer grid.
+    # Quantize only the final expanded outlines to the font's units per em.
     stroke = StrokePen()
     parse_path(path, stroke)
     shape = unary_union([
@@ -148,8 +147,12 @@ def build(output_root: Path) -> None:
     registry = json.loads((ROOT / "ontology/terms.yaml").read_text())
     reviews = json.loads((ROOT / "proposals/glyph-semantic-review.json").read_text())
     terms = registry["terms"]
-    assert [g["id"] for g in catalog] == [t["id"] for t in terms]
-    assert [g["term"] for g in catalog] == [r["term"] for r in reviews["entries"]]
+    glyph_by_id = {g["id"]: g for g in catalog}
+    review_by_term = {r["term"]: r for r in reviews["entries"]}
+    assert len(glyph_by_id) == len(catalog) == len(terms)
+    assert set(glyph_by_id) == {t["id"] for t in terms}
+    assert len(review_by_term) == len(reviews["entries"]) == len(terms)
+    assert {f"organon:{name}" for name in review_by_term} == set(glyph_by_id)
     assert len({g["path"] for g in catalog}) == len(catalog)
     assert len({g["codepoint"] for g in catalog}) == len(catalog)
     assert all(0xE000 <= g["codepoint"] <= 0xF8FF for g in catalog)
@@ -201,7 +204,10 @@ def build(output_root: Path) -> None:
     # as a labelled SVG specimen instead of silently falling back to Unicode.
     sheet = ['<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1680" viewBox="0 0 1200 1680">',
              '<rect width="1200" height="1680" fill="#080808"/>']
-    for i, (glyph, term) in enumerate(zip(catalog, terms)):
+    # Display order follows the ontology; font slots stay in append-only order.
+    assert len(terms) <= 120, "Specimen canvas holds 15 rows of 8"
+    for i, term in enumerate(terms):
+        glyph = glyph_by_id[term["id"]]
         x, y = 75 + (i % 8)*150, 42 + (i // 8)*110
         sheet.append(f'<g transform="translate({x-20},{y}) scale(1.25)"><path d="{glyph["path"]}" fill="none" stroke="#e8e7e3" stroke-width="{GEOMETRY["stroke_width"]}" stroke-linecap="{GEOMETRY["linecap"]}" stroke-linejoin="{GEOMETRY["linejoin"]}" stroke-miterlimit="{GEOMETRY["miter_limit"]}"/></g>')
         # Stable IDs make very long labels unambiguous in the accompanying table.
@@ -221,11 +227,13 @@ def build(output_root: Path) -> None:
             *([f"Reviewed against earlier definitions: {', '.join(changed)}. Their entries may not match the current definitions.", ""] if changed else []),
             "![All shared glyphs, in registry order](./glyph-assets/specimen.svg)", "",
             "[Installable TTF](./glyph-assets/OrganonSymbols.ttf) · [Webfont](./glyph-assets/OrganonSymbols.woff2) · [Source catalog](./glyph-catalog.mjs) · [Method](./unicode-vocabulary.md)", "",
-            "[Geometric rules](./glyph-geometry.json): 32-unit grid, uniform 1.1-unit stroke, 1-unit ink margins, square caps and bounded miter joins. Golden-section guides at 12/20 are advisory, not a claim of semantic or aesthetic correctness.", "",
+            "[Geometric rules](./glyph-geometry.json): 32-unit cell, equilateral triangle geometry, uniform 1.1-unit stroke, 1-unit ink margins, square caps and bounded miter joins. The integer grid and golden-section guides at 12/20 are advisory; derived vertices remain unsnapped until font-outline quantization.", "",
             "Private-use characters work only with this font. Labels and Organon IDs remain authoritative; component shapes do not imply compositional meaning. Earlier Unicode candidates are historical alternatives, not a second active alphabet.", "",
             "| Term | Font slot | Verdict | Cue | Risk | Recommendation |",
             "| --- | --- | --- | --- | --- | --- |"]
-    for glyph, term, review in zip(catalog, terms, reviews["entries"]):
+    for term in terms:
+        glyph = glyph_by_id[term["id"]]
+        review = review_by_term[glyph["term"]]
         fields = [f'[{term.get("label", glyph["term"])}](../ontology/ontology.md#{term["anchor"]})',
                   f'U+{glyph["codepoint"]:04X}', *[review[k] for k in ("verdict", "cue", "risk", "recommendation")]]
         rows.append("| " + " | ".join(f.replace("|", "\\|") for f in fields) + " |")

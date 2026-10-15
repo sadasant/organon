@@ -11,7 +11,18 @@
     "status": "projection",
     "note": "The existing local encoding uses type inhabitation."
   },
-  "Missingness": { "module": "OrganonCore", "name": "Missingness" },
+  "Identity": {
+    "module": "OrganonCore",
+    "name": "Identity",
+    "status": "projection",
+    "note": "Lean equality on one supplied carrier α. Identity holds only between members of that carrier; the encoding gives no criterion for individuating empirical things or reidentifying them across States."
+  },
+  "Missingness": {
+    "module": "IdentityMissingness",
+    "name": "conditionMissing",
+    "status": "projection",
+    "note": "Noncontainment for an explicitly supplied qualifying condition on one local carrier. Equality with a particular target recovers the existing exact-target Missingness record. Neither predicate nor record establishes actual representation or expectation; empty fields assign neither."
+  },
   "Reality": {
     "module": "DanielOntology",
     "name": "FullLocalRealityMember",
@@ -20,9 +31,9 @@
   },
   "Difference": {
     "module": "OrganonCore",
-    "name": "Change",
-    "fields": ["differs"],
-    "note": "A difference of Transformation endpoints. This field is one use of inequality, not a general definition of Difference."
+    "name": "Difference",
+    "status": "projection",
+    "note": "Negated Identity on the same supplied carrier α. It distinguishes members of that carrier only; it does not decide which empirical things are distinct. Change.differs uses this inequality for Transformation endpoints."
   },
   "Relation": {
     "status": "unencoded",
@@ -30,11 +41,31 @@
     "reference": "ontology/formal/decisions.md"
   },
   "Denotation": { "module": "OrganonCore", "name": "Denotation" },
-  "Configuration": {
-    "status": "unencoded",
-    "note": "No standalone Configuration declaration exists in the audited Lean sources. Context carriers and structured records do not by themselves define canonical Configuration."
+  "Set": {
+    "module": "SetConfiguration",
+    "name": "Set",
+    "status": "projection",
+    "note": "Extensional membership on one supplied local carrier. This does not construct all Presence or decide actual membership."
   },
-  "State": { "module": "OrganonCore", "name": "State" },
+  "Configuration": {
+    "module": "SetConfiguration",
+    "name": "Configuration",
+    "status": "projection",
+    "note": "A member Set plus specified Relation/ordered-participant associations, validated by a supplied interpretation. Equal members need not fix equal Configurations. The finite-tuple projection requires neither nonemptiness nor participant closure; generic State carriers remain unchanged."
+  },
+  "MathematicalOrder": {
+    "module": "MathematicalOrder",
+    "name": "MemberOrder",
+    "status": "projection",
+    "note": "A partial order on a declared member Set: reflexive, antisymmetric and transitive. Total comparability is separate. The relation is a supplied ordered-pair extension, not a claim of causation, numeric rank or coordination."
+  },
+  "State": {
+    "module": "ConfigurationIntegration",
+    "name": "ConfigState",
+    "status": "projection",
+    "support": [["ConfigurationIntegration", "IndexedConfiguration"], ["OrganonCore", "State"]],
+    "note": "The generic State carrier now explicitly retains both a metalinguistic index and a structured Configuration. Equal inventories with different associations, or equal Configurations at distinct indices, give different States."
+  },
   "Direction": { "module": "OrganonCore", "name": "Direction" },
   "Transformation": { "module": "OrganonCore", "name": "Transformation" },
   "Change": { "module": "OrganonCore", "name": "Change" },
@@ -66,8 +97,15 @@
     "note": "This witness requires at least two States and an ordered history preserving one Invariant."
   },
   "Constraint": { "module": "OrganonCore", "name": "Constraint" },
-  "Entity": { "module": "OrganonCore", "name": "Entity" },
-  "Boundary": { "module": "OrganonCore", "name": "Boundary" },
+  "Entity": {
+    "module": "ConfigurationIntegration", "name": "ConfiguredEntity", "status": "projection",
+    "support": [["OrganonCore", "Entity"]],
+    "note": "A witness bundle retaining an Entity's structured Boundary and its exact projection. The generic State carrier can retain indexed Configurations; an inhabited history preserves an Invariant across different structures. Record equality and a shared Invariant do not decide empirical Entity identity."
+  },
+  "Boundary": {
+    "module": "ConfigurationIntegration", "name": "ConfiguredBoundary", "status": "projection",
+    "note": "Retains the Constraint Configuration and its preservation obligation, including external participants. The finite projection to the older core Boundary forgets structure; two different Configurations can project to the same Constraint list. Constraint interpretation remains supplied."
+  },
   "Environment": {
     "module": "EmbodiedConsciousness",
     "name": "Body",
@@ -148,7 +186,8 @@
     "module": "EmbodiedConsciousness",
     "name": "PerspectiveModel",
     "status": "projection",
-    "note": "Body- and perspective-indexed Model joining represented Perception and Memory to subsequent States."
+    "support": [["ConfigurationIntegration", "StructuredModel"]],
+    "note": "Body- and perspective-indexed Model joining represented Perception and Memory to subsequent States. The supporting StructuredModel retains member and association data, a representation/transformation join, and supplied Constraints; its generic pipeline witness does not replace the fuller Body/Memory conditions."
   },
   "Action": {
     "module": "PR18Governance",

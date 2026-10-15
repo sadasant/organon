@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "proposal_id": "set-and-configuration",
+  "status": "promotion-ready",
+  "reviewed_commit": "6ddfcab7ae58ee6fd38fc0c54fd8ed9f16c69410",
+  "reviewed_tree": "01469e0fcf0c09e01893b37860b35a81f9135c2f",
+  "reviewed_at": "2026-10-13",
+  "reviewer": "Amp local source and counterexample review, with the prior focused Oracle consultation on participant closure; not independent external review",
+  "review_scope": "D121 Set and D004's explicit Set dependency, extensionality, empty membership, order/repetition invariance and absence of participant closure. Readiness covers these bounded local claims only, not full governed-use consolidation or empirical membership adequacy.",
+  "source_sha256": {
+    "proposals/set-and-configuration.md": "9727257ae9b67d14fafe11b0297dfb623e213fd3a6a8e5769839ab873b01f04d",
+    "proposals/set-and-configuration-claims.json": "dc7ea3ed7d43523c4a075b5fa027f9bdf0192ad040ef934769c5e01994c77f57",
+    "ontology/formal/SetConfiguration.lean": "7d46b261dd1c7c6a9a1a4477b538a587db8edc83a5084e96db15041b9823cf0f",
+    "ontology/formal/OrganonCore.lean": "a9edb8d75ea6486da764b813b8261f67fa18604341bae9d278a6fb76404d26f9",
+    "ontology/formal/Model.lean": "87c1ccb622cd6b96ab25192ddd26881d774d96250d6d8000b7f830dfe1e6a946",
+    "ontology/formal/lakefile.toml": "5f8c3e20a91236fc37d8bb05784b6c98c5669a92032be7bffa1633021b5d89f3",
+    "ontology/formal/lean-toolchain": "54727eec5cba149c18842e6deb5c41b369d66455c93ce135d7d5347c782b2325",
+    "scripts/check-proposals.py": "87f26905ba0450b92a9f38c6ee63a144e5973fd424a971622b42f6a9eb03fb24",
+    "scripts/check-promotion-review.py": "cef84a92bb95bb43734b16941f4a957ad77f9d117d4e1401f93460ff155afda9",
+    "ontology/ontology.md": "22eaa28d35f0280d60131bd97ba8b2e7bbb3aeb21a0adb5d0a1494399b8726b0",
+    "ontology/terms.yaml": "6d8bd075877581509befad49076921aeeb1ddea6858b8c5dcedd3251922c6fab",
+    "ontology/profiles.json": "0e17e24c11ab11f86a69377a884763518fcea9a7d5ab68f76d4d7c114ce42ecc",
+    "ontology/changelog.md": "81ec55ce3d031c34fb2b8dbea71e8c7de25e12f0010ecdd3265308c3652d63bd",
+    "ontology/prompt.md": "b3e465dd04d456da7c2c72be28c55bd09aa7b1c829059e0feff89c99d39fa4df",
+    "provenance/terms.json": "4a348b1f982dfd766ce2682dbb4c2ce8f607d7e9ead7f6c747847f8492d5e5b3",
+    "examples/organon-adoption.json": "45fe9647bb623cec2998c20d9c47bbad26c32323c8bdd25019cd69ad442e7754",
+    "releases/v0-21-0.md": "5066228e4995f8d308018391f8e99e569fce199524b4bf0dbd54525af61c125c"
+  },
+  "verified_contracts": ["SC-D1", "SC-D2", "SC-C1"],
+  "findings": [
+    {
+      "id": "SC-R1",
+      "severity": "high",
+      "disposition": "resolved",
+      "resolution": "Set names the extensional membership construction already used by Configuration; it is not a new irreducible primitive. Its definition precedes Configuration and declares exclusions as dependencies. Ordered lists and repeated listings have unequal list identities but equal member Sets, proved by finite witnesses."
+    },
+    {
+      "id": "SC-R2",
+      "severity": "high",
+      "disposition": "resolved",
+      "resolution": "No graph-closure or nonempty premise was added. Empty Set inhabitation and a relation-like token without its participants are proved. Existing generic State and downstream Lean structures are unchanged, preserving their callers rather than silently strengthening Configurations of Constraints."
+    },
+    {
+      "id": "SC-R3",
+      "severity": "high",
+      "disposition": "outside-formal-boundary",
+      "resolution": "Configuration is definitionally Set in the local shadow. The prose and dossier openly accept this reduction; no semantic difference is certified. Full governed-use consolidation and stable-identifier migration remain SC-G1, outside this bounded promotion. The different glyphs are mnemonic roles, not evidence for distinct types."
+    },
+    {
+      "id": "SC-R4",
+      "severity": "high",
+      "disposition": "outside-formal-boundary",
+      "resolution": "Every theorem uses a supplied carrier and membership predicate. Actual Presence, membership, Relation classification and a global Reality carrier are not inferred. No unrestricted comprehension is supplied. The first two contracts explicitly carry these prose and application boundaries."
+    },
+    {
+      "id": "SC-R5",
+      "severity": "medium",
+      "disposition": "resolved",
+      "resolution": "The default Lean build compiles the new module and all downstream modules in 52 jobs; the finite executable runs. The extensionality and reduction proofs use ordinary Lean extensionality, without sorry, admit or new project axioms. SC-C1 claims only its explicit finite facts, not empirical adequacy."
+    }
+  ]
+}

@@ -35,7 +35,8 @@ CHALLENGE_SUPPORT = {
 
 # A named Lean shadow exists. This is deliberately not a claim of prose parity.
 FORMAL_SHADOWS = {
-    "organon:Missingness", "organon:State", "organon:Direction",
+    "organon:Set", "organon:MathematicalOrder", "organon:Configuration",
+    "organon:Identity", "organon:Difference", "organon:Missingness", "organon:State", "organon:Direction",
     "organon:Transformation", "organon:Change", "organon:Feeds", "organon:CausalPath",
     "organon:Invariant", "organon:Persistence", "organon:Constraint",
     "organon:Entity", "organon:Boundary", "organon:Scope", "organon:Standing",

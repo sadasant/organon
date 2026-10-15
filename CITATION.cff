@@ -11,8 +11,8 @@ authors:
   - given-names: Daniel
     family-names: Rodríguez
     website: "https://github.com/sadasant"
-version: 0.20.0
-date-released: 2026-10-03
+version: 0.21.0
+date-released: 2026-10-12
 license: Apache-2.0
 repository-code: "https://github.com/sadasant/organon"
 url: "https://organon.sadasant.ai"

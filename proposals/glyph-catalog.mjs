@@ -1,7 +1,82 @@
 // Shared, nonbinding source for the study, symbol font, and website.
 // Motif combinations are mnemonics, NOT a compositional semantic grammar.
+// Derive heights rather than snapping equilateral vertices to the integer grid.
+const equilateralHeight = (side) => side * Math.sqrt(3) / 2;
+const memberTop = 24 - equilateralHeight(20);
+const stateTop = 24 - equilateralHeight(16);
+// Trim 2.5 units along a 60-degree edge to preserve hollow node centers.
+const stateTrimY = equilateralHeight(2.5);
+
+// Node-graph conventions shared by the process and preservation glyphs:
+// hollow nodes are r=2 rings; solid nodes are concentric strokes with a core.
+// Every connection stops 2.5 units from a node center, outside hollow centers.
+const nodeTrim = 2.5;
+const hollowNode = ([x, y], radius = 2) => `M${x} ${y-radius}a${radius} ${radius} 0 1 1 0 ${2*radius}a${radius} ${radius} 0 1 1 0${-2*radius}`;
+const solidNode = ([x, y], radius = 2) =>
+  [radius/2, radius].map((r) =>
+    `M${x} ${y-r}a${r} ${r} 0 1 1 0 ${2*r}a${r} ${r} 0 1 1 0 ${-2*r}`,
+  ).join(" ") + ` M${x} ${y-radius/2}V${y+radius/2}`;
+// Reviewed miniatures preserve their node radii and edge trims at full stroke weight.
+const graph = (nodes, edges, solid = [], trim = nodeTrim, radius = 2) => [
+  ...edges.map(([a, b]) => {
+    const [[x, y], [u, v]] = [nodes[a], nodes[b]];
+    const t = trim / Math.hypot(u - x, v - y);
+    return `M${x+(u-x)*t} ${y+(v-y)*t} ${u-(u-x)*t} ${v-(v-y)*t}`;
+  }),
+  ...nodes.map((node, i) => (solid.includes(i) ? solidNode : hollowNode)(node, radius)),
+].join(" ");
+// The point where a segment from outside reaches nodeTrim from a node center.
+const stopOutside = ([x, y], [u, v], [cx, cy]) => {
+  const [dx, dy, fx, fy] = [u - x, v - y, x - cx, y - cy];
+  const [a, b, c] = [dx*dx + dy*dy, 2*(fx*dx + fy*dy), fx*fx + fy*fy - nodeTrim**2];
+  const t = (-b - Math.sqrt(b*b - 4*a*c)) / (2*a);
+  return `${x+dx*t} ${y+dy*t}`;
+};
+// Three horizontal nodes joined in sequence, as in the approved study sketches.
+const graphRow = (y, solid = []) => graph([[4, y], [16, y], [28, y]], [[0, 1], [1, 2]], solid);
+// Equal 12-unit spokes from a solid pivot at (16,10), 60 degrees apart.
+// Outer triangle edges are omitted: the sectors stay open.
+const pivotSectors = (sectors) => {
+  const ends = Array.from({ length: sectors + 1 }, (_, i) =>
+    [16 + 12*Math.cos(i*Math.PI/3), 10 + 12*Math.sin(i*Math.PI/3)]);
+  return graph([[16, 10], ...ends], ends.map((_, i) => [0, i + 1]), [0]);
+};
+// Six equal 12-unit spokes from a solid pivot at the cell center, every
+// 60 degrees, each ending in its own hollow node. No outer hexagon is drawn.
+const sixSpokeEnds = Array.from({ length: 6 }, (_, i) =>
+  [16 + 12*Math.cos(i*Math.PI/3), 16 + 12*Math.sin(i*Math.PI/3)]);
+// Symmetric open arrowhead: two 3-unit strokes at +/-0.6 rad from the shaft,
+// meeting at the tip, as in the reviewed study sketches.
+const arrowHead = ([x, y], [u, v]) => {
+  const a = Math.atan2(v - y, u - x);
+  return `M${u-3*Math.cos(a-0.6)} ${v-3*Math.sin(a-0.6)}L${u} ${v}L${u-3*Math.cos(a+0.6)} ${v-3*Math.sin(a+0.6)}`;
+};
+// Shared Representation sheet for Specification and Rule.
+const sheet = "M4 3H28V29H4Z";
+// Compact study eyes retain their smaller, hollow r=1.5 pupil.
+const compactEye = (x, y, width) =>
+  `M${x} ${y}Q${x+width/2} ${y-width*0.6} ${x+width} ${y}Q${x+width/2} ${y+width*0.6} ${x} ${y}Z M${x+width/2} ${y-1.5}a1.5 1.5 0 1 1 0 3a1.5 1.5 0 1 1 0-3`;
+// Explicit quarter-circle endpoints avoid microscopic closing segments from
+// floating-point SVG arc conversion, which can create square-cap/miter spikes.
+// Used only by the final review batch; older approved drawings stay unchanged.
+const closedRing = ([x, y], r = 2) => {
+  const k = r * 4 * (Math.sqrt(2) - 1) / 3;
+  return `M${x} ${y-r}C${x+k} ${y-r} ${x+r} ${y-k} ${x+r} ${y}C${x+r} ${y+k} ${x+k} ${y+r} ${x} ${y+r}C${x-k} ${y+r} ${x-r} ${y+k} ${x-r} ${y}C${x-r} ${y-k} ${x-k} ${y-r} ${x} ${y-r}Z`;
+};
+// Feeds study geometry scaled by 0.95 about the cell center, so r=2 rings
+// at its outer vertices stay inside the 1-unit ink margin. Similarity
+// preserves the equilateral triangles and the bridge angle.
+const feedsNodes = [[3, 14], [8, 14 - equilateralHeight(10)], [13, 14],
+  [19, 27], [24, 27 - equilateralHeight(10)], [29, 27]]
+  .map((point) => point.map((c) => 16 + 0.95*(c - 16)));
+
 export const strokes = {
   ring: "M16 8a8 8 0 1 1 0 16a8 8 0 1 1 0-16",
+  // Overlapping concentric strokes form solid ink, leaving a small clear center.
+  // These are drawing operations, not layers or parts of Reality.
+  inversePresence: [3, 4, 5, 6, 7, 8].map((r) =>
+    `M16 ${16-r}a${r} ${r} 0 1 1 0 ${2*r}a${r} ${r} 0 1 1 0 ${-2*r}`,
+  ).join(" "),
   crescent: "M21 5a12 12 0 0 0 0 22M21 5a16 16 0 0 0 0 22",
   open: "M24 9a11 11 0 1 0 0 14",
   diamond: "M16 5 27 16 16 27 5 16Z",
@@ -9,7 +84,7 @@ export const strokes = {
   frame: "M11 5H5V27H11M21 5H27V27H21",
   vessel: "M6 9V16Q6 24 16 24Q26 24 26 16V9",
   arch: "M6 25V15Q6 5 16 5Q26 5 26 15V25",
-  triangle: "M16 5 27 26H5Z",
+  triangle: `M16 ${26-equilateralHeight(22)} 27 26H5Z`,
   gate: "M6 26V6H26V26",
   eye: "M3 16Q16 0 29 16Q16 32 3 16Z",
   wave: "M3 19Q9 7 16 16T29 13",
@@ -31,6 +106,7 @@ export const strokes = {
   step: "M4 23H11V16H21V9H28",
   arrow: "M3 16H28M21 9 28 16 21 23",
   up: "M16 29V4M10 10 16 4 22 10",
+  // Retired Feeds arrow, retained for the historical design inventory.
   down: "M16 3V28M10 22 16 28 22 22",
   chevron: "M10 12 16 18 22 12",
   crown: "M5 7V3M16 7V2M27 7V3",
@@ -38,19 +114,54 @@ export const strokes = {
   roots: "M16 23 7 30M16 23 25 30",
   ticks: "M3 10H8M3 22H8M24 10H29M24 22H29",
   bars: "M8 12H24M8 20H24",
+  association: "M16 8V24",
   orbit: "M2 16Q16 7 30 16Q16 25 2 16Z",
   echo: "M3 5V27M29 5V27",
   hooks: "M4 5V11H10M28 27V21H22",
   // Revision 2: term-specific signatures keep the semantic distinctions that
   // generic crowns, eyes, and tiny decorative additions obscured. These names
   // document design intent; combining paths still does not assert entailment.
-  absenceName: "M9 4 18 11 11 19 23 28M18 11 25 8M11 19 5 23",
-  totality: "M3 9H11V4M11 9 20 16H29M20 16 12 25H4M20 16V5M12 25V29",
   ordered: "M4 7H9V13H20V24H27M4 4V10M17 10V16M24 21V27",
-  denotes: "M5 8V24M5 16H17M22 11H28V21H22Z",
+  denotes: "M5 8V24M5 16H27M20 9 27 16 20 23",
   grouping: "M10 4H4V10M22 4H28V10M4 22V28H10M28 22V28H22M9 10V16M15 20H21M21 9H25",
-  index: "M2 19H10",
+  // Concentric strokes and a short core fill three solid, circular dots.
+  members: [[16, memberTop], [6, 24], [26, 24]].map(([x, y]) =>
+    [1, 2].map((r) =>
+      `M${x} ${y-r}a${r} ${r} 0 1 1 0 ${2*r}a${r} ${r} 0 1 1 0 ${-2*r}`,
+    ).join(" ") + ` M${x} ${y-1}V${y+1}`,
+  ).join(" "),
+  memberLinks: `M16 ${memberTop} 6 24H26Z`,
+  // Retired State marker, retained for the historical design inventory.
+  index: "M2 16H6",
+  // Equal triangles shifted by half a base: baseline x=4,12,20,28;
+  // apices x=12,20. Stop edges outside hollow centers; no opaque masks.
+  stateOverlap: [
+    `M5.25 ${24-stateTrimY} 10.75 ${stateTop+stateTrimY}M13.25 ${stateTop+stateTrimY} 18.75 ${24-stateTrimY}M12 24 20 ${stateTop} 28 24M6.5 24H17.5M22.5 24H28`,
+    ...[[4, 24], [12, stateTop], [20, 24]].map(([x, y]) =>
+      `M${x} ${y-2}a2 2 0 1 1 0 4a2 2 0 1 1 0-4`,
+    ),
+    ...[[12, 24], [20, stateTop], [28, 24]].map(([x, y]) =>
+      [1, 2].map((r) =>
+        `M${x} ${y-r}a${r} ${r} 0 1 1 0 ${2*r}a${r} ${r} 0 1 1 0 ${-2*r}`,
+      ).join(" ") + ` M${x} ${y-1}V${y+1}`,
+    ),
+  ].join(" "),
+  // Same side length as State; a 60-degree turn shares the ghost's right edge.
+  // Keep all three ghost nodes hollow, including the two shared vertices.
+  transformationEdge: [
+    `M5.25 ${24-stateTrimY} 10.75 ${stateTop+stateTrimY}M6.5 24H17.5M13.25 ${stateTop+stateTrimY} 18.75 ${24-stateTrimY}M14.5 ${stateTop}H28M21.25 ${24-stateTrimY} 28 ${stateTop}`,
+    ...[[4, 24], [12, stateTop], [20, 24]].map(([x, y]) =>
+      `M${x} ${y-2}a2 2 0 1 1 0 4a2 2 0 1 1 0-4`,
+    ),
+    ...[1, 2].map((r) =>
+      `M28 ${stateTop-r}a${r} ${r} 0 1 1 0 ${2*r}a${r} ${r} 0 1 1 0 ${-2*r}`,
+    ),
+    `M28 ${stateTop-1}V${stateTop+1}`,
+  ].join(" "),
+  // Hasse cover edges, read upward; the lower members are incomparable.
+  partialOrder: `M6 24 16 ${memberTop} 26 24`,
   portFrame: "M8 2H2V30H8M24 2H30V30H24",
+  // Retired Environment corner, retained for the historical design inventory.
   surroundings: "M9 10V22H23M3 6H7M16 3V7M26 5 29 8M25 16H30M17 27V30",
   partialMap: "M6 6H26V12M26 20V26H6V6M6 20H13V13H21",
   comparison: "M2 11V21M30 11V21",
@@ -92,124 +203,339 @@ export const strokes = {
   tracking: "M4 7H11V14H21M4 25H11V18H21M25 9V23",
   adjustedAction: "M11 18V26H28M24 22 28 26 24 30",
   constrainedAction: "M23 5H29V12H23ZM23 9H15V28M3 23H26M22 19 26 23 22 27",
+  // Approved process and preservation drawings. Node motifs are mnemonics,
+  // not abbreviated State, Transformation or Configuration glyphs.
+  // Two disjoint equilateral node triangles; one bridge joins the first's
+  // right base node to the second's apex.
+  memberBridge: graph(feedsNodes, [[0, 1], [1, 2], [2, 0], [3, 4], [4, 5], [5, 3], [2, 4]]),
+  // Three horizontal nodes, the last solid, with a rightward arrowhead.
+  directedChain: `${graphRow(16, [2])} M23 12 27 16 23 20`,
+  // Two parallel same-direction chains: the upper hollow throughout, the
+  // lower with solid first and last nodes. The upper arrowhead stops outside
+  // its hollow end node.
+  comparisonLanes: [
+    graphRow(8),
+    graphRow(24, [0, 2]),
+    `M23 5 ${stopOutside([23, 5], [27, 8], [28, 8])}M23 11 ${stopOutside([23, 11], [27, 8], [28, 8])}`,
+    "M23 21 27 24 23 27",
+  ].join(" "),
+  // Two and three open 60-degree sectors around one filled pivot.
+  twoPivotSectors: pivotSectors(2),
+  threePivotSectors: pivotSectors(3),
+  // One input continues to a corner arrowhead; the other meets a transverse stop.
+  selectiveBranch: "M3 16H12L24 6M12 16 24 26M21 29 27 23M19 6H24V11",
+  // Approved identity, applicability and expression drawings. These are
+  // term-specific mnemonics, not a compositional grammar.
+  // Entity completes the open pivot fan: six sectors, six distinct hollow
+  // endpoints, no closing edges.
+  sixPivotSectors: graph([[16, 16], ...sixSpokeEnds], sixSpokeEnds.map((_, i) => [0, i + 1]), [0]),
+  // A box with a solid node, an unarrowed connector, and a separate bracket
+  // grouping three hollow outside members.
+  externalSet: [
+    "M3 10H15V22H3Z",
+    solidNode([9, 16]),
+    "M15 16H24.5M21 6V26M21 6H24.5M21 26H24.5",
+    ...[[27, 6], [27, 16], [27, 26]].map(point => hollowNode(point)),
+  ].join(" "),
+  // Upper and lower spans over three solid member dots.
+  coverageSpan: ["M4 10V5H28V10M4 22V27H28V22", ...[[7, 16], [16, 16], [25, 16]].map(point => solidNode(point))].join(" "),
+  // A sheet with a condition line, a route and a transverse result mark.
+  testSheet: `${sheet}M9 10H23M9 16H16M16 16L23 22M20 25L26 19`,
+  // A sheet containing a maps-to expression.
+  mappingSheet: `${sheet} M8 10V22M8 16H23${arrowHead([8, 16], [23, 16])}`,
+  // A trace from a hollow target node into a separate token box.
+  traceToken: `${hollowNode([4, 16])} M7 16H21${arrowHead([7, 16], [21, 16])} M22 9H29V23H22Z`,
+  // Approved expression and recording batch; the mesh's irregular cells are
+  // deliberate, not members of the equilateral Configuration triangle family.
+  rewriteNetwork: `M3 12H11V20H3Z M23 3H30V10H23Z M23 22H30V29H23Z M11 16H16L21 7${arrowHead([16, 16], [21, 7])} M16 16L21 25${arrowHead([16, 16], [21, 25])}`,
+  unevenMesh: "M5 7L25 4L28 26L3 23ZM5 7L28 26M25 4L3 23M4 15L26.5 15",
+  retainedToken: `M6 5H26V27H6Z ${hollowNode([16, 14])} M10 23H22`,
+  witnessedRecord: `M4 4H28V28H4Z M8 16Q16 6 24 16Q16 26 8 16Z ${hollowNode([16, 16])}`,
+  // Approved action study: preserve the selected coordinates, including
+  // Model's 2.8-unit edge trim rather than the graph helper's 2.5-unit trim.
+  organizedSurface: `M4 4H28V28H4Z ${hollowNode([10, 11])} ${hollowNode([22, 11])} ${hollowNode([16, 11+equilateralHeight(12)])} M12.8 11H19.2M11.4 ${11+1.4*Math.sqrt(3)}L14.6 ${11+4.6*Math.sqrt(3)}M20.6 ${11+1.4*Math.sqrt(3)}L17.4 ${11+4.6*Math.sqrt(3)}`,
+  outwardCrossing: `${hollowNode([6, 16])} M15 4V28M9 16H29${arrowHead([9, 16], [29, 16])}`,
+  changeAfterTurn: `M4 5H16V12M16 12V16${arrowHead([16, 12], [16, 16])} M16 ${29-equilateralHeight(12)}L22 29H10Z`,
+  perceptualFork: `${compactEye(2, 16, 13)} M15 16H19L27 7M19 16L27 25`,
+  interpretationAction: `${compactEye(2, 16, 12)} M14 16H29${arrowHead([14, 16], [29, 16])}`,
+  sideCoupledParticipant: `M10 3H22V15H10Z ${hollowNode([16, 9])} M16 15V24M3 24H29${arrowHead([3, 24], [29, 24])}`,
+  actionSpecification: `${sheet} M9 9H23M9 20H23${arrowHead([9, 20], [23, 20])}`,
+  // These five contents reuse the unchanged vessel contour in the alphabet.
+  // A solid endpoint designates one alternative locally, not Truth or Presence.
+  internalInfluence: `${hollowNode([11, 16])} M13.5 16H21V10${arrowHead([21, 16], [21, 10])}`,
+  outwardExposure: `${hollowNode([16, 17])} M16 14.5V3${arrowHead([16, 14.5], [16, 3])}`,
+  internalNetwork: graph([[11, 11], [21, 11], [16, 11+equilateralHeight(10)]], [[0, 1], [1, 2], [2, 0]]),
+  internalPerspective: compactEye(9, 15, 14),
+  internalSelection: graph([[16, 11+equilateralHeight(10)], [11, 11], [21, 11]], [[0, 1], [0, 2]], [1]),
+  // Approved coordination refinements; keep the selected study coordinates.
+  // Open equilateral turns, with only the final endpoint filled.
+  openSequence: graph([[4, 23], [10, 23-equilateralHeight(12)], [16, 23], [22, 23-equilateralHeight(12)], [28, 23]], [[0, 1], [1, 2], [2, 3], [3, 4]], [4]),
+  // Interface adds this compact Representation to the unchanged Boundary.
+  compactToken: "M12 12H20V20H12Z M16 14.5a1.5 1.5 0 1 1 0 3a1.5 1.5 0 1 1 0-3",
+  adjustedRule: `${hollowNode([5, 16])} M7.5 16H14M18 11V21M14 4H29V28H14Z M18 16H25${arrowHead([18, 16], [25, 16])}`,
+  scopedPlacement: `M5 4V28M27 4V28M5 16H13.5M18.5 16H27 ${hollowNode([16, 16])}`,
+  // Recognition adds a record sheet without scaling or changing Standing.
+  standingSheet: "M2 2H30V30H2Z",
+  standingEntity: [
+    "M5 4V28M27 4V28M5 16H6.5M25.5 16H27",
+    graph([[16, 16], ...Array.from({ length: 6 }, (_, i) =>
+      [16+7*Math.cos(i*Math.PI/3), 16+7*Math.sin(i*Math.PI/3)])],
+    Array.from({ length: 6 }, (_, i) => [0, i+1]), [0]),
+  ].join(" "),
+  // Approved institutional study; the proposed V extension to Permission waits.
+  pairedStatusRecord: `M4 4H28V28H4Z ${hollowNode([10, 14])} M19 10H25V18H19Z M12.5 14H19M10 24H22`,
+  agentInDomain: `M4 4V28M28 4V28 M16 ${24-equilateralHeight(14)}L23 24H9Z M16 6V28`,
+  scopedAssertion: `M3 4V28M29 4V28M9 24V8H23V24M3 16H9M23 16H29 ${hollowNode([16, 16])}`,
+  submittedClaim: `M4 25V7H18V25 ${hollowNode([11, 15])} M18 16H29${arrowHead([18, 16], [29, 16])}`,
+  recordedPassage: `M6 5H26V27H6Z M9 16H23${arrowHead([9, 16], [23, 16])} M10 23H22`,
+  // Flatten the study's miniature geometry into the shared 1.1-unit stroke.
+  scopedSubmission: `M2 6.4V25.6M22.8 6.4V25.6M6.8 22.4V9.6H18V22.4M2 16H6.8M18 16H22.8 M12.4 14.4a1.6 1.6 0 1 1 0 3.2a1.6 1.6 0 1 1 0-3.2 M18 16H30${arrowHead([18, 16], [30, 16])}`,
+  actionUnderRecord: `M10 3H22V13H10Z M13 10H19M16 13V18M16 18V29 ${hollowNode([5, 24])} M8 24H29${arrowHead([8, 24], [29, 24])}`,
+  actionWithinWindow: `M4 11V5H28V11M4 21V27H28V21 M8 16H24${arrowHead([8, 16], [24, 16])}`,
+  ruleCoupledAction: `M2.4 1.8H16.8V17.4H2.4Z M4.8 6V13.2M4.8 9.6H13.8 M${13.8-1.8*Math.cos(0.6)} ${9.6+1.8*Math.sin(0.6)}L13.8 9.6L${13.8-1.8*Math.cos(0.6)} ${9.6-1.8*Math.sin(0.6)} M9.6 17.4V24M3 24H29${arrowHead([3, 24], [29, 24])}`,
+  configurationInStanding: `M4 4V28M28 4V28M4 16H6M26 16H28 ${graph([[9, 20], [23, 20], [16, 20-equilateralHeight(14)]], [[0, 1], [0, 2], [1, 2]])}`,
+  ruleForAdmission: `M4 3H28V29H4Z M9 7V15M9 11H23${arrowHead([9, 11], [23, 11])} M10 20L16 26L22 20`,
+  witnessBeyondControl: `M2 25V7H13V25M17 4V28 M7.5 14.5a1.5 1.5 0 1 1 0 3a1.5 1.5 0 1 1 0-3 ${compactEye(19, 16, 11)}`,
+  admittedObservation: `M4 3H28V29H4Z ${compactEye(8, 12, 16)} M10 20L16 26L22 20`,
+  evaluatedObservation: `${sheet} ${compactEye(8, 10, 16)} M16 15V23M8 23V19H24V23 ${[8, 16, 24].map(x => hollowNode([x, 26])).join(" ")}`,
+  witnessingClaim: `M4 27V5H28V27 ${compactEye(8, 16, 16)}`,
+  centeredCoordination: `M3 4V28M29 4V28 ${graph([[7.16, 16], [16, 16], [24.84, 16], [16, 7.84], [16, 24.16]], [[0, 1], [1, 2], [3, 1], [1, 4]], [1], 2.8*0.68, 2*0.68)}`,
+  // Center and Shadow are inset 4% about (16,16) to preserve the ink margin.
+  flowHub: graph([[3, 16], [16, 16], [29, 16], [16, 4], [16, 28]].map(point => point.map(c => 16+0.96*(c-16))), [[0, 1], [1, 2], [3, 1], [1, 4]], [1], 2.8*0.96, 2*0.96),
+  transformationInWhole: [
+    "M3 10V3H10M22 3H29V10M3 22V29H10M22 29H29V22",
+    `M7.9375 ${22-equilateralHeight(1.875)}L12.0625 ${22-equilateralHeight(10.125)}M8.875 22H17.125M13.9375 ${22-equilateralHeight(10.125)}L18.0625 ${22-equilateralHeight(1.875)}M14.875 ${22-equilateralHeight(12)}H25M19.9375 ${22-equilateralHeight(1.875)}L25 ${22-equilateralHeight(12)}`,
+    hollowNode([7, 22], 1.5), hollowNode([13, 22-equilateralHeight(12)], 1.5),
+    hollowNode([19, 22], 1.5), solidNode([25, 22-equilateralHeight(12)], 1.5),
+  ].join(" "),
+  recognizedMap: "M2 2H30V30H2Z M5 4V28M27 4V28M5 16H8.3M23 16H27 M9.95 11.05L20.95 9.4L22.6 21.5L8.85 19.85ZM9.95 11.05L22.6 21.5M20.95 9.4L8.85 19.85M9.4 15.45H21.775",
+  excludedCoordination: [
+    "M1.5616 9.5488H14.464V22.4512H1.5616Z M2.944 10.4704V21.5296M13.0816 10.4704V21.5296M2.944 16H4.46464M11.2384 16H13.0816 M5.22496 13.71904L10.29376 12.95872L11.05408 18.5344L4.71808 17.77408ZM5.22496 13.71904L11.05408 18.5344M10.29376 12.95872L4.71808 17.77408M4.97152 15.74656H10.67392",
+    graph([[22, 5], [28, 16], [22, 27]].map(point => point.map(c => 16+0.96*(c-16))), [[0, 1], [1, 2]], [], 2.8*0.96, 2*0.96),
+  ].join(" "),
+  recordedEntityStanding: [
+    "M2 2H30V30H2Z M5 4V28M27 4V28M5 16H6.5M25.5 16H27",
+    graph([[16, 16], ...Array.from({ length: 6 }, (_, i) =>
+      [16+7*Math.cos(i*Math.PI/3), 16+7*Math.sin(i*Math.PI/3)])],
+    Array.from({ length: 6 }, (_, i) => [0, i+1]), [0], 2.8),
+  ].join(" "),
+  wovenField: "M3 8H10Q16 8 16 16Q16 24 22 24H29M3 24H10Q16 24 16 16Q16 8 22 8H29M3 16H29",
+  shapingWeave: "M3 8H10Q16 8 16 16Q16 24 22 24H29M3 24H10Q16 24 16 16Q16 8 22 8H29M3 16H12M12 12V20M22 16H29",
+  matchedCondition: `M3 8H11V24H3M29 8H21V24H29M11 12H21M11 20H21 ${hollowNode([5, 16])} ${hollowNode([27, 16])}`,
+  heldAperture: `M10 3V10H14M10 29V22H14M20 3V10H16M20 29V22H16 ${graph([[4, 16], [28, 16]], [[0, 1]])}`,
+  correspondingProfiles: "M4 4H10V12H6V28M28 4H22V12H26V28M10 8H22M6 21H26",
+  revisingStructure: `${graph([[6, 8], [20, 8], [13, 8+equilateralHeight(14)]], [[0, 1], [1, 2], [2, 0]])} M24 4H29V28H4V24M4 24V18${arrowHead([4, 24], [4, 18])}`,
+  interpretedRecord: `M3 3H20V29H3Z ${hollowNode([9, 9])} M7 25H16 ${compactEye(7, 17, 10)} M17 17H29${arrowHead([17, 17], [29, 17])}`,
+  reconstructedFunction: `M2 3H13V18H2Z ${hollowNode([7.5, 9], 1.5)} M19 3H30V18H19Z M23 7H26V10H23Z M13 12H19${arrowHead([13, 12], [19, 12])} M3 26H12${arrowHead([3, 26], [12, 26])} M20 26H29${arrowHead([20, 26], [29, 26])} M7.5 18V26M24.5 18V26`,
+  actionContextRecord: `M3 3H29V29H3Z ${hollowNode([9, 11])} M12 11H24${arrowHead([12, 11], [24, 11])} M8 19H24M8 25H19`,
+  typedRecordRows: `${sheet} ${hollowNode([9, 9], 1.5)} M7.5 14.5H10.5V17.5H7.5Z M7.5 24L10.5 21M14 9H24M14 16H24M14 23H24`,
+  pluralPolity: [
+    `M2 13L7 ${13-equilateralHeight(10)}L12 13ZM7 ${11-equilateralHeight(10)}V15`,
+    `M20 13L25 ${13-equilateralHeight(10)}L30 13ZM25 ${11-equilateralHeight(10)}V15`,
+    "M9.5 18V30M22.5 18V30M7 15V24H9.5M25 15V24H22.5",
+    graph([[11.58, 24], [16, 24], [20.42, 24], [16, 19.92], [16, 28.08]], [[0, 1], [1, 2], [3, 1], [1, 4]], [1], 0.952, 0.68),
+  ].join(" "),
+  agencyOverOrder: `${compactEye(3, 7, 10)} M13 7H28${arrowHead([13, 7], [28, 7])} M16 10V15M13.5 15.5V28.5M18.5 15.5V28.5M9.5 22H22.5M13 15.5H19M12.5 28.5H19.5`,
+  // At the selected scale, the nested Institution's r=0.34 rings close up.
+  polityCapability: [
+    "M3 3H29V29H3Z",
+    `M9 8.5L11.5 ${8.5-equilateralHeight(5)}L14 8.5ZM11.5 ${7.5-equilateralHeight(5)}V9.5`,
+    `M18 8.5L20.5 ${8.5-equilateralHeight(5)}L23 8.5ZM20.5 ${7.5-equilateralHeight(5)}V9.5`,
+    "M12.75 11V17M19.25 11V17M11.5 9.5V14H12.75M20.5 9.5V14H19.25",
+    "M14.266 14H15.524M16.476 14H17.734M16 12.436V13.524M16 14.476V15.564",
+    hollowNode([13.79, 14], 0.34), hollowNode([18.21, 14], 0.34),
+    "M16 11.62a0.34 0.34 0 1 1 0 0.68a0.34 0.34 0 1 1 0-0.68",
+    hollowNode([16, 16.04], 0.34), solidNode([16, 14], 0.34),
+    `M8 24H25${arrowHead([8, 24], [25, 24])}`,
+  ].join(" "),
+  candidateClaim: "M6 26V6H26V26 M13 11L20 16L13 21",
+  candidateStatusRecord: `M3 3H29V29H3Z ${hollowNode([9, 14])} M11.5 14H17M17 8H26V20H17Z M20 11L23 14L20 17M9 25H23`,
+  ruleSelectedOperation: [
+    `M2 3H14V27H2Z M5 8H11M5 15V21M5 18H12${arrowHead([5, 18], [12, 18])} M14 18H18`,
+    `M20.1 ${18.6-equilateralHeight(1)}L22.3 ${18.6-equilateralHeight(5.4)}M20.6 18.6H25M23.3 ${18.6-equilateralHeight(5.4)}L25.5 ${18.6-equilateralHeight(1)}M23.8 ${18.6-equilateralHeight(6.4)}H29.2M26.5 ${18.6-equilateralHeight(1)}L29.2 ${18.6-equilateralHeight(6.4)}`,
+    hollowNode([19.6, 18.6], 0.8), hollowNode([22.8, 18.6-equilateralHeight(6.4)], 0.8),
+    hollowNode([26, 18.6], 0.8), solidNode([29.2, 18.6-equilateralHeight(6.4)], 0.8),
+  ].join(" "),
+  // Approved knowledge/status study: half-size Truth keeps full stroke weight.
+  factiveRecord: [
+    "M3 3H21V29H3Z M5.5 6H9.5V14H5.5M18.5 6H14.5V14H18.5M9.5 8H14.5M9.5 12H14.5",
+    hollowNode([6.5, 10], 1), hollowNode([17.5, 10], 1),
+    compactEye(7, 21, 10), `M17 21H29${arrowHead([17, 21], [29, 21])} M7 26H16`,
+  ].join(" "),
+  warrantAdmission: "M24 25L27 29L30 25",
+  moralCondition: "M12 12Q24 8 18 22",
+  moralStatusRecord: `M3 3H29V29H3Z ${hollowNode([9, 14])} M11.5 14H17M17 8H26V20H17Z M20 12Q26 10 23 18M9 25H23`,
+  // Shared visual family only: the four sovereignty profiles do not entail one another.
+  sovereigntyShoulders: "M4 28V4H8M24 4H28V28",
+  sovereignChange: `M9 24L16 ${24-equilateralHeight(14)}L23 24Z`,
+  maximalAuthority: `M10 8H22M16 11V27M10 24L16 ${24-equilateralHeight(12)}L22 24Z`,
+  admittedBlockedRoutes: `M8 12H24${arrowHead([8, 12], [24, 12])} M8 23H20M20 20V26`,
+  externalPrincipal: [
+    "M4.3 12.1V19.9M7.3 12.1V19.9M1.9 16H9.7M4 12.1H7.6M3.7 19.9H7.9",
+    "M12 28V4H16M26 4H30V28M10 16H12M12 16H14M28 16H30",
+    graph([[21, 16], ...Array.from({ length: 6 }, (_, i) =>
+      [21+5*Math.cos(i*Math.PI/3), 16+5*Math.sin(i*Math.PI/3)])],
+    Array.from({ length: 6 }, (_, i) => [0, i+1]), [0], 1.7, 1.2),
+  ].join(" "),
+  orderedCandidates: `${hollowNode([5, 16])} ${hollowNode([27, 16])} M12 8L21 16L12 24`,
+  measureSheet: `M4 3H28V29H4Z ${hollowNode([9, 9])} M11.5 9H20M20 6V23M20 12H25M20 18H23M8 25H24`,
+  exchangeConditionRecord: `M3 3H29V29H3Z ${hollowNode([9, 12])} M11.5 12H19M19 8H26V16H19Z M7 22L10 19M12 21H25M7 26L10 23M12 25H25`,
+  interpretedRecurrence: `${compactEye(7, 9, 18)} ${hollowNode([8, 24])} ${hollowNode([24, 24])} M8 21.5V15M24 21.5V15M10.5 24H21.5M7 9H3V28H29V9H25`,
+  // Meaning C: the approved Ritual at half scale, retaining full stroke weight.
+  ritualRelation: [
+    `${hollowNode([5, 16])} ${hollowNode([27, 16])} M7.5 16H24.5`,
+    "M11.5 4.5Q16 -0.9 20.5 4.5Q16 9.9 11.5 4.5Z",
+    hollowNode([16, 4.5], 0.75), hollowNode([12, 12], 1), hollowNode([20, 12], 1),
+    "M12 10.75V7.5M20 10.75V7.5M13.25 12H18.75M11.5 4.5H9.5V14H22.5V4.5H20.5M16 14V19",
+  ].join(" "),
+  identityConfigurations: [
+    ...Array.from({ length: 6 }, (_, i) => {
+      const a = i*Math.PI/3;
+      return `M${16+1.4*Math.cos(a)} ${8+1.4*Math.sin(a)}L${16+3.6*Math.cos(a)} ${8+3.6*Math.sin(a)} ${closedRing([16+5*Math.cos(a), 8+5*Math.sin(a)], 0.9)}`;
+    }),
+    // The study hub is a filled r=1 disk without a stroke: 0.45 + 0.55 ink radius.
+    solidNode([16, 8], 0.45),
+    `M16 14V17M9 17H23M9 17V20M23 17V20 M5 27L9 ${27-equilateralHeight(8)}L13 27Z M19 27L23 ${27-equilateralHeight(8)}L27 27Z`,
+  ].join(" "),
+  contributionReturn: `M3 11H11V21H3Z M21 11H29V21H21Z M7 11V5H25V8M25 21V27H7 M7 27V23${arrowHead([7, 27], [7, 23])} M22.5 5L25 8L27.5 5M6 15H8M24 17H26`,
+  targetHistory: `${compactEye(3, 16, 14)}Z ${hollowNode([26, 8])}Z ${hollowNode([26, 24])}Z M26 10.5V21.5M17 16H20M20 8V24M20 8H23.5M20 24H23.5`,
+  // Care preserves Attention B at 0.65 scale and the full 1.1 stroke weight.
+  specifiedAttentiveAction: [
+    "M1.95 10.4Q6.5 4.94 11.05 10.4Q6.5 15.86 1.95 10.4Z",
+    `${closedRing([6.5, 10.4], 0.975)} ${closedRing([16.9, 5.2], 1.3)} ${closedRing([16.9, 15.6], 1.3)}`,
+    "M16.9 6.825V13.975M11.05 10.4H13M13 5.2V15.6M13 5.2H15.275M13 15.6H15.275",
+    `M23 3H30V14H23Z M25 7H28M25 10H27M6.5 13.5V26M26.5 14V26M4 26H29${arrowHead([4, 26], [29, 26])}`,
+  ].join(" "),
+  otherConditionedAction: `${closedRing([25, 5])} M25 7.5V10M18 10H29V19H18Z M21 14H26M22 19V28 ${closedRing([5, 25])} M7.5 25H29${arrowHead([7.5, 25], [29, 25])}`,
+  // Reference A: Map and Specification at 0.45 scale, with full stroke weight.
+  referencePair: "M3.25 10.15L12.25 8.8L13.6 18.7L2.35 17.35ZM3.25 10.15L13.6 18.7M12.25 8.8L2.35 17.35M2.8 13.75L12.925 13.75 M18.8 8.35H29.6V20.05H18.8ZM21.05 11.5H27.35M21.05 14.2H24.2M24.2 14.2L27.35 16.9M26 18.25L28.7 15.55 M14.5 14.5H18M8 23V26H24V23",
+  sensoryEye: `${compactEye(9, 16, 14)}Z`,
 };
 
 const alphabet = {
-  Absence: ["absenceName"],
+  // Standalone conventional name, not a slot, ground or relation.
+  Absence: ["foot"],
   Presence: ["ring", "dot"],
-  Missingness: ["frame", "seed"],
-  Reality: ["totality"],
+  Missingness: ["ring"],
+  Reality: ["inversePresence"],
   Difference: ["bars", "slash"],
-  Relation: ["ordered"],
+  Relation: ["bars", "association"],
   Denotation: ["denotes"],
-  Configuration: ["grouping"],
-  State: ["grouping", "index"],
+  Configuration: ["members", "memberLinks"],
+  State: ["stateOverlap"],
   Direction: ["up", "foot"],
-  Transformation: ["step", "dot"],
-  Change: ["triangle", "slash"],
-  Feeds: ["wave", "down"],
-  CausalPath: ["step", "arrow"],
-  CausalContribution: ["fork", "bar"],
-  Invariant: ["rails", "bars"],
-  Persistence: ["ring", "rails"],
-  Constraint: ["frame", "bar"],
-  Entity: ["ring", "axis"],
+  Transformation: ["transformationEdge"],
+  // Plain delta: the conventional finite-change cue, without a slash.
+  Change: ["triangle"],
+  Feeds: ["memberBridge"],
+  CausalPath: ["directedChain"],
+  CausalContribution: ["comparisonLanes"],
+  Invariant: ["twoPivotSectors"],
+  Persistence: ["threePivotSectors"],
+  Constraint: ["selectiveBranch"],
+  Entity: ["sixPivotSectors"],
   Boundary: ["diamond", "echo"],
-  Environment: ["surroundings"],
+  Environment: ["externalSet"],
   Representation: ["square", "dot"],
-  Scope: ["frame", "cap", "foot"],
-  Specification: ["square", "bars"],
-  Rule: ["gate", "bar", "foot"],
-  Sign: ["axis", "dot", "wings"],
+  Scope: ["coverageSpan"],
+  Specification: ["testSheet"],
+  Rule: ["mappingSheet"],
+  Sign: ["traceToken"],
   Symbol: ["diamond", "star"],
-  Language: ["rails", "cross", "cap"],
-  Map: ["partialMap"],
-  Reference: ["partialMap", "comparison"],
-  Sense: ["uptake"],
+  Language: ["rewriteNetwork"],
+  Map: ["unevenMesh"],
+  Reference: ["referencePair"],
+  Sense: ["diamond", "echo", "sensoryEye"],
   Perception: ["eye", "dot"],
-  Record: ["square", "step"],
-  Observation: ["tracedRecord"],
-  Memory: ["vessel", "bars"],
-  Model: ["structuredModel"],
-  Action: ["arrow", "roots"],
-  Consequence: ["endpoint"],
-  Interpretation: ["eye", "chevron"],
+  Record: ["retainedToken"],
+  Observation: ["witnessedRecord"],
+  Memory: ["vessel", "internalInfluence"],
+  Model: ["organizedSurface"],
+  Action: ["outwardCrossing"],
+  Consequence: ["changeAfterTurn"],
+  Interpretation: ["perceptualFork"],
   Agent: ["triangle", "axis"],
-  Agency: ["interpretedAction"],
-  Tool: ["rails", "bar", "hooks"],
-  Capability: ["realizable"],
+  Agency: ["interpretationAction"],
+  Tool: ["sideCoupledParticipant"],
+  Capability: ["actionSpecification"],
   Interior: ["vessel", "dot"],
-  Exposure: ["open", "wings"],
-  Flow: ["wave", "rails"],
-  Interface: ["portFrame", "ordered"],
+  Exposure: ["vessel", "outwardExposure"],
+  Flow: ["openSequence"],
+  Interface: ["diamond", "echo", "compactToken"],
   Claim: ["gate", "dot"],
   Witness: ["eye", "foot"],
-  Control: ["routing"],
+  Control: ["adjustedRule"],
   Order: ["rails", "bar", "cap", "foot"],
-  Standing: ["placement"],
-  Recognition: ["recordedPlacement"],
-  Principal: ["ring", "axis", "party"],
+  Standing: ["scopedPlacement"],
+  Recognition: ["scopedPlacement", "standingSheet"],
+  Principal: ["standingEntity"],
   ActsFor: ["triangle", "arrow"],
-  CountsAs: ["statusAssignment"],
-  Authority: ["binding"],
-  PermissionClaim: ["gate", "dot", "wings"],
-  Declaration: ["tree", "cap"],
-  Grant: ["issuedPermission"],
+  CountsAs: ["pairedStatusRecord"],
+  Authority: ["agentInDomain"],
+  PermissionClaim: ["scopedAssertion"],
+  Declaration: ["submittedClaim"],
+  Grant: ["scopedSubmission"],
   Admission: ["gate", "chevron"],
-  Permission: ["gate", "up"],
+  Permission: ["recordedPassage"],
   Revocation: ["gate", "slash"],
-  PermissionExercise: ["gate", "arrow"],
-  Exercisability: ["permittedRealization"],
-  Enforcement: ["ruleCoupling"],
-  Role: ["assignedBundle"],
-  AdmissibilityRule: ["gate", "chevron", "foot"],
-  IndependentFor: ["rails", "dot", "wings"],
-  Evidence: ["tracedRecord", "admittedRecord"],
-  EvidentialBearing: ["eye", "arrow"],
-  Attestation: ["eye", "cap", "foot"],
-  Institution: ["continuingOrder"],
-  Center: ["ring", "star"],
-  Organ: ["ring", "cross", "ticks"],
-  CanonicalSystem: ["square", "tree"],
-  ShadowSystem: ["frame", "tree"],
-  Person: ["ring", "axis", "personRecord"],
-  Receipt: ["portableRecord"],
-  Ledger: ["square", "rails", "bars"],
-  Polity: ["arch", "tree", "foot"],
-  ConstituentExercise: ["gate", "arrow", "roots"],
-  ConstituentPower: ["realizable", "echo"],
-  ConsciousnessAttribution: ["assertion", "conditionI"],
-  ConsciousnessDesignation: ["registration", "conditionI"],
-  Operationalization: ["square", "arrow", "seed"],
-  World: ["scopedWorld"],
-  Substrate: ["feedingSource"],
-  Truth: ["diamond", "axis", "dot"],
-  Trust: ["admittedOther"],
-  Alignment: ["correspondence"],
-  Intelligence: ["eye", "fork"],
-  OperativeKnowledge: ["knowledgePath"],
-  KnowledgeTransmission: ["square", "wave", "arrow"],
-  FactiveOperativeKnowledge: ["knowledgePath", "factive"],
-  WarrantedKnowledge: ["knowledgePath", "factive", "warranted"],
-  MoralStatusAttribution: ["assertion", "conditionII"],
-  MoralPersonhoodDesignation: ["registration", "conditionII"],
-  ConstituentSovereignty: ["gate", "crown", "roots"],
-  ConstitutedSovereignty: ["gate", "crown", "foot"],
-  BoundarySovereignty: ["enforcedBoundary"],
-  ExternalSovereignty: ["open", "crown", "wings"],
-  Preference: ["chevron", "axis", "wings"],
-  UtilityMeasure: ["rails", "step", "foot"],
-  Price: ["recordedExchange"],
-  Ritual: ["double", "axis"],
-  Meaning: ["double", "participants"],
-  Body: ["constituents"],
-  BodilyOrganization: ["vessel", "tree", "bars"],
-  EmbodiedPerspective: ["vessel", "eye", "axis"],
-  RecurrentIntegration: ["double", "bar", "echo"],
-  InternalActivitySelection: ["vessel", "fork", "dot"],
-  Attention: ["tracking"],
-  Care: ["tracking", "adjustedAction"],
-  Respect: ["constrainedAction"],
+  PermissionExercise: ["actionUnderRecord"],
+  Exercisability: ["actionWithinWindow"],
+  Enforcement: ["ruleCoupledAction"],
+  Role: ["configurationInStanding"],
+  AdmissibilityRule: ["ruleForAdmission"],
+  IndependentFor: ["witnessBeyondControl"],
+  Evidence: ["admittedObservation"],
+  EvidentialBearing: ["evaluatedObservation"],
+  Attestation: ["witnessingClaim"],
+  Institution: ["centeredCoordination"],
+  Center: ["flowHub"],
+  Organ: ["transformationInWhole"],
+  CanonicalSystem: ["recognizedMap"],
+  ShadowSystem: ["excludedCoordination"],
+  Person: ["recordedEntityStanding"],
+  Receipt: ["actionContextRecord"],
+  Ledger: ["typedRecordRows"],
+  Polity: ["pluralPolity"],
+  ConstituentExercise: ["agencyOverOrder"],
+  ConstituentPower: ["polityCapability"],
+  ConsciousnessAttribution: ["candidateClaim"],
+  ConsciousnessDesignation: ["candidateStatusRecord"],
+  Operationalization: ["ruleSelectedOperation"],
+  World: ["wovenField"],
+  Substrate: ["shapingWeave"],
+  Truth: ["matchedCondition"],
+  Trust: ["heldAperture"],
+  Alignment: ["correspondingProfiles"],
+  Intelligence: ["revisingStructure"],
+  OperativeKnowledge: ["interpretedRecord"],
+  KnowledgeTransmission: ["reconstructedFunction"],
+  FactiveOperativeKnowledge: ["factiveRecord"],
+  WarrantedKnowledge: ["factiveRecord", "warrantAdmission"],
+  MoralStatusAttribution: ["gate", "moralCondition"],
+  MoralPersonhoodDesignation: ["moralStatusRecord"],
+  ConstituentSovereignty: ["sovereigntyShoulders", "sovereignChange"],
+  ConstitutedSovereignty: ["sovereigntyShoulders", "maximalAuthority"],
+  BoundarySovereignty: ["sovereigntyShoulders", "admittedBlockedRoutes"],
+  ExternalSovereignty: ["externalPrincipal"],
+  Preference: ["orderedCandidates"],
+  UtilityMeasure: ["measureSheet"],
+  Price: ["exchangeConditionRecord"],
+  Ritual: ["interpretedRecurrence"],
+  Meaning: ["ritualRelation"],
+  Body: ["identityConfigurations"],
+  BodilyOrganization: ["vessel", "internalNetwork"],
+  EmbodiedPerspective: ["vessel", "internalPerspective"],
+  RecurrentIntegration: ["contributionReturn"],
+  InternalActivitySelection: ["vessel", "internalSelection"],
+  Attention: ["targetHistory"],
+  Care: ["specifiedAttentiveAction"],
+  Respect: ["otherConditionedAction"],
+  // Append the slot; the registry places Identity immediately after Presence.
+  Identity: ["bars"],
+  // Append the slot; the registry places Set before Configuration.
+  Set: ["members"],
+  // The legacy Order key/slot still denotes Coordination Order.
+  MathematicalOrder: ["members", "partialOrder"],
 };
 
 // Private-use slots are font-local, not Unicode assignments. Preserve this

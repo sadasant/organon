@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "proposal_id": "identity-and-missingness",
+  "status": "promotion-ready",
+  "reviewed_commit": "d6c6cd9c3d7af3776619589321e19f727be2c188",
+  "reviewed_tree": "7cfc15d34e24063e31209c668b565698711898ea",
+  "reviewed_at": "2026-10-15",
+  "reviewer": "Amp local source review with focused Oracle consultation on the tuple-domain ambiguity; not independent external review",
+  "review_scope": "Identity's explicit Presence-domain restriction on tuples and the six unchanged Identity/Missingness contracts. Local formal and source readiness only, not a green Aesthetics result or whole-PR merge readiness.",
+  "source_sha256": {
+    "examples/organon-adoption.json": "c50d839a9db10c32631b61d604cbc10768adc4a405e49ca27266658861e1a433",
+    "ontology/changelog.md": "a5ae6cbbb24902d916987108d62d3df6f18cc33c230f2c5392bfb71381713192",
+    "ontology/formal/IdentityMissingness.lean": "e31ddbfb0f817f6d5c9cfc9dec304d639b10bcd04c16c552d8f636ae32621da7",
+    "ontology/formal/OrganonCore.lean": "a9edb8d75ea6486da764b813b8261f67fa18604341bae9d278a6fb76404d26f9",
+    "ontology/formal/lakefile.toml": "bf6bb660bed71d6e6a4c6de92976507fd41b88aa616ebb6bba44a4bac1a8eec7",
+    "ontology/formal/lean-toolchain": "54727eec5cba149c18842e6deb5c41b369d66455c93ce135d7d5347c782b2325",
+    "ontology/ontology.md": "8fa8d57aea968f4e3e3384b11d64a170b6d4ebb743d5e7043cc0de2600448361",
+    "ontology/profiles.json": "d0203677dc964a9b0e902749f43572c71f8395ec076e4006043db6abdf4bca8c",
+    "ontology/prompt.md": "589b1c20b5446853ce6ed20052645819a3310f3a1870b71547701f574739bee6",
+    "ontology/terms.yaml": "016cd42a2eeeb5bcabc27eb1dda5ea3e8e93d56e8f78e55a22e3230330b05f59",
+    "proposals/identity-and-missingness-claims.json": "371b4c4584ddbab405df5db1ae68feb9172b5d112a86eb562e2a66ece158399b",
+    "proposals/identity-and-missingness.md": "847b8e2c145fe0b93fb9236331f4f1164a2c43c0a635bc1e45436279f690ff3f",
+    "provenance/terms.json": "e6aa9493e946827c370768e0674db52f497cccaad35bd9d7fa268ad6c25ba748",
+    "releases/v0-21-0.md": "dc6711981dacf3e8d855789d04e8e0118909fc200885e90c2f6ee6c0180de2fe",
+    "scripts/check-promotion-review.py": "cef84a92bb95bb43734b16941f4a957ad77f9d117d4e1401f93460ff155afda9",
+    "scripts/check-proposals.py": "87f26905ba0450b92a9f38c6ee63a144e5973fd424a971622b42f6a9eb03fb24"
+  },
+  "verified_contracts": ["IM-D1", "IM-D2", "IM-A5", "IM-C1", "IM-A6", "IM-C2"],
+  "findings": [
+    {"id": "IM-T1", "severity": "high", "disposition": "resolved", "resolution": "The explanatory tuple case cannot silently widen Identity beyond Presence: a tuple must itself belong to the declared Presence domain. Order, Configuration and State explicitly declare their pairs Presences, satisfying this requirement without promoting their metalinguistic coordinates. Equality outside Presence remains metalinguistic. The alternative of admitting every metalinguistic object is rejected. Identity's primary definition and the six contracts are unchanged; the existing carrier boundary already requires this interpretation. Lean build completed 58 jobs, the finite executable passed, and the integration axiom audit checked 2657 project theorems with zero declared project axioms."},
+    {"id": "IM-T2", "severity": "high", "disposition": "outside-formal-boundary", "resolution": "The prior review's empirical gates remain: actual expectation, containment, condition adequacy, carrier adequacy and individuation are application premises. Tuple admission is not a formal proof that a particular tuple is a Presence. No new universal existence, decidability, or fictional referent is inferred."}
+  ],
+  "supersedes": "reviews/promotion/identity-condition-targets.json"
+}

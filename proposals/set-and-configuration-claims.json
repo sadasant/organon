@@ -1,0 +1,83 @@
+{
+  "schema_version": 2,
+  "description": "Typed contracts for set-and-configuration.md; statuses and dependency dispositions follow CONTRIBUTING.md and proposals/README.md.",
+  "proposal_id": "set-and-configuration",
+  "status": "promoted",
+  "binding": false,
+  "markdown": "set-and-configuration.md",
+  "formal_shadow": "../ontology/formal/SetConfiguration.lean",
+  "formal_evidence": ["../ontology/formal/OrganonCore.lean"],
+  "promotion_contracts": "../ontology/formal/SetConfiguration.lean",
+  "promotion_review": "../reviews/promotion/set-tuple-clarification.json",
+  "introduced_terms": ["organon:Set"],
+  "local_symbols": [],
+  "semantic_fields": [
+    {
+      "symbol": "Set.contains",
+      "status": "canonical",
+      "reason": "Membership is the whole defining datum of a Set over its declared local domain; which actual Presences realize a supplied predicate and carrier remains the application question recorded at SC-G1."
+    }
+  ],
+  "statements": [
+    {
+      "id": "SC-D1",
+      "type": "proposed_definition",
+      "subject": "Set",
+      "depends_on": ["organon:Presence", "organon:Identity", "organon:Absence", "organon:Relation", "organon:Reality"],
+      "formal_contract": {
+        "status": "proved_with_boundaries",
+        "theorem": "setExtensionality",
+        "subject_symbols": ["Set", "contains", "emptySet"],
+        "shared_indices": ["s", "t", "a"],
+        "dependency_dispositions": {
+          "organon:Presence": {"status": "represented_by", "symbols": ["α", "a", "s", "t"], "reason": "The supplied carrier stands for a declared local domain of member Presences and each Set value stands for the Presence those members fix; no global carrier or membership classifier is constructed."},
+          "organon:Identity": {"status": "formalized", "symbols": ["Identity"]},
+          "organon:Absence": {"status": "prose_only", "reason": "The empty Set is an inhabited Set value, a Presence with no member; the exclusion of Absence is a prose boundary and no Absence symbol is imported."},
+          "organon:Relation": {"status": "prose_only", "reason": "The contrast with ordered association stays in prose: membership imposes no order on members, while the theorem neither asserts nor denies that membership can be modeled as a Relation."},
+          "organon:Reality": {"status": "outside_formal_boundary", "reason": "The theorem quantifies over every supplied local carrier and builds no carrier of all Presence; it neither asserts nor refutes that Reality is a set, and licenses no local Set as exhaustive of Reality."}
+        }
+      }
+    },
+    {
+      "id": "SC-D2",
+      "type": "proposed_definition",
+      "subject": "Configuration",
+      "depends_on": ["SC-D1", "organon:Presence", "organon:Relation", "organon:Identity"],
+      "formal_contract": {
+        "status": "proved",
+        "theorem": "configurationIdentity",
+        "subject_symbols": ["Configuration", "members", "associations", "valid"],
+        "shared_indices": ["c", "d", "k"],
+        "dependency_dispositions": {
+          "SC-D1": {"status": "formalized", "symbols": ["Set", "contains"]},
+          "organon:Presence": {"status": "represented_by", "symbols": ["α", "a"], "reason": "Carrier values stand for the Presences, including any Relations, that a supplied interpretation places in the local domain; no canonical carrier is constructed."},
+          "organon:Relation": {"status": "represented_by", "symbols": ["realizes", "r", "ps", "length"], "reason": "A supplied predicate validates Relation Presences with finite ordered participant tuples of at least two positions. Actual realization, fixed-role adequacy, and infinite arity remain outside this projection; selection itself cannot manufacture a witness."},
+          "organon:Identity": {"status": "formalized", "symbols": ["Identity"]}
+        }
+      }
+    },
+    {
+      "id": "SC-C1",
+      "type": "anti_collapse_constraint",
+      "subject": "Finite Set and Configuration witnesses",
+      "depends_on": ["SC-D1", "SC-D2"],
+      "formal_contract": {
+        "status": "proved",
+        "theorem": "finiteAntiCollapse",
+        "subject_symbols": ["Token", "ofList", "plain", "linked", "external", "discrete"],
+        "shared_indices": ["plain", "linked"],
+        "dependency_dispositions": {
+          "SC-D1": {"status": "formalized", "symbols": ["Identity", "emptySet", "contains"]},
+          "SC-D2": {"status": "represented_by", "symbols": ["Configuration", "configurationIdentity", "members", "associations", "realizes", "link"], "reason": "The finite realization fixes a link's ordered participants. Equal member Sets with different selected associations, rejected reversed roles, external participants, isolated members and empty structure are checked directly; these are local facts, not an empirical classifier."}
+        }
+      }
+    },
+    {
+      "id": "SC-G1",
+      "type": "open_evidence_gate",
+      "subject": "Carrier adequacy, Relation realization and downstream parity",
+      "depends_on": ["SC-D1", "SC-D2"],
+      "formal_contract": {"status": "open_gate", "reason": "Applications must justify their domain, membership, identity criteria and actual Relations with fixed participant roles. The finite-tuple shadow does not cover infinite arity or prove full downstream canonical parity. Forgetting structure is not an equivalence with the underlying member Set, as SC-C1 witnesses."}
+    }
+  ]
+}

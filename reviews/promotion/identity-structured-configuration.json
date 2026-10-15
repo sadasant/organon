@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "proposal_id": "identity-and-missingness",
+  "status": "promotion-ready",
+  "reviewed_commit": "46565c9bd855bd9adeda7c81b615bd6e2ef8accf",
+  "reviewed_tree": "645a4b38de20e0bcb7c3312bfb3d5e9b01fe0f25",
+  "reviewed_at": "2026-10-13",
+  "reviewer": "Amp local integration review; not independent external review",
+  "review_scope": "Identity and Missingness integration after the Configuration correction. Their definitions and Lean contracts are unchanged; this record renews the pins on shared governed surfaces without rewriting the prior findings.",
+  "supersedes": "reviews/promotion/identity-and-missingness.json",
+  "source_sha256": {
+    "proposals/identity-and-missingness.md": "c2048c86aee88d4df61d7accc0d1386c36e2d69094939042bf8fc548367bd5ea",
+    "proposals/identity-and-missingness-claims.json": "a0210859548bba7601dff37911f9051cdf099e58a6e114cb1e0438cd68a1cfbe",
+    "ontology/formal/IdentityMissingness.lean": "8a79b37c93a1e72700b29124baf5003aab5718835b2b1d8fad58b057e3ff19b4",
+    "ontology/formal/SetConfiguration.lean": "60b4fa126d57835c642cdd9b3a7e18fd4e9ac17db94ee169852dabe5ea3f47e6",
+    "ontology/formal/OrganonCore.lean": "a9edb8d75ea6486da764b813b8261f67fa18604341bae9d278a6fb76404d26f9",
+    "ontology/formal/Model.lean": "87c1ccb622cd6b96ab25192ddd26881d774d96250d6d8000b7f830dfe1e6a946",
+    "ontology/formal/lakefile.toml": "5f8c3e20a91236fc37d8bb05784b6c98c5669a92032be7bffa1633021b5d89f3",
+    "ontology/formal/lean-toolchain": "54727eec5cba149c18842e6deb5c41b369d66455c93ce135d7d5347c782b2325",
+    "scripts/check-proposals.py": "87f26905ba0450b92a9f38c6ee63a144e5973fd424a971622b42f6a9eb03fb24",
+    "scripts/check-promotion-review.py": "cef84a92bb95bb43734b16941f4a957ad77f9d117d4e1401f93460ff155afda9",
+    "ontology/ontology.md": "537ba7b69fb166af030f652a4d208d9f1b5daa7dfb763e59bc9805dc2e079d10",
+    "ontology/terms.yaml": "6d8bd075877581509befad49076921aeeb1ddea6858b8c5dcedd3251922c6fab",
+    "ontology/profiles.json": "0e17e24c11ab11f86a69377a884763518fcea9a7d5ab68f76d4d7c114ce42ecc",
+    "ontology/changelog.md": "95df69a376a3ef39b57c4320846bdd919fa687ac7e30f61a0c60dc5f21f0ee75",
+    "ontology/prompt.md": "9735417348b1e83f79b6ebba1abee98d2b3b274209ecd5e741434779643cb7cd",
+    "ontology/hidden-bridge-audit.md": "7fbe861077fe59a6b5f4106df425e4cad84a8f681bd8ace7d536bb220077011e",
+    "provenance/terms.json": "80dba72820cc1a9bd44fe21b054f53aeb056efe6041a70581de4ace86e660e07",
+    "examples/organon-adoption.json": "45fe9647bb623cec2998c20d9c47bbad26c32323c8bdd25019cd69ad442e7754",
+    "releases/v0-21-0.md": "bcbdf2fe2a8f64ae68a5784e7e7e03c8c1e53d92b33c61516decb3def221f72e"
+  },
+  "verified_contracts": ["IM-D1", "IM-D2", "IM-A5", "IM-C1"],
+  "findings": [
+    {
+      "id": "IM-S1",
+      "severity": "high",
+      "disposition": "resolved",
+      "resolution": "IdentityMissingness and OrganonCore remain byte-identical to the earlier reviewed source. The four contracts and their counterexamples retain their statements and compile in the full build. The earlier tuple examples remain explicitly metalanguage, not the later Configuration definition; no dependency cycle is introduced."
+    },
+    {
+      "id": "IM-S2",
+      "severity": "high",
+      "disposition": "resolved",
+      "resolution": "Configuration now compares full specified structure, rather than inferring Identity from member Set equality. SC-C1 supplies equal members with unequal Configurations, and structuredStatesDiffer preserves this inequality in the existing State wrapper. These local witnesses are consistent with Identity's existing prohibition on discarding compared data."
+    },
+    {
+      "id": "IM-S3",
+      "severity": "high",
+      "disposition": "outside-formal-boundary",
+      "resolution": "The prior review's IM-R4 and IM-R6 limits remain: local equality and the externally assigned expectation do not establish empirical individuation, expectation provenance, canonical Entity reidentification or a universal carrier. The Configuration correction does not close those gates."
+    }
+  ]
+}

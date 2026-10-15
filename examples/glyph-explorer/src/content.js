@@ -1,18 +1,21 @@
+// Capitalized registered names are links; lowercase metalanguage stays literal.
 // A link is navigation, not an assertion that a term's dependencies obtain.
 export function termMatcher(terms) {
   const aliases = new Map();
+  const labels = new Map(terms.map((term) => [term.label, term.id]));
   for (const term of terms) {
     const names = [
       term.label,
       term.id.slice(8).replace(/([a-z])([A-Z])/g, "$1 $2"),
     ];
     for (const name of names) {
-      aliases.set(name.toLowerCase(), term);
+      // A retained identifier alias must not steal another term's current label.
+      if (labels.has(name) && labels.get(name) !== term.id) continue;
+      aliases.set(name, term);
       aliases.set(
-        (name.endsWith("y")
+        name.endsWith("y")
           ? name.slice(0, -1) + "ies"
-          : name + "s"
-        ).toLowerCase(),
+          : name + "s",
         term,
       );
     }
@@ -23,13 +26,13 @@ export function termMatcher(terms) {
     .map(escape)
     .join("|");
   return (text) => {
-    const regex = new RegExp(`\\b(${pattern})\\b`, "gi");
+    const regex = new RegExp(`\\b(${pattern})\\b`, "g");
     const parts = [];
     let start = 0;
     for (const match of text.matchAll(regex)) {
       if (match.index > start)
         parts.push({ text: text.slice(start, match.index) });
-      parts.push({ text: match[0], term: aliases.get(match[0].toLowerCase()) });
+      parts.push({ text: match[0], term: aliases.get(match[0]) });
       start = match.index + match[0].length;
     }
     if (start < text.length) parts.push({ text: text.slice(start) });

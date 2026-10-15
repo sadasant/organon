@@ -1,8 +1,8 @@
 {
   "organon": {
     "source": "https://github.com/sadasant/organon",
-    "version": "0.20.0",
-    "revision": "v0.20.0",
+    "version": "0.21.0",
+    "revision": "v0.21.0",
     "profiles": [
       "agent",
       "evidence",
@@ -16,7 +16,7 @@
         "local": "LocalLease",
         "term": "organon:Permission",
         "relation": "refinement",
-        "note": "Example only: the local term must preserve the Order, Grant, Admission, Scope, interval, and revocation chain."
+        "note": "Example only: the local term must preserve the Coordination Order, Grant, Admission, Scope, interval, and revocation chain."
       },
       {
         "local": "CompletionReceipt",

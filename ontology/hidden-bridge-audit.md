@@ -3,12 +3,12 @@ type: ontology-audit
 status: adopted
 canonicality: supporting
 created: 2026-08-03
-updated: 2026-08-09
-ontology_version: "0.20.0"
+updated: 2026-10-12
+ontology_version: "0.21.0"
 ---
 # Hidden Bridge Audit
 
-*First published August 3, 2026; last revised October 11, 2026. Supporting audit; its resolutions bind only through Daniel's Ontology.*
+*First published August 3, 2026; last revised October 12, 2026. Supporting audit; its resolutions bind only through Daniel's Ontology.*
 
 The v0.15 ontology repeatedly relied on six notions that were neither fully supplied by its metalanguage nor represented by stable typed Relations. Because those notions connected otherwise dependency-ordered definitions, they could introduce additional commitments without appearing in the registry.
 
@@ -41,7 +41,7 @@ Causal Contribution is not Causal-path membership because an inert or redundant 
 
 Evidential Bearing is not Evidence because Organon's Evidence is already an admitted Observation with scoped independence, while the same Evidence may support, defeat, or underdetermine a Claim under different evaluation Rules or Scopes. It is not Truth because a false Claim may receive supportive bearing.
 
-Identity criterion does not become a fourth term. Identity is already supplied by the metalanguage, and Entity objectifies its cross-State application through an Invariant and Persistence witness. A free Identity Criterion object would merely rename that join unless Organon later needs to compare competing criteria as first-class Presences.
+Identity criterion does not become a fourth bridge term. Logical identity is already supplied by the metalanguage, and Entity objectifies its cross-State application through an Invariant and Persistence witness. Version 0.21 registers Identity as equality restricted to Presence, not as an individuation criterion or a replacement for that witness. A free Identity Criterion object would merely rename the join unless Organon later needs to compare competing criteria as first-class Presences.
 
 Relative possibility does not become Possibility. The only load-bearing modal use in the current registry is constrained satisfiability: a Capability classifies an Action only under a stated Constraint interpretation and constructive witness. Unrestricted metaphysical modality remains outside Organon.
 

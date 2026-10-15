@@ -9,10 +9,12 @@ prose_ontology: "../ontology.md"
 
 *First published August 2, 2026; last revised October 12, 2026. Noncanonical.*
 
-These decisions belong to the Lean spike. They expose choices priced by formalization. They do not independently revise [Daniel's Ontology v0.20](../ontology.md); accepted findings flow into the binding, single-file Markdown ontology through its changelog.
+These decisions belong to the Lean spike. They expose choices priced by formalization. They do not independently revise [Daniel's Ontology v0.21](../ontology.md); accepted findings flow into the binding, single-file Markdown ontology through its changelog.
 
 ## Contents
 
+- [Order and structured Configuration integration](#order-and-structured-configuration-integration)
+- [Identity names equality; Missingness retains an assigned target](#identity-names-equality-missingness-retains-an-assigned-target)
 - [Embodiment uses typed witnesses without promoting consciousness](#embodiment-uses-typed-witnesses-without-promoting-consciousness)
 - [Flow absorbs recurrence; Ritual and Meaning retain distinct burdens](#flow-absorbs-recurrence-ritual-and-meaning-retain-distinct-burdens)
 - [Hidden bridges divide into metalanguage, derivation, and object Relations](#hidden-bridges-divide-into-metalanguage-derivation-and-object-relations)
@@ -135,6 +137,20 @@ Exclusivity is constructive. Exhaustiveness for an arbitrary type requires exclu
 ## A5 represents Missingness positively
 
 `Missingness α` contains a Field, an expected inhabitant, and proof that the Field omits it. A value of this structure is itself present. Missingness therefore cannot collapse into the uninhabited-type predicate used as Absence's local shadow.
+
+## Order and structured Configuration integration
+
+The October 13 follow-up separates mathematical partial Order from Coordination Order without reassigning the legacy identifier or Lean indices. `MemberOrder` carries members and a bounded ordered-pair extension. Its strict part is transitive; an arbitrary core Direction need not be. Incomparability, a cyclic Direction and empty domains are checked counterexamples, not merely exclusions in prose.
+
+Entity names the reidentified Presence rather than a mutable snapshot or a growing history record. One witness record spans unequal indexed Configurations; satisfying its Invariant alone does not admit another State into its history. `ConfiguredBoundary` retains selected associations that its finite core projection loses. `StructuredModel` requires a selected Representation/Transformation join, with a concrete pipeline retaining that join. Existing generic APIs compile unchanged, but this is not full Perception/Memory parity or an empirical identity detector. The [typed dossier](../../proposals/order-and-configuration-integration.md) states the exact nine contracts and their remaining gates.
+
+## Identity names equality; Missingness retains an assigned target
+
+The v0.21 [Identity and Missingness review](../../proposals/identity-and-missingness.md) adds `Identity a b := a = b` and `Difference a b := ¬ Identity a b` to the reduct. The strongest reduction to logical equality is accepted; registration makes its restriction to Presence explicit rather than claiming a novel mechanism. This does not make canonical Entity individuation identical to record equality, nor does a shared property identify two objects.
+
+`IdentityMissingness.missingnessExactTarget` proves both directions between the existing nonmembership condition and the absence of any contained item equal to the specified target. It preserves record constructors and existing contracts. The field contains only a membership predicate; the `expected` value remains externally assigned. Thus the construction does not prove that a real field expects that item. It is a local mathematical model with an application premise, not a complete representation/expectation theory.
+
+The asymmetric token witnesses retain the same appearance while changing identity, membership and target independently. Reversed pairs and lists distinguish order from membership. Equality laws are general; exhaustiveness uses classical excluded middle without supplying an executable equality test. `entityHistoryContainsDifference` connects the distinction to the current non-singleton Entity shadow: its own ordered history includes unequal States preserving one Invariant. This does not close the existing canonical individuation gap or require every prose history to contain a transition.
 
 ## Direction internalizes ordering
 
@@ -473,6 +489,41 @@ Historical findings remain in Git; their conclusions are not transferred to the
 new definitions. Attention, Care, Respect, selection, institutional parity, and
 empirical application retain their explicit formal limits. Model generation and
 judgments have not been rerun, so downstream evaluations remain incomplete/hold.
+
+## Explicit Set and Configuration (v0.21)
+
+`SetConfiguration.lean` makes membership extensional on a supplied local carrier.
+It proves order/repetition invariance, empty-set inhabitation, and Configuration's
+reduction to Set. Relation-like finite tokens need not bring their participants
+into the containing Set. Requiring closure would silently strengthen downstream
+definitions, including Configurations of Constraints, so it is not imposed.
+
+This is a local shadow, not a canonical classifier of all Presence. The generic
+State carrier and downstream records are unchanged. The retained Configuration
+identifier names no independently proved distinction; its consolidation requires
+a governed-use migration review, recorded at SC-G1 in the
+[dossier](../../proposals/set-and-configuration.md). No mathematical Order redesign
+is enacted by this change.
+
+## Correction: Configuration retains relational structure (v0.21)
+
+The preceding entry records the initial implementation, not the current contract.
+Its alias made the reduction tautological and erased the intended distinction.
+`SetConfiguration.lean` now retains both members and specified associations of
+Relations with ordered participant tuples. Equal members do not imply equal
+Configurations. Selection requires a supplied realization witness; it cannot
+rewire a Relation. An association involves the member Set through its Relation
+or a participant, without requiring every participant to be a member.
+
+SC-D2 proves identity for this structured projection; SC-C1 supplies unequal
+Configurations over equal members, rejected reversed roles, external participants,
+isolated members and empty structure. `structuredStatesDiffer` checks the existing
+State wrapper preserves the difference. Generic State and downstream structures
+remain unchanged; compilation does not prove their full canonical parity.
+Finite tuples, carrier adequacy and actual Relation realization remain explicit
+limits. SC-G1 no longer proposes identifier consolidation: forgetting structure
+is not an equivalence. The original review is retained and superseded by the
+[structured review](../../reviews/promotion/set-and-configuration-structured.json).
 
 ## Bibliography
 

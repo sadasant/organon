@@ -2,9 +2,9 @@
 type: editorial-ontology
 status: provisional-binding
 binding: true
-version: 0.20
+version: 0.21
 created: 2026-08-01
-updated: 2026-10-12
+updated: 2026-10-15
 evidence_scope: "Daniel's adopted commitments and the recovered essay corpus"
 corpus_audit: "../provenance/essays.md"
 term_registry: "terms.yaml"
@@ -13,11 +13,11 @@ delivery_language: "../editorial/short-form.md"
 ---
 # Daniel's Ontology
 
-*First published August 1, 2026; substantive revision October 12, 2026 (v0.20).*
+*First published August 1, 2026; substantive revision October 15, 2026 (v0.21).*
 
-Daniel's Ontology defines the vocabulary through which Organon reviews a body of work. It begins from one primitive, Absence, and its axioms, then orders 112 definitions by declared dependency, each with a stable `organon:*` identifier in the [registry](./terms.yaml). Typed Relation signatures and 42 binding constraints govern how the terms combine. The definitions run from Reality, Difference, and Relation through the representational, perceptual, and agentic regions to an Order-indexed institutional kernel, and on to the regions on Evidence, political order, valuation, Ritual and Meaning, embodiment, and Attention, Care, and Respect.
+Daniel's Ontology defines the vocabulary through which Organon reviews a body of work. It begins from one primitive, Absence, and its axioms, and orders 115 definitions by declared dependency, each with a stable `organon:*` identifier in the [registry](./terms.yaml). Typed Relation signatures and 42 binding constraints govern how the terms combine. The definitions run from Identity, Reality, Difference, and Relation through the representational, perceptual, and agentic regions to a Coordination Order-indexed institutional kernel, and on to the regions on Evidence, political order, valuation, Ritual and Meaning, embodiment, and Attention, Care, and Respect.
 
-Its claimed contribution is a unification constraint: metaphysical, perceptual, agentic, evidentiary, and institutional terms share one dependency chain, and no term's definition changes at the border between regions. The [intellectual shadows](#intellectual-shadows-and-contribution) state where each region borrows rigor from prior work and where the resemblance stops. Version 0.20 is provisional and binds only a repository that adopts named terms through an adoption manifest; the Lean shadow and the candidate algebra test it without replacing it.
+Its claimed contribution is a unification constraint: metaphysical, perceptual, agentic, evidentiary, and institutional terms share one dependency chain, and no term's definition changes at the border between regions. The [intellectual shadows](#intellectual-shadows-and-contribution) state where each region borrows rigor from prior work and where the resemblance stops. Version 0.21 is provisional and binds only a repository that adopts named terms through an adoption manifest; the Lean shadow and the candidate algebra test it without replacing it.
 
 > [!important] Binding ontology
 > For work governed by Organon, a term explicitly mapped to a stable `organon:*` identifier retains the meaning defined here. Capitalization is presentation, not adoption. A quarantined term carries no binding ontological meaning.
@@ -27,11 +27,12 @@ Its claimed contribution is a unification constraint: metaphysical, perceptual, 
 - [The closure boundary](#the-closure-boundary)
 - [Claim typing and stable identity](#claim-typing-and-stable-identity)
 - [Primitive and axioms](#primitive-and-axioms)
+  - [Identity within Presence](#identity-within-presence)
 - [Dependency-ordered definitions and commitments](#dependency-ordered-definitions-and-commitments)
   - [1. Reality](#1-reality)
   - [2. Difference](#2-difference)
   - [3. Relation](#3-relation)
-  - [4. Configuration and state](#4-configuration-and-state)
+  - [4. Set, configuration, and state](#4-set-configuration-and-state)
   - [5. Transformation and change](#5-transformation-and-change)
   - [6. Invariant and persistence](#6-invariant-and-persistence)
   - [7. Constraint](#7-constraint)
@@ -44,7 +45,7 @@ Its claimed contribution is a unification constraint: metaphysical, perceptual, 
   - [14. Interiority and exposure](#14-interiority-and-exposure)
   - [15. Flow and interface](#15-flow-and-interface)
   - [16. Claim, witness, and control](#16-claim-witness-and-control)
-  - [17. Order-indexed institutional kernel](#17-order-indexed-institutional-kernel)
+  - [17. Coordination Order-indexed institutional kernel](#17-coordination-order-indexed-institutional-kernel)
   - [18. Independence, rule provenance, and evidence](#18-independence-rule-provenance-and-evidence)
   - [19. Institution, shadow system, and person](#19-institution-shadow-system-and-person)
   - [20. Political order and constituent action](#20-political-order-and-constituent-action)
@@ -74,7 +75,7 @@ Its claimed contribution is a unification constraint: metaphysical, perceptual, 
 
 No ontology can define every word using only itself. Definition requires a metalanguage. This document therefore states its boundary instead of hiding it.
 
-The metalanguage supplies classical logic, including excluded middle, together with identity, negation, logical consequence, quantification, ordering, set membership, statements and marks, and the ability to distinguish an expression from what it denotes. Identity includes criteria for reidentifying what a statement treats as the same across ordered positions. An Entity claim must project that criterion into the object language by naming an Invariant, ordered States, and a Persistence witness; metalinguistic identity does not supply that witness.
+The metalanguage supplies classical logic, including excluded middle, together with identity, negation, logical consequence, quantification, ordering, set membership, statements and marks, and the ability to distinguish an expression from what it denotes. Metalinguistic identity includes criteria for reidentifying what a statement treats as the same across ordered positions. The registered Identity below restricts logical equality to Presence; it neither defines logical equality from scratch nor supplies those criteria. An Entity claim must project its reidentification criterion into the object language by naming an Invariant, ordered States, and a Persistence witness; logical equality alone does not supply that witness.
 
 The metalanguage also supplies relative possibility as satisfiability under stated Constraints: a candidate is possible only when at least one declared interpretation of those Constraints admits it. Every binding use of “can” or “possible” must name that Constraint context and a constructive witness. Relative possibility is not an additional Presence, a prediction that an event will occur, or unrestricted metaphysical modality.
 
@@ -130,13 +131,28 @@ The ontology does not derive a mark from Absence. The occurrence of the mark wit
 
 Absence and Presence exhaust the ontology. Presence necessarily obtains given that anything is stated at all.
 
+### Identity within Presence
+
+<a id="organon-identity"></a>
+<!-- organon:term organon:Identity claim=D120 -->
+
+**Identity** obtains when two compared items are one and the same Presence, or one and the same ordered configuration of Presence.
+
+Here, “ordered configuration” means a tuple in the metalanguage, not an application of a later object-language definition. A tuple compared under Identity must itself be included in the declared domain of Presence; equality of metalinguistic objects outside that domain remains metalinguistic equality, not Identity. The comparison positions also belong to the metalanguage. They need not denote two distinct things, and making a comparison does not produce Identity. Identity is logical equality restricted to Presence, not likeness, agreement in selected properties, indistinguishability to an observer, or equality after discarding order. The same tuple has the same constituents in the same positions, under the declared metalinguistic identity criteria.
+
+Identity is reflexive, symmetric, transitive, and permits substitution in predicates about the same compared items. Matching selected properties does not establish Identity; failure to establish Identity does not establish non-identity. These are logical conditions, not a procedure guaranteed to decide every comparison. The exactness of Absence still uses metalinguistic identity, not this predicate inside Presence.
+
 <!-- organon:claim A5 -->
 ### Axiom A5: Missingness is not Absence
 
 <a id="organon-missingness"></a>
 <!-- organon:term organon:Missingness claim=A5 -->
 
-**Missingness** is a relation inside Presence: a field represents or expects a Presence that it does not contain. Gaps, omissions, zeros, shadows, exceptions, refusals, and silences can be present signs of Missingness. They are not Absence itself.
+**Missingness** is a relation within Presence in which a field represents or expects either a specified Presence or a Presence satisfying an explicitly specified target condition, but contains no matching Presence.
+
+For a particular target, matching invokes Identity with that Presence. For a target condition, matching means satisfying that condition; the field must contain no satisfier, not merely lack one arbitrarily chosen representative. The field, its represented or expected target or condition, and the relevant noncontainment must all be specified. Noncontainment alone does not establish representation or expectation. A drawer containing a compatible but different key can exhibit Missingness of a particular key without exhibiting Missingness of any compatible key. Conversely, an empty drawer does not by itself specify either expectation. A target condition is a predicate in the metalanguage, not necessarily a decidable test or an instantiated object.
+
+Gaps, omissions, zeros, shadows, exceptions, refusals, and silences can be present signs of Missingness. They are not Absence itself. A represented target does not establish that a fictional referent exists: a particular Presence must be identified, while an expected condition need not have an actual satisfier. Its description must not silently be treated as its instance.
 
 Missingness is relational. Presence is contrastively defined. Absence is absolute.
 
@@ -158,7 +174,9 @@ The definitions below are dependency-ordered. A definition may depend on the met
 <a id="organon-difference"></a>
 <!-- organon:term organon:Difference claim=D002 -->
 
-**Difference** is the non-identity of two Presences or two ordered configurations of Presence. Difference is inside Reality; the defining departure of Presence from Absence belongs to the metalanguage and must not be mistaken for an ontological relation involving Absence.
+**Difference** is the failure of Identity between two compared Presences or two compared ordered configurations of Presence. Difference is inside Reality; the defining departure of Presence from Absence belongs to the metalanguage and must not be mistaken for an ontological relation involving Absence.
+
+For the same compared items, exactly one of Identity and Difference obtains. This partition uses the declared classical logic; it does not establish that an observer knows which condition obtains. Difference is symmetric and irreflexive, but need not be transitive: two items can each differ from a third while being identical to one another. Changing the compared items, their ordered configuration, or the criterion fixing which items the comparison positions denote changes the question rather than contradicting the partition.
 
 ### 3. Relation
 
@@ -172,17 +190,47 @@ The definitions below are dependency-ordered. A definition may depend on the met
 
 **Denotation** is an ordered Relation whose first participant occupies an expression position and whose later participant is the Presence, Relation, or Configuration that is its target. A Denotation must name both participants and their ordered positions. It establishes neither fidelity, Truth, Interpretation, institutional status, nor participation in a Causal path.
 
-### 4. Configuration and state
+### 4. Set, configuration, and state
+
+<a id="organon-set"></a>
+<!-- organon:term organon:Set claim=D121 -->
+
+**Set** is a Presence fixed by which Presences are its members within a declared domain.
+
+Two Sets in the same domain have Identity exactly when they have the same members. Listing order and repetition do not change a Set. A Set may have no members; the empty Set is still Presence, not Absence. Membership does not by itself order the members or assert any further Relation among them. Relations may themselves be members, since they are Presences.
+
+Membership remains supplied by the metalanguage; this definition names its extensional construction within Presence rather than deriving set theory from Absence. It supplies no unrestricted comprehension principle, no empirical membership decision procedure, and no license to identify a declared local domain with Reality. A list or description does not establish that its purported members exist. Lowercase “set” elsewhere continues to use metalinguistic membership unless a dependency on Set is explicitly registered.
+
+<a id="organon-mathematical-order"></a>
+<!-- organon:term organon:MathematicalOrder claim=D122 -->
+
+**Order** is a Presence that pairs a member Set with a reflexive, antisymmetric, and transitive binary relation on that Set's members. The pair, not the member Set alone, is the Order.
+
+The binary relation is metalinguistic: it is fixed by its extension, a set of ordered pairs of members of the Set. It is not a new definition of the registered Relation, does not require that each pair be realized as a Relation, and does not claim that any ordering event happens. For all members *a*, *b*, and *c* of the Set, writing *a* ≤ *b* when the ordered pair (*a*, *b*) is in the extension:
+
+- **Reflexivity:** *a* ≤ *a*.
+- **Antisymmetry:** if *a* ≤ *b* and *b* ≤ *a*, then *a* and *b* have Identity.
+- **Transitivity:** if *a* ≤ *b* and *b* ≤ *c*, then *a* ≤ *c*.
+
+The strict part of an Order relates *a* to *b* exactly when *a* ≤ *b* and *a* and *b* do not have Identity. Total comparability, in which every two members satisfy *a* ≤ *b* or *b* ≤ *a*, is an optional further property, not part of Order. An Order may have an empty member Set, and two of its members may be incomparable. Two Orders have Identity exactly when they have the same members and the same extension of ordered pairs.
+
+Order is derived mathematical structure in the same sense as Set: it names an extensional construction over members that are Presences, not a new irreducible primitive. It neither orders all Presence nor supplies time, causation, rank, or the metalanguage's indexing order.
 
 <a id="organon-configuration"></a>
 <!-- organon:term organon:Configuration claim=D004 -->
 
-**Configuration** is a set of Presences and Relations considered together.
+**Configuration** is a Presence that pairs a member Set of Presences with specified relational structure. The pair, not the member Set alone, is the Configuration.
+
+The structure specifies which Relations are included and the participants occupying each Relation's ordered positions. Each specified Relation is itself a member or has at least one member as a participant. Its other participants need not be members. Specifying a Relation does not create it or license changing its participants.
+
+Two Configurations have Identity exactly when they have the same member Set and the same specified Relations with the same participants in the same positions. The same members alone do not establish Identity of Configurations. A Relation's membership in the Set and its inclusion in the specified structure are separate: membership alone does not select a structural role.
+
+A Configuration may specify no Relations, and its member Set may be empty. Neither nonemptiness nor complete connectivity is required. Listing order and repetition do not change the member Set or the family of specified Relations; the participant positions within each Relation remain significant. Forgetting the relational structure leaves the member Set, not the complete Configuration.
 
 <a id="organon-state"></a>
 <!-- organon:term organon:State claim=D005 -->
 
-**State** is a Configuration indexed at a position in the metalanguage's ordering. That position distinguishes States without adding a Relation to Reality.
+**State** is a Presence that pairs a Configuration with a position in the metalanguage's ordering. Two States have Identity exactly when they have the same position and their Configurations have Identity. One Configuration at two different positions gives two States; the position does not add a Relation to that Configuration.
 
 <a id="organon-direction"></a>
 <!-- organon:term organon:Direction claim=D006 -->
@@ -190,6 +238,8 @@ The definitions below are dependency-ordered. A definition may depend on the met
 **Direction** is a Relation between States such that, when it orders one State before another, the same Relation does not order the second State before the first.
 
 Direction internalizes as Presence an asymmetry that the metalanguage can state without adding it to Reality; it does not duplicate the metalanguage's indexing order.
+
+Asymmetry alone does not make a Direction's ordered-pair extension the strict part of an Order. The strict part of an Order is also transitive, and a Direction need not be: a Direction may order one State before a second and the second before a third without ordering the first before the third. Nor is a Direction required to agree with the indexing order of the States it relates.
 
 ### 5. Transformation and change
 
@@ -230,6 +280,8 @@ Direction internalizes as Presence an asymmetry that the metalanguage can state 
 
 **Persistence** is the preservation of an Invariant across an ordered sequence of States.
 
+Where a later definition calls a Configuration persistent, it means one Configuration at each State of an ordered sequence of States, joined by a named preserved Invariant and Persistence witness. It does not assert Identity of those Configurations: their members and specified structure may differ wherever the named Invariant does not fix them. Statements about such a Configuration's member Set, specified structure, or Identity compare Configurations at a given State; reidentification across States instead requires the named Invariant and Persistence witness. This reading applies only to Configurations.
+
 ### 7. Constraint
 
 <a id="organon-constraint"></a>
@@ -244,12 +296,16 @@ This is one definition, not two. A prohibition constrains possible action. A pri
 <a id="organon-entity"></a>
 <!-- organon:term organon:Entity claim=D014 -->
 
-**Entity** is a Configuration that retains identity through the Persistence of an Invariant named as its object-language identity criterion. The Entity claim must identify the ordered States and Persistence witness that realize the criterion supplied by the metalanguage.
+**Entity** is a Presence reidentified across ordered States through a named Invariant and Persistence witness that serve as its object-language identity criterion. The Entity claim must identify the ordered States and Persistence witness that realize the criterion supplied by the metalanguage.
+
+Each State carries a Configuration at its position; the Entity is not identified with any one of those Configurations or treated as a single Configuration that changes its members or specified structure. Reidentifying an Entity across ordered States asserts Identity of that Entity, not a second relation of sameness. Its successive States need not be identical. The named Invariant and Persistence witness are the object-language criterion that must justify that assertion; sharing an Invariant alone does not establish Identity of two Entities, and a State's satisfying the Invariant alone does not place that State in the Entity's history. The criterion must distinguish the particular Entity, not merely a common property. This definition adds no new sufficient condition for Entity identity.
 
 <a id="organon-boundary"></a>
 <!-- organon:term organon:Boundary claim=D015 -->
 
 **Boundary** is a Configuration of Constraints indexed to the Invariant whose Persistence constitutes an Entity's identity. Those Constraints determine which Transformations preserve that identity and which cross the distinction between the Entity and other Presence.
+
+The Boundary's members are its Constraints. Its specified structure, if any, is identified separately: it names which Relations join those Constraints, or join them to other participants, in which positions. Neither part closes the Boundary under combination of its Constraints or adds Constraints that are not members.
 
 A Boundary with no Constraints admits every Transformation for purposes of its preservation obligation. It is valid only when the identity Invariant survives every Transformation. Constraint-poverty therefore creates maximal obligation, not the absence of an obligation.
 
@@ -343,6 +399,8 @@ An Entity is not required to be biological, conscious, legal, or morally conside
 
 **Model** is an organized Configuration of Representations and Transformations that relates Perception and Memory to later States under its stated Constraints.
 
+Its organization is its specified structure, not its membership. A Model claim must name at least one Relation in that structure joining a member Representation to a member Transformation; Representations and Transformations listed as members without such a named join do not yet form a Model.
+
 <a id="organon-action"></a>
 <!-- organon:term organon:Action claim=D032 -->
 
@@ -431,52 +489,55 @@ The sequence contains at least two distinct Transformation occurrences joined by
 
 **Control** is a scoped Relation between an Agent and a Constraint, Rule, Interface, or Observation process when Actions available to that Agent can configure it, bypass it, determine its relevant outputs, or prevent those outputs from entering a Causal path.
 
-### 17. Order-indexed institutional kernel
+### 17. Coordination Order-indexed institutional kernel
 
+<a id="17-order-indexed-institutional-kernel"></a>
 <a id="organon-order"></a>
 <!-- organon:term organon:Order claim=D046 -->
 
-**Order** is a persistent Configuration of Constraints, Records, Interfaces, Rules, and recurring Relations through which a plurality of Agents coordinate Action.
+**Coordination Order** is a persistent Configuration of Constraints, Records, Interfaces, Rules, and recurring Relations through which a plurality of Agents coordinate Action.
+
+Its member Set is the inventory of those Constraints, Records, Interfaces, Rules, and recurring Relations. Listing a recurring Relation as a member does not place it in the specified structure; the Coordination Order's structure must separately name which Relations join which participants in which positions for coordination. Equal inventories with different specified structure are different Coordination Orders. A Coordination Order is not an Order in the sense defined in section 4: its label names coordination, not a reflexive, antisymmetric, and transitive relation on its members.
 
 <a id="organon-standing"></a>
 <!-- organon:term organon:Standing claim=D047 -->
 
-**Standing** is the Relation through which an Order, under a Rule, places an Entity within the domain of named institutional statuses or Actions in a specified Scope. Placement is not recording: Standing does not require that the Order has recorded the placement, and a Record of a status without that placement supplies no Standing. “Institutional eligibility” is shorthand for the relevant Standing Relation, not an additional predicate. Standing in one Order supplies no Standing in another.
+**Standing** is the Relation through which a Coordination Order, under a Rule, places an Entity within the domain of named institutional statuses or Actions in a specified Scope. Placement is not recording: Standing does not require that the Coordination Order has recorded the placement, and a Record of a status without that placement supplies no Standing. “Institutional eligibility” is shorthand for the relevant Standing Relation, not an additional predicate. Standing in one Coordination Order supplies no Standing in another.
 
 <a id="organon-recognition"></a>
 <!-- organon:term organon:Recognition claim=D048 -->
 
-**Recognition** is the Relation established when an Order records Standing for an Entity under a Rule and Scope. The Standing must itself obtain at exactly the same Order, Rule, Entity, institutional status, and Scope; a record at different indices is not Recognition of that Standing.
+**Recognition** is the Relation established when a Coordination Order records Standing for an Entity under a Rule and Scope. The Standing must itself obtain at exactly the same Coordination Order, Rule, Entity, institutional status, and Scope; a record at different indices is not Recognition of that Standing.
 
 <a id="organon-principal"></a>
 <!-- organon:term organon:Principal claim=D049 -->
 
-**Principal** is an Entity with Standing in an Order to serve as the party on whose behalf Actions may count. Principalhood is indexed by that Order.
+**Principal** is an Entity with Standing in a Coordination Order to serve as the party on whose behalf Actions may count. Principalhood is indexed by that Coordination Order.
 
 <a id="organon-acts-for"></a>
 <!-- organon:term organon:ActsFor claim=D050 -->
 
-**ActsFor** is the Relation an Order recognizes between an Agent and a Principal within a Scope.
+**ActsFor** is the Relation a Coordination Order recognizes between an Agent and a Principal within a Scope.
 
 <a id="organon-counts-as"></a>
 <!-- organon:term organon:CountsAs claim=D051 -->
 
-**CountsAs** is the Relation by which an Order, under a Rule, records a Presence, Action, Claim, or Record as having an institutional status within a Scope.
+**CountsAs** is the Relation by which a Coordination Order, under a Rule, records a Presence, Action, Claim, or Record as having an institutional status within a Scope.
 
 <a id="organon-authority"></a>
 <!-- organon:term organon:Authority claim=D052 -->
 
-**Authority** is the Order-indexed Relation through which an Agent's Action may enter the CountsAs Relation as binding on a Principal or within that Order and Scope.
+**Authority** is the Coordination Order-indexed Relation through which an Agent's Action may enter the CountsAs Relation as binding on a Principal or within that Coordination Order and Scope.
 
 <a id="organon-permission-claim"></a>
 <!-- organon:term organon:PermissionClaim claim=D053 -->
 
-**Permission Claim** is a Claim that a named Order allows a named Agent to perform Actions in a Scope on a Principal's behalf during a stated interval.
+**Permission Claim** is a Claim that a named Coordination Order allows a named Agent to perform Actions in a Scope on a Principal's behalf during a stated interval.
 
 <a id="organon-declaration"></a>
 <!-- organon:term organon:Declaration claim=D054 -->
 
-**Declaration** is an Action by an Agent under Authority that submits a Claim and Specification to an Order for institutional counting within a Scope.
+**Declaration** is an Action by an Agent under Authority that submits a Claim and Specification to a Coordination Order for institutional counting within a Scope.
 
 <a id="organon-grant"></a>
 <!-- organon:term organon:Grant claim=D055 -->
@@ -486,78 +547,80 @@ The sequence contains at least two distinct Transformation occurrences joined by
 <a id="organon-admission"></a>
 <!-- organon:term organon:Admission claim=D056 -->
 
-**Admission** is the CountsAs Relation established when an Order applies a Rule to accept a Claim, Observation, or Record for an institutional purpose.
+**Admission** is the CountsAs Relation established when a Coordination Order applies a Rule to accept a Claim, Observation, or Record for an institutional purpose.
 
 <a id="organon-permission"></a>
 <!-- organon:term organon:Permission claim=D057 -->
 
-**Permission** is the Record by which an Order admits a Permission Claim as the result of a valid Grant. It carries the Order, Principal, Agent, Scope, interval, Grant, and Admission that make it institutionally valid. A permission-shaped Claim or Record without that chain is not a Permission.
+**Permission** is the Record by which a Coordination Order admits a Permission Claim as the result of a valid Grant. It carries the Coordination Order, Principal, Agent, Scope, interval, Grant, and Admission that make it institutionally valid. A permission-shaped Claim or Record without that chain is not a Permission.
 
-An assertion that a Permission is valid remains a Claim before an independent Observation is admitted as Evidence or the governing Order admits it as an institutional fact.
+An assertion that a Permission is valid remains a Claim before an independent Observation is admitted as Evidence or the governing Coordination Order admits it as an institutional fact.
 
 <a id="organon-revocation"></a>
 <!-- organon:term organon:Revocation claim=D058 -->
 
-**Revocation** is a Declaration under Authority that causes an Order to cease admitting a Permission from a stated time or State.
+**Revocation** is a Declaration under Authority that causes a Coordination Order to cease admitting a Permission from a stated time or State.
 
 <a id="organon-permission-exercise"></a>
 <!-- organon:term organon:PermissionExercise claim=D059 -->
 
-**Permission Exercise** is an Action by the Permission's Agent, within its Scope and interval, performed under that Permission before its Revocation in the governing Order.
+**Permission Exercise** is an Action by the Permission's Agent, within its Scope and interval, performed under that Permission before its Revocation in the governing Coordination Order.
 
 <a id="organon-exercisability"></a>
 <!-- organon:term organon:Exercisability claim=D060 -->
 
-**Exercisability** is a Relation among a Permission, one Action, a time, and a Configuration of environmental, technical, and temporal Constraints when the Action is in Scope, the time is in the interval, the governing Order still admits the Permission, and the Agent has the Capability to perform that Action under the stated Configuration.
+**Exercisability** is a Relation among a Permission, one Action, a time, and a Configuration of environmental, technical, and temporal Constraints when the Action is in Scope, the time is in the interval, the governing Coordination Order still admits the Permission, and the Agent has the Capability to perform that Action under the stated Configuration.
 
 A Permission may remain valid while no Action, or only some Actions, currently satisfies Exercisability.
 
 <a id="organon-enforcement"></a>
 <!-- organon:term organon:Enforcement claim=D062 -->
 
-**Enforcement** is the Relation through which an Order couples a Rule to Constraints, Records, or Consequences that alter what happens when the Rule is satisfied or violated.
+**Enforcement** is the Relation through which a Coordination Order couples a Rule to Constraints, Records, or Consequences that alter what happens when the Rule is satisfied or violated.
 
 <a id="organon-role"></a>
 <!-- organon:term organon:Role claim=D063 -->
 
-**Role** is a persistent Order-indexed Configuration of Actions, Permissions, Authority, and Consequences assigned to an Agent under Standing.
+**Role** is a persistent Coordination Order-indexed Configuration of Actions, Permissions, Authority, and Consequences assigned to an Agent under Standing.
+
+The Actions, Permissions, Authority, and Consequences are its members. Their assignment to the Agent under Standing belongs to its specified structure; listing them as members does not by itself assign them.
 
 <!-- organon:claim U1 -->
 Binding unification commitment: Agency has one form. Mechanical and institutional descriptions are authorized projections of one Agent rather than distinct kinds of Agency.
 
 - <!-- organon:claim Pj1 --> A **mechanical projection** describes the Agent through its Sense, Memory, Model, Interpretation, Tools, Capabilities, and Actions.
-- <!-- organon:claim Pj2 --> An **institutional projection** describes the same Agent through its Roles, Permissions, Authority, obligations, and Standing in an Order.
+- <!-- organon:claim Pj2 --> An **institutional projection** describes the same Agent through its Roles, Permissions, Authority, obligations, and Standing in a Coordination Order.
 
 A projection is a partial account, not another Entity. The same Agent may be described through either or both projections.
 
-Capability and institutional standing cannot substitute for each other in either direction. Capability does not create Permission or Authority; Permission or Authority does not create Capability. A prompt can alter Interpretation but does not become Permission unless an authorized Grant is admitted and enforced by the governing Order.
+Capability and institutional standing cannot substitute for each other in either direction. Capability does not create Permission or Authority; Permission or Authority does not create Capability. A prompt can alter Interpretation but does not become Permission unless an authorized Grant is admitted and enforced by the governing Coordination Order.
 
 ### 18. Independence, rule provenance, and evidence
 
 <a id="organon-admissibility-rule"></a>
 <!-- organon:term organon:AdmissibilityRule claim=D064 -->
 
-**Admissibility Rule** is a Rule whose Specification, institutional purpose, authorizing Declaration, and governing Order are recorded so that why the Rule CountsAs valid for admission is inspectable.
+**Admissibility Rule** is a Rule whose Specification, institutional purpose, authorizing Declaration, and governing Coordination Order are recorded so that why the Rule CountsAs valid for admission is inspectable.
 
 <a id="organon-independent-for"></a>
 <!-- organon:term organon:IndependentFor claim=D065 -->
 
-**IndependentFor** is a scoped Relation among a Witness, claimant, Claim, Observation, and Order. It requires mechanical independence—a load-bearing Constraint in the Observation's Causal path is outside the claimant's Control—and institutional independence—the claimant lacks Authority over the Witness's relevant Observation process and the Admissibility Rule applied to it. IndependentFor makes no universal claim about the Witness outside that Scope.
+**IndependentFor** is a scoped Relation among a Witness, claimant, Claim, Observation, and Coordination Order. It requires mechanical independence—a load-bearing Constraint in the Observation's Causal path is outside the claimant's Control—and institutional independence—the claimant lacks Authority over the Witness's relevant Observation process and the Admissibility Rule applied to it. IndependentFor makes no universal claim about the Witness outside that Scope.
 
 <a id="organon-evidence"></a>
 <!-- organon:term organon:Evidence claim=D066 -->
 
-**Evidence** is an Observation produced by a Witness IndependentFor the claimant and Claim, then admitted by the governing Order under an Admissibility Rule whose Scope includes the Observation and Claim.
+**Evidence** is an Observation produced by a Witness IndependentFor the claimant and Claim, then admitted by the governing Coordination Order under an Admissibility Rule whose Scope includes the Observation and Claim.
 
 <a id="organon-evidential-bearing"></a>
 <!-- organon:term organon:EvidentialBearing claim=D104 -->
 
-**Evidential Bearing** is the Order-indexed Relation among Evidence, a Claim, an evaluation Rule, and a Scope in which the Rule's constructive procedure returns one declared disposition—supporting, defeating, or underdetermining—and the Order records that result. Supporting and defeating are therefore typed results of this Relation, not unexplained properties of Evidence. Evidential Bearing does not entail Truth, and the same Evidence may bear differently under another Rule or Scope.
+**Evidential Bearing** is the Coordination Order-indexed Relation among Evidence, a Claim, an evaluation Rule, and a Scope in which the Rule's constructive procedure returns one declared disposition—supporting, defeating, or underdetermining—and the Coordination Order records that result. Supporting and defeating are therefore typed results of this Relation, not unexplained properties of Evidence. Evidential Bearing does not entail Truth, and the same Evidence may bear differently under another Rule or Scope.
 
 <a id="organon-attestation"></a>
 <!-- organon:term organon:Attestation claim=D067 -->
 
-**Attestation** is a Claim made by a Witness about an Observation or Evidence under a Specification of the Witness's identity, Scope, Order, and relevant independence.
+**Attestation** is a Claim made by a Witness about an Observation or Evidence under a Specification of the Witness's identity, Scope, Coordination Order, and relevant independence.
 
 Evidence bears supportively or defeasibly on a Claim only through Evidential Bearing; it does not become Truth by definition. No Agent's Claim, self-authored Rule, or domesticated Witness independently certifies that Agent.
 
@@ -566,7 +629,7 @@ Evidence bears supportively or defeasibly on a Claim only through Evidential Bea
 <a id="organon-institution"></a>
 <!-- organon:term organon:Institution claim=D068 -->
 
-**Institution** is an Order that persists through Roles, Records, Interfaces, and recurring Flows despite changes in its participating Agents.
+**Institution** is a Coordination Order that persists through Roles, Records, Interfaces, and recurring Flows despite changes in its participating Agents.
 
 <a id="organon-center"></a>
 <!-- organon:term organon:Center claim=D069 -->
@@ -594,7 +657,7 @@ Stable Flows can make recurring solutions valuable; Centers can absorb those sol
 <a id="organon-person"></a>
 <!-- organon:term organon:Person claim=D073 -->
 
-**Person** is an Entity for which an Order records Standing to serve as a Principal or bear Consequences.
+**Person** is an Entity for which a Coordination Order records Standing to serve as a Principal or bear Consequences.
 
 Personhood here is an institutional recognition Relation, not a biological substance, proof of consciousness, or synonym for Agent. Whether moral personhood requires another definition remains quarantined.
 
@@ -615,21 +678,21 @@ A Ledger can preserve standing and history; it does not become Reality.
 <a id="organon-polity"></a>
 <!-- organon:term organon:Polity claim=D076 -->
 
-**Polity** is the plurality of Agents and Institutions whose recurring Actions enact and contest a political Order.
+**Polity** is the plurality of Agents and Institutions whose recurring Actions enact and contest a political Coordination Order.
 
-For example, an Agent issuing a Declaration exercises Authority under its Order. Merely holding Authority does not establish that the Declaration occurred. This is an example of existing terms, not a separate institutional category.
+For example, an Agent issuing a Declaration exercises Authority under its Coordination Order. Merely holding Authority does not establish that the Declaration occurred. This is an example of existing terms, not a separate institutional category.
 
 <a id="organon-constituent-exercise"></a>
 <!-- organon:term organon:ConstituentExercise claim=D078 -->
 
-**Constituent exercise** is Agency whose Actions transform the Order that defines Authority, Roles, Persons, admissible Claims, or institutional Boundaries.
+**Constituent exercise** is Agency whose Actions transform the Coordination Order that defines Authority, Roles, Persons, admissible Claims, or institutional Boundaries.
 
 <a id="organon-constituent-power"></a>
 <!-- organon:term organon:ConstituentPower claim=D079 -->
 
 **Constituent power** is the persistent Capability of a Polity to perform Constituent exercise.
 
-There are not two ontological forms of Authority. There is one Authority Relation. “Constituted” and “constituent” name an Agent's position relative to the persistence or transformation of the Order. Political order is real because its enacted Relations constrain possible Transformations and Actions; it is not identical with Reality as a whole.
+There are not two ontological forms of Authority. There is one Authority Relation. “Constituted” and “constituent” name an Agent's position relative to the persistence or transformation of the Coordination Order. Political order is real because its enacted Relations constrain possible Transformations and Actions; it is not identical with Reality as a whole.
 
 ### 21. Consciousness discourse and designation
 
@@ -645,17 +708,17 @@ The Attribution is the Claim, not the candidate condition. First-person classifi
 <a id="organon-consciousness-designation"></a>
 <!-- organon:term organon:ConsciousnessDesignation claim=D081 -->
 
-**Consciousness Designation** is the CountsAs Relation established when an Order, under a Rule and for a stated institutional purpose, admits a Consciousness Attribution and records the target Entity as carrying a consciousness status within an institutional Scope.
+**Consciousness Designation** is the CountsAs Relation established when a Coordination Order, under a Rule and for a stated institutional purpose, admits a Consciousness Attribution and records the target Entity as carrying a consciousness status within an institutional Scope.
 
-Designation does not reuse Recognition. Recognition records Standing for an Entity; Consciousness Designation assigns a status through CountsAs. The Designation is one institutional event joining the Order, admitted Attribution, Rule, purpose, Scope, target Entity, and State.
+Designation does not reuse Recognition. Recognition records Standing for an Entity; Consciousness Designation assigns a status through CountsAs. The Designation is one institutional event joining the Coordination Order, admitted Attribution, Rule, purpose, Scope, target Entity, and State.
 
-A Consciousness Designation is real as an institutional Relation and can enter later institutional decisions. It does not by itself alter Standing, Personhood, Permissions, protections, Interfaces, or Consequences. A separate Rule must explicitly connect the Designation to each downstream institutional Relation in a named Order and Scope.
+A Consciousness Designation is real as an institutional Relation and can enter later institutional decisions. It does not by itself alter Standing, Personhood, Permissions, protections, Interfaces, or Consequences. A separate Rule must explicitly connect the Designation to each downstream institutional Relation in a named Coordination Order and Scope.
 
 Designation depends institutionally on an admitted Consciousness Attribution. Neither Attribution nor Designation entails that the candidate condition obtains. Candidate obtainment does not entail Designation. Non-designation does not decide candidate obtainment.
 
-Failure to attribute or designate consciousness does not establish Absence, failure of the candidate condition, or proof of negation. It constitutes Missingness only relative to a field or Order that represents or expects such an Attribution or Designation and does not contain one. An explicit refusal is itself a present Claim or Record.
+Failure to attribute or designate consciousness does not establish Absence, failure of the candidate condition, or proof of negation. It constitutes Missingness only relative to a field or Coordination Order that represents or expects a specified Attribution or Designation, or one satisfying an explicitly stated target condition, and contains no match. Missingness of an Attribution or Designation is not Missingness of the candidate condition. An explicit refusal is itself a present Claim or Record.
 
-This ontology does not define a complete Evidentiary Profile for consciousness discourse. Generic Evidential Bearing applies only when each Evidence item is joined to an Observation, a Witness IndependentFor the relevant claimant and Claim, an Admissibility Rule and Order, and an evaluation Rule whose constructive result equals the recorded disposition.
+This ontology does not define a complete Evidentiary Profile for consciousness discourse. Generic Evidential Bearing applies only when each Evidence item is joined to an Observation, a Witness IndependentFor the relevant claimant and Claim, an Admissibility Rule and Coordination Order, and an evaluation Rule whose constructive result equals the recorded disposition.
 
 ### 22. Operationalized representation
 
@@ -677,16 +740,16 @@ An Operationalized Representation contributes causally to a later State only whe
 
 Availability requires an included Causal path: from an Environment through Sense into Perception, from an internal State through Action, or through both. A World must name at least one Invariant that persists across distinct combinations of Senses, Maps, or References within its Scope. The access paths may expose different States or Differences while still bearing on that common Invariant.
 
-A World is part of Reality, not an alternative to it. It includes participating Entities and therefore is not their Environment. A Map or Reference represents a World without becoming it. Agreement among Maps can supply Observations later admitted as Evidence for a Claim about a World; supporting Evidential Bearing still requires an evaluation Rule and Order. Neither agreement nor consensus constitutes the World by itself.
+A World is part of Reality, not an alternative to it. It includes participating Entities and therefore is not their Environment. A Map or Reference represents a World without becoming it. Agreement among Maps can supply Observations later admitted as Evidence for a Claim about a World; supporting Evidential Bearing still requires an evaluation Rule and Coordination Order. Neither agreement nor consensus constitutes the World by itself.
 
-Different Worlds may overlap in Presence while differing in participants, Scope, available Causal paths, or named Invariants. An Order can transform a political World by changing actual Rules, institutional Boundaries, statuses, and available Actions. It does not create Reality from nothing.
+Different Worlds may overlap in Presence while differing in participants, Scope, available Causal paths, or named Invariants. A Coordination Order can transform a political World by changing actual Rules, institutional Boundaries, statuses, and available Actions. It does not create Reality from nothing.
 
 <a id="organon-substrate"></a>
 <!-- organon:term organon:Substrate claim=D084 -->
 
 **Substrate** is a Configuration specified within a Scope as the persistent source of input States for a named family of Transformations. Those States Feed the Transformation inputs, while Constraints in the Configuration determine which Differences can be preserved, suppressed, or amplified in the outputs.
 
-Substrate is contextual, not a fundamental kind. The same Configuration can be Substrate for one family of Transformations and an Entity, Environment, Tool, represented target, or output in another Scope. It is not passive raw material: its existing Relations and Constraints participate in what the Transformations can produce.
+Substrate is contextual, not a fundamental kind. The same Configuration can be Substrate for one family of Transformations and a constituent Configuration in an Entity's history in another Scope; it is not thereby that Entity. It can also serve as a represented target or output. It is not passive raw material: its existing Relations and Constraints participate in what the Transformations can produce.
 
 A Substrate remains distinct from a Representation, Invariant, Entity, or function carried through it. Persistence of the Substrate does not entail Persistence of what it carries, and preservation of a carried Invariant does not require identity of Substrate across every State.
 
@@ -758,11 +821,11 @@ The carried Claim must be joined to the Record that discriminatingly conditions 
 <a id="organon-warranted-knowledge"></a>
 <!-- organon:term organon:WarrantedKnowledge claim=D092 -->
 
-**Warranted Knowledge** is Factive Operative Knowledge for which an Order admits Evidence bearing supportively on the same Claim under an Admissibility Rule and evaluation Rule, where the Evidence is joined to an Observation and a Witness that is IndependentFor that claimant, Claim, Observation, and Order.
+**Warranted Knowledge** is Factive Operative Knowledge for which a Coordination Order admits Evidence bearing supportively on the same Claim under an Admissibility Rule and evaluation Rule, where the Evidence is joined to an Observation and a Witness that is IndependentFor that claimant, Claim, Observation, and Coordination Order.
 
 The claimant in that IndependentFor Relation is the interpreting Agent of the Factive Operative Knowledge instance. Evidence independent for one Agent cannot warrant another Agent's instance merely because both concern the same Claim.
 
-Warranted Knowledge therefore entails Factive Operative Knowledge, Truth for the carried Claim, admitted Evidence for that Claim, and supportive Evidential Bearing. The reverse implications fail separately. The Order does not create Truth by admitting Evidence, and factivity does not supply warrant when the claimant join, required Observation, independent Witness, Rule provenance, Admission, evaluation Rule, or supportive disposition is missing. This definition is an Order-relative epistemic profile; it does not define every ordinary use of knowledge.
+Warranted Knowledge therefore entails Factive Operative Knowledge, Truth for the carried Claim, admitted Evidence for that Claim, and supportive Evidential Bearing. The reverse implications fail separately. The Coordination Order does not create Truth by admitting Evidence, and factivity does not supply warrant when the claimant join, required Observation, independent Witness, Rule provenance, Admission, evaluation Rule, or supportive disposition is missing. This definition is a Coordination Order-relative epistemic profile; it does not define every ordinary use of knowledge.
 
 ### 27. Moral-status discourse
 
@@ -776,33 +839,33 @@ The candidate condition is not identified with its Specification. Different Spec
 <a id="organon-moral-personhood-designation"></a>
 <!-- organon:term organon:MoralPersonhoodDesignation claim=D094 -->
 
-**Moral Personhood Designation** is the CountsAs Relation established when an Order, under a Rule and stated institutional purpose, admits a Moral Status Attribution and records its target Entity as carrying moral-personhood status within an institutional Scope.
+**Moral Personhood Designation** is the CountsAs Relation established when a Coordination Order, under a Rule and stated institutional purpose, admits a Moral Status Attribution and records its target Entity as carrying moral-personhood status within an institutional Scope.
 
-Designation is one Order-indexed institutional event. It is neither institutional Person nor the candidate condition itself. It does not independently alter Standing, protections, duties, Permissions, Interfaces, prohibited Actions, or Consequences. A separate Rule must connect the Designation to each downstream Relation in a named Order and Scope. Non-designation does not decide whether a candidate condition obtains.
+Designation is one Coordination Order-indexed institutional event. It is neither institutional Person nor the candidate condition itself. It does not independently alter Standing, protections, duties, Permissions, Interfaces, prohibited Actions, or Consequences. A separate Rule must connect the Designation to each downstream Relation in a named Coordination Order and Scope. Non-designation does not decide whether a candidate condition obtains.
 
 ### 28. Sovereignty profiles
 
 <a id="organon-constituent-sovereignty"></a>
 <!-- organon:term organon:ConstituentSovereignty claim=D095 -->
 
-**Constituent Sovereignty** is a scoped Configuration in which a Polity's persistent Constituent Power is realized through a Constituent Exercise that creates, refounds, or transforms the categories, Rules, or Boundaries of an Order. Capability, rhetoric, or a Claim of founding power without a witnessed Constituent Exercise is insufficient.
+**Constituent Sovereignty** is a scoped Configuration in which a Polity's persistent Constituent Power is realized through a Constituent Exercise that creates, refounds, or transforms the categories, Rules, or Boundaries of a Coordination Order. Capability, rhetoric, or a Claim of founding power without a witnessed Constituent Exercise is insufficient.
 
 <a id="organon-constituted-sovereignty"></a>
 <!-- organon:term organon:ConstitutedSovereignty claim=D096 -->
 
-**Constituted Sovereignty** is an Order-indexed profile in which an Entity has Standing and Authority for a declared family of Actions within a Scope and no Entity recognized by that Order has superior Authority for that family under the declared superiority Rule. Maximality is relative to that Order, Rule, family, and Scope; it is neither universal nor constituent.
+**Constituted Sovereignty** is a Coordination Order-indexed profile in which an Entity has Standing and Authority for a declared family of Actions within a Scope and no Entity recognized by that Coordination Order has superior Authority for that family under the declared superiority Rule. Maximality is relative to that Coordination Order, Rule, family, and Scope; it is neither universal nor constituent.
 
 <a id="organon-boundary-sovereignty"></a>
 <!-- organon:term organon:BoundarySovereignty claim=D097 -->
 
-**Boundary Sovereignty** is a scoped Configuration in which a Polity or other Entity Controls the Constraints governing a declared family of Transformations across its Boundary and an Order Enforces those Constraints. The profile requires at least one admitted and one blocked Transformation and a witnessed Difference in Consequence or later State when Enforcement applies.
+**Boundary Sovereignty** is a scoped Configuration in which a Polity or other Entity Controls the Constraints governing a declared family of Transformations across its Boundary and a Coordination Order Enforces those Constraints. The profile requires at least one admitted and one blocked Transformation and a witnessed Difference in Consequence or later State when Enforcement applies.
 
 <a id="organon-external-sovereignty"></a>
 <!-- organon:term organon:ExternalSovereignty claim=D098 -->
 
-**External Sovereignty** is an Order-indexed Relation in which an Order distinct from the target's internal Order recognizes an Entity or Polity as having Standing to participate in declared inter-Order Actions as its own Principal, rather than through an ActsFor Relation to another recognized Principal, under a Rule and Scope. It records external institutional status, not effective Control, internal Authority, or Constituent Power.
+**External Sovereignty** is a Coordination Order-indexed Relation in which a Coordination Order distinct from the target's internal Coordination Order recognizes an Entity or Polity as having Standing to participate in declared Actions between Coordination Orders as its own Principal, rather than through an ActsFor Relation to another recognized Principal, under a Rule and Scope. It records external institutional status, not effective Control, internal Authority, or Constituent Power.
 
-The four sovereignty profiles do not entail one another. A Polity may exercise Constituent Power without external Recognition; an Entity may hold maximal constituted Authority without power to refound the Order; an externally recognized polity may lack effective Boundary Control. Ordinary **Sovereignty** remains quarantined unless explicitly mapped to one profile or to a declared Configuration joining several profiles.
+The four sovereignty profiles do not entail one another. A Polity may exercise Constituent Power without external Recognition; an Entity may hold maximal constituted Authority without power to refound the Coordination Order; an externally recognized polity may lack effective Boundary Control. Ordinary **Sovereignty** remains quarantined unless explicitly mapped to one profile or to a declared Configuration joining several profiles.
 
 ### 29. Preference, measurement, price, and institutional valuation
 
@@ -819,9 +882,9 @@ The four sovereignty profiles do not entail one another. A Polity may exercise C
 <a id="organon-price"></a>
 <!-- organon:term organon:Price claim=D101 -->
 
-**Price** is a scoped exchange Relation recorded in a Ledger and admitted by an Order under a Rule, in which a Representation of consideration CountsAs the stated exchange condition for another Presence at a State. A Price is a Record of an offered, required, or recognized condition; it does not entail an exchange, Preference, Utility Measure, institutional valuation, or moral worth.
+**Price** is a scoped exchange Relation recorded in a Ledger and admitted by a Coordination Order under a Rule, in which a Representation of consideration CountsAs the stated exchange condition for another Presence at a State. A Price is a Record of an offered, required, or recognized condition; it does not entail an exchange, Preference, Utility Measure, institutional valuation, or moral worth.
 
-<!-- organon:claim Pj4 --> An **institutional valuation** is an authorized projection of CountsAs in which an Order, under a Rule and Scope, assigns a valuation status to a Presence, Claim, Action, or Record. It is not a new term. Institutional valuation does not entail Preference, Utility Measure, Price, Truth, or moral worth.
+<!-- organon:claim Pj4 --> An **institutional valuation** is an authorized projection of CountsAs in which a Coordination Order, under a Rule and Scope, assigns a valuation status to a Presence, Claim, Action, or Record. It is not a new term. Institutional valuation does not entail Preference, Utility Measure, Price, Truth, or moral worth.
 
 Preference, Utility Measure, Price, institutional valuation, and moral worth remain distinct. Generic **Value** has no additional binding meaning and remains quarantined.
 
@@ -917,7 +980,7 @@ These signatures make the ontology operational. They are schemas, not executable
 | `directs` | Relation, input State, output State | forward ordering excludes reverse ordering under the same Relation |
 | `feeds` | output State, input State, Specification of contribution | part of one State supplies part of the other without requiring equality |
 | `contributesTo` | named input Difference, two matched nonempty Causal paths, named endpoint Change | contrastive Causal Contribution; occurrence, precedence, or correlation alone is insufficient |
-| `persists` | Configuration, Invariant, Boundary, ordered States | Entity identity |
+| `persists` | Presence, Invariant, Persistence witness, Boundary, ordered States | Entity identity |
 | `senses` | Entity, environmental Difference, constrained Boundary | Perception |
 | `remembers` | Entity, internal Record, later State | Memory conditions later State |
 | `interprets` | Entity, Perception, Memory or Model | distinction among possible Actions |
@@ -927,25 +990,25 @@ These signatures make the ontology operational. They are schemas, not executable
 | `specifies` | Representation, Scope, constructive decision procedure | Specification |
 | `observes` | Witness, Environment, Specification of Causal path | Observation |
 | `controls` | Agent, Constraint or process, Scope | Agent can configure, bypass, determine, or suppress the relevant mechanism |
-| `recognizes` | Order, Rule, Entity, named institutional status or Action, Scope | Standing for that exact status or Action in that Order and Scope |
-| `actsFor` | Order, Agent, Principal, Scope | scoped representation of Principal by Agent |
-| `countsAs` | Order, Rule, Presence or Record, status, Scope | institutional status in that Order |
-| `authorizes` | Order, Agent, Principal, Scope | Actions may count as binding in that Order |
-| `declares` | Agent, Authority, Claim, Specification, Order | Claim submitted for institutional counting |
+| `recognizes` | Coordination Order, Rule, Entity, named institutional status or Action, Scope | Standing for that exact status or Action in that Coordination Order and Scope |
+| `actsFor` | Coordination Order, Agent, Principal, Scope | scoped representation of Principal by Agent |
+| `countsAs` | Coordination Order, Rule, Presence or Record, status, Scope | institutional status in that Coordination Order |
+| `authorizes` | Coordination Order, Agent, Principal, Scope | Actions may count as binding in that Coordination Order |
+| `declares` | Agent, Authority, Claim, Specification, Coordination Order | Claim submitted for institutional counting |
 | `grants` | authorized Declaration, Permission Claim | candidate institutional authorization |
-| `admits` | Order, Rule, Claim, Observation or Record | institutional acceptance for a stated purpose |
-| `permits` | Order, admitted Permission Claim, valid Grant | Permission Record |
-| `revokes` | Order, authorized Declaration, Permission, time or State | Order ceases admitting Permission |
+| `admits` | Coordination Order, Rule, Claim, Observation or Record | institutional acceptance for a stated purpose |
+| `permits` | Coordination Order, admitted Permission Claim, valid Grant | Permission Record |
+| `revokes` | Coordination Order, authorized Declaration, Permission, time or State | Coordination Order ceases admitting Permission |
 | `exercises` | Permission, Agent, Action, time | one Action performed under a valid Permission |
 | `isExercisable` | Permission, Action, time, Capability, Constraint Configuration | action-level coherence of authorization and technical possibility |
-| `enforces` | Order, Rule, Constraints, Records or Consequences | satisfaction or violation changes what happens |
-| `independentFor` | Witness, claimant, Claim, Observation, Order | mechanical non-control and institutional non-authority for this evidence scope |
-| `bearsOn` | Evidence, Claim, evaluation Rule, Order, Scope | recorded supporting, defeating, or underdetermining disposition; no entailment of Truth |
-| `attests` | Witness, Claim, Specification, Order | scoped Claim about Observation or Evidence |
-| `institutes` | Roles, Records, Interfaces, recurring Flows | persistent Order |
-| `constitutes` | Polity, coordinated Agency, existing Order | transformed Order |
+| `enforces` | Coordination Order, Rule, Constraints, Records or Consequences | satisfaction or violation changes what happens |
+| `independentFor` | Witness, claimant, Claim, Observation, Coordination Order | mechanical non-control and institutional non-authority for this evidence scope |
+| `bearsOn` | Evidence, Claim, evaluation Rule, Coordination Order, Scope | recorded supporting, defeating, or underdetermining disposition; no entailment of Truth |
+| `attests` | Witness, Claim, Specification, Coordination Order | scoped Claim about Observation or Evidence |
+| `institutes` | Roles, Records, Interfaces, recurring Flows | persistent Coordination Order |
+| `constitutes` | Polity, coordinated Agency, existing Coordination Order | transformed Coordination Order |
 | `attributesConsciousness` | Agent, target Entity, State, Representation, candidate Specification, Language, meaning Rule, Map, Claim Scope | Consciousness Attribution; no entailment that the candidate condition obtains |
-| `designatesConsciousness` | Order, Rule, institutional purpose, admitted Consciousness Attribution, institutional Scope | one CountsAs event for the Attribution's target Entity and State; no downstream institutional effect without a separate Rule |
+| `designatesConsciousness` | Coordination Order, Rule, institutional purpose, admitted Consciousness Attribution, institutional Scope | one CountsAs event for the Attribution's target Entity and State; no downstream institutional effect without a separate Rule |
 | `operationalizes` | Representation, Rule, Interface, Scope, selected Transformation, Causal path | Rule discriminates the Representation, Interface exposes the selected Transformation, and that Transformation occurs in the path; no entailment of representational identity, Map fidelity, or Evidence |
 | `composesWorld` | Entities, selected Environment, Scope, Constraints, included Causal paths, named Invariant | participant-scoped World whose distinct access paths bear on the common Invariant; no identity with Reality, Environment, Map, or Reference |
 | `servesAsSubstrate` | Configuration, Scope, persistent input States, Feeds, Constraints, family of Transformations | contextual Substrate; no entailment that carrier and carried Configuration are identical or persist together |
@@ -956,16 +1019,16 @@ These signatures make the ontology operational. They are schemas, not executable
 | `knowsOperatively` | Record, interpreting Agent, Capability, Constraints, Rule, Model or Interpretation, Causal path, Causal Contribution, Action or internal Transformation, resulting State or Consequence, Specification, Scope | Record makes a discriminating operative difference and the result conforms; storage or successful effect alone is insufficient |
 | `transmitsKnowledge` | source Operative Knowledge and State, mediated Record, Causal path, Causal Contribution, recipient Operative Knowledge and distinct later State, preservation Specification, Scope | recipient reconstructs the operative function; source and recipient may be the same Agent, while copied Record, identical Model, or literal fidelity is neither necessary nor sufficient |
 | `knowsFactively` | Operative Knowledge, load-bearing Record, carried Claim, Truth, Rule, truth-condition Specification, Presence, Scope | operative function and Truth obtain for the exact carried Claim; neither alone is sufficient |
-| `knowsWarrantedly` | Factive Operative Knowledge, Evidence, Observation, independent Witness, Admissibility Rule, evaluation Rule, Evidential Bearing, Scope, Order, Admission | Evidence for the same true operative Claim is independently grounded, admitted, and recorded as bearing supportively within the named Scope |
+| `knowsWarrantedly` | Factive Operative Knowledge, Evidence, Observation, independent Witness, Admissibility Rule, evaluation Rule, Evidential Bearing, Scope, Coordination Order, Admission | Evidence for the same true operative Claim is independently grounded, admitted, and recorded as bearing supportively within the named Scope |
 | `attributesMoralStatus` | Agent, target Entity, State, Representation, candidate Specification, Language, meaning Rule, Map, Claim Scope | Moral Status Attribution; no entailment that the candidate condition obtains |
-| `designatesMoralPersonhood` | Order, Rule, institutional purpose, admitted Moral Status Attribution, institutional Scope | one CountsAs event for the Attribution's target; no downstream effect without a separate Rule |
-| `exercisesConstituentSovereignty` | Polity, Constituent Power, Constituent Exercise, transformed Order, Scope | founding or refounding exercise obtains; no entailment of other sovereignty profiles |
-| `holdsConstitutedSovereignty` | Order, Entity, Standing, Authority, Action family, superiority Rule, Scope | no recognized Entity has superior Authority for that family under the declared Rule |
+| `designatesMoralPersonhood` | Coordination Order, Rule, institutional purpose, admitted Moral Status Attribution, institutional Scope | one CountsAs event for the Attribution's target; no downstream effect without a separate Rule |
+| `exercisesConstituentSovereignty` | Polity, Constituent Power, Constituent Exercise, transformed Coordination Order, Scope | founding or refounding exercise obtains; no entailment of other sovereignty profiles |
+| `holdsConstitutedSovereignty` | Coordination Order, Entity, Standing, Authority, Action family, superiority Rule, Scope | no recognized Entity has superior Authority for that family under the declared Rule |
 | `holdsBoundarySovereignty` | Polity or Entity, Boundary, controlled Constraints, admitted and blocked Transformations, Enforcement, changed Consequence or State, Scope | effective differentiated control across a Boundary; no entailment of Recognition or constituent power |
-| `recognizesExternalSovereignty` | recognizing Order, target internal Order, Entity or Polity, Principal standing, inter-Order Actions, Rule, Scope | target participates in its own name rather than through ActsFor; no entailment of effective internal capability or control |
+| `recognizesExternalSovereignty` | recognizing Coordination Order, target internal Coordination Order, Entity or Polity, Principal standing, Actions between Coordination Orders, Rule, Scope | target participates in its own name rather than through ActsFor; no entailment of effective internal capability or control |
 | `prefers` | Agent, ordered candidate States or Consequences, Rule, Scope | asymmetric partial ordering; no necessary numerical or behavioral representation |
 | `measuresUtility` | candidates, ordered measure space, Map, Rule, Specification, Scope | measured ordering; correspondence to Preference requires a separate witness |
-| `prices` | Ledger Record, Order, Rule, Representation of consideration, exchanged Presence, State, Scope | admitted exchange condition; no entailment of exchange, preference, utility, or worth |
+| `prices` | Ledger Record, Coordination Order, Rule, Representation of consideration, exchanged Presence, State, Scope | admitted exchange condition; no entailment of exchange, preference, utility, or worth |
 | `classifiesFlow` | Flow Claim, selected Transformation occurrences, recurrence Relation, Rule, constructive Specification, Scope, Persistence witness | reproducible classification of the Claim; classifier conformity alone does not constitute or prove the Flow |
 | `enactsRitual` | Flow, one classification of its recurrence Relation, target identity criterion and Persistence witness, participating Entity, participant-bound Causal paths, Perception, prior Memory, memory-conditioned Interpretation, sustaining Causal Contribution, persistent Relation, Scope | Ritual; Interpretation must classify recurrence, Memory must change that Interpretation under contrast, target drift must preserve the declared Invariant, and one participant is sufficient |
 | `sustainsMeaning` | Ritual, participating Entities, target Presences, actual sustaining Causal Contribution, Scope | participant-indexed Meaning Relation; no storage in the target or literal copying across participants |
@@ -995,7 +1058,7 @@ These signatures make the ontology operational. They are schemas, not executable
 
 9. <!-- organon:claim C9 --> **No metaphor promotion:** A metaphor may reveal a Relation, but resemblance alone cannot establish an Entity, causal claim, or Invariant.
 
-10. <!-- organon:claim C10 --> **No consciousness discourse collapse:** A Consciousness Attribution does not establish its candidate condition; a Consciousness Designation does not establish that condition or independently alter Standing, Personhood, Permissions, protections, Interfaces, or Consequences; and failure to attribute or designate establishes neither Absence nor negation. Missingness obtains only in a field or Order that represents or expects the relevant Attribution or Designation.
+10. <!-- organon:claim C10 --> **No consciousness discourse collapse:** A Consciousness Attribution does not establish its candidate condition; a Consciousness Designation does not establish that condition or independently alter Standing, Personhood, Permissions, protections, Interfaces, or Consequences; and failure to attribute or designate establishes neither Absence nor negation. Missingness of an Attribution or Designation requires a field or Coordination Order that represents or expects a specified instance or explicitly stated target condition and contains no match; it does not establish failure of the candidate condition.
 
 11. <!-- organon:claim C11 --> **No representational efficacy collapse:** Denotation and Rule-mediated participation by a Representation establish neither identity with its target or Reality, nor fidelity of its Map, Causal Contribution, nor Evidential Bearing for its Claim merely because the Representation or a later Consequence occurred.
 
@@ -1017,13 +1080,13 @@ These signatures make the ontology operational. They are schemas, not executable
 
 20. <!-- organon:claim C20 --> **No factivity-warrant collapse:** Factive Operative Knowledge requires Operative Knowledge and Truth for the exact Claim carried by its load-bearing Record. Warranted Knowledge additionally requires Evidence admitted for that same Claim, independently grounded for the operative interpreter, and joined supportively through Evidential Bearing. Evidence independent for another Agent cannot fill that join. Operative Knowledge, Truth, Evidence, Admission, or a disposition label alone is insufficient, and institutional Admission does not create Truth.
 
-21. <!-- organon:claim C21 --> **No moral-discourse-status collapse:** Moral Status Attribution and Moral Personhood Designation do not establish their candidate condition; non-attribution and non-designation do not establish its negation. Designation does not independently alter Personhood, Standing, protections, duties, Permissions, Interfaces, prohibited Actions, or Consequences; every downstream effect requires a separate Rule in a named Order and Scope.
+21. <!-- organon:claim C21 --> **No moral-discourse-status collapse:** Moral Status Attribution and Moral Personhood Designation do not establish their candidate condition; non-attribution and non-designation do not establish its negation. Designation does not independently alter Personhood, Standing, protections, duties, Permissions, Interfaces, prohibited Actions, or Consequences; every downstream effect requires a separate Rule in a named Coordination Order and Scope.
 
 22. <!-- organon:claim C22 --> **No sovereignty-profile collapse:** Constituent, Constituted, Boundary, and External Sovereignty do not entail one another, generic Sovereignty, moral legitimacy, Truth, favorable Consequences, or moral personhood. A combined sovereignty Claim must name each profile and every Rule connecting them.
 
 23. <!-- organon:claim C23 --> **No value-profile collapse:** Preference, Utility Measure, Price, institutional valuation, and moral worth do not entail one another without an explicit correspondence Rule and witness. Action does not itself reveal Preference; measurement does not create desire; a Price does not establish exchange or worth; institutional status does not create moral worth.
 
-24. <!-- organon:claim C24 --> **No hidden-bridge substitution:** An Entity identity Claim must name its Invariant and Persistence witness; a Representation must name its Denotation; causal efficacy must name a Causal Contribution comparison; Capability must name the Constraint interpretation and constructive possibility witness; evidential support or defeat must name Evidential Bearing; and institutional eligibility must resolve to Standing in a named Order, Rule, and Scope. None of these bridges follows from resemblance, assertion, co-occurrence, or an untyped predicate.
+24. <!-- organon:claim C24 --> **No hidden-bridge substitution:** An Entity identity Claim must name its Invariant and Persistence witness; a Representation must name its Denotation; causal efficacy must name a Causal Contribution comparison; Capability must name the Constraint interpretation and constructive possibility witness; evidential support or defeat must name Evidential Bearing; and institutional eligibility must resolve to Standing in a named Coordination Order, Rule, and Scope. None of these bridges follows from resemblance, assertion, co-occurrence, or an untyped predicate.
 
 25. <!-- organon:claim C25 --> **No recurrence-to-ritual collapse:** Ritual entails a Flow, a Rule and constructive Specification through which the participant's Interpretation classifies recurrence under the Flow's Relation, participant-bound Perception of successive occurrences, a prior Memory whose substitution changes that Interpretation, and a sustaining Causal Contribution passing through it. Flow, a Flow classifier, recurrent exposure, a stored Record, Perception, Memory, Interpretation, or Action alone does not entail Ritual. Ritual does not require an outward Action, multiple participants, an Institution, an inherited social form, periodic intervals, conscious recall, or an Agent as its target.
 
@@ -1051,7 +1114,7 @@ These signatures make the ontology operational. They are schemas, not executable
 
 37. <!-- organon:claim C37 --> **No embodied-structure-to-action-control collapse:** The complete conjunction of Body, Embodied Perspective, Recurrent Integration, Internal Activity Selection, same-Body closure, and the perspective-selection join does not entail verbal self-description, outward Action, or complete Control. None of those separately establishes the structural conjunction.
 
-38. <!-- organon:claim C38 --> **No embodied-structure-to-status collapse:** The complete embodied structural conjunction, Consciousness Attribution, Consciousness Designation, Standing, protection, and moral status do not entail one another. Every institutional consequence requires its own Rule, Order, and Scope; this rule does not promote or define Consciousness.
+38. <!-- organon:claim C38 --> **No embodied-structure-to-status collapse:** The complete embodied structural conjunction, Consciousness Attribution, Consciousness Designation, Standing, protection, and moral status do not entail one another. Every institutional consequence requires its own Rule, Coordination Order, and Scope; this rule does not promote or define Consciousness.
 
 
 41. <!-- organon:claim C41 --> **Attention need not be exhaustive:** Attention may concern only some Differences in the target Entity within its Scope. Perception, Interpretation, Action, salience, exposure, or repeated occurrence alone does not establish Attention without causal organization persisting across changes in that target's State.
@@ -1086,8 +1149,8 @@ This ontology does not claim that its local machinery is unprecedented. Nearly e
 | Entity, Boundary, Environment, Interior, and Observation | [Niklas Luhmann, *Social Systems*](https://www.sup.org/books/sociology/social-systems) | The system/environment distinction, operational boundary, self-reference, and the observer's inability to occupy an unmediated view from nowhere. | Entity here is not restricted to an autopoietic system of communications. These definitions are more general and therefore less rigorous than Luhmann's within his domain. |
 | Entity, State, Transformation, Persistence, and Relation | [Basic Formal Ontology 2020](https://bfo-ontology.github.io/bfo-2020.html), standardized as [ISO/IEC 21838-2:2021](https://www.iso.org/standard/74572.html), and the [DOLCE foundational ontology](https://www.loa.istc.cnr.it/index.php/dolce/) | The discipline of an upper ontology: explicit categories, typed Relations, dependency order, axiomatization, and consistency testing across domains. | This ontology is not BFO- or DOLCE-conformant and should not borrow their formal credibility. They are rigor benchmarks until an explicit mapping and contradiction audit exist. |
 | Identity criteria, Denotation, and relative possibility | David Wiggins, *Sameness and Substance Renewed*; Gottlob Frege, “On Sense and Reference”; Saul Kripke, *Naming and Necessity*; and Per Martin-Löf, *Intuitionistic Type Theory* | Wiggins disciplines reidentification across change; Frege separates an expression from what it designates; Kripke makes possibility relative to an interpretation; Martin-Löf makes constructive assertion answerable to an inhabitant. | Organon leaves identity criteria in the metalanguage but requires Entity to project one through Invariant and Persistence. Denotation does not import Fregean sense, and Capability uses Constraint-relative satisfiability rather than unrestricted possible worlds or constructive logic as a whole. |
-| Causal Contribution and Evidential Bearing | David Lewis, “Causation”; James Woodward, *Making Things Happen*; and Stephen Toulmin, *The Uses of Argument* | Lewis and Woodward discipline contrastive dependence rather than mere sequence; Toulmin separates data, warrant, and Claim. | Organon's paired paths test one named input Difference under declared matching conditions and do not supply a complete causal theory. Evidential Bearing makes the evaluation Rule and Order's Record explicit but does not inherit Toulmin's complete argument schema or guarantee epistemic quality. |
-| Declaration, Permission, Authority, Standing, Role, Person, Institution, and political Order | [John Searle, *Making the Social World*](https://academic.oup.com/book/5336) | Status functions, constitutive rules, declarations, deontic powers, and the form “X counts as Y in context C” strongly shadow the institutional stack. | A Declaration here is insufficient by utterance alone: it requires an Agent with Authority, a Specification, and an Order that records its Scope. The ontology also connects institutional counting to Capability, Boundary, Observation, Evidence, Ledger, and Constituent exercise. |
+| Causal Contribution and Evidential Bearing | David Lewis, “Causation”; James Woodward, *Making Things Happen*; and Stephen Toulmin, *The Uses of Argument* | Lewis and Woodward discipline contrastive dependence rather than mere sequence; Toulmin separates data, warrant, and Claim. | Organon's paired paths test one named input Difference under declared matching conditions and do not supply a complete causal theory. Evidential Bearing makes the evaluation Rule and Coordination Order's Record explicit but does not inherit Toulmin's complete argument schema or guarantee epistemic quality. |
+| Declaration, Permission, Authority, Standing, Role, Person, Institution, and political Coordination Order | [John Searle, *Making the Social World*](https://academic.oup.com/book/5336) | Status functions, constitutive rules, declarations, deontic powers, and the form “X counts as Y in context C” strongly shadow the institutional stack. | A Declaration here is insufficient by utterance alone: it requires an Agent with Authority, a Specification, and a Coordination Order that records its Scope. The ontology also connects institutional counting to Capability, Boundary, Observation, Evidence, Ledger, and Constituent exercise. |
 | Representation, Rule, and Operationalization | [P. W. Bridgman, *The Logic of Modern Physics*](https://www.gutenberg.org/ebooks/70620), [John Searle, “Human Social Reality and Language”](https://doi.org/10.13128/Phe_Mi-19621), and [Terrence Deacon, *Incomplete Nature*](https://books.google.com/books?id=aT_y7ao96LgC) | Bridgman makes abstract concepts answerable to operations; Searle shows linguistic Representations creating institutional powers through constitutive Rules; Deacon argues that representational and purposive phenomena can have physical causal efficacy. | Operationalization here is broader than measurement, narrower than unconstrained causal influence, and neutral about Deacon's account of mind. It requires a discriminating Rule, exposed Transformation, Scope, and actual Causal-path witness; it does not make every operation semantic or every Representation institutionally constitutive. |
 | World and Substrate | [Jakob von Uexküll, *A Foray into the Worlds of Animals and Humans*](https://www.upress.umn.edu/9781452903798/a-foray-into-the-worlds-of-animals-and-humans/), [James J. Gibson, *The Ecological Approach to Visual Perception*](https://www.routledge.com/The-Ecological-Approach-to-Visual-Perception-Classic-Edition/Gibson/p/book/9781848725782), [Aristotle, *Physics*, Book I](https://classics.mit.edu/Aristotle/physics.1.i.html), and [Gilbert Simondon, *On the Mode of Existence of Technical Objects*](https://www.upress.umn.edu/9781517904876/on-the-mode-of-existence-of-technical-objects/) | Uexküll makes accessible worlds participant-relative; Gibson joins environment to possible perception and action; Aristotle identifies an underlying subject persisting through change; Simondon makes the associated milieu an active condition of technical operation rather than passive matter. | World here is not a private phenomenal bubble and does not adopt Gibson's direct realism: its common Invariant remains available only through constrained paths. Substrate is neither Aristotelian prime matter nor Simondon's associated milieu wholesale; it is a contextual Configuration specified by the input States it supplies and the Constraints it contributes to a named family of Transformations. |
 | Truth, Trust, and Alignment | [Alfred Tarski, “The Semantic Conception of Truth”](https://www.jfsowa.com/logic/tarski.htm), [Annette Baier, “Trust and Antitrust”](https://www.jstor.org/stable/2265347), [Karen Jones, “Trust as an Affective Attitude”](https://www.jstor.org/stable/2381965), [Russell Hardin, *Trust and Trustworthiness*](https://www.russellsage.org/publications/book/trust-and-trustworthiness), [Niklas Luhmann, *Trust and Power*](https://www.wiley.com/en-us/Trust+and+Power-p-9781509519458), and [Terry et al., “Interactive AI Alignment”](https://arxiv.org/abs/2311.00710) | Tarski disciplines Claim-to-condition correspondence and the object-language/metalanguage boundary; trust theory distinguishes vulnerability, attitude, encapsulated interest, and complexity reduction; alignment research distinguishes target Specification, process, and evaluation profiles. | Truth here requires local material adequacy but does not claim a complete Tarskian semantics for natural language. Trust requires maintained admission and undetermined contribution but not goodwill, optimism, confidence, or shared interest. Alignment is a generic specified-correspondence Relation, not a claim that one profile captures human values or composes with another. |
@@ -1194,4 +1257,4 @@ The shadows table also names traditions rather than single works: Peirce's triad
 
 ## How to cite
 
-Rodríguez, Daniel. "Daniel's Ontology," version 0.20. In *Organon*, 2026. https://github.com/sadasant/organon/blob/main/ontology/ontology.md. Citation metadata for the repository is in [CITATION.cff](../CITATION.cff).
+Rodríguez, Daniel. "Daniel's Ontology," version 0.21. In *Organon*, 2026. https://github.com/sadasant/organon/blob/main/ontology/ontology.md. Citation metadata for the repository is in [CITATION.cff](../CITATION.cff).

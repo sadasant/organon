@@ -26,6 +26,18 @@ test("longest term wins; plurals link without matching word fragments", () => {
   );
 });
 
+test("current labels outrank legacy IDs and lowercase metalanguage stays literal", () => {
+  const source = "Order, Orders, Coordination Order, Coordination Orders; binary relation on a set, not Relation or Set.";
+  for (const catalog of [terms, [...terms].reverse()]) {
+    const parts = termMatcher(catalog)(source);
+    assert.equal(parts.map((p) => p.text).join(""), source);
+    assert.deepEqual(parts.filter((p) => p.term).map((p) => p.term.id), [
+      "organon:MathematicalOrder", "organon:MathematicalOrder",
+      "organon:Order", "organon:Order", "organon:Relation", "organon:Set",
+    ]);
+  }
+});
+
 test("every catalog expression renders, with full signatures and source excerpts", () => {
   for (const term of terms) {
     const math = term.math;
@@ -107,6 +119,10 @@ test("math preserves exact joins and current revision predicates rather than his
   const parameter = declarationMath(language.declarations[0], language);
   assert.ok(parameter.includes(leanTex("Language : Type v")));
   assert.ok(!parameter.includes("\\coloneqq"));
+  const configuration = terms.find((t) => t.id === "organon:Configuration").math;
+  const structure = declarationMath(configuration.declarations[0], configuration);
+  for (const datum of ["members", "associations", "realizes"])
+    assert.ok(structure.includes(leanTex(datum)), `Configuration must display ${datum}`);
   assert.throws(() => leanTex("x ⊗ y"), /Unreviewed/);
 });
 
@@ -178,9 +194,15 @@ test("the full view is one acyclic connected graph within Presence; Absence stay
   );
 });
 
-test("all 115 definitions preserve source ordering and carry a glyph assessment", () => {
-  assert.equal(terms.length, 115);
+test("all definitions preserve source ordering and carry a glyph assessment", () => {
+  assert.equal(terms.length, 118);
   assert.equal(terms[0].id, "organon:Absence");
+  assert.equal(terms[2].id, "organon:Identity");
+  assert.equal(terms[8].id, "organon:Set");
+  assert.equal(terms[9].id, "organon:MathematicalOrder");
+  assert.equal(terms[9].label, "Order");
+  assert.equal(terms[10].id, "organon:Configuration");
+  assert.equal(terms.find((t) => t.id === "organon:Order").label, "Coordination Order");
   assert.equal(terms.at(-1).id, "organon:Respect");
   assert.ok(terms.every((t) => t.statement.startsWith(`**${t.label}**`)));
   assert.ok(terms.every((t) => `organon:${t.glyphReview.term}` === t.id));
@@ -194,9 +216,12 @@ test("all 115 definitions preserve source ordering and carry a glyph assessment"
 
 test("every term has its own shared glyph and private-use font slot", () => {
   assert.deepEqual(
-    glyphs.map((g) => g.id),
-    terms.map((t) => t.id),
+    glyphs.map((g) => g.id).sort(),
+    terms.map((t) => t.id).sort(),
   );
+  // New terms in canonical order must not shift already published font slots.
+  for (const [name, codepoint] of [["Presence", 0xe001], ["Missingness", 0xe002], ["Respect", 0xe072], ["Identity", 0xe073], ["Set", 0xe074], ["MathematicalOrder", 0xe075]])
+    assert.equal(glyphs.find((g) => g.term === name).codepoint, codepoint);
   assert.equal(new Set(glyphs.map((g) => g.path)).size, terms.length);
   assert.equal(new Set(glyphs.map((g) => g.codepoint)).size, terms.length);
   assert.ok(

@@ -14,7 +14,11 @@ spec.loader.exec_module(builder)
 
 registry = json.loads((ROOT / "ontology/terms.yaml").read_text())
 ontology = (ROOT / "ontology/ontology.md").read_text()
-reviews = {row["term"]: row for row in json.loads((ROOT / "proposals/glyph-semantic-review.json").read_text())["entries"]}
+review_rows = json.loads((ROOT / "proposals/glyph-semantic-review.json").read_text())["entries"]
+reviews = {row["term"]: row for row in review_rows}
+# The study and explorer must share one complete per-term review.
+if len(reviews) != len(review_rows) or set(reviews) != {t["id"].removeprefix("organon:") for t in registry["terms"]}:
+    raise ValueError("Glyph semantic review must cover each registry term exactly once")
 terms = builder.extract_terms(ontology, registry["terms"])
 mathematics = catalog_for(terms)
 for term in terms:

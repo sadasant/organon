@@ -18,6 +18,9 @@ version: 1
 
 provider:
   type: openai
+  # Larger than the default 400000, but large promotion diffs can still truncate.
+  # Inspect the retained request before claiming complete review coverage.
+  max_state_chars: 1000000
 
 extends: [atomic, readme]
 
@@ -294,6 +297,23 @@ rules:
       - id: atomic/single-purpose
         severity: warning
         instructions: A change that applies one kind of edit across several files, such as one audit's fixes of one kind or one documentation convention, has one purpose.
+      - id: atomic/no-unrelated-modifications
+        instructions: >-
+          This criterion applies to every change, including changes with no
+          ontology edits. Independent features and drive-by cleanup fail it.
+          Reformatting or renaming code outside the functional change is unrelated
+          even when it preserves behavior.
+          A binding definition change requires the governed surfaces listed in
+          CONTRIBUTING.md to agree: registry and provenance, formal witnesses and
+          contracts, dossiers and source-pinned reviews, generated projections and
+          their count checks, and changelog and release records. Glyph catalog,
+          font and reader changes that render the changed terms belong to that
+          same change. Judge the connection between edits, not whether a definition
+          is correct or its implementation complete; the semantic and self-contained
+          guidelines judge those questions. Different file types or layers alone
+          do not make edits unrelated. An independent feature, drive-by cleanup, or
+          configuration change that does not serve that distinction remains unrelated. Merely
+          being requested in the same review does not establish that connection.
 
   - name: Markdown
     match: ["*.md"]

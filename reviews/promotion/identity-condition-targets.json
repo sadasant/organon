@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "proposal_id": "identity-and-missingness",
+  "status": "promotion-ready",
+  "reviewed_commit": "0acbe2455b0c408f7a7ce3d6270ef346c288798a",
+  "reviewed_tree": "d29fde62ac98ca6c0bc7a18ad3ec416ccd5d525b",
+  "reviewed_at": "2026-10-15",
+  "reviewer": "Amp local source review after user-requested Oracle findings and Daniel's explicit decisions; not independent external review",
+  "review_scope": "Six bounded Identity/Missingness contracts, explicit target-condition extension, consciousness-discourse anti-collapse and unchanged exact-target API. This records local formal and source review, not a green Aesthetics result or whole-PR merge readiness.",
+  "source_sha256": {
+    "examples/organon-adoption.json": "c50d839a9db10c32631b61d604cbc10768adc4a405e49ca27266658861e1a433",
+    "ontology/changelog.md": "a494ed9616a2441e936a2c7c5196ce32746b6cd07180bb8be06d6e67037061af",
+    "ontology/formal/IdentityMissingness.lean": "e31ddbfb0f817f6d5c9cfc9dec304d639b10bcd04c16c552d8f636ae32621da7",
+    "ontology/formal/OrganonCore.lean": "a9edb8d75ea6486da764b813b8261f67fa18604341bae9d278a6fb76404d26f9",
+    "ontology/formal/lakefile.toml": "bf6bb660bed71d6e6a4c6de92976507fd41b88aa616ebb6bba44a4bac1a8eec7",
+    "ontology/formal/lean-toolchain": "54727eec5cba149c18842e6deb5c41b369d66455c93ce135d7d5347c782b2325",
+    "ontology/ontology.md": "ed6cc02114d05d9950982d5959eceb5b873df60c00dcc36e3855b42a884548ed",
+    "ontology/profiles.json": "d0203677dc964a9b0e902749f43572c71f8395ec076e4006043db6abdf4bca8c",
+    "ontology/prompt.md": "d2172a728388a094914785c7242224c317cfe7c05c08bfe48916f3ff2f1d0f3a",
+    "ontology/terms.yaml": "016cd42a2eeeb5bcabc27eb1dda5ea3e8e93d56e8f78e55a22e3230330b05f59",
+    "proposals/identity-and-missingness-claims.json": "d938658f6e238510952f37bfa5eda670608999dde918999e751ebeac8f3d20c2",
+    "proposals/identity-and-missingness.md": "8ff29436b5f463d4bbb9e5b9e00189083ad9c6acd5b38c5b2d7f78db741e7a29",
+    "provenance/terms.json": "e6aa9493e946827c370768e0674db52f497cccaad35bd9d7fa268ad6c25ba748",
+    "releases/v0-21-0.md": "b46f6199d159a5b989ffe27d6f992b9173be4d2e37fad3f9ce6d3f8f12015332",
+    "scripts/check-promotion-review.py": "cef84a92bb95bb43734b16941f4a957ad77f9d117d4e1401f93460ff155afda9",
+    "scripts/check-proposals.py": "87f26905ba0450b92a9f38c6ee63a144e5973fd424a971622b42f6a9eb03fb24"
+  },
+  "verified_contracts": ["IM-D1", "IM-D2", "IM-A5", "IM-C1", "IM-A6", "IM-C2"],
+  "findings": [
+    {"id": "IM-R1", "severity": "high", "disposition": "resolved", "resolution": "A5 permits a particular Presence or an explicitly specified target condition. IM-A6 proves no contained satisfier and recovers the unchanged point-target record under equality. IM-C2 separates a different qualifying token from the exact target, wrong-class nonempty fields, empty fields and fulfillment. C10 and consciousness prose now specify the relevant Attribution or Designation condition rather than substituting an arbitrary instance. The 58-job build and finite executable pass."},
+    {"id": "IM-R2", "severity": "high", "disposition": "outside-formal-boundary", "resolution": "Actual expectation, containment, predicate adequacy, carrier adequacy and empirical individuation remain supplied application premises. No predicate is required to be inhabited or decidable. A fictional description does not instantiate a referent. Neither model witnesses nor glyph approval establish these premises."},
+    {"id": "IM-R3", "severity": "medium", "disposition": "resolved", "resolution": "Historical reviews remain unchanged; this later record pins the implementation commit. The changelog corrects premature glyph approval and complete-Aesthetics-coverage claims. Policy settings remain unchanged and the combined PR remains draft."}
+  ],
+  "supersedes": "reviews/promotion/identity-state-clarification.json"
+}

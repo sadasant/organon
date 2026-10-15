@@ -20,6 +20,16 @@ universe u v w x
 
 namespace DanielOntology
 
+/-! ## Identity and Difference over a local carrier
+
+`Identity` is Lean's logical equality on one chosen carrier `α`; the carrier
+stands in for a local range of Presence. `Difference` is its negation. Neither
+supplies decidability, empirical identification, or an identity criterion. -/
+
+def Identity {α : Type u} (a b : α) : Prop := a = b
+
+def Difference {α : Type u} (a b : α) : Prop := ¬ Identity a b
+
 /-! ## Relational Missingness without absolute Absence -/
 
 structure Field (α : Type u) where

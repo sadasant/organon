@@ -3,25 +3,28 @@ type: formal-experiment-audit
 status: draft
 canonicality: noncanonical
 created: 2026-08-03
-ontology_version: "0.20.0"
+ontology_version: "0.21.0"
 generated_by: scripts/check-organon-core-audit.py
 ---
 # OrganonCore term audit
 
 This table accounts for every registered term. `proved` means only that the declared challenge classifier is preserved in Lean. It is not automatically a complete encoding of the binding prose. `compiled shadow` means a named Lean shadow builds without the Absence extension; it does not mean that the shadow is extensionally identical to the binding prose definition.
 
-Result totals: **4 proved translations**, **1 pending representation decision**, **1 intentionally excluded**, and **109 unknown**.
+Result totals: **4 proved translations**, **1 pending representation decision**, **1 intentionally excluded**, and **112 unknown**.
 
 | Claim | Term | Reduct disposition | Experiment result | Reason |
 |---|---|---|---|---|
 | P1 | `organon:Absence` | extension-only | excluded | The reduct intentionally has no classifier named Absence. |
 | A3 | `organon:Presence` | translated | proved | CorePresence is definitionally Nonempty, exactly the current Present shadow. |
+| D120 | `organon:Identity` | compiled shadow | unknown | The Lean shadow is extension-invariant; exact prose parity is not established. |
 | A5 | `organon:Missingness` | translated | proved | An expected value supplies Presence; nonmembership remains the load-bearing relation. |
 | D001 | `organon:Reality` | challenge seam | pending | Choose an ambient metatheoretic or universe-indexed projection; no local carrier is Reality as a whole. |
-| D002 | `organon:Difference` | direct translation gate | unknown | The prose definition names Presence directly and lacks an exact paired classifier. |
+| D002 | `organon:Difference` | compiled shadow | unknown | The Lean shadow is extension-invariant; exact prose parity is not established. |
 | D003 | `organon:Relation` | direct translation gate | unknown | The prose definition names Presence directly and lacks an exact paired classifier. |
 | D102 | `organon:Denotation` | compiled shadow | unknown | The Lean shadow is extension-invariant; exact prose parity is not established. |
-| D004 | `organon:Configuration` | direct translation gate | unknown | The prose definition names Presence directly and lacks an exact paired classifier. |
+| D121 | `organon:Set` | compiled shadow | unknown | The Lean shadow is extension-invariant; exact prose parity is not established. |
+| D122 | `organon:MathematicalOrder` | compiled shadow | unknown | The Lean shadow is extension-invariant; exact prose parity is not established. |
+| D004 | `organon:Configuration` | compiled shadow | unknown | The Lean shadow is extension-invariant; exact prose parity is not established. |
 | D005 | `organon:State` | compiled shadow | unknown | The Lean shadow is extension-invariant; exact prose parity is not established. |
 | D006 | `organon:Direction` | compiled shadow | unknown | The Lean shadow is extension-invariant; exact prose parity is not established. |
 | D007 | `organon:Transformation` | compiled shadow | unknown | The Lean shadow is extension-invariant; exact prose parity is not established. |
