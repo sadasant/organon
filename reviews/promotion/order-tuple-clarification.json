@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "proposal_id": "order-and-configuration-integration",
+  "status": "promotion-ready",
+  "reviewed_commit": "d6c6cd9c3d7af3776619589321e19f727be2c188",
+  "reviewed_tree": "7cfc15d34e24063e31209c668b565698711898ea",
+  "reviewed_at": "2026-10-15",
+  "reviewer": "Amp local source review following the Identity tuple-domain clarification; not independent external review",
+  "review_scope": "Nine unchanged integration contracts against the clarified Identity domain. Local formal and source readiness only, not a green Aesthetics result or whole-PR merge readiness.",
+  "source_sha256": {
+    "examples/organon-adoption.json": "c50d839a9db10c32631b61d604cbc10768adc4a405e49ca27266658861e1a433",
+    "ontology/changelog.md": "a5ae6cbbb24902d916987108d62d3df6f18cc33c230f2c5392bfb71381713192",
+    "ontology/formal/ConfigurationIntegration.lean": "a88ee52194a914873b4428da643d4335ac17096680999a019bf16659912e1b42",
+    "ontology/formal/EmbodiedConsciousness.lean": "10f3d176bfcfbc27305def3a33bb470dfa1e1d1036f8a605c9e17643bfd8fc4b",
+    "ontology/formal/IntelligenceKnowledge.lean": "bc0ad1caa81adb25316f79aecd5011e32cf94cc73e1e046f7e13bcd10779aee8",
+    "ontology/formal/MathematicalOrder.lean": "f19bb60d672ed877f095923d33e3b1c41219c14afd32c922358705a1975ca3c5",
+    "ontology/formal/OrderConfigurationContracts.lean": "7ddce99a5cd2c146416ac32bed84ff1c59e65cff1ad1a335180074023e77d7ac",
+    "ontology/formal/OrganonCore.lean": "a9edb8d75ea6486da764b813b8261f67fa18604341bae9d278a6fb76404d26f9",
+    "ontology/formal/SetConfiguration.lean": "60b4fa126d57835c642cdd9b3a7e18fd4e9ac17db94ee169852dabe5ea3f47e6",
+    "ontology/formal/lakefile.toml": "bf6bb660bed71d6e6a4c6de92976507fd41b88aa616ebb6bba44a4bac1a8eec7",
+    "ontology/formal/lean-toolchain": "54727eec5cba149c18842e6deb5c41b369d66455c93ce135d7d5347c782b2325",
+    "ontology/ontology.md": "8fa8d57aea968f4e3e3384b11d64a170b6d4ebb743d5e7043cc0de2600448361",
+    "ontology/profiles.json": "d0203677dc964a9b0e902749f43572c71f8395ec076e4006043db6abdf4bca8c",
+    "ontology/prompt.md": "589b1c20b5446853ce6ed20052645819a3310f3a1870b71547701f574739bee6",
+    "ontology/terms.yaml": "016cd42a2eeeb5bcabc27eb1dda5ea3e8e93d56e8f78e55a22e3230330b05f59",
+    "proposals/order-and-configuration-integration-claims.json": "3a775f943084f8ec42db67ed807087748cd958fc553b6a770123e86d85cfed60",
+    "proposals/order-and-configuration-integration.md": "69b04cd6be14ee85c7e384d8ed4fecd12958582ed10ba4ef445f9e42cf610597",
+    "provenance/terms.json": "e6aa9493e946827c370768e0674db52f497cccaad35bd9d7fa268ad6c25ba748",
+    "releases/v0-21-0.md": "dc6711981dacf3e8d855789d04e8e0118909fc200885e90c2f6ee6c0180de2fe",
+    "scripts/check-promotion-review.py": "cef84a92bb95bb43734b16941f4a957ad77f9d117d4e1401f93460ff155afda9",
+    "scripts/check-proposals.py": "87f26905ba0450b92a9f38c6ee63a144e5973fd424a971622b42f6a9eb03fb24"
+  },
+  "verified_contracts": ["OC-D1", "OC-C1", "OC-D2", "OC-D3", "OC-D4", "OC-D5", "OC-C2", "OC-C3", "OC-C4"],
+  "findings": [
+    {"id": "OC-T1", "severity": "high", "disposition": "resolved", "resolution": "Order, Configuration and State now explicitly declare their pairs Presences, satisfying Identity's domain rule. Their Identity criteria and metalinguistic coordinates retain their meanings. The registry and nine integration contracts are unchanged. Arbitrary metalinguistic objects are not automatically admitted. Entity/Substrate and Boundary-projection corrections from the prior review remain intact."},
+    {"id": "OC-T2", "severity": "high", "disposition": "resolved", "resolution": "The 58-job Lean build and finite executable pass. The expanded integration audit again checked 2657 project theorems, zero declared project axioms and only propext, Classical.choice and Quot.sound, including explicit no-choice module claims. Historical receipts and earlier source reviews are preserved."},
+    {"id": "OC-T3", "severity": "high", "disposition": "outside-formal-boundary", "resolution": "Actual interpretation, empirical identity, ordered-pair applications, finite-arity coverage and full Perception/Memory parity remain OC-G1 gates. Reader recognition and semantic fidelity remain untested. The Aesthetics evidence guard does not itself resolve a semantic or scope objection; exact-head judgment remains a separate gate."}
+  ],
+  "supersedes": "reviews/promotion/order-review-resolution.json"
+}
