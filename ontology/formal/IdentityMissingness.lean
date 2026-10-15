@@ -1,12 +1,14 @@
 import OrganonCore
 
 /-!
-# Identity, Difference, and exact-target Missingness
+# Identity, Difference, and specified-target Missingness
 
 `Identity a b` is logical equality `a = b` within one carrier `α`, and
 `Difference a b` is `¬ Identity a b`. This module fixes their contracts and
 shows that the existing `Missingness` field, `¬ field.contains expected`, is
-exactly the absence of any contained item identical to the expected one.
+exactly the noncontainment of any item identical to the expected one.
+`conditionMissing` covers explicitly supplied target conditions; the existing
+point-target record is its equality-predicate special case, not its full range.
 
 Boundaries:
 
@@ -15,9 +17,10 @@ Boundaries:
   Identity here; no claim is made about Reality as a whole, about empirical
   identification, or about any identity criterion beyond the chosen carrier.
 * Expectation assignment. A `Field` carries only containment. The specified
-  expected Presence is a separate datum supplied by whoever builds the
-  `Missingness`; nothing here derives it from the field, and an empty field
-  witnesses no particular Missingness by itself.
+  expected Presence or predicate is supplied separately; neither the record
+  nor `conditionMissing` proves actual representation or expectation. An empty
+  field fixes no expectation. A condition need not be inhabited or decidable;
+  its specification does not instantiate a fictional referent.
 * Decidability. The partition of Identity and Difference uses classical
   excluded middle. No `Decidable` instance for `Identity` is provided or
   implied; the witness carrier derives `DecidableEq` only for its own proofs.
@@ -25,7 +28,7 @@ Boundaries:
   a canonically complete `Entity` or `Representation` model; `appearance` is a
   plain field, not a theory of representation.
 
-Contracts IM-D1, IM-D2, IM-A5, and IM-C1 are marked for the schema-v2
+Contracts IM-D1, IM-D2, IM-A5, IM-A6, IM-C1, and IM-C2 are marked for the schema-v2
 manifest. The marked statement runs from the marker to the first `:=`.
 -/
 
@@ -102,6 +105,28 @@ theorem containedDiffersFromExpected {α : Type u} (m : Missingness α)
     Difference actual m.expected :=
   fun same => m.missing (same ▸ contained)
 
+/-! ## Explicit target conditions -/
+
+/-- Noncontainment for a supplied condition, conditional on separately justified
+representation or expectation. It does not infer that assignment. -/
+def conditionMissing {α : Type u} (field : Field α) (qualifies : α → Prop) : Prop :=
+  ¬ ∃ actual, field.contains actual ∧ qualifies actual
+
+-- organon:contract IM-A6 begin
+/-- organon:promotion-contract IM-A6 -/
+theorem missingnessCondition {α : Type u} (field : Field α)
+    (qualifies : α → Prop) (expected : α) :
+    (conditionMissing field qualifies ↔
+      ∀ actual, field.contains actual → ¬ qualifies actual) ∧
+    (conditionMissing field (fun actual => Identity actual expected) ↔
+      Nonempty {m : Missingness α // m.field = field ∧ m.expected = expected}) := by
+  refine ⟨⟨?_, ?_⟩, (missingnessExactTarget field expected).2.symm⟩
+  · intro missing actual contained qualifiesProof
+    exact missing ⟨actual, contained, qualifiesProof⟩
+  · intro missing ⟨actual, contained, qualifiesProof⟩
+    exact missing actual contained qualifiesProof
+-- organon:contract IM-A6 end
+
 /-! ## Witness carrier
 
 Two tokens share one appearance yet are distinct. Fields are list-backed, so
@@ -176,6 +201,18 @@ theorem witnessedAntiCollapse :
     exact distinct (List.cons.inj same).1
   · intro same
     exact distinct (Prod.mk.inj same).1
+
+-- organon:contract IM-C2 begin
+/-- organon:promotion-contract IM-C2 -/
+theorem conditionAntiCollapse :
+    conditionMissing lookalikeField (fun actual => Identity actual targetToken) ∧
+    ¬ conditionMissing lookalikeField (fun actual => actual.appearance = .ring) ∧
+    conditionMissing lookalikeField (fun actual => actual.appearance = .bar) ∧
+    conditionMissing (listField [⟨.bar, 0⟩]) (fun actual => actual.appearance = .ring) ∧
+    conditionMissing emptyField (fun actual => actual.appearance = .ring) ∧
+    ¬ conditionMissing targetField (fun actual => Identity actual targetToken) := by
+  simp [conditionMissing, Identity, targetToken, lookalikeToken]
+-- organon:contract IM-C2 end
 
 /-! ## Contract use on the witness
 

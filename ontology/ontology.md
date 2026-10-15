@@ -4,7 +4,7 @@ status: provisional-binding
 binding: true
 version: 0.21
 created: 2026-08-01
-updated: 2026-10-13
+updated: 2026-10-15
 evidence_scope: "Daniel's adopted commitments and the recovered essay corpus"
 corpus_audit: "../provenance/essays.md"
 term_registry: "terms.yaml"
@@ -13,7 +13,7 @@ delivery_language: "../editorial/short-form.md"
 ---
 # Daniel's Ontology
 
-*First published August 1, 2026; substantive revision October 13, 2026 (v0.21).*
+*First published August 1, 2026; substantive revision October 15, 2026 (v0.21).*
 
 Daniel's Ontology defines the vocabulary through which Organon reviews a body of work. It begins from one primitive, Absence, and its axioms, and orders 115 definitions by declared dependency, each with a stable `organon:*` identifier in the [registry](./terms.yaml). Typed Relation signatures and 42 binding constraints govern how the terms combine. The definitions run from Identity, Reality, Difference, and Relation through the representational, perceptual, and agentic regions to a Coordination Order-indexed institutional kernel, and on to the regions on Evidence, political order, valuation, Ritual and Meaning, embodiment, and Attention, Care, and Respect.
 
@@ -148,11 +148,11 @@ Identity is reflexive, symmetric, transitive, and permits substitution in predic
 <a id="organon-missingness"></a>
 <!-- organon:term organon:Missingness claim=A5 -->
 
-**Missingness** is a relation within Presence in which a field represents or expects a specified Presence but contains nothing identical to that Presence.
+**Missingness** is a relation within Presence in which a field represents or expects either a specified Presence or a Presence satisfying an explicitly specified target condition, but contains no matching Presence.
 
-Here, “identical” invokes Identity. The field, its represented or expected target, and the target's noncontainment must all be specified; noncontainment alone does not establish that the field represents or expects that target. A field need not be empty: a drawer containing a lookalike key still exhibits Missingness of the particular key expected. Conversely, an empty drawer does not by itself specify any expected key. If the expectation concerns any member of a class rather than a particular item, that different target condition must be stated; an arbitrary representative must not silently replace it.
+For a particular target, matching invokes Identity with that Presence. For a target condition, matching means satisfying that condition; the field must contain no satisfier, not merely lack one arbitrarily chosen representative. The field, its represented or expected target or condition, and the relevant noncontainment must all be specified. Noncontainment alone does not establish representation or expectation. A drawer containing a compatible but different key can exhibit Missingness of a particular key without exhibiting Missingness of any compatible key. Conversely, an empty drawer does not by itself specify either expectation. A target condition is a predicate in the metalanguage, not necessarily a decidable test or an instantiated object.
 
-Gaps, omissions, zeros, shadows, exceptions, refusals, and silences can be present signs of Missingness. They are not Absence itself. A represented target does not establish that a fictional referent exists: the Presence used as the target must be identified, rather than an uninstantiated description silently treated as its instance.
+Gaps, omissions, zeros, shadows, exceptions, refusals, and silences can be present signs of Missingness. They are not Absence itself. A represented target does not establish that a fictional referent exists: a particular Presence must be identified, while an expected condition need not have an actual satisfier. Its description must not silently be treated as its instance.
 
 Missingness is relational. Presence is contrastively defined. Absence is absolute.
 
@@ -716,7 +716,7 @@ A Consciousness Designation is real as an institutional Relation and can enter l
 
 Designation depends institutionally on an admitted Consciousness Attribution. Neither Attribution nor Designation entails that the candidate condition obtains. Candidate obtainment does not entail Designation. Non-designation does not decide candidate obtainment.
 
-Failure to attribute or designate consciousness does not establish Absence, failure of the candidate condition, or proof of negation. It constitutes Missingness only relative to a field or Coordination Order that represents or expects such an Attribution or Designation and does not contain one. An explicit refusal is itself a present Claim or Record.
+Failure to attribute or designate consciousness does not establish Absence, failure of the candidate condition, or proof of negation. It constitutes Missingness only relative to a field or Coordination Order that represents or expects a specified Attribution or Designation, or one satisfying an explicitly stated target condition, and contains no match. Missingness of an Attribution or Designation is not Missingness of the candidate condition. An explicit refusal is itself a present Claim or Record.
 
 This ontology does not define a complete Evidentiary Profile for consciousness discourse. Generic Evidential Bearing applies only when each Evidence item is joined to an Observation, a Witness IndependentFor the relevant claimant and Claim, an Admissibility Rule and Coordination Order, and an evaluation Rule whose constructive result equals the recorded disposition.
 
@@ -749,7 +749,7 @@ Different Worlds may overlap in Presence while differing in participants, Scope,
 
 **Substrate** is a Configuration specified within a Scope as the persistent source of input States for a named family of Transformations. Those States Feed the Transformation inputs, while Constraints in the Configuration determine which Differences can be preserved, suppressed, or amplified in the outputs.
 
-Substrate is contextual, not a fundamental kind. The same Configuration can be Substrate for one family of Transformations and an Entity, Environment, Tool, represented target, or output in another Scope. It is not passive raw material: its existing Relations and Constraints participate in what the Transformations can produce.
+Substrate is contextual, not a fundamental kind. The same Configuration can be Substrate for one family of Transformations and a constituent Configuration in an Entity's history in another Scope; it is not thereby that Entity. It can also serve as a represented target or output. It is not passive raw material: its existing Relations and Constraints participate in what the Transformations can produce.
 
 A Substrate remains distinct from a Representation, Invariant, Entity, or function carried through it. Persistence of the Substrate does not entail Persistence of what it carries, and preservation of a carried Invariant does not require identity of Substrate across every State.
 
@@ -1058,7 +1058,7 @@ These signatures make the ontology operational. They are schemas, not executable
 
 9. <!-- organon:claim C9 --> **No metaphor promotion:** A metaphor may reveal a Relation, but resemblance alone cannot establish an Entity, causal claim, or Invariant.
 
-10. <!-- organon:claim C10 --> **No consciousness discourse collapse:** A Consciousness Attribution does not establish its candidate condition; a Consciousness Designation does not establish that condition or independently alter Standing, Personhood, Permissions, protections, Interfaces, or Consequences; and failure to attribute or designate establishes neither Absence nor negation. Missingness obtains only in a field or Coordination Order that represents or expects the relevant Attribution or Designation.
+10. <!-- organon:claim C10 --> **No consciousness discourse collapse:** A Consciousness Attribution does not establish its candidate condition; a Consciousness Designation does not establish that condition or independently alter Standing, Personhood, Permissions, protections, Interfaces, or Consequences; and failure to attribute or designate establishes neither Absence nor negation. Missingness of an Attribution or Designation requires a field or Coordination Order that represents or expects a specified instance or explicitly stated target condition and contains no match; it does not establish failure of the candidate condition.
 
 11. <!-- organon:claim C11 --> **No representational efficacy collapse:** Denotation and Rule-mediated participation by a Representation establish neither identity with its target or Reality, nor fidelity of its Map, Causal Contribution, nor Evidential Bearing for its Claim merely because the Representation or a later Consequence occurred.
 

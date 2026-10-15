@@ -18,8 +18,8 @@ version: 1
 
 provider:
   type: openai
-  # Keep the complete promotion diff, including the dossiers and retained reviews
-  # after the generated glyph specimen. The default 400000 cuts those off.
+  # Larger than the default 400000, but large promotion diffs can still truncate.
+  # Inspect the retained request before claiming complete review coverage.
   max_state_chars: 1000000
 
 extends: [atomic, readme]

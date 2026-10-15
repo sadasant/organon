@@ -50,6 +50,10 @@ jobs:
         working-directory: ontology/formal
         run: lake exe ontology_check
 
+      - name: Audit integration axioms
+        working-directory: ontology/formal
+        run: lake env lean ../../reviews/local/2026-10-15-integration-axiom-audit.lean
+
       - name: Verify the formal build receipt
         run: python3 scripts/check-formal-receipt.py
 

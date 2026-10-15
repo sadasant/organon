@@ -70,7 +70,7 @@ Depends: organon:Presence, A3.
 
 ### `A5` · axiom
 
-**Missingness** is a relation within Presence in which a field represents or expects a specified Presence but contains nothing identical to that Presence.
+**Missingness** is a relation within Presence in which a field represents or expects either a specified Presence or a Presence satisfying an explicitly specified target condition, but contains no matching Presence.
 
 Depends: organon:Absence, organon:Presence, organon:Identity.
 
@@ -99,7 +99,7 @@ Depends: organon:Absence, organon:Presence.
 
 ### `organon:Missingness` · Missingness
 
-**Missingness** is a relation within Presence in which a field represents or expects a specified Presence but contains nothing identical to that Presence.
+**Missingness** is a relation within Presence in which a field represents or expects either a specified Presence or a Presence satisfying an explicitly specified target condition, but contains no matching Presence.
 
 Claim: `A5` (axiom).
 Depends: organon:Absence, organon:Presence, organon:Identity.
@@ -158,7 +158,7 @@ Depends: organon:Set, organon:Presence, organon:Relation, organon:Identity.
 **State** pairs a Configuration with a position in the metalanguage's ordering. Two States have Identity exactly when they have the same position and their Configurations have Identity. One Configuration at two different positions gives two States; the position does not add a Relation to that Configuration.
 
 Claim: `D005` (definition).
-Depends: organon:Configuration.
+Depends: organon:Configuration, organon:Identity.
 
 ### `organon:Direction` · Direction
 
@@ -996,7 +996,7 @@ Depends: organon:Relation, organon:Entity, organon:Invariant.
 
 ### `C10` · binding_constraint
 
-**No consciousness discourse collapse:** A Consciousness Attribution does not establish its candidate condition; a Consciousness Designation does not establish that condition or independently alter Standing, Personhood, Permissions, protections, Interfaces, or Consequences; and failure to attribute or designate establishes neither Absence nor negation. Missingness obtains only in a field or Coordination Order that represents or expects the relevant Attribution or Designation.
+**No consciousness discourse collapse:** A Consciousness Attribution does not establish its candidate condition; a Consciousness Designation does not establish that condition or independently alter Standing, Personhood, Permissions, protections, Interfaces, or Consequences; and failure to attribute or designate establishes neither Absence nor negation. Missingness of an Attribution or Designation requires a field or Coordination Order that represents or expects a specified instance or explicitly stated target condition and contains no match; it does not establish failure of the candidate condition.
 
 Depends: organon:ConsciousnessAttribution, organon:ConsciousnessDesignation, organon:Missingness, organon:Absence, organon:Evidence, organon:Standing, organon:Person, organon:Permission, organon:Interface, organon:Consequence, organon:Rule.
 

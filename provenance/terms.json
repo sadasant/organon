@@ -4,7 +4,7 @@
   "sources": {
     "proposal:order-configuration-integration": {"kind": "adopted-review", "reference": "../proposals/order-and-configuration-integration.md", "title": "Mathematical Order, Coordination Order relabeling, and Configuration integration review"},
     "proposal:set-configuration": {"kind": "adopted-review", "reference": "../proposals/set-and-configuration.md", "title": "Set membership and structured Configuration correction with formal boundaries"},
-    "proposal:identity-missingness": {"kind": "adopted-review", "reference": "../proposals/identity-and-missingness.md", "title": "Identity and exact-target Missingness review and formal boundaries"},
+    "proposal:identity-missingness": {"kind": "adopted-review", "reference": "../proposals/identity-and-missingness.md", "title": "Identity, particular-target and target-condition Missingness review and formal boundaries"},
     "essay:absence": {"kind": "published-corpus", "reference": "essays.md", "title": "Nothing Else Is So Exact As Absence"},
     "essay:shadow-world": {"kind": "published-corpus", "reference": "essays.md", "title": "The Shadow of the World"},
     "essay:reasoning-language": {"kind": "published-corpus", "reference": "essays.md", "title": "Reasoning and Language"},
@@ -72,17 +72,22 @@
     {
       "basis": "formalization-finding",
       "sources": ["essay:invariants", "formal:lean-v0.9", "review:v0.9"],
-      "terms": ["organon:State", "organon:Transformation", "organon:Change", "organon:Feeds", "organon:CausalPath", "organon:Invariant", "organon:Constraint", "organon:Environment"]
+      "terms": ["organon:Transformation", "organon:Change", "organon:Feeds", "organon:CausalPath", "organon:Invariant", "organon:Constraint", "organon:Environment"]
     },
     {
       "basis": "review-repair",
       "sources": ["proposal:order-configuration-integration", "essay:invariants", "formal:lean-v0.9", "review:v0.9", "review:daniel"],
-      "terms": ["organon:Direction", "organon:Persistence", "organon:Entity", "organon:Boundary"]
+      "terms": ["organon:State", "organon:Direction", "organon:Persistence", "organon:Entity", "organon:Boundary"]
     },
     {
       "basis": "corpus-extraction",
       "sources": ["essay:reasoning-language", "essay:shadow-world"],
-      "terms": ["organon:Representation", "organon:Scope", "organon:Specification", "organon:Rule", "organon:Sign", "organon:Symbol", "organon:Language", "organon:Map", "organon:Reference", "organon:Sense", "organon:Perception", "organon:Record", "organon:Observation", "organon:Memory", "organon:Model"]
+      "terms": ["organon:Representation", "organon:Scope", "organon:Specification", "organon:Rule", "organon:Sign", "organon:Symbol", "organon:Language", "organon:Map", "organon:Reference", "organon:Sense", "organon:Perception", "organon:Record", "organon:Observation", "organon:Memory"]
+    },
+    {
+      "basis": "review-repair",
+      "sources": ["proposal:order-configuration-integration", "essay:reasoning-language", "essay:shadow-world", "review:daniel"],
+      "terms": ["organon:Model"]
     },
     {
       "basis": "adopted-commitment",

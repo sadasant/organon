@@ -28,7 +28,9 @@ generic core records without retyping them:
   obligation quantifies over every member Constraint. `toBoundary` projects it
   to the unchanged core `Boundary` through an explicit finite listing. The
   projection forgets the selected structure: two Configured Boundaries with
-  equal members and unequal structure project to the same core Boundary.
+  the same Constraint interpretation and finite listing can project to the same
+  core Boundary despite unequal selected structure. Equal member Sets alone do
+  not fix the order or repetition of the projected Constraint list.
   `ConfiguredEntity` ties an Entity's core Boundary to such a retained
   Configuration by an equation.
 * Model. `StructuredModel` is an organized Configuration whose members are each

@@ -45,6 +45,8 @@ The valuation and Ritual batch (`valuation_ritual_review`) adds five strokes, fo
 
 The final embodiment and attention batch (`embodiment_attention_review`) adds five strokes, for **182 strokes and 118 glyphs** at catalog sha256 `b6e7b6249e4eaf5b77289865f9751991cb7040c842dd8dfc32ecafff24d460db`: Body uses `identityConfigurations`, Recurrent Integration `contributionReturn`, Attention `targetHistory`, Care `specifiedAttentiveAction` and Respect `otherConditionedAction`. All five are option B. The other 113 paths and all slots are unchanged. All pass the ink envelope without an inset; independent outline comparisons match exactly except for numeric circle-conversion noise in Body. Care contains Attention at 0.65 scale and full stroke weight. Explicitly closed cubic circles prevent microscopic closing-segment spikes in the new Body, Care and Respect drawings without changing earlier paths. `constituents`, `double`, `tracking`, `adjustedAction` and `constrainedAction` become unused (61 unused total); only Coordination Order keeps `bar`, and Boundary and Interface keep `echo`. This paragraph supersedes older-shape comparisons below: Body recalls Entity's fan above two deltas, Recurrent Integration uses two fields and return routes, Attention tracks one target history, Care adds a specification and action, and Respect connects the other Entity's conditions to one's action. **Design review is 118/118 (100%), including explicit retains; Reference and Sense remain approved but pending implementation.** Reader recognition remains untested.
 
+The October 15 review resolution (`reference_sense_resolution`) adds `referencePair` and `sensoryEye`, for **184 strokes, 64 unused, and 118 glyphs**. Reference A pairs the exact Map and Specification at 0.45 scale with full stroke weight, a connector and comparison base. Sense B adds a compact eye inside Boundary's exact diamond and posts. `partialMap`, `comparison` and `uptake` become unused; `echo` now has three uses. The other 116 drawings and all font slots are unchanged. **This corrects the premature completion claim above:** Reference and Sense had not been settled by the earlier review. Their fresh approvals now resolve all 118 design choices, including retains; reader testing is still open. Earlier dated paragraphs remain historical, not current-shape descriptions. Missingness retains its ring under the explicit-target-condition extension, and Substrate's weave still denotes a Configuration, not an Entity.
+
 Run from the repository root:
 
 ```sh
@@ -124,6 +126,10 @@ ops.vertical.push("targetHistory", "specifiedAttentiveAction", "otherConditioned
 ops.arrowhead.push("contributionReturn", "specifiedAttentiveAction", "otherConditionedAction");
 ops.turningPath.push("identityConfigurations", "contributionReturn", "targetHistory", "specifiedAttentiveAction");
 ops.branching.push("identityConfigurations", "targetHistory", "specifiedAttentiveAction");
+ops.dot.push("sensoryEye");
+ops.turningPath.push("referencePair");
+ops.contour.push("referencePair", "sensoryEye");
+ops.strike.push("referencePair");
 ops.contour.push("identityConfigurations", "contributionReturn", "targetHistory", "specifiedAttentiveAction", "otherConditionedAction");
 const use = {};
 for (const g of glyphs) for (const m of g.motifs) (use[m] ??= []).push(g.term);
@@ -495,6 +501,8 @@ Ordered by priority. Approved marks come first because readers will learn them f
 18. **Valuation and Ritual drawings.** Check Preference against greater-than and the consciousness chevrons; Utility Measure against Specification, Rule and Ledger and form/table readings; Price against CountsAs, Receipt and Ledger and ID-card readings; Ritual against other eyes and Recurrent Integration and mere-cycle readings; Meaning against Ritual, Reference and Denotation. Check Meaning's tiny pupil and occurrence rings and merged eye/stems at text size, and whether the miniature implies ongoing reenactment is always required or makes Meaning seem a property inside the target. No reader test is claimed.
 
 19. **Embodiment and attention drawings.** Check Body against Entity, Change, Configuration and organization-chart readings, especially its small hollow centers and separated fan and stem; Recurrent Integration against Ritual and generic feedback; Attention against Perception and Evidential Bearing, and whether two state positions read as two targets; Care against Attention, Agency and Capability, especially its reduced pupil and full-stroke joins; Respect against Permission Exercise, Tool and Enforcement. The specification field in Care and the condition field in Respect must remain distinguishable at inline sizes. Neither action drawing implies benefit, consent or success. No reader test is claimed.
+
+20. **Reference and Sense resolution.** Compare Reference's reduced mesh and Specification with Map, Specification and paired-record glyphs at inline sizes. Neither the connector nor base establishes fidelity. Compare Sense with Boundary, Symbol and Perception, including its pupil at small sizes. The eye is not a vision requirement; containment does not assert that every Boundary Constraint senses or establish the Environment-to-interior Causal path. These comparisons supersede the old Sense/Trust barrier and Reference partial-sheet concerns above.
 
 Each test should ask for a spontaneous reading without labels, then for pairwise discrimination with labels, at the sizes the site actually uses. Record results as reader evidence, separate from design approval.
 

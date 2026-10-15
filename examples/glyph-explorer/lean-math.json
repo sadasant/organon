@@ -17,7 +17,12 @@
     "status": "projection",
     "note": "Lean equality on one supplied carrier α. Identity holds only between members of that carrier; the encoding gives no criterion for individuating empirical things or reidentifying them across States."
   },
-  "Missingness": { "module": "OrganonCore", "name": "Missingness" },
+  "Missingness": {
+    "module": "IdentityMissingness",
+    "name": "conditionMissing",
+    "status": "projection",
+    "note": "Noncontainment for an explicitly supplied qualifying condition on one local carrier. Equality with a particular target recovers the existing exact-target Missingness record. Neither predicate nor record establishes actual representation or expectation; empty fields assign neither."
+  },
   "Reality": {
     "module": "DanielOntology",
     "name": "FullLocalRealityMember",

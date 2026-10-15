@@ -2,7 +2,7 @@
   "schema_version": 1,
   "status": "generated-nonbinding-degenerate-registry-reflection-ledger",
   "source_sha256": {
-    "ontology/terms.yaml": "fecc6f8d9123b97decbaff8d3681198b9c88ef206ed03118088c076f0e7dc0a0",
+    "ontology/terms.yaml": "016cd42a2eeeb5bcabc27eb1dda5ea3e8e93d56e8f78e55a22e3230330b05f59",
     "ontology/algebra/positive-calculus.yaml": "76c83651ae6d9ada317546a862450ec7940b5d1e12fb93b973f8bd6fd1abdd73",
     "scripts/build-positive-calculus.py": "6bf02fc31616d2771320841951275e61988fb73f7df1302329f6c28e5ddff863"
   },
@@ -11,7 +11,7 @@
     "retained_foundation": 3,
     "definitions_reflected": 115,
     "constructors": 1,
-    "dependency_removal_fixtures": 951,
+    "dependency_removal_fixtures": 952,
     "unreflected_definitions": 0
   },
   "degenerate_control_comparison": {
@@ -282,7 +282,8 @@
       "claim": "D005",
       "constructor": "G1",
       "declared_dependencies": [
-        "organon:Configuration"
+        "organon:Configuration",
+        "organon:Identity"
       ],
       "conformity_witness": {
         "predicate": "Conforms",
@@ -301,6 +302,7 @@
       "derives": true,
       "one_step_mutations": [
         "G1-D005-remove-Configuration",
+        "G1-D005-remove-Identity",
         "G1-D005-remove-witness"
       ]
     },

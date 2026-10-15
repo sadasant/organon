@@ -407,6 +407,9 @@ export const strokes = {
     `M23 3H30V14H23Z M25 7H28M25 10H27M6.5 13.5V26M26.5 14V26M4 26H29${arrowHead([4, 26], [29, 26])}`,
   ].join(" "),
   otherConditionedAction: `${closedRing([25, 5])} M25 7.5V10M18 10H29V19H18Z M21 14H26M22 19V28 ${closedRing([5, 25])} M7.5 25H29${arrowHead([7.5, 25], [29, 25])}`,
+  // Reference A: Map and Specification at 0.45 scale, with full stroke weight.
+  referencePair: "M3.25 10.15L12.25 8.8L13.6 18.7L2.35 17.35ZM3.25 10.15L13.6 18.7M12.25 8.8L2.35 17.35M2.8 13.75L12.925 13.75 M18.8 8.35H29.6V20.05H18.8ZM21.05 11.5H27.35M21.05 14.2H24.2M24.2 14.2L27.35 16.9M26 18.25L28.7 15.55 M14.5 14.5H18M8 23V26H24V23",
+  sensoryEye: `${compactEye(9, 16, 14)}Z`,
 };
 
 const alphabet = {
@@ -441,8 +444,8 @@ const alphabet = {
   Symbol: ["diamond", "star"],
   Language: ["rewriteNetwork"],
   Map: ["unevenMesh"],
-  Reference: ["partialMap", "comparison"],
-  Sense: ["uptake"],
+  Reference: ["referencePair"],
+  Sense: ["diamond", "echo", "sensoryEye"],
   Perception: ["eye", "dot"],
   Record: ["retainedToken"],
   Observation: ["witnessedRecord"],

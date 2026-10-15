@@ -14,7 +14,7 @@
     {"id":"organon:Set","label":"Set","claim_id":"D121","claim_type":"definition","depends_on":["organon:Presence","organon:Identity","organon:Absence","organon:Relation","organon:Reality"],"anchor":"organon-set"},
     {"id":"organon:MathematicalOrder","label":"Order","claim_id":"D122","claim_type":"definition","depends_on":["organon:Set","organon:Identity","organon:Relation","organon:Presence"],"anchor":"organon-mathematical-order"},
     {"id":"organon:Configuration","label":"Configuration","claim_id":"D004","claim_type":"definition","depends_on":["organon:Set","organon:Presence","organon:Relation","organon:Identity"],"anchor":"organon-configuration"},
-    {"id":"organon:State","label":"State","claim_id":"D005","claim_type":"definition","depends_on":["organon:Configuration"],"anchor":"organon-state"},
+    {"id":"organon:State","label":"State","claim_id":"D005","claim_type":"definition","depends_on":["organon:Configuration","organon:Identity"],"anchor":"organon-state"},
     {"id":"organon:Direction","label":"Direction","claim_id":"D006","claim_type":"definition","depends_on":["organon:Relation","organon:State","organon:MathematicalOrder"],"anchor":"organon-direction"},
     {"id":"organon:Transformation","label":"Transformation","claim_id":"D007","claim_type":"definition","depends_on":["organon:Relation","organon:State","organon:Direction"],"anchor":"organon-transformation"},
     {"id":"organon:Change","label":"Change","claim_id":"D008","claim_type":"definition","depends_on":["organon:Difference","organon:State","organon:Transformation"],"anchor":"organon-change"},

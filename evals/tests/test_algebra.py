@@ -166,7 +166,7 @@ def test_degenerate_reflection_control_is_not_a_semantic_reduction():
         "retained_foundation": 3,
         "definitions_reflected": 115,
         "constructors": 1,
-        "dependency_removal_fixtures": 951,
+        "dependency_removal_fixtures": 952,
         "unreflected_definitions": 0,
     }
     assert ledger["degenerate_control_comparison"]["constructor_minimum_proved"] is False
@@ -184,5 +184,5 @@ def test_degenerate_reflection_control_is_not_a_semantic_reduction():
     ]
     # Order adds four dependencies and a conformity witness. Direction adds one,
     # Persistence two, Entity/Boundary/Model one each, Coordination Order two:
-    # 938 + 5 + 1 + 2 + 3 + 2.
-    assert len(mutation_ids) == len(set(mutation_ids)) == 951
+    # 938 + 5 + 1 + 2 + 3 + 2; State's explicit Identity dependency adds one.
+    assert len(mutation_ids) == len(set(mutation_ids)) == 952

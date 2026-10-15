@@ -64,9 +64,9 @@
 <text x="975" y="430" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Language</text>
 <g transform="translate(1105,372) scale(1.25)"><path d="M5 7L25 4L28 26L3 23ZM5 7L28 26M25 4L3 23M4 15L26.5 15" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
 <text x="1125" y="430" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Map</text>
-<g transform="translate(55,482) scale(1.25)"><path d="M6 6H26V12M26 20V26H6V6M6 20H13V13H21 M2 11V21M30 11V21" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
+<g transform="translate(55,482) scale(1.25)"><path d="M3.25 10.15L12.25 8.8L13.6 18.7L2.35 17.35ZM3.25 10.15L13.6 18.7M12.25 8.8L2.35 17.35M2.8 13.75L12.925 13.75 M18.8 8.35H29.6V20.05H18.8ZM21.05 11.5H27.35M21.05 14.2H24.2M24.2 14.2L27.35 16.9M26 18.25L28.7 15.55 M14.5 14.5H18M8 23V26H24V23" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
 <text x="75" y="540" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Reference</text>
-<g transform="translate(205,482) scale(1.25)"><path d="M14 4V11M14 21V28M3 16H22L27 11M22 16 27 21M9 11 14 16 9 21" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
+<g transform="translate(205,482) scale(1.25)"><path d="M16 5 27 16 16 27 5 16Z M3 5V27M29 5V27 M9 16Q16 7.6 23 16Q16 24.4 9 16Z M16 14.5a1.5 1.5 0 1 1 0 3a1.5 1.5 0 1 1 0-3Z" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
 <text x="225" y="540" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Sense</text>
 <g transform="translate(355,482) scale(1.25)"><path d="M3 16Q16 0 29 16Q16 32 3 16Z M16 14a2 2 0 1 1 0 4a2 2 0 1 1 0-4" fill="none" stroke="#e8e7e3" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4"/></g>
 <text x="375" y="540" text-anchor="middle" fill="#bbb" font-family="sans-serif" font-size="10">Perception</text>

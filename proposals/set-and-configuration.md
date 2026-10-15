@@ -70,4 +70,4 @@ An application must justify its member domain, member identity, and which actual
 - Zermelo, Ernst. “Untersuchungen über die Grundlagen der Mengenlehre I.” *Mathematische Annalen* 65 (1908): 261–281. Extensionality and separation.
 - Hodges, Wilfrid. *A Shorter Model Theory*. Cambridge University Press, 1997. Relational signatures and structures; not a claim that Organon adopts the entire framework.
 - [Lean extensionality](https://lean-lang.org/theorem_proving_in_lean4/axioms_and_computation.html), [formal contracts](../ontology/formal/SetConfiguration.lean), and [typed claims](./set-and-configuration-claims.json).
-- [Binding Configuration](../ontology/ontology.md#organon-configuration), [registry](../ontology/terms.yaml), [v0.21 release](../releases/v0-21-0.md), and [current source review](../reviews/promotion/set-and-configuration-structured.json).
+- [Binding Configuration](../ontology/ontology.md#organon-configuration), [registry](../ontology/terms.yaml), [v0.21 release](../releases/v0-21-0.md), and [current source review](../reviews/promotion/set-review-resolution.json).
