@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "proposal_id": "order-and-configuration-integration",
+  "status": "promotion-ready",
+  "reviewed_commit": "0acbe2455b0c408f7a7ce3d6270ef346c288798a",
+  "reviewed_tree": "d29fde62ac98ca6c0bc7a18ad3ec416ccd5d525b",
+  "reviewed_at": "2026-10-15",
+  "reviewer": "Amp local source review after user-requested Oracle findings and Daniel's explicit decisions; not independent external review",
+  "review_scope": "Unchanged nine integration contracts, corrected Boundary projection documentation, State Identity dependency and Entity/Substrate distinction. Local formal/source readiness only; no green Aesthetics or whole-PR merge-readiness claim.",
+  "source_sha256": {
+    "examples/organon-adoption.json": "c50d839a9db10c32631b61d604cbc10768adc4a405e49ca27266658861e1a433",
+    "ontology/changelog.md": "a494ed9616a2441e936a2c7c5196ce32746b6cd07180bb8be06d6e67037061af",
+    "ontology/formal/ConfigurationIntegration.lean": "a88ee52194a914873b4428da643d4335ac17096680999a019bf16659912e1b42",
+    "ontology/formal/EmbodiedConsciousness.lean": "10f3d176bfcfbc27305def3a33bb470dfa1e1d1036f8a605c9e17643bfd8fc4b",
+    "ontology/formal/IntelligenceKnowledge.lean": "bc0ad1caa81adb25316f79aecd5011e32cf94cc73e1e046f7e13bcd10779aee8",
+    "ontology/formal/MathematicalOrder.lean": "f19bb60d672ed877f095923d33e3b1c41219c14afd32c922358705a1975ca3c5",
+    "ontology/formal/OrderConfigurationContracts.lean": "7ddce99a5cd2c146416ac32bed84ff1c59e65cff1ad1a335180074023e77d7ac",
+    "ontology/formal/OrganonCore.lean": "a9edb8d75ea6486da764b813b8261f67fa18604341bae9d278a6fb76404d26f9",
+    "ontology/formal/SetConfiguration.lean": "60b4fa126d57835c642cdd9b3a7e18fd4e9ac17db94ee169852dabe5ea3f47e6",
+    "ontology/formal/lakefile.toml": "bf6bb660bed71d6e6a4c6de92976507fd41b88aa616ebb6bba44a4bac1a8eec7",
+    "ontology/formal/lean-toolchain": "54727eec5cba149c18842e6deb5c41b369d66455c93ce135d7d5347c782b2325",
+    "ontology/ontology.md": "ed6cc02114d05d9950982d5959eceb5b873df60c00dcc36e3855b42a884548ed",
+    "ontology/profiles.json": "d0203677dc964a9b0e902749f43572c71f8395ec076e4006043db6abdf4bca8c",
+    "ontology/prompt.md": "d2172a728388a094914785c7242224c317cfe7c05c08bfe48916f3ff2f1d0f3a",
+    "ontology/terms.yaml": "016cd42a2eeeb5bcabc27eb1dda5ea3e8e93d56e8f78e55a22e3230330b05f59",
+    "proposals/order-and-configuration-integration-claims.json": "8790f71ee219da069a8199d94f4cb9d44975a765f65c2bce599bfe2d32764344",
+    "proposals/order-and-configuration-integration.md": "b78c5f1edf72fc793ecbb885eb3b3cec2e43cc4c4a44fc9eb1494ed77ba0ca51",
+    "provenance/terms.json": "e6aa9493e946827c370768e0674db52f497cccaad35bd9d7fa268ad6c25ba748",
+    "releases/v0-21-0.md": "b46f6199d159a5b989ffe27d6f992b9173be4d2e37fad3f9ce6d3f8f12015332",
+    "scripts/check-promotion-review.py": "cef84a92bb95bb43734b16941f4a957ad77f9d117d4e1401f93460ff155afda9",
+    "scripts/check-proposals.py": "87f26905ba0450b92a9f38c6ee63a144e5973fd424a971622b42f6a9eb03fb24"
+  },
+  "verified_contracts": ["OC-D1", "OC-C1", "OC-D2", "OC-D3", "OC-D4", "OC-D5", "OC-C2", "OC-C3", "OC-C4"],
+  "findings": [
+    {"id": "OC-R1", "severity": "high", "disposition": "resolved", "resolution": "Entity remains the reidentified Presence, not a snapshot Configuration. Substrate's conflicting paragraph now uses constituent Configurations in an Entity history. State declares its Identity dependency; State and Model provenance retain their original sources and add integration provenance. No contract statement changes."},
+    {"id": "OC-R2", "severity": "medium", "disposition": "resolved", "resolution": "Boundary projection documentation now requires the same Constraint interpretation and listing for the stated equality. Equal member Sets alone do not fix list order or repetition. Existing finite witnesses use that common listing; the nine OC contracts are unchanged."},
+    {"id": "OC-R3", "severity": "high", "disposition": "resolved", "resolution": "The new integration audit imports the previously omitted MathematicalOrder, ConfigurationIntegration and OrderConfigurationContracts modules through OrderConfigurationContracts. It checks 2657 project theorems with zero declared project axioms and only the three allowed Lean axioms; explicit no-choice module claims are checked. The 58-job build and finite executable pass. Historical receipts are not retroactively extended."},
+    {"id": "OC-R4", "severity": "high", "disposition": "outside-formal-boundary", "resolution": "Actual interpretation, empirical identity, ordered-pair applications, finite-arity coverage and full Perception/Memory parity remain OC-G1 gates. Aesthetics still has a finite input budget and is not claimed complete or green; keeping the work together is Daniel's review-scope decision, not a proof of compliance."}
+  ],
+  "supersedes": "reviews/promotion/order-state-clarification.json"
+}

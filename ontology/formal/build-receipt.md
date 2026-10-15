@@ -87,3 +87,39 @@ record the local adversarial findings, the sources pinned at review, and the
 contract statements CI keeps frozen. They do not claim
 independent external review. Downstream evaluations remain **incomplete/hold**:
 source snapshots were refreshed, but model generation and judgments were not rerun.
+
+## October 15 integration and target-condition supplement
+
+Source: [0acbe24](https://github.com/sadasant/organon/commit/0acbe2455b0c408f7a7ce3d6270ef346c288798a),
+tree `d29fde62ac98ca6c0bc7a18ad3ec416ccd5d525b`. The toolchain above is unchanged.
+From `ontology/formal`:
+
+```sh
+lake build
+lake exe ontology_check
+lake env lean ../../reviews/local/2026-10-15-integration-axiom-audit.lean
+```
+
+The build passed **58 jobs** and the finite executable completed. The new audit
+imports `Model` and `OrderConfigurationContracts`, including MathematicalOrder,
+ConfigurationIntegration and OrderConfigurationContracts, which the October 7
+audit did not import. Its output was:
+
+```text
+INTEGRATION_AXIOM_AUDIT: 2657 project theorems checked; 0 declared project axioms; allowed only propext, Classical.choice, Quot.sound; module no-choice claims checked.
+```
+
+The no-choice check covers SetConfiguration, ConfigurationIntegration, and the
+OrderConfigurationContracts theorems except `orderDefinitionContract` (which
+includes the classically proved strict-order converse). This is the current
+Model/integration import closure, not a re-attestation of the separately compiled
+historical PR18ReviewDraft. Verify CI now runs this expanded audit.
+
+Identity/Missingness now has six marked contracts: the four listed above plus
+IM-A6 and IM-C2 for explicitly supplied qualifying conditions. The exact-target
+record remains unchanged. Expectation provenance, predicate adequacy and actual
+individuation remain application gates. The new [Identity review](../../reviews/promotion/identity-condition-targets.json),
+[Set review](../../reviews/promotion/set-review-resolution.json), and
+[Order review](../../reviews/promotion/order-review-resolution.json) pin this source.
+Earlier counts and receipts remain historical; neither this audit nor glyph
+approval establishes prose parity, empirical applicability or green Aesthetics.

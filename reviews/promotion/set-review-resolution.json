@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "proposal_id": "set-and-configuration",
+  "status": "promotion-ready",
+  "reviewed_commit": "0acbe2455b0c408f7a7ce3d6270ef346c288798a",
+  "reviewed_tree": "d29fde62ac98ca6c0bc7a18ad3ec416ccd5d525b",
+  "reviewed_at": "2026-10-15",
+  "reviewer": "Amp local source review after user-requested Oracle findings and Daniel's explicit decisions; not independent external review",
+  "review_scope": "Unchanged Set/Configuration contracts against the current binding prose and corrected State dependency. Local formal/source readiness only; no green Aesthetics or whole-PR merge-readiness claim.",
+  "source_sha256": {
+    "examples/organon-adoption.json": "c50d839a9db10c32631b61d604cbc10768adc4a405e49ca27266658861e1a433",
+    "ontology/changelog.md": "a494ed9616a2441e936a2c7c5196ce32746b6cd07180bb8be06d6e67037061af",
+    "ontology/formal/OrganonCore.lean": "a9edb8d75ea6486da764b813b8261f67fa18604341bae9d278a6fb76404d26f9",
+    "ontology/formal/SetConfiguration.lean": "60b4fa126d57835c642cdd9b3a7e18fd4e9ac17db94ee169852dabe5ea3f47e6",
+    "ontology/formal/lakefile.toml": "bf6bb660bed71d6e6a4c6de92976507fd41b88aa616ebb6bba44a4bac1a8eec7",
+    "ontology/formal/lean-toolchain": "54727eec5cba149c18842e6deb5c41b369d66455c93ce135d7d5347c782b2325",
+    "ontology/ontology.md": "ed6cc02114d05d9950982d5959eceb5b873df60c00dcc36e3855b42a884548ed",
+    "ontology/profiles.json": "d0203677dc964a9b0e902749f43572c71f8395ec076e4006043db6abdf4bca8c",
+    "ontology/prompt.md": "d2172a728388a094914785c7242224c317cfe7c05c08bfe48916f3ff2f1d0f3a",
+    "ontology/terms.yaml": "016cd42a2eeeb5bcabc27eb1dda5ea3e8e93d56e8f78e55a22e3230330b05f59",
+    "proposals/set-and-configuration-claims.json": "95a68883138b60118eb92ba64c2031180b060b66856da929adf7fc8813665dda",
+    "proposals/set-and-configuration.md": "3b52d3530ba871aaf3f8af486f391cd751041435e69c16783f632a4dfe42a7ea",
+    "provenance/terms.json": "e6aa9493e946827c370768e0674db52f497cccaad35bd9d7fa268ad6c25ba748",
+    "releases/v0-21-0.md": "b46f6199d159a5b989ffe27d6f992b9173be4d2e37fad3f9ce6d3f8f12015332",
+    "scripts/check-promotion-review.py": "cef84a92bb95bb43734b16941f4a957ad77f9d117d4e1401f93460ff155afda9",
+    "scripts/check-proposals.py": "87f26905ba0450b92a9f38c6ee63a144e5973fd424a971622b42f6a9eb03fb24"
+  },
+  "verified_contracts": ["SC-D1", "SC-D2", "SC-C1"],
+  "findings": [
+    {"id": "SC-R1", "severity": "high", "disposition": "resolved", "resolution": "SetConfiguration and its contracts are byte-identical to the previous review. Configuration retains members and selected ordered associations; State pairs Configuration with its index and now declares Identity as a dependency. Substrate's contradictory identification of Configuration with Entity is removed. Build and finite executable pass; the expanded audit verifies the module's no-choice claim."},
+    {"id": "SC-R2", "severity": "high", "disposition": "outside-formal-boundary", "resolution": "Actual Relation realization, carrier adequacy, infinite arity and full downstream canonical parity remain unproved. Reidentification across States is not membership or record equality. This source renewal does not close empirical gates or certify glyph semantics."}
+  ],
+  "supersedes": "reviews/promotion/set-state-clarification.json"
+}
