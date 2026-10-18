@@ -1,5 +1,6 @@
 import React, { useId, useMemo } from "react";
 import dagre from "@dagrejs/dagre";
+import DiagramViewport from "./DiagramViewport.jsx";
 
 const unordered = (edge) => ["identity", "comparison"].includes(edge.kind);
 const lines = (text) => text.split("\n");
@@ -78,11 +79,12 @@ export default function SpecificationDiagram({ term, structure }) {
         relation, not time or causation unless stated. Possibilities, examples
         and exclusions are qualified in their labels.
       </p>
-      <svg
-        className="specification-network"
-        viewBox={`0 0 ${layout.width} ${layout.height}`}
-        role="img"
-        aria-labelledby={`${id}-title ${id}-desc`}
+      <DiagramViewport
+        key={term.id}
+        width={layout.width}
+        height={layout.height}
+        label={term.label}
+        labelledBy={`${id}-title ${id}-desc`}
       >
         <title
           id={`${id}-title`}
@@ -143,37 +145,7 @@ export default function SpecificationDiagram({ term, structure }) {
             <Text x={node.x} y={node.y} text={node.label} step={20} />
           </g>
         ))}
-      </svg>
-      <div
-        className="specification-mobile"
-        role="group"
-        aria-label={`${term.label}: the same relationships in a narrow layout`}
-      >
-        <p className="relation-foot">
-          The same relationships, unpacked for this width. Repeated names refer
-          to the same participant; row order does not assert a sequence.
-        </p>
-        <ul>
-          {structure.edges.map((edge, i) => (
-            <li key={i}>
-              <span className="specification-endpoint">
-                {names.get(edge.from)}
-              </span>
-              <span
-                className={`specification-predicate specification-${edge.kind}`}
-              >
-                {edge.label}
-                <span aria-hidden="true">
-                  {unordered(edge) ? " — " : " ↓ "}
-                </span>
-              </span>
-              <span className="specification-endpoint">
-                {names.get(edge.to)}
-              </span>
-            </li>
-          ))}
-        </ul>
-      </div>
+      </DiagramViewport>
     </div>
   );
 }

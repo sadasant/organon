@@ -665,10 +665,58 @@ main {
   font-size: 12px;
   line-height: 1.6;
 }
+.diagram-explorer {
+  margin: 24px auto;
+}
+.diagram-camera {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0 12px;
+  color: var(--ink-700);
+  font-size: 11px;
+}
+.diagram-camera p {
+  margin: 0;
+}
+.diagram-camera > div {
+  display: flex;
+  margin-left: auto;
+}
+.diagram-camera button {
+  min-width: 44px;
+  min-height: 44px;
+}
+.diagram-camera button:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+.diagram-viewport {
+  overflow: hidden;
+}
+.diagram-viewport:focus-visible {
+  outline: 1px solid var(--ink-500);
+  outline-offset: 4px;
+}
 .specification-network {
   width: 100%;
+  height: auto;
+  min-height: 260px;
+  max-height: min(60svh, 520px);
   display: block;
-  margin: 24px auto;
+  touch-action: pan-y pinch-zoom;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+  cursor: zoom-in;
+}
+.specification-network.is-zoomed {
+  touch-action: none;
+  cursor: grab;
+}
+.specification-network.is-zoomed:active {
+  cursor: grabbing;
 }
 .specification-edge {
   stroke: var(--ink-700);
@@ -697,31 +745,6 @@ main {
   fill: var(--ink-200);
   font-size: 16px;
 }
-.specification-mobile {
-  display: none;
-}
-.specification-mobile ul {
-  list-style: none;
-  padding: 0;
-  display: grid;
-  gap: 20px;
-}
-.specification-mobile li {
-  border-left: 1px solid var(--ink-850);
-  padding-left: 16px;
-}
-.specification-mobile li > span {
-  display: block;
-  white-space: pre-line;
-}
-.specification-endpoint {
-  color: var(--ink-300);
-}
-.specification-predicate {
-  margin: 8px 0;
-  color: var(--ink-700);
-  font-size: 11px;
-}
 .diagram-related {
   display: flex;
   flex-wrap: wrap;
@@ -734,14 +757,6 @@ main {
   text-decoration: underline;
   text-underline-offset: 4px;
   padding: 6px 0;
-}
-@container (width < 760px) {
-  .specification-network {
-    display: none;
-  }
-  .specification-mobile {
-    display: block;
-  }
 }
 .foundation-diagram {
   display: flex;

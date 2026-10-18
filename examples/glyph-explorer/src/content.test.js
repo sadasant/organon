@@ -104,6 +104,13 @@ test("every term has a nonbinding diagram and working, notation-preserving revie
         assert.match(html, /Illustrative notation · nonbinding/);
         assert.ok(html.includes(`Diagram ${index + 1} of ${terms.length}`));
         assert.equal([...html.matchAll(/<option /g)].length, terms.length);
+        if (diagrams[term.id]?.kind === "specification") {
+          assert.match(html, /aria-label="Diagram camera"/);
+          assert.match(html, /aria-label="Zoom in diagram"/);
+          assert.match(html, /aria-label="Zoom out diagram"/);
+          assert.match(html, /Keyboard: plus or minus/);
+          assert.match(html, /role="img" aria-labelledby=/);
+        }
         const previous = terms[(index + terms.length - 1) % terms.length];
         const next = terms[(index + 1) % terms.length];
         for (const target of [previous, next]) {
@@ -179,7 +186,7 @@ test("every term has a nonbinding diagram and working, notation-preserving revie
         "Configuration",
         [
           /participants and labelled relationships/,
-          /the same relationships in a narrow layout/,
+          /Configuration: diagram navigation/,
           /All accompanying conditions still apply/,
         ],
       ],
