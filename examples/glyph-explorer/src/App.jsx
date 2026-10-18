@@ -19,6 +19,7 @@ import {
 } from "./lean-math.js";
 import Graph from "./Graph.jsx";
 import Glyph from "./Glyph.jsx";
+import StringDiagram from "./StringDiagram.jsx";
 
 const Sky = lazy(() => import("./Sky.jsx"));
 const { terms } = data;
@@ -236,7 +237,10 @@ export default function App() {
     : null;
   const selected = termBySlug.get(slug);
   const unknown = location.pathname !== "/" && !selected;
-  const graph = params.get("view") === "graph";
+  const view = ["graph", "string"].includes(params.get("view"))
+    ? params.get("view")
+    : "algebra";
+  const graph = view === "graph";
   const glyphs = params.get("text") === "glyphs";
   const setOption = (key, value) => {
     const next = new URLSearchParams(params);
@@ -404,10 +408,11 @@ export default function App() {
                     <div className="representation-tools">
                       <Segments
                         label="Formal view"
-                        value={graph ? "graph" : "algebra"}
+                        value={view}
                         options={[
                           { value: "algebra", label: "Algebra" },
                           { value: "graph", label: "Graph" },
+                          { value: "string", label: "String diagram" },
                         ]}
                         onChange={(value) => setOption("view", value)}
                       />
@@ -423,6 +428,12 @@ export default function App() {
                     </div>
                     {graph ? (
                       <Graph
+                        term={term}
+                        terms={terms}
+                        search={location.search}
+                      />
+                    ) : view === "string" ? (
+                      <StringDiagram
                         term={term}
                         terms={terms}
                         search={location.search}
