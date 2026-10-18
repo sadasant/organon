@@ -2,6 +2,10 @@ import { test } from "node:test";
 import assert from "node:assert/strict";
 import fs from "node:fs";
 import katex from "katex";
+import React from "react";
+import { renderToStaticMarkup } from "react-dom/server";
+import { MemoryRouter } from "react-router-dom";
+import { createServer } from "vite";
 import { termMatcher, locality, ontologyGraph } from "./content.js";
 import {
   leanTex,
@@ -10,11 +14,194 @@ import {
   mathRenderOptions,
 } from "./lean-math.js";
 import { glyphs } from "../../../proposals/glyph-catalog.mjs";
+import diagrams from "./diagrams/index.js";
 
 const { terms } = JSON.parse(
   fs.readFileSync(new URL("./data.json", import.meta.url)),
 );
 const agency = terms.find((t) => t.id === "organon:Agency");
+
+test("every term has a nonbinding diagram and working, notation-preserving review navigation", async () => {
+  const custom = [
+    "organon:Transformation",
+    "organon:Feeds",
+    "organon:CausalPath",
+  ];
+  assert.deepEqual(
+    Object.keys(diagrams).sort(),
+    terms
+      .map((t) => t.id)
+      .filter((id) => !custom.includes(id))
+      .sort(),
+  );
+  const ids = new Set(terms.map((t) => t.id));
+  for (const card of Object.values(diagrams)) {
+    assert.ok(
+      ["specification", "relational", "foundation"].includes(card.kind),
+    );
+    assert.ok(
+      card.title && card.reading && card.note && card.conditions.length,
+    );
+    assert.ok(
+      card.kind === "foundation"
+        ? card.ports.length === 0
+        : card.ports.length >= 2,
+    );
+    for (const port of card.ports) {
+      assert.ok(port.label && (!port.term || ids.has(port.term)));
+    }
+    if (card.kind === "specification") {
+      assert.ok(card.structure.context && card.structure.edges.length);
+      const participants = new Set(card.structure.nodes.map((node) => node.id));
+      assert.equal(participants.size, card.structure.nodes.length);
+      for (const edge of card.structure.edges) {
+        assert.ok(participants.has(edge.from) && participants.has(edge.to));
+        assert.ok(
+          edge.label &&
+            [
+              "role",
+              "causal",
+              "denotation",
+              "identity",
+              "membership",
+              "comparison",
+              "constraint",
+            ].includes(edge.kind),
+        );
+      }
+    }
+  }
+  const server = await createServer({
+    server: { middlewareMode: true },
+    appType: "custom",
+    optimizeDeps: { noDiscovery: true, include: [] },
+  });
+  try {
+    const { default: StringDiagram } = await server.ssrLoadModule(
+      "/src/StringDiagram.jsx",
+    );
+    const render = (term, notation) =>
+      renderToStaticMarkup(
+        React.createElement(
+          MemoryRouter,
+          null,
+          React.createElement(StringDiagram, {
+            term,
+            terms,
+            search: `?text=${notation}&view=string`,
+          }),
+        ),
+      );
+    for (const [index, term] of terms.entries()) {
+      for (const notation of ["english", "glyphs"]) {
+        const html = render(term, notation);
+        assert.match(html, /<figure>/, term.id);
+        assert.doesNotMatch(
+          html,
+          /No string diagram modeled|undefined|NaN/,
+          term.id,
+        );
+        assert.match(html, /Illustrative notation · nonbinding/);
+        assert.ok(html.includes(`Diagram ${index + 1} of ${terms.length}`));
+        assert.equal([...html.matchAll(/<option /g)].length, terms.length);
+        if (diagrams[term.id]?.kind === "specification") {
+          assert.match(html, /aria-label="Diagram camera"/);
+          assert.match(html, /aria-label="Zoom in diagram"/);
+          assert.match(html, /aria-label="Zoom out diagram"/);
+          assert.match(html, /Keyboard: plus or minus/);
+          assert.match(html, /role="img" aria-labelledby=/);
+        }
+        const previous = terms[(index + terms.length - 1) % terms.length];
+        const next = terms[(index + 1) % terms.length];
+        for (const target of [previous, next]) {
+          assert.ok(
+            html.includes(
+              `/term/${target.slug}?text=${notation}&amp;view=string`,
+            ),
+          );
+        }
+        for (const match of html.matchAll(
+          /href="\/term\/([^?]+)\?([^\"]+)"/g,
+        )) {
+          assert.ok(
+            terms.some((t) => t.slug === match[1]),
+            match[1],
+          );
+          assert.ok(
+            match[2].includes(`text=${notation}`) &&
+              match[2].includes("view=string"),
+          );
+        }
+      }
+    }
+    for (const [id, meaning] of [
+      [
+        "Transformation",
+        /T maps input State s₀ to output State s₁ under Direction d/,
+      ],
+      ["Feeds", /The States need not be equal/],
+      ["CausalPath", /Both Transformations share Direction d/],
+    ]) {
+      const html = render(
+        terms.find((t) => t.id === `organon:${id}`),
+        "english",
+      );
+      assert.match(html, /role="img" aria-labelledby="[^"]+"/);
+      assert.match(html, meaning);
+    }
+    const absence = render(
+      terms.find((t) => t.id === "organon:Absence"),
+      "english",
+    );
+    assert.match(absence, /foundational distinction, no process asserted/);
+    assert.doesNotMatch(absence, /roles joined|stated sequence/);
+    for (const [id, obligations] of [
+      [
+        "CausalContribution",
+        [
+          /Two comparison paths/,
+          /all other stated inputs match/,
+          /named downstream Change/,
+        ],
+      ],
+      [
+        "RecurrentIntegration",
+        [
+          /First contribution witness/,
+          /Return contribution witness/,
+          /C₂ begins later than C₁’s downstream Change/,
+          /not a closed time loop/,
+        ],
+      ],
+      [
+        "InternalActivitySelection",
+        [
+          /ΔR is the named upstream Difference Δin of C/,
+          /Denotation →/,
+          /Identity =/,
+          /contrasting possibilities, not asserted executions/,
+        ],
+      ],
+      [
+        "Configuration",
+        [
+          /participants and labelled relationships/,
+          /Configuration: diagram navigation/,
+          /All accompanying conditions still apply/,
+        ],
+      ],
+    ]) {
+      const html = render(
+        terms.find((t) => t.id === `organon:${id}`),
+        "english",
+      );
+      for (const obligation of obligations) assert.match(html, obligation, id);
+      assert.doesNotMatch(html, /Role wires · associations/);
+    }
+  } finally {
+    await server.close();
+  }
+});
 
 test("longest term wins; plurals link without matching word fragments", () => {
   const parts = termMatcher(terms)(
@@ -27,14 +214,22 @@ test("longest term wins; plurals link without matching word fragments", () => {
 });
 
 test("current labels outrank legacy IDs and lowercase metalanguage stays literal", () => {
-  const source = "Order, Orders, Coordination Order, Coordination Orders; binary relation on a set, not Relation or Set.";
+  const source =
+    "Order, Orders, Coordination Order, Coordination Orders; binary relation on a set, not Relation or Set.";
   for (const catalog of [terms, [...terms].reverse()]) {
     const parts = termMatcher(catalog)(source);
     assert.equal(parts.map((p) => p.text).join(""), source);
-    assert.deepEqual(parts.filter((p) => p.term).map((p) => p.term.id), [
-      "organon:MathematicalOrder", "organon:MathematicalOrder",
-      "organon:Order", "organon:Order", "organon:Relation", "organon:Set",
-    ]);
+    assert.deepEqual(
+      parts.filter((p) => p.term).map((p) => p.term.id),
+      [
+        "organon:MathematicalOrder",
+        "organon:MathematicalOrder",
+        "organon:Order",
+        "organon:Order",
+        "organon:Relation",
+        "organon:Set",
+      ],
+    );
   }
 });
 
@@ -119,10 +314,18 @@ test("math preserves exact joins and current revision predicates rather than his
   const parameter = declarationMath(language.declarations[0], language);
   assert.ok(parameter.includes(leanTex("Language : Type v")));
   assert.ok(!parameter.includes("\\coloneqq"));
-  const configuration = terms.find((t) => t.id === "organon:Configuration").math;
-  const structure = declarationMath(configuration.declarations[0], configuration);
+  const configuration = terms.find(
+    (t) => t.id === "organon:Configuration",
+  ).math;
+  const structure = declarationMath(
+    configuration.declarations[0],
+    configuration,
+  );
   for (const datum of ["members", "associations", "realizes"])
-    assert.ok(structure.includes(leanTex(datum)), `Configuration must display ${datum}`);
+    assert.ok(
+      structure.includes(leanTex(datum)),
+      `Configuration must display ${datum}`,
+    );
   assert.throws(() => leanTex("x ⊗ y"), /Unreviewed/);
 });
 
@@ -202,7 +405,10 @@ test("all definitions preserve source ordering and carry a glyph assessment", ()
   assert.equal(terms[9].id, "organon:MathematicalOrder");
   assert.equal(terms[9].label, "Order");
   assert.equal(terms[10].id, "organon:Configuration");
-  assert.equal(terms.find((t) => t.id === "organon:Order").label, "Coordination Order");
+  assert.equal(
+    terms.find((t) => t.id === "organon:Order").label,
+    "Coordination Order",
+  );
   assert.equal(terms.at(-1).id, "organon:Respect");
   assert.ok(terms.every((t) => t.statement.startsWith(`**${t.label}**`)));
   assert.ok(terms.every((t) => `organon:${t.glyphReview.term}` === t.id));
@@ -220,7 +426,14 @@ test("every term has its own shared glyph and private-use font slot", () => {
     terms.map((t) => t.id).sort(),
   );
   // New terms in canonical order must not shift already published font slots.
-  for (const [name, codepoint] of [["Presence", 0xe001], ["Missingness", 0xe002], ["Respect", 0xe072], ["Identity", 0xe073], ["Set", 0xe074], ["MathematicalOrder", 0xe075]])
+  for (const [name, codepoint] of [
+    ["Presence", 0xe001],
+    ["Missingness", 0xe002],
+    ["Respect", 0xe072],
+    ["Identity", 0xe073],
+    ["Set", 0xe074],
+    ["MathematicalOrder", 0xe075],
+  ])
     assert.equal(glyphs.find((g) => g.term === name).codepoint, codepoint);
   assert.equal(new Set(glyphs.map((g) => g.path)).size, terms.length);
   assert.equal(new Set(glyphs.map((g) => g.codepoint)).size, terms.length);

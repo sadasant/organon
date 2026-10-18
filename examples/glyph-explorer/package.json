@@ -12,6 +12,7 @@
     "test": "npm run data && python3 -m unittest test_lean_math && node --test src/content.test.js"
   },
   "dependencies": {
+    "@dagrejs/dagre": "^3.1.1",
     "@fontsource-variable/inter": "^5.2.8",
     "@fontsource-variable/newsreader": "^5.2.8",
     "d3-force": "^3.0.0",
